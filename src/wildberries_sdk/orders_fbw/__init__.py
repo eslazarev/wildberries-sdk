@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -47,6 +47,7 @@ __all__ = [
     "ModelsWarehousesResultItems",
     "PostV1AcceptanceOptions401Response",
     "PostV1AcceptanceOptions402Response",
+    "PostV1AcceptanceOptions403Response",
 ]
 
 # import apis into sdk package
@@ -83,4 +84,5 @@ from wildberries_sdk.orders_fbw.models.models_volume_tariff import ModelsVolumeT
 from wildberries_sdk.orders_fbw.models.models_warehouses_result_items import ModelsWarehousesResultItems as ModelsWarehousesResultItems
 from wildberries_sdk.orders_fbw.models.post_v1_acceptance_options401_response import PostV1AcceptanceOptions401Response as PostV1AcceptanceOptions401Response
 from wildberries_sdk.orders_fbw.models.post_v1_acceptance_options402_response import PostV1AcceptanceOptions402Response as PostV1AcceptanceOptions402Response
+from wildberries_sdk.orders_fbw.models.post_v1_acceptance_options403_response import PostV1AcceptanceOptions403Response as PostV1AcceptanceOptions403Response
 

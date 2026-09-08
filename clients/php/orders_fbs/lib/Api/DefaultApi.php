@@ -152,7 +152,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\Response4XX|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function getMarketplaceV3FbsSettingsAutoreturns(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'][0])
     {
@@ -175,7 +175,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\Response4XX|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'][0])
     {
@@ -219,7 +219,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -272,7 +272,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -510,7 +510,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\Response4XX|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'][0])
     {
@@ -535,7 +535,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\Response4XX|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'][0])
     {
@@ -585,7 +585,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -646,7 +646,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1001,7 +1001,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1240,7 +1240,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\Response4XX|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function patchMarketplaceV3FbsSettingsAutoreturnsItems($patch_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
@@ -1264,7 +1264,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\Response4XX|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo($patch_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
@@ -1314,7 +1314,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -1375,7 +1375,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1627,7 +1627,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\Response4XX|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function postMarketplaceV3FbsSettingsAutoreturnsItems($post_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
@@ -1651,7 +1651,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\Response4XX|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo($post_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
@@ -1701,7 +1701,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -1762,7 +1762,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns403Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

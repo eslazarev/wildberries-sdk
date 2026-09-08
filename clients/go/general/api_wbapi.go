@@ -162,6 +162,17 @@ func (a *WBAPIAPIService) GetPingExecute(r ApiGetPingRequest) (*GetPing200Respon
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetPing403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetPing401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))

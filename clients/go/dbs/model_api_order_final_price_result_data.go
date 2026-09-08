@@ -17,7 +17,7 @@ import (
 // checks if the ApiOrderFinalPriceResultData type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiOrderFinalPriceResultData{}
 
-// ApiOrderFinalPriceResultData Данные сборочного задания. <br><br> Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 3 минут. <br><br> Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders) 
+// ApiOrderFinalPriceResultData Данные сборочного задания. <br><br> Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты. <br><br> Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders) 
 type ApiOrderFinalPriceResultData struct {
 	// Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях
 	OriginalPrice *int32 `json:"originalPrice,omitempty"`

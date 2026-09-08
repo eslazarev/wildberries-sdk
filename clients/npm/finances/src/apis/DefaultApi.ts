@@ -74,6 +74,11 @@ import {
     GetV1AccountBalance402ResponseToJSON,
 } from '../models/GetV1AccountBalance402Response';
 import {
+    type GetV1AccountBalance403Response,
+    GetV1AccountBalance403ResponseFromJSON,
+    GetV1AccountBalance403ResponseToJSON,
+} from '../models/GetV1AccountBalance403Response';
+import {
     type GetV1DocumentsList400Response,
     GetV1DocumentsList400ResponseFromJSON,
     GetV1DocumentsList400ResponseToJSON,
@@ -84,15 +89,15 @@ import {
     PostV1SalesReportsList400ResponseToJSON,
 } from '../models/PostV1SalesReportsList400Response';
 import {
-    type PostV1SalesReportsList403Response,
-    PostV1SalesReportsList403ResponseFromJSON,
-    PostV1SalesReportsList403ResponseToJSON,
-} from '../models/PostV1SalesReportsList403Response';
-import {
     type RequestDownload,
     RequestDownloadFromJSON,
     RequestDownloadToJSON,
 } from '../models/RequestDownload';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 import {
     type SalesReportListReq,
     SalesReportListReqFromJSON,

@@ -205,7 +205,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AcceptanceReport($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AcceptanceReport'][0])
     {
@@ -230,7 +230,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AcceptanceReportWithHttpInfo($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AcceptanceReport'][0])
     {
@@ -281,6 +281,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -342,6 +348,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -616,7 +630,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AcceptanceReportTasksTaskIdDownload($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AcceptanceReportTasksTaskIdDownload'][0])
     {
@@ -640,7 +654,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AcceptanceReportTasksTaskIdDownloadWithHttpInfo($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AcceptanceReportTasksTaskIdDownload'][0])
     {
@@ -691,6 +705,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -758,6 +778,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1020,7 +1048,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AcceptanceReportTasksTaskIdStatus($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AcceptanceReportTasksTaskIdStatus'][0])
     {
@@ -1044,7 +1072,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AcceptanceReportTasksTaskIdStatusWithHttpInfo($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AcceptanceReportTasksTaskIdStatus'][0])
     {
@@ -1089,6 +1117,12 @@ class DefaultApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -1148,6 +1182,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1410,7 +1452,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsAntifraudDetails200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsAntifraudDetails200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AnalyticsAntifraudDetails($date = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsAntifraudDetails'][0])
     {
@@ -1434,7 +1476,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsAntifraudDetails200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsAntifraudDetails200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AnalyticsAntifraudDetailsWithHttpInfo($date = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsAntifraudDetails'][0])
     {
@@ -1485,6 +1527,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -1546,6 +1594,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1796,7 +1852,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked200Response|\Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked200Response|\Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AnalyticsBannedProducsBlocked($sort, $order, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsBannedProducsBlocked'][0])
     {
@@ -1821,7 +1877,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked200Response|\Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked200Response|\Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AnalyticsBannedProducsBlockedWithHttpInfo($sort, $order, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsBannedProducsBlocked'][0])
     {
@@ -1872,6 +1928,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -1933,6 +1995,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2210,7 +2280,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShare200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShare200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AnalyticsBrandShare($parent_id, $brand, $date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsBrandShare'][0])
     {
@@ -2237,7 +2307,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShare200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShare200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AnalyticsBrandShareWithHttpInfo($parent_id, $brand, $date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsBrandShare'][0])
     {
@@ -2288,6 +2358,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -2349,6 +2425,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2660,7 +2744,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShareBrands200Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShareBrands200Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AnalyticsBrandShareBrands(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsBrandShareBrands'][0])
     {
@@ -2683,7 +2767,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShareBrands200Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShareBrands200Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AnalyticsBrandShareBrandsWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsBrandShareBrands'][0])
     {
@@ -2728,6 +2812,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -2781,6 +2871,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3020,7 +3118,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShareParentSubjects200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShareParentSubjects200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AnalyticsBrandShareParentSubjects($brand, $date_from, $date_to, $locale = 'ru', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsBrandShareParentSubjects'][0])
     {
@@ -3047,7 +3145,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShareParentSubjects200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBrandShareParentSubjects200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AnalyticsBrandShareParentSubjectsWithHttpInfo($brand, $date_from, $date_to, $locale = 'ru', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsBrandShareParentSubjects'][0])
     {
@@ -3098,6 +3196,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -3159,6 +3263,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3466,7 +3578,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsLabeling200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsLabeling200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AnalyticsGoodsLabeling($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsGoodsLabeling'][0])
     {
@@ -3491,7 +3603,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsLabeling200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsLabeling200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AnalyticsGoodsLabelingWithHttpInfo($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsGoodsLabeling'][0])
     {
@@ -3542,6 +3654,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -3603,6 +3721,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3878,7 +4004,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsReturn200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsReturn200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AnalyticsGoodsReturn($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsGoodsReturn'][0])
     {
@@ -3903,7 +4029,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsReturn200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsReturn200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AnalyticsGoodsReturnWithHttpInfo($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsGoodsReturn'][0])
     {
@@ -3954,6 +4080,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -4015,6 +4147,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4290,7 +4430,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsRegionSale200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsRegionSale200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1AnalyticsRegionSale($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsRegionSale'][0])
     {
@@ -4315,7 +4455,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsRegionSale200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsRegionSale200Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1AnalyticsRegionSaleWithHttpInfo($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsRegionSale'][0])
     {
@@ -4366,6 +4506,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -4427,6 +4573,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5650,7 +5804,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1PaidStorage($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1PaidStorage'][0])
     {
@@ -5675,7 +5829,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1PaidStorageWithHttpInfo($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1PaidStorage'][0])
     {
@@ -5726,6 +5880,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -5787,6 +5947,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6061,7 +6229,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\ResponsePaidStorageInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\ResponsePaidStorageInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1PaidStorageTasksTaskIdDownload($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1PaidStorageTasksTaskIdDownload'][0])
     {
@@ -6085,7 +6253,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\ResponsePaidStorageInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\ResponsePaidStorageInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1PaidStorageTasksTaskIdDownloadWithHttpInfo($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1PaidStorageTasksTaskIdDownload'][0])
     {
@@ -6136,6 +6304,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -6203,6 +6377,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6465,7 +6647,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1PaidStorageTasksTaskIdStatus($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1PaidStorageTasksTaskIdStatus'][0])
     {
@@ -6489,7 +6671,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1PaidStorageTasksTaskIdStatusWithHttpInfo($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1PaidStorageTasksTaskIdStatus'][0])
     {
@@ -6534,6 +6716,12 @@ class DefaultApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -6593,6 +6781,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6857,7 +7053,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\OrdersItem[]|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\OrdersItem[]|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1SupplierOrders($date_from, $flag = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SupplierOrders'][0])
     {
@@ -6883,7 +7079,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\OrdersItem[]|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\OrdersItem[]|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1SupplierOrdersWithHttpInfo($date_from, $flag = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SupplierOrders'][0])
     {
@@ -6934,6 +7130,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -6995,6 +7197,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7272,7 +7482,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\SalesItem[]|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\SalesItem[]|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1SupplierSales($date_from, $flag = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SupplierSales'][0])
     {
@@ -7298,7 +7508,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\SalesItem[]|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\SalesItem[]|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders400Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1SupplierSalesWithHttpInfo($date_from, $flag = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SupplierSales'][0])
     {
@@ -7349,6 +7559,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -7410,6 +7626,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8152,7 +8376,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1WarehouseRemains($locale = 'ru', $group_by_brand = false, $group_by_subject = false, $group_by_sa = false, $group_by_nm = false, $group_by_barcode = false, $group_by_size = false, $filter_pics = 0, $filter_volume = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseRemains'][0])
     {
@@ -8184,7 +8408,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\CreateTaskResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1WarehouseRemainsWithHttpInfo($locale = 'ru', $group_by_brand = false, $group_by_subject = false, $group_by_sa = false, $group_by_nm = false, $group_by_barcode = false, $group_by_size = false, $filter_pics = 0, $filter_volume = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseRemains'][0])
     {
@@ -8235,6 +8459,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -8296,6 +8526,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8649,7 +8887,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1WarehouseRemainsTasksTaskIdDownload($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseRemainsTasksTaskIdDownload'][0])
     {
@@ -8673,7 +8911,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner[]|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1WarehouseRemainsTasksTaskIdDownloadWithHttpInfo($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseRemainsTasksTaskIdDownload'][0])
     {
@@ -8724,6 +8962,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -8791,6 +9035,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9053,7 +9305,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function getV1WarehouseRemainsTasksTaskIdStatus($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseRemainsTasksTaskIdStatus'][0])
     {
@@ -9077,7 +9329,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetTasksResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1WarehouseRemainsTasksTaskIdStatusWithHttpInfo($task_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseRemainsTasksTaskIdStatus'][0])
     {
@@ -9122,6 +9374,12 @@ class DefaultApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -9181,6 +9439,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

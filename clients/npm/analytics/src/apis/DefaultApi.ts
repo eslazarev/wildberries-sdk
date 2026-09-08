@@ -164,10 +164,10 @@ import {
     PostV3SalesFunnelProducts402ResponseToJSON,
 } from '../models/PostV3SalesFunnelProducts402Response';
 import {
-    type Response403General,
-    Response403GeneralFromJSON,
-    Response403GeneralToJSON,
-} from '../models/Response403General';
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 import {
     type TableDetailsRequest,
     TableDetailsRequestFromJSON,

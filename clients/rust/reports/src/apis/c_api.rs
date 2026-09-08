@@ -22,6 +22,7 @@ pub enum PostV1AnalyticsExciseReportError {
     Status400(models::Model4xxResponse),
     Status401(models::GetV1SupplierOrders401Response),
     Status402(models::GetV1SupplierOrders402Response),
+    Status403(models::GetV1SupplierOrders403Response),
     Status429(models::GetV1SupplierOrders401Response),
     UnknownValue(serde_json::Value),
 }

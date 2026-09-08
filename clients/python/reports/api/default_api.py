@@ -120,6 +120,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -195,6 +196,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -270,6 +272,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -413,6 +416,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -486,6 +490,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -559,6 +564,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -694,6 +700,7 @@ class DefaultApi:
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -765,6 +772,7 @@ class DefaultApi:
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -836,6 +844,7 @@ class DefaultApi:
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -972,6 +981,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1043,6 +1053,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1114,6 +1125,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1255,6 +1267,7 @@ class DefaultApi:
             '400': "GetV1AnalyticsBannedProducsBlocked400Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1330,6 +1343,7 @@ class DefaultApi:
             '400': "GetV1AnalyticsBannedProducsBlocked400Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1405,6 +1419,7 @@ class DefaultApi:
             '400': "GetV1AnalyticsBannedProducsBlocked400Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1559,6 +1574,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1642,6 +1658,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1725,6 +1742,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1872,6 +1890,7 @@ class DefaultApi:
             '200': "GetV1AnalyticsBrandShareBrands200Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -1938,6 +1957,7 @@ class DefaultApi:
             '200': "GetV1AnalyticsBrandShareBrands200Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2004,6 +2024,7 @@ class DefaultApi:
             '200': "GetV1AnalyticsBrandShareBrands200Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2148,6 +2169,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2231,6 +2253,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2314,6 +2337,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2470,6 +2494,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2545,6 +2570,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2620,6 +2646,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2784,6 +2811,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2859,6 +2887,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -2934,6 +2963,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -3098,6 +3128,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -3173,6 +3204,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -3248,6 +3280,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -4130,6 +4163,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -4205,6 +4239,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -4280,6 +4315,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -4423,6 +4459,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -4496,6 +4533,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -4569,6 +4607,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -4704,6 +4743,7 @@ class DefaultApi:
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -4775,6 +4815,7 @@ class DefaultApi:
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -4846,6 +4887,7 @@ class DefaultApi:
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -4986,6 +5028,7 @@ class DefaultApi:
             '400': "GetV1SupplierOrders400Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -5061,6 +5104,7 @@ class DefaultApi:
             '400': "GetV1SupplierOrders400Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -5136,6 +5180,7 @@ class DefaultApi:
             '400': "GetV1SupplierOrders400Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -5283,6 +5328,7 @@ class DefaultApi:
             '400': "GetV1SupplierOrders400Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -5358,6 +5404,7 @@ class DefaultApi:
             '400': "GetV1SupplierOrders400Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -5433,6 +5480,7 @@ class DefaultApi:
             '400': "GetV1SupplierOrders400Response",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -5959,6 +6007,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6062,6 +6111,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6165,6 +6215,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6343,6 +6394,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -6416,6 +6468,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -6489,6 +6542,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -6624,6 +6678,7 @@ class DefaultApi:
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -6695,6 +6750,7 @@ class DefaultApi:
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -6766,6 +6822,7 @@ class DefaultApi:
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
+            '403': "GetV1SupplierOrders403Response",
             '404': "Model4xxResponse",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -6910,6 +6967,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6989,6 +7047,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -7068,6 +7127,7 @@ class DefaultApi:
             '400': "Model4xxResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
+            '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(

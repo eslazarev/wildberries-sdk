@@ -131,7 +131,7 @@ class DefaultApi:
             '200': "NmReportGetReportsResponse",
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
@@ -202,7 +202,7 @@ class DefaultApi:
             '200': "NmReportGetReportsResponse",
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
@@ -273,7 +273,7 @@ class DefaultApi:
             '200': "NmReportGetReportsResponse",
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
@@ -412,7 +412,7 @@ class DefaultApi:
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
             '402': "PostV3SalesFunnelProducts402Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
@@ -484,7 +484,7 @@ class DefaultApi:
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
             '402': "PostV3SalesFunnelProducts402Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
@@ -556,7 +556,7 @@ class DefaultApi:
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
             '402': "PostV3SalesFunnelProducts402Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
@@ -1862,7 +1862,7 @@ class DefaultApi:
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
             '402': "PostV3SalesFunnelProducts402Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV2NmReportDownloads429Response",
         }
         response_data = self.api_client.call_api(
@@ -1934,7 +1934,7 @@ class DefaultApi:
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
             '402': "PostV3SalesFunnelProducts402Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV2NmReportDownloads429Response",
         }
         response_data = self.api_client.call_api(
@@ -2006,7 +2006,7 @@ class DefaultApi:
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
             '402': "PostV3SalesFunnelProducts402Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV2NmReportDownloads429Response",
         }
         response_data = self.api_client.call_api(
@@ -2154,7 +2154,7 @@ class DefaultApi:
             '200': "NmReportRetryReportResponse",
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
@@ -2225,7 +2225,7 @@ class DefaultApi:
             '200': "NmReportRetryReportResponse",
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
@@ -2296,7 +2296,7 @@ class DefaultApi:
             '200': "NmReportRetryReportResponse",
             '400': "GetV2NmReportDownloads400Response",
             '401': "PostV3SalesFunnelProducts401Response",
-            '403': "GetV2NmReportDownloads403Response",
+            '403': "ErrorObject",
             '429': "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(

@@ -22,7 +22,7 @@ pub enum ApiMarketplaceV3FbsOrdersArchiveGetError {
     Status400(models::ArhiveOrderError400),
     Status401(models::ApiV3PassesOfficesGet401Response),
     Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::ArhiveOrderError400),
+    Status403(models::ApiMarketplaceV3FbsOrdersArchiveGet403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -469,6 +469,7 @@ pub enum ApiV3SuppliesSupplyIdTrbxStickersPostError {
 #[serde(untagged)]
 pub enum GetV3FbsDictionariesCountriesOksmError {
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetV3FbsShippingPoints403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -479,6 +480,7 @@ pub enum GetV3FbsDictionariesCountriesOksmError {
 pub enum GetV3FbsShippingPointsError {
     Status400(models::Error),
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetV3FbsShippingPoints403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -489,6 +491,7 @@ pub enum GetV3FbsShippingPointsError {
 pub enum GetV3FbsSuppliesSupplyIdStickersSpotError {
     Status400(models::ApiErrorV3),
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetV3FbsShippingPoints403Response),
     Status404(models::ApiErrorV3),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
@@ -523,6 +526,7 @@ pub enum PatchV3FbsSuppliesWaybillError {
 pub enum PostV3FbsSuppliesSpotListError {
     Status400(models::ApiErrorV3),
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetV3FbsShippingPoints403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -533,6 +537,7 @@ pub enum PostV3FbsSuppliesSpotListError {
 pub enum PutV3FbsSuppliesSupplyIdSpotError {
     Status400(models::ApiErrorV3),
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetV3FbsShippingPoints403Response),
     Status404(models::ApiErrorV3),
     Status409(models::ApiErrorV3),
     Status429(models::ApiV3PassesOfficesGet401Response),

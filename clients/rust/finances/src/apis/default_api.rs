@@ -21,6 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum GetV1AccountBalanceError {
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
+    Status403(models::GetV1AccountBalance403Response),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -31,6 +32,7 @@ pub enum GetV1AccountBalanceError {
 pub enum GetV1DocumentsCategoriesError {
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
+    Status403(models::GetV1AccountBalance403Response),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -42,6 +44,7 @@ pub enum GetV1DocumentsDownloadError {
     Status400(models::GetV1DocumentsList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
+    Status403(models::GetV1AccountBalance403Response),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -53,6 +56,7 @@ pub enum GetV1DocumentsListError {
     Status400(models::GetV1DocumentsList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
+    Status403(models::GetV1AccountBalance403Response),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -64,7 +68,7 @@ pub enum PostV1AcquiringDetailedError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
-    Status403(models::PostV1SalesReportsList403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -76,7 +80,7 @@ pub enum PostV1AcquiringDetailedReportIdError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
-    Status403(models::PostV1SalesReportsList403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -87,7 +91,7 @@ pub enum PostV1AcquiringDetailedReportIdError {
 pub enum PostV1AcquiringListError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::GetV1AccountBalance401Response),
-    Status403(models::PostV1SalesReportsList403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -99,6 +103,7 @@ pub enum PostV1DocumentsDownloadAllError {
     Status400(models::GetV1DocumentsList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
+    Status403(models::GetV1AccountBalance403Response),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -110,6 +115,7 @@ pub enum PostV1SalesReportsDetailedError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
+    Status403(models::GetV1AccountBalance403Response),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -121,7 +127,7 @@ pub enum PostV1SalesReportsDetailedReportIdError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
-    Status403(models::PostV1SalesReportsList403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -132,7 +138,7 @@ pub enum PostV1SalesReportsDetailedReportIdError {
 pub enum PostV1SalesReportsListError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::GetV1AccountBalance401Response),
-    Status403(models::PostV1SalesReportsList403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }

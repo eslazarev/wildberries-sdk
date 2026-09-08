@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -60,7 +60,6 @@ __all__ = [
     "FeedbacksIncreaseItemTwoStar",
     "FloatGraphByPeriodItem",
     "GetV2NmReportDownloads400Response",
-    "GetV2NmReportDownloads403Response",
     "GroupedHistoryRequest",
     "History",
     "HistoryItem",
@@ -140,9 +139,9 @@ __all__ = [
     "PostV3SalesFunnelProducts200ResponseData",
     "PostV3SalesFunnelProducts401Response",
     "PostV3SalesFunnelProducts402Response",
-    "Response403General",
     "Response429Download",
     "Response429DownloadDaily",
+    "Response4XX",
     "SalesFunnelGroupReq",
     "SalesFunnelGroupReqParams",
     "SalesFunnelItemReq",
@@ -273,7 +272,6 @@ from wildberries_sdk.analytics.models.feedbacks_increase_item_three_star import 
 from wildberries_sdk.analytics.models.feedbacks_increase_item_two_star import FeedbacksIncreaseItemTwoStar as FeedbacksIncreaseItemTwoStar
 from wildberries_sdk.analytics.models.float_graph_by_period_item import FloatGraphByPeriodItem as FloatGraphByPeriodItem
 from wildberries_sdk.analytics.models.get_v2_nm_report_downloads400_response import GetV2NmReportDownloads400Response as GetV2NmReportDownloads400Response
-from wildberries_sdk.analytics.models.get_v2_nm_report_downloads403_response import GetV2NmReportDownloads403Response as GetV2NmReportDownloads403Response
 from wildberries_sdk.analytics.models.grouped_history_request import GroupedHistoryRequest as GroupedHistoryRequest
 from wildberries_sdk.analytics.models.history import History as History
 from wildberries_sdk.analytics.models.history_item import HistoryItem as HistoryItem
@@ -353,9 +351,9 @@ from wildberries_sdk.analytics.models.post_v3_sales_funnel_products200_response 
 from wildberries_sdk.analytics.models.post_v3_sales_funnel_products200_response_data import PostV3SalesFunnelProducts200ResponseData as PostV3SalesFunnelProducts200ResponseData
 from wildberries_sdk.analytics.models.post_v3_sales_funnel_products401_response import PostV3SalesFunnelProducts401Response as PostV3SalesFunnelProducts401Response
 from wildberries_sdk.analytics.models.post_v3_sales_funnel_products402_response import PostV3SalesFunnelProducts402Response as PostV3SalesFunnelProducts402Response
-from wildberries_sdk.analytics.models.response403_general import Response403General as Response403General
 from wildberries_sdk.analytics.models.response429_download import Response429Download as Response429Download
 from wildberries_sdk.analytics.models.response429_download_daily import Response429DownloadDaily as Response429DownloadDaily
+from wildberries_sdk.analytics.models.response4_xx import Response4XX as Response4XX
 from wildberries_sdk.analytics.models.sales_funnel_group_req import SalesFunnelGroupReq as SalesFunnelGroupReq
 from wildberries_sdk.analytics.models.sales_funnel_group_req_params import SalesFunnelGroupReqParams as SalesFunnelGroupReqParams
 from wildberries_sdk.analytics.models.sales_funnel_item_req import SalesFunnelItemReq as SalesFunnelItemReq

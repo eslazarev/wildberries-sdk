@@ -36,3 +36,5 @@ pub mod post_v1_acceptance_options_401_response;
 pub use self::post_v1_acceptance_options_401_response::PostV1AcceptanceOptions401Response;
 pub mod post_v1_acceptance_options_402_response;
 pub use self::post_v1_acceptance_options_402_response::PostV1AcceptanceOptions402Response;
+pub mod post_v1_acceptance_options_403_response;
+pub use self::post_v1_acceptance_options_403_response::PostV1AcceptanceOptions403Response;

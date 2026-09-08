@@ -34,6 +34,11 @@ import {
     GetV1SupplierOrders402ResponseToJSON,
 } from '../models/GetV1SupplierOrders402Response';
 import {
+    type GetV1SupplierOrders403Response,
+    GetV1SupplierOrders403ResponseFromJSON,
+    GetV1SupplierOrders403ResponseToJSON,
+} from '../models/GetV1SupplierOrders403Response';
+import {
     type Model4xxResponse,
     Model4xxResponseFromJSON,
     Model4xxResponseToJSON,

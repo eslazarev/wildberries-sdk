@@ -213,7 +213,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\DeleteFeedbacksV1Pins200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\DeleteFeedbacksV1Pins200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function deleteFeedbacksV1Pins($request_body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteFeedbacksV1Pins'][0])
     {
@@ -237,7 +237,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\DeleteFeedbacksV1Pins200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\DeleteFeedbacksV1Pins200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteFeedbacksV1PinsWithHttpInfo($request_body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteFeedbacksV1Pins'][0])
     {
@@ -288,6 +288,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -349,6 +355,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -617,7 +631,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\GetFeedbacksV1Pins200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\GetFeedbacksV1Pins200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function getFeedbacksV1Pins($state = null, $pin_on = null, $imt_id = null, $nm_id = null, $feedback_id = null, $date_from = null, $date_to = null, $next = null, $limit = 500, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getFeedbacksV1Pins'][0])
     {
@@ -649,7 +663,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\GetFeedbacksV1Pins200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\GetFeedbacksV1Pins200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeedbacksV1PinsWithHttpInfo($state = null, $pin_on = null, $imt_id = null, $nm_id = null, $feedback_id = null, $date_from = null, $date_to = null, $next = null, $limit = 500, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getFeedbacksV1Pins'][0])
     {
@@ -700,6 +714,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -761,6 +781,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1123,7 +1151,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\GetFeedbacksV1PinsCount200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\GetFeedbacksV1PinsCount200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function getFeedbacksV1PinsCount($state = null, $pin_on = null, $imt_id = null, $nm_id = null, $feedback_id = null, $date_from = null, $date_to = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getFeedbacksV1PinsCount'][0])
     {
@@ -1153,7 +1181,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\GetFeedbacksV1PinsCount200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\GetFeedbacksV1PinsCount200Response|\Wildberries\Sdk\Communications\Model\RespondResultErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeedbacksV1PinsCountWithHttpInfo($state = null, $pin_on = null, $imt_id = null, $nm_id = null, $feedback_id = null, $date_from = null, $date_to = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getFeedbacksV1PinsCount'][0])
     {
@@ -1204,6 +1232,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -1265,6 +1299,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1591,7 +1633,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\GetFeedbacksV1PinsLimits200Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\GetFeedbacksV1PinsLimits200Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function getFeedbacksV1PinsLimits(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getFeedbacksV1PinsLimits'][0])
     {
@@ -1614,7 +1656,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\GetFeedbacksV1PinsLimits200Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\GetFeedbacksV1PinsLimits200Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeedbacksV1PinsLimitsWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getFeedbacksV1PinsLimits'][0])
     {
@@ -1659,6 +1701,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -1712,6 +1760,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1952,7 +2008,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\GetV1Claims200Response|\Wildberries\Sdk\Communications\Model\GetV1Claims400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\GetV1Claims200Response|\Wildberries\Sdk\Communications\Model\GetV1Claims400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function getV1Claims($is_archive, $id = null, $limit = 50, $offset = 0, $nm_id = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Claims'][0])
     {
@@ -1980,7 +2036,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\GetV1Claims200Response|\Wildberries\Sdk\Communications\Model\GetV1Claims400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\GetV1Claims200Response|\Wildberries\Sdk\Communications\Model\GetV1Claims400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1ClaimsWithHttpInfo($is_archive, $id = null, $limit = 50, $offset = 0, $nm_id = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Claims'][0])
     {
@@ -2031,6 +2087,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -2092,6 +2154,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2409,7 +2479,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\GetV1Feedback200Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\GetV1Feedback200Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function getV1Feedback($id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Feedback'][0])
     {
@@ -2434,7 +2504,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\GetV1Feedback200Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\GetV1Feedback200Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1FeedbackWithHttpInfo($id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Feedback'][0])
     {
@@ -2479,6 +2549,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -2538,6 +2614,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6751,7 +6835,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\ChatsResponse|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\ChatsResponse|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function getV1SellerChats(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SellerChats'][0])
     {
@@ -6774,7 +6858,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\ChatsResponse|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\ChatsResponse|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1SellerChatsWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SellerChats'][0])
     {
@@ -6819,6 +6903,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -6872,6 +6962,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7108,7 +7206,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Wildberries\Sdk\Communications\Model\GetV1SellerDownloadId202Response|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1SellerDownloadId451Response
+     * @return \SplFileObject|\Wildberries\Sdk\Communications\Model\GetV1SellerDownloadId202Response|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1SellerDownloadId451Response
      */
     public function getV1SellerDownloadId($id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SellerDownloadId'][0])
     {
@@ -7132,7 +7230,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Wildberries\Sdk\Communications\Model\GetV1SellerDownloadId202Response|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1SellerDownloadId451Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Wildberries\Sdk\Communications\Model\GetV1SellerDownloadId202Response|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1SellerDownloadId451Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1SellerDownloadIdWithHttpInfo($id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SellerDownloadId'][0])
     {
@@ -7189,6 +7287,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -7264,6 +7368,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7526,7 +7638,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\EventsResponse|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\EventsResponse|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function getV1SellerEvents($next = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SellerEvents'][0])
     {
@@ -7550,7 +7662,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\EventsResponse|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\EventsResponse|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1SellerEventsWithHttpInfo($next = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SellerEvents'][0])
     {
@@ -7601,6 +7713,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -7662,6 +7780,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7990,6 +8116,14 @@ class DefaultApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -8299,6 +8433,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9473,6 +9615,14 @@ class DefaultApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -9715,7 +9865,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\PatchV1Questions200Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\PatchV1Questions200Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function postV1FeedbacksOrderReturn($post_v1_feedbacks_order_return_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1FeedbacksOrderReturn'][0])
     {
@@ -9740,7 +9890,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\PatchV1Questions200Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\PatchV1Questions200Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1FeedbacksOrderReturnWithHttpInfo($post_v1_feedbacks_order_return_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1FeedbacksOrderReturn'][0])
     {
@@ -9791,6 +9941,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -9858,6 +10014,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10132,7 +10296,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\MessageResponse|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
+     * @return \Wildberries\Sdk\Communications\Model\MessageResponse|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response
      */
     public function postV1SellerMessage($reply_sign, $message = null, $file = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1SellerMessage'][0])
     {
@@ -10158,7 +10322,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\MessageResponse|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\MessageResponse|\Wildberries\Sdk\Communications\Model\GetV1SellerEvents400Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response|\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response|\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1SellerMessageWithHttpInfo($reply_sign, $message = null, $file = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1SellerMessage'][0])
     {
@@ -10209,6 +10373,12 @@ class DefaultApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $request,
                         $response,
                     );
@@ -10270,6 +10440,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Communications\Model\GetV1NewFeedbacksQuestions402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Communications\Model\PostV1FeedbacksAnswer403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

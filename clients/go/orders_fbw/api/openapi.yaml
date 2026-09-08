@@ -120,6 +120,21 @@ paths:
                 $ref: "#/components/schemas/postV1AcceptanceOptions_402_response"
           description: Требуется платёж
         "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_403_response"
           description: Доступ запрещён
         "404":
           description: Не найдено
@@ -200,6 +215,21 @@ paths:
                 $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
           description: Не авторизован
         "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_403_response"
           description: Доступ запрещён
         "404":
           description: Не найдено
@@ -277,6 +307,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -432,6 +479,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/postV1AcceptanceOptions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -540,6 +604,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/postV1AcceptanceOptions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_403_response"
+          description: Доступ запрещён
         "404":
           content:
             application/json:
@@ -683,6 +764,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/postV1AcceptanceOptions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -779,6 +877,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/postV1AcceptanceOptions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -995,6 +1110,23 @@ components:
           schema:
             $ref: "#/components/schemas/postV1AcceptanceOptions_402_response"
       description: Требуется платёж
+    "403":
+      content:
+        application/problem+json:
+          examples:
+            Response403TokenCategory:
+              description: Неверная категория токена
+              value:
+                status: 403
+                statusText: Forbidden
+                title: Forbidden
+                detail: scope is not allowed for this resource
+                requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                origin: ag-marketplace
+                timestamp: 2026-09-03T13:55:15Z
+          schema:
+            $ref: "#/components/schemas/postV1AcceptanceOptions_403_response"
+      description: Доступ запрещён
     "429":
       content:
         application/problem+json:
@@ -1594,6 +1726,34 @@ components:
         detail:
           description: "Детали ошибки. Ошибка возвращается только сервисам из [Кат\
             алога решений для бизнеса](/business-solutions)"
+          type: string
+      type: object
+    postV1AcceptanceOptions_403_response:
+      properties:
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        code:
+          description: Внутренний код ошибки
+          type: string
+        requestId:
+          description: ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+        status:
+          description: HTTP статус-код
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          format: date-time
           type: string
       type: object
     models_OptionsResultModel_result_inner_error:

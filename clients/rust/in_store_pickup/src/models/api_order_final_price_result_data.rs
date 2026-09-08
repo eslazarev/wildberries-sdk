@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// ApiOrderFinalPriceResultData : Данные сборочного задания. <br><br> Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 3 минут. <br><br> Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders) 
+/// ApiOrderFinalPriceResultData : Данные сборочного задания. <br><br> Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты. <br><br> Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders) 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrderFinalPriceResultData {
     /// Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях
@@ -35,7 +35,7 @@ pub struct ApiOrderFinalPriceResultData {
 }
 
 impl ApiOrderFinalPriceResultData {
-    /// Данные сборочного задания. <br><br> Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 3 минут. <br><br> Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders) 
+    /// Данные сборочного задания. <br><br> Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты. <br><br> Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders) 
     pub fn new() -> ApiOrderFinalPriceResultData {
         ApiOrderFinalPriceResultData {
             original_price: None,

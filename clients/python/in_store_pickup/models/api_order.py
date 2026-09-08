@@ -48,8 +48,9 @@ class ApiOrder(BaseModel):
     skus: Optional[List[StrictStr]] = Field(default=None, description="Массив баркодов товара", json_schema_extra={"examples": [["2043227963145"]]})
     warehouse_address: Optional[StrictStr] = Field(default=None, description="Адрес магазина (склада продавца), на который поступило сборочное задание", alias="warehouseAddress", json_schema_extra={"examples": ["Москва, район Якиманка, Софийская набережная, 4 с1"]})
     warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада продавца, на который поступило сборочное задание", alias="warehouseId", json_schema_extra={"examples": [1162157]})
+    tire_service: Optional[StrictBool] = Field(default=None, description="Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется ", alias="tireService", json_schema_extra={"examples": [False]})
     options: Optional[ApiOrderOptions] = None
-    __properties: ClassVar[List[str]] = ["article", "cargoType", "chrtId", "createdAt", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "id", "isZeroOrder", "nmId", "orderCode", "payMode", "rid", "skus", "warehouseAddress", "warehouseId", "options"]
+    __properties: ClassVar[List[str]] = ["article", "cargoType", "chrtId", "createdAt", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "id", "isZeroOrder", "nmId", "orderCode", "payMode", "rid", "skus", "warehouseAddress", "warehouseId", "tireService", "options"]
 
     @field_validator('cargo_type')
     def cargo_type_validate_enum(cls, value):
@@ -134,6 +135,7 @@ class ApiOrder(BaseModel):
             "skus": obj.get("skus"),
             "warehouseAddress": obj.get("warehouseAddress"),
             "warehouseId": obj.get("warehouseId"),
+            "tireService": obj.get("tireService"),
             "options": ApiOrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
         })
         return _obj

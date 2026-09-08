@@ -177,7 +177,7 @@ func (a *CSVAPIService) GetV2NmReportDownloadsExecute(r ApiGetV2NmReportDownload
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV2NmReportDownloads403Response
+			var v ErrorObject
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -363,7 +363,7 @@ func (a *CSVAPIService) GetV2NmReportDownloadsFileDownloadIdExecute(r ApiGetV2Nm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV2NmReportDownloads403Response
+			var v ErrorObject
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -575,7 +575,7 @@ func (a *CSVAPIService) PostV2NmReportDownloadsExecute(r ApiPostV2NmReportDownlo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV2NmReportDownloads403Response
+			var v ErrorObject
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -755,7 +755,7 @@ func (a *CSVAPIService) PostV2NmReportDownloadsRetryExecute(r ApiPostV2NmReportD
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV2NmReportDownloads403Response
+			var v ErrorObject
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

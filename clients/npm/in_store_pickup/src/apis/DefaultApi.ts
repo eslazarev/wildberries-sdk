@@ -138,6 +138,11 @@ import {
     PostV3ClickCollectOrdersMetaCustomsDeclarationRequestFromJSON,
     PostV3ClickCollectOrdersMetaCustomsDeclarationRequestToJSON,
 } from '../models/PostV3ClickCollectOrdersMetaCustomsDeclarationRequest';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 
 export interface GetV3ClickCollectOrdersRequest {
     /**

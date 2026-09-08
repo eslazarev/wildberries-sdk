@@ -229,6 +229,11 @@ import {
     ContentV2ObjectAllGet200ResponseToJSON,
 } from '../models/ContentV2ObjectAllGet200Response';
 import {
+    type ContentV2ObjectAllGet403Response,
+    ContentV2ObjectAllGet403ResponseFromJSON,
+    ContentV2ObjectAllGet403ResponseToJSON,
+} from '../models/ContentV2ObjectAllGet403Response';
+import {
     type ContentV2ObjectCharcsSubjectIdGet200Response,
     ContentV2ObjectCharcsSubjectIdGet200ResponseFromJSON,
     ContentV2ObjectCharcsSubjectIdGet200ResponseToJSON,
@@ -299,11 +304,6 @@ import {
     OfficeToJSON,
 } from '../models/Office';
 import {
-    type PostV1RecommendationsList403Response,
-    PostV1RecommendationsList403ResponseFromJSON,
-    PostV1RecommendationsList403ResponseToJSON,
-} from '../models/PostV1RecommendationsList403Response';
-import {
     type PostV1UploadTaskB2bWholesale200Response,
     PostV1UploadTaskB2bWholesale200ResponseFromJSON,
     PostV1UploadTaskB2bWholesale200ResponseToJSON,
@@ -344,10 +344,10 @@ import {
     Response400SetRecomToJSON,
 } from '../models/Response400SetRecom';
 import {
-    type Response403General,
-    Response403GeneralFromJSON,
-    Response403GeneralToJSON,
-} from '../models/Response403General';
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 import {
     type ResponseBodyContentError400,
     ResponseBodyContentError400FromJSON,

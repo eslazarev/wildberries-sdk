@@ -64,6 +64,8 @@ type ApiNewOrder struct {
 	CargoType *int32 `json:"cargoType,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
+	// Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется 
+	TireService *bool `json:"tireService,omitempty"`
 	Options *ApiNewOrderOptions `json:"options,omitempty"`
 }
 
@@ -799,6 +801,38 @@ func (o *ApiNewOrder) SetIsZeroOrder(v bool) {
 	o.IsZeroOrder = &v
 }
 
+// GetTireService returns the TireService field value if set, zero value otherwise.
+func (o *ApiNewOrder) GetTireService() bool {
+	if o == nil || IsNil(o.TireService) {
+		var ret bool
+		return ret
+	}
+	return *o.TireService
+}
+
+// GetTireServiceOk returns a tuple with the TireService field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiNewOrder) GetTireServiceOk() (*bool, bool) {
+	if o == nil || IsNil(o.TireService) {
+		return nil, false
+	}
+	return o.TireService, true
+}
+
+// HasTireService returns a boolean if a field has been set.
+func (o *ApiNewOrder) HasTireService() bool {
+	if o != nil && !IsNil(o.TireService) {
+		return true
+	}
+
+	return false
+}
+
+// SetTireService gets a reference to the given bool and assigns it to the TireService field.
+func (o *ApiNewOrder) SetTireService(v bool) {
+	o.TireService = &v
+}
+
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *ApiNewOrder) GetOptions() ApiNewOrderOptions {
 	if o == nil || IsNil(o.Options) {
@@ -906,6 +940,9 @@ func (o ApiNewOrder) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsZeroOrder) {
 		toSerialize["isZeroOrder"] = o.IsZeroOrder
+	}
+	if !IsNil(o.TireService) {
+		toSerialize["tireService"] = o.TireService
 	}
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options

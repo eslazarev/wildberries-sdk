@@ -39,11 +39,6 @@ import {
     GetUsersResponseToJSON,
 } from '../models/GetUsersResponse';
 import {
-    type GetV1Rating403Response,
-    GetV1Rating403ResponseFromJSON,
-    GetV1Rating403ResponseToJSON,
-} from '../models/GetV1Rating403Response';
-import {
     type GetV1SellerInfo200Response,
     GetV1SellerInfo200ResponseFromJSON,
     GetV1SellerInfo200ResponseToJSON,
@@ -63,6 +58,11 @@ import {
     PlanBuilderOptionsInfoFromJSON,
     PlanBuilderOptionsInfoToJSON,
 } from '../models/PlanBuilderOptionsInfo';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 import {
     type SubscriptionsJamInfo,
     SubscriptionsJamInfoFromJSON,

@@ -94,6 +94,11 @@ import {
     GetV1SupplierOrders402ResponseToJSON,
 } from '../models/GetV1SupplierOrders402Response';
 import {
+    type GetV1SupplierOrders403Response,
+    GetV1SupplierOrders403ResponseFromJSON,
+    GetV1SupplierOrders403ResponseToJSON,
+} from '../models/GetV1SupplierOrders403Response';
+import {
     type GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner,
     GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerFromJSON,
     GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerToJSON,
@@ -123,6 +128,11 @@ import {
     Response403RetentionsFromJSON,
     Response403RetentionsToJSON,
 } from '../models/Response403Retentions';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 import {
     type ResponsePaidStorageInner,
     ResponsePaidStorageInnerFromJSON,

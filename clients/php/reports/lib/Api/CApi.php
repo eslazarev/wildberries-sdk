@@ -143,7 +143,7 @@ class CApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\ExciseReportResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @return \Wildberries\Sdk\Reports\Model\ExciseReportResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
     public function postV1AnalyticsExciseReport($date_from, $date_to, $excise_report_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1AnalyticsExciseReport'][0])
     {
@@ -169,7 +169,7 @@ class CApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\ExciseReportResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\ExciseReportResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1AnalyticsExciseReportWithHttpInfo($date_from, $date_to, $excise_report_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1AnalyticsExciseReport'][0])
     {
@@ -220,6 +220,12 @@ class CApi
                 case 402:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $request,
                         $response,
                     );
@@ -281,6 +287,14 @@ class CApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

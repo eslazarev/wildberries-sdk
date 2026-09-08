@@ -51,8 +51,9 @@ class ApiNewOrder(BaseModel):
     converted_currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты страны продавца", alias="convertedCurrencyCode", json_schema_extra={"examples": [643]})
     cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
     is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder")
+    tire_service: Optional[StrictBool] = Field(default=None, description="Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется ", alias="tireService", json_schema_extra={"examples": [False]})
     options: Optional[ApiNewOrderOptions] = None
-    __properties: ClassVar[List[str]] = ["ddate", "salePrice", "requiredMeta", "article", "rid", "createdAt", "warehouseAddress", "orderCode", "payMode", "skus", "id", "warehouseId", "nmId", "chrtId", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "isZeroOrder", "options"]
+    __properties: ClassVar[List[str]] = ["ddate", "salePrice", "requiredMeta", "article", "rid", "createdAt", "warehouseAddress", "orderCode", "payMode", "skus", "id", "warehouseId", "nmId", "chrtId", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "isZeroOrder", "tireService", "options"]
 
     @field_validator('cargo_type')
     def cargo_type_validate_enum(cls, value):
@@ -150,6 +151,7 @@ class ApiNewOrder(BaseModel):
             "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
             "cargoType": obj.get("cargoType"),
             "isZeroOrder": obj.get("isZeroOrder"),
+            "tireService": obj.get("tireService"),
             "options": ApiNewOrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
         })
         return _obj

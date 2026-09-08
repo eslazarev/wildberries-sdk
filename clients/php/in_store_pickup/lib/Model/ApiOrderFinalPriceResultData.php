@@ -35,7 +35,7 @@ use \Wildberries\Sdk\InStorePickup\ObjectSerializer;
  * ApiOrderFinalPriceResultData Class Doc Comment
  *
  * @category Class
- * @description Данные сборочного задания. &lt;br&gt;&lt;br&gt; Если &#x60;\&quot;data\&quot;:{}&#x60;, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 3 минут. &lt;br&gt;&lt;br&gt; Если &#x60;data&#x60; отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
+ * @description Данные сборочного задания. &lt;br&gt;&lt;br&gt; Если &#x60;\&quot;data\&quot;:{}&#x60;, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты. &lt;br&gt;&lt;br&gt; Если &#x60;data&#x60; отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
  * @package  Wildberries\Sdk\InStorePickup
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -54,3 +54,4 @@ export * from './MetaDetailsErrorsInner';
 export * from './ModelError';
 export * from './PostV3ClickCollectOrdersMetaCustomsDeclarationRequest';
 export * from './PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner';
+export * from './Response4XX';

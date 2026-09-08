@@ -23,6 +23,11 @@ import {
     GetPing401ResponseFromJSON,
     GetPing401ResponseToJSON,
 } from '../models/GetPing401Response';
+import {
+    type GetPing403Response,
+    GetPing403ResponseFromJSON,
+    GetPing403ResponseToJSON,
+} from '../models/GetPing403Response';
 
 /**
  * 

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -73,6 +73,7 @@ __all__ = [
     "PutV3DbwOrdersOrderIdMetaGtinRequest",
     "PutV3DbwOrdersOrderIdMetaImeiRequest",
     "PutV3DbwOrdersOrderIdMetaUinRequest",
+    "Response4XX",
 ]
 
 # import apis into sdk package
@@ -135,4 +136,5 @@ from wildberries_sdk.orders_dbw.models.post_v3_dbw_orders_stickers_request impor
 from wildberries_sdk.orders_dbw.models.put_v3_dbw_orders_order_id_meta_gtin_request import PutV3DbwOrdersOrderIdMetaGtinRequest as PutV3DbwOrdersOrderIdMetaGtinRequest
 from wildberries_sdk.orders_dbw.models.put_v3_dbw_orders_order_id_meta_imei_request import PutV3DbwOrdersOrderIdMetaImeiRequest as PutV3DbwOrdersOrderIdMetaImeiRequest
 from wildberries_sdk.orders_dbw.models.put_v3_dbw_orders_order_id_meta_uin_request import PutV3DbwOrdersOrderIdMetaUinRequest as PutV3DbwOrdersOrderIdMetaUinRequest
+from wildberries_sdk.orders_dbw.models.response4_xx import Response4XX as Response4XX
 

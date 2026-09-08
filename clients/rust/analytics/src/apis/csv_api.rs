@@ -21,7 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum GetV2NmReportDownloadsError {
     Status400(models::GetV2NmReportDownloads400Response),
     Status401(models::PostV3SalesFunnelProducts401Response),
-    Status403(models::GetV2NmReportDownloads403Response),
+    Status403(models::ErrorObject),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
 }
@@ -33,7 +33,7 @@ pub enum GetV2NmReportDownloadsFileDownloadIdError {
     Status400(models::GetV2NmReportDownloads400Response),
     Status401(models::PostV3SalesFunnelProducts401Response),
     Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::GetV2NmReportDownloads403Response),
+    Status403(models::ErrorObject),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
 }
@@ -45,7 +45,7 @@ pub enum PostV2NmReportDownloadsError {
     Status400(models::GetV2NmReportDownloads400Response),
     Status401(models::PostV3SalesFunnelProducts401Response),
     Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::GetV2NmReportDownloads403Response),
+    Status403(models::ErrorObject),
     Status429(models::PostV2NmReportDownloads429Response),
     UnknownValue(serde_json::Value),
 }
@@ -56,7 +56,7 @@ pub enum PostV2NmReportDownloadsError {
 pub enum PostV2NmReportDownloadsRetryError {
     Status400(models::GetV2NmReportDownloads400Response),
     Status401(models::PostV3SalesFunnelProducts401Response),
-    Status403(models::GetV2NmReportDownloads403Response),
+    Status403(models::ErrorObject),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
 }

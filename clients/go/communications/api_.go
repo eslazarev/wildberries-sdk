@@ -185,6 +185,17 @@ func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1P
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1NewFeedbacksQuestions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -450,6 +461,17 @@ func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsReq
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1NewFeedbacksQuestions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -689,6 +711,17 @@ func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1Pi
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1NewFeedbacksQuestions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -838,6 +871,17 @@ func (a *DefaultApiService) GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1P
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
 			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1075,6 +1119,17 @@ func (a *DefaultApiService) GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1C
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1NewFeedbacksQuestions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1235,6 +1290,17 @@ func (a *DefaultApiService) GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*Ge
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
 			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3297,6 +3363,17 @@ func (a *DefaultApiService) GetV1SellerChatsExecute(r ApiGetV1SellerChatsRequest
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1NewFeedbacksQuestions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3461,6 +3538,17 @@ func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloa
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
 			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3664,6 +3752,17 @@ func (a *DefaultApiService) GetV1SellerEventsExecute(r ApiGetV1SellerEventsReque
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1NewFeedbacksQuestions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3843,6 +3942,17 @@ func (a *DefaultApiService) PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1NewFeedbacksQuestions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3995,6 +4105,17 @@ func (a *DefaultApiService) PatchV1FeedbacksAnswerExecute(r ApiPatchV1FeedbacksA
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
 			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4592,6 +4713,17 @@ func (a *DefaultApiService) PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAns
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1NewFeedbacksQuestions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4756,6 +4888,17 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
 			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4985,6 +5128,17 @@ func (a *DefaultApiService) PostV1SellerMessageExecute(r ApiPostV1SellerMessageR
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
 			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

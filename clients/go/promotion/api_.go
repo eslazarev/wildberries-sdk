@@ -47,7 +47,6 @@ DeleteV0NormqueryBids Удалить ставки поисковых класт�
   - ручной ставкой
   - моделью оплаты `cpm` — за показы
 
-
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
@@ -353,6 +352,17 @@ func (a *DefaultApiService) GetV0BidsRecommendationsExecute(r ApiGetV0BidsRecomm
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -522,6 +532,17 @@ func (a *DefaultApiService) GetV0DeleteExecute(r ApiGetV0DeleteRequest) (*http.R
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -671,6 +692,17 @@ func (a *DefaultApiService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.Res
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -841,6 +873,17 @@ func (a *DefaultApiService) GetV0StartExecute(r ApiGetV0StartRequest) (*http.Res
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1021,6 +1064,17 @@ func (a *DefaultApiService) GetV0StopExecute(r ApiGetV0StopRequest) (*http.Respo
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 422 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1183,6 +1237,17 @@ func (a *DefaultApiService) GetV1AdvertExecute(r ApiGetV1AdvertRequest) (*GetV1A
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1399,6 +1464,17 @@ func (a *DefaultApiService) GetV1AdvertsExecute(r ApiGetV1AdvertsRequest) ([]Get
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1553,6 +1629,17 @@ func (a *DefaultApiService) GetV1BalanceExecute(r ApiGetV1BalanceRequest) (*GetV
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1722,6 +1809,17 @@ func (a *DefaultApiService) GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV1B
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1953,6 +2051,17 @@ func (a *DefaultApiService) GetV1CalendarPromotionsExecute(r ApiGetV1CalendarPro
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2140,6 +2249,17 @@ func (a *DefaultApiService) GetV1CalendarPromotionsDetailsExecute(r ApiGetV1Cale
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
 			var v GetV1CalendarPromotions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2361,6 +2481,17 @@ func (a *DefaultApiService) GetV1CalendarPromotionsNomenclaturesExecute(r ApiGet
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 422 {
 			var v GetV1CalendarPromotionsNomenclatures422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2523,7 +2654,7 @@ func (a *DefaultApiService) GetV1ConfigExecute(r ApiGetV1ConfigRequest) (*V2GetC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1Config403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2671,6 +2802,17 @@ func (a *DefaultApiService) GetV1CountExecute(r ApiGetV1CountRequest) (*GetV1Cou
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2858,6 +3000,17 @@ func (a *DefaultApiService) GetV1PaymentsExecute(r ApiGetV1PaymentsRequest) ([]G
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2996,6 +3149,17 @@ func (a *DefaultApiService) GetV1PromotionCountExecute(r ApiGetV1PromotionCountR
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3157,6 +3321,17 @@ func (a *DefaultApiService) GetV1SupplierSubjectsExecute(r ApiGetV1SupplierSubje
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3346,6 +3521,17 @@ func (a *DefaultApiService) GetV1UpdExecute(r ApiGetV1UpdRequest) ([]GetV1Upd200
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3525,6 +3711,17 @@ func (a *DefaultApiService) GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*GetA
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3731,6 +3928,17 @@ func (a *DefaultApiService) GetV3FullstatsExecute(r ApiGetV3FullstatsRequest) ([
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3895,6 +4103,17 @@ func (a *DefaultApiService) PatchV0AuctionNmsExecute(r ApiPatchV0AuctionNmsReque
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4082,6 +4301,17 @@ func (a *DefaultApiService) PatchV1BidsExecute(r ApiPatchV1BidsRequest) (*PatchV
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4129,7 +4359,6 @@ PostV0NormqueryBids Установить ставки для поисковых 
 Можно использовать только для кампаний с:
   - ручной ставкой
   - моделью оплаты `cpm` — за показы
-
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -4484,7 +4713,6 @@ PostV0NormqueryGetMinus Список минус-фраз кампаний
   - ID кампаний
   - артикулам WB
 
-
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
@@ -4780,6 +5008,17 @@ func (a *DefaultApiService) PostV0NormqueryListExecute(r ApiPostV0NormqueryListR
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -5307,6 +5546,17 @@ func (a *DefaultApiService) PostV0RenameExecute(r ApiPostV0RenameRequest) (*http
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 422 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5469,6 +5719,17 @@ func (a *DefaultApiService) PostV1BidsMinExecute(r ApiPostV1BidsMinRequest) (*Po
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -5659,6 +5920,17 @@ func (a *DefaultApiService) PostV1BudgetDepositExecute(r ApiPostV1BudgetDepositR
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5835,6 +6107,17 @@ func (a *DefaultApiService) PostV1CalendarPromotionsUploadExecute(r ApiPostV1Cal
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
 			var v GetV1CalendarPromotions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -6031,7 +6314,7 @@ func (a *DefaultApiService) PostV1NormqueryBidsExecute(r ApiPostV1NormqueryBidsR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1Config403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -6202,6 +6485,17 @@ func (a *DefaultApiService) PostV1NormqueryStatsExecute(r ApiPostV1NormqueryStat
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -6386,6 +6680,17 @@ func (a *DefaultApiService) PostV1StatsExecute(r ApiPostV1StatsRequest) ([]PostV
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6545,6 +6850,17 @@ func (a *DefaultApiService) PostV2SeacatSaveAdExecute(r ApiPostV2SeacatSaveAdReq
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -6721,6 +7037,17 @@ func (a *DefaultApiService) PostV2SupplierNmsExecute(r ApiPostV2SupplierNmsReque
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6881,6 +7208,17 @@ func (a *DefaultApiService) PutV0AuctionPlacementsExecute(r ApiPutV0AuctionPlace
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

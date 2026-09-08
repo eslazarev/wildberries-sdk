@@ -104,7 +104,7 @@ class DefaultApi:
     ) -> None:
         """Удалить ставки поисковых кластеров
 
-        Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param v0_delete_norm_query_bids_request: (required)
         :type v0_delete_norm_query_bids_request: V0DeleteNormQueryBidsRequest
@@ -175,7 +175,7 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Удалить ставки поисковых кластеров
 
-        Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param v0_delete_norm_query_bids_request: (required)
         :type v0_delete_norm_query_bids_request: V0DeleteNormQueryBidsRequest
@@ -246,7 +246,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Удалить ставки поисковых кластеров
 
-        Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param v0_delete_norm_query_bids_request: (required)
         :type v0_delete_norm_query_bids_request: V0DeleteNormQueryBidsRequest
@@ -436,6 +436,7 @@ class DefaultApi:
             '200': "GetV0BidsRecommendations200Response",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -510,6 +511,7 @@ class DefaultApi:
             '200': "GetV0BidsRecommendations200Response",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -584,6 +586,7 @@ class DefaultApi:
             '200': "GetV0BidsRecommendations200Response",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -726,6 +729,7 @@ class DefaultApi:
             '200': None,
             '400': "ResponseAdvError1",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -796,6 +800,7 @@ class DefaultApi:
             '200': None,
             '400': "ResponseAdvError1",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -866,6 +871,7 @@ class DefaultApi:
             '200': None,
             '400': "ResponseAdvError1",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -1003,6 +1009,7 @@ class DefaultApi:
             '200': None,
             '400': "Model400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -1074,6 +1081,7 @@ class DefaultApi:
             '200': None,
             '400': "Model400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -1145,6 +1153,7 @@ class DefaultApi:
             '200': None,
             '400': "Model400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -1284,6 +1293,7 @@ class DefaultApi:
             '200': None,
             '400': "Model400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -1355,6 +1365,7 @@ class DefaultApi:
             '200': None,
             '400': "Model400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -1426,6 +1437,7 @@ class DefaultApi:
             '200': None,
             '400': "Model400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -1565,6 +1577,7 @@ class DefaultApi:
             '200': None,
             '400': "Model400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -1636,6 +1649,7 @@ class DefaultApi:
             '200': None,
             '400': "Model400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -1707,6 +1721,7 @@ class DefaultApi:
             '200': None,
             '400': "Model400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -1847,6 +1862,7 @@ class DefaultApi:
             '204': None,
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -1918,6 +1934,7 @@ class DefaultApi:
             '204': None,
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -1989,6 +2006,7 @@ class DefaultApi:
             '204': None,
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -2146,6 +2164,7 @@ class DefaultApi:
             '200': "List[GetV1Adverts200ResponseInner]",
             '204': None,
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -2236,6 +2255,7 @@ class DefaultApi:
             '200': "List[GetV1Adverts200ResponseInner]",
             '204': None,
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -2326,6 +2346,7 @@ class DefaultApi:
             '200': "List[GetV1Adverts200ResponseInner]",
             '204': None,
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -2483,6 +2504,7 @@ class DefaultApi:
             '200': "GetV1Balance200Response",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -2549,6 +2571,7 @@ class DefaultApi:
             '200': "GetV1Balance200Response",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -2615,6 +2638,7 @@ class DefaultApi:
             '200': "GetV1Balance200Response",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -2747,6 +2771,7 @@ class DefaultApi:
             '200': "GetV1Budget200Response",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -2817,6 +2842,7 @@ class DefaultApi:
             '200': "GetV1Budget200Response",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -2887,6 +2913,7 @@ class DefaultApi:
             '200': "GetV1Budget200Response",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -3042,6 +3069,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotions400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -3129,6 +3157,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotions400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -3216,6 +3245,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotions400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -3391,6 +3421,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotions400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -3462,6 +3493,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotions400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -3533,6 +3565,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotions400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -3683,6 +3716,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotionsNomenclatures400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "GetV1CalendarPromotionsNomenclatures422Response",
             '429': "GetV1PromotionCount401Response",
         }
@@ -3767,6 +3801,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotionsNomenclatures400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "GetV1CalendarPromotionsNomenclatures422Response",
             '429': "GetV1PromotionCount401Response",
         }
@@ -3851,6 +3886,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotionsNomenclatures400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "GetV1CalendarPromotionsNomenclatures422Response",
             '429': "GetV1PromotionCount401Response",
         }
@@ -3998,7 +4034,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "V2GetConfigResponse",
             '401': "GetV1PromotionCount401Response",
-            '403': "GetV1Config403Response",
+            '403': "Response4XX",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4064,7 +4100,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "V2GetConfigResponse",
             '401': "GetV1PromotionCount401Response",
-            '403': "GetV1Config403Response",
+            '403': "Response4XX",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4130,7 +4166,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "V2GetConfigResponse",
             '401': "GetV1PromotionCount401Response",
-            '403': "GetV1Config403Response",
+            '403': "Response4XX",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4257,6 +4293,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1Count200Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4322,6 +4359,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1Count200Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4387,6 +4425,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1Count200Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4523,6 +4562,7 @@ class DefaultApi:
             '204': None,
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4598,6 +4638,7 @@ class DefaultApi:
             '204': None,
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4673,6 +4714,7 @@ class DefaultApi:
             '204': None,
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4828,6 +4870,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1PromotionCount200Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4893,6 +4936,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1PromotionCount200Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4958,6 +5002,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1PromotionCount200Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -5089,6 +5134,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetV1SupplierSubjects200ResponseInner]",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '404': None,
             '429': "GetV1PromotionCount401Response",
         }
@@ -5159,6 +5205,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetV1SupplierSubjects200ResponseInner]",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '404': None,
             '429': "GetV1PromotionCount401Response",
         }
@@ -5229,6 +5276,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetV1SupplierSubjects200ResponseInner]",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '404': None,
             '429': "GetV1PromotionCount401Response",
         }
@@ -5371,6 +5419,7 @@ class DefaultApi:
             '200': "List[GetV1Upd200ResponseInner]",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -5445,6 +5494,7 @@ class DefaultApi:
             '200': "List[GetV1Upd200ResponseInner]",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -5519,6 +5569,7 @@ class DefaultApi:
             '200': "List[GetV1Upd200ResponseInner]",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -5688,6 +5739,7 @@ class DefaultApi:
             '200': "GetAdverts",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -5766,6 +5818,7 @@ class DefaultApi:
             '200': "GetAdverts",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -5844,6 +5897,7 @@ class DefaultApi:
             '200': "GetAdverts",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -5998,6 +6052,7 @@ class DefaultApi:
             '200': "List[FullStatsItem]",
             '400': "FullStatsError",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -6076,6 +6131,7 @@ class DefaultApi:
             '200': "List[FullStatsItem]",
             '400': "FullStatsError",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -6154,6 +6210,7 @@ class DefaultApi:
             '200': "List[FullStatsItem]",
             '400': "FullStatsError",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -6318,6 +6375,7 @@ class DefaultApi:
             '200': "PatchV0AuctionNms200Response",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -6388,6 +6446,7 @@ class DefaultApi:
             '200': "PatchV0AuctionNms200Response",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -6458,6 +6517,7 @@ class DefaultApi:
             '200': "PatchV0AuctionNms200Response",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -6605,6 +6665,7 @@ class DefaultApi:
             '200': "PatchV1Bids200Response",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -6675,6 +6736,7 @@ class DefaultApi:
             '200': "PatchV1Bids200Response",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -6745,6 +6807,7 @@ class DefaultApi:
             '200': "PatchV1Bids200Response",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -6854,7 +6917,7 @@ class DefaultApi:
     ) -> None:
         """Установить ставки для поисковых кластеров
 
-        Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param v0_set_norm_query_bids_request: (required)
         :type v0_set_norm_query_bids_request: V0SetNormQueryBidsRequest
@@ -6925,7 +6988,7 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Установить ставки для поисковых кластеров
 
-        Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param v0_set_norm_query_bids_request: (required)
         :type v0_set_norm_query_bids_request: V0SetNormQueryBidsRequest
@@ -6996,7 +7059,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Установить ставки для поисковых кластеров
 
-        Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param v0_set_norm_query_bids_request: (required)
         :type v0_set_norm_query_bids_request: V0SetNormQueryBidsRequest
@@ -7434,7 +7497,7 @@ class DefaultApi:
     ) -> V0GetNormQueryMinusResponse:
         """Список минус-фраз кампаний
 
-        Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param v0_get_norm_query_minus_request: (required)
         :type v0_get_norm_query_minus_request: V0GetNormQueryMinusRequest
@@ -7505,7 +7568,7 @@ class DefaultApi:
     ) -> ApiResponse[V0GetNormQueryMinusResponse]:
         """Список минус-фраз кампаний
 
-        Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param v0_get_norm_query_minus_request: (required)
         :type v0_get_norm_query_minus_request: V0GetNormQueryMinusRequest
@@ -7576,7 +7639,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список минус-фраз кампаний
 
-        Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param v0_get_norm_query_minus_request: (required)
         :type v0_get_norm_query_minus_request: V0GetNormQueryMinusRequest
@@ -7762,6 +7825,7 @@ class DefaultApi:
             '200': "V0GetNormQueryListResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -7832,6 +7896,7 @@ class DefaultApi:
             '200': "V0GetNormQueryListResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -7902,6 +7967,7 @@ class DefaultApi:
             '200': "V0GetNormQueryListResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -8629,6 +8695,7 @@ class DefaultApi:
             '200': None,
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -8700,6 +8767,7 @@ class DefaultApi:
             '200': None,
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -8771,6 +8839,7 @@ class DefaultApi:
             '200': None,
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "str",
             '429': "GetV1PromotionCount401Response",
         }
@@ -8920,6 +8989,7 @@ class DefaultApi:
             '200': "PostV1BidsMin200Response",
             '400': "StandardizedBatchError",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -8990,6 +9060,7 @@ class DefaultApi:
             '200': "PostV1BidsMin200Response",
             '400': "StandardizedBatchError",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9060,6 +9131,7 @@ class DefaultApi:
             '200': "PostV1BidsMin200Response",
             '400': "StandardizedBatchError",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9211,6 +9283,7 @@ class DefaultApi:
             '200': "ResponseWithReturn",
             '400': "PostV1BudgetDeposit400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9285,6 +9358,7 @@ class DefaultApi:
             '200': "ResponseWithReturn",
             '400': "PostV1BudgetDeposit400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9359,6 +9433,7 @@ class DefaultApi:
             '200': "ResponseWithReturn",
             '400': "PostV1BudgetDeposit400Response",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9513,6 +9588,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotionsNomenclatures400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "PostV1CalendarPromotionsUpload422Response",
             '429': "GetV1PromotionCount401Response",
         }
@@ -9585,6 +9661,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotionsNomenclatures400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "PostV1CalendarPromotionsUpload422Response",
             '429': "GetV1PromotionCount401Response",
         }
@@ -9657,6 +9734,7 @@ class DefaultApi:
             '400': "GetV1CalendarPromotionsNomenclatures400Response",
             '401': "GetV1PromotionCount401Response",
             '402': "GetV1CalendarPromotions402Response",
+            '403': "GetV1PromotionCount403Response",
             '422': "PostV1CalendarPromotionsUpload422Response",
             '429': "GetV1PromotionCount401Response",
         }
@@ -9805,7 +9883,7 @@ class DefaultApi:
             '200': "V1SetNormQueryBidsResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
-            '403': "GetV1Config403Response",
+            '403': "Response4XX",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9876,7 +9954,7 @@ class DefaultApi:
             '200': "V1SetNormQueryBidsResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
-            '403': "GetV1Config403Response",
+            '403': "Response4XX",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9947,7 +10025,7 @@ class DefaultApi:
             '200': "V1SetNormQueryBidsResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
-            '403': "GetV1Config403Response",
+            '403': "Response4XX",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10095,6 +10173,7 @@ class DefaultApi:
             '200': "V1GetNormQueryStatsResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10165,6 +10244,7 @@ class DefaultApi:
             '200': "V1GetNormQueryStatsResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10235,6 +10315,7 @@ class DefaultApi:
             '200': "V1GetNormQueryStatsResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10382,6 +10463,7 @@ class DefaultApi:
             '200': "List[PostV1Stats200ResponseInner]",
             '400': "ResponseAdvError1",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10452,6 +10534,7 @@ class DefaultApi:
             '200': "List[PostV1Stats200ResponseInner]",
             '400': "ResponseAdvError1",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10522,6 +10605,7 @@ class DefaultApi:
             '200': "List[PostV1Stats200ResponseInner]",
             '400': "ResponseAdvError1",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10670,6 +10754,7 @@ class DefaultApi:
             '200': "int",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10740,6 +10825,7 @@ class DefaultApi:
             '200': "int",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10810,6 +10896,7 @@ class DefaultApi:
             '200': "int",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -10958,6 +11045,7 @@ class DefaultApi:
             '200': "List[PostV2SupplierNms200ResponseInner]",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -11028,6 +11116,7 @@ class DefaultApi:
             '200': "List[PostV2SupplierNms200ResponseInner]",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -11098,6 +11187,7 @@ class DefaultApi:
             '200': "List[PostV2SupplierNms200ResponseInner]",
             '400': "str",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -11248,6 +11338,7 @@ class DefaultApi:
             '204': None,
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -11318,6 +11409,7 @@ class DefaultApi:
             '204': None,
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -11388,6 +11480,7 @@ class DefaultApi:
             '204': None,
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(

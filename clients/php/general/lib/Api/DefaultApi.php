@@ -236,7 +236,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -478,7 +478,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\General\Model\SupplierRatingModel|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1SellerInfo402Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\GetPing401Response
+     * @return \Wildberries\Sdk\General\Model\SupplierRatingModel|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1SellerInfo402Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\GetPing401Response
      */
     public function getV1Rating(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Rating'][0])
     {
@@ -501,7 +501,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\General\Model\SupplierRatingModel|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1SellerInfo402Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\General\Model\SupplierRatingModel|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1SellerInfo402Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1RatingWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Rating'][0])
     {
@@ -551,7 +551,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -612,7 +612,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1204,7 +1204,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\General\Model\SubscriptionsJamInfo|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1SellerInfo402Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\GetPing401Response
+     * @return \Wildberries\Sdk\General\Model\SubscriptionsJamInfo|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1SellerInfo402Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\GetPing401Response
      */
     public function getV1Subscriptions(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Subscriptions'][0])
     {
@@ -1227,7 +1227,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\General\Model\SubscriptionsJamInfo|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1SellerInfo402Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\General\Model\SubscriptionsJamInfo|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1SellerInfo402Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1SubscriptionsWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Subscriptions'][0])
     {
@@ -1277,7 +1277,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -1338,7 +1338,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1575,7 +1575,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\GetPing401Response
+     * @return \Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\GetPing401Response
      */
     public function getV1TariffConstructorOptions($locale = 'ru', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1TariffConstructorOptions'][0])
     {
@@ -1599,7 +1599,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1TariffConstructorOptionsWithHttpInfo($locale = 'ru', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1TariffConstructorOptions'][0])
     {
@@ -1649,7 +1649,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -1716,7 +1716,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1976,7 +1976,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\General\Model\GetUsersResponse|\Wildberries\Sdk\General\Model\ErrorResponse|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\GetPing401Response
+     * @return \Wildberries\Sdk\General\Model\GetUsersResponse|\Wildberries\Sdk\General\Model\ErrorResponse|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\GetPing401Response
      */
     public function getV1Users($limit = 100, $offset = 0, $is_invite_only = false, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Users'][0])
     {
@@ -2002,7 +2002,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\General\Model\GetUsersResponse|\Wildberries\Sdk\General\Model\ErrorResponse|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\General\Model\GetUsersResponse|\Wildberries\Sdk\General\Model\ErrorResponse|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1UsersWithHttpInfo($limit = 100, $offset = 0, $is_invite_only = false, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Users'][0])
     {
@@ -2052,7 +2052,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -2113,7 +2113,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2392,7 +2392,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\General\Model\CreateInviteResponse|\Wildberries\Sdk\General\Model\ErrorResponse|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\GetPing401Response
+     * @return \Wildberries\Sdk\General\Model\CreateInviteResponse|\Wildberries\Sdk\General\Model\ErrorResponse|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\GetPing401Response
      */
     public function postV1Invite($create_invite_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1Invite'][0])
     {
@@ -2416,7 +2416,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\General\Model\CreateInviteResponse|\Wildberries\Sdk\General\Model\ErrorResponse|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetV1Rating403Response|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\General\Model\CreateInviteResponse|\Wildberries\Sdk\General\Model\ErrorResponse|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\Response4XX|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1InviteWithHttpInfo($create_invite_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1Invite'][0])
     {
@@ -2466,7 +2466,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -2527,7 +2527,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2859,7 +2859,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\General\Model\GetV1Rating403Response',
+                        '\Wildberries\Sdk\General\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

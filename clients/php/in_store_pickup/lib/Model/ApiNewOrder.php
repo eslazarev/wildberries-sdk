@@ -79,6 +79,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'converted_currency_code' => 'int',
         'cargo_type' => 'int',
         'is_zero_order' => 'bool',
+        'tire_service' => 'bool',
         'options' => '\Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions'
     ];
 
@@ -112,6 +113,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'converted_currency_code' => 'ISO 4217',
         'cargo_type' => null,
         'is_zero_order' => null,
+        'tire_service' => null,
         'options' => null
     ];
 
@@ -143,6 +145,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'converted_currency_code' => false,
         'cargo_type' => false,
         'is_zero_order' => false,
+        'tire_service' => false,
         'options' => false
     ];
 
@@ -254,6 +257,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'converted_currency_code' => 'convertedCurrencyCode',
         'cargo_type' => 'cargoType',
         'is_zero_order' => 'isZeroOrder',
+        'tire_service' => 'tireService',
         'options' => 'options'
     ];
 
@@ -285,6 +289,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'converted_currency_code' => 'setConvertedCurrencyCode',
         'cargo_type' => 'setCargoType',
         'is_zero_order' => 'setIsZeroOrder',
+        'tire_service' => 'setTireService',
         'options' => 'setOptions'
     ];
 
@@ -316,6 +321,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'converted_currency_code' => 'getConvertedCurrencyCode',
         'cargo_type' => 'getCargoType',
         'is_zero_order' => 'getIsZeroOrder',
+        'tire_service' => 'getTireService',
         'options' => 'getOptions'
     ];
 
@@ -415,6 +421,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('converted_currency_code', $data ?? [], null);
         $this->setIfExists('cargo_type', $data ?? [], null);
         $this->setIfExists('is_zero_order', $data ?? [], null);
+        $this->setIfExists('tire_service', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
     }
 
@@ -1083,6 +1090,33 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_zero_order cannot be null');
         }
         $this->container['is_zero_order'] = $is_zero_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets tire_service
+     *
+     * @return bool|null
+     */
+    public function getTireService()
+    {
+        return $this->container['tire_service'];
+    }
+
+    /**
+     * Sets tire_service
+     *
+     * @param bool|null $tire_service Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется
+     *
+     * @return self
+     */
+    public function setTireService($tire_service)
+    {
+        if (is_null($tire_service)) {
+            throw new \InvalidArgumentException('non-nullable tire_service cannot be null');
+        }
+        $this->container['tire_service'] = $tire_service;
 
         return $this;
     }

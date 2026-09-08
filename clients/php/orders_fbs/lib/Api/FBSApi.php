@@ -267,7 +267,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrders|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrders|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3FbsOrdersArchiveGet403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function apiMarketplaceV3FbsOrdersArchiveGet($year, $month, $next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3FbsOrdersArchiveGet'][0])
     {
@@ -294,7 +294,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrders|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrders|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3FbsOrdersArchiveGet403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiMarketplaceV3FbsOrdersArchiveGetWithHttpInfo($year, $month, $next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3FbsOrdersArchiveGet'][0])
     {
@@ -350,7 +350,7 @@ class FBSApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400',
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3FbsOrdersArchiveGet403Response',
                         $request,
                         $response,
                     );
@@ -419,7 +419,7 @@ class FBSApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400',
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3FbsOrdersArchiveGet403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14295,7 +14295,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function getV3FbsDictionariesCountriesOksm(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsDictionariesCountriesOksm'][0])
     {
@@ -14318,7 +14318,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV3FbsDictionariesCountriesOksmWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsDictionariesCountriesOksm'][0])
     {
@@ -14357,6 +14357,12 @@ class FBSApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response',
                         $request,
                         $response,
                     );
@@ -14402,6 +14408,14 @@ class FBSApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14534,7 +14548,7 @@ class FBSApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json', 'application/problem+json', ],
             $contentType,
             $multipart
         );
@@ -14639,7 +14653,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\ShippingPointsResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\ShippingPointsResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function getV3FbsShippingPoints($city, $cargo_type, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsShippingPoints'][0])
     {
@@ -14664,7 +14678,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\ShippingPointsResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\ShippingPointsResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV3FbsShippingPointsWithHttpInfo($city, $cargo_type, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsShippingPoints'][0])
     {
@@ -14709,6 +14723,12 @@ class FBSApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response',
                         $request,
                         $response,
                     );
@@ -14762,6 +14782,14 @@ class FBSApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15036,7 +15064,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function getV3FbsSuppliesSupplyIdStickersSpot($supply_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'][0])
     {
@@ -15060,7 +15088,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV3FbsSuppliesSupplyIdStickersSpotWithHttpInfo($supply_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'][0])
     {
@@ -15105,6 +15133,12 @@ class FBSApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response',
                         $request,
                         $response,
                     );
@@ -15164,6 +15198,14 @@ class FBSApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15718,7 +15760,7 @@ class FBSApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json', 'application/problem+json', ],
             $contentType,
             $multipart
         );
@@ -16111,7 +16153,7 @@ class FBSApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json', 'application/problem+json', ],
             $contentType,
             $multipart
         );
@@ -16226,7 +16268,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function postV3FbsSuppliesSpotList($post_v3_fbs_supplies_spot_list_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3FbsSuppliesSpotList'][0])
     {
@@ -16250,7 +16292,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV3FbsSuppliesSpotListWithHttpInfo($post_v3_fbs_supplies_spot_list_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3FbsSuppliesSpotList'][0])
     {
@@ -16295,6 +16337,12 @@ class FBSApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response',
                         $request,
                         $response,
                     );
@@ -16348,6 +16396,14 @@ class FBSApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16674,6 +16730,14 @@ class FBSApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3FbsShippingPoints403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

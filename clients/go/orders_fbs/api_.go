@@ -149,7 +149,7 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiG
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetMarketplaceV3FbsSettingsAutoreturns403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -350,7 +350,7 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetMarketplaceV3FbsSettingsAutoreturns403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -529,7 +529,7 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r Ap
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetMarketplaceV3FbsSettingsAutoreturns403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -701,7 +701,7 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetMarketplaceV3FbsSettingsAutoreturns403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -882,7 +882,7 @@ func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetMarketplaceV3FbsSettingsAutoreturns403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

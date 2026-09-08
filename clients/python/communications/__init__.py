@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -101,10 +101,12 @@ __all__ = [
     "PatchV1QuestionsRequestOneOf1",
     "PatchV1QuestionsRequestOneOf1Answer",
     "PostFeedbacksV1Pins200Response",
+    "PostV1FeedbacksAnswer403Response",
     "PostV1FeedbacksAnswerRequest",
     "PostV1FeedbacksOrderReturnRequest",
     "RespondResultErr",
     "RespondSuccessResponse",
+    "Response4XX",
     "ResponseFeedbackInner",
     "ResponseFeedbackInnerAnswer",
     "ResponseFeedbackInnerProductDetails",
@@ -202,10 +204,12 @@ from wildberries_sdk.communications.models.patch_v1_questions_request_one_of imp
 from wildberries_sdk.communications.models.patch_v1_questions_request_one_of1 import PatchV1QuestionsRequestOneOf1 as PatchV1QuestionsRequestOneOf1
 from wildberries_sdk.communications.models.patch_v1_questions_request_one_of1_answer import PatchV1QuestionsRequestOneOf1Answer as PatchV1QuestionsRequestOneOf1Answer
 from wildberries_sdk.communications.models.post_feedbacks_v1_pins200_response import PostFeedbacksV1Pins200Response as PostFeedbacksV1Pins200Response
+from wildberries_sdk.communications.models.post_v1_feedbacks_answer403_response import PostV1FeedbacksAnswer403Response as PostV1FeedbacksAnswer403Response
 from wildberries_sdk.communications.models.post_v1_feedbacks_answer_request import PostV1FeedbacksAnswerRequest as PostV1FeedbacksAnswerRequest
 from wildberries_sdk.communications.models.post_v1_feedbacks_order_return_request import PostV1FeedbacksOrderReturnRequest as PostV1FeedbacksOrderReturnRequest
 from wildberries_sdk.communications.models.respond_result_err import RespondResultErr as RespondResultErr
 from wildberries_sdk.communications.models.respond_success_response import RespondSuccessResponse as RespondSuccessResponse
+from wildberries_sdk.communications.models.response4_xx import Response4XX as Response4XX
 from wildberries_sdk.communications.models.response_feedback_inner import ResponseFeedbackInner as ResponseFeedbackInner
 from wildberries_sdk.communications.models.response_feedback_inner_answer import ResponseFeedbackInnerAnswer as ResponseFeedbackInnerAnswer
 from wildberries_sdk.communications.models.response_feedback_inner_product_details import ResponseFeedbackInnerProductDetails as ResponseFeedbackInnerProductDetails

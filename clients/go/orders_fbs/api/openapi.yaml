@@ -106,11 +106,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -200,11 +206,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -297,11 +309,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -403,11 +421,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -520,11 +544,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -626,11 +656,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -771,11 +807,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -907,11 +949,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1012,11 +1060,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1123,11 +1177,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -1298,11 +1358,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -1428,6 +1494,12 @@ paths:
                 data: {}
               schema:
                 $ref: "#/components/schemas/v3.APIError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -1565,11 +1637,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -1694,11 +1772,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -1832,11 +1916,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -1961,11 +2051,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -2090,11 +2186,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -2223,11 +2325,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -2364,11 +2472,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -2516,11 +2630,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2610,11 +2730,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -2726,11 +2852,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -2858,11 +2990,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2961,11 +3099,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -3075,6 +3219,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV3FbsShippingPoints_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -3171,11 +3332,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -3276,11 +3443,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -3401,11 +3574,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -3524,11 +3703,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -3643,11 +3828,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -3760,11 +3951,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -3883,11 +4080,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -4035,11 +4238,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -4165,11 +4374,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -4275,11 +4490,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -4395,11 +4616,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -4537,11 +4764,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: Доступ запрещён
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -4620,6 +4853,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV3FbsShippingPoints_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/json:
@@ -4704,6 +4954,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV3FbsShippingPoints_403_response"
+          description: Доступ запрещён
         "404":
           content:
             application/problem+json:
@@ -4806,6 +5073,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV3FbsShippingPoints_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/json:
@@ -4888,6 +5172,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV3FbsShippingPoints_403_response"
+          description: Доступ запрещён
         "404":
           content:
             application/problem+json:
@@ -5030,8 +5331,10 @@ paths:
               examples:
                 AccessDenied:
                   $ref: "#/components/examples/APIError403V2"
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
               schema:
-                $ref: "#/components/schemas/ArhiveOrderError400"
+                $ref: "#/components/schemas/_api_marketplace_v3_fbs_orders_archive_get_403_response"
           description: Доступ запрещён
         "429":
           content:
@@ -5102,17 +5405,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -5194,17 +5493,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -5297,17 +5592,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -5393,17 +5684,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -5515,17 +5802,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -5780,6 +6063,31 @@ components:
           error:
             title: SpotActionNotAllowed
             detail: Spot Action Not Allowed
+    AccessDenied:
+      value:
+        code: AccessDenied
+        message: ""
+    Response403TokenCategory:
+      description: Неверная категория токена
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: 2026-09-03T13:55:15Z
+    Response403TokenType:
+      description: Неверный тип токена
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: s2s-finance
+        status: 403
+        statusText: Forbidden
+        timestamp: 2026-05-25T02:47:09Z
   parameters:
     Supply:
       description: ID поставки
@@ -5868,17 +6176,19 @@ components:
     "403":
       content:
         application/problem+json:
-          example:
-            title: forbidden
-            detail: base token is not allowed
-            code: base token is not allowed for this path
-            requestId: 722199b2e15bbca48cc1d488a7989976
-            origin: s2s-finance
-            status: 403
-            statusText: Forbidden
-            timestamp: 2026-05-25T02:47:09Z
+          examples:
+            Response403TokenCategory:
+              description: Неверная категория токена
+              value:
+                status: 403
+                statusText: Forbidden
+                title: Forbidden
+                detail: scope is not allowed for this resource
+                requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                origin: ag-marketplace
+                timestamp: 2026-09-03T13:55:15Z
           schema:
-            $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+            $ref: "#/components/schemas/getV3FbsShippingPoints_403_response"
       description: Доступ запрещён
     "429":
       content:
@@ -5904,15 +6214,6 @@ components:
           schema:
             $ref: "#/components/schemas/Error"
       description: Не найдено
-    AccessDenied:
-      content:
-        application/json:
-          example:
-            code: AccessDenied
-            message: Доступ запрещён
-          schema:
-            $ref: "#/components/schemas/Error"
-      description: Доступ запрещён
     "401-2":
       content:
         application/problem+json:
@@ -7549,6 +7850,34 @@ components:
       - status
       - vehicleRegistrationNumber
       type: object
+    Response4XX:
+      properties:
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        code:
+          description: Внутренний код ошибки
+          type: string
+        requestId:
+          description: ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+        status:
+          description: HTTP статус-код
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          format: date-time
+          type: string
+      type: object
     _api_v3_passes_offices_get_401_response:
       example:
         title: title
@@ -8408,6 +8737,34 @@ components:
           nullable: false
           type: string
       type: object
+    getV3FbsShippingPoints_403_response:
+      properties:
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        code:
+          description: Внутренний код ошибки
+          type: string
+        requestId:
+          description: ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+        status:
+          description: HTTP статус-код
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          format: date-time
+          type: string
+      type: object
     _api_marketplace_v3_supplies__supplyId__orders_patch_request:
       properties:
         orders:
@@ -8567,6 +8924,10 @@ components:
       required:
       - supplyIds
       type: object
+    _api_marketplace_v3_fbs_orders_archive_get_403_response:
+      oneOf:
+      - $ref: "#/components/schemas/ArhiveOrderError400"
+      - $ref: "#/components/schemas/Response4XX"
     getMarketplaceV3FbsSettingsAutoreturns_200_response:
       example:
         type: allToWarehouse
@@ -8586,34 +8947,6 @@ components:
           type: string
       required:
       - type
-      type: object
-    getMarketplaceV3FbsSettingsAutoreturns_403_response:
-      properties:
-        title:
-          description: Заголовок ошибки
-          type: string
-        detail:
-          description: Детали ошибки
-          type: string
-        code:
-          description: Внутренний код ошибки
-          type: string
-        requestId:
-          description: ID запроса
-          type: string
-        origin:
-          description: ID внутреннего сервиса WB
-          type: string
-        status:
-          description: HTTP статус-код
-          type: number
-        statusText:
-          description: Расшифровка HTTP статус-кода
-          type: string
-        timestamp:
-          description: Дата и время запроса
-          format: date-time
-          type: string
       type: object
     patchMarketplaceV3FbsSettingsAutoreturns_request:
       properties:

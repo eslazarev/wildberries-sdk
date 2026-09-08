@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -68,7 +68,6 @@ __all__ = [
     "GetV1CalendarPromotionsNomenclatures200ResponseData",
     "GetV1CalendarPromotionsNomenclatures400Response",
     "GetV1CalendarPromotionsNomenclatures422Response",
-    "GetV1Config403Response",
     "GetV1Count200Response",
     "GetV1Count200ResponseAdverts",
     "GetV1Payments200ResponseInner",
@@ -76,6 +75,7 @@ __all__ = [
     "GetV1PromotionCount200ResponseAdvertsInner",
     "GetV1PromotionCount200ResponseAdvertsInnerAdvertListInner",
     "GetV1PromotionCount401Response",
+    "GetV1PromotionCount403Response",
     "GetV1SupplierSubjects200ResponseInner",
     "GetV1Upd200ResponseInner",
     "Model400Response",
@@ -118,6 +118,7 @@ __all__ = [
     "RequestWithInterval",
     "RequestWithIntervalInterval",
     "Response400",
+    "Response4XX",
     "ResponseAdvError1",
     "ResponseWithReturn",
     "StandardizedBatchError",
@@ -234,7 +235,6 @@ from wildberries_sdk.promotion.models.get_v1_calendar_promotions_nomenclatures20
 from wildberries_sdk.promotion.models.get_v1_calendar_promotions_nomenclatures200_response_data import GetV1CalendarPromotionsNomenclatures200ResponseData as GetV1CalendarPromotionsNomenclatures200ResponseData
 from wildberries_sdk.promotion.models.get_v1_calendar_promotions_nomenclatures400_response import GetV1CalendarPromotionsNomenclatures400Response as GetV1CalendarPromotionsNomenclatures400Response
 from wildberries_sdk.promotion.models.get_v1_calendar_promotions_nomenclatures422_response import GetV1CalendarPromotionsNomenclatures422Response as GetV1CalendarPromotionsNomenclatures422Response
-from wildberries_sdk.promotion.models.get_v1_config403_response import GetV1Config403Response as GetV1Config403Response
 from wildberries_sdk.promotion.models.get_v1_count200_response import GetV1Count200Response as GetV1Count200Response
 from wildberries_sdk.promotion.models.get_v1_count200_response_adverts import GetV1Count200ResponseAdverts as GetV1Count200ResponseAdverts
 from wildberries_sdk.promotion.models.get_v1_payments200_response_inner import GetV1Payments200ResponseInner as GetV1Payments200ResponseInner
@@ -242,6 +242,7 @@ from wildberries_sdk.promotion.models.get_v1_promotion_count200_response import 
 from wildberries_sdk.promotion.models.get_v1_promotion_count200_response_adverts_inner import GetV1PromotionCount200ResponseAdvertsInner as GetV1PromotionCount200ResponseAdvertsInner
 from wildberries_sdk.promotion.models.get_v1_promotion_count200_response_adverts_inner_advert_list_inner import GetV1PromotionCount200ResponseAdvertsInnerAdvertListInner as GetV1PromotionCount200ResponseAdvertsInnerAdvertListInner
 from wildberries_sdk.promotion.models.get_v1_promotion_count401_response import GetV1PromotionCount401Response as GetV1PromotionCount401Response
+from wildberries_sdk.promotion.models.get_v1_promotion_count403_response import GetV1PromotionCount403Response as GetV1PromotionCount403Response
 from wildberries_sdk.promotion.models.get_v1_supplier_subjects200_response_inner import GetV1SupplierSubjects200ResponseInner as GetV1SupplierSubjects200ResponseInner
 from wildberries_sdk.promotion.models.get_v1_upd200_response_inner import GetV1Upd200ResponseInner as GetV1Upd200ResponseInner
 from wildberries_sdk.promotion.models.model400_response import Model400Response as Model400Response
@@ -284,6 +285,7 @@ from wildberries_sdk.promotion.models.request_with_date import RequestWithDate a
 from wildberries_sdk.promotion.models.request_with_interval import RequestWithInterval as RequestWithInterval
 from wildberries_sdk.promotion.models.request_with_interval_interval import RequestWithIntervalInterval as RequestWithIntervalInterval
 from wildberries_sdk.promotion.models.response400 import Response400 as Response400
+from wildberries_sdk.promotion.models.response4_xx import Response4XX as Response4XX
 from wildberries_sdk.promotion.models.response_adv_error1 import ResponseAdvError1 as ResponseAdvError1
 from wildberries_sdk.promotion.models.response_with_return import ResponseWithReturn as ResponseWithReturn
 from wildberries_sdk.promotion.models.standardized_batch_error import StandardizedBatchError as StandardizedBatchError

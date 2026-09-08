@@ -79,6 +79,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1AccountBalance_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV1AccountBalance_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -157,17 +174,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/postV1SalesReportsList_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -272,17 +285,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/postV1SalesReportsList_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -383,6 +392,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1AccountBalance_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV1AccountBalance_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -460,17 +486,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/postV1SalesReportsList_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -572,17 +594,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/postV1SalesReportsList_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -674,17 +692,13 @@ paths:
         "403":
           content:
             application/problem+json:
-              example:
-                title: forbidden
-                detail: base token is not allowed
-                code: base token is not allowed for this path
-                requestId: 722199b2e15bbca48cc1d488a7989976
-                origin: s2s-finance
-                status: 403
-                statusText: Forbidden
-                timestamp: 2026-05-25T02:47:09Z
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/postV1SalesReportsList_403_response"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -778,6 +792,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1AccountBalance_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV1AccountBalance_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -986,6 +1017,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1AccountBalance_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV1AccountBalance_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -1091,6 +1139,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1AccountBalance_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV1AccountBalance_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -1200,6 +1265,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1AccountBalance_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV1AccountBalance_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -1225,6 +1307,28 @@ paths:
     servers:
     - url: https://documents-api.wildberries.ru
 components:
+  examples:
+    Response403TokenCategory:
+      description: Неверная категория токена
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: 2026-09-03T13:55:15Z
+    Response403TokenType:
+      description: Неверный тип токена
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: s2s-finance
+        status: 403
+        statusText: Forbidden
+        timestamp: 2026-05-25T02:47:09Z
   parameters:
     LocaleCat:
       description: |
@@ -1286,17 +1390,19 @@ components:
     "403":
       content:
         application/problem+json:
-          example:
-            title: forbidden
-            detail: base token is not allowed
-            code: base token is not allowed for this path
-            requestId: 722199b2e15bbca48cc1d488a7989976
-            origin: s2s-finance
-            status: 403
-            statusText: Forbidden
-            timestamp: 2026-05-25T02:47:09Z
+          examples:
+            Response403TokenCategory:
+              description: Неверная категория токена
+              value:
+                status: 403
+                statusText: Forbidden
+                title: Forbidden
+                detail: scope is not allowed for this resource
+                requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                origin: ag-marketplace
+                timestamp: 2026-09-03T13:55:15Z
           schema:
-            $ref: "#/components/schemas/postV1SalesReportsList_403_response"
+            $ref: "#/components/schemas/getV1AccountBalance_403_response"
       description: Доступ запрещён
     "429":
       content:
@@ -2605,6 +2711,34 @@ components:
       - taxRegistrationReasonCode
       - tin
       type: object
+    Response4XX:
+      properties:
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        code:
+          description: Внутренний код ошибки
+          type: string
+        requestId:
+          description: ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+        status:
+          description: HTTP статус-код
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          format: date-time
+          type: string
+      type: object
     getV1AccountBalance_200_response:
       example:
         currency: RUB
@@ -2662,30 +2796,7 @@ components:
             алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
-    postV1SalesReportsList_400_response:
-      properties:
-        status:
-          description: HTTP статус-код
-          example: 400
-          type: integer
-        title:
-          description: Заголовок ошибки
-          example: GetReportDetailByPeriodNB decode error
-          type: string
-        detail:
-          description: Детали ошибки
-          example: "GetReportDetailByPeriodNB decode error: missing dateTo params"
-          type: string
-        requestId:
-          description: ID запроса
-          example: b065c204-c5f7-431b-b12c-d4c2cc6347ec
-          type: string
-        origin:
-          description: ID внутреннего сервиса WB
-          example: open-api-finreports
-          type: string
-      type: object
-    postV1SalesReportsList_403_response:
+    getV1AccountBalance_403_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -2711,6 +2822,29 @@ components:
         timestamp:
           description: Дата и время запроса
           format: date-time
+          type: string
+      type: object
+    postV1SalesReportsList_400_response:
+      properties:
+        status:
+          description: HTTP статус-код
+          example: 400
+          type: integer
+        title:
+          description: Заголовок ошибки
+          example: GetReportDetailByPeriodNB decode error
+          type: string
+        detail:
+          description: Детали ошибки
+          example: "GetReportDetailByPeriodNB decode error: missing dateTo params"
+          type: string
+        requestId:
+          description: ID запроса
+          example: b065c204-c5f7-431b-b12c-d4c2cc6347ec
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          example: open-api-finreports
           type: string
       type: object
     getV1DocumentsList_400_response:

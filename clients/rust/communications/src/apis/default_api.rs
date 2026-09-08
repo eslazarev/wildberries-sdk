@@ -24,6 +24,7 @@ pub enum DeleteFeedbacksV1PinsError {
     Status400(models::RespondResultErr),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -35,6 +36,7 @@ pub enum GetFeedbacksV1PinsError {
     Status400(models::RespondResultErr),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -46,6 +48,7 @@ pub enum GetFeedbacksV1PinsCountError {
     Status400(models::RespondResultErr),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -56,6 +59,7 @@ pub enum GetFeedbacksV1PinsCountError {
 pub enum GetFeedbacksV1PinsLimitsError {
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -67,6 +71,7 @@ pub enum GetV1ClaimsError {
     Status400(models::GetV1Claims400Response),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -77,6 +82,7 @@ pub enum GetV1ClaimsError {
 pub enum GetV1FeedbackError {
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status422(models::ResponseFeedbackQuestionErr),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
@@ -194,6 +200,7 @@ pub enum GetV1QuestionsCountUnansweredError {
 pub enum GetV1SellerChatsError {
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -205,6 +212,7 @@ pub enum GetV1SellerDownloadIdError {
     Status400(models::GetV1SellerEvents400Response),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     Status451(models::GetV1SellerDownloadId451Response),
     UnknownValue(serde_json::Value),
@@ -217,6 +225,7 @@ pub enum GetV1SellerEventsError {
     Status400(models::GetV1SellerEvents400Response),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -228,6 +237,7 @@ pub enum PatchV1ClaimError {
     Status400(models::PatchV1Claim400Response),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -238,6 +248,7 @@ pub enum PatchV1ClaimError {
 pub enum PatchV1FeedbacksAnswerError {
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -275,6 +286,7 @@ pub enum PostV1FeedbacksAnswerError {
     Status400(models::StandardizedFqError),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -286,6 +298,7 @@ pub enum PostV1FeedbacksOrderReturnError {
     Status400(models::ResponseFeedbackQuestionErr),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status422(models::ResponseFeedbackQuestionErr),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
@@ -298,6 +311,7 @@ pub enum PostV1SellerMessageError {
     Status400(models::GetV1SellerEvents400Response),
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }

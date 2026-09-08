@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -29,6 +29,7 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "ApiErrorV3",
+    "ApiMarketplaceV3FbsOrdersArchiveGet403Response",
     "ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest",
     "ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest",
     "ApiV3OrdersGet200Response",
@@ -76,9 +77,9 @@ __all__ = [
     "CrossborderTurkeyClientInfoResp",
     "Error",
     "GetMarketplaceV3FbsSettingsAutoreturns200Response",
-    "GetMarketplaceV3FbsSettingsAutoreturns403Response",
     "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
     "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner",
+    "GetV3FbsShippingPoints403Response",
     "MetaDetailsInner",
     "Model409SupplyDeliverError",
     "Model409SupplyDeliverErrorData",
@@ -103,6 +104,7 @@ __all__ = [
     "PostV3FbsSuppliesSpotListRequest",
     "PutV3FbsSuppliesSupplyIdSpotRequest",
     "ReplyBatchError",
+    "Response4XX",
     "ShippingPoint",
     "ShippingPointsResponse",
     "Supply",
@@ -148,6 +150,7 @@ from wildberries_sdk.orders_fbs.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from wildberries_sdk.orders_fbs.models.api_error_v3 import ApiErrorV3 as ApiErrorV3
+from wildberries_sdk.orders_fbs.models.api_marketplace_v3_fbs_orders_archive_get403_response import ApiMarketplaceV3FbsOrdersArchiveGet403Response as ApiMarketplaceV3FbsOrdersArchiveGet403Response
 from wildberries_sdk.orders_fbs.models.api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request import ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest as ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
 from wildberries_sdk.orders_fbs.models.api_marketplace_v3_supplies_supply_id_orders_patch_request import ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest as ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest
 from wildberries_sdk.orders_fbs.models.api_v3_orders_get200_response import ApiV3OrdersGet200Response as ApiV3OrdersGet200Response
@@ -195,9 +198,9 @@ from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info import Cro
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info_resp import CrossborderTurkeyClientInfoResp as CrossborderTurkeyClientInfoResp
 from wildberries_sdk.orders_fbs.models.error import Error as Error
 from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns200_response import GetMarketplaceV3FbsSettingsAutoreturns200Response as GetMarketplaceV3FbsSettingsAutoreturns200Response
-from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns403_response import GetMarketplaceV3FbsSettingsAutoreturns403Response as GetMarketplaceV3FbsSettingsAutoreturns403Response
 from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted200_response import GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response as GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response
 from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted200_response_data_inner import GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner as GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner
+from wildberries_sdk.orders_fbs.models.get_v3_fbs_shipping_points403_response import GetV3FbsShippingPoints403Response as GetV3FbsShippingPoints403Response
 from wildberries_sdk.orders_fbs.models.meta_details_inner import MetaDetailsInner as MetaDetailsInner
 from wildberries_sdk.orders_fbs.models.model409_supply_deliver_error import Model409SupplyDeliverError as Model409SupplyDeliverError
 from wildberries_sdk.orders_fbs.models.model409_supply_deliver_error_data import Model409SupplyDeliverErrorData as Model409SupplyDeliverErrorData
@@ -222,6 +225,7 @@ from wildberries_sdk.orders_fbs.models.post_marketplace_v3_fbs_settings_autoretu
 from wildberries_sdk.orders_fbs.models.post_v3_fbs_supplies_spot_list_request import PostV3FbsSuppliesSpotListRequest as PostV3FbsSuppliesSpotListRequest
 from wildberries_sdk.orders_fbs.models.put_v3_fbs_supplies_supply_id_spot_request import PutV3FbsSuppliesSupplyIdSpotRequest as PutV3FbsSuppliesSupplyIdSpotRequest
 from wildberries_sdk.orders_fbs.models.reply_batch_error import ReplyBatchError as ReplyBatchError
+from wildberries_sdk.orders_fbs.models.response4_xx import Response4XX as Response4XX
 from wildberries_sdk.orders_fbs.models.shipping_point import ShippingPoint as ShippingPoint
 from wildberries_sdk.orders_fbs.models.shipping_points_response import ShippingPointsResponse as ShippingPointsResponse
 from wildberries_sdk.orders_fbs.models.supply import Supply as Supply

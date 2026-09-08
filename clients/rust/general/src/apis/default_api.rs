@@ -21,7 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum DeleteV1UserError {
     Status400(models::ErrorResponse),
     Status401(models::GetPing401Response),
-    Status403(models::GetV1Rating403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetPing401Response),
     UnknownValue(serde_json::Value),
 }
@@ -32,7 +32,7 @@ pub enum DeleteV1UserError {
 pub enum GetV1RatingError {
     Status401(models::GetPing401Response),
     Status402(models::GetV1SellerInfo402Response),
-    Status403(models::GetV1Rating403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetPing401Response),
     UnknownValue(serde_json::Value),
 }
@@ -53,7 +53,7 @@ pub enum GetV1SellerInfoError {
 pub enum GetV1SubscriptionsError {
     Status401(models::GetPing401Response),
     Status402(models::GetV1SellerInfo402Response),
-    Status403(models::GetV1Rating403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetPing401Response),
     UnknownValue(serde_json::Value),
 }
@@ -64,7 +64,7 @@ pub enum GetV1SubscriptionsError {
 pub enum GetV1TariffConstructorOptionsError {
     Status400(models::PlanBuilderErrors),
     Status401(models::GetPing401Response),
-    Status403(models::GetV1Rating403Response),
+    Status403(models::Response4Xx),
     Status404(models::PlanBuilderErrors),
     Status429(models::GetPing401Response),
     UnknownValue(serde_json::Value),
@@ -76,7 +76,7 @@ pub enum GetV1TariffConstructorOptionsError {
 pub enum GetV1UsersError {
     Status400(models::ErrorResponse),
     Status401(models::GetPing401Response),
-    Status403(models::GetV1Rating403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetPing401Response),
     UnknownValue(serde_json::Value),
 }
@@ -87,7 +87,7 @@ pub enum GetV1UsersError {
 pub enum PostV1InviteError {
     Status400(models::ErrorResponse),
     Status401(models::GetPing401Response),
-    Status403(models::GetV1Rating403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetPing401Response),
     UnknownValue(serde_json::Value),
 }
@@ -98,7 +98,7 @@ pub enum PostV1InviteError {
 pub enum PutV1UsersAccessError {
     Status400(models::ErrorResponse),
     Status401(models::GetPing401Response),
-    Status403(models::GetV1Rating403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetPing401Response),
     UnknownValue(serde_json::Value),
 }

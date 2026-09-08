@@ -225,7 +225,7 @@ func (a *FBSAPIService) ApiMarketplaceV3FbsOrdersArchiveGetExecute(r ApiApiMarke
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ArhiveOrderError400
+			var v ApiMarketplaceV3FbsOrdersArchiveGet403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -7283,7 +7283,7 @@ func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV3FbsDi
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -7328,6 +7328,17 @@ func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV3FbsDi
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV3FbsShippingPoints403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -7520,6 +7531,17 @@ func (a *FBSAPIService) GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPoint
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV3FbsShippingPoints403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v ApiV3PassesOfficesGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7683,6 +7705,17 @@ func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3Fb
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV3FbsShippingPoints403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ApiErrorV3
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7805,7 +7838,7 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -7999,7 +8032,7 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSupplies
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -8250,6 +8283,17 @@ func (a *FBSAPIService) PostV3FbsSuppliesSpotListExecute(r ApiPostV3FbsSuppliesS
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV3FbsShippingPoints403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v ApiV3PassesOfficesGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8413,6 +8457,17 @@ func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSupplie
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV3FbsShippingPoints403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

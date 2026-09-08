@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -57,6 +57,7 @@ __all__ = [
     "GetV1SupplierOrders400Response",
     "GetV1SupplierOrders401Response",
     "GetV1SupplierOrders402Response",
+    "GetV1SupplierOrders403Response",
     "GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner",
     "GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner",
     "MeasurementPenalties",
@@ -68,6 +69,7 @@ __all__ = [
     "OrdersItem",
     "Response400Retentions",
     "Response403Retentions",
+    "Response4XX",
     "ResponseErrorStatistics",
     "ResponseErrorStatistics2",
     "ResponsePaidStorageInner",
@@ -121,6 +123,7 @@ from wildberries_sdk.reports.models.get_v1_deductions200_response_data_reports_i
 from wildberries_sdk.reports.models.get_v1_supplier_orders400_response import GetV1SupplierOrders400Response as GetV1SupplierOrders400Response
 from wildberries_sdk.reports.models.get_v1_supplier_orders401_response import GetV1SupplierOrders401Response as GetV1SupplierOrders401Response
 from wildberries_sdk.reports.models.get_v1_supplier_orders402_response import GetV1SupplierOrders402Response as GetV1SupplierOrders402Response
+from wildberries_sdk.reports.models.get_v1_supplier_orders403_response import GetV1SupplierOrders403Response as GetV1SupplierOrders403Response
 from wildberries_sdk.reports.models.get_v1_warehouse_remains_tasks_task_id_download200_response_inner import GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner as GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner
 from wildberries_sdk.reports.models.get_v1_warehouse_remains_tasks_task_id_download200_response_inner_warehouses_inner import GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner as GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner
 from wildberries_sdk.reports.models.measurement_penalties import MeasurementPenalties as MeasurementPenalties
@@ -132,6 +135,7 @@ from wildberries_sdk.reports.models.models_excise_report_response_data_inner imp
 from wildberries_sdk.reports.models.orders_item import OrdersItem as OrdersItem
 from wildberries_sdk.reports.models.response400_retentions import Response400Retentions as Response400Retentions
 from wildberries_sdk.reports.models.response403_retentions import Response403Retentions as Response403Retentions
+from wildberries_sdk.reports.models.response4_xx import Response4XX as Response4XX
 from wildberries_sdk.reports.models.response_error_statistics import ResponseErrorStatistics as ResponseErrorStatistics
 from wildberries_sdk.reports.models.response_error_statistics2 import ResponseErrorStatistics2 as ResponseErrorStatistics2
 from wildberries_sdk.reports.models.response_paid_storage_inner import ResponsePaidStorageInner as ResponsePaidStorageInner

@@ -105,7 +105,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -176,7 +176,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -247,7 +247,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -379,6 +379,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetPing200Response",
             '401': "GetPing401Response",
+            '403': "GetPing403Response",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -444,6 +445,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetPing200Response",
             '401': "GetPing401Response",
+            '403': "GetPing403Response",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -509,6 +511,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetPing200Response",
             '401': "GetPing401Response",
+            '403': "GetPing403Response",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -636,7 +639,7 @@ class DefaultApi:
             '200': "SupplierRatingModel",
             '401': "GetPing401Response",
             '402': "GetV1SellerInfo402Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -703,7 +706,7 @@ class DefaultApi:
             '200': "SupplierRatingModel",
             '401': "GetPing401Response",
             '402': "GetV1SellerInfo402Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -770,7 +773,7 @@ class DefaultApi:
             '200': "SupplierRatingModel",
             '401': "GetPing401Response",
             '402': "GetV1SellerInfo402Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -1157,7 +1160,7 @@ class DefaultApi:
             '200': "SubscriptionsJamInfo",
             '401': "GetPing401Response",
             '402': "GetV1SellerInfo402Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -1224,7 +1227,7 @@ class DefaultApi:
             '200': "SubscriptionsJamInfo",
             '401': "GetPing401Response",
             '402': "GetV1SellerInfo402Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -1291,7 +1294,7 @@ class DefaultApi:
             '200': "SubscriptionsJamInfo",
             '401': "GetPing401Response",
             '402': "GetV1SellerInfo402Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -1423,7 +1426,7 @@ class DefaultApi:
             '200': "PlanBuilderOptionsInfo",
             '400': "PlanBuilderErrors",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '404': "PlanBuilderErrors",
             '429': "GetPing401Response",
         }
@@ -1495,7 +1498,7 @@ class DefaultApi:
             '200': "PlanBuilderOptionsInfo",
             '400': "PlanBuilderErrors",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '404': "PlanBuilderErrors",
             '429': "GetPing401Response",
         }
@@ -1567,7 +1570,7 @@ class DefaultApi:
             '200': "PlanBuilderOptionsInfo",
             '400': "PlanBuilderErrors",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '404': "PlanBuilderErrors",
             '429': "GetPing401Response",
         }
@@ -1713,7 +1716,7 @@ class DefaultApi:
             '200': "GetUsersResponse",
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -1792,7 +1795,7 @@ class DefaultApi:
             '200': "GetUsersResponse",
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -1871,7 +1874,7 @@ class DefaultApi:
             '200': "GetUsersResponse",
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -2320,7 +2323,7 @@ class DefaultApi:
             '200': "CreateInviteResponse",
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -2391,7 +2394,7 @@ class DefaultApi:
             '200': "CreateInviteResponse",
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -2462,7 +2465,7 @@ class DefaultApi:
             '200': "CreateInviteResponse",
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -2610,7 +2613,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -2681,7 +2684,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(
@@ -2752,7 +2755,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "GetPing401Response",
-            '403': "GetV1Rating403Response",
+            '403': "Response4XX",
             '429': "GetPing401Response",
         }
         response_data = self.api_client.call_api(

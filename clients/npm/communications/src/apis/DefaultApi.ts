@@ -169,6 +169,11 @@ import {
     PostFeedbacksV1Pins200ResponseToJSON,
 } from '../models/PostFeedbacksV1Pins200Response';
 import {
+    type PostV1FeedbacksAnswer403Response,
+    PostV1FeedbacksAnswer403ResponseFromJSON,
+    PostV1FeedbacksAnswer403ResponseToJSON,
+} from '../models/PostV1FeedbacksAnswer403Response';
+import {
     type PostV1FeedbacksAnswerRequest,
     PostV1FeedbacksAnswerRequestFromJSON,
     PostV1FeedbacksAnswerRequestToJSON,
@@ -183,6 +188,11 @@ import {
     RespondResultErrFromJSON,
     RespondResultErrToJSON,
 } from '../models/RespondResultErr';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 import {
     type ResponseFeedbackQuestionErr,
     ResponseFeedbackQuestionErrFromJSON,

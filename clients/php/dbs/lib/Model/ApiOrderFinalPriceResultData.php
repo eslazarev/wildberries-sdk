@@ -35,7 +35,7 @@ use \Wildberries\Sdk\Dbs\ObjectSerializer;
  * ApiOrderFinalPriceResultData Class Doc Comment
  *
  * @category Class
- * @description Данные сборочного задания. &lt;br&gt;&lt;br&gt; Если &#x60;\&quot;data\&quot;:{}&#x60;, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 3 минут. &lt;br&gt;&lt;br&gt; Если &#x60;data&#x60; отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders)
+ * @description Данные сборочного задания. &lt;br&gt;&lt;br&gt; Если &#x60;\&quot;data\&quot;:{}&#x60;, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты. &lt;br&gt;&lt;br&gt; Если &#x60;data&#x60; отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:   - [Получить список новых сборочных заданий](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders)
  * @package  Wildberries\Sdk\Dbs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

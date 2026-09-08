@@ -45,3 +45,4 @@ export * from './PostV3DbwOrdersStickersRequest';
 export * from './PutV3DbwOrdersOrderIdMetaGtinRequest';
 export * from './PutV3DbwOrdersOrderIdMetaImeiRequest';
 export * from './PutV3DbwOrdersOrderIdMetaUinRequest';
+export * from './Response4XX';

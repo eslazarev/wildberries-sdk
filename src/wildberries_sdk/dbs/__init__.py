@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -89,7 +89,7 @@ __all__ = [
     "PostV3DbsOrdersStickers200Response",
     "PostV3DbsOrdersStickers200ResponseStickersInner",
     "PostV3DbsOrdersStickersRequest",
-    "Response403General",
+    "Response4XX",
 ]
 
 # import apis into sdk package
@@ -168,5 +168,5 @@ from wildberries_sdk.dbs.models.post_v3_dbs_orders_status_receive200_response_re
 from wildberries_sdk.dbs.models.post_v3_dbs_orders_stickers200_response import PostV3DbsOrdersStickers200Response as PostV3DbsOrdersStickers200Response
 from wildberries_sdk.dbs.models.post_v3_dbs_orders_stickers200_response_stickers_inner import PostV3DbsOrdersStickers200ResponseStickersInner as PostV3DbsOrdersStickers200ResponseStickersInner
 from wildberries_sdk.dbs.models.post_v3_dbs_orders_stickers_request import PostV3DbsOrdersStickersRequest as PostV3DbsOrdersStickersRequest
-from wildberries_sdk.dbs.models.response403_general import Response403General as Response403General
+from wildberries_sdk.dbs.models.response4_xx import Response4XX as Response4XX
 

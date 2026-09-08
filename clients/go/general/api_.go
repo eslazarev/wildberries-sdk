@@ -166,7 +166,7 @@ func (a *DefaultApiService) DeleteV1UserExecute(r ApiDeleteV1UserRequest) (*http
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1Rating403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -332,7 +332,7 @@ func (a *DefaultApiService) GetV1RatingExecute(r ApiGetV1RatingRequest) (*Suppli
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1Rating403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -679,7 +679,7 @@ func (a *DefaultApiService) GetV1SubscriptionsExecute(r ApiGetV1SubscriptionsReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1Rating403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -870,7 +870,7 @@ func (a *DefaultApiService) GetV1TariffConstructorOptionsExecute(r ApiGetV1Tarif
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1Rating403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1103,7 +1103,7 @@ func (a *DefaultApiService) GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsers
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1Rating403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1292,7 +1292,7 @@ func (a *DefaultApiService) PostV1InviteExecute(r ApiPostV1InviteRequest) (*Crea
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1Rating403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1473,7 +1473,7 @@ func (a *DefaultApiService) PutV1UsersAccessExecute(r ApiPutV1UsersAccessRequest
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1Rating403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

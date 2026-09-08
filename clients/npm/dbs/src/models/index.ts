@@ -61,4 +61,4 @@ export * from './PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner'
 export * from './PostV3DbsOrdersStickers200Response';
 export * from './PostV3DbsOrdersStickers200ResponseStickersInner';
 export * from './PostV3DbsOrdersStickersRequest';
-export * from './Response403General';
+export * from './Response4XX';

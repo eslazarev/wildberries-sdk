@@ -19,3 +19,4 @@ export * from './ModelsVolumeTariff';
 export * from './ModelsWarehousesResultItems';
 export * from './PostV1AcceptanceOptions401Response';
 export * from './PostV1AcceptanceOptions402Response';
+export * from './PostV1AcceptanceOptions403Response';

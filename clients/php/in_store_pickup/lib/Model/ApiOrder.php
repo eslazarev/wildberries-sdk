@@ -76,6 +76,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'skus' => 'string[]',
         'warehouse_address' => 'string',
         'warehouse_id' => 'int',
+        'tire_service' => 'bool',
         'options' => '\Wildberries\Sdk\InStorePickup\Model\ApiOrderOptions'
     ];
 
@@ -106,6 +107,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'skus' => null,
         'warehouse_address' => null,
         'warehouse_id' => null,
+        'tire_service' => null,
         'options' => null
     ];
 
@@ -134,6 +136,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'skus' => false,
         'warehouse_address' => false,
         'warehouse_id' => false,
+        'tire_service' => false,
         'options' => false
     ];
 
@@ -242,6 +245,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'skus' => 'skus',
         'warehouse_address' => 'warehouseAddress',
         'warehouse_id' => 'warehouseId',
+        'tire_service' => 'tireService',
         'options' => 'options'
     ];
 
@@ -270,6 +274,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'skus' => 'setSkus',
         'warehouse_address' => 'setWarehouseAddress',
         'warehouse_id' => 'setWarehouseId',
+        'tire_service' => 'setTireService',
         'options' => 'setOptions'
     ];
 
@@ -298,6 +303,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'skus' => 'getSkus',
         'warehouse_address' => 'getWarehouseAddress',
         'warehouse_id' => 'getWarehouseId',
+        'tire_service' => 'getTireService',
         'options' => 'getOptions'
     ];
 
@@ -394,6 +400,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('skus', $data ?? [], null);
         $this->setIfExists('warehouse_address', $data ?? [], null);
         $this->setIfExists('warehouse_id', $data ?? [], null);
+        $this->setIfExists('tire_service', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
     }
 
@@ -967,6 +974,33 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable warehouse_id cannot be null');
         }
         $this->container['warehouse_id'] = $warehouse_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tire_service
+     *
+     * @return bool|null
+     */
+    public function getTireService()
+    {
+        return $this->container['tire_service'];
+    }
+
+    /**
+     * Sets tire_service
+     *
+     * @param bool|null $tire_service Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется
+     *
+     * @return self
+     */
+    public function setTireService($tire_service)
+    {
+        if (is_null($tire_service)) {
+            throw new \InvalidArgumentException('non-nullable tire_service cannot be null');
+        }
+        $this->container['tire_service'] = $tire_service;
 
         return $this;
     }

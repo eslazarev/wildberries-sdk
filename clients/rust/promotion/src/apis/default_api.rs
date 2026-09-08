@@ -32,6 +32,7 @@ pub enum DeleteV0NormqueryBidsError {
 pub enum GetV0BidsRecommendationsError {
     Status400(String),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -42,6 +43,7 @@ pub enum GetV0BidsRecommendationsError {
 pub enum GetV0DeleteError {
     Status400(models::ResponseAdvError1),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -52,6 +54,7 @@ pub enum GetV0DeleteError {
 pub enum GetV0PauseError {
     Status400(models::Model400Response),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status422(String),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
@@ -63,6 +66,7 @@ pub enum GetV0PauseError {
 pub enum GetV0StartError {
     Status400(models::Model400Response),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status422(String),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
@@ -74,6 +78,7 @@ pub enum GetV0StartError {
 pub enum GetV0StopError {
     Status400(models::Model400Response),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status422(String),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
@@ -85,6 +90,7 @@ pub enum GetV0StopError {
 pub enum GetV1AdvertError {
     Status400(String),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -94,6 +100,7 @@ pub enum GetV1AdvertError {
 #[serde(untagged)]
 pub enum GetV1AdvertsError {
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -104,6 +111,7 @@ pub enum GetV1AdvertsError {
 pub enum GetV1BalanceError {
     Status400(String),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -114,6 +122,7 @@ pub enum GetV1BalanceError {
 pub enum GetV1BudgetError {
     Status400(String),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -125,6 +134,7 @@ pub enum GetV1CalendarPromotionsError {
     Status400(models::GetV1CalendarPromotions400Response),
     Status401(models::GetV1PromotionCount401Response),
     Status402(models::GetV1CalendarPromotions402Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -136,6 +146,7 @@ pub enum GetV1CalendarPromotionsDetailsError {
     Status400(models::GetV1CalendarPromotions400Response),
     Status401(models::GetV1PromotionCount401Response),
     Status402(models::GetV1CalendarPromotions402Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -147,6 +158,7 @@ pub enum GetV1CalendarPromotionsNomenclaturesError {
     Status400(models::GetV1CalendarPromotionsNomenclatures400Response),
     Status401(models::GetV1PromotionCount401Response),
     Status402(models::GetV1CalendarPromotions402Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status422(models::GetV1CalendarPromotionsNomenclatures422Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
@@ -157,7 +169,7 @@ pub enum GetV1CalendarPromotionsNomenclaturesError {
 #[serde(untagged)]
 pub enum GetV1ConfigError {
     Status401(models::GetV1PromotionCount401Response),
-    Status403(models::GetV1Config403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -167,6 +179,7 @@ pub enum GetV1ConfigError {
 #[serde(untagged)]
 pub enum GetV1CountError {
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -177,6 +190,7 @@ pub enum GetV1CountError {
 pub enum GetV1PaymentsError {
     Status400(String),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -186,6 +200,7 @@ pub enum GetV1PaymentsError {
 #[serde(untagged)]
 pub enum GetV1PromotionCountError {
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -195,6 +210,7 @@ pub enum GetV1PromotionCountError {
 #[serde(untagged)]
 pub enum GetV1SupplierSubjectsError {
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status404(),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
@@ -206,6 +222,7 @@ pub enum GetV1SupplierSubjectsError {
 pub enum GetV1UpdError {
     Status400(String),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -216,6 +233,7 @@ pub enum GetV1UpdError {
 pub enum GetV2AdvertsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -226,6 +244,7 @@ pub enum GetV2AdvertsError {
 pub enum GetV3FullstatsError {
     Status400(models::FullStatsError),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -236,6 +255,7 @@ pub enum GetV3FullstatsError {
 pub enum PatchV0AuctionNmsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -246,6 +266,7 @@ pub enum PatchV0AuctionNmsError {
 pub enum PatchV1BidsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -289,6 +310,7 @@ pub enum PostV0NormqueryGetMinusError {
 pub enum PostV0NormqueryListError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -321,6 +343,7 @@ pub enum PostV0NormqueryStatsError {
 pub enum PostV0RenameError {
     Status400(String),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status422(String),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
@@ -332,6 +355,7 @@ pub enum PostV0RenameError {
 pub enum PostV1BidsMinError {
     Status400(models::StandardizedBatchError),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -342,6 +366,7 @@ pub enum PostV1BidsMinError {
 pub enum PostV1BudgetDepositError {
     Status400(models::PostV1BudgetDeposit400Response),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -353,6 +378,7 @@ pub enum PostV1CalendarPromotionsUploadError {
     Status400(models::GetV1CalendarPromotionsNomenclatures400Response),
     Status401(models::GetV1PromotionCount401Response),
     Status402(models::GetV1CalendarPromotions402Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status422(models::PostV1CalendarPromotionsUpload422Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
@@ -364,7 +390,7 @@ pub enum PostV1CalendarPromotionsUploadError {
 pub enum PostV1NormqueryBidsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
-    Status403(models::GetV1Config403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -375,6 +401,7 @@ pub enum PostV1NormqueryBidsError {
 pub enum PostV1NormqueryStatsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -385,6 +412,7 @@ pub enum PostV1NormqueryStatsError {
 pub enum PostV1StatsError {
     Status400(models::ResponseAdvError1),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -395,6 +423,7 @@ pub enum PostV1StatsError {
 pub enum PostV2SeacatSaveAdError {
     Status400(String),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -405,6 +434,7 @@ pub enum PostV2SeacatSaveAdError {
 pub enum PostV2SupplierNmsError {
     Status400(String),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -415,12 +445,13 @@ pub enum PostV2SupplierNmsError {
 pub enum PutV0AuctionPlacementsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn delete_v0_normquery_bids(configuration: &configuration::Configuration, v0_delete_norm_query_bids_request: models::V0DeleteNormQueryBidsRequest) -> Result<(), Error<DeleteV0NormqueryBidsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_v0_delete_norm_query_bids_request = v0_delete_norm_query_bids_request;
@@ -1484,7 +1515,7 @@ pub async fn patch_v1_bids(configuration: &configuration::Configuration, patch_v
     }
 }
 
-/// Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn post_v0_normquery_bids(configuration: &configuration::Configuration, v0_set_norm_query_bids_request: models::V0SetNormQueryBidsRequest) -> Result<(), Error<PostV0NormqueryBidsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_v0_set_norm_query_bids_request = v0_set_norm_query_bids_request;
@@ -1565,7 +1596,7 @@ pub async fn post_v0_normquery_get_bids(configuration: &configuration::Configura
     }
 }
 
-/// Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn post_v0_normquery_get_minus(configuration: &configuration::Configuration, v0_get_norm_query_minus_request: models::V0GetNormQueryMinusRequest) -> Result<models::V0GetNormQueryMinusResponse, Error<PostV0NormqueryGetMinusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_v0_get_norm_query_minus_request = v0_get_norm_query_minus_request;

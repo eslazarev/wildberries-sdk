@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -35,10 +35,10 @@ __all__ = [
     "ErrorResponse",
     "GetPing200Response",
     "GetPing401Response",
+    "GetPing403Response",
     "GetUsersResponse",
     "GetUsersResponseUsersInner",
     "GetUsersResponseUsersInnerInviteeInfo",
-    "GetV1Rating403Response",
     "GetV1SellerInfo200Response",
     "GetV1SellerInfo402Response",
     "GetV2News200Response",
@@ -50,6 +50,7 @@ __all__ = [
     "PlanBuilderOptionsInfo",
     "PlanBuilderPackage",
     "PlanBuilderPromotion",
+    "Response4XX",
     "SubscriptionsJamInfo",
     "SupplierRatingModel",
     "UpdateUserAccessRequest",
@@ -78,10 +79,10 @@ from wildberries_sdk.general.models.create_invite_response import CreateInviteRe
 from wildberries_sdk.general.models.error_response import ErrorResponse as ErrorResponse
 from wildberries_sdk.general.models.get_ping200_response import GetPing200Response as GetPing200Response
 from wildberries_sdk.general.models.get_ping401_response import GetPing401Response as GetPing401Response
+from wildberries_sdk.general.models.get_ping403_response import GetPing403Response as GetPing403Response
 from wildberries_sdk.general.models.get_users_response import GetUsersResponse as GetUsersResponse
 from wildberries_sdk.general.models.get_users_response_users_inner import GetUsersResponseUsersInner as GetUsersResponseUsersInner
 from wildberries_sdk.general.models.get_users_response_users_inner_invitee_info import GetUsersResponseUsersInnerInviteeInfo as GetUsersResponseUsersInnerInviteeInfo
-from wildberries_sdk.general.models.get_v1_rating403_response import GetV1Rating403Response as GetV1Rating403Response
 from wildberries_sdk.general.models.get_v1_seller_info200_response import GetV1SellerInfo200Response as GetV1SellerInfo200Response
 from wildberries_sdk.general.models.get_v1_seller_info402_response import GetV1SellerInfo402Response as GetV1SellerInfo402Response
 from wildberries_sdk.general.models.get_v2_news200_response import GetV2News200Response as GetV2News200Response
@@ -93,6 +94,7 @@ from wildberries_sdk.general.models.plan_builder_option_short import PlanBuilder
 from wildberries_sdk.general.models.plan_builder_options_info import PlanBuilderOptionsInfo as PlanBuilderOptionsInfo
 from wildberries_sdk.general.models.plan_builder_package import PlanBuilderPackage as PlanBuilderPackage
 from wildberries_sdk.general.models.plan_builder_promotion import PlanBuilderPromotion as PlanBuilderPromotion
+from wildberries_sdk.general.models.response4_xx import Response4XX as Response4XX
 from wildberries_sdk.general.models.subscriptions_jam_info import SubscriptionsJamInfo as SubscriptionsJamInfo
 from wildberries_sdk.general.models.supplier_rating_model import SupplierRatingModel as SupplierRatingModel
 from wildberries_sdk.general.models.update_user_access_request import UpdateUserAccessRequest as UpdateUserAccessRequest

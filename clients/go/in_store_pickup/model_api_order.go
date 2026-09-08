@@ -58,6 +58,8 @@ type ApiOrder struct {
 	WarehouseAddress *string `json:"warehouseAddress,omitempty"`
 	// ID склада продавца, на который поступило сборочное задание
 	WarehouseId *int32 `json:"warehouseId,omitempty"`
+	// Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется 
+	TireService *bool `json:"tireService,omitempty"`
 	Options *ApiOrderOptions `json:"options,omitempty"`
 }
 
@@ -686,6 +688,38 @@ func (o *ApiOrder) SetWarehouseId(v int32) {
 	o.WarehouseId = &v
 }
 
+// GetTireService returns the TireService field value if set, zero value otherwise.
+func (o *ApiOrder) GetTireService() bool {
+	if o == nil || IsNil(o.TireService) {
+		var ret bool
+		return ret
+	}
+	return *o.TireService
+}
+
+// GetTireServiceOk returns a tuple with the TireService field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiOrder) GetTireServiceOk() (*bool, bool) {
+	if o == nil || IsNil(o.TireService) {
+		return nil, false
+	}
+	return o.TireService, true
+}
+
+// HasTireService returns a boolean if a field has been set.
+func (o *ApiOrder) HasTireService() bool {
+	if o != nil && !IsNil(o.TireService) {
+		return true
+	}
+
+	return false
+}
+
+// SetTireService gets a reference to the given bool and assigns it to the TireService field.
+func (o *ApiOrder) SetTireService(v bool) {
+	o.TireService = &v
+}
+
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *ApiOrder) GetOptions() ApiOrderOptions {
 	if o == nil || IsNil(o.Options) {
@@ -784,6 +818,9 @@ func (o ApiOrder) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.WarehouseId) {
 		toSerialize["warehouseId"] = o.WarehouseId
+	}
+	if !IsNil(o.TireService) {
+		toSerialize["tireService"] = o.TireService
 	}
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options

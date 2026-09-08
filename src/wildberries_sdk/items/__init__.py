@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -116,6 +116,7 @@ __all__ = [
     "ContentV2GetCardsTrashPostRequestSettingsSort",
     "ContentV2ObjectAllGet200Response",
     "ContentV2ObjectAllGet200ResponseDataInner",
+    "ContentV2ObjectAllGet403Response",
     "ContentV2ObjectCharcsSubjectIdGet200Response",
     "ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner",
     "ContentV2ObjectParentAllGet200Response",
@@ -144,7 +145,6 @@ __all__ = [
     "ModelsErrorTableListPublicRespV2",
     "ModelsErrorTableListPublicRespV2Item",
     "Office",
-    "PostV1RecommendationsList403Response",
     "PostV1UploadTaskB2bWholesale200Response",
     "PostV1UploadTaskB2bWholesale200ResponseResultsInner",
     "PostV1UploadTaskB2bWholesale200ResponseResultsInnerError",
@@ -159,7 +159,7 @@ __all__ = [
     "Response208SetRecom",
     "Response400GetRecom",
     "Response400SetRecom",
-    "Response403General",
+    "Response4XX",
     "ResponseBodyContentError400",
     "ResponseBodyContentError403",
     "ResponseContentError",
@@ -298,6 +298,7 @@ from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request_settin
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request_settings_sort import ContentV2GetCardsTrashPostRequestSettingsSort as ContentV2GetCardsTrashPostRequestSettingsSort
 from wildberries_sdk.items.models.content_v2_object_all_get200_response import ContentV2ObjectAllGet200Response as ContentV2ObjectAllGet200Response
 from wildberries_sdk.items.models.content_v2_object_all_get200_response_data_inner import ContentV2ObjectAllGet200ResponseDataInner as ContentV2ObjectAllGet200ResponseDataInner
+from wildberries_sdk.items.models.content_v2_object_all_get403_response import ContentV2ObjectAllGet403Response as ContentV2ObjectAllGet403Response
 from wildberries_sdk.items.models.content_v2_object_charcs_subject_id_get200_response import ContentV2ObjectCharcsSubjectIdGet200Response as ContentV2ObjectCharcsSubjectIdGet200Response
 from wildberries_sdk.items.models.content_v2_object_charcs_subject_id_get200_response_data_inner import ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner as ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
 from wildberries_sdk.items.models.content_v2_object_parent_all_get200_response import ContentV2ObjectParentAllGet200Response as ContentV2ObjectParentAllGet200Response
@@ -326,7 +327,6 @@ from wildberries_sdk.items.models.models_error_subcategory import ModelsErrorSub
 from wildberries_sdk.items.models.models_error_table_list_public_resp_v2 import ModelsErrorTableListPublicRespV2 as ModelsErrorTableListPublicRespV2
 from wildberries_sdk.items.models.models_error_table_list_public_resp_v2_item import ModelsErrorTableListPublicRespV2Item as ModelsErrorTableListPublicRespV2Item
 from wildberries_sdk.items.models.office import Office as Office
-from wildberries_sdk.items.models.post_v1_recommendations_list403_response import PostV1RecommendationsList403Response as PostV1RecommendationsList403Response
 from wildberries_sdk.items.models.post_v1_upload_task_b2b_wholesale200_response import PostV1UploadTaskB2bWholesale200Response as PostV1UploadTaskB2bWholesale200Response
 from wildberries_sdk.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner import PostV1UploadTaskB2bWholesale200ResponseResultsInner as PostV1UploadTaskB2bWholesale200ResponseResultsInner
 from wildberries_sdk.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner_error import PostV1UploadTaskB2bWholesale200ResponseResultsInnerError as PostV1UploadTaskB2bWholesale200ResponseResultsInnerError
@@ -341,7 +341,7 @@ from wildberries_sdk.items.models.request_public_viewer_public_errors_table_list
 from wildberries_sdk.items.models.response208_set_recom import Response208SetRecom as Response208SetRecom
 from wildberries_sdk.items.models.response400_get_recom import Response400GetRecom as Response400GetRecom
 from wildberries_sdk.items.models.response400_set_recom import Response400SetRecom as Response400SetRecom
-from wildberries_sdk.items.models.response403_general import Response403General as Response403General
+from wildberries_sdk.items.models.response4_xx import Response4XX as Response4XX
 from wildberries_sdk.items.models.response_body_content_error400 import ResponseBodyContentError400 as ResponseBodyContentError400
 from wildberries_sdk.items.models.response_body_content_error403 import ResponseBodyContentError403 as ResponseBodyContentError403
 from wildberries_sdk.items.models.response_content_error import ResponseContentError as ResponseContentError

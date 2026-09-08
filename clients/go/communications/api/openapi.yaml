@@ -104,6 +104,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -192,6 +198,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -325,6 +337,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -518,6 +536,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -648,6 +672,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -786,6 +816,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "422":
           content:
@@ -884,6 +920,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1019,6 +1061,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1248,6 +1296,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1335,6 +1389,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -1426,6 +1497,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -1528,6 +1616,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "422":
           content:
             application/json:
@@ -1682,6 +1787,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "422":
           content:
             application/json:
@@ -1886,6 +2008,12 @@ paths:
                   $ref: "#/components/examples/FeedbackErr403"
               schema:
                 $ref: "#/components/schemas/responseFeedbackQuestionErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "422":
           content:
@@ -2002,6 +2130,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -2186,6 +2331,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -2299,6 +2461,12 @@ paths:
                 detail: this feature requires active subscription or active tariff
               schema:
                 $ref: "#/components/schemas/respond.ResultErr"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2465,6 +2633,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -2539,6 +2724,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -2613,6 +2815,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -2791,6 +3010,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -2921,6 +3157,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -3036,6 +3289,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -3179,6 +3449,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -3257,6 +3544,23 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -3431,6 +3735,16 @@ components:
         errorText: Неправильный id в запросе
         additionalErrors: null
         requestId: 958d9676-b50c-41d6-b7ce-3c9f0bc3b822
+    Response403TokenCategory:
+      description: Неверная категория токена
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: 2026-09-03T13:55:15Z
   parameters:
     limit:
       description: Количество заявок в ответе
@@ -3528,6 +3842,23 @@ components:
           schema:
             $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
       description: Требуется платёж
+    "403":
+      content:
+        application/problem+json:
+          examples:
+            Response403TokenCategory:
+              description: Неверная категория токена
+              value:
+                status: 403
+                statusText: Forbidden
+                title: Forbidden
+                detail: scope is not allowed for this resource
+                requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                origin: ag-marketplace
+                timestamp: 2026-09-03T13:55:15Z
+          schema:
+            $ref: "#/components/schemas/postV1FeedbacksAnswer_403_response"
+      description: Доступ запрещён
     "429":
       content:
         application/problem+json:
@@ -4427,6 +4758,34 @@ components:
           type: object
       required:
       - data
+      type: object
+    Response4XX:
+      properties:
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        code:
+          description: Внутренний код ошибки
+          type: string
+        requestId:
+          description: ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+        status:
+          description: HTTP статус-код
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          format: date-time
+          type: string
       type: object
     getV1NewFeedbacksQuestions_200_response_data:
       example:
@@ -5341,6 +5700,34 @@ components:
       required:
       - id
       - text
+      type: object
+    postV1FeedbacksAnswer_403_response:
+      properties:
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        code:
+          description: Внутренний код ошибки
+          type: string
+        requestId:
+          description: ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+        status:
+          description: HTTP статус-код
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          format: date-time
+          type: string
       type: object
     patchV1FeedbacksAnswer_request:
       properties:

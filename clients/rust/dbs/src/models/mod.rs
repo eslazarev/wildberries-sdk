@@ -120,5 +120,5 @@ pub mod post_v3_dbs_orders_stickers_200_response_stickers_inner;
 pub use self::post_v3_dbs_orders_stickers_200_response_stickers_inner::PostV3DbsOrdersStickers200ResponseStickersInner;
 pub mod post_v3_dbs_orders_stickers_request;
 pub use self::post_v3_dbs_orders_stickers_request::PostV3DbsOrdersStickersRequest;
-pub mod response403_general;
-pub use self::response403_general::Response403General;
+pub mod response4_xx;
+pub use self::response4_xx::Response4Xx;

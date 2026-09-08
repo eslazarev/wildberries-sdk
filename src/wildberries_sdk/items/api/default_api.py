@@ -160,6 +160,7 @@ class DefaultApi:
             '200': "BrandsResponse",
             '400': "BrandsResponseError",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '404': "BrandsResponseError",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -235,6 +236,7 @@ class DefaultApi:
             '200': "BrandsResponse",
             '400': "BrandsResponseError",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '404': "BrandsResponseError",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -310,6 +312,7 @@ class DefaultApi:
             '200': "BrandsResponse",
             '400': "BrandsResponseError",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '404': "BrandsResponseError",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -8772,6 +8775,7 @@ class DefaultApi:
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '402': "ContentV2TagsGet402Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '413': "ContentV2CardsUpdatePost413Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -8844,6 +8848,7 @@ class DefaultApi:
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '402': "ContentV2TagsGet402Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '413': "ContentV2CardsUpdatePost413Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -8916,6 +8921,7 @@ class DefaultApi:
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '402': "ContentV2TagsGet402Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '413': "ContentV2CardsUpdatePost413Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -9066,6 +9072,7 @@ class DefaultApi:
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '402': "ContentV2TagsGet402Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '413': "ContentV2CardsUpdatePost413Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -9138,6 +9145,7 @@ class DefaultApi:
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '402': "ContentV2TagsGet402Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '413': "ContentV2CardsUpdatePost413Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -9210,6 +9218,7 @@ class DefaultApi:
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '402': "ContentV2TagsGet402Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '413': "ContentV2CardsUpdatePost413Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -11713,6 +11722,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ContentV2ObjectAllGet200Response",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -11798,6 +11808,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ContentV2ObjectAllGet200Response",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -11883,6 +11894,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ContentV2ObjectAllGet200Response",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "ContentV2ObjectAllGet403Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -14681,7 +14693,7 @@ class DefaultApi:
             '200': "GetRecomRes",
             '400': "Response400GetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
-            '403': "PostV1RecommendationsList403Response",
+            '403': "Response4XX",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -14752,7 +14764,7 @@ class DefaultApi:
             '200': "GetRecomRes",
             '400': "Response400GetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
-            '403': "PostV1RecommendationsList403Response",
+            '403': "Response4XX",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -14823,7 +14835,7 @@ class DefaultApi:
             '200': "GetRecomRes",
             '400': "Response400GetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
-            '403': "PostV1RecommendationsList403Response",
+            '403': "Response4XX",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -14972,7 +14984,7 @@ class DefaultApi:
             '208': "Response208SetRecom",
             '400': "Response400SetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
-            '403': "PostV1RecommendationsList403Response",
+            '403': "Response4XX",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -15044,7 +15056,7 @@ class DefaultApi:
             '208': "Response208SetRecom",
             '400': "Response400SetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
-            '403': "PostV1RecommendationsList403Response",
+            '403': "Response4XX",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -15116,7 +15128,7 @@ class DefaultApi:
             '208': "Response208SetRecom",
             '400': "Response400SetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
-            '403': "PostV1RecommendationsList403Response",
+            '403': "Response4XX",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(

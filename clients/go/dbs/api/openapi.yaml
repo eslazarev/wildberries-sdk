@@ -83,11 +83,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: ""
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -226,11 +232,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: ""
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -326,6 +338,12 @@ paths:
                 title: AccessDenied
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -420,11 +438,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: ""
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -528,11 +552,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: ""
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -639,13 +669,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -745,11 +779,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: ""
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -843,11 +883,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -880,13 +918,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -960,11 +1002,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -997,13 +1037,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1070,11 +1114,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -1107,13 +1149,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1248,8 +1294,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
             application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/Response403General"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1315,11 +1366,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -1352,13 +1401,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1424,11 +1477,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -1461,13 +1512,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1533,11 +1588,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -1570,13 +1623,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1647,11 +1704,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -1684,13 +1739,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1759,11 +1818,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -1796,13 +1853,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -1882,11 +1943,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -1919,13 +1978,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1994,11 +2057,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -2031,13 +2092,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -2112,11 +2177,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -2149,13 +2212,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -2229,11 +2296,9 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: "#/components/examples/IncorrectRequestBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
           description: Неправильный запрос
@@ -2266,13 +2331,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: "#/components/examples/AccessDeniedBatch"
               schema:
                 $ref: "#/components/schemas/api.BatchError"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "409":
           content:
@@ -2386,11 +2455,17 @@ paths:
         "403":
           content:
             application/json:
-              example:
-                code: AccessDenied
-                message: ""
+              examples:
+                AccessDenied:
+                  $ref: "#/components/examples/AccessDenied"
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "404":
           content:
@@ -2484,6 +2559,43 @@ components:
             currencyCode: 643
             convertedCurrencyCode: 643
           isError: false
+    AccessDenied:
+      value:
+        code: AccessDenied
+        message: ""
+    AccessDeniedBatch:
+      value:
+        detail: {}
+        origin: dbs-public-api
+        requestId: f1787bd2d1fdс35d6f537316514у4a05
+        title: AccessDenied
+    IncorrectRequestBatch:
+      value:
+        detail: {}
+        origin: dbs-public-api
+        requestId: f1787bd2d1fdс35d6f537316514у4a05
+        title: IncorrectRequest
+    Response403TokenCategory:
+      description: Неверная категория токена
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: 2026-09-03T13:55:15Z
+    Response403TokenType:
+      description: Неверный тип токена
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: s2s-finance
+        status: 403
+        statusText: Forbidden
+        timestamp: 2026-05-25T02:47:09Z
   parameters:
     Next:
       description: "Параметр пагинации. Устанавливает значение, с которого надо по\
@@ -2567,26 +2679,6 @@ components:
           schema:
             $ref: "#/components/schemas/Error"
       description: Не найдено
-    AccessDenied:
-      content:
-        application/json:
-          example:
-            code: AccessDenied
-            message: ""
-          schema:
-            $ref: "#/components/schemas/Error"
-      description: Доступ запрещён
-    AccessDeniedBatch:
-      content:
-        application/json:
-          example:
-            detail: {}
-            origin: dbs-public-api
-            requestId: f1787bd2d1fdс35d6f537316514у4a05
-            title: AccessDenied
-          schema:
-            $ref: "#/components/schemas/api.BatchError"
-      description: Доступ запрещён
   schemas:
     api.OrdersFinalPriceResponse:
       example:
@@ -3781,39 +3873,31 @@ components:
           description: Наименование организации
           type: string
       type: object
-    Response403General:
+    Response4XX:
       properties:
         title:
           description: Заголовок ошибки
-          example: forbidden
           type: string
         detail:
           description: Детали ошибки
-          example: base token is not allowed
           type: string
         code:
           description: Внутренний код ошибки
-          example: base token is not allowed for this path
           type: string
         requestId:
           description: ID запроса
-          example: 722199b2e15bbca48cc1d488a7989976
           type: string
         origin:
           description: ID внутреннего сервиса WB
-          example: s2s-finance
           type: string
         status:
           description: HTTP статус-код
-          example: 403
           type: number
         statusText:
           description: Расшифровка HTTP статус-кода
-          example: Forbidden
           type: string
         timestamp:
           description: Дата и время запроса
-          example: 2026-05-25T02:47:09Z
           format: date-time
           type: string
       type: object
@@ -4181,7 +4265,7 @@ components:
       description: |
         Данные сборочного задания.
         <br><br>
-        Если `"data":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 3 минут.
+        Если `"data":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.
         <br><br>
         Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:
           - [Получить список новых сборочных заданий](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)

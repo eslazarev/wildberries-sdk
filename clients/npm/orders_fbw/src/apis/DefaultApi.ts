@@ -73,6 +73,11 @@ import {
     PostV1AcceptanceOptions402ResponseFromJSON,
     PostV1AcceptanceOptions402ResponseToJSON,
 } from '../models/PostV1AcceptanceOptions402Response';
+import {
+    type PostV1AcceptanceOptions403Response,
+    PostV1AcceptanceOptions403ResponseFromJSON,
+    PostV1AcceptanceOptions403ResponseToJSON,
+} from '../models/PostV1AcceptanceOptions403Response';
 
 export interface GetV1SuppliesIdRequest {
     /**

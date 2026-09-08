@@ -14,15 +14,15 @@
 
 import * as runtime from '../runtime';
 import {
+    type ErrorObject,
+    ErrorObjectFromJSON,
+    ErrorObjectToJSON,
+} from '../models/ErrorObject';
+import {
     type GetV2NmReportDownloads400Response,
     GetV2NmReportDownloads400ResponseFromJSON,
     GetV2NmReportDownloads400ResponseToJSON,
 } from '../models/GetV2NmReportDownloads400Response';
-import {
-    type GetV2NmReportDownloads403Response,
-    GetV2NmReportDownloads403ResponseFromJSON,
-    GetV2NmReportDownloads403ResponseToJSON,
-} from '../models/GetV2NmReportDownloads403Response';
 import {
     type NmReportCreateReportResponse,
     NmReportCreateReportResponseFromJSON,
@@ -63,6 +63,11 @@ import {
     PostV3SalesFunnelProducts402ResponseFromJSON,
     PostV3SalesFunnelProducts402ResponseToJSON,
 } from '../models/PostV3SalesFunnelProducts402Response';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 
 export interface GetV2NmReportDownloadsRequest {
     /**

@@ -141,14 +141,16 @@ paths:
           content:
             application/json:
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: "#/components/examples/AuthorizationErrorResponse"
               schema:
                 $ref: "#/components/schemas/ErrorObject"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -263,14 +265,16 @@ paths:
           content:
             application/json:
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: "#/components/examples/AuthorizationErrorResponse"
               schema:
                 $ref: "#/components/schemas/ErrorObject"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -390,14 +394,16 @@ paths:
           content:
             application/json:
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: "#/components/examples/AuthorizationErrorResponse"
               schema:
                 $ref: "#/components/schemas/ErrorObject"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -490,14 +496,16 @@ paths:
           content:
             application/json:
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: "#/components/examples/AuthorizationErrorResponse"
               schema:
-                $ref: "#/components/schemas/getV2NmReportDownloads_403_response"
+                $ref: "#/components/schemas/ErrorObject"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -800,14 +808,16 @@ paths:
           content:
             application/json:
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: "#/components/examples/AuthorizationErrorResponse"
               schema:
-                $ref: "#/components/schemas/getV2NmReportDownloads_403_response"
+                $ref: "#/components/schemas/ErrorObject"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -887,14 +897,16 @@ paths:
           content:
             application/json:
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: "#/components/examples/AuthorizationErrorResponse"
               schema:
-                $ref: "#/components/schemas/getV2NmReportDownloads_403_response"
+                $ref: "#/components/schemas/ErrorObject"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1242,14 +1254,16 @@ paths:
           content:
             application/json:
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: "#/components/examples/AuthorizationErrorResponse"
               schema:
-                $ref: "#/components/schemas/getV2NmReportDownloads_403_response"
+                $ref: "#/components/schemas/ErrorObject"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1357,6 +1371,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1454,6 +1474,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1555,6 +1581,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1653,6 +1685,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1753,6 +1791,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1842,8 +1886,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
             application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/Response403General"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -1926,8 +1975,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
             application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/Response403General"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2025,6 +2079,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2119,6 +2179,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2219,6 +2285,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2313,6 +2385,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2388,8 +2466,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
             application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+                Response403TokenType:
+                  $ref: "#/components/examples/Response403TokenType"
               schema:
-                $ref: "#/components/schemas/Response403General"
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2485,6 +2568,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
         "429":
           content:
@@ -2572,6 +2661,33 @@ components:
         HGF56X,Чай,14986284,Чай,Lipton,-,43804848,Склад WB,154,254,223
         123401,Кроссовки,14917832,Кофе молотый,,-,43807552,Склад WB,0,0,0
         123401,Кроссовки,14917832,Кофе молотый,,-,43807553,Склад WB,4,0,23
+    AuthorizationErrorResponse:
+      value:
+        title: Authorization error
+        detail: Authorization error
+        requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
+        origin: analytics-open-api
+    Response403TokenCategory:
+      description: Неверная категория токена
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: 2026-09-03T13:55:15Z
+    Response403TokenType:
+      description: Неверный тип токена
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: s2s-finance
+        status: 403
+        statusText: Forbidden
+        timestamp: 2026-05-25T02:47:09Z
   responses:
     "401":
       content:
@@ -2628,19 +2744,6 @@ components:
           schema:
             $ref: "#/components/schemas/ErrorObject"
       description: Неправильный запрос
-    AuthorizationErrorResponse:
-      content:
-        application/json:
-          examples:
-            errorExample:
-              value:
-                title: Authorization error
-                detail: Authorization error
-                requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                origin: analytics-open-api
-          schema:
-            $ref: "#/components/schemas/ErrorObject"
-      description: Доступ запрещён
   schemas:
     MainRequest:
       description: |
@@ -8104,39 +8207,31 @@ components:
       - warehouseName
       - warehouseRegion
       type: object
-    Response403General:
+    Response4XX:
       properties:
         title:
           description: Заголовок ошибки
-          example: forbidden
           type: string
         detail:
           description: Детали ошибки
-          example: base token is not allowed
           type: string
         code:
           description: Внутренний код ошибки
-          example: base token is not allowed for this path
           type: string
         requestId:
           description: ID запроса
-          example: 722199b2e15bbca48cc1d488a7989976
           type: string
         origin:
           description: ID внутреннего сервиса WB
-          example: s2s-finance
           type: string
         status:
           description: HTTP статус-код
-          example: 403
           type: number
         statusText:
           description: Расшифровка HTTP статус-кода
-          example: Forbidden
           type: string
         timestamp:
           description: Дата и время запроса
-          example: 2026-05-25T02:47:09Z
           format: date-time
           type: string
       type: object
@@ -8762,26 +8857,6 @@ components:
       - origin
       - requestId
       - title
-      type: object
-    getV2NmReportDownloads_403_response:
-      example:
-        title: title
-        detail: detail
-        requestId: requestId
-        origin: origin
-      properties:
-        title:
-          description: Заголовок ошибки
-          type: string
-        detail:
-          description: Детали ошибки
-          type: string
-        requestId:
-          description: Уникальный ID запроса
-          type: string
-        origin:
-          description: ID внутреннего сервиса WB
-          type: string
       type: object
     postV2NmReportDownloads_request:
       discriminator:

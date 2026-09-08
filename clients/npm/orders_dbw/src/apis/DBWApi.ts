@@ -133,6 +133,11 @@ import {
     PutV3DbwOrdersOrderIdMetaUinRequestFromJSON,
     PutV3DbwOrdersOrderIdMetaUinRequestToJSON,
 } from '../models/PutV3DbwOrdersOrderIdMetaUinRequest';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 
 export interface GetV3DbwOrdersRequest {
     /**

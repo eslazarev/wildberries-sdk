@@ -159,6 +159,13 @@ export interface ApiNewOrder {
      */
     isZeroOrder?: boolean;
     /**
+     * Указал ли покупатель, что ему требуется услуга шиномонтажа:
+     *   - `false` — нет, услуга шиномонтажа не требуется
+     *   - `true` — да, услуга шиномонтажа требуется
+     * 
+     */
+    tireService?: boolean;
+    /**
      * 
      */
     options?: ApiNewOrderOptions;
@@ -215,6 +222,7 @@ export function ApiNewOrderFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'convertedCurrencyCode': json['convertedCurrencyCode'] == null ? undefined : json['convertedCurrencyCode'],
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
+        'tireService': json['tireService'] == null ? undefined : json['tireService'],
         'options': json['options'] == null ? undefined : ApiNewOrderOptionsFromJSON(json['options']),
     };
 }
@@ -252,6 +260,7 @@ export function ApiNewOrderToJSONTyped(value?: ApiNewOrder | null, ignoreDiscrim
         'convertedCurrencyCode': value['convertedCurrencyCode'],
         'cargoType': value['cargoType'],
         'isZeroOrder': value['isZeroOrder'],
+        'tireService': value['tireService'],
         'options': ApiNewOrderOptionsToJSON(value['options']),
     };
 }

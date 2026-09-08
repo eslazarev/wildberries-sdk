@@ -20,6 +20,7 @@ use super::{Error, configuration, ContentType};
 #[serde(untagged)]
 pub enum GetPingError {
     Status401(models::GetPing401Response),
+    Status403(models::GetPing403Response),
     Status429(models::GetPing401Response),
     UnknownValue(serde_json::Value),
 }

@@ -89,11 +89,6 @@ import {
     GetV1CalendarPromotionsNomenclatures422ResponseToJSON,
 } from '../models/GetV1CalendarPromotionsNomenclatures422Response';
 import {
-    type GetV1Config403Response,
-    GetV1Config403ResponseFromJSON,
-    GetV1Config403ResponseToJSON,
-} from '../models/GetV1Config403Response';
-import {
     type GetV1Count200Response,
     GetV1Count200ResponseFromJSON,
     GetV1Count200ResponseToJSON,
@@ -113,6 +108,11 @@ import {
     GetV1PromotionCount401ResponseFromJSON,
     GetV1PromotionCount401ResponseToJSON,
 } from '../models/GetV1PromotionCount401Response';
+import {
+    type GetV1PromotionCount403Response,
+    GetV1PromotionCount403ResponseFromJSON,
+    GetV1PromotionCount403ResponseToJSON,
+} from '../models/GetV1PromotionCount403Response';
 import {
     type GetV1SupplierSubjects200ResponseInner,
     GetV1SupplierSubjects200ResponseInnerFromJSON,
@@ -218,6 +218,11 @@ import {
     Response400FromJSON,
     Response400ToJSON,
 } from '../models/Response400';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 import {
     type ResponseAdvError1,
     ResponseAdvError1FromJSON,
@@ -722,7 +727,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Удалить ставки поисковых кластеров
      */
     async deleteV0NormqueryBidsRaw(requestParameters: DeleteV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -733,7 +738,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Удалить ставки поисковых кластеров
      */
     async deleteV0NormqueryBids(requestParameters: DeleteV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -2030,7 +2035,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Установить ставки для поисковых кластеров
      */
     async postV0NormqueryBidsRaw(requestParameters: PostV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -2041,7 +2046,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Установить ставки для поисковых кластеров
      */
     async postV0NormqueryBids(requestParameters: PostV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -2135,7 +2140,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Список минус-фраз кампаний
      */
     async postV0NormqueryGetMinusRaw(requestParameters: PostV0NormqueryGetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryMinusResponse>> {
@@ -2146,7 +2151,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Список минус-фраз кампаний
      */
     async postV0NormqueryGetMinus(requestParameters: PostV0NormqueryGetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryMinusResponse> {

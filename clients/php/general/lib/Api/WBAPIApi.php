@@ -140,7 +140,7 @@ class WBAPIApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\General\Model\GetPing200Response|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetPing401Response
+     * @return \Wildberries\Sdk\General\Model\GetPing200Response|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetPing403Response|\Wildberries\Sdk\General\Model\GetPing401Response
      */
     public function getPing(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPing'][0])
     {
@@ -163,7 +163,7 @@ class WBAPIApi
      *
      * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\General\Model\GetPing200Response|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\General\Model\GetPing200Response|\Wildberries\Sdk\General\Model\GetPing401Response|\Wildberries\Sdk\General\Model\GetPing403Response|\Wildberries\Sdk\General\Model\GetPing401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPingWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPing'][0])
     {
@@ -202,6 +202,12 @@ class WBAPIApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\General\Model\GetPing401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\General\Model\GetPing403Response',
                         $request,
                         $response,
                     );
@@ -247,6 +253,14 @@ class WBAPIApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\General\Model\GetPing401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\General\Model\GetPing403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

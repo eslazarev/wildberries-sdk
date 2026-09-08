@@ -141,6 +141,13 @@ export interface ApiOrder {
      */
     warehouseId?: number;
     /**
+     * Указал ли покупатель, что ему требуется услуга шиномонтажа:
+     *   - `false` — нет, услуга шиномонтажа не требуется
+     *   - `true` — да, услуга шиномонтажа требуется
+     * 
+     */
+    tireService?: boolean;
+    /**
      * 
      */
     options?: ApiOrderOptions;
@@ -194,6 +201,7 @@ export function ApiOrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'skus': json['skus'] == null ? undefined : json['skus'],
         'warehouseAddress': json['warehouseAddress'] == null ? undefined : json['warehouseAddress'],
         'warehouseId': json['warehouseId'] == null ? undefined : json['warehouseId'],
+        'tireService': json['tireService'] == null ? undefined : json['tireService'],
         'options': json['options'] == null ? undefined : ApiOrderOptionsFromJSON(json['options']),
     };
 }
@@ -228,6 +236,7 @@ export function ApiOrderToJSONTyped(value?: ApiOrder | null, ignoreDiscriminator
         'skus': value['skus'],
         'warehouseAddress': value['warehouseAddress'],
         'warehouseId': value['warehouseId'],
+        'tireService': value['tireService'],
         'options': ApiOrderOptionsToJSON(value['options']),
     };
 }

@@ -122,6 +122,7 @@ class DefaultApi:
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -193,6 +194,7 @@ class DefaultApi:
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -264,6 +266,7 @@ class DefaultApi:
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -445,6 +448,7 @@ class DefaultApi:
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -548,6 +552,7 @@ class DefaultApi:
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -651,6 +656,7 @@ class DefaultApi:
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -870,6 +876,7 @@ class DefaultApi:
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -965,6 +972,7 @@ class DefaultApi:
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1060,6 +1068,7 @@ class DefaultApi:
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1240,6 +1249,7 @@ class DefaultApi:
             '200': "GetFeedbacksV1PinsLimits200Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1306,6 +1316,7 @@ class DefaultApi:
             '200': "GetFeedbacksV1PinsLimits200Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1372,6 +1383,7 @@ class DefaultApi:
             '200': "GetFeedbacksV1PinsLimits200Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1520,6 +1532,7 @@ class DefaultApi:
             '400': "GetV1Claims400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1607,6 +1620,7 @@ class DefaultApi:
             '400': "GetV1Claims400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1694,6 +1708,7 @@ class DefaultApi:
             '400': "GetV1Claims400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1850,6 +1865,7 @@ class DefaultApi:
             '200': "GetV1Feedback200Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '422': "ResponseFeedbackQuestionErr",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
@@ -1921,6 +1937,7 @@ class DefaultApi:
             '200': "GetV1Feedback200Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '422': "ResponseFeedbackQuestionErr",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
@@ -1992,6 +2009,7 @@ class DefaultApi:
             '200': "GetV1Feedback200Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '422': "ResponseFeedbackQuestionErr",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
@@ -4939,6 +4957,7 @@ class DefaultApi:
             '200': "ChatsResponse",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -5005,6 +5024,7 @@ class DefaultApi:
             '200': "ChatsResponse",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -5071,6 +5091,7 @@ class DefaultApi:
             '200': "ChatsResponse",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -5204,6 +5225,7 @@ class DefaultApi:
             '400': "GetV1SellerEvents400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
             '451': "GetV1SellerDownloadId451Response",
         }
@@ -5277,6 +5299,7 @@ class DefaultApi:
             '400': "GetV1SellerEvents400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
             '451': "GetV1SellerDownloadId451Response",
         }
@@ -5350,6 +5373,7 @@ class DefaultApi:
             '400': "GetV1SellerEvents400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
             '451': "GetV1SellerDownloadId451Response",
         }
@@ -5489,6 +5513,7 @@ class DefaultApi:
             '400': "GetV1SellerEvents400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -5560,6 +5585,7 @@ class DefaultApi:
             '400': "GetV1SellerEvents400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -5631,6 +5657,7 @@ class DefaultApi:
             '400': "GetV1SellerEvents400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -5768,6 +5795,7 @@ class DefaultApi:
             '400': "PatchV1Claim400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -5839,6 +5867,7 @@ class DefaultApi:
             '400': "PatchV1Claim400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -5910,6 +5939,7 @@ class DefaultApi:
             '400': "PatchV1Claim400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -6057,6 +6087,7 @@ class DefaultApi:
             '204': None,
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -6127,6 +6158,7 @@ class DefaultApi:
             '204': None,
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -6197,6 +6229,7 @@ class DefaultApi:
             '204': None,
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -6939,6 +6972,7 @@ class DefaultApi:
             '400': "StandardizedFQError",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -7010,6 +7044,7 @@ class DefaultApi:
             '400': "StandardizedFQError",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -7081,6 +7116,7 @@ class DefaultApi:
             '400': "StandardizedFQError",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -7230,6 +7266,7 @@ class DefaultApi:
             '400': "ResponseFeedbackQuestionErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '422': "ResponseFeedbackQuestionErr",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
@@ -7302,6 +7339,7 @@ class DefaultApi:
             '400': "ResponseFeedbackQuestionErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '422': "ResponseFeedbackQuestionErr",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
@@ -7374,6 +7412,7 @@ class DefaultApi:
             '400': "ResponseFeedbackQuestionErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '422': "ResponseFeedbackQuestionErr",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
@@ -7532,6 +7571,7 @@ class DefaultApi:
             '400': "GetV1SellerEvents400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -7611,6 +7651,7 @@ class DefaultApi:
             '400': "GetV1SellerEvents400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
@@ -7690,6 +7731,7 @@ class DefaultApi:
             '400': "GetV1SellerEvents400Response",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
             '429': "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(

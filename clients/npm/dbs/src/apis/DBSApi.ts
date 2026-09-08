@@ -159,10 +159,10 @@ import {
     PostV3DbsOrdersStickersRequestToJSON,
 } from '../models/PostV3DbsOrdersStickersRequest';
 import {
-    type Response403General,
-    Response403GeneralFromJSON,
-    Response403GeneralToJSON,
-} from '../models/Response403General';
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 
 export interface GetV3DbsOrdersRequest {
     /**

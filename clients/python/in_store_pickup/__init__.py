@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.149"
+__version__ = "0.1.150"
 
 # Define package exports
 __all__ = [
@@ -82,6 +82,7 @@ __all__ = [
     "MetaDetailsErrorsInner",
     "PostV3ClickCollectOrdersMetaCustomsDeclarationRequest",
     "PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner",
+    "Response4XX",
 ]
 
 # import apis into sdk package
@@ -153,4 +154,5 @@ from wildberries_sdk.in_store_pickup.models.get_v3_click_collect_orders_new402_r
 from wildberries_sdk.in_store_pickup.models.meta_details_errors_inner import MetaDetailsErrorsInner as MetaDetailsErrorsInner
 from wildberries_sdk.in_store_pickup.models.post_v3_click_collect_orders_meta_customs_declaration_request import PostV3ClickCollectOrdersMetaCustomsDeclarationRequest as PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 from wildberries_sdk.in_store_pickup.models.post_v3_click_collect_orders_meta_customs_declaration_request_orders_inner import PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner as PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner
+from wildberries_sdk.in_store_pickup.models.response4_xx import Response4XX as Response4XX
 

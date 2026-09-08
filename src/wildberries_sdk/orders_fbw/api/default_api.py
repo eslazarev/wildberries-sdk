@@ -108,6 +108,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '404': "ModelsErrorModel",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -184,6 +185,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '404': "ModelsErrorModel",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -260,6 +262,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '404': "ModelsErrorModel",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -413,6 +416,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -496,6 +500,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -579,6 +584,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -730,6 +736,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -801,6 +808,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -872,6 +880,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1001,6 +1010,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ModelsTransitTariff]",
             '401': "PostV1AcceptanceOptions401Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1066,6 +1076,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ModelsTransitTariff]",
             '401': "PostV1AcceptanceOptions401Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1131,6 +1142,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ModelsTransitTariff]",
             '401': "PostV1AcceptanceOptions401Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1257,7 +1269,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ModelsWarehousesResultItems]",
             '401': "PostV1AcceptanceOptions401Response",
-            '403': None,
+            '403': "PostV1AcceptanceOptions403Response",
             '404': None,
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -1324,7 +1336,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ModelsWarehousesResultItems]",
             '401': "PostV1AcceptanceOptions401Response",
-            '403': None,
+            '403': "PostV1AcceptanceOptions403Response",
             '404': None,
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -1391,7 +1403,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ModelsWarehousesResultItems]",
             '401': "PostV1AcceptanceOptions401Response",
-            '403': None,
+            '403': "PostV1AcceptanceOptions403Response",
             '404': None,
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -1530,7 +1542,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': None,
+            '403': "PostV1AcceptanceOptions403Response",
             '404': None,
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -1607,7 +1619,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': None,
+            '403': "PostV1AcceptanceOptions403Response",
             '404': None,
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -1684,7 +1696,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': None,
+            '403': "PostV1AcceptanceOptions403Response",
             '404': None,
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -1849,6 +1861,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1928,6 +1941,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -2007,6 +2021,7 @@ class DefaultApi:
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
+            '403': "PostV1AcceptanceOptions403Response",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(

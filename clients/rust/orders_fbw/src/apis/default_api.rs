@@ -22,6 +22,7 @@ pub enum GetV1SuppliesIdError {
     Status400(models::ModelsErrorModel),
     Status401(models::PostV1AcceptanceOptions401Response),
     Status402(models::PostV1AcceptanceOptions402Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status404(models::ModelsErrorModel),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -34,6 +35,7 @@ pub enum GetV1SuppliesIdGoodsError {
     Status400(models::ModelsErrorModel),
     Status401(models::PostV1AcceptanceOptions401Response),
     Status402(models::PostV1AcceptanceOptions402Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -45,6 +47,7 @@ pub enum GetV1SuppliesIdPackageError {
     Status400(models::ModelsErrorModel),
     Status401(models::PostV1AcceptanceOptions401Response),
     Status402(models::PostV1AcceptanceOptions402Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -54,6 +57,7 @@ pub enum GetV1SuppliesIdPackageError {
 #[serde(untagged)]
 pub enum GetV1TransitTariffsError {
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -63,7 +67,7 @@ pub enum GetV1TransitTariffsError {
 #[serde(untagged)]
 pub enum GetV1WarehousesError {
     Status401(models::PostV1AcceptanceOptions401Response),
-    Status403(),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status404(),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -76,7 +80,7 @@ pub enum PostV1AcceptanceOptionsError {
     Status400(models::ModelsErrorModel),
     Status401(models::PostV1AcceptanceOptions401Response),
     Status402(models::PostV1AcceptanceOptions402Response),
-    Status403(),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status404(),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -89,6 +93,7 @@ pub enum PostV1SuppliesError {
     Status400(models::ModelsErrorModel),
     Status401(models::PostV1AcceptanceOptions401Response),
     Status402(models::PostV1AcceptanceOptions402Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }

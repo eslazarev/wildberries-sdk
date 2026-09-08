@@ -29,11 +29,6 @@ import {
     GetMarketplaceV3FbsSettingsAutoreturns200ResponseToJSON,
 } from '../models/GetMarketplaceV3FbsSettingsAutoreturns200Response';
 import {
-    type GetMarketplaceV3FbsSettingsAutoreturns403Response,
-    GetMarketplaceV3FbsSettingsAutoreturns403ResponseFromJSON,
-    GetMarketplaceV3FbsSettingsAutoreturns403ResponseToJSON,
-} from '../models/GetMarketplaceV3FbsSettingsAutoreturns403Response';
-import {
     type GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response,
     GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseFromJSON,
     GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseToJSON,
@@ -63,6 +58,11 @@ import {
     PostMarketplaceV3FbsSettingsAutoreturnsItemsRequestFromJSON,
     PostMarketplaceV3FbsSettingsAutoreturnsItemsRequestToJSON,
 } from '../models/PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 
 export interface GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest {
     /**
