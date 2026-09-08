@@ -79,7 +79,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v3/dbs/orders:
@@ -164,7 +177,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/final-price:
@@ -212,7 +238,22 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/AccessDeniedBatch'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.BatchError'
+              example:
+                detail: {}
+                origin: dbs-public-api
+                requestId: f1787bd2d1fdс35d6f537316514у4a05
+                title: AccessDenied
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v3/dbs/groups/info:
@@ -274,7 +315,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v3/dbs/orders/client:
@@ -342,7 +396,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '404':
           $ref: '#/components/responses/NotFound'
         '429':
@@ -404,11 +471,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v3/dbs/orders/delivery-date:
@@ -475,7 +546,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/status/info:
@@ -558,11 +642,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -573,11 +655,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '404':
           description: Не найдено
           content:
@@ -640,11 +726,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -655,11 +739,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/status/confirm:
@@ -715,11 +803,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -730,11 +816,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/stickers:
@@ -893,7 +983,12 @@ paths:
                 message: ''
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Response403General'
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/status/deliver:
@@ -949,11 +1044,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -964,11 +1057,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/status/receive:
@@ -1068,11 +1165,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -1083,11 +1178,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/status/reject:
@@ -1142,11 +1241,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -1157,11 +1254,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/meta/details:
@@ -1216,11 +1317,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -1231,11 +1330,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/meta/delete:
@@ -1298,11 +1401,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -1313,11 +1414,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '409':
           description: Ошибка удаления идентификаторов маркировки
           content:
@@ -1386,11 +1491,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -1401,11 +1504,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/meta/uin:
@@ -1463,11 +1570,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -1478,11 +1583,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '409':
           description: Ошибка обновления идентификаторов маркировки
           content:
@@ -1546,11 +1655,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -1561,11 +1668,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '409':
           description: Ошибка обновления идентификаторов маркировки
           content:
@@ -1628,11 +1739,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: IncorrectRequest
+              examples:
+                IncorrectRequestBatch:
+                  $ref: '#/components/examples/IncorrectRequestBatch'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -1643,11 +1752,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.BatchError'
-              example:
-                detail: {}
-                origin: dbs-public-api
-                requestId: f1787bd2d1fdс35d6f537316514у4a05
-                title: AccessDenied
+              examples:
+                AccessDeniedBatch:
+                  $ref: '#/components/examples/AccessDeniedBatch'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '409':
           description: Ошибка обновления идентификаторов маркировки
           content:
@@ -1751,7 +1864,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -1829,6 +1955,43 @@ components:
               currencyCode: 643
               convertedCurrencyCode: 643
             isError: false
+    AccessDenied:
+      value:
+        code: AccessDenied
+        message: ''
+    AccessDeniedBatch:
+      value:
+        detail: {}
+        origin: dbs-public-api
+        requestId: f1787bd2d1fdс35d6f537316514у4a05
+        title: AccessDenied
+    IncorrectRequestBatch:
+      value:
+        detail: {}
+        origin: dbs-public-api
+        requestId: f1787bd2d1fdс35d6f537316514у4a05
+        title: IncorrectRequest
+    Response403TokenCategory:
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: '2026-09-03T13:55:15Z'
+      description: Неверная категория токена
+    Response403TokenType:
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: s2s-finance
+        status: 403
+        statusText: Forbidden
+        timestamp: '2026-05-25T02:47:09Z'
+      description: Неверный тип токена
   responses:
     '401':
       description: Не авторизован
@@ -1943,26 +2106,6 @@ components:
           example:
             code: NotFound
             message: ''
-    AccessDenied:
-      description: Доступ запрещён
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          example:
-            code: AccessDenied
-            message: ''
-    AccessDeniedBatch:
-      description: Доступ запрещён
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/api.BatchError'
-          example:
-            detail: {}
-            origin: dbs-public-api
-            requestId: f1787bd2d1fdс35d6f537316514у4a05
-            title: AccessDenied
   schemas:
     api.OrdersFinalPriceResponse:
       type: object
@@ -1990,7 +2133,7 @@ components:
           description: |
             Данные сборочного задания.
             <br><br>
-            Если `"data":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 3 минут.
+            Если `"data":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.
             <br><br>
             Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:
               - [Получить список новых сборочных заданий](/docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)
@@ -3210,39 +3353,31 @@ components:
         orgName:
           type: string
           description: Наименование организации
-    Response403General:
+    Response4XX:
       type: object
       properties:
         title:
           type: string
           description: Заголовок ошибки
-          example: forbidden
         detail:
           type: string
           description: Детали ошибки
-          example: base token is not allowed
         code:
           type: string
           description: Внутренний код ошибки
-          example: base token is not allowed for this path
         requestId:
           type: string
           description: ID запроса
-          example: 722199b2e15bbca48cc1d488a7989976
         origin:
           type: string
           description: ID внутреннего сервиса WB
-          example: s2s-finance
         status:
           type: number
           description: HTTP статус-код
-          example: 403
         statusText:
           type: string
           description: Расшифровка HTTP статус-кода
-          example: Forbidden
         timestamp:
           type: string
           format: date-time
           description: Дата и время запроса
-          example: '2026-05-25T02:47:09Z'

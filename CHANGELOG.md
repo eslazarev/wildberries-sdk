@@ -1,6 +1,45 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.08)
+- Общие: добавлен ответ `403` для `/api/communications/v2/news`; унифицировано описание `403` для `/api/common/v1/subscriptions`, `/api/common/v1/tariff-constructor/options`, `/api/v1/users`, `/api/v1/users/access`, `/api/v1/user` — теперь `application/problem+json` со схемой `Response4XX` и примерами `Response403TokenCategory`/`Response403TokenType`
+- Общие: добавлена схема ошибок `Response4XX` (поля `title`, `detail`, `code`, `requestId`, `origin`, `status`, `statusText`, `timestamp`) и примеры `Response403TokenCategory`/`Response403TokenType`; обновлён `components/responses/403` — вместо одиночного `example` используются `examples`
+
+- Товары (Content/Items): для большинства методов Content добавлена поддержка `403` и/или альтернативный формат ошибки `application/problem+json` со схемой `Response4XX` (в т.ч. `/content/v2/object/all`, `/api/content/v1/brands`, `/content/v2/cards/upload`, `/content/v2/media/*`, методы задач/истории/буфера/списков v2, методы складов `/api/v3/warehouses` и др.)
+- Товары (Content/Items): заменена схема `Response403General` на `Response4XX` (в т.ч. в ответах `403`), добавлены примеры `Response403TokenCategory`/`Response403TokenType`; удалён `components/responses/AccessDenied` (как response) и перенесён в `components/examples` как пример `AccessDenied`
+
+- Заказы FBS: для большинства эндпоинтов заменён `403` с `$ref ...AccessDenied` на расширенный ответ `403` с двумя форматами — `application/json` (`Error` + пример `AccessDenied`) и `application/problem+json` (`Response4XX` + пример `Response403TokenCategory`)
+- Заказы FBS: добавлен `403` (через `$ref '#/components/responses/403'`) для `/api/marketplace/v3/fbs/shipping-points`, `/api/marketplace/v3/fbs/supplies/{supplyId}/spot`, `/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot`, `/api/v3/countries`
+- Заказы FBS: для `/api/marketplace/v3/fbs/settings/autoreturns*` унифицирован `403` как `application/problem+json` со схемой `Response4XX` и примерами `Response403TokenCategory`/`Response403TokenType`
+- Заказы FBS: в одном из методов (архивация) `application/problem+json` для `403` теперь `oneOf: [ArhiveOrderError400, Response4XX]` + добавлен пример `Response403TokenCategory`
+- Заказы FBS: добавлены `components/schemas/Response4XX` и примеры `Response403TokenCategory`/`Response403TokenType`; удалён `components/responses/AccessDenied` (как response) и перенесён в `components/examples`
+
+- Заказы DBW: для всех методов заменён `403` с `$ref ...AccessDenied` на ответ с `application/json` (`Error` + `AccessDenied`) и `application/problem+json` (`Response4XX` + `Response403TokenCategory`); добавлены `components/schemas/Response4XX` и пример `Response403TokenCategory`, удалён `components/responses/AccessDenied` (как response)
+
+- Заказы DBS: унифицированы ответы `403` — добавлен `application/problem+json` (`Response4XX` + `Response403TokenCategory`) для batch-методов и методов со стандартным `AccessDenied`; для `/api/marketplace/v3/dbs/orders/stickers` заменён `Response403General` на `Response4XX` + примеры `Response403TokenCategory`/`Response403TokenType`
+- Заказы DBS: обновлено описание времени формирования `data:{}` в ответах сборочных заданий — максимальное время уменьшено с ~3 минут до ~1 минуты
+- Заказы DBS: удалены `components/responses/AccessDenied` и `AccessDeniedBatch` (как responses), вместо этого добавлены/используются `components/examples` (`AccessDenied`, `AccessDeniedBatch`, `IncorrectRequestBatch`) и `Response4XX`
+
+- Самовывоз (Click&Collect): унифицированы ответы `403` — добавлен `application/problem+json` (`Response4XX` + `Response403TokenCategory`) для методов с `AccessDenied`/`AccessDeniedBatch`; удалены `components/responses/AccessDenied` и `AccessDeniedBatch` (как responses), добавлены соответствующие `components/examples`
+- Самовывоз (Click&Collect): добавлено поле `tireService: boolean` в моделях заказа (в т.ч. в примерах и схемах) — признак необходимости услуги шиномонтажа
+- Самовывоз (Click&Collect): обновлено описание времени формирования `data:{}` — максимум ~1 минута вместо ~3 минут
+
+- Заказы FBW: добавлен общий `components/responses/403` (формат `application/problem+json` + пример `Response403TokenCategory`); в ряде методов `403` теперь ссылается на этот response, а также добавлен `403` для `/api/v1/tariffs`, `/api/v1/supplies` и связанных методов
+
+- Продвижение/Реклама: массово добавлен `403` (через `$ref '#/components/responses/403'`) для множества рекламных методов; для normquery-методов `403` переработан — теперь `application/json` (`StandardizedBatchError` + пример `AccessDenied`) и `application/problem+json` (`Response4XX` + `Response403TokenCategory`)
+- Продвижение/Реклама: добавлена схема `Response4XX` и примеры `Response403TokenCategory`/`Response403TokenType`; `AccessDenied` перенесён из response в `components/examples`
+
+- Коммуникации (вопросы/отзывы/чаты): добавлен альтернативный формат `403` `application/problem+json` со схемой `Response4XX` и примером `Response403TokenCategory` для методов, где ранее был только `application/json`; для ряда методов добавлен `403` через `$ref '#/components/responses/403'`
+- Коммуникации: добавлены `components/schemas/Response4XX`, `components/responses/403` (problem+json) и пример `Response403TokenCategory`
+
+- Аналитика: унифицирован `403` — вместо `AuthorizationErrorResponse` как response теперь `403` описан с `application/json` (`ErrorObject` + пример `AuthorizationErrorResponse`) и `application/problem+json` (`Response4XX` + `Response403TokenCategory`)
+- Аналитика: для методов nm-report/search-report/stocks-report/item-rating добавлен `application/problem+json` (`Response4XX`) и/или заменён `Response403General` на `Response4XX` + примеры `Response403TokenCategory`/`Response403TokenType`; `AuthorizationErrorResponse` перенесён в `components/examples`
+
+- Отчёты: добавлен `403` (через `$ref '#/components/responses/403'`) для множества отчётных методов; для некоторых `403` добавлен `application/problem+json` (`Response4XX` + `Response403TokenCategory`); добавлены `components/schemas/Response4XX`, `components/responses/403` (problem+json) и пример `Response403TokenCategory`
+
+- Финансы: добавлен `403` для `/api/finance/v1/balance`, `/api/finance/v1/sales-reports/detailed`, `/api/v1/documents/*` и др.; для `/api/finance/v1/sales-reports/list`, `/api/finance/v1/sales-reports/detailed/{reportId}`, `/api/finance/v1/acquiring/*` ответ `403` детализирован как `application/problem+json` со схемой `Response4XX` и примерами `Response403TokenCategory`/`Response403TokenType`
+- Финансы: добавлена схема `Response4XX` и примеры `Response403TokenCategory`/`Response403TokenType`; обновлён `components/responses/403` — вместо одиночного `example` используются `examples`
+
 ### Changed (2026.09.04)
 - Товары (Items): в ответах/моделях для `chrtID` добавлен формат `int64` (ранее только `integer`)
 - Товары (Items): схема дополнительных ошибок `oneOf` изменена — убрана `nullable: true` у object-варианта, вместо этого поле `string` внутри объекта стало `nullable: true`

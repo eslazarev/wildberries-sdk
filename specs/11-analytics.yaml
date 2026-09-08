@@ -117,7 +117,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AuthorizationErrorResponse'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorObject'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AuthorizationErrorResponse'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/analytics/v3/sales-funnel/products/history:
@@ -181,7 +194,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AuthorizationErrorResponse'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorObject'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AuthorizationErrorResponse'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/analytics/v3/sales-funnel/grouped/history:
@@ -254,7 +280,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AuthorizationErrorResponse'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorObject'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AuthorizationErrorResponse'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/nm-report/downloads:
@@ -559,27 +598,16 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  title:
-                    type: string
-                    description: Заголовок ошибки
-                  detail:
-                    type: string
-                    description: Детали ошибки
-                  requestId:
-                    type: string
-                    description: Уникальный ID запроса
-                  origin:
-                    type: string
-                    description: ID внутреннего сервиса WB
+                $ref: '#/components/schemas/ErrorObject'
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: '#/components/examples/AuthorizationErrorResponse'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           description: Слишком много запросов
           content:
@@ -665,27 +693,16 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  title:
-                    type: string
-                    description: Заголовок ошибки
-                  detail:
-                    type: string
-                    description: Детали ошибки
-                  requestId:
-                    type: string
-                    description: Уникальный ID запроса
-                  origin:
-                    type: string
-                    description: ID внутреннего сервиса WB
+                $ref: '#/components/schemas/ErrorObject'
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: '#/components/examples/AuthorizationErrorResponse'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/nm-report/downloads/retry:
@@ -765,27 +782,16 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  title:
-                    type: string
-                    description: Заголовок ошибки
-                  detail:
-                    type: string
-                    description: Детали ошибки
-                  requestId:
-                    type: string
-                    description: Уникальный ID запроса
-                  origin:
-                    type: string
-                    description: ID внутреннего сервиса WB
+                $ref: '#/components/schemas/ErrorObject'
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: '#/components/examples/AuthorizationErrorResponse'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/nm-report/downloads/file/{downloadId}:
@@ -888,27 +894,16 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  title:
-                    type: string
-                    description: Заголовок ошибки
-                  detail:
-                    type: string
-                    description: Детали ошибки
-                  requestId:
-                    type: string
-                    description: Уникальный ID запроса
-                  origin:
-                    type: string
-                    description: ID внутреннего сервиса WB
+                $ref: '#/components/schemas/ErrorObject'
               examples:
-                errorExample:
-                  value:
-                    title: Authorization error
-                    detail: Authorization error
-                    requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                    origin: analytics-open-api
+                AccessDenied:
+                  $ref: '#/components/examples/AuthorizationErrorResponse'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/search-report/report:
@@ -986,6 +981,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/search-report/table/groups:
@@ -1055,6 +1056,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/search-report/table/details:
@@ -1128,6 +1135,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/search-report/product/search-texts:
@@ -1198,6 +1211,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/search-report/product/orders:
@@ -1270,6 +1289,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/analytics/v1/stocks-report/wb-warehouses:
@@ -1346,7 +1371,12 @@ paths:
                 $ref: '#/components/schemas/ErrorObject403'
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Response403General'
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/analytics/v1/stocks-report/seller-warehouses:
@@ -1419,7 +1449,12 @@ paths:
                 $ref: '#/components/schemas/ErrorObject403'
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Response403General'
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/stocks-report/products/groups:
@@ -1484,6 +1519,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/stocks-report/products/products:
@@ -1549,6 +1590,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/stocks-report/products/sizes:
@@ -1619,6 +1666,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/stocks-report/offices:
@@ -1683,6 +1736,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/analytics/v2/item-rating:
@@ -1751,7 +1810,12 @@ paths:
                 $ref: '#/components/schemas/ErrorObject403'
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Response403General'
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/analytics/v1/order-feed:
@@ -1822,6 +1886,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
 components:
@@ -6591,42 +6661,34 @@ components:
               - `true` — B2B
               - `false` — B2C
           example: false
-    Response403General:
+    Response4XX:
       type: object
       properties:
         title:
           type: string
           description: Заголовок ошибки
-          example: forbidden
         detail:
           type: string
           description: Детали ошибки
-          example: base token is not allowed
         code:
           type: string
           description: Внутренний код ошибки
-          example: base token is not allowed for this path
         requestId:
           type: string
           description: ID запроса
-          example: 722199b2e15bbca48cc1d488a7989976
         origin:
           type: string
           description: ID внутреннего сервиса WB
-          example: s2s-finance
         status:
           type: number
           description: HTTP статус-код
-          example: 403
         statusText:
           type: string
           description: Расшифровка HTTP статус-кода
-          example: Forbidden
         timestamp:
           type: string
           format: date-time
           description: Дата и время запроса
-          example: '2026-05-25T02:47:09Z'
   examples:
     SalesFunnelItemRes:
       description: ''
@@ -6690,6 +6752,33 @@ components:
         HGF56X,Чай,14986284,Чай,Lipton,-,43804848,Склад WB,154,254,223
         123401,Кроссовки,14917832,Кофе молотый,,-,43807552,Склад WB,0,0,0
         123401,Кроссовки,14917832,Кофе молотый,,-,43807553,Склад WB,4,0,23
+    AuthorizationErrorResponse:
+      value:
+        title: Authorization error
+        detail: Authorization error
+        requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
+        origin: analytics-open-api
+    Response403TokenCategory:
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: '2026-09-03T13:55:15Z'
+      description: Неверная категория токена
+    Response403TokenType:
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: s2s-finance
+        status: 403
+        statusText: Forbidden
+        timestamp: '2026-05-25T02:47:09Z'
+      description: Неверный тип токена
   responses:
     '401':
       description: Не авторизован
@@ -6800,19 +6889,6 @@ components:
               value:
                 title: Invalid request body
                 detail: 'code=400, message=invalid: positionCluster (field required), internal=invalid: positionCluster (field required)'
-                requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
-                origin: analytics-open-api
-    AuthorizationErrorResponse:
-      description: Доступ запрещён
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorObject'
-          examples:
-            errorExample:
-              value:
-                title: Authorization error
-                detail: Authorization error
                 requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
                 origin: analytics-open-api
   securitySchemes:

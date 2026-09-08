@@ -108,6 +108,8 @@ paths:
                 Status: OK
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/communications/v2/news:
@@ -344,7 +346,16 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/common/v1/subscriptions:
@@ -403,7 +414,16 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/common/v1/tariff-constructor/options:
@@ -478,7 +498,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '404':
           description: Не найдено
           content:
@@ -549,7 +578,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/v1/users:
@@ -874,7 +912,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/v1/users/access:
@@ -926,7 +973,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/v1/user:
@@ -978,7 +1034,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
 components:
@@ -1542,6 +1607,34 @@ components:
         errors:
           type: array
           description: Ошибки запроса с указанием параметров и деталей ошибок
+    Response4XX:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Заголовок ошибки
+        detail:
+          type: string
+          description: Детали ошибки
+        code:
+          type: string
+          description: Внутренний код ошибки
+        requestId:
+          type: string
+          description: ID запроса
+        origin:
+          type: string
+          description: ID внутреннего сервиса WB
+        status:
+          type: number
+          description: HTTP статус-код
+        statusText:
+          type: string
+          description: Расшифровка HTTP статус-кода
+        timestamp:
+          type: string
+          format: date-time
+          description: Дата и время запроса
   examples:
     PlanBuilderSuccess:
       value:
@@ -1600,6 +1693,27 @@ components:
         status: 404
         origin: options-service
         code: OPTIONS_NOT_AVAILABLE
+    Response403TokenCategory:
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: '2026-09-03T13:55:15Z'
+      description: Неверная категория токена
+    Response403TokenType:
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: s2s-finance
+        status: 403
+        statusText: Forbidden
+        timestamp: '2026-05-25T02:47:09Z'
+      description: Неверный тип токена
   responses:
     '401':
       description: Не авторизован
@@ -1690,15 +1804,17 @@ components:
                 type: string
                 format: date-time
                 description: Дата и время запроса
-          example:
-            title: forbidden
-            detail: base token is not allowed
-            code: base token is not allowed for this path
-            requestId: 722199b2e15bbca48cc1d488a7989976
-            origin: s2s-finance
-            status: 403
-            statusText: Forbidden
-            timestamp: '2026-05-25T02:47:09Z'
+          examples:
+            Response403TokenCategory:
+              value:
+                status: 403
+                statusText: Forbidden
+                title: Forbidden
+                detail: scope is not allowed for this resource
+                requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                origin: ag-marketplace
+                timestamp: '2026-09-03T13:55:15Z'
+              description: Неверная категория токена
     '429':
       description: Слишком много запросов
       content:
