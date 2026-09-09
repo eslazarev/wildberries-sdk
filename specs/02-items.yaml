@@ -1949,6 +1949,118 @@ paths:
                                 - `true` — не выявлена. `"isValid":true` не гарантирует, что размеры указаны корректно. В отдельных случаях (например, при создании новой категории товаров) `"isValid":true` будет возвращаться при любых значениях, кроме нулевых.
 
                                 - `false` — указанные габариты значительно отличаются от средних по категории (предмету). Рекомендуется перепроверить, правильно ли указаны размеры товара в упаковке в `сантиметрах`. Функциональность карточки товара, в том числе начисление логистики и хранения, при этом ограничена не будет. Логистика и хранение продолжают начисляться — по текущим габаритам. Также `"isValid":false` возвращается при отсутствии значений или нулевом значении любой стороны.
+                        documents:
+                          type: object
+                          description: Документы
+                          properties:
+                            items:
+                              type: array
+                              description: Список документов
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: ID документа
+                                  type:
+                                    type: integer
+                                    description: |
+                                      Тип документа:
+                                        - `1` — Сертификат соответствия
+                                        - `2` — Декларация о соответствии
+                                        - `3` — Свидетельство о государственной регистрации (СГР)
+                                        - `4` — Регистрационное удостоверение (РУ) на медицинские изделия
+                                        - `5` — Регистрационное удостоверение Республики Беларусь
+                                        - `7` — Данные о регистрации пестицида
+                                        - `8` — Данные о регистрации агрохимиката
+                                        - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты
+                                  number:
+                                    type: string
+                                    description: Номер документа
+                                  productNumber:
+                                    type: string
+                                    description: Дополнительный номер документа
+                                  tradeName:
+                                    type: string
+                                    description: Торговое наименование
+                                  applicant:
+                                    type: string
+                                    description: Представитель изготовителя медицинского изделия
+                                  quantity:
+                                    type: integer
+                                    description: Количество товаров по электронному сертификату
+                                  startDate:
+                                    type: string
+                                    format: date-time
+                                    description: Дата и время начала срока действия документа
+                                  endDate:
+                                    type: string
+                                    format: date-time
+                                    description: Дата и время окончания срока действия документа
+                                  isEndless:
+                                    type: boolean
+                                    description: |
+                                      Бессрочный ли документ:
+                                        - `true` — да, документ бессрочный
+                                        - `false` — нет, у документа есть срок действия
+                                  verdict:
+                                    description: Результат проверки документа. Возвращается, когда проверка завершена
+                                    type: object
+                                    properties:
+                                      verified:
+                                        type: boolean
+                                        description: |
+                                          - `true` — документ проверен
+                                          - `false` — документ не проверен
+                                      status:
+                                        type: integer
+                                        description: |
+                                          Результат проверки документа:
+                                            - `1` — проверка пройдена
+                                            - `2` — проверка не пройдена
+                                      reason:
+                                        allOf:
+                                          - $ref: '#/components/schemas/reasonDocument'
+                                      additionalData:
+                                        type: object
+                                        nullable: true
+                                        description: Дополнительная информация
+                                      createdAt:
+                                        type: string
+                                        format: date-time
+                                        description: Дата проверки документа
+                                  createdAt:
+                                    type: string
+                                    format: date-time
+                                    description: Дата добавления документа
+                            overallVerdict:
+                              type: object
+                              description: Результат проверки карточки товара. Возвращается, когда проверка завершена
+                              properties:
+                                isFullyChecked:
+                                  type: boolean
+                                  description: |
+                                    - `true` — карточка товара проверена
+                                    - `false` — карточка товара не проверена
+                                status:
+                                  type: integer
+                                  description: |
+                                    Результат проверки карточки товара:
+                                      - `1` — проверка пройдена
+                                      - `2` — проверка не пройдена
+                                reason:
+                                  allOf:
+                                    - $ref: '#/components/schemas/reasonListing'
+                                createdAt:
+                                  type: string
+                                  format: date-time
+                                  description: Дата и время проверки карточки товара
+                            excludeDocuments:
+                              type: boolean
+                              description: |
+                                Исключены ли документы из проверки карточки товара:
+                                  - `true` — да, документы не проверяются при проверке карточки
+                                  - `false` — нет, документы проверяются при проверке карточки
                         characteristics:
                           type: array
                           description: Характеристики
@@ -2056,6 +2168,30 @@ paths:
                       height: 15
                       weightBrutto: 6.24
                       isValid: false
+                    documents:
+                      items:
+                        - id: 019f3c09-8c1f-7063-aee4-c45969fb2dc5
+                          type: 1
+                          number: '123456'
+                          productNumber: '123456'
+                          tradeName: Trade Name
+                          applicant: Applicant Name
+                          quantity: 100
+                          startDate: '2023-01-15T03:00:00+03:00'
+                          endDate: '2026-01-14T03:00:00+03:00'
+                          verdict:
+                            verified: true
+                            status: 1
+                            reason: null
+                            additionalData: null
+                            createdAt: '2026-05-28T18:10:43.375306+03:00'
+                          createdAt: '2026-05-28T18:09:25.394692+03:00'
+                      overallVerdict:
+                        isFullyChecked: true
+                        status: 1
+                        reason: null
+                        createdAt: '2026-05-28T18:19:19.99444+03:00'
+                      excludeDocuments: false
                     characteristics:
                       - id: 14177449
                         name: Цвет
@@ -2380,6 +2516,28 @@ paths:
                       weightBrutto:
                         type: number
                         description: Вес, кг<br>Количество знаков после запятой <=3
+                  documents:
+                    type: object
+                    description: Документы
+                    properties:
+                      items:
+                        type: array
+                        description: Список документов
+                        items:
+                          allOf:
+                            - type: object
+                              properties:
+                                id:
+                                  type: string
+                                  description: ID документа
+                            - $ref: '#/components/schemas/documentsRequest'
+                      excludeDocuments:
+                        type: boolean
+                        default: false
+                        description: |
+                          Исключить ли документы из проверки:
+                            - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения
+                            - `false` — нет, проверять документы при проверке карточки товара
                   characteristics:
                     type: array
                     description: |
@@ -3557,6 +3715,22 @@ paths:
                                   Тип данных — массив строк или число — зависит от типа характеристики, см. описание поля `charcType` в методе [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get).
                                   <br>
                                   Допустимое количество значений отображено в поле `maxCount` того же метода
+                        documents:
+                          type: object
+                          description: Документы
+                          properties:
+                            items:
+                              type: array
+                              description: Список документов
+                              items:
+                                $ref: '#/components/schemas/documentsRequest'
+                            excludeDocuments:
+                              type: boolean
+                              default: false
+                              description: |
+                                Исключить ли документы из проверки:
+                                  - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения
+                                  - `false` — нет, проверять документы при проверке карточки товара
             examples:
               creatingOneListing:
                 $ref: '#/components/examples/creatingOneListing'
@@ -3797,6 +3971,22 @@ paths:
                                 Тип данных — массив строк или число — зависит от типа характеристики, см. описание поля `charcType` в методе [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get).
                                 <br>
                                 Допустимое количество значений отображено в поле `maxCount` того же метода
+                      documents:
+                        type: object
+                        description: Документы
+                        properties:
+                          items:
+                            type: array
+                            description: Список документов
+                            items:
+                              $ref: '#/components/schemas/documentsRequest'
+                          excludeDocuments:
+                            type: boolean
+                            default: false
+                            description: |
+                              Исключить ли документы из проверки:
+                                - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения
+                                - `false` — нет, проверять документы при проверке карточки товара
             example:
               imtID: 987654321
               cardsToAdd:
@@ -3825,6 +4015,17 @@ paths:
                   sizes:
                     - skus:
                         - '12345678'
+                  documents:
+                    items:
+                      - type: 1
+                        number: РОСС RU.АЯ46.В12346
+                        productNumber: УД-2024-001235
+                        tradeName: Тест Продукт2
+                        applicant: ООО Ромашка
+                        startDate: '2023-01-15T03:00:00+03:00'
+                        endDate: '2026-01-14T03:00:00+03:00'
+                        isEndless: false
+                    excludeDocuments: false
                 - vendorCode: myVariant2
                   title: Наименование товара
                   description: Описание товаров
@@ -3846,6 +4047,17 @@ paths:
                   sizes:
                     - skus:
                         - '222222222222'
+                  documents:
+                    items:
+                      - type: 1
+                        number: РОСС RU.АЯ46.В12345
+                        productNumber: УД-2024-001234
+                        tradeName: Тест Продукт
+                        applicant: ООО Ромашка
+                        startDate: '2023-01-15T03:00:00+03:00'
+                        endDate: '2026-01-14T03:00:00+03:00'
+                        isEndless: false
+                    excludeDocuments: false
       responses:
         '200':
           description: Успешно
@@ -7580,6 +7792,75 @@ components:
           description: Детали ошибки
           type: string
           example: incorrect request body format
+    documentsRequest:
+      type: object
+      properties:
+        type:
+          type: integer
+          description: |
+            Тип документа:
+              - `1` — Сертификат соответствия
+              - `2` — Декларация о соответствии
+              - `3` — Свидетельство о государственной регистрации (СГР)
+              - `4` — Регистрационное удостоверение (РУ) на медицинские изделия
+              - `5` — Регистрационное удостоверение Республики Беларусь
+              - `7` — Данные о регистрации пестицида
+              - `8` — Данные о регистрации агрохимиката
+              - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты
+        number:
+          type: string
+          description: Номер документа
+        productNumber:
+          type: string
+          description: Дополнительный номер документа
+        tradeName:
+          type: string
+          description: Торговое наименование
+        applicant:
+          type: string
+          description: Представитель изготовителя медицинского изделия
+        startDate:
+          type: string
+          format: date-time
+          description: Дата и время начала срока действия документа
+        endDate:
+          type: string
+          format: date-time
+          description: Дата и время окончания срока действия документа
+        isEndless:
+          type: boolean
+          description: |
+            Бессрочный ли документ:
+              - `true` — да, документ бессрочный
+              - `false` — нет, у документа есть срок действия
+    reasonDocument:
+      type: string
+      nullable: true
+      description: |
+        Ошибка при проверке, возвращается для `status: 2`. <br>
+        Возможные значения:
+          - `document_missing` — Документ не загружен
+          - `document_not_found` — Документ не найден в реестре
+          - `document_inactive` — У документа нет юридической силы
+          - `document_expired` — Истёк срок действия документа
+          - `applicant_mismatch` — Данные заявителя в документе и карточке различаются
+          - `trade_name_mismatch` — Торговое наименование в карточке отличается от документа
+          - `unknown` — Проверка не пройдена
+          - `document_type_mismatch` — Номер документа не соответствует указанному типу документа
+          - `document_dates_mismatch` — Неверная дата регистрации или окончания действия документа
+    reasonListing:
+      type: string
+      nullable: true
+      description: |
+        Ошибка при проверке, возвращается для `status: 2`. <br>
+        Возможные значения:
+          - `tnved_missing` — Не указан код ТН ВЭД
+          - `supplier_inn_missing` — Не указан ИНН
+          - `supplier_not_registered` — Поставщик не найден в реестре
+          - `supplier_inactive` — Ошибка в статусе поставщика, проверьте его в реестре
+          - `product_group_not_registered` — Добавлена неверная товарная группа в системе маркировки
+          - `kiz_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака
+          - `kiz_certificate_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка
     Response4XX:
       type: object
       properties:
@@ -8316,6 +8597,17 @@ components:
                 width: 7
                 height: 5
                 weightBrutto: 1.242
+              documents:
+                items:
+                  - type: 1
+                    number: РОСС RU.АЯ46.В12345
+                    productNumber: УД-2024-001234
+                    tradeName: Тест Продукт
+                    applicant: Тест
+                    startDate: '2023-01-15T03:00:00+03:00'
+                    endDate: '2026-01-14T03:00:00+03:00'
+                    isEndless: false
+                excludeDocuments: false
               characteristics:
                 - id: 12
                   value:
@@ -8349,6 +8641,17 @@ components:
                 width: 40
                 height: 15
                 weightBrutto: 6.24
+              documents:
+                items:
+                  - type: 1
+                    number: РОСС RU.АЯ46.В12345
+                    productNumber: УД-2024-001234
+                    tradeName: Тест Продукт
+                    applicant: Тест
+                    startDate: '2023-01-15T03:00:00+03:00'
+                    endDate: '2026-01-14T03:00:00+03:00'
+                    isEndless: false
+                excludeDocuments: false
               characteristics:
                 - id: 12
                   value:
@@ -8370,6 +8673,17 @@ components:
                 width: 40
                 height: 15
                 weightBrutto: 6.241
+              documents:
+                items:
+                  - type: 1
+                    number: РОСС RU.АЯ46.В123
+                    productNumber: УД-2025-001234
+                    tradeName: Тест Продукт2
+                    applicant: Тест2
+                    startDate: '2023-01-15T03:00:00+03:00'
+                    endDate: '2026-01-14T03:00:00+03:00'
+                    isEndless: false
+                excludeDocuments: false
               characteristics:
                 - id: 12
                   value:
@@ -8400,6 +8714,17 @@ components:
                 width: 40
                 height: 15
                 weightBrutto: 6
+              documents:
+                items:
+                  - type: 1
+                    number: РОСС RU.АЯ46.В12345
+                    productNumber: УД-2024-001234
+                    tradeName: Тест Продукт
+                    applicant: Тест
+                    startDate: '2023-01-15T03:00:00+03:00'
+                    endDate: '2026-01-14T03:00:00+03:00'
+                    isEndless: false
+                excludeDocuments: false
               characteristics:
                 - id: 12
                   value:
@@ -8423,6 +8748,17 @@ components:
                 width: 5
                 height: 4
                 weightBrutto: 0.94
+              documents:
+                items:
+                  - type: 1
+                    number: РОСС RU.АЯ46.В12346
+                    productNumber: УД-2025-001234
+                    tradeName: Тест Продукт2
+                    applicant: Тест2
+                    startDate: '2023-01-15T03:00:00+03:00'
+                    endDate: '2026-01-14T03:00:00+03:00'
+                    isEndless: false
+                excludeDocuments: false
               characteristics:
                 - id: 12
                   value:

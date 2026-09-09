@@ -1,6 +1,11 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.09)
+- Products: в ответы методов работы с карточками/листингами добавлен новый объект `documents` с результатами проверки документов: `items[]` (поля `id`, `type`, `number`, `productNumber`, `tradeName`, `applicant`, `quantity`, `startDate`, `endDate`, `isEndless`, `createdAt`, `verdict{verified,status,reason,additionalData,createdAt}`), `overallVerdict{isFullyChecked,status,reason,createdAt}`, `excludeDocuments`
+- Products: в запросы создания/обновления карточек добавлен объект `documents` → `items[]` (по схеме `documentsRequest`) и флаг `excludeDocuments` (default `false`); при `excludeDocuments=true` переданные значения в `documents` заменяются на пустые и документы не участвуют в проверке карточки
+- Products: добавлены новые схемы компонентов `documentsRequest`, `reasonDocument` (коды причин для `verdict.status=2`) и `reasonListing` (коды причин для `overallVerdict.status=2`) для унификации валидации/проверок документов и карточки товара
+
 ### Changed (2026.09.08)
 - Общие: добавлен ответ `403` для `/api/communications/v2/news`; унифицировано описание `403` для `/api/common/v1/subscriptions`, `/api/common/v1/tariff-constructor/options`, `/api/v1/users`, `/api/v1/users/access`, `/api/v1/user` — теперь `application/problem+json` со схемой `Response4XX` и примерами `Response403TokenCategory`/`Response403TokenType`
 - Общие: добавлена схема ошибок `Response4XX` (поля `title`, `detail`, `code`, `requestId`, `origin`, `status`, `statusText`, `timestamp`) и примеры `Response403TokenCategory`/`Response403TokenType`; обновлён `components/responses/403` — вместо одиночного `example` используются `examples`
