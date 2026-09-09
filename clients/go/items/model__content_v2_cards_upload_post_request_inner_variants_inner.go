@@ -37,6 +37,7 @@ type ContentV2CardsUploadPostRequestInnerVariantsInner struct {
 	Sizes []ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner `json:"sizes,omitempty"`
 	// Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) 
 	Characteristics []ContentV2CardsUpdatePostRequestInnerCharacteristicsInner `json:"characteristics,omitempty"`
+	Documents *ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments `json:"documents,omitempty"`
 }
 
 type _ContentV2CardsUploadPostRequestInnerVariantsInner ContentV2CardsUploadPostRequestInnerVariantsInner
@@ -343,6 +344,38 @@ func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) SetCharacteristics(v
 	o.Characteristics = v
 }
 
+// GetDocuments returns the Documents field value if set, zero value otherwise.
+func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) GetDocuments() ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments {
+	if o == nil || IsNil(o.Documents) {
+		var ret ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments
+		return ret
+	}
+	return *o.Documents
+}
+
+// GetDocumentsOk returns a tuple with the Documents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) GetDocumentsOk() (*ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments, bool) {
+	if o == nil || IsNil(o.Documents) {
+		return nil, false
+	}
+	return o.Documents, true
+}
+
+// HasDocuments returns a boolean if a field has been set.
+func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) HasDocuments() bool {
+	if o != nil && !IsNil(o.Documents) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocuments gets a reference to the given ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments and assigns it to the Documents field.
+func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) SetDocuments(v ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments) {
+	o.Documents = &v
+}
+
 func (o ContentV2CardsUploadPostRequestInnerVariantsInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -377,6 +410,9 @@ func (o ContentV2CardsUploadPostRequestInnerVariantsInner) ToMap() (map[string]i
 	}
 	if !IsNil(o.Characteristics) {
 		toSerialize["characteristics"] = o.Characteristics
+	}
+	if !IsNil(o.Documents) {
+		toSerialize["documents"] = o.Documents
 	}
 	return toSerialize, nil
 }

@@ -56,6 +56,8 @@ pub struct ContentV2GetCardsListPost200ResponseCardsInner {
     pub wholesale: Option<Box<models::ContentV2GetCardsListPost200ResponseCardsInnerWholesale>>,
     #[serde(rename = "dimensions", skip_serializing_if = "Option::is_none")]
     pub dimensions: Option<Box<models::ContentV2GetCardsListPost200ResponseCardsInnerDimensions>>,
+    #[serde(rename = "documents", skip_serializing_if = "Option::is_none")]
+    pub documents: Option<Box<models::ContentV2GetCardsListPost200ResponseCardsInnerDocuments>>,
     /// Характеристики
     #[serde(rename = "characteristics", skip_serializing_if = "Option::is_none")]
     pub characteristics: Option<Vec<models::ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner>>,
@@ -91,6 +93,7 @@ impl ContentV2GetCardsListPost200ResponseCardsInner {
             video: None,
             wholesale: None,
             dimensions: None,
+            documents: None,
             characteristics: None,
             sizes: None,
             tags: None,

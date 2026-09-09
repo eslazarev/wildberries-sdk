@@ -33,6 +33,8 @@ pub struct ContentV2CardsUpdatePostRequestInner {
     pub description: Option<String>,
     #[serde(rename = "dimensions", skip_serializing_if = "Option::is_none")]
     pub dimensions: Option<Box<models::ContentV2CardsUpdatePostRequestInnerDimensions>>,
+    #[serde(rename = "documents", skip_serializing_if = "Option::is_none")]
+    pub documents: Option<Box<models::ContentV2CardsUpdatePostRequestInnerDocuments>>,
     /// Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) 
     #[serde(rename = "characteristics", skip_serializing_if = "Option::is_none")]
     pub characteristics: Option<Vec<models::ContentV2CardsUpdatePostRequestInnerCharacteristicsInner>>,
@@ -51,6 +53,7 @@ impl ContentV2CardsUpdatePostRequestInner {
             title: None,
             description: None,
             dimensions: None,
+            documents: None,
             characteristics: None,
             sizes,
         }

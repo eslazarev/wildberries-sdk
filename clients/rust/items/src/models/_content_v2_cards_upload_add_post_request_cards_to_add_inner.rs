@@ -38,6 +38,8 @@ pub struct ContentV2CardsUploadAddPostRequestCardsToAddInner {
     /// Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) 
     #[serde(rename = "characteristics", skip_serializing_if = "Option::is_none")]
     pub characteristics: Option<Vec<models::ContentV2CardsUpdatePostRequestInnerCharacteristicsInner>>,
+    #[serde(rename = "documents", skip_serializing_if = "Option::is_none")]
+    pub documents: Option<Box<models::ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments>>,
 }
 
 impl ContentV2CardsUploadAddPostRequestCardsToAddInner {
@@ -52,6 +54,7 @@ impl ContentV2CardsUploadAddPostRequestCardsToAddInner {
             dimensions: None,
             sizes: None,
             characteristics: None,
+            documents: None,
         }
     }
 }

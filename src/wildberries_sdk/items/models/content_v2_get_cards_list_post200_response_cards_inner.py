@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_characteristics_inner import ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_dimensions import ContentV2GetCardsListPost200ResponseCardsInnerDimensions
+from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_documents import ContentV2GetCardsListPost200ResponseCardsInnerDocuments
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_photos_inner import ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_sizes_inner import ContentV2GetCardsListPost200ResponseCardsInnerSizesInner
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_tags_inner import ContentV2GetCardsListPost200ResponseCardsInnerTagsInner
@@ -48,12 +49,13 @@ class ContentV2GetCardsListPost200ResponseCardsInner(BaseModel):
     video: Optional[StrictStr] = Field(default=None, description="URL видео")
     wholesale: Optional[ContentV2GetCardsListPost200ResponseCardsInnerWholesale] = None
     dimensions: Optional[ContentV2GetCardsListPost200ResponseCardsInnerDimensions] = None
+    documents: Optional[ContentV2GetCardsListPost200ResponseCardsInnerDocuments] = None
     characteristics: Optional[List[ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner]] = Field(default=None, description="Характеристики")
     sizes: Optional[List[ContentV2GetCardsListPost200ResponseCardsInnerSizesInner]] = Field(default=None, description="Размеры товара")
     tags: Optional[List[ContentV2GetCardsListPost200ResponseCardsInnerTagsInner]] = Field(default=None, description="Ярлыки")
     created_at: Optional[StrictStr] = Field(default=None, description="Дата и время создания", alias="createdAt")
     updated_at: Optional[StrictStr] = Field(default=None, description="Дата и время изменения", alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["nmID", "imtID", "nmUUID", "subjectID", "subjectName", "vendorCode", "brand", "title", "description", "needKiz", "kizMarked", "photos", "video", "wholesale", "dimensions", "characteristics", "sizes", "tags", "createdAt", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["nmID", "imtID", "nmUUID", "subjectID", "subjectName", "vendorCode", "brand", "title", "description", "needKiz", "kizMarked", "photos", "video", "wholesale", "dimensions", "documents", "characteristics", "sizes", "tags", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -106,6 +108,9 @@ class ContentV2GetCardsListPost200ResponseCardsInner(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of dimensions
         if self.dimensions:
             _dict['dimensions'] = self.dimensions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of documents
+        if self.documents:
+            _dict['documents'] = self.documents.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in characteristics (list)
         _items = []
         if self.characteristics:
@@ -151,6 +156,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner(BaseModel):
             "video": obj.get("video"),
             "wholesale": ContentV2GetCardsListPost200ResponseCardsInnerWholesale.from_dict(obj["wholesale"]) if obj.get("wholesale") is not None else None,
             "dimensions": ContentV2GetCardsListPost200ResponseCardsInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
+            "documents": ContentV2GetCardsListPost200ResponseCardsInnerDocuments.from_dict(obj["documents"]) if obj.get("documents") is not None else None,
             "characteristics": [ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner.from_dict(_item) for _item in obj["characteristics"]] if obj.get("characteristics") is not None else None,
             "sizes": [ContentV2GetCardsListPost200ResponseCardsInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
             "tags": [ContentV2GetCardsListPost200ResponseCardsInnerTagsInner.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,

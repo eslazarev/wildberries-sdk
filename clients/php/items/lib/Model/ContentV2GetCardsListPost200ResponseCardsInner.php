@@ -72,6 +72,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner implements ModelInterface, 
         'video' => 'string',
         'wholesale' => '\Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerWholesale',
         'dimensions' => '\Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerDimensions',
+        'documents' => '\Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerDocuments',
         'characteristics' => '\Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner[]',
         'sizes' => '\Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerSizesInner[]',
         'tags' => '\Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerTagsInner[]',
@@ -102,6 +103,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner implements ModelInterface, 
         'video' => null,
         'wholesale' => null,
         'dimensions' => null,
+        'documents' => null,
         'characteristics' => null,
         'sizes' => null,
         'tags' => null,
@@ -130,6 +132,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner implements ModelInterface, 
         'video' => false,
         'wholesale' => false,
         'dimensions' => false,
+        'documents' => false,
         'characteristics' => false,
         'sizes' => false,
         'tags' => false,
@@ -238,6 +241,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner implements ModelInterface, 
         'video' => 'video',
         'wholesale' => 'wholesale',
         'dimensions' => 'dimensions',
+        'documents' => 'documents',
         'characteristics' => 'characteristics',
         'sizes' => 'sizes',
         'tags' => 'tags',
@@ -266,6 +270,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner implements ModelInterface, 
         'video' => 'setVideo',
         'wholesale' => 'setWholesale',
         'dimensions' => 'setDimensions',
+        'documents' => 'setDocuments',
         'characteristics' => 'setCharacteristics',
         'sizes' => 'setSizes',
         'tags' => 'setTags',
@@ -294,6 +299,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner implements ModelInterface, 
         'video' => 'getVideo',
         'wholesale' => 'getWholesale',
         'dimensions' => 'getDimensions',
+        'documents' => 'getDocuments',
         'characteristics' => 'getCharacteristics',
         'sizes' => 'getSizes',
         'tags' => 'getTags',
@@ -373,6 +379,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner implements ModelInterface, 
         $this->setIfExists('video', $data ?? [], null);
         $this->setIfExists('wholesale', $data ?? [], null);
         $this->setIfExists('dimensions', $data ?? [], null);
+        $this->setIfExists('documents', $data ?? [], null);
         $this->setIfExists('characteristics', $data ?? [], null);
         $this->setIfExists('sizes', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
@@ -823,6 +830,33 @@ class ContentV2GetCardsListPost200ResponseCardsInner implements ModelInterface, 
             throw new \InvalidArgumentException('non-nullable dimensions cannot be null');
         }
         $this->container['dimensions'] = $dimensions;
+
+        return $this;
+    }
+
+    /**
+     * Gets documents
+     *
+     * @return \Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerDocuments|null
+     */
+    public function getDocuments()
+    {
+        return $this->container['documents'];
+    }
+
+    /**
+     * Sets documents
+     *
+     * @param \Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerDocuments|null $documents documents
+     *
+     * @return self
+     */
+    public function setDocuments($documents)
+    {
+        if (is_null($documents)) {
+            throw new \InvalidArgumentException('non-nullable documents cannot be null');
+        }
+        $this->container['documents'] = $documents;
 
         return $this;
     }

@@ -34,6 +34,7 @@ type ContentV2CardsUpdatePostRequestInner struct {
 	// Описание товара.<br> Максимальное количество символов зависит от категории товара<br> Стандарт — 2000, минимум — 1000, максимум — 5000<br> Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов 
 	Description *string `json:"description,omitempty"`
 	Dimensions *ContentV2CardsUpdatePostRequestInnerDimensions `json:"dimensions,omitempty"`
+	Documents *ContentV2CardsUpdatePostRequestInnerDocuments `json:"documents,omitempty"`
 	// Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) 
 	Characteristics []ContentV2CardsUpdatePostRequestInnerCharacteristicsInner `json:"characteristics,omitempty"`
 	// Массив размеров<br> Для безразмерного товара всё равно нужно передавать данный массив без параметров (wbSize и techSize), но с баркодом 
@@ -274,6 +275,38 @@ func (o *ContentV2CardsUpdatePostRequestInner) SetDimensions(v ContentV2CardsUpd
 	o.Dimensions = &v
 }
 
+// GetDocuments returns the Documents field value if set, zero value otherwise.
+func (o *ContentV2CardsUpdatePostRequestInner) GetDocuments() ContentV2CardsUpdatePostRequestInnerDocuments {
+	if o == nil || IsNil(o.Documents) {
+		var ret ContentV2CardsUpdatePostRequestInnerDocuments
+		return ret
+	}
+	return *o.Documents
+}
+
+// GetDocumentsOk returns a tuple with the Documents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContentV2CardsUpdatePostRequestInner) GetDocumentsOk() (*ContentV2CardsUpdatePostRequestInnerDocuments, bool) {
+	if o == nil || IsNil(o.Documents) {
+		return nil, false
+	}
+	return o.Documents, true
+}
+
+// HasDocuments returns a boolean if a field has been set.
+func (o *ContentV2CardsUpdatePostRequestInner) HasDocuments() bool {
+	if o != nil && !IsNil(o.Documents) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocuments gets a reference to the given ContentV2CardsUpdatePostRequestInnerDocuments and assigns it to the Documents field.
+func (o *ContentV2CardsUpdatePostRequestInner) SetDocuments(v ContentV2CardsUpdatePostRequestInnerDocuments) {
+	o.Documents = &v
+}
+
 // GetCharacteristics returns the Characteristics field value if set, zero value otherwise.
 func (o *ContentV2CardsUpdatePostRequestInner) GetCharacteristics() []ContentV2CardsUpdatePostRequestInnerCharacteristicsInner {
 	if o == nil || IsNil(o.Characteristics) {
@@ -356,6 +389,9 @@ func (o ContentV2CardsUpdatePostRequestInner) ToMap() (map[string]interface{}, e
 	}
 	if !IsNil(o.Dimensions) {
 		toSerialize["dimensions"] = o.Dimensions
+	}
+	if !IsNil(o.Documents) {
+		toSerialize["documents"] = o.Documents
 	}
 	if !IsNil(o.Characteristics) {
 		toSerialize["characteristics"] = o.Characteristics

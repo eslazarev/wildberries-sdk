@@ -65,7 +65,8 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner implements ModelInterfac
         'wholesale' => '\Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerWholesale',
         'dimensions' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions',
         'sizes' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner[]',
-        'characteristics' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInnerCharacteristicsInner[]'
+        'characteristics' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInnerCharacteristicsInner[]',
+        'documents' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments'
     ];
 
     /**
@@ -84,7 +85,8 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner implements ModelInterfac
         'wholesale' => null,
         'dimensions' => null,
         'sizes' => null,
-        'characteristics' => null
+        'characteristics' => null,
+        'documents' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner implements ModelInterfac
         'wholesale' => false,
         'dimensions' => false,
         'sizes' => false,
-        'characteristics' => false
+        'characteristics' => false,
+        'documents' => false
     ];
 
     /**
@@ -198,7 +201,8 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner implements ModelInterfac
         'wholesale' => 'wholesale',
         'dimensions' => 'dimensions',
         'sizes' => 'sizes',
-        'characteristics' => 'characteristics'
+        'characteristics' => 'characteristics',
+        'documents' => 'documents'
     ];
 
     /**
@@ -215,7 +219,8 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner implements ModelInterfac
         'wholesale' => 'setWholesale',
         'dimensions' => 'setDimensions',
         'sizes' => 'setSizes',
-        'characteristics' => 'setCharacteristics'
+        'characteristics' => 'setCharacteristics',
+        'documents' => 'setDocuments'
     ];
 
     /**
@@ -232,7 +237,8 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner implements ModelInterfac
         'wholesale' => 'getWholesale',
         'dimensions' => 'getDimensions',
         'sizes' => 'getSizes',
-        'characteristics' => 'getCharacteristics'
+        'characteristics' => 'getCharacteristics',
+        'documents' => 'getDocuments'
     ];
 
     /**
@@ -301,6 +307,7 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner implements ModelInterfac
         $this->setIfExists('dimensions', $data ?? [], null);
         $this->setIfExists('sizes', $data ?? [], null);
         $this->setIfExists('characteristics', $data ?? [], null);
+        $this->setIfExists('documents', $data ?? [], null);
     }
 
     /**
@@ -603,6 +610,33 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner implements ModelInterfac
             throw new \InvalidArgumentException('non-nullable characteristics cannot be null');
         }
         $this->container['characteristics'] = $characteristics;
+
+        return $this;
+    }
+
+    /**
+     * Gets documents
+     *
+     * @return \Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments|null
+     */
+    public function getDocuments()
+    {
+        return $this->container['documents'];
+    }
+
+    /**
+     * Sets documents
+     *
+     * @param \Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments|null $documents documents
+     *
+     * @return self
+     */
+    public function setDocuments($documents)
+    {
+        if (is_null($documents)) {
+            throw new \InvalidArgumentException('non-nullable documents cannot be null');
+        }
+        $this->container['documents'] = $documents;
 
         return $this;
     }

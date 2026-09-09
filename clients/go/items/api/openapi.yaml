@@ -1967,6 +1967,30 @@ paths:
                     height: 15
                     weightBrutto: 6.24
                     isValid: false
+                  documents:
+                    items:
+                    - id: 019f3c09-8c1f-7063-aee4-c45969fb2dc5
+                      type: 1
+                      number: "123456"
+                      productNumber: "123456"
+                      tradeName: Trade Name
+                      applicant: Applicant Name
+                      quantity: 100
+                      startDate: 2023-01-15T03:00:00+03:00
+                      endDate: 2026-01-14T03:00:00+03:00
+                      verdict:
+                        verified: true
+                        status: 1
+                        reason: null
+                        additionalData: null
+                        createdAt: 2026-05-28T18:10:43.375306+03:00
+                      createdAt: 2026-05-28T18:09:25.394692+03:00
+                    overallVerdict:
+                      isFullyChecked: true
+                      status: 1
+                      reason: null
+                      createdAt: 2026-05-28T18:19:19.99444+03:00
+                    excludeDocuments: false
                   characteristics:
                   - id: 14177449
                     name: Цвет
@@ -3453,6 +3477,17 @@ paths:
                 sizes:
                 - skus:
                   - "12345678"
+                documents:
+                  items:
+                  - type: 1
+                    number: РОСС RU.АЯ46.В12346
+                    productNumber: УД-2024-001235
+                    tradeName: Тест Продукт2
+                    applicant: ООО Ромашка
+                    startDate: 2023-01-15T03:00:00+03:00
+                    endDate: 2026-01-14T03:00:00+03:00
+                    isEndless: false
+                  excludeDocuments: false
               - vendorCode: myVariant2
                 title: Наименование товара
                 description: Описание товаров
@@ -3474,6 +3509,17 @@ paths:
                 sizes:
                 - skus:
                   - "222222222222"
+                documents:
+                  items:
+                  - type: 1
+                    number: РОСС RU.АЯ46.В12345
+                    productNumber: УД-2024-001234
+                    tradeName: Тест Продукт
+                    applicant: ООО Ромашка
+                    startDate: 2023-01-15T03:00:00+03:00
+                    endDate: 2026-01-14T03:00:00+03:00
+                    isEndless: false
+                  excludeDocuments: false
             schema:
               $ref: "#/components/schemas/_content_v2_cards_upload_add_post_request"
       responses:
@@ -7042,6 +7088,17 @@ components:
             width: 7
             height: 5
             weightBrutto: 1.242
+          documents:
+            items:
+            - type: 1
+              number: РОСС RU.АЯ46.В12345
+              productNumber: УД-2024-001234
+              tradeName: Тест Продукт
+              applicant: Тест
+              startDate: 2023-01-15T03:00:00+03:00
+              endDate: 2026-01-14T03:00:00+03:00
+              isEndless: false
+            excludeDocuments: false
           characteristics:
           - id: 12
             value:
@@ -7075,6 +7132,17 @@ components:
             width: 40
             height: 15
             weightBrutto: 6.24
+          documents:
+            items:
+            - type: 1
+              number: РОСС RU.АЯ46.В12345
+              productNumber: УД-2024-001234
+              tradeName: Тест Продукт
+              applicant: Тест
+              startDate: 2023-01-15T03:00:00+03:00
+              endDate: 2026-01-14T03:00:00+03:00
+              isEndless: false
+            excludeDocuments: false
           characteristics:
           - id: 12
             value:
@@ -7096,6 +7164,17 @@ components:
             width: 40
             height: 15
             weightBrutto: 6.241
+          documents:
+            items:
+            - type: 1
+              number: РОСС RU.АЯ46.В123
+              productNumber: УД-2025-001234
+              tradeName: Тест Продукт2
+              applicant: Тест2
+              startDate: 2023-01-15T03:00:00+03:00
+              endDate: 2026-01-14T03:00:00+03:00
+              isEndless: false
+            excludeDocuments: false
           characteristics:
           - id: 12
             value:
@@ -7126,6 +7205,17 @@ components:
             width: 40
             height: 15
             weightBrutto: 6
+          documents:
+            items:
+            - type: 1
+              number: РОСС RU.АЯ46.В12345
+              productNumber: УД-2024-001234
+              tradeName: Тест Продукт
+              applicant: Тест
+              startDate: 2023-01-15T03:00:00+03:00
+              endDate: 2026-01-14T03:00:00+03:00
+              isEndless: false
+            excludeDocuments: false
           characteristics:
           - id: 12
             value:
@@ -7149,6 +7239,17 @@ components:
             width: 5
             height: 4
             weightBrutto: 0.94
+          documents:
+            items:
+            - type: 1
+              number: РОСС RU.АЯ46.В12346
+              productNumber: УД-2025-001234
+              tradeName: Тест Продукт2
+              applicant: Тест2
+              startDate: 2023-01-15T03:00:00+03:00
+              endDate: 2026-01-14T03:00:00+03:00
+              isEndless: false
+            excludeDocuments: false
           characteristics:
           - id: 12
             value:
@@ -9649,6 +9750,75 @@ components:
       - requestId
       - title
       type: object
+    documentsRequest:
+      properties:
+        type:
+          description: |
+            Тип документа:
+              - `1` — Сертификат соответствия
+              - `2` — Декларация о соответствии
+              - `3` — Свидетельство о государственной регистрации (СГР)
+              - `4` — Регистрационное удостоверение (РУ) на медицинские изделия
+              - `5` — Регистрационное удостоверение Республики Беларусь
+              - `7` — Данные о регистрации пестицида
+              - `8` — Данные о регистрации агрохимиката
+              - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты
+          type: integer
+        number:
+          description: Номер документа
+          type: string
+        productNumber:
+          description: Дополнительный номер документа
+          type: string
+        tradeName:
+          description: Торговое наименование
+          type: string
+        applicant:
+          description: Представитель изготовителя медицинского изделия
+          type: string
+        startDate:
+          description: Дата и время начала срока действия документа
+          format: date-time
+          type: string
+        endDate:
+          description: Дата и время окончания срока действия документа
+          format: date-time
+          type: string
+        isEndless:
+          description: |
+            Бессрочный ли документ:
+              - `true` — да, документ бессрочный
+              - `false` — нет, у документа есть срок действия
+          type: boolean
+      type: object
+    reasonDocument:
+      description: |
+        Ошибка при проверке, возвращается для `status: 2`. <br>
+        Возможные значения:
+          - `document_missing` — Документ не загружен
+          - `document_not_found` — Документ не найден в реестре
+          - `document_inactive` — У документа нет юридической силы
+          - `document_expired` — Истёк срок действия документа
+          - `applicant_mismatch` — Данные заявителя в документе и карточке различаются
+          - `trade_name_mismatch` — Торговое наименование в карточке отличается от документа
+          - `unknown` — Проверка не пройдена
+          - `document_type_mismatch` — Номер документа не соответствует указанному типу документа
+          - `document_dates_mismatch` — Неверная дата регистрации или окончания действия документа
+      nullable: true
+      type: string
+    reasonListing:
+      description: |
+        Ошибка при проверке, возвращается для `status: 2`. <br>
+        Возможные значения:
+          - `tnved_missing` — Не указан код ТН ВЭД
+          - `supplier_inn_missing` — Не указан ИНН
+          - `supplier_not_registered` — Поставщик не найден в реестре
+          - `supplier_inactive` — Ошибка в статусе поставщика, проверьте его в реестре
+          - `product_group_not_registered` — Добавлена неверная товарная группа в системе маркировки
+          - `kiz_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака
+          - `kiz_certificate_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка
+      nullable: true
+      type: string
     Response4XX:
       properties:
         title:
@@ -10405,9 +10575,200 @@ components:
             - `false` — указанные габариты значительно отличаются от средних по категории (предмету). Рекомендуется перепроверить, правильно ли указаны размеры товара в упаковке в `сантиметрах`. Функциональность карточки товара, в том числе начисление логистики и хранения, при этом ограничена не будет. Логистика и хранение продолжают начисляться — по текущим габаритам. Также `"isValid":false` возвращается при отсутствии значений или нулевом значении любой стороны.
           type: boolean
       type: object
+    _content_v2_get_cards_list_post_200_response_cards_inner_documents_items_inner_verdict:
+      description: "Результат проверки документа. Возвращается, когда проверка зав\
+        ершена"
+      example:
+        verified: true
+        status: 4
+        reason: ""
+        additionalData: "{}"
+        createdAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        verified:
+          description: |
+            - `true` — документ проверен
+            - `false` — документ не проверен
+          type: boolean
+        status:
+          description: |
+            Результат проверки документа:
+              - `1` — проверка пройдена
+              - `2` — проверка не пройдена
+          type: integer
+        reason:
+          allOf:
+          - $ref: "#/components/schemas/reasonDocument"
+        additionalData:
+          description: Дополнительная информация
+          nullable: true
+          type: object
+        createdAt:
+          description: Дата проверки документа
+          format: date-time
+          type: string
+      type: object
+    _content_v2_get_cards_list_post_200_response_cards_inner_documents_items_inner:
+      example:
+        id: id
+        type: 3
+        number: number
+        productNumber: productNumber
+        tradeName: tradeName
+        applicant: applicant
+        quantity: 2
+        startDate: 2000-01-23T04:56:07.000+00:00
+        endDate: 2000-01-23T04:56:07.000+00:00
+        isEndless: true
+        verdict:
+          verified: true
+          status: 4
+          reason: ""
+          additionalData: "{}"
+          createdAt: 2000-01-23T04:56:07.000+00:00
+        createdAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          description: ID документа
+          type: string
+        type:
+          description: |
+            Тип документа:
+              - `1` — Сертификат соответствия
+              - `2` — Декларация о соответствии
+              - `3` — Свидетельство о государственной регистрации (СГР)
+              - `4` — Регистрационное удостоверение (РУ) на медицинские изделия
+              - `5` — Регистрационное удостоверение Республики Беларусь
+              - `7` — Данные о регистрации пестицида
+              - `8` — Данные о регистрации агрохимиката
+              - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты
+          type: integer
+        number:
+          description: Номер документа
+          type: string
+        productNumber:
+          description: Дополнительный номер документа
+          type: string
+        tradeName:
+          description: Торговое наименование
+          type: string
+        applicant:
+          description: Представитель изготовителя медицинского изделия
+          type: string
+        quantity:
+          description: Количество товаров по электронному сертификату
+          type: integer
+        startDate:
+          description: Дата и время начала срока действия документа
+          format: date-time
+          type: string
+        endDate:
+          description: Дата и время окончания срока действия документа
+          format: date-time
+          type: string
+        isEndless:
+          description: |
+            Бессрочный ли документ:
+              - `true` — да, документ бессрочный
+              - `false` — нет, у документа есть срок действия
+          type: boolean
+        verdict:
+          $ref: "#/components/schemas/_content_v2_get_cards_list_post_200_response_cards_inner_documents_items_inner_verdict"
+        createdAt:
+          description: Дата добавления документа
+          format: date-time
+          type: string
+      type: object
+    _content_v2_get_cards_list_post_200_response_cards_inner_documents_overallVerdict:
+      description: "Результат проверки карточки товара. Возвращается, когда провер\
+        ка завершена"
+      example:
+        isFullyChecked: true
+        status: 7
+        reason: ""
+        createdAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isFullyChecked:
+          description: |
+            - `true` — карточка товара проверена
+            - `false` — карточка товара не проверена
+          type: boolean
+        status:
+          description: |
+            Результат проверки карточки товара:
+              - `1` — проверка пройдена
+              - `2` — проверка не пройдена
+          type: integer
+        reason:
+          allOf:
+          - $ref: "#/components/schemas/reasonListing"
+        createdAt:
+          description: Дата и время проверки карточки товара
+          format: date-time
+          type: string
+      type: object
+    _content_v2_get_cards_list_post_200_response_cards_inner_documents:
+      description: Документы
+      example:
+        items:
+        - id: id
+          type: 3
+          number: number
+          productNumber: productNumber
+          tradeName: tradeName
+          applicant: applicant
+          quantity: 2
+          startDate: 2000-01-23T04:56:07.000+00:00
+          endDate: 2000-01-23T04:56:07.000+00:00
+          isEndless: true
+          verdict:
+            verified: true
+            status: 4
+            reason: ""
+            additionalData: "{}"
+            createdAt: 2000-01-23T04:56:07.000+00:00
+          createdAt: 2000-01-23T04:56:07.000+00:00
+        - id: id
+          type: 3
+          number: number
+          productNumber: productNumber
+          tradeName: tradeName
+          applicant: applicant
+          quantity: 2
+          startDate: 2000-01-23T04:56:07.000+00:00
+          endDate: 2000-01-23T04:56:07.000+00:00
+          isEndless: true
+          verdict:
+            verified: true
+            status: 4
+            reason: ""
+            additionalData: "{}"
+            createdAt: 2000-01-23T04:56:07.000+00:00
+          createdAt: 2000-01-23T04:56:07.000+00:00
+        overallVerdict:
+          isFullyChecked: true
+          status: 7
+          reason: ""
+          createdAt: 2000-01-23T04:56:07.000+00:00
+        excludeDocuments: true
+      properties:
+        items:
+          description: Список документов
+          items:
+            $ref: "#/components/schemas/_content_v2_get_cards_list_post_200_response_cards_inner_documents_items_inner"
+          type: array
+        overallVerdict:
+          $ref: "#/components/schemas/_content_v2_get_cards_list_post_200_response_cards_inner_documents_overallVerdict"
+        excludeDocuments:
+          description: |
+            Исключены ли документы из проверки карточки товара:
+              - `true` — да, документы не проверяются при проверке карточки
+              - `false` — нет, документы проверяются при проверке карточки
+          type: boolean
+      type: object
     _content_v2_get_cards_list_post_200_response_cards_inner_characteristics_inner:
       example:
-        id: 3
+        id: 1
         name: name
         value: ""
       properties:
@@ -10422,7 +10783,7 @@ components:
       type: object
     _content_v2_get_cards_list_post_200_response_cards_inner_sizes_inner:
       example:
-        chrtID: 2
+        chrtID: 1
         techSize: techSize
         wbSize: wbSize
         skus:
@@ -10448,7 +10809,7 @@ components:
       type: object
     _content_v2_get_cards_list_post_200_response_cards_inner_tags_inner:
       example:
-        id: 4
+        id: 1
         name: name
         color: color
       properties:
@@ -10504,31 +10865,73 @@ components:
           height: 7
           weightBrutto: 9.301444243932576
           isValid: true
+        documents:
+          items:
+          - id: id
+            type: 3
+            number: number
+            productNumber: productNumber
+            tradeName: tradeName
+            applicant: applicant
+            quantity: 2
+            startDate: 2000-01-23T04:56:07.000+00:00
+            endDate: 2000-01-23T04:56:07.000+00:00
+            isEndless: true
+            verdict:
+              verified: true
+              status: 4
+              reason: ""
+              additionalData: "{}"
+              createdAt: 2000-01-23T04:56:07.000+00:00
+            createdAt: 2000-01-23T04:56:07.000+00:00
+          - id: id
+            type: 3
+            number: number
+            productNumber: productNumber
+            tradeName: tradeName
+            applicant: applicant
+            quantity: 2
+            startDate: 2000-01-23T04:56:07.000+00:00
+            endDate: 2000-01-23T04:56:07.000+00:00
+            isEndless: true
+            verdict:
+              verified: true
+              status: 4
+              reason: ""
+              additionalData: "{}"
+              createdAt: 2000-01-23T04:56:07.000+00:00
+            createdAt: 2000-01-23T04:56:07.000+00:00
+          overallVerdict:
+            isFullyChecked: true
+            status: 7
+            reason: ""
+            createdAt: 2000-01-23T04:56:07.000+00:00
+          excludeDocuments: true
         characteristics:
-        - id: 3
+        - id: 1
           name: name
           value: ""
-        - id: 3
+        - id: 1
           name: name
           value: ""
         sizes:
-        - chrtID: 2
+        - chrtID: 1
           techSize: techSize
           wbSize: wbSize
           skus:
           - 12345Ejf5
           - 12345Ejf5
-        - chrtID: 2
+        - chrtID: 1
           techSize: techSize
           wbSize: wbSize
           skus:
           - 12345Ejf5
           - 12345Ejf5
         tags:
-        - id: 4
+        - id: 1
           name: name
           color: color
-        - id: 4
+        - id: 1
           name: name
           color: color
         createdAt: createdAt
@@ -10594,6 +10997,8 @@ components:
           $ref: "#/components/schemas/_content_v2_get_cards_list_post_200_response_cards_inner_wholesale"
         dimensions:
           $ref: "#/components/schemas/_content_v2_get_cards_list_post_200_response_cards_inner_dimensions"
+        documents:
+          $ref: "#/components/schemas/_content_v2_get_cards_list_post_200_response_cards_inner_documents"
         characteristics:
           description: Характеристики
           items:
@@ -10620,8 +11025,8 @@ components:
       description: Пагинатор
       example:
         updatedAt: updatedAt
-        nmID: 7
-        total: 1
+        nmID: 6
+        total: 7
       properties:
         updatedAt:
           description: "Дата и время, с которых надо запрашивать следующий список\
@@ -10670,31 +11075,73 @@ components:
             height: 7
             weightBrutto: 9.301444243932576
             isValid: true
+          documents:
+            items:
+            - id: id
+              type: 3
+              number: number
+              productNumber: productNumber
+              tradeName: tradeName
+              applicant: applicant
+              quantity: 2
+              startDate: 2000-01-23T04:56:07.000+00:00
+              endDate: 2000-01-23T04:56:07.000+00:00
+              isEndless: true
+              verdict:
+                verified: true
+                status: 4
+                reason: ""
+                additionalData: "{}"
+                createdAt: 2000-01-23T04:56:07.000+00:00
+              createdAt: 2000-01-23T04:56:07.000+00:00
+            - id: id
+              type: 3
+              number: number
+              productNumber: productNumber
+              tradeName: tradeName
+              applicant: applicant
+              quantity: 2
+              startDate: 2000-01-23T04:56:07.000+00:00
+              endDate: 2000-01-23T04:56:07.000+00:00
+              isEndless: true
+              verdict:
+                verified: true
+                status: 4
+                reason: ""
+                additionalData: "{}"
+                createdAt: 2000-01-23T04:56:07.000+00:00
+              createdAt: 2000-01-23T04:56:07.000+00:00
+            overallVerdict:
+              isFullyChecked: true
+              status: 7
+              reason: ""
+              createdAt: 2000-01-23T04:56:07.000+00:00
+            excludeDocuments: true
           characteristics:
-          - id: 3
+          - id: 1
             name: name
             value: ""
-          - id: 3
+          - id: 1
             name: name
             value: ""
           sizes:
-          - chrtID: 2
+          - chrtID: 1
             techSize: techSize
             wbSize: wbSize
             skus:
             - 12345Ejf5
             - 12345Ejf5
-          - chrtID: 2
+          - chrtID: 1
             techSize: techSize
             wbSize: wbSize
             skus:
             - 12345Ejf5
             - 12345Ejf5
           tags:
-          - id: 4
+          - id: 1
             name: name
             color: color
-          - id: 4
+          - id: 1
             name: name
             color: color
           createdAt: createdAt
@@ -10731,39 +11178,81 @@ components:
             height: 7
             weightBrutto: 9.301444243932576
             isValid: true
+          documents:
+            items:
+            - id: id
+              type: 3
+              number: number
+              productNumber: productNumber
+              tradeName: tradeName
+              applicant: applicant
+              quantity: 2
+              startDate: 2000-01-23T04:56:07.000+00:00
+              endDate: 2000-01-23T04:56:07.000+00:00
+              isEndless: true
+              verdict:
+                verified: true
+                status: 4
+                reason: ""
+                additionalData: "{}"
+                createdAt: 2000-01-23T04:56:07.000+00:00
+              createdAt: 2000-01-23T04:56:07.000+00:00
+            - id: id
+              type: 3
+              number: number
+              productNumber: productNumber
+              tradeName: tradeName
+              applicant: applicant
+              quantity: 2
+              startDate: 2000-01-23T04:56:07.000+00:00
+              endDate: 2000-01-23T04:56:07.000+00:00
+              isEndless: true
+              verdict:
+                verified: true
+                status: 4
+                reason: ""
+                additionalData: "{}"
+                createdAt: 2000-01-23T04:56:07.000+00:00
+              createdAt: 2000-01-23T04:56:07.000+00:00
+            overallVerdict:
+              isFullyChecked: true
+              status: 7
+              reason: ""
+              createdAt: 2000-01-23T04:56:07.000+00:00
+            excludeDocuments: true
           characteristics:
-          - id: 3
+          - id: 1
             name: name
             value: ""
-          - id: 3
+          - id: 1
             name: name
             value: ""
           sizes:
-          - chrtID: 2
+          - chrtID: 1
             techSize: techSize
             wbSize: wbSize
             skus:
             - 12345Ejf5
             - 12345Ejf5
-          - chrtID: 2
+          - chrtID: 1
             techSize: techSize
             wbSize: wbSize
             skus:
             - 12345Ejf5
             - 12345Ejf5
           tags:
-          - id: 4
+          - id: 1
             name: name
             color: color
-          - id: 4
+          - id: 1
             name: name
             color: color
           createdAt: createdAt
           updatedAt: updatedAt
         cursor:
           updatedAt: updatedAt
-          nmID: 7
-          total: 1
+          nmID: 6
+          total: 7
       properties:
         cards:
           description: Список карточек товаров
@@ -10791,6 +11280,30 @@ components:
         weightBrutto:
           description: "Вес, кг<br>Количество знаков после запятой <=3"
           type: number
+      type: object
+    _content_v2_cards_update_post_request_inner_documents_items_inner:
+      allOf:
+      - properties:
+          id:
+            description: ID документа
+            type: string
+        type: object
+      - $ref: "#/components/schemas/documentsRequest"
+    _content_v2_cards_update_post_request_inner_documents:
+      description: Документы
+      properties:
+        items:
+          description: Список документов
+          items:
+            $ref: "#/components/schemas/_content_v2_cards_update_post_request_inner_documents_items_inner"
+          type: array
+        excludeDocuments:
+          default: false
+          description: |
+            Исключить ли документы из проверки:
+              - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения
+              - `false` — нет, проверять документы при проверке карточки товара
+          type: boolean
       type: object
     _content_v2_cards_update_post_request_inner_characteristics_inner:
       properties:
@@ -10868,6 +11381,8 @@ components:
           type: string
         dimensions:
           $ref: "#/components/schemas/_content_v2_cards_update_post_request_inner_dimensions"
+        documents:
+          $ref: "#/components/schemas/_content_v2_cards_update_post_request_inner_documents"
         characteristics:
           description: |
             Характеристики товара.
@@ -11075,10 +11590,10 @@ components:
           weightBrutto: 9.301444243932576
           isValid: true
         characteristics:
-        - id: 3
+        - id: 1
           name: name
           value: ""
-        - id: 3
+        - id: 1
           name: name
           value: ""
         createdAt: createdAt
@@ -11198,10 +11713,10 @@ components:
             weightBrutto: 9.301444243932576
             isValid: true
           characteristics:
-          - id: 3
+          - id: 1
             name: name
             value: ""
-          - id: 3
+          - id: 1
             name: name
             value: ""
           createdAt: createdAt
@@ -11246,10 +11761,10 @@ components:
             weightBrutto: 9.301444243932576
             isValid: true
           characteristics:
-          - id: 3
+          - id: 1
             name: name
             value: ""
-          - id: 3
+          - id: 1
             name: name
             value: ""
           createdAt: createdAt
@@ -11378,6 +11893,22 @@ components:
             type: string
           type: array
       type: object
+    _content_v2_cards_upload_post_request_inner_variants_inner_documents:
+      description: Документы
+      properties:
+        items:
+          description: Список документов
+          items:
+            $ref: "#/components/schemas/documentsRequest"
+          type: array
+        excludeDocuments:
+          default: false
+          description: |
+            Исключить ли документы из проверки:
+              - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения
+              - `false` — нет, проверять документы при проверке карточки товара
+          type: boolean
+      type: object
     _content_v2_cards_upload_post_request_inner_variants_inner:
       maximum: 30
       minimum: 1
@@ -11428,6 +11959,8 @@ components:
           items:
             $ref: "#/components/schemas/_content_v2_cards_update_post_request_inner_characteristics_inner"
           type: array
+        documents:
+          $ref: "#/components/schemas/_content_v2_cards_upload_post_request_inner_variants_inner_documents"
       required:
       - vendorCode
       type: object
@@ -11535,6 +12068,8 @@ components:
           items:
             $ref: "#/components/schemas/_content_v2_cards_update_post_request_inner_characteristics_inner"
           type: array
+        documents:
+          $ref: "#/components/schemas/_content_v2_cards_upload_post_request_inner_variants_inner_documents"
       required:
       - vendorCode
       type: object

@@ -48,6 +48,13 @@ import {
     ContentV2GetCardsListPost200ResponseCardsInnerDimensionsToJSON,
     ContentV2GetCardsListPost200ResponseCardsInnerDimensionsToJSONTyped,
 } from './ContentV2GetCardsListPost200ResponseCardsInnerDimensions';
+import type { ContentV2GetCardsListPost200ResponseCardsInnerDocuments } from './ContentV2GetCardsListPost200ResponseCardsInnerDocuments';
+import {
+    ContentV2GetCardsListPost200ResponseCardsInnerDocumentsFromJSON,
+    ContentV2GetCardsListPost200ResponseCardsInnerDocumentsFromJSONTyped,
+    ContentV2GetCardsListPost200ResponseCardsInnerDocumentsToJSON,
+    ContentV2GetCardsListPost200ResponseCardsInnerDocumentsToJSONTyped,
+} from './ContentV2GetCardsListPost200ResponseCardsInnerDocuments';
 import type { ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner } from './ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner';
 import {
     ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInnerFromJSON,
@@ -131,6 +138,10 @@ export interface ContentV2GetCardsListPost200ResponseCardsInner {
      */
     dimensions?: ContentV2GetCardsListPost200ResponseCardsInnerDimensions;
     /**
+     * 
+     */
+    documents?: ContentV2GetCardsListPost200ResponseCardsInnerDocuments;
+    /**
      * Характеристики
      */
     characteristics?: Array<ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner>;
@@ -184,6 +195,7 @@ export function ContentV2GetCardsListPost200ResponseCardsInnerFromJSONTyped(json
         'video': json['video'] == null ? undefined : json['video'],
         'wholesale': json['wholesale'] == null ? undefined : ContentV2GetCardsListPost200ResponseCardsInnerWholesaleFromJSON(json['wholesale']),
         'dimensions': json['dimensions'] == null ? undefined : ContentV2GetCardsListPost200ResponseCardsInnerDimensionsFromJSON(json['dimensions']),
+        'documents': json['documents'] == null ? undefined : ContentV2GetCardsListPost200ResponseCardsInnerDocumentsFromJSON(json['documents']),
         'characteristics': json['characteristics'] == null ? undefined : ((json['characteristics'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInnerFromJSON)),
         'sizes': json['sizes'] == null ? undefined : ((json['sizes'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerSizesInnerFromJSON)),
         'tags': json['tags'] == null ? undefined : ((json['tags'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerTagsInnerFromJSON)),
@@ -218,6 +230,7 @@ export function ContentV2GetCardsListPost200ResponseCardsInnerToJSONTyped(value?
         'video': value['video'],
         'wholesale': ContentV2GetCardsListPost200ResponseCardsInnerWholesaleToJSON(value['wholesale']),
         'dimensions': ContentV2GetCardsListPost200ResponseCardsInnerDimensionsToJSON(value['dimensions']),
+        'documents': ContentV2GetCardsListPost200ResponseCardsInnerDocumentsToJSON(value['documents']),
         'characteristics': value['characteristics'] == null ? undefined : ((value['characteristics'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInnerToJSON)),
         'sizes': value['sizes'] == null ? undefined : ((value['sizes'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerSizesInnerToJSON)),
         'tags': value['tags'] == null ? undefined : ((value['tags'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerTagsInnerToJSON)),

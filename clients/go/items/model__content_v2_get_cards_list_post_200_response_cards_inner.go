@@ -47,6 +47,7 @@ type ContentV2GetCardsListPost200ResponseCardsInner struct {
 	Video *string `json:"video,omitempty"`
 	Wholesale *ContentV2GetCardsListPost200ResponseCardsInnerWholesale `json:"wholesale,omitempty"`
 	Dimensions *ContentV2GetCardsListPost200ResponseCardsInnerDimensions `json:"dimensions,omitempty"`
+	Documents *ContentV2GetCardsListPost200ResponseCardsInnerDocuments `json:"documents,omitempty"`
 	// Характеристики
 	Characteristics []ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner `json:"characteristics,omitempty"`
 	// Размеры товара
@@ -560,6 +561,38 @@ func (o *ContentV2GetCardsListPost200ResponseCardsInner) SetDimensions(v Content
 	o.Dimensions = &v
 }
 
+// GetDocuments returns the Documents field value if set, zero value otherwise.
+func (o *ContentV2GetCardsListPost200ResponseCardsInner) GetDocuments() ContentV2GetCardsListPost200ResponseCardsInnerDocuments {
+	if o == nil || IsNil(o.Documents) {
+		var ret ContentV2GetCardsListPost200ResponseCardsInnerDocuments
+		return ret
+	}
+	return *o.Documents
+}
+
+// GetDocumentsOk returns a tuple with the Documents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContentV2GetCardsListPost200ResponseCardsInner) GetDocumentsOk() (*ContentV2GetCardsListPost200ResponseCardsInnerDocuments, bool) {
+	if o == nil || IsNil(o.Documents) {
+		return nil, false
+	}
+	return o.Documents, true
+}
+
+// HasDocuments returns a boolean if a field has been set.
+func (o *ContentV2GetCardsListPost200ResponseCardsInner) HasDocuments() bool {
+	if o != nil && !IsNil(o.Documents) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocuments gets a reference to the given ContentV2GetCardsListPost200ResponseCardsInnerDocuments and assigns it to the Documents field.
+func (o *ContentV2GetCardsListPost200ResponseCardsInner) SetDocuments(v ContentV2GetCardsListPost200ResponseCardsInnerDocuments) {
+	o.Documents = &v
+}
+
 // GetCharacteristics returns the Characteristics field value if set, zero value otherwise.
 func (o *ContentV2GetCardsListPost200ResponseCardsInner) GetCharacteristics() []ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner {
 	if o == nil || IsNil(o.Characteristics) {
@@ -774,6 +807,9 @@ func (o ContentV2GetCardsListPost200ResponseCardsInner) ToMap() (map[string]inte
 	}
 	if !IsNil(o.Dimensions) {
 		toSerialize["dimensions"] = o.Dimensions
+	}
+	if !IsNil(o.Documents) {
+		toSerialize["documents"] = o.Documents
 	}
 	if !IsNil(o.Characteristics) {
 		toSerialize["characteristics"] = o.Characteristics

@@ -34,6 +34,13 @@ import {
     ContentV2CardsUpdatePostRequestInnerDimensionsToJSON,
     ContentV2CardsUpdatePostRequestInnerDimensionsToJSONTyped,
 } from './ContentV2CardsUpdatePostRequestInnerDimensions';
+import type { ContentV2CardsUpdatePostRequestInnerDocuments } from './ContentV2CardsUpdatePostRequestInnerDocuments';
+import {
+    ContentV2CardsUpdatePostRequestInnerDocumentsFromJSON,
+    ContentV2CardsUpdatePostRequestInnerDocumentsFromJSONTyped,
+    ContentV2CardsUpdatePostRequestInnerDocumentsToJSON,
+    ContentV2CardsUpdatePostRequestInnerDocumentsToJSONTyped,
+} from './ContentV2CardsUpdatePostRequestInnerDocuments';
 
 /**
  * 
@@ -79,6 +86,10 @@ export interface ContentV2CardsUpdatePostRequestInner {
      */
     dimensions?: ContentV2CardsUpdatePostRequestInnerDimensions;
     /**
+     * 
+     */
+    documents?: ContentV2CardsUpdatePostRequestInnerDocuments;
+    /**
      * Характеристики товара.
      * <br>
      * Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get)
@@ -120,6 +131,7 @@ export function ContentV2CardsUpdatePostRequestInnerFromJSONTyped(json: any, ign
         'title': json['title'] == null ? undefined : json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'dimensions': json['dimensions'] == null ? undefined : ContentV2CardsUpdatePostRequestInnerDimensionsFromJSON(json['dimensions']),
+        'documents': json['documents'] == null ? undefined : ContentV2CardsUpdatePostRequestInnerDocumentsFromJSON(json['documents']),
         'characteristics': json['characteristics'] == null ? undefined : ((json['characteristics'] as Array<any>).map(ContentV2CardsUpdatePostRequestInnerCharacteristicsInnerFromJSON)),
         'sizes': ((json['sizes'] as Array<any>).map(ContentV2CardsUpdatePostRequestInnerSizesInnerFromJSON)),
     };
@@ -143,6 +155,7 @@ export function ContentV2CardsUpdatePostRequestInnerToJSONTyped(value?: ContentV
         'title': value['title'],
         'description': value['description'],
         'dimensions': ContentV2CardsUpdatePostRequestInnerDimensionsToJSON(value['dimensions']),
+        'documents': ContentV2CardsUpdatePostRequestInnerDocumentsToJSON(value['documents']),
         'characteristics': value['characteristics'] == null ? undefined : ((value['characteristics'] as Array<any>).map(ContentV2CardsUpdatePostRequestInnerCharacteristicsInnerToJSON)),
         'sizes': ((value['sizes'] as Array<any>).map(ContentV2CardsUpdatePostRequestInnerSizesInnerToJSON)),
     };

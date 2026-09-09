@@ -23,6 +23,7 @@ from typing_extensions import Annotated
 from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_characteristics_inner import ContentV2CardsUpdatePostRequestInnerCharacteristicsInner
 from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request_cards_to_add_inner_dimensions import ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions
 from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request_cards_to_add_inner_sizes_inner import ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner
+from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_documents import ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_wholesale import ContentV2GetCardsListPost200ResponseCardsInnerWholesale
 from typing import Optional, Set
 from typing_extensions import Self
@@ -41,7 +42,8 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner(BaseModel):
     dimensions: Optional[ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions] = None
     sizes: Optional[List[ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner]] = Field(default=None, description="Массив размеров.<br> Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом ")
     characteristics: Optional[List[ContentV2CardsUpdatePostRequestInnerCharacteristicsInner]] = Field(default=None, description="Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) ")
-    __properties: ClassVar[List[str]] = ["brand", "vendorCode", "kizMarked", "wholesale", "title", "description", "dimensions", "sizes", "characteristics"]
+    documents: Optional[ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments] = None
+    __properties: ClassVar[List[str]] = ["brand", "vendorCode", "kizMarked", "wholesale", "title", "description", "dimensions", "sizes", "characteristics", "documents"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -100,6 +102,9 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner(BaseModel):
             for _item_characteristics in self.characteristics:
                 _items.append(_item_characteristics.to_dict() if _item_characteristics is not None else None)
             _dict['characteristics'] = _items
+        # override the default output from pydantic by calling `to_dict()` of documents
+        if self.documents:
+            _dict['documents'] = self.documents.to_dict()
         return _dict
 
     @classmethod
@@ -120,7 +125,8 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner(BaseModel):
             "description": obj.get("description"),
             "dimensions": ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
             "sizes": [ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
-            "characteristics": [ContentV2CardsUpdatePostRequestInnerCharacteristicsInner.from_dict(_item) for _item in obj["characteristics"]] if obj.get("characteristics") is not None else None
+            "characteristics": [ContentV2CardsUpdatePostRequestInnerCharacteristicsInner.from_dict(_item) for _item in obj["characteristics"]] if obj.get("characteristics") is not None else None,
+            "documents": ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments.from_dict(obj["documents"]) if obj.get("documents") is not None else None
         })
         return _obj
 

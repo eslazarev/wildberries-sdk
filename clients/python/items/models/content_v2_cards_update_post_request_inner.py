@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_characteristics_inner import ContentV2CardsUpdatePostRequestInnerCharacteristicsInner
 from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_dimensions import ContentV2CardsUpdatePostRequestInnerDimensions
+from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_documents import ContentV2CardsUpdatePostRequestInnerDocuments
 from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_sizes_inner import ContentV2CardsUpdatePostRequestInnerSizesInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -38,9 +39,10 @@ class ContentV2CardsUpdatePostRequestInner(BaseModel):
     title: Optional[Annotated[str, Field(strict=True, max_length=60)]] = Field(default=None, description="Наименование товара")
     description: Optional[StrictStr] = Field(default=None, description="Описание товара.<br> Максимальное количество символов зависит от категории товара<br> Стандарт — 2000, минимум — 1000, максимум — 5000<br> Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов ")
     dimensions: Optional[ContentV2CardsUpdatePostRequestInnerDimensions] = None
+    documents: Optional[ContentV2CardsUpdatePostRequestInnerDocuments] = None
     characteristics: Optional[List[ContentV2CardsUpdatePostRequestInnerCharacteristicsInner]] = Field(default=None, description="Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) ")
     sizes: List[ContentV2CardsUpdatePostRequestInnerSizesInner] = Field(description="Массив размеров<br> Для безразмерного товара всё равно нужно передавать данный массив без параметров (wbSize и techSize), но с баркодом ")
-    __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "kizMarked", "brand", "title", "description", "dimensions", "characteristics", "sizes"]
+    __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "kizMarked", "brand", "title", "description", "dimensions", "documents", "characteristics", "sizes"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -84,6 +86,9 @@ class ContentV2CardsUpdatePostRequestInner(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of dimensions
         if self.dimensions:
             _dict['dimensions'] = self.dimensions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of documents
+        if self.documents:
+            _dict['documents'] = self.documents.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in characteristics (list)
         _items = []
         if self.characteristics:
@@ -115,6 +120,7 @@ class ContentV2CardsUpdatePostRequestInner(BaseModel):
             "title": obj.get("title"),
             "description": obj.get("description"),
             "dimensions": ContentV2CardsUpdatePostRequestInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
+            "documents": ContentV2CardsUpdatePostRequestInnerDocuments.from_dict(obj["documents"]) if obj.get("documents") is not None else None,
             "characteristics": [ContentV2CardsUpdatePostRequestInnerCharacteristicsInner.from_dict(_item) for _item in obj["characteristics"]] if obj.get("characteristics") is not None else None,
             "sizes": [ContentV2CardsUpdatePostRequestInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None
         })

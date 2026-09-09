@@ -64,6 +64,7 @@ class ContentV2CardsUpdatePostRequestInner implements ModelInterface, ArrayAcces
         'title' => 'string',
         'description' => 'string',
         'dimensions' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInnerDimensions',
+        'documents' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInnerDocuments',
         'characteristics' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInnerCharacteristicsInner[]',
         'sizes' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInnerSizesInner[]'
     ];
@@ -83,6 +84,7 @@ class ContentV2CardsUpdatePostRequestInner implements ModelInterface, ArrayAcces
         'title' => null,
         'description' => null,
         'dimensions' => null,
+        'documents' => null,
         'characteristics' => null,
         'sizes' => null
     ];
@@ -100,6 +102,7 @@ class ContentV2CardsUpdatePostRequestInner implements ModelInterface, ArrayAcces
         'title' => false,
         'description' => false,
         'dimensions' => false,
+        'documents' => false,
         'characteristics' => false,
         'sizes' => false
     ];
@@ -197,6 +200,7 @@ class ContentV2CardsUpdatePostRequestInner implements ModelInterface, ArrayAcces
         'title' => 'title',
         'description' => 'description',
         'dimensions' => 'dimensions',
+        'documents' => 'documents',
         'characteristics' => 'characteristics',
         'sizes' => 'sizes'
     ];
@@ -214,6 +218,7 @@ class ContentV2CardsUpdatePostRequestInner implements ModelInterface, ArrayAcces
         'title' => 'setTitle',
         'description' => 'setDescription',
         'dimensions' => 'setDimensions',
+        'documents' => 'setDocuments',
         'characteristics' => 'setCharacteristics',
         'sizes' => 'setSizes'
     ];
@@ -231,6 +236,7 @@ class ContentV2CardsUpdatePostRequestInner implements ModelInterface, ArrayAcces
         'title' => 'getTitle',
         'description' => 'getDescription',
         'dimensions' => 'getDimensions',
+        'documents' => 'getDocuments',
         'characteristics' => 'getCharacteristics',
         'sizes' => 'getSizes'
     ];
@@ -299,6 +305,7 @@ class ContentV2CardsUpdatePostRequestInner implements ModelInterface, ArrayAcces
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('dimensions', $data ?? [], null);
+        $this->setIfExists('documents', $data ?? [], null);
         $this->setIfExists('characteristics', $data ?? [], null);
         $this->setIfExists('sizes', $data ?? [], null);
     }
@@ -547,6 +554,33 @@ class ContentV2CardsUpdatePostRequestInner implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable dimensions cannot be null');
         }
         $this->container['dimensions'] = $dimensions;
+
+        return $this;
+    }
+
+    /**
+     * Gets documents
+     *
+     * @return \Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInnerDocuments|null
+     */
+    public function getDocuments()
+    {
+        return $this->container['documents'];
+    }
+
+    /**
+     * Sets documents
+     *
+     * @param \Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInnerDocuments|null $documents documents
+     *
+     * @return self
+     */
+    public function setDocuments($documents)
+    {
+        if (is_null($documents)) {
+            throw new \InvalidArgumentException('non-nullable documents cannot be null');
+        }
+        $this->container['documents'] = $documents;
 
         return $this;
     }

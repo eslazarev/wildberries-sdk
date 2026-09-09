@@ -27,6 +27,13 @@ import {
     ContentV2CardsUpdatePostRequestInnerCharacteristicsInnerToJSON,
     ContentV2CardsUpdatePostRequestInnerCharacteristicsInnerToJSONTyped,
 } from './ContentV2CardsUpdatePostRequestInnerCharacteristicsInner';
+import type { ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments } from './ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments';
+import {
+    ContentV2CardsUploadPostRequestInnerVariantsInnerDocumentsFromJSON,
+    ContentV2CardsUploadPostRequestInnerVariantsInnerDocumentsFromJSONTyped,
+    ContentV2CardsUploadPostRequestInnerVariantsInnerDocumentsToJSON,
+    ContentV2CardsUploadPostRequestInnerVariantsInnerDocumentsToJSONTyped,
+} from './ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments';
 import type { ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner } from './ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner';
 import {
     ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInnerFromJSON,
@@ -98,6 +105,10 @@ export interface ContentV2CardsUploadAddPostRequestCardsToAddInner {
      * 
      */
     characteristics?: Array<ContentV2CardsUpdatePostRequestInnerCharacteristicsInner>;
+    /**
+     * 
+     */
+    documents?: ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments;
 }
 
 /**
@@ -127,6 +138,7 @@ export function ContentV2CardsUploadAddPostRequestCardsToAddInnerFromJSONTyped(j
         'dimensions': json['dimensions'] == null ? undefined : ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensionsFromJSON(json['dimensions']),
         'sizes': json['sizes'] == null ? undefined : ((json['sizes'] as Array<any>).map(ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInnerFromJSON)),
         'characteristics': json['characteristics'] == null ? undefined : ((json['characteristics'] as Array<any>).map(ContentV2CardsUpdatePostRequestInnerCharacteristicsInnerFromJSON)),
+        'documents': json['documents'] == null ? undefined : ContentV2CardsUploadPostRequestInnerVariantsInnerDocumentsFromJSON(json['documents']),
     };
 }
 
@@ -150,6 +162,7 @@ export function ContentV2CardsUploadAddPostRequestCardsToAddInnerToJSONTyped(val
         'dimensions': ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensionsToJSON(value['dimensions']),
         'sizes': value['sizes'] == null ? undefined : ((value['sizes'] as Array<any>).map(ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInnerToJSON)),
         'characteristics': value['characteristics'] == null ? undefined : ((value['characteristics'] as Array<any>).map(ContentV2CardsUpdatePostRequestInnerCharacteristicsInnerToJSON)),
+        'documents': ContentV2CardsUploadPostRequestInnerVariantsInnerDocumentsToJSON(value['documents']),
     };
 }
 
