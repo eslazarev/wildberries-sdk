@@ -1986,9 +1986,6 @@ paths:
                                   applicant:
                                     type: string
                                     description: Представитель изготовителя медицинского изделия
-                                  quantity:
-                                    type: integer
-                                    description: Количество товаров по электронному сертификату
                                   startDate:
                                     type: string
                                     format: date-time
@@ -2176,7 +2173,6 @@ paths:
                           productNumber: '123456'
                           tradeName: Trade Name
                           applicant: Applicant Name
-                          quantity: 100
                           startDate: '2023-01-15T03:00:00+03:00'
                           endDate: '2026-01-14T03:00:00+03:00'
                           verdict:
@@ -2590,31 +2586,9 @@ paths:
                           items:
                             type: string
                           description: Баркоды
-              example:
-                - nmID: 11111111
-                  vendorCode: wbiz72wmro
-                  kizMarked: true
-                  brand: ''
-                  title: Свитер женский оверсайз с горлом
-                  description: '12345'
-                  dimensions:
-                    length: 35
-                    width: 40
-                    height: 15
-                    weightBrutto: 3
-                  characteristics:
-                    - id: 14177450
-                      value:
-                        - хлопок 50% акрил 50%
-                    - id: 50
-                      value:
-                        - свободный крой
-                  sizes:
-                    - chrtID: 12345678
-                      techSize: ONE SIZE
-                      wbSize: 78-90
-                      skus:
-                        - '123487653460134'
+            examples:
+              UpdateListings:
+                $ref: '#/components/examples/UpdateListings'
       responses:
         '200':
           description: Успешно
@@ -2687,7 +2661,7 @@ paths:
                 detail: https://openapi.wildberries.ru/content/api/ru/
                 code: 71d3de1b-001e-488f-bbf5-55c31254fbeb
                 requestId: MN8usr6RfrzWHZfucSvNgb
-                origin: s2s-api-auth-content
+                origin: ag-content
                 status: 413
                 statusText: Request Entity Too Large
         '429':
@@ -3808,7 +3782,7 @@ paths:
                 detail: https://openapi.wildberries.ru/content/api/ru/
                 code: 71d3de1b-001e-488f-bbf5-55c31254fbeb
                 requestId: MN8usr6RfrzWHZfucSvNgb
-                origin: s2s-api-auth-content
+                origin: ag-content
                 status: 413
                 statusText: Request Entity Too Large
         '429':
@@ -4128,7 +4102,7 @@ paths:
                 detail: https://openapi.wildberries.ru/content/api/ru/
                 code: 71d3de1b-001e-488f-bbf5-55c31254fbeb
                 requestId: MN8usr6RfrzWHZfucSvNgb
-                origin: s2s-api-auth-content
+                origin: ag-content
                 status: 413
                 statusText: Request Entity Too Large
         '429':
@@ -8060,7 +8034,7 @@ components:
             detail: 'token problem; token is malformed: could not base64 decode signature: illegal base64 data at input byte 84'
             code: 07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75
             requestId: 7b80742415072fe8b6b7f7761f1d1211
-            origin: s2s-api-auth-catalog
+            origin: ag-marketplace
             status: 401
             statusText: Unauthorized
             timestamp: '2024-09-30T06:52:38Z'
@@ -8160,7 +8134,7 @@ components:
             detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
             code: 07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]
             requestId: 9d3c02cc698f8b041c661a7c28bed293
-            origin: s2s-api-auth-catalog
+            origin: ag-marketplace
             status: 429
             statusText: Too Many Requests
             timestamp: '2024-09-30T06:52:38Z'
@@ -8774,6 +8748,44 @@ components:
                   price: 5000
                   skus:
                     - '2222222222222'
+    UpdateListings:
+      value:
+        - nmID: 11111111
+          vendorCode: wbiz72wmro
+          kizMarked: true
+          brand: ''
+          title: Свитер женский оверсайз с горлом
+          description: '12345'
+          dimensions:
+            length: 35
+            width: 40
+            height: 15
+            weightBrutto: 3
+          documents:
+            items:
+              - id: 019f3c09-8c1f-7063-aee4-c45969fb2dc5
+                type: 1
+                number: '123456'
+                productNumber: '123456'
+                tradeName: Trade Name
+                applicant: Applicant Name
+                startDate: '2023-01-15T03:00:00+03:00'
+                endDate: '2026-01-14T03:00:00+03:00'
+                isEndless: false
+            excludeDocuments: false
+          characteristics:
+            - id: 14177450
+              value:
+                - хлопок 50% акрил 50%
+            - id: 50
+              value:
+                - свободный крой
+          sizes:
+            - chrtID: 12345678
+              techSize: ONE SIZE
+              wbSize: 78-90
+              skus:
+                - '123487653460134'
     responseIncorrectBeginDate:
       description: Некорректная дата начала
       value:
@@ -9286,7 +9298,7 @@ components:
         detail: base token is not allowed
         code: base token is not allowed for this path
         requestId: 722199b2e15bbca48cc1d488a7989976
-        origin: s2s-finance
+        origin: ag-marketplace
         status: 403
         statusText: Forbidden
         timestamp: '2026-05-25T02:47:09Z'

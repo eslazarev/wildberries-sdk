@@ -1,6 +1,13 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.10)
+- Товары (Content/Items): удалено поле `quantity` из объекта документа (электронный сертификат/документы медизделий) и из примера ответа/запроса
+- Товары (Content/Items): для метода обновления карточек/листингов заменён inline `example` на именованный `examples.UpdateListings` (добавлен `components/examples/UpdateListings`), структура примера расширена блоком `documents` (с `items`, `excludeDocuments`)
+- Товары (Content/Items): в примерах ошибок для `413 Request Entity Too Large` изменён `origin` с `s2s-api-auth-content` на `ag-content`
+- Заказы FBS/FBW/DBS/DBW, Коммуникации, Промо, Тарифы, Отчёты, Финансы, Общие: в примерах ошибок `401/403/429` изменены значения `origin` (в т.ч. `s2s-api-auth-catalog`, `s2s-finance` → `ag-marketplace`)
+- Аналитика: в примере ошибки `429` изменён `origin` с `s2s-api-auth-stat` на `ag-analytics` (прочие `401/403/429` также приведены к `ag-marketplace`)
+
 ### Changed (2026.09.09)
 - Products: в ответы методов работы с карточками/листингами добавлен новый объект `documents` с результатами проверки документов: `items[]` (поля `id`, `type`, `number`, `productNumber`, `tradeName`, `applicant`, `quantity`, `startDate`, `endDate`, `isEndless`, `createdAt`, `verdict{verified,status,reason,additionalData,createdAt}`), `overallVerdict{isFullyChecked,status,reason,createdAt}`, `excludeDocuments`
 - Products: в запросы создания/обновления карточек добавлен объект `documents` → `items[]` (по схеме `documentsRequest`) и флаг `excludeDocuments` (default `false`); при `excludeDocuments=true` переданные значения в `documents` заменяются на пустые и документы не участвуют в проверке карточки
