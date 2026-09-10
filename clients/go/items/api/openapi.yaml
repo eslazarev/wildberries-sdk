@@ -120,7 +120,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -147,7 +147,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -281,7 +281,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -313,7 +313,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -413,7 +413,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -440,7 +440,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -521,7 +521,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -548,7 +548,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -629,7 +629,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -656,7 +656,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -743,7 +743,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -770,7 +770,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -851,7 +851,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -878,7 +878,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -969,7 +969,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -996,7 +996,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -1108,7 +1108,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -1135,7 +1135,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -1219,7 +1219,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -1260,7 +1260,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -1321,7 +1321,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -1358,7 +1358,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -1438,7 +1438,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -1475,7 +1475,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -1557,7 +1557,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -1594,7 +1594,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -1675,7 +1675,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -1712,7 +1712,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -1790,7 +1790,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -1827,7 +1827,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -1975,7 +1975,6 @@ paths:
                       productNumber: "123456"
                       tradeName: Trade Name
                       applicant: Applicant Name
-                      quantity: 100
                       startDate: 2023-01-15T03:00:00+03:00
                       endDate: 2026-01-14T03:00:00+03:00
                       verdict:
@@ -2031,7 +2030,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -2068,7 +2067,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -2249,7 +2248,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -2276,7 +2275,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -2331,32 +2330,10 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              UpdateListings:
+                $ref: "#/components/examples/UpdateListings"
             schema:
-              example:
-              - nmID: 11111111
-                vendorCode: wbiz72wmro
-                kizMarked: true
-                brand: ""
-                title: Свитер женский оверсайз с горлом
-                description: "12345"
-                dimensions:
-                  length: 35
-                  width: 40
-                  height: 15
-                  weightBrutto: 3
-                characteristics:
-                - id: 14177450
-                  value:
-                  - хлопок 50% акрил 50%
-                - id: 50
-                  value:
-                  - свободный крой
-                sizes:
-                - chrtID: 12345678
-                  techSize: ONE SIZE
-                  wbSize: 78-90
-                  skus:
-                  - "123487653460134"
               items:
                 $ref: "#/components/schemas/_content_v2_cards_update_post_request_inner"
               type: array
@@ -2392,7 +2369,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -2429,7 +2406,7 @@ paths:
                 detail: https://openapi.wildberries.ru/content/api/ru/
                 code: 71d3de1b-001e-488f-bbf5-55c31254fbeb
                 requestId: MN8usr6RfrzWHZfucSvNgb
-                origin: s2s-api-auth-content
+                origin: ag-content
                 status: 413
                 statusText: Request Entity Too Large
               schema:
@@ -2443,7 +2420,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -2555,7 +2532,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -2601,7 +2578,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -2682,7 +2659,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -2719,7 +2696,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -2797,7 +2774,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -2834,7 +2811,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -2999,7 +2976,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -3036,7 +3013,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -3112,7 +3089,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -3139,7 +3116,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -3210,7 +3187,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -3247,7 +3224,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -3348,7 +3325,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -3390,7 +3367,7 @@ paths:
                 detail: https://openapi.wildberries.ru/content/api/ru/
                 code: 71d3de1b-001e-488f-bbf5-55c31254fbeb
                 requestId: MN8usr6RfrzWHZfucSvNgb
-                origin: s2s-api-auth-content
+                origin: ag-content
                 status: 413
                 statusText: Request Entity Too Large
               schema:
@@ -3404,7 +3381,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -3562,7 +3539,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -3604,7 +3581,7 @@ paths:
                 detail: https://openapi.wildberries.ru/content/api/ru/
                 code: 71d3de1b-001e-488f-bbf5-55c31254fbeb
                 requestId: MN8usr6RfrzWHZfucSvNgb
-                origin: s2s-api-auth-content
+                origin: ag-content
                 status: 413
                 statusText: Request Entity Too Large
               schema:
@@ -3618,7 +3595,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -3727,7 +3704,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -3764,7 +3741,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -3866,7 +3843,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -3915,7 +3892,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -3974,7 +3951,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -4000,7 +3977,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -4062,7 +4039,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -4088,7 +4065,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -4193,7 +4170,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -4251,7 +4228,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -4365,7 +4342,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -4423,7 +4400,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -4517,7 +4494,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -4575,7 +4552,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -4670,7 +4647,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -4699,7 +4676,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -4778,7 +4755,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -4808,7 +4785,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -4912,7 +4889,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -4942,7 +4919,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -5023,7 +5000,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -5053,7 +5030,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -5157,7 +5134,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -5187,7 +5164,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -5296,7 +5273,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -5336,7 +5313,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -5403,7 +5380,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -5443,7 +5420,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -5547,7 +5524,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -5587,7 +5564,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -5686,7 +5663,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -5735,7 +5712,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -5816,7 +5793,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -5877,7 +5854,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -5957,7 +5934,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -6006,7 +5983,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -6085,7 +6062,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -6170,7 +6147,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -6230,7 +6207,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -6260,7 +6237,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -6320,7 +6297,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -6350,7 +6327,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -6415,7 +6392,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -6470,7 +6447,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -6533,7 +6510,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -6582,7 +6559,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -6654,7 +6631,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -6709,7 +6686,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -6778,7 +6755,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -6818,7 +6795,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -6891,7 +6868,7 @@ paths:
                   \ signature: illegal base64 data at input byte 84"
                 code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
                 requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 401
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
@@ -6931,7 +6908,7 @@ paths:
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
                 code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
                 requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
+                origin: ag-marketplace
                 status: 429
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
@@ -7265,6 +7242,44 @@ components:
             price: 5000
             skus:
             - "2222222222222"
+    UpdateListings:
+      value:
+      - nmID: 11111111
+        vendorCode: wbiz72wmro
+        kizMarked: true
+        brand: ""
+        title: Свитер женский оверсайз с горлом
+        description: "12345"
+        dimensions:
+          length: 35
+          width: 40
+          height: 15
+          weightBrutto: 3
+        documents:
+          items:
+          - id: 019f3c09-8c1f-7063-aee4-c45969fb2dc5
+            type: 1
+            number: "123456"
+            productNumber: "123456"
+            tradeName: Trade Name
+            applicant: Applicant Name
+            startDate: 2023-01-15T03:00:00+03:00
+            endDate: 2026-01-14T03:00:00+03:00
+            isEndless: false
+          excludeDocuments: false
+        characteristics:
+        - id: 14177450
+          value:
+          - хлопок 50% акрил 50%
+        - id: 50
+          value:
+          - свободный крой
+        sizes:
+        - chrtID: 12345678
+          techSize: ONE SIZE
+          wbSize: 78-90
+          skus:
+          - "123487653460134"
     responseIncorrectBeginDate:
       description: Некорректная дата начала
       value:
@@ -7797,7 +7812,7 @@ components:
         detail: base token is not allowed
         code: base token is not allowed for this path
         requestId: 722199b2e15bbca48cc1d488a7989976
-        origin: s2s-finance
+        origin: ag-marketplace
         status: 403
         statusText: Forbidden
         timestamp: 2026-05-25T02:47:09Z
@@ -7929,7 +7944,7 @@ components:
               \ illegal base64 data at input byte 84"
             code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
             requestId: 7b80742415072fe8b6b7f7761f1d1211
-            origin: s2s-api-auth-catalog
+            origin: ag-marketplace
             status: 401
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
@@ -7971,7 +7986,7 @@ components:
             detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
             code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
             requestId: 9d3c02cc698f8b041c661a7c28bed293
-            origin: s2s-api-auth-catalog
+            origin: ag-marketplace
             status: 429
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
@@ -10580,7 +10595,7 @@ components:
         ершена"
       example:
         verified: true
-        status: 4
+        status: 2
         reason: ""
         additionalData: "{}"
         createdAt: 2000-01-23T04:56:07.000+00:00
@@ -10616,13 +10631,12 @@ components:
         productNumber: productNumber
         tradeName: tradeName
         applicant: applicant
-        quantity: 2
         startDate: 2000-01-23T04:56:07.000+00:00
         endDate: 2000-01-23T04:56:07.000+00:00
         isEndless: true
         verdict:
           verified: true
-          status: 4
+          status: 2
           reason: ""
           additionalData: "{}"
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -10655,9 +10669,6 @@ components:
         applicant:
           description: Представитель изготовителя медицинского изделия
           type: string
-        quantity:
-          description: Количество товаров по электронному сертификату
-          type: integer
         startDate:
           description: Дата и время начала срока действия документа
           format: date-time
@@ -10684,7 +10695,7 @@ components:
         ка завершена"
       example:
         isFullyChecked: true
-        status: 7
+        status: 4
         reason: ""
         createdAt: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10717,13 +10728,12 @@ components:
           productNumber: productNumber
           tradeName: tradeName
           applicant: applicant
-          quantity: 2
           startDate: 2000-01-23T04:56:07.000+00:00
           endDate: 2000-01-23T04:56:07.000+00:00
           isEndless: true
           verdict:
             verified: true
-            status: 4
+            status: 2
             reason: ""
             additionalData: "{}"
             createdAt: 2000-01-23T04:56:07.000+00:00
@@ -10734,20 +10744,19 @@ components:
           productNumber: productNumber
           tradeName: tradeName
           applicant: applicant
-          quantity: 2
           startDate: 2000-01-23T04:56:07.000+00:00
           endDate: 2000-01-23T04:56:07.000+00:00
           isEndless: true
           verdict:
             verified: true
-            status: 4
+            status: 2
             reason: ""
             additionalData: "{}"
             createdAt: 2000-01-23T04:56:07.000+00:00
           createdAt: 2000-01-23T04:56:07.000+00:00
         overallVerdict:
           isFullyChecked: true
-          status: 7
+          status: 4
           reason: ""
           createdAt: 2000-01-23T04:56:07.000+00:00
         excludeDocuments: true
@@ -10768,7 +10777,7 @@ components:
       type: object
     _content_v2_get_cards_list_post_200_response_cards_inner_characteristics_inner:
       example:
-        id: 1
+        id: 7
         name: name
         value: ""
       properties:
@@ -10873,13 +10882,12 @@ components:
             productNumber: productNumber
             tradeName: tradeName
             applicant: applicant
-            quantity: 2
             startDate: 2000-01-23T04:56:07.000+00:00
             endDate: 2000-01-23T04:56:07.000+00:00
             isEndless: true
             verdict:
               verified: true
-              status: 4
+              status: 2
               reason: ""
               additionalData: "{}"
               createdAt: 2000-01-23T04:56:07.000+00:00
@@ -10890,28 +10898,27 @@ components:
             productNumber: productNumber
             tradeName: tradeName
             applicant: applicant
-            quantity: 2
             startDate: 2000-01-23T04:56:07.000+00:00
             endDate: 2000-01-23T04:56:07.000+00:00
             isEndless: true
             verdict:
               verified: true
-              status: 4
+              status: 2
               reason: ""
               additionalData: "{}"
               createdAt: 2000-01-23T04:56:07.000+00:00
             createdAt: 2000-01-23T04:56:07.000+00:00
           overallVerdict:
             isFullyChecked: true
-            status: 7
+            status: 4
             reason: ""
             createdAt: 2000-01-23T04:56:07.000+00:00
           excludeDocuments: true
         characteristics:
-        - id: 1
+        - id: 7
           name: name
           value: ""
-        - id: 1
+        - id: 7
           name: name
           value: ""
         sizes:
@@ -11025,8 +11032,8 @@ components:
       description: Пагинатор
       example:
         updatedAt: updatedAt
-        nmID: 6
-        total: 7
+        nmID: 1
+        total: 6
       properties:
         updatedAt:
           description: "Дата и время, с которых надо запрашивать следующий список\
@@ -11083,13 +11090,12 @@ components:
               productNumber: productNumber
               tradeName: tradeName
               applicant: applicant
-              quantity: 2
               startDate: 2000-01-23T04:56:07.000+00:00
               endDate: 2000-01-23T04:56:07.000+00:00
               isEndless: true
               verdict:
                 verified: true
-                status: 4
+                status: 2
                 reason: ""
                 additionalData: "{}"
                 createdAt: 2000-01-23T04:56:07.000+00:00
@@ -11100,28 +11106,27 @@ components:
               productNumber: productNumber
               tradeName: tradeName
               applicant: applicant
-              quantity: 2
               startDate: 2000-01-23T04:56:07.000+00:00
               endDate: 2000-01-23T04:56:07.000+00:00
               isEndless: true
               verdict:
                 verified: true
-                status: 4
+                status: 2
                 reason: ""
                 additionalData: "{}"
                 createdAt: 2000-01-23T04:56:07.000+00:00
               createdAt: 2000-01-23T04:56:07.000+00:00
             overallVerdict:
               isFullyChecked: true
-              status: 7
+              status: 4
               reason: ""
               createdAt: 2000-01-23T04:56:07.000+00:00
             excludeDocuments: true
           characteristics:
-          - id: 1
+          - id: 7
             name: name
             value: ""
-          - id: 1
+          - id: 7
             name: name
             value: ""
           sizes:
@@ -11186,13 +11191,12 @@ components:
               productNumber: productNumber
               tradeName: tradeName
               applicant: applicant
-              quantity: 2
               startDate: 2000-01-23T04:56:07.000+00:00
               endDate: 2000-01-23T04:56:07.000+00:00
               isEndless: true
               verdict:
                 verified: true
-                status: 4
+                status: 2
                 reason: ""
                 additionalData: "{}"
                 createdAt: 2000-01-23T04:56:07.000+00:00
@@ -11203,28 +11207,27 @@ components:
               productNumber: productNumber
               tradeName: tradeName
               applicant: applicant
-              quantity: 2
               startDate: 2000-01-23T04:56:07.000+00:00
               endDate: 2000-01-23T04:56:07.000+00:00
               isEndless: true
               verdict:
                 verified: true
-                status: 4
+                status: 2
                 reason: ""
                 additionalData: "{}"
                 createdAt: 2000-01-23T04:56:07.000+00:00
               createdAt: 2000-01-23T04:56:07.000+00:00
             overallVerdict:
               isFullyChecked: true
-              status: 7
+              status: 4
               reason: ""
               createdAt: 2000-01-23T04:56:07.000+00:00
             excludeDocuments: true
           characteristics:
-          - id: 1
+          - id: 7
             name: name
             value: ""
-          - id: 1
+          - id: 7
             name: name
             value: ""
           sizes:
@@ -11251,8 +11254,8 @@ components:
           updatedAt: updatedAt
         cursor:
           updatedAt: updatedAt
-          nmID: 6
-          total: 7
+          nmID: 1
+          total: 6
       properties:
         cards:
           description: Список карточек товаров
@@ -11590,10 +11593,10 @@ components:
           weightBrutto: 9.301444243932576
           isValid: true
         characteristics:
-        - id: 1
+        - id: 7
           name: name
           value: ""
-        - id: 1
+        - id: 7
           name: name
           value: ""
         createdAt: createdAt
@@ -11713,10 +11716,10 @@ components:
             weightBrutto: 9.301444243932576
             isValid: true
           characteristics:
-          - id: 1
+          - id: 7
             name: name
             value: ""
-          - id: 1
+          - id: 7
             name: name
             value: ""
           createdAt: createdAt
@@ -11761,10 +11764,10 @@ components:
             weightBrutto: 9.301444243932576
             isValid: true
           characteristics:
-          - id: 1
+          - id: 7
             name: name
             value: ""
-          - id: 1
+          - id: 7
             name: name
             value: ""
           createdAt: createdAt

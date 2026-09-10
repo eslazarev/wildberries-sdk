@@ -63,7 +63,6 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner implemen
         'product_number' => 'string',
         'trade_name' => 'string',
         'applicant' => 'string',
-        'quantity' => 'int',
         'start_date' => '\DateTime',
         'end_date' => '\DateTime',
         'is_endless' => 'bool',
@@ -85,7 +84,6 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner implemen
         'product_number' => null,
         'trade_name' => null,
         'applicant' => null,
-        'quantity' => null,
         'start_date' => 'date-time',
         'end_date' => 'date-time',
         'is_endless' => null,
@@ -105,7 +103,6 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner implemen
         'product_number' => false,
         'trade_name' => false,
         'applicant' => false,
-        'quantity' => false,
         'start_date' => false,
         'end_date' => false,
         'is_endless' => false,
@@ -205,7 +202,6 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner implemen
         'product_number' => 'productNumber',
         'trade_name' => 'tradeName',
         'applicant' => 'applicant',
-        'quantity' => 'quantity',
         'start_date' => 'startDate',
         'end_date' => 'endDate',
         'is_endless' => 'isEndless',
@@ -225,7 +221,6 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner implemen
         'product_number' => 'setProductNumber',
         'trade_name' => 'setTradeName',
         'applicant' => 'setApplicant',
-        'quantity' => 'setQuantity',
         'start_date' => 'setStartDate',
         'end_date' => 'setEndDate',
         'is_endless' => 'setIsEndless',
@@ -245,7 +240,6 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner implemen
         'product_number' => 'getProductNumber',
         'trade_name' => 'getTradeName',
         'applicant' => 'getApplicant',
-        'quantity' => 'getQuantity',
         'start_date' => 'getStartDate',
         'end_date' => 'getEndDate',
         'is_endless' => 'getIsEndless',
@@ -316,7 +310,6 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner implemen
         $this->setIfExists('product_number', $data ?? [], null);
         $this->setIfExists('trade_name', $data ?? [], null);
         $this->setIfExists('applicant', $data ?? [], null);
-        $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('is_endless', $data ?? [], null);
@@ -524,33 +517,6 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner implemen
             throw new \InvalidArgumentException('non-nullable applicant cannot be null');
         }
         $this->container['applicant'] = $applicant;
-
-        return $this;
-    }
-
-    /**
-     * Gets quantity
-     *
-     * @return int|null
-     */
-    public function getQuantity()
-    {
-        return $this->container['quantity'];
-    }
-
-    /**
-     * Sets quantity
-     *
-     * @param int|null $quantity Количество товаров по электронному сертификату
-     *
-     * @return self
-     */
-    public function setQuantity($quantity)
-    {
-        if (is_null($quantity)) {
-            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
-        }
-        $this->container['quantity'] = $quantity;
 
         return $this;
     }

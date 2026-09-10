@@ -31,9 +31,6 @@ pub struct ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner {
     /// Представитель изготовителя медицинского изделия
     #[serde(rename = "applicant", skip_serializing_if = "Option::is_none")]
     pub applicant: Option<String>,
-    /// Количество товаров по электронному сертификату
-    #[serde(rename = "quantity", skip_serializing_if = "Option::is_none")]
-    pub quantity: Option<i32>,
     /// Дата и время начала срока действия документа
     #[serde(rename = "startDate", skip_serializing_if = "Option::is_none")]
     pub start_date: Option<chrono::DateTime<chrono::FixedOffset>>,
@@ -59,7 +56,6 @@ impl ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner {
             product_number: None,
             trade_name: None,
             applicant: None,
-            quantity: None,
             start_date: None,
             end_date: None,
             is_endless: None,

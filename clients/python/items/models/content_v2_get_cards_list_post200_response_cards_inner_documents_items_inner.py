@@ -35,13 +35,12 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner(BaseMode
     product_number: Optional[StrictStr] = Field(default=None, description="Дополнительный номер документа", alias="productNumber")
     trade_name: Optional[StrictStr] = Field(default=None, description="Торговое наименование", alias="tradeName")
     applicant: Optional[StrictStr] = Field(default=None, description="Представитель изготовителя медицинского изделия")
-    quantity: Optional[StrictInt] = Field(default=None, description="Количество товаров по электронному сертификату")
     start_date: Optional[datetime] = Field(default=None, description="Дата и время начала срока действия документа", alias="startDate")
     end_date: Optional[datetime] = Field(default=None, description="Дата и время окончания срока действия документа", alias="endDate")
     is_endless: Optional[StrictBool] = Field(default=None, description="Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия ", alias="isEndless")
     verdict: Optional[ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInnerVerdict] = None
     created_at: Optional[datetime] = Field(default=None, description="Дата добавления документа", alias="createdAt")
-    __properties: ClassVar[List[str]] = ["id", "type", "number", "productNumber", "tradeName", "applicant", "quantity", "startDate", "endDate", "isEndless", "verdict", "createdAt"]
+    __properties: ClassVar[List[str]] = ["id", "type", "number", "productNumber", "tradeName", "applicant", "startDate", "endDate", "isEndless", "verdict", "createdAt"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -103,7 +102,6 @@ class ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInner(BaseMode
             "productNumber": obj.get("productNumber"),
             "tradeName": obj.get("tradeName"),
             "applicant": obj.get("applicant"),
-            "quantity": obj.get("quantity"),
             "startDate": obj.get("startDate"),
             "endDate": obj.get("endDate"),
             "isEndless": obj.get("isEndless"),

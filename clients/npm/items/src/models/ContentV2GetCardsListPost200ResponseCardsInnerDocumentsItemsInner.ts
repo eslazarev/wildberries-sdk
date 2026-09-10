@@ -61,10 +61,6 @@ export interface ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInn
      */
     applicant?: string;
     /**
-     * Количество товаров по электронному сертификату
-     */
-    quantity?: number;
-    /**
      * Дата и время начала срока действия документа
      */
     startDate?: Date;
@@ -112,7 +108,6 @@ export function ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInne
         'productNumber': json['productNumber'] == null ? undefined : json['productNumber'],
         'tradeName': json['tradeName'] == null ? undefined : json['tradeName'],
         'applicant': json['applicant'] == null ? undefined : json['applicant'],
-        'quantity': json['quantity'] == null ? undefined : json['quantity'],
         'startDate': json['startDate'] == null ? undefined : (parseDateTime(json['startDate'])),
         'endDate': json['endDate'] == null ? undefined : (parseDateTime(json['endDate'])),
         'isEndless': json['isEndless'] == null ? undefined : json['isEndless'],
@@ -138,7 +133,6 @@ export function ContentV2GetCardsListPost200ResponseCardsInnerDocumentsItemsInne
         'productNumber': value['productNumber'],
         'tradeName': value['tradeName'],
         'applicant': value['applicant'],
-        'quantity': value['quantity'],
         'startDate': value['startDate'] == null ? value['startDate'] : serializeDateTime(value['startDate']),
         'endDate': value['endDate'] == null ? value['endDate'] : serializeDateTime(value['endDate']),
         'isEndless': value['isEndless'],
