@@ -1916,15 +1916,18 @@ paths:
                           description: URL видео
                         wholesale:
                           type: object
-                          description: Оптовая продажа
+                          description: B2B-продажа
                           properties:
                             enabled:
                               type: boolean
-                              description: Предназначена ли карточка товара для оптовой продажи
+                              description: |
+                                Предназначен ли товар для продажи только B2B-покупателям:
+                                  - `true` — товар предназначен для продажи только B2B-покупателям
+                                  - `false` — товар предназначен для продажи B2B и B2C-покупателям
                             quantum:
                               type: number
                               format: uint64
-                              description: Количество единиц товара в упаковке
+                              description: Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `"enable":true`
                         dimensions:
                           description: Габариты и вес товара c упаковкой, см и кг
                           type: object
@@ -3199,15 +3202,18 @@ paths:
                           description: URL видео
                         wholesale:
                           type: object
-                          description: Оптовая продажа
+                          description: B2B-продажа
                           properties:
                             enabled:
                               type: boolean
-                              description: Предназначена ли карточка товара для оптовой продажи
+                              description: |
+                                Предназначен ли товар для продажи только B2B-покупателям:
+                                  - `true` — товар предназначен для продажи только B2B-покупателям
+                                  - `false` — товар предназначен для продажи B2B и B2C-покупателям
                             quantum:
                               type: number
                               format: uint64
-                              description: Количество единиц товара в упаковке
+                              description: Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `"enable":true`
                         sizes:
                           type: array
                           description: Массив размеров
@@ -3613,15 +3619,19 @@ paths:
                             Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), поле ответа `needKiz`
                         wholesale:
                           type: object
-                          description: Оптовая продажа
+                          description: B2B-продажа
                           properties:
                             enabled:
                               type: boolean
-                              description: Предназначена ли карточка товара для оптовой продажи
+                              default: false
+                              description: |
+                                Предназначен ли товар для продажи только B2B-покупателям:
+                                  - `true` — товар предназначен для продажи только B2B-покупателям
+                                  - `false` — товар предназначен для продажи B2B и B2C-покупателям
                             quantum:
                               type: number
                               format: uint64
-                              description: Количество единиц товара в упаковке
+                              description: Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `"enable":true`
                         dimensions:
                           description: |
                             Габариты и вес товара **c упаковкой**.<br>
@@ -3861,15 +3871,19 @@ paths:
                           Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), поле ответа `needKiz`
                       wholesale:
                         type: object
-                        description: Оптовая продажа
+                        description: B2B-продажа
                         properties:
                           enabled:
                             type: boolean
-                            description: Предназначена ли карточка товара для оптовой продажи
+                            default: false
+                            description: |
+                              Предназначен ли товар для продажи только B2B-покупателям:
+                                - `true` — товар предназначен для продажи только B2B-покупателям
+                                - `false` — товар предназначен для продажи B2B и B2C-покупателям
                           quantum:
                             type: number
                             format: uint64
-                            description: Количество единиц товара в упаковке
+                            description: Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `"enable":true`
                       title:
                         type: string
                         description: Наименование товара
@@ -5454,7 +5468,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       parameters:
@@ -5582,6 +5596,13 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 10 запросов | 6 сек | 2 запроса |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.
+
+        <hr>
+
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+
         </div>
       parameters:
         - $ref: '#/components/parameters/Warehouse'
@@ -5686,7 +5707,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       parameters:
@@ -5799,7 +5820,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       responses:
@@ -5862,7 +5883,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       responses:
@@ -5917,7 +5938,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       requestBody:
@@ -6026,7 +6047,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       parameters:
@@ -6119,7 +6140,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       parameters:

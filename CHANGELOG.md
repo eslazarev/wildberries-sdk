@@ -1,6 +1,28 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.11)
+- Товары (Контент)
+  - Поле `wholesale` переименовано/уточнено по смыслу: описание изменено с «Оптовая продажа» на «B2B-продажа».
+  - `wholesale.enabled`: обновлена семантика — теперь флаг означает «только для B2B» (`true`) vs «для B2B и B2C» (`false`); для ряда схем добавлен `default: false`.
+  - `wholesale.quantum`: изменено описание — теперь это минимальное количество единиц в одной корзине B2B-покупателя (применимо только при `enabled=true`), вместо «количество единиц в упаковке».
+  - Обновлены описания лимитов в песочнице: 1 rps суммарно теперь указан для всех методов «Маркетплейса» (вместо «Контента»).
+  - В одном из методов добавлено правило тарификации лимитов: запрос с ответом `4XX` учитывается как 10 запросов.
+
+- Заказы FBW / Поставки
+  - Добавлен новый раздел и набор методов «Черновики поставок» (supplies-api):
+    - `GET /api/supplies/v1/drafts` — список черновиков (query: `limit` 0..1000, `offset`, `sort`=`createDt|updateDt`, `order`=`asc|desc`), лимит 30/мин (интервал 2 сек, всплеск 10).
+    - `POST /api/supplies/v1/drafts` — создать пустой черновик, лимит 30/мин (2 сек, всплеск 10).
+    - `DELETE /api/supplies/v1/drafts/{draftId}` — удалить черновик, ответ `204`, лимит 30/мин (2 сек, всплеск 10).
+    - `GET /api/supplies/v1/drafts/{draftId}/items` — список товаров в черновике, лимит 30/мин (2 сек, всплеск 10).
+    - `POST /api/supplies/v1/drafts/{draftId}/items` — добавить товары (атомарно; при ошибке хотя бы одного `sku` ничего не добавляется), `items` max 1000, лимит 30/мин (2 сек, всплеск 10).
+    - `DELETE /api/supplies/v1/drafts/{draftId}/items` — удалить товары по списку `skus` (без валидации баркодов), лимит 30/мин (2 сек, всплеск 10).
+  - Добавлены новые схемы/ошибки для черновиков: `errors.DraftError`, `models.DraftCreateResponse`, `models.ListDraftsResponse`, `models.ListDraftItemsResponse`, `models.DraftAdditemsRequest`, `models.DraftDeleteitemsRequest`, а также структуры результатов ошибок добавления/удаления товаров.
+
+- Отчёты
+  - В объекте удержаний добавлены обязательные поля (`required`): `nmId`, `subjectName`, `dimId`, `prcOver`, `volume`, `width`, `length`, `height`, `volumeSup`, `widthSup`, `lengthSup`, `heightSup`, `photoUrls`.
+  - В удержания добавлены новые поля периода действия коэффициента: `dateStart` и `dateEnd` (оба `string(date-time)`).
+
 ### Changed (2026.09.10)
 - Товары (Content/Items): удалено поле `quantity` из объекта документа (электронный сертификат/документы медизделий) и из примера ответа/запроса
 - Товары (Content/Items): для метода обновления карточек/листингов заменён inline `example` на именованный `examples.UpdateListings` (добавлен `components/examples/UpdateListings`), структура примера расширена блоком `documents` (с `items`, `excludeDocuments`)

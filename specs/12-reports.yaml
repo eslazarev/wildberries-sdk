@@ -2529,6 +2529,20 @@ components:
               description: Удержания
               items:
                 type: object
+                required:
+                  - nmId
+                  - subjectName
+                  - dimId
+                  - prcOver
+                  - volume
+                  - width
+                  - length
+                  - height
+                  - volumeSup
+                  - widthSup
+                  - lengthSup
+                  - heightSup
+                  - photoUrls
                 properties:
                   nmId:
                     type: integer
@@ -2612,6 +2626,16 @@ components:
                     type: number
                     description: Сумма штрафа
                     example: 449.83
+                  dateStart:
+                    type: string
+                    format: date-time
+                    example: '2025-05-09T13:35:57Z'
+                    description: Дата и время начала действия коэффициента
+                  dateEnd:
+                    type: string
+                    format: date-time
+                    example: '2025-05-29T13:35:57Z'
+                    description: Дата и время окончания действия коэффициента
             total:
               type: integer
               description: Количество удержаний в отчёте. Без учёта `limit` и `offset`
