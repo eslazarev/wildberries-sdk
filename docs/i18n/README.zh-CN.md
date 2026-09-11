@@ -56,7 +56,7 @@
 - 商品管理 — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS 订单 — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW 订单 — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
-- DBS 订单 — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)
+- DBS 订单 — [`specs/05-dbs.yaml`](../../specs/05-dbs.yaml)
 - 自提订单 — [`specs/06-in-store-pickup.yaml`](../../specs/06-in-store-pickup.yaml)
 - FBW 入库 — [`specs/07-orders-fbw.yaml`](../../specs/07-orders-fbw.yaml)
 - 营销和推广 — [`specs/08-promotion.yaml`](../../specs/08-promotion.yaml)
@@ -65,6 +65,5 @@
 - 分析 — [`specs/11-analytics.yaml`](../../specs/11-analytics.yaml)
 - 报表 — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - 财务和会计 — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)
-- Wildberries Digital — [`specs/14-wbd.yaml`](../../specs/14-wbd.yaml)
 
 完整的方法清单(描述直接来自 Wildberries OpenAPI 规范的俄文原文)在 [主 README](../../README.md#в-данный-момент-представлены-все-доступные-спецификации) 中。

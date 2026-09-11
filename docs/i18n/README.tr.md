@@ -56,7 +56,7 @@ Bu neden önemli — spesifikasyon değişiklik geçmişine bakın: [CHANGELOG.m
 - Ürünler — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS siparişleri — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW siparişleri — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
-- DBS siparişleri — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)
+- DBS siparişleri — [`specs/05-dbs.yaml`](../../specs/05-dbs.yaml)
 - Mağazada teslim alma — [`specs/06-in-store-pickup.yaml`](../../specs/06-in-store-pickup.yaml)
 - FBW tedarikleri — [`specs/07-orders-fbw.yaml`](../../specs/07-orders-fbw.yaml)
 - Pazarlama ve kampanya — [`specs/08-promotion.yaml`](../../specs/08-promotion.yaml)
@@ -65,6 +65,5 @@ Bu neden önemli — spesifikasyon değişiklik geçmişine bakın: [CHANGELOG.m
 - Analitik — [`specs/11-analytics.yaml`](../../specs/11-analytics.yaml)
 - Raporlar — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - Finans ve muhasebe — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)
-- Wildberries Dijital — [`specs/14-wbd.yaml`](../../specs/14-wbd.yaml)
 
 Her metodun tam listesi (açıklamalar Wildberries OpenAPI spesifikasyonlarındaki Rusça orijinal metinden alınmıştır) [ana README](../../README.md#в-данный-момент-представлены-все-доступные-спецификации)'de bulunur.

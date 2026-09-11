@@ -56,7 +56,7 @@ Bu nima uchun muhim — spetsifikatsiya oʻzgarishlari tarixini koʻring: [CHANG
 - Tovarlar bilan ishlash — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS buyurtmalari — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW buyurtmalari — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
-- DBS buyurtmalari — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)
+- DBS buyurtmalari — [`specs/05-dbs.yaml`](../../specs/05-dbs.yaml)
 - Doʻkondan olib ketish — [`specs/06-in-store-pickup.yaml`](../../specs/06-in-store-pickup.yaml)
 - FBW yetkazib berishlari — [`specs/07-orders-fbw.yaml`](../../specs/07-orders-fbw.yaml)
 - Marketing va reklama — [`specs/08-promotion.yaml`](../../specs/08-promotion.yaml)
@@ -65,6 +65,5 @@ Bu nima uchun muhim — spetsifikatsiya oʻzgarishlari tarixini koʻring: [CHANG
 - Tahlil — [`specs/11-analytics.yaml`](../../specs/11-analytics.yaml)
 - Hisobotlar — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - Moliya va buxgalteriya — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)
-- Wildberries Raqamli — [`specs/14-wbd.yaml`](../../specs/14-wbd.yaml)
 
 Har bir metodning toʻliq roʻyxati (tavsiflar Wildberries OpenAPI spetsifikatsiyalaridan rus tilida olingan) [asosiy README](../../README.md#в-данный-момент-представлены-все-доступные-спецификации)’da.

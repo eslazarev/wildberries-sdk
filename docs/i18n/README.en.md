@@ -56,7 +56,7 @@ Why this matters: see the spec change history in [CHANGELOG.md](../../CHANGELOG.
 - Products — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS orders — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW orders — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
-- DBS orders — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)
+- DBS orders — [`specs/05-dbs.yaml`](../../specs/05-dbs.yaml)
 - In-store pickup orders — [`specs/06-in-store-pickup.yaml`](../../specs/06-in-store-pickup.yaml)
 - FBW supplies — [`specs/07-orders-fbw.yaml`](../../specs/07-orders-fbw.yaml)
 - Marketing and promotion — [`specs/08-promotion.yaml`](../../specs/08-promotion.yaml)
@@ -65,6 +65,5 @@ Why this matters: see the spec change history in [CHANGELOG.md](../../CHANGELOG.
 - Analytics — [`specs/11-analytics.yaml`](../../specs/11-analytics.yaml)
 - Reports — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - Finances and accounting — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)
-- Wildberries Digital — [`specs/14-wbd.yaml`](../../specs/14-wbd.yaml)
 
 The full per-method listing (descriptions are taken verbatim from Wildberries OpenAPI specs in Russian) is in the [main Russian README](../../README.md#в-данный-момент-представлены-все-доступные-спецификации).
