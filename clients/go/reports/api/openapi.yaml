@@ -4276,6 +4276,8 @@ components:
             isValidDt: 2025-05-29T13:35:57Z
             reversalAmount: 0
             penaltyAmount: 449.83
+            dateStart: 2025-05-09T13:35:57Z
+            dateEnd: 2025-05-29T13:35:57Z
           - nmId: 123456789
             subjectName: Костюмы спортивные
             dimId: 123456789
@@ -4297,6 +4299,8 @@ components:
             isValidDt: 2025-05-29T13:35:57Z
             reversalAmount: 0
             penaltyAmount: 449.83
+            dateStart: 2025-05-09T13:35:57Z
+            dateEnd: 2025-05-29T13:35:57Z
           total: 11
       properties:
         data:
@@ -5498,6 +5502,8 @@ components:
         isValidDt: 2025-05-29T13:35:57Z
         reversalAmount: 0
         penaltyAmount: 449.83
+        dateStart: 2025-05-09T13:35:57Z
+        dateEnd: 2025-05-29T13:35:57Z
       properties:
         nmId:
           description: Артикул WB
@@ -5581,6 +5587,30 @@ components:
           description: Сумма штрафа
           example: 449.83
           type: number
+        dateStart:
+          description: Дата и время начала действия коэффициента
+          example: 2025-05-09T13:35:57Z
+          format: date-time
+          type: string
+        dateEnd:
+          description: Дата и время окончания действия коэффициента
+          example: 2025-05-29T13:35:57Z
+          format: date-time
+          type: string
+      required:
+      - dimId
+      - height
+      - heightSup
+      - length
+      - lengthSup
+      - nmId
+      - photoUrls
+      - prcOver
+      - subjectName
+      - volume
+      - volumeSup
+      - width
+      - widthSup
       type: object
     MeasurementPenalties_data:
       description: Данные ответа
@@ -5607,6 +5637,8 @@ components:
           isValidDt: 2025-05-29T13:35:57Z
           reversalAmount: 0
           penaltyAmount: 449.83
+          dateStart: 2025-05-09T13:35:57Z
+          dateEnd: 2025-05-29T13:35:57Z
         - nmId: 123456789
           subjectName: Костюмы спортивные
           dimId: 123456789
@@ -5628,6 +5660,8 @@ components:
           isValidDt: 2025-05-29T13:35:57Z
           reversalAmount: 0
           penaltyAmount: 449.83
+          dateStart: 2025-05-09T13:35:57Z
+          dateEnd: 2025-05-29T13:35:57Z
         total: 11
       properties:
         reports:

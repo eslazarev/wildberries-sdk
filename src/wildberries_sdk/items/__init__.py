@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.152"
+__version__ = "0.1.153"
 
 # Define package exports
 __all__ = [
@@ -85,6 +85,7 @@ __all__ = [
     "ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions",
     "ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments",
     "ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner",
+    "ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale",
     "ContentV2DirectoryColorsGet200Response",
     "ContentV2DirectoryColorsGet200ResponseDataInner",
     "ContentV2DirectoryCountriesGet200Response",
@@ -275,6 +276,7 @@ from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_var
 from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_dimensions import ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions as ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions
 from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_documents import ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments as ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments
 from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_sizes_inner import ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner as ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner
+from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_wholesale import ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale as ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale
 from wildberries_sdk.items.models.content_v2_directory_colors_get200_response import ContentV2DirectoryColorsGet200Response as ContentV2DirectoryColorsGet200Response
 from wildberries_sdk.items.models.content_v2_directory_colors_get200_response_data_inner import ContentV2DirectoryColorsGet200ResponseDataInner as ContentV2DirectoryColorsGet200ResponseDataInner
 from wildberries_sdk.items.models.content_v2_directory_countries_get200_response import ContentV2DirectoryCountriesGet200Response as ContentV2DirectoryCountriesGet200Response

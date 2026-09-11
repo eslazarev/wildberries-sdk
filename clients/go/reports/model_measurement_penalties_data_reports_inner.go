@@ -13,6 +13,8 @@ package reports
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the MeasurementPenaltiesDataReportsInner type satisfies the MappedNullable interface at compile time
@@ -21,31 +23,31 @@ var _ MappedNullable = &MeasurementPenaltiesDataReportsInner{}
 // MeasurementPenaltiesDataReportsInner struct for MeasurementPenaltiesDataReportsInner
 type MeasurementPenaltiesDataReportsInner struct {
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId int32 `json:"nmId"`
 	// Предмет
-	SubjectName *string `json:"subjectName,omitempty"`
+	SubjectName string `json:"subjectName"`
 	// ID замера
-	DimId *int32 `json:"dimId,omitempty"`
+	DimId int32 `json:"dimId"`
 	// Разница в габаритах, %
-	PrcOver *float32 `json:"prcOver,omitempty"`
+	PrcOver float32 `json:"prcOver"`
 	// Объём, л (фактические габариты по замеру на складе)
-	Volume *float32 `json:"volume,omitempty"`
+	Volume float32 `json:"volume"`
 	// Ширина, см (фактические габариты по замеру на складе)
-	Width *int32 `json:"width,omitempty"`
+	Width int32 `json:"width"`
 	// Длина, см (фактические габариты по замеру на складе)
-	Length *int32 `json:"length,omitempty"`
+	Length int32 `json:"length"`
 	// Высота, см (фактические габариты по замеру на складе)
-	Height *int32 `json:"height,omitempty"`
+	Height int32 `json:"height"`
 	// Объём, л (габариты карточки товара)
-	VolumeSup *float32 `json:"volumeSup,omitempty"`
+	VolumeSup float32 `json:"volumeSup"`
 	// Ширина, см (габариты карточки товара)
-	WidthSup *int32 `json:"widthSup,omitempty"`
+	WidthSup int32 `json:"widthSup"`
 	// Длина, см (габариты карточки товара)
-	LengthSup *int32 `json:"lengthSup,omitempty"`
+	LengthSup int32 `json:"lengthSup"`
 	// Высота, см (габариты карточки товара)
-	HeightSup *int32 `json:"heightSup,omitempty"`
+	HeightSup int32 `json:"heightSup"`
 	// Фото замеров
-	PhotoUrls []string `json:"photoUrls,omitempty"`
+	PhotoUrls []string `json:"photoUrls"`
 	// Дата штрафа
 	DtBonus *time.Time `json:"dtBonus,omitempty"`
 	// Статус обмера:   - `false` — отменён   - `true` — подтверждён 
@@ -56,14 +58,33 @@ type MeasurementPenaltiesDataReportsInner struct {
 	ReversalAmount *float32 `json:"reversalAmount,omitempty"`
 	// Сумма штрафа
 	PenaltyAmount *float32 `json:"penaltyAmount,omitempty"`
+	// Дата и время начала действия коэффициента
+	DateStart *time.Time `json:"dateStart,omitempty"`
+	// Дата и время окончания действия коэффициента
+	DateEnd *time.Time `json:"dateEnd,omitempty"`
 }
+
+type _MeasurementPenaltiesDataReportsInner MeasurementPenaltiesDataReportsInner
 
 // NewMeasurementPenaltiesDataReportsInner instantiates a new MeasurementPenaltiesDataReportsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMeasurementPenaltiesDataReportsInner() *MeasurementPenaltiesDataReportsInner {
+func NewMeasurementPenaltiesDataReportsInner(nmId int32, subjectName string, dimId int32, prcOver float32, volume float32, width int32, length int32, height int32, volumeSup float32, widthSup int32, lengthSup int32, heightSup int32, photoUrls []string) *MeasurementPenaltiesDataReportsInner {
 	this := MeasurementPenaltiesDataReportsInner{}
+	this.NmId = nmId
+	this.SubjectName = subjectName
+	this.DimId = dimId
+	this.PrcOver = prcOver
+	this.Volume = volume
+	this.Width = width
+	this.Length = length
+	this.Height = height
+	this.VolumeSup = volumeSup
+	this.WidthSup = widthSup
+	this.LengthSup = lengthSup
+	this.HeightSup = heightSup
+	this.PhotoUrls = photoUrls
 	return &this
 }
 
@@ -75,418 +96,314 @@ func NewMeasurementPenaltiesDataReportsInnerWithDefaults() *MeasurementPenalties
 	return &this
 }
 
-// GetNmId returns the NmId field value if set, zero value otherwise.
+// GetNmId returns the NmId field value
 func (o *MeasurementPenaltiesDataReportsInner) GetNmId() int32 {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NmId
+
+	return o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
+// GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetNmIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmId, true
+	return &o.NmId, true
 }
 
-// HasNmId returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasNmId() bool {
-	if o != nil && !IsNil(o.NmId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
+// SetNmId sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetNmId(v int32) {
-	o.NmId = &v
+	o.NmId = v
 }
 
-// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
+// GetSubjectName returns the SubjectName field value
 func (o *MeasurementPenaltiesDataReportsInner) GetSubjectName() string {
-	if o == nil || IsNil(o.SubjectName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SubjectName
+
+	return o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
+// GetSubjectNameOk returns a tuple with the SubjectName field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetSubjectNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SubjectName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubjectName, true
+	return &o.SubjectName, true
 }
 
-// HasSubjectName returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasSubjectName() bool {
-	if o != nil && !IsNil(o.SubjectName) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
+// SetSubjectName sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetSubjectName(v string) {
-	o.SubjectName = &v
+	o.SubjectName = v
 }
 
-// GetDimId returns the DimId field value if set, zero value otherwise.
+// GetDimId returns the DimId field value
 func (o *MeasurementPenaltiesDataReportsInner) GetDimId() int32 {
-	if o == nil || IsNil(o.DimId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.DimId
+
+	return o.DimId
 }
 
-// GetDimIdOk returns a tuple with the DimId field value if set, nil otherwise
+// GetDimIdOk returns a tuple with the DimId field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetDimIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.DimId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DimId, true
+	return &o.DimId, true
 }
 
-// HasDimId returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasDimId() bool {
-	if o != nil && !IsNil(o.DimId) {
-		return true
-	}
-
-	return false
-}
-
-// SetDimId gets a reference to the given int32 and assigns it to the DimId field.
+// SetDimId sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetDimId(v int32) {
-	o.DimId = &v
+	o.DimId = v
 }
 
-// GetPrcOver returns the PrcOver field value if set, zero value otherwise.
+// GetPrcOver returns the PrcOver field value
 func (o *MeasurementPenaltiesDataReportsInner) GetPrcOver() float32 {
-	if o == nil || IsNil(o.PrcOver) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.PrcOver
+
+	return o.PrcOver
 }
 
-// GetPrcOverOk returns a tuple with the PrcOver field value if set, nil otherwise
+// GetPrcOverOk returns a tuple with the PrcOver field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetPrcOverOk() (*float32, bool) {
-	if o == nil || IsNil(o.PrcOver) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PrcOver, true
+	return &o.PrcOver, true
 }
 
-// HasPrcOver returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasPrcOver() bool {
-	if o != nil && !IsNil(o.PrcOver) {
-		return true
-	}
-
-	return false
-}
-
-// SetPrcOver gets a reference to the given float32 and assigns it to the PrcOver field.
+// SetPrcOver sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetPrcOver(v float32) {
-	o.PrcOver = &v
+	o.PrcOver = v
 }
 
-// GetVolume returns the Volume field value if set, zero value otherwise.
+// GetVolume returns the Volume field value
 func (o *MeasurementPenaltiesDataReportsInner) GetVolume() float32 {
-	if o == nil || IsNil(o.Volume) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Volume
+
+	return o.Volume
 }
 
-// GetVolumeOk returns a tuple with the Volume field value if set, nil otherwise
+// GetVolumeOk returns a tuple with the Volume field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetVolumeOk() (*float32, bool) {
-	if o == nil || IsNil(o.Volume) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Volume, true
+	return &o.Volume, true
 }
 
-// HasVolume returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasVolume() bool {
-	if o != nil && !IsNil(o.Volume) {
-		return true
-	}
-
-	return false
-}
-
-// SetVolume gets a reference to the given float32 and assigns it to the Volume field.
+// SetVolume sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetVolume(v float32) {
-	o.Volume = &v
+	o.Volume = v
 }
 
-// GetWidth returns the Width field value if set, zero value otherwise.
+// GetWidth returns the Width field value
 func (o *MeasurementPenaltiesDataReportsInner) GetWidth() int32 {
-	if o == nil || IsNil(o.Width) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Width
+
+	return o.Width
 }
 
-// GetWidthOk returns a tuple with the Width field value if set, nil otherwise
+// GetWidthOk returns a tuple with the Width field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetWidthOk() (*int32, bool) {
-	if o == nil || IsNil(o.Width) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Width, true
+	return &o.Width, true
 }
 
-// HasWidth returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasWidth() bool {
-	if o != nil && !IsNil(o.Width) {
-		return true
-	}
-
-	return false
-}
-
-// SetWidth gets a reference to the given int32 and assigns it to the Width field.
+// SetWidth sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetWidth(v int32) {
-	o.Width = &v
+	o.Width = v
 }
 
-// GetLength returns the Length field value if set, zero value otherwise.
+// GetLength returns the Length field value
 func (o *MeasurementPenaltiesDataReportsInner) GetLength() int32 {
-	if o == nil || IsNil(o.Length) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Length
+
+	return o.Length
 }
 
-// GetLengthOk returns a tuple with the Length field value if set, nil otherwise
+// GetLengthOk returns a tuple with the Length field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetLengthOk() (*int32, bool) {
-	if o == nil || IsNil(o.Length) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Length, true
+	return &o.Length, true
 }
 
-// HasLength returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasLength() bool {
-	if o != nil && !IsNil(o.Length) {
-		return true
-	}
-
-	return false
-}
-
-// SetLength gets a reference to the given int32 and assigns it to the Length field.
+// SetLength sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetLength(v int32) {
-	o.Length = &v
+	o.Length = v
 }
 
-// GetHeight returns the Height field value if set, zero value otherwise.
+// GetHeight returns the Height field value
 func (o *MeasurementPenaltiesDataReportsInner) GetHeight() int32 {
-	if o == nil || IsNil(o.Height) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Height
+
+	return o.Height
 }
 
-// GetHeightOk returns a tuple with the Height field value if set, nil otherwise
+// GetHeightOk returns a tuple with the Height field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetHeightOk() (*int32, bool) {
-	if o == nil || IsNil(o.Height) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Height, true
+	return &o.Height, true
 }
 
-// HasHeight returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasHeight() bool {
-	if o != nil && !IsNil(o.Height) {
-		return true
-	}
-
-	return false
-}
-
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
+// SetHeight sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetHeight(v int32) {
-	o.Height = &v
+	o.Height = v
 }
 
-// GetVolumeSup returns the VolumeSup field value if set, zero value otherwise.
+// GetVolumeSup returns the VolumeSup field value
 func (o *MeasurementPenaltiesDataReportsInner) GetVolumeSup() float32 {
-	if o == nil || IsNil(o.VolumeSup) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.VolumeSup
+
+	return o.VolumeSup
 }
 
-// GetVolumeSupOk returns a tuple with the VolumeSup field value if set, nil otherwise
+// GetVolumeSupOk returns a tuple with the VolumeSup field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetVolumeSupOk() (*float32, bool) {
-	if o == nil || IsNil(o.VolumeSup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VolumeSup, true
+	return &o.VolumeSup, true
 }
 
-// HasVolumeSup returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasVolumeSup() bool {
-	if o != nil && !IsNil(o.VolumeSup) {
-		return true
-	}
-
-	return false
-}
-
-// SetVolumeSup gets a reference to the given float32 and assigns it to the VolumeSup field.
+// SetVolumeSup sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetVolumeSup(v float32) {
-	o.VolumeSup = &v
+	o.VolumeSup = v
 }
 
-// GetWidthSup returns the WidthSup field value if set, zero value otherwise.
+// GetWidthSup returns the WidthSup field value
 func (o *MeasurementPenaltiesDataReportsInner) GetWidthSup() int32 {
-	if o == nil || IsNil(o.WidthSup) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.WidthSup
+
+	return o.WidthSup
 }
 
-// GetWidthSupOk returns a tuple with the WidthSup field value if set, nil otherwise
+// GetWidthSupOk returns a tuple with the WidthSup field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetWidthSupOk() (*int32, bool) {
-	if o == nil || IsNil(o.WidthSup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WidthSup, true
+	return &o.WidthSup, true
 }
 
-// HasWidthSup returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasWidthSup() bool {
-	if o != nil && !IsNil(o.WidthSup) {
-		return true
-	}
-
-	return false
-}
-
-// SetWidthSup gets a reference to the given int32 and assigns it to the WidthSup field.
+// SetWidthSup sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetWidthSup(v int32) {
-	o.WidthSup = &v
+	o.WidthSup = v
 }
 
-// GetLengthSup returns the LengthSup field value if set, zero value otherwise.
+// GetLengthSup returns the LengthSup field value
 func (o *MeasurementPenaltiesDataReportsInner) GetLengthSup() int32 {
-	if o == nil || IsNil(o.LengthSup) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.LengthSup
+
+	return o.LengthSup
 }
 
-// GetLengthSupOk returns a tuple with the LengthSup field value if set, nil otherwise
+// GetLengthSupOk returns a tuple with the LengthSup field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetLengthSupOk() (*int32, bool) {
-	if o == nil || IsNil(o.LengthSup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LengthSup, true
+	return &o.LengthSup, true
 }
 
-// HasLengthSup returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasLengthSup() bool {
-	if o != nil && !IsNil(o.LengthSup) {
-		return true
-	}
-
-	return false
-}
-
-// SetLengthSup gets a reference to the given int32 and assigns it to the LengthSup field.
+// SetLengthSup sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetLengthSup(v int32) {
-	o.LengthSup = &v
+	o.LengthSup = v
 }
 
-// GetHeightSup returns the HeightSup field value if set, zero value otherwise.
+// GetHeightSup returns the HeightSup field value
 func (o *MeasurementPenaltiesDataReportsInner) GetHeightSup() int32 {
-	if o == nil || IsNil(o.HeightSup) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.HeightSup
+
+	return o.HeightSup
 }
 
-// GetHeightSupOk returns a tuple with the HeightSup field value if set, nil otherwise
+// GetHeightSupOk returns a tuple with the HeightSup field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetHeightSupOk() (*int32, bool) {
-	if o == nil || IsNil(o.HeightSup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HeightSup, true
+	return &o.HeightSup, true
 }
 
-// HasHeightSup returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasHeightSup() bool {
-	if o != nil && !IsNil(o.HeightSup) {
-		return true
-	}
-
-	return false
-}
-
-// SetHeightSup gets a reference to the given int32 and assigns it to the HeightSup field.
+// SetHeightSup sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetHeightSup(v int32) {
-	o.HeightSup = &v
+	o.HeightSup = v
 }
 
-// GetPhotoUrls returns the PhotoUrls field value if set, zero value otherwise.
+// GetPhotoUrls returns the PhotoUrls field value
 func (o *MeasurementPenaltiesDataReportsInner) GetPhotoUrls() []string {
-	if o == nil || IsNil(o.PhotoUrls) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.PhotoUrls
 }
 
-// GetPhotoUrlsOk returns a tuple with the PhotoUrls field value if set, nil otherwise
+// GetPhotoUrlsOk returns a tuple with the PhotoUrls field value
 // and a boolean to check if the value has been set.
 func (o *MeasurementPenaltiesDataReportsInner) GetPhotoUrlsOk() ([]string, bool) {
-	if o == nil || IsNil(o.PhotoUrls) {
+	if o == nil {
 		return nil, false
 	}
 	return o.PhotoUrls, true
 }
 
-// HasPhotoUrls returns a boolean if a field has been set.
-func (o *MeasurementPenaltiesDataReportsInner) HasPhotoUrls() bool {
-	if o != nil && !IsNil(o.PhotoUrls) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhotoUrls gets a reference to the given []string and assigns it to the PhotoUrls field.
+// SetPhotoUrls sets field value
 func (o *MeasurementPenaltiesDataReportsInner) SetPhotoUrls(v []string) {
 	o.PhotoUrls = v
 }
@@ -651,6 +568,70 @@ func (o *MeasurementPenaltiesDataReportsInner) SetPenaltyAmount(v float32) {
 	o.PenaltyAmount = &v
 }
 
+// GetDateStart returns the DateStart field value if set, zero value otherwise.
+func (o *MeasurementPenaltiesDataReportsInner) GetDateStart() time.Time {
+	if o == nil || IsNil(o.DateStart) {
+		var ret time.Time
+		return ret
+	}
+	return *o.DateStart
+}
+
+// GetDateStartOk returns a tuple with the DateStart field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MeasurementPenaltiesDataReportsInner) GetDateStartOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.DateStart) {
+		return nil, false
+	}
+	return o.DateStart, true
+}
+
+// HasDateStart returns a boolean if a field has been set.
+func (o *MeasurementPenaltiesDataReportsInner) HasDateStart() bool {
+	if o != nil && !IsNil(o.DateStart) {
+		return true
+	}
+
+	return false
+}
+
+// SetDateStart gets a reference to the given time.Time and assigns it to the DateStart field.
+func (o *MeasurementPenaltiesDataReportsInner) SetDateStart(v time.Time) {
+	o.DateStart = &v
+}
+
+// GetDateEnd returns the DateEnd field value if set, zero value otherwise.
+func (o *MeasurementPenaltiesDataReportsInner) GetDateEnd() time.Time {
+	if o == nil || IsNil(o.DateEnd) {
+		var ret time.Time
+		return ret
+	}
+	return *o.DateEnd
+}
+
+// GetDateEndOk returns a tuple with the DateEnd field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MeasurementPenaltiesDataReportsInner) GetDateEndOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.DateEnd) {
+		return nil, false
+	}
+	return o.DateEnd, true
+}
+
+// HasDateEnd returns a boolean if a field has been set.
+func (o *MeasurementPenaltiesDataReportsInner) HasDateEnd() bool {
+	if o != nil && !IsNil(o.DateEnd) {
+		return true
+	}
+
+	return false
+}
+
+// SetDateEnd gets a reference to the given time.Time and assigns it to the DateEnd field.
+func (o *MeasurementPenaltiesDataReportsInner) SetDateEnd(v time.Time) {
+	o.DateEnd = &v
+}
+
 func (o MeasurementPenaltiesDataReportsInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -661,45 +642,19 @@ func (o MeasurementPenaltiesDataReportsInner) MarshalJSON() ([]byte, error) {
 
 func (o MeasurementPenaltiesDataReportsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.NmId) {
-		toSerialize["nmId"] = o.NmId
-	}
-	if !IsNil(o.SubjectName) {
-		toSerialize["subjectName"] = o.SubjectName
-	}
-	if !IsNil(o.DimId) {
-		toSerialize["dimId"] = o.DimId
-	}
-	if !IsNil(o.PrcOver) {
-		toSerialize["prcOver"] = o.PrcOver
-	}
-	if !IsNil(o.Volume) {
-		toSerialize["volume"] = o.Volume
-	}
-	if !IsNil(o.Width) {
-		toSerialize["width"] = o.Width
-	}
-	if !IsNil(o.Length) {
-		toSerialize["length"] = o.Length
-	}
-	if !IsNil(o.Height) {
-		toSerialize["height"] = o.Height
-	}
-	if !IsNil(o.VolumeSup) {
-		toSerialize["volumeSup"] = o.VolumeSup
-	}
-	if !IsNil(o.WidthSup) {
-		toSerialize["widthSup"] = o.WidthSup
-	}
-	if !IsNil(o.LengthSup) {
-		toSerialize["lengthSup"] = o.LengthSup
-	}
-	if !IsNil(o.HeightSup) {
-		toSerialize["heightSup"] = o.HeightSup
-	}
-	if !IsNil(o.PhotoUrls) {
-		toSerialize["photoUrls"] = o.PhotoUrls
-	}
+	toSerialize["nmId"] = o.NmId
+	toSerialize["subjectName"] = o.SubjectName
+	toSerialize["dimId"] = o.DimId
+	toSerialize["prcOver"] = o.PrcOver
+	toSerialize["volume"] = o.Volume
+	toSerialize["width"] = o.Width
+	toSerialize["length"] = o.Length
+	toSerialize["height"] = o.Height
+	toSerialize["volumeSup"] = o.VolumeSup
+	toSerialize["widthSup"] = o.WidthSup
+	toSerialize["lengthSup"] = o.LengthSup
+	toSerialize["heightSup"] = o.HeightSup
+	toSerialize["photoUrls"] = o.PhotoUrls
 	if !IsNil(o.DtBonus) {
 		toSerialize["dtBonus"] = o.DtBonus
 	}
@@ -715,7 +670,62 @@ func (o MeasurementPenaltiesDataReportsInner) ToMap() (map[string]interface{}, e
 	if !IsNil(o.PenaltyAmount) {
 		toSerialize["penaltyAmount"] = o.PenaltyAmount
 	}
+	if !IsNil(o.DateStart) {
+		toSerialize["dateStart"] = o.DateStart
+	}
+	if !IsNil(o.DateEnd) {
+		toSerialize["dateEnd"] = o.DateEnd
+	}
 	return toSerialize, nil
+}
+
+func (o *MeasurementPenaltiesDataReportsInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"nmId",
+		"subjectName",
+		"dimId",
+		"prcOver",
+		"volume",
+		"width",
+		"length",
+		"height",
+		"volumeSup",
+		"widthSup",
+		"lengthSup",
+		"heightSup",
+		"photoUrls",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varMeasurementPenaltiesDataReportsInner := _MeasurementPenaltiesDataReportsInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varMeasurementPenaltiesDataReportsInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = MeasurementPenaltiesDataReportsInner(varMeasurementPenaltiesDataReportsInner)
+
+	return err
 }
 
 type NullableMeasurementPenaltiesDataReportsInner struct {

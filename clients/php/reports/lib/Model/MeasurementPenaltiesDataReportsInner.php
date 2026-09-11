@@ -74,7 +74,9 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
         'is_valid' => 'bool',
         'is_valid_dt' => '\DateTime',
         'reversal_amount' => 'float',
-        'penalty_amount' => 'float'
+        'penalty_amount' => 'float',
+        'date_start' => '\DateTime',
+        'date_end' => '\DateTime'
     ];
 
     /**
@@ -102,7 +104,9 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
         'is_valid' => null,
         'is_valid_dt' => 'date-time',
         'reversal_amount' => null,
-        'penalty_amount' => null
+        'penalty_amount' => null,
+        'date_start' => 'date-time',
+        'date_end' => 'date-time'
     ];
 
     /**
@@ -128,7 +132,9 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
         'is_valid' => false,
         'is_valid_dt' => false,
         'reversal_amount' => false,
-        'penalty_amount' => false
+        'penalty_amount' => false,
+        'date_start' => false,
+        'date_end' => false
     ];
 
     /**
@@ -234,7 +240,9 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
         'is_valid' => 'isValid',
         'is_valid_dt' => 'isValidDt',
         'reversal_amount' => 'reversalAmount',
-        'penalty_amount' => 'penaltyAmount'
+        'penalty_amount' => 'penaltyAmount',
+        'date_start' => 'dateStart',
+        'date_end' => 'dateEnd'
     ];
 
     /**
@@ -260,7 +268,9 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
         'is_valid' => 'setIsValid',
         'is_valid_dt' => 'setIsValidDt',
         'reversal_amount' => 'setReversalAmount',
-        'penalty_amount' => 'setPenaltyAmount'
+        'penalty_amount' => 'setPenaltyAmount',
+        'date_start' => 'setDateStart',
+        'date_end' => 'setDateEnd'
     ];
 
     /**
@@ -286,7 +296,9 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
         'is_valid' => 'getIsValid',
         'is_valid_dt' => 'getIsValidDt',
         'reversal_amount' => 'getReversalAmount',
-        'penalty_amount' => 'getPenaltyAmount'
+        'penalty_amount' => 'getPenaltyAmount',
+        'date_start' => 'getDateStart',
+        'date_end' => 'getDateEnd'
     ];
 
     /**
@@ -364,6 +376,8 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
         $this->setIfExists('is_valid_dt', $data ?? [], null);
         $this->setIfExists('reversal_amount', $data ?? [], null);
         $this->setIfExists('penalty_amount', $data ?? [], null);
+        $this->setIfExists('date_start', $data ?? [], null);
+        $this->setIfExists('date_end', $data ?? [], null);
     }
 
     /**
@@ -393,6 +407,45 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+        if ($this->container['nm_id'] === null) {
+            $invalidProperties[] = "'nm_id' can't be null";
+        }
+        if ($this->container['subject_name'] === null) {
+            $invalidProperties[] = "'subject_name' can't be null";
+        }
+        if ($this->container['dim_id'] === null) {
+            $invalidProperties[] = "'dim_id' can't be null";
+        }
+        if ($this->container['prc_over'] === null) {
+            $invalidProperties[] = "'prc_over' can't be null";
+        }
+        if ($this->container['volume'] === null) {
+            $invalidProperties[] = "'volume' can't be null";
+        }
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['length'] === null) {
+            $invalidProperties[] = "'length' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
+        if ($this->container['volume_sup'] === null) {
+            $invalidProperties[] = "'volume_sup' can't be null";
+        }
+        if ($this->container['width_sup'] === null) {
+            $invalidProperties[] = "'width_sup' can't be null";
+        }
+        if ($this->container['length_sup'] === null) {
+            $invalidProperties[] = "'length_sup' can't be null";
+        }
+        if ($this->container['height_sup'] === null) {
+            $invalidProperties[] = "'height_sup' can't be null";
+        }
+        if ($this->container['photo_urls'] === null) {
+            $invalidProperties[] = "'photo_urls' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -411,7 +464,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets nm_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNmId()
     {
@@ -421,7 +474,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets nm_id
      *
-     * @param int|null $nm_id Артикул WB
+     * @param int $nm_id Артикул WB
      *
      * @return self
      */
@@ -438,7 +491,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets subject_name
      *
-     * @return string|null
+     * @return string
      */
     public function getSubjectName()
     {
@@ -448,7 +501,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets subject_name
      *
-     * @param string|null $subject_name Предмет
+     * @param string $subject_name Предмет
      *
      * @return self
      */
@@ -465,7 +518,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets dim_id
      *
-     * @return int|null
+     * @return int
      */
     public function getDimId()
     {
@@ -475,7 +528,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets dim_id
      *
-     * @param int|null $dim_id ID замера
+     * @param int $dim_id ID замера
      *
      * @return self
      */
@@ -492,7 +545,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets prc_over
      *
-     * @return float|null
+     * @return float
      */
     public function getPrcOver()
     {
@@ -502,7 +555,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets prc_over
      *
-     * @param float|null $prc_over Разница в габаритах, %
+     * @param float $prc_over Разница в габаритах, %
      *
      * @return self
      */
@@ -519,7 +572,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets volume
      *
-     * @return float|null
+     * @return float
      */
     public function getVolume()
     {
@@ -529,7 +582,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets volume
      *
-     * @param float|null $volume Объём, л (фактические габариты по замеру на складе)
+     * @param float $volume Объём, л (фактические габариты по замеру на складе)
      *
      * @return self
      */
@@ -546,7 +599,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets width
      *
-     * @return int|null
+     * @return int
      */
     public function getWidth()
     {
@@ -556,7 +609,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets width
      *
-     * @param int|null $width Ширина, см (фактические габариты по замеру на складе)
+     * @param int $width Ширина, см (фактические габариты по замеру на складе)
      *
      * @return self
      */
@@ -573,7 +626,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets length
      *
-     * @return int|null
+     * @return int
      */
     public function getLength()
     {
@@ -583,7 +636,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets length
      *
-     * @param int|null $length Длина, см (фактические габариты по замеру на складе)
+     * @param int $length Длина, см (фактические габариты по замеру на складе)
      *
      * @return self
      */
@@ -600,7 +653,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets height
      *
-     * @return int|null
+     * @return int
      */
     public function getHeight()
     {
@@ -610,7 +663,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets height
      *
-     * @param int|null $height Высота, см (фактические габариты по замеру на складе)
+     * @param int $height Высота, см (фактические габариты по замеру на складе)
      *
      * @return self
      */
@@ -627,7 +680,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets volume_sup
      *
-     * @return float|null
+     * @return float
      */
     public function getVolumeSup()
     {
@@ -637,7 +690,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets volume_sup
      *
-     * @param float|null $volume_sup Объём, л (габариты карточки товара)
+     * @param float $volume_sup Объём, л (габариты карточки товара)
      *
      * @return self
      */
@@ -654,7 +707,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets width_sup
      *
-     * @return int|null
+     * @return int
      */
     public function getWidthSup()
     {
@@ -664,7 +717,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets width_sup
      *
-     * @param int|null $width_sup Ширина, см (габариты карточки товара)
+     * @param int $width_sup Ширина, см (габариты карточки товара)
      *
      * @return self
      */
@@ -681,7 +734,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets length_sup
      *
-     * @return int|null
+     * @return int
      */
     public function getLengthSup()
     {
@@ -691,7 +744,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets length_sup
      *
-     * @param int|null $length_sup Длина, см (габариты карточки товара)
+     * @param int $length_sup Длина, см (габариты карточки товара)
      *
      * @return self
      */
@@ -708,7 +761,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets height_sup
      *
-     * @return int|null
+     * @return int
      */
     public function getHeightSup()
     {
@@ -718,7 +771,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets height_sup
      *
-     * @param int|null $height_sup Высота, см (габариты карточки товара)
+     * @param int $height_sup Высота, см (габариты карточки товара)
      *
      * @return self
      */
@@ -735,7 +788,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Gets photo_urls
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getPhotoUrls()
     {
@@ -745,7 +798,7 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
     /**
      * Sets photo_urls
      *
-     * @param string[]|null $photo_urls Фото замеров
+     * @param string[] $photo_urls Фото замеров
      *
      * @return self
      */
@@ -890,6 +943,60 @@ class MeasurementPenaltiesDataReportsInner implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable penalty_amount cannot be null');
         }
         $this->container['penalty_amount'] = $penalty_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets date_start
+     *
+     * @return \DateTime|null
+     */
+    public function getDateStart()
+    {
+        return $this->container['date_start'];
+    }
+
+    /**
+     * Sets date_start
+     *
+     * @param \DateTime|null $date_start Дата и время начала действия коэффициента
+     *
+     * @return self
+     */
+    public function setDateStart($date_start)
+    {
+        if (is_null($date_start)) {
+            throw new \InvalidArgumentException('non-nullable date_start cannot be null');
+        }
+        $this->container['date_start'] = $date_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets date_end
+     *
+     * @return \DateTime|null
+     */
+    public function getDateEnd()
+    {
+        return $this->container['date_end'];
+    }
+
+    /**
+     * Sets date_end
+     *
+     * @param \DateTime|null $date_end Дата и время окончания действия коэффициента
+     *
+     * @return self
+     */
+    public function setDateEnd($date_end)
+    {
+        if (is_null($date_end)) {
+            throw new \InvalidArgumentException('non-nullable date_end cannot be null');
+        }
+        $this->container['date_end'] = $date_end;
 
         return $this;
     }

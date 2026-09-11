@@ -23,7 +23,7 @@ pub struct ContentV2CardsUploadAddPostRequestCardsToAddInner {
     #[serde(rename = "kizMarked", skip_serializing_if = "Option::is_none")]
     pub kiz_marked: Option<bool>,
     #[serde(rename = "wholesale", skip_serializing_if = "Option::is_none")]
-    pub wholesale: Option<Box<models::ContentV2GetCardsListPost200ResponseCardsInnerWholesale>>,
+    pub wholesale: Option<Box<models::ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale>>,
     /// Наименование товара
     #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,

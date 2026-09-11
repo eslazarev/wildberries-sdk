@@ -255,6 +255,12 @@ SDK выпускается с security-first процессом:
 - `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий (getV3ClickCollectOrdersNew)
 
 ### Поставки FBW (`07-orders-fbw.yaml`)
+- `GET /api/supplies/v1/drafts` — Список черновиков (getV1Drafts)
+- `POST /api/supplies/v1/drafts` — Создать черновик (postV1Drafts)
+- `DELETE /api/supplies/v1/drafts/{draftId}` — Удалить черновик (deleteV1DraftsDraftId)
+- `GET /api/supplies/v1/drafts/{draftId}/items` — Список товаров в черновике (getV1DraftsDraftIdItems)
+- `POST /api/supplies/v1/drafts/{draftId}/items` — Добавить товары в черновик (postV1DraftsDraftIdItems)
+- `DELETE /api/supplies/v1/drafts/{draftId}/items` — Удалить товары из черновика (deleteV1DraftsDraftIdItems)
 - `POST /api/v1/acceptance/options` — Опции приёмки (postV1AcceptanceOptions)
 - `POST /api/v1/supplies` — Список поставок (postV1Supplies)
 - `GET /api/v1/supplies/{ID}` — Детали поставки (getV1SuppliesId)

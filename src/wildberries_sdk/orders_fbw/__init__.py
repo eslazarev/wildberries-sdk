@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.152"
+__version__ = "0.1.153"
 
 # Define package exports
 __all__ = [
@@ -28,13 +28,26 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "ErrorsDraftError",
     "ModelsBox",
     "ModelsDateFilterRequest",
+    "ModelsDraftAddItemsErrorResponse",
+    "ModelsDraftAddItemsResultError",
+    "ModelsDraftAddItemsResultItem",
+    "ModelsDraftAdditemsRequest",
+    "ModelsDraftCreateResponse",
+    "ModelsDraftDeleteItemsErrorResponse",
+    "ModelsDraftDeleteitemsRequest",
+    "ModelsDraftItem",
+    "ModelsDraftItemItem",
     "ModelsErrorModel",
     "ModelsGood",
     "ModelsGoodInBox",
     "ModelsGoodInSupply",
     "ModelsHandySupplyStatus",
+    "ModelsItem",
+    "ModelsListDraftItemsResponse",
+    "ModelsListDraftsResponse",
     "ModelsOptionsResultModel",
     "ModelsOptionsResultModelResultInner",
     "ModelsOptionsResultModelResultInnerError",
@@ -65,13 +78,26 @@ from wildberries_sdk.orders_fbw.exceptions import ApiAttributeError as ApiAttrib
 from wildberries_sdk.orders_fbw.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from wildberries_sdk.orders_fbw.models.errors_draft_error import ErrorsDraftError as ErrorsDraftError
 from wildberries_sdk.orders_fbw.models.models_box import ModelsBox as ModelsBox
 from wildberries_sdk.orders_fbw.models.models_date_filter_request import ModelsDateFilterRequest as ModelsDateFilterRequest
+from wildberries_sdk.orders_fbw.models.models_draft_add_items_error_response import ModelsDraftAddItemsErrorResponse as ModelsDraftAddItemsErrorResponse
+from wildberries_sdk.orders_fbw.models.models_draft_add_items_result_error import ModelsDraftAddItemsResultError as ModelsDraftAddItemsResultError
+from wildberries_sdk.orders_fbw.models.models_draft_add_items_result_item import ModelsDraftAddItemsResultItem as ModelsDraftAddItemsResultItem
+from wildberries_sdk.orders_fbw.models.models_draft_additems_request import ModelsDraftAdditemsRequest as ModelsDraftAdditemsRequest
+from wildberries_sdk.orders_fbw.models.models_draft_create_response import ModelsDraftCreateResponse as ModelsDraftCreateResponse
+from wildberries_sdk.orders_fbw.models.models_draft_delete_items_error_response import ModelsDraftDeleteItemsErrorResponse as ModelsDraftDeleteItemsErrorResponse
+from wildberries_sdk.orders_fbw.models.models_draft_deleteitems_request import ModelsDraftDeleteitemsRequest as ModelsDraftDeleteitemsRequest
+from wildberries_sdk.orders_fbw.models.models_draft_item import ModelsDraftItem as ModelsDraftItem
+from wildberries_sdk.orders_fbw.models.models_draft_item_item import ModelsDraftItemItem as ModelsDraftItemItem
 from wildberries_sdk.orders_fbw.models.models_error_model import ModelsErrorModel as ModelsErrorModel
 from wildberries_sdk.orders_fbw.models.models_good import ModelsGood as ModelsGood
 from wildberries_sdk.orders_fbw.models.models_good_in_box import ModelsGoodInBox as ModelsGoodInBox
 from wildberries_sdk.orders_fbw.models.models_good_in_supply import ModelsGoodInSupply as ModelsGoodInSupply
 from wildberries_sdk.orders_fbw.models.models_handy_supply_status import ModelsHandySupplyStatus as ModelsHandySupplyStatus
+from wildberries_sdk.orders_fbw.models.models_item import ModelsItem as ModelsItem
+from wildberries_sdk.orders_fbw.models.models_list_draft_items_response import ModelsListDraftItemsResponse as ModelsListDraftItemsResponse
+from wildberries_sdk.orders_fbw.models.models_list_drafts_response import ModelsListDraftsResponse as ModelsListDraftsResponse
 from wildberries_sdk.orders_fbw.models.models_options_result_model import ModelsOptionsResultModel as ModelsOptionsResultModel
 from wildberries_sdk.orders_fbw.models.models_options_result_model_result_inner import ModelsOptionsResultModelResultInner as ModelsOptionsResultModelResultInner
 from wildberries_sdk.orders_fbw.models.models_options_result_model_result_inner_error import ModelsOptionsResultModelResultInnerError as ModelsOptionsResultModelResultInnerError

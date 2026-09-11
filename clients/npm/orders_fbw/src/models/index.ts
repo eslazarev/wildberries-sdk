@@ -1,12 +1,25 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './ErrorsDraftError';
 export * from './ModelsBox';
 export * from './ModelsDateFilterRequest';
+export * from './ModelsDraftAddItemsErrorResponse';
+export * from './ModelsDraftAddItemsResultError';
+export * from './ModelsDraftAddItemsResultItem';
+export * from './ModelsDraftAdditemsRequest';
+export * from './ModelsDraftCreateResponse';
+export * from './ModelsDraftDeleteItemsErrorResponse';
+export * from './ModelsDraftDeleteitemsRequest';
+export * from './ModelsDraftItem';
+export * from './ModelsDraftItemItem';
 export * from './ModelsErrorModel';
 export * from './ModelsGood';
 export * from './ModelsGoodInBox';
 export * from './ModelsGoodInSupply';
 export * from './ModelsHandySupplyStatus';
+export * from './ModelsItem';
+export * from './ModelsListDraftItemsResponse';
+export * from './ModelsListDraftsResponse';
 export * from './ModelsOptionsResultModel';
 export * from './ModelsOptionsResultModelResultInner';
 export * from './ModelsOptionsResultModelResultInnerError';

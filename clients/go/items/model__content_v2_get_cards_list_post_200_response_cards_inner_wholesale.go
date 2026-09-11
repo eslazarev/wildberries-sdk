@@ -17,11 +17,11 @@ import (
 // checks if the ContentV2GetCardsListPost200ResponseCardsInnerWholesale type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ContentV2GetCardsListPost200ResponseCardsInnerWholesale{}
 
-// ContentV2GetCardsListPost200ResponseCardsInnerWholesale Оптовая продажа
+// ContentV2GetCardsListPost200ResponseCardsInnerWholesale B2B-продажа
 type ContentV2GetCardsListPost200ResponseCardsInnerWholesale struct {
-	// Предназначена ли карточка товара для оптовой продажи
+	// Предназначен ли товар для продажи только B2B-покупателям:   - `true` — товар предназначен для продажи только B2B-покупателям   - `false` — товар предназначен для продажи B2B и B2C-покупателям 
 	Enabled *bool `json:"enabled,omitempty"`
-	// Количество единиц товара в упаковке
+	// Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `\"enable\":true`
 	Quantum *float32 `json:"quantum,omitempty"`
 }
 

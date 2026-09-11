@@ -27,7 +27,7 @@ type ContentV2CardsUploadAddPostRequestCardsToAddInner struct {
 	VendorCode string `json:"vendorCode"`
 	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), поле ответа `needKiz` 
 	KizMarked *bool `json:"kizMarked,omitempty"`
-	Wholesale *ContentV2GetCardsListPost200ResponseCardsInnerWholesale `json:"wholesale,omitempty"`
+	Wholesale *ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale `json:"wholesale,omitempty"`
 	// Наименование товара
 	Title *string `json:"title,omitempty"`
 	// Описание товара.<br> Максимальное количество символов зависит от категории товара<br> Стандарт — 2000, минимум — 1000, максимум — 5000<br> Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов 
@@ -153,9 +153,9 @@ func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) SetKizMarked(v bool)
 }
 
 // GetWholesale returns the Wholesale field value if set, zero value otherwise.
-func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetWholesale() ContentV2GetCardsListPost200ResponseCardsInnerWholesale {
+func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetWholesale() ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale {
 	if o == nil || IsNil(o.Wholesale) {
-		var ret ContentV2GetCardsListPost200ResponseCardsInnerWholesale
+		var ret ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale
 		return ret
 	}
 	return *o.Wholesale
@@ -163,7 +163,7 @@ func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetWholesale() Conte
 
 // GetWholesaleOk returns a tuple with the Wholesale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetWholesaleOk() (*ContentV2GetCardsListPost200ResponseCardsInnerWholesale, bool) {
+func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetWholesaleOk() (*ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale, bool) {
 	if o == nil || IsNil(o.Wholesale) {
 		return nil, false
 	}
@@ -179,8 +179,8 @@ func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) HasWholesale() bool 
 	return false
 }
 
-// SetWholesale gets a reference to the given ContentV2GetCardsListPost200ResponseCardsInnerWholesale and assigns it to the Wholesale field.
-func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) SetWholesale(v ContentV2GetCardsListPost200ResponseCardsInnerWholesale) {
+// SetWholesale gets a reference to the given ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale and assigns it to the Wholesale field.
+func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) SetWholesale(v ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale) {
 	o.Wholesale = &v
 }
 

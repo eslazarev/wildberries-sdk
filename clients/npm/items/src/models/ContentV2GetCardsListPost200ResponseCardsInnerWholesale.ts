@@ -14,17 +14,20 @@
 
 import { mapValues } from '../runtime';
 /**
- * Оптовая продажа
+ * B2B-продажа
  * @export
  * @interface ContentV2GetCardsListPost200ResponseCardsInnerWholesale
  */
 export interface ContentV2GetCardsListPost200ResponseCardsInnerWholesale {
     /**
-     * Предназначена ли карточка товара для оптовой продажи
+     * Предназначен ли товар для продажи только B2B-покупателям:
+     *   - `true` — товар предназначен для продажи только B2B-покупателям
+     *   - `false` — товар предназначен для продажи B2B и B2C-покупателям
+     * 
      */
     enabled?: boolean;
     /**
-     * Количество единиц товара в упаковке
+     * Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `"enable":true`
      */
     quantum?: number;
 }

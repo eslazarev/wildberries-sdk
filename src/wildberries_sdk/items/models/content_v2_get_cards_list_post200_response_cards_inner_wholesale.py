@@ -25,10 +25,10 @@ from pydantic_core import to_jsonable_python
 
 class ContentV2GetCardsListPost200ResponseCardsInnerWholesale(BaseModel):
     """
-    Оптовая продажа
+    B2B-продажа
     """ # noqa: E501
-    enabled: Optional[StrictBool] = Field(default=None, description="Предназначена ли карточка товара для оптовой продажи")
-    quantum: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Количество единиц товара в упаковке")
+    enabled: Optional[StrictBool] = Field(default=None, description="Предназначен ли товар для продажи только B2B-покупателям:   - `true` — товар предназначен для продажи только B2B-покупателям   - `false` — товар предназначен для продажи B2B и B2C-покупателям ")
+    quantum: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `\"enable\":true`")
     __properties: ClassVar[List[str]] = ["enabled", "quantum"]
 
     model_config = ConfigDict(

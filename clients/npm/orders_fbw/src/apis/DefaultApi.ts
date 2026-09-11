@@ -14,10 +14,40 @@
 
 import * as runtime from '../runtime';
 import {
+    type ErrorsDraftError,
+    ErrorsDraftErrorFromJSON,
+    ErrorsDraftErrorToJSON,
+} from '../models/ErrorsDraftError';
+import {
     type ModelsBox,
     ModelsBoxFromJSON,
     ModelsBoxToJSON,
 } from '../models/ModelsBox';
+import {
+    type ModelsDraftAddItemsErrorResponse,
+    ModelsDraftAddItemsErrorResponseFromJSON,
+    ModelsDraftAddItemsErrorResponseToJSON,
+} from '../models/ModelsDraftAddItemsErrorResponse';
+import {
+    type ModelsDraftAdditemsRequest,
+    ModelsDraftAdditemsRequestFromJSON,
+    ModelsDraftAdditemsRequestToJSON,
+} from '../models/ModelsDraftAdditemsRequest';
+import {
+    type ModelsDraftCreateResponse,
+    ModelsDraftCreateResponseFromJSON,
+    ModelsDraftCreateResponseToJSON,
+} from '../models/ModelsDraftCreateResponse';
+import {
+    type ModelsDraftDeleteItemsErrorResponse,
+    ModelsDraftDeleteItemsErrorResponseFromJSON,
+    ModelsDraftDeleteItemsErrorResponseToJSON,
+} from '../models/ModelsDraftDeleteItemsErrorResponse';
+import {
+    type ModelsDraftDeleteitemsRequest,
+    ModelsDraftDeleteitemsRequestFromJSON,
+    ModelsDraftDeleteitemsRequestToJSON,
+} from '../models/ModelsDraftDeleteitemsRequest';
 import {
     type ModelsErrorModel,
     ModelsErrorModelFromJSON,
@@ -33,6 +63,16 @@ import {
     ModelsGoodInSupplyFromJSON,
     ModelsGoodInSupplyToJSON,
 } from '../models/ModelsGoodInSupply';
+import {
+    type ModelsListDraftItemsResponse,
+    ModelsListDraftItemsResponseFromJSON,
+    ModelsListDraftItemsResponseToJSON,
+} from '../models/ModelsListDraftItemsResponse';
+import {
+    type ModelsListDraftsResponse,
+    ModelsListDraftsResponseFromJSON,
+    ModelsListDraftsResponseToJSON,
+} from '../models/ModelsListDraftsResponse';
 import {
     type ModelsOptionsResultModel,
     ModelsOptionsResultModelFromJSON,
@@ -78,6 +118,56 @@ import {
     PostV1AcceptanceOptions403ResponseFromJSON,
     PostV1AcceptanceOptions403ResponseToJSON,
 } from '../models/PostV1AcceptanceOptions403Response';
+
+export interface DeleteV1DraftsDraftIdRequest {
+    /**
+     * ID черновика
+     */
+    draftId: string;
+}
+
+export interface DeleteV1DraftsDraftIdItemsRequest {
+    /**
+     * ID черновика
+     */
+    draftId: string;
+    /**
+     * 
+     */
+    modelsDraftDeleteitemsRequest: ModelsDraftDeleteitemsRequest;
+}
+
+export interface GetV1DraftsRequest {
+    /**
+     * Количество черновиков в ответе
+     */
+    limit?: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+     */
+    offset?: number;
+    /**
+     * Сортировка:
+     *   - `createdDt` — по дате создания черновика
+     *   - `updatedDt` — по дате обновления черновика
+     * 
+     */
+    sort?: GetV1DraftsSortEnum;
+    /**
+     * Порядок выдачи:
+     *   - `desc` — по убыванию
+     *   - `asc` — по возрастанию
+     * 
+     */
+    order?: GetV1DraftsOrderEnum;
+}
+
+export interface GetV1DraftsDraftIdItemsRequest {
+    /**
+     * ID черновика
+     */
+    draftId: string;
+}
 
 export interface GetV1SuppliesIdRequest {
     /**
@@ -133,6 +223,17 @@ export interface PostV1AcceptanceOptionsRequest {
     warehouseID?: number;
 }
 
+export interface PostV1DraftsDraftIdItemsRequest {
+    /**
+     * ID черновика
+     */
+    draftId: string;
+    /**
+     * 
+     */
+    modelsDraftAdditemsRequest: ModelsDraftAdditemsRequest;
+}
+
 export interface PostV1SuppliesRequest {
     /**
      * 
@@ -152,6 +253,227 @@ export interface PostV1SuppliesRequest {
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
+
+    /**
+     * Creates request options for deleteV1DraftsDraftId without sending the request
+     */
+    async deleteV1DraftsDraftIdRequestOpts(requestParameters: DeleteV1DraftsDraftIdRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['draftId'] == null) {
+            throw new runtime.RequiredError(
+                'draftId',
+                'Required parameter "draftId" was null or undefined when calling deleteV1DraftsDraftId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/supplies/v1/drafts/{draftId}`;
+        urlPath = urlPath.replace('{draftId}', encodeURIComponent(String(requestParameters['draftId'])));
+
+        return {
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет черновик поставки по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Удалить черновик
+     */
+    async deleteV1DraftsDraftIdRaw(requestParameters: DeleteV1DraftsDraftIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.deleteV1DraftsDraftIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет черновик поставки по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Удалить черновик
+     */
+    async deleteV1DraftsDraftId(requestParameters: DeleteV1DraftsDraftIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteV1DraftsDraftIdRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for deleteV1DraftsDraftIdItems without sending the request
+     */
+    async deleteV1DraftsDraftIdItemsRequestOpts(requestParameters: DeleteV1DraftsDraftIdItemsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['draftId'] == null) {
+            throw new runtime.RequiredError(
+                'draftId',
+                'Required parameter "draftId" was null or undefined when calling deleteV1DraftsDraftIdItems().'
+            );
+        }
+
+        if (requestParameters['modelsDraftDeleteitemsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'modelsDraftDeleteitemsRequest',
+                'Required parameter "modelsDraftDeleteitemsRequest" was null or undefined when calling deleteV1DraftsDraftIdItems().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/supplies/v1/drafts/{draftId}/items`;
+        urlPath = urlPath.replace('{draftId}', encodeURIComponent(String(requestParameters['draftId'])));
+
+        return {
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ModelsDraftDeleteitemsRequestToJSON(requestParameters['modelsDraftDeleteitemsRequest']),
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет товары из черновика поставки по списку баркодов.    <div class=\"description_important\">   Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.   </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Удалить товары из черновика
+     */
+    async deleteV1DraftsDraftIdItemsRaw(requestParameters: DeleteV1DraftsDraftIdItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsDraftDeleteItemsErrorResponse>> {
+        const requestOptions = await this.deleteV1DraftsDraftIdItemsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelsDraftDeleteItemsErrorResponseFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет товары из черновика поставки по списку баркодов.    <div class=\"description_important\">   Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.   </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Удалить товары из черновика
+     */
+    async deleteV1DraftsDraftIdItems(requestParameters: DeleteV1DraftsDraftIdItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelsDraftDeleteItemsErrorResponse> {
+        const response = await this.deleteV1DraftsDraftIdItemsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1Drafts without sending the request
+     */
+    async getV1DraftsRequestOpts(requestParameters: GetV1DraftsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['sort'] != null) {
+            queryParameters['sort'] = requestParameters['sort'];
+        }
+
+        if (requestParameters['order'] != null) {
+            queryParameters['order'] = requestParameters['order'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/supplies/v1/drafts`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список черновиков поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Список черновиков
+     */
+    async getV1DraftsRaw(requestParameters: GetV1DraftsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsListDraftsResponse>> {
+        const requestOptions = await this.getV1DraftsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelsListDraftsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список черновиков поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Список черновиков
+     */
+    async getV1Drafts(requestParameters: GetV1DraftsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelsListDraftsResponse> {
+        const response = await this.getV1DraftsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1DraftsDraftIdItems without sending the request
+     */
+    async getV1DraftsDraftIdItemsRequestOpts(requestParameters: GetV1DraftsDraftIdItemsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['draftId'] == null) {
+            throw new runtime.RequiredError(
+                'draftId',
+                'Required parameter "draftId" was null or undefined when calling getV1DraftsDraftIdItems().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/supplies/v1/drafts/{draftId}/items`;
+        urlPath = urlPath.replace('{draftId}', encodeURIComponent(String(requestParameters['draftId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список товаров черновика.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Список товаров в черновике
+     */
+    async getV1DraftsDraftIdItemsRaw(requestParameters: GetV1DraftsDraftIdItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsListDraftItemsResponse>> {
+        const requestOptions = await this.getV1DraftsDraftIdItemsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelsListDraftItemsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список товаров черновика.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Список товаров в черновике
+     */
+    async getV1DraftsDraftIdItems(requestParameters: GetV1DraftsDraftIdItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelsListDraftItemsResponse> {
+        const response = await this.getV1DraftsDraftIdItemsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * Creates request options for getV1SuppliesId without sending the request
@@ -466,6 +788,110 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Creates request options for postV1Drafts without sending the request
+     */
+    async postV1DraftsRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/supplies/v1/drafts`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод создаёт пустой черновик поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Создать черновик
+     */
+    async postV1DraftsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsDraftCreateResponse>> {
+        const requestOptions = await this.postV1DraftsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelsDraftCreateResponseFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод создаёт пустой черновик поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Создать черновик
+     */
+    async postV1Drafts(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelsDraftCreateResponse> {
+        const response = await this.postV1DraftsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV1DraftsDraftIdItems without sending the request
+     */
+    async postV1DraftsDraftIdItemsRequestOpts(requestParameters: PostV1DraftsDraftIdItemsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['draftId'] == null) {
+            throw new runtime.RequiredError(
+                'draftId',
+                'Required parameter "draftId" was null or undefined when calling postV1DraftsDraftIdItems().'
+            );
+        }
+
+        if (requestParameters['modelsDraftAdditemsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'modelsDraftAdditemsRequest',
+                'Required parameter "modelsDraftAdditemsRequest" was null or undefined when calling postV1DraftsDraftIdItems().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/supplies/v1/drafts/{draftId}/items`;
+        urlPath = urlPath.replace('{draftId}', encodeURIComponent(String(requestParameters['draftId'])));
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ModelsDraftAdditemsRequestToJSON(requestParameters['modelsDraftAdditemsRequest']),
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод добавляет товары в черновик поставки.  <div class=\"description_important\">   Метод работает по принципу атомарности:   - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\":[]}</code>   - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Добавить товары в черновик
+     */
+    async postV1DraftsDraftIdItemsRaw(requestParameters: PostV1DraftsDraftIdItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsDraftAddItemsErrorResponse>> {
+        const requestOptions = await this.postV1DraftsDraftIdItemsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ModelsDraftAddItemsErrorResponseFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод добавляет товары в черновик поставки.  <div class=\"description_important\">   Метод работает по принципу атомарности:   - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\":[]}</code>   - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+     * Добавить товары в черновик
+     */
+    async postV1DraftsDraftIdItems(requestParameters: PostV1DraftsDraftIdItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelsDraftAddItemsErrorResponse> {
+        const response = await this.postV1DraftsDraftIdItemsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Creates request options for postV1Supplies without sending the request
      */
     async postV1SuppliesRequestOpts(requestParameters: PostV1SuppliesRequest): Promise<runtime.RequestOpts> {
@@ -527,3 +953,20 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
 }
+
+/**
+ * @export
+ */
+export const GetV1DraftsSortEnum = {
+    CreateDt: 'createDt',
+    UpdateDt: 'updateDt',
+} as const;
+export type GetV1DraftsSortEnum = typeof GetV1DraftsSortEnum[keyof typeof GetV1DraftsSortEnum];
+/**
+ * @export
+ */
+export const GetV1DraftsOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc',
+} as const;
+export type GetV1DraftsOrderEnum = typeof GetV1DraftsOrderEnum[keyof typeof GetV1DraftsOrderEnum];

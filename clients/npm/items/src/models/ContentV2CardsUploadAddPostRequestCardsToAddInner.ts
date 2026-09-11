@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ContentV2GetCardsListPost200ResponseCardsInnerWholesale } from './ContentV2GetCardsListPost200ResponseCardsInnerWholesale';
-import {
-    ContentV2GetCardsListPost200ResponseCardsInnerWholesaleFromJSON,
-    ContentV2GetCardsListPost200ResponseCardsInnerWholesaleFromJSONTyped,
-    ContentV2GetCardsListPost200ResponseCardsInnerWholesaleToJSON,
-    ContentV2GetCardsListPost200ResponseCardsInnerWholesaleToJSONTyped,
-} from './ContentV2GetCardsListPost200ResponseCardsInnerWholesale';
 import type { ContentV2CardsUpdatePostRequestInnerCharacteristicsInner } from './ContentV2CardsUpdatePostRequestInnerCharacteristicsInner';
 import {
     ContentV2CardsUpdatePostRequestInnerCharacteristicsInnerFromJSON,
@@ -34,6 +27,13 @@ import {
     ContentV2CardsUploadPostRequestInnerVariantsInnerDocumentsToJSON,
     ContentV2CardsUploadPostRequestInnerVariantsInnerDocumentsToJSONTyped,
 } from './ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments';
+import type { ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale } from './ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale';
+import {
+    ContentV2CardsUploadPostRequestInnerVariantsInnerWholesaleFromJSON,
+    ContentV2CardsUploadPostRequestInnerVariantsInnerWholesaleFromJSONTyped,
+    ContentV2CardsUploadPostRequestInnerVariantsInnerWholesaleToJSON,
+    ContentV2CardsUploadPostRequestInnerVariantsInnerWholesaleToJSONTyped,
+} from './ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale';
 import type { ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner } from './ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner';
 import {
     ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInnerFromJSON,
@@ -75,7 +75,7 @@ export interface ContentV2CardsUploadAddPostRequestCardsToAddInner {
     /**
      * 
      */
-    wholesale?: ContentV2GetCardsListPost200ResponseCardsInnerWholesale;
+    wholesale?: ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale;
     /**
      * Наименование товара
      */
@@ -132,7 +132,7 @@ export function ContentV2CardsUploadAddPostRequestCardsToAddInnerFromJSONTyped(j
         'brand': json['brand'] == null ? undefined : json['brand'],
         'vendorCode': json['vendorCode'],
         'kizMarked': json['kizMarked'] == null ? undefined : json['kizMarked'],
-        'wholesale': json['wholesale'] == null ? undefined : ContentV2GetCardsListPost200ResponseCardsInnerWholesaleFromJSON(json['wholesale']),
+        'wholesale': json['wholesale'] == null ? undefined : ContentV2CardsUploadPostRequestInnerVariantsInnerWholesaleFromJSON(json['wholesale']),
         'title': json['title'] == null ? undefined : json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'dimensions': json['dimensions'] == null ? undefined : ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensionsFromJSON(json['dimensions']),
@@ -156,7 +156,7 @@ export function ContentV2CardsUploadAddPostRequestCardsToAddInnerToJSONTyped(val
         'brand': value['brand'],
         'vendorCode': value['vendorCode'],
         'kizMarked': value['kizMarked'],
-        'wholesale': ContentV2GetCardsListPost200ResponseCardsInnerWholesaleToJSON(value['wholesale']),
+        'wholesale': ContentV2CardsUploadPostRequestInnerVariantsInnerWholesaleToJSON(value['wholesale']),
         'title': value['title'],
         'description': value['description'],
         'dimensions': ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensionsToJSON(value['dimensions']),

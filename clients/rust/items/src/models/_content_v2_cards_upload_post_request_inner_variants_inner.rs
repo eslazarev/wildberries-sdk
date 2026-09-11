@@ -29,7 +29,7 @@ pub struct ContentV2CardsUploadPostRequestInnerVariantsInner {
     #[serde(rename = "kizMarked", skip_serializing_if = "Option::is_none")]
     pub kiz_marked: Option<bool>,
     #[serde(rename = "wholesale", skip_serializing_if = "Option::is_none")]
-    pub wholesale: Option<Box<models::ContentV2GetCardsListPost200ResponseCardsInnerWholesale>>,
+    pub wholesale: Option<Box<models::ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale>>,
     #[serde(rename = "dimensions", skip_serializing_if = "Option::is_none")]
     pub dimensions: Option<Box<models::ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions>>,
     /// Массив размеров.<br> Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом 

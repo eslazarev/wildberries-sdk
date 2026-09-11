@@ -35,7 +35,7 @@ use \Wildberries\Sdk\Items\ObjectSerializer;
  * ContentV2GetCardsListPost200ResponseCardsInnerWholesale Class Doc Comment
  *
  * @category Class
- * @description Оптовая продажа
+ * @description B2B-продажа
  * @package  Wildberries\Sdk\Items
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -310,7 +310,7 @@ class ContentV2GetCardsListPost200ResponseCardsInnerWholesale implements ModelIn
     /**
      * Sets enabled
      *
-     * @param bool|null $enabled Предназначена ли карточка товара для оптовой продажи
+     * @param bool|null $enabled Предназначен ли товар для продажи только B2B-покупателям:   - `true` — товар предназначен для продажи только B2B-покупателям   - `false` — товар предназначен для продажи B2B и B2C-покупателям
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class ContentV2GetCardsListPost200ResponseCardsInnerWholesale implements ModelIn
     /**
      * Sets quantum
      *
-     * @param float|null $quantum Количество единиц товара в упаковке
+     * @param float|null $quantum Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `\"enable\":true`
      *
      * @return self
      */

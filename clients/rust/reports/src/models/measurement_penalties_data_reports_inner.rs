@@ -14,44 +14,44 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MeasurementPenaltiesDataReportsInner {
     /// Артикул WB
-    #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
+    #[serde(rename = "nmId")]
+    pub nm_id: i32,
     /// Предмет
-    #[serde(rename = "subjectName", skip_serializing_if = "Option::is_none")]
-    pub subject_name: Option<String>,
+    #[serde(rename = "subjectName")]
+    pub subject_name: String,
     /// ID замера
-    #[serde(rename = "dimId", skip_serializing_if = "Option::is_none")]
-    pub dim_id: Option<i32>,
+    #[serde(rename = "dimId")]
+    pub dim_id: i32,
     /// Разница в габаритах, %
-    #[serde(rename = "prcOver", skip_serializing_if = "Option::is_none")]
-    pub prc_over: Option<f64>,
+    #[serde(rename = "prcOver")]
+    pub prc_over: f64,
     /// Объём, л (фактические габариты по замеру на складе)
-    #[serde(rename = "volume", skip_serializing_if = "Option::is_none")]
-    pub volume: Option<f64>,
+    #[serde(rename = "volume")]
+    pub volume: f64,
     /// Ширина, см (фактические габариты по замеру на складе)
-    #[serde(rename = "width", skip_serializing_if = "Option::is_none")]
-    pub width: Option<i32>,
+    #[serde(rename = "width")]
+    pub width: i32,
     /// Длина, см (фактические габариты по замеру на складе)
-    #[serde(rename = "length", skip_serializing_if = "Option::is_none")]
-    pub length: Option<i32>,
+    #[serde(rename = "length")]
+    pub length: i32,
     /// Высота, см (фактические габариты по замеру на складе)
-    #[serde(rename = "height", skip_serializing_if = "Option::is_none")]
-    pub height: Option<i32>,
+    #[serde(rename = "height")]
+    pub height: i32,
     /// Объём, л (габариты карточки товара)
-    #[serde(rename = "volumeSup", skip_serializing_if = "Option::is_none")]
-    pub volume_sup: Option<f64>,
+    #[serde(rename = "volumeSup")]
+    pub volume_sup: f64,
     /// Ширина, см (габариты карточки товара)
-    #[serde(rename = "widthSup", skip_serializing_if = "Option::is_none")]
-    pub width_sup: Option<i32>,
+    #[serde(rename = "widthSup")]
+    pub width_sup: i32,
     /// Длина, см (габариты карточки товара)
-    #[serde(rename = "lengthSup", skip_serializing_if = "Option::is_none")]
-    pub length_sup: Option<i32>,
+    #[serde(rename = "lengthSup")]
+    pub length_sup: i32,
     /// Высота, см (габариты карточки товара)
-    #[serde(rename = "heightSup", skip_serializing_if = "Option::is_none")]
-    pub height_sup: Option<i32>,
+    #[serde(rename = "heightSup")]
+    pub height_sup: i32,
     /// Фото замеров
-    #[serde(rename = "photoUrls", skip_serializing_if = "Option::is_none")]
-    pub photo_urls: Option<Vec<String>>,
+    #[serde(rename = "photoUrls")]
+    pub photo_urls: Vec<String>,
     /// Дата штрафа
     #[serde(rename = "dtBonus", skip_serializing_if = "Option::is_none")]
     pub dt_bonus: Option<chrono::DateTime<chrono::FixedOffset>>,
@@ -67,29 +67,37 @@ pub struct MeasurementPenaltiesDataReportsInner {
     /// Сумма штрафа
     #[serde(rename = "penaltyAmount", skip_serializing_if = "Option::is_none")]
     pub penalty_amount: Option<f64>,
+    /// Дата и время начала действия коэффициента
+    #[serde(rename = "dateStart", skip_serializing_if = "Option::is_none")]
+    pub date_start: Option<chrono::DateTime<chrono::FixedOffset>>,
+    /// Дата и время окончания действия коэффициента
+    #[serde(rename = "dateEnd", skip_serializing_if = "Option::is_none")]
+    pub date_end: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl MeasurementPenaltiesDataReportsInner {
-    pub fn new() -> MeasurementPenaltiesDataReportsInner {
+    pub fn new(nm_id: i32, subject_name: String, dim_id: i32, prc_over: f64, volume: f64, width: i32, length: i32, height: i32, volume_sup: f64, width_sup: i32, length_sup: i32, height_sup: i32, photo_urls: Vec<String>) -> MeasurementPenaltiesDataReportsInner {
         MeasurementPenaltiesDataReportsInner {
-            nm_id: None,
-            subject_name: None,
-            dim_id: None,
-            prc_over: None,
-            volume: None,
-            width: None,
-            length: None,
-            height: None,
-            volume_sup: None,
-            width_sup: None,
-            length_sup: None,
-            height_sup: None,
-            photo_urls: None,
+            nm_id,
+            subject_name,
+            dim_id,
+            prc_over,
+            volume,
+            width,
+            length,
+            height,
+            volume_sup,
+            width_sup,
+            length_sup,
+            height_sup,
+            photo_urls,
             dt_bonus: None,
             is_valid: None,
             is_valid_dt: None,
             reversal_amount: None,
             penalty_amount: None,
+            date_start: None,
+            date_end: None,
         }
     }
 }

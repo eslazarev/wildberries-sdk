@@ -247,12 +247,18 @@ var_dump($response);
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersStatusReject` — `POST /api/marketplace/v3/click-collect/orders/status/reject` — Сообщить об отказе от заказов
 
 ### orders_fbw (`orders_fbw`)
+- `orders_fbw.DefaultApi.deleteV1DraftsDraftId` — `DELETE /api/supplies/v1/drafts/{draftId}` — Удалить черновик
+- `orders_fbw.DefaultApi.deleteV1DraftsDraftIdItems` — `DELETE /api/supplies/v1/drafts/{draftId}/items` — Удалить товары из черновика
+- `orders_fbw.DefaultApi.getV1Drafts` — `GET /api/supplies/v1/drafts` — Список черновиков
+- `orders_fbw.DefaultApi.getV1DraftsDraftIdItems` — `GET /api/supplies/v1/drafts/{draftId}/items` — Список товаров в черновике
 - `orders_fbw.DefaultApi.getV1SuppliesId` — `GET /api/v1/supplies/{ID}` — Детали поставки
 - `orders_fbw.DefaultApi.getV1SuppliesIdGoods` — `GET /api/v1/supplies/{ID}/goods` — Товары поставки
 - `orders_fbw.DefaultApi.getV1SuppliesIdPackage` — `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
 - `orders_fbw.DefaultApi.getV1TransitTariffs` — `GET /api/v1/transit-tariffs` — Транзитные направления
 - `orders_fbw.DefaultApi.getV1Warehouses` — `GET /api/v1/warehouses` — Список складов
 - `orders_fbw.DefaultApi.postV1AcceptanceOptions` — `POST /api/v1/acceptance/options` — Опции приёмки
+- `orders_fbw.DefaultApi.postV1Drafts` — `POST /api/supplies/v1/drafts` — Создать черновик
+- `orders_fbw.DefaultApi.postV1DraftsDraftIdItems` — `POST /api/supplies/v1/drafts/{draftId}/items` — Добавить товары в черновик
 - `orders_fbw.DefaultApi.postV1Supplies` — `POST /api/v1/supplies` — Список поставок
 
 ### promotion (`promotion`)

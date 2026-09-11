@@ -28,25 +28,27 @@ class MeasurementPenaltiesDataReportsInner(BaseModel):
     """
     MeasurementPenaltiesDataReportsInner
     """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId", json_schema_extra={"examples": [123456789]})
-    subject_name: Optional[StrictStr] = Field(default=None, description="Предмет", alias="subjectName", json_schema_extra={"examples": ["Костюмы спортивные"]})
-    dim_id: Optional[StrictInt] = Field(default=None, description="ID замера", alias="dimId", json_schema_extra={"examples": [123456789]})
-    prc_over: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Разница в габаритах, %", alias="prcOver", json_schema_extra={"examples": [130.71]})
-    volume: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Объём, л (фактические габариты по замеру на складе)", json_schema_extra={"examples": [6.47]})
-    width: Optional[StrictInt] = Field(default=None, description="Ширина, см (фактические габариты по замеру на складе)", json_schema_extra={"examples": [7]})
-    length: Optional[StrictInt] = Field(default=None, description="Длина, см (фактические габариты по замеру на складе)", json_schema_extra={"examples": [28]})
-    height: Optional[StrictInt] = Field(default=None, description="Высота, см (фактические габариты по замеру на складе)", json_schema_extra={"examples": [33]})
-    volume_sup: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Объём, л (габариты карточки товара)", alias="volumeSup", json_schema_extra={"examples": [4.95]})
-    width_sup: Optional[StrictInt] = Field(default=None, description="Ширина, см (габариты карточки товара)", alias="widthSup", json_schema_extra={"examples": [8]})
-    length_sup: Optional[StrictInt] = Field(default=None, description="Длина, см (габариты карточки товара)", alias="lengthSup", json_schema_extra={"examples": [33]})
-    height_sup: Optional[StrictInt] = Field(default=None, description="Высота, см (габариты карточки товара)", alias="heightSup", json_schema_extra={"examples": [33]})
-    photo_urls: Optional[List[StrictStr]] = Field(default=None, description="Фото замеров", alias="photoUrls", json_schema_extra={"examples": [["https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35154094220_em907759_n1_b2eaa5ed-bf21-4c58-b419-b5b5ec6f29ee.webp", "https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35159094420_em907759_n2_040407b0-7752-4ae7-a4a4-7ec016e86511.webp", "https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35189094220_em904757_n3_9f502e24-3b3e-4efd-9hac-802813046ac3.webp"]]})
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [123456789]})
+    subject_name: StrictStr = Field(description="Предмет", alias="subjectName", json_schema_extra={"examples": ["Костюмы спортивные"]})
+    dim_id: StrictInt = Field(description="ID замера", alias="dimId", json_schema_extra={"examples": [123456789]})
+    prc_over: Union[StrictFloat, StrictInt] = Field(description="Разница в габаритах, %", alias="prcOver", json_schema_extra={"examples": [130.71]})
+    volume: Union[StrictFloat, StrictInt] = Field(description="Объём, л (фактические габариты по замеру на складе)", json_schema_extra={"examples": [6.47]})
+    width: StrictInt = Field(description="Ширина, см (фактические габариты по замеру на складе)", json_schema_extra={"examples": [7]})
+    length: StrictInt = Field(description="Длина, см (фактические габариты по замеру на складе)", json_schema_extra={"examples": [28]})
+    height: StrictInt = Field(description="Высота, см (фактические габариты по замеру на складе)", json_schema_extra={"examples": [33]})
+    volume_sup: Union[StrictFloat, StrictInt] = Field(description="Объём, л (габариты карточки товара)", alias="volumeSup", json_schema_extra={"examples": [4.95]})
+    width_sup: StrictInt = Field(description="Ширина, см (габариты карточки товара)", alias="widthSup", json_schema_extra={"examples": [8]})
+    length_sup: StrictInt = Field(description="Длина, см (габариты карточки товара)", alias="lengthSup", json_schema_extra={"examples": [33]})
+    height_sup: StrictInt = Field(description="Высота, см (габариты карточки товара)", alias="heightSup", json_schema_extra={"examples": [33]})
+    photo_urls: List[StrictStr] = Field(description="Фото замеров", alias="photoUrls", json_schema_extra={"examples": [["https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35154094220_em907759_n1_b2eaa5ed-bf21-4c58-b419-b5b5ec6f29ee.webp", "https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35159094420_em907759_n2_040407b0-7752-4ae7-a4a4-7ec016e86511.webp", "https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35189094220_em904757_n3_9f502e24-3b3e-4efd-9hac-802813046ac3.webp"]]})
     dt_bonus: Optional[datetime] = Field(default=None, description="Дата штрафа", alias="dtBonus", json_schema_extra={"examples": ["2025-06-02T00:00:00Z"]})
     is_valid: Optional[StrictBool] = Field(default=None, description="Статус обмера:   - `false` — отменён   - `true` — подтверждён ", alias="isValid", json_schema_extra={"examples": [True]})
     is_valid_dt: Optional[datetime] = Field(default=None, description="Дата и время подтверждения или отмены обмера", alias="isValidDt", json_schema_extra={"examples": ["2025-05-29T13:35:57Z"]})
     reversal_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Сумма сторно", alias="reversalAmount", json_schema_extra={"examples": [0]})
     penalty_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Сумма штрафа", alias="penaltyAmount", json_schema_extra={"examples": [449.83]})
-    __properties: ClassVar[List[str]] = ["nmId", "subjectName", "dimId", "prcOver", "volume", "width", "length", "height", "volumeSup", "widthSup", "lengthSup", "heightSup", "photoUrls", "dtBonus", "isValid", "isValidDt", "reversalAmount", "penaltyAmount"]
+    date_start: Optional[datetime] = Field(default=None, description="Дата и время начала действия коэффициента", alias="dateStart", json_schema_extra={"examples": ["2025-05-09T13:35:57Z"]})
+    date_end: Optional[datetime] = Field(default=None, description="Дата и время окончания действия коэффициента", alias="dateEnd", json_schema_extra={"examples": ["2025-05-29T13:35:57Z"]})
+    __properties: ClassVar[List[str]] = ["nmId", "subjectName", "dimId", "prcOver", "volume", "width", "length", "height", "volumeSup", "widthSup", "lengthSup", "heightSup", "photoUrls", "dtBonus", "isValid", "isValidDt", "reversalAmount", "penaltyAmount", "dateStart", "dateEnd"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -116,7 +118,9 @@ class MeasurementPenaltiesDataReportsInner(BaseModel):
             "isValid": obj.get("isValid"),
             "isValidDt": obj.get("isValidDt"),
             "reversalAmount": obj.get("reversalAmount"),
-            "penaltyAmount": obj.get("penaltyAmount")
+            "penaltyAmount": obj.get("penaltyAmount"),
+            "dateStart": obj.get("dateStart"),
+            "dateEnd": obj.get("dateEnd")
         })
         return _obj
 

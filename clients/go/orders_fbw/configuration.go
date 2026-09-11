@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.152/go",
+		UserAgent:        "OpenAPI-Generator/0.1.153/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,6 +98,30 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
+			"DefaultApiService.DeleteV1DraftsDraftId": {
+				{
+					URL: "https://supplies-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.DeleteV1DraftsDraftIdItems": {
+				{
+					URL: "https://supplies-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.GetV1Drafts": {
+				{
+					URL: "https://supplies-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.GetV1DraftsDraftIdItems": {
+				{
+					URL: "https://supplies-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
 			"DefaultApiService.GetV1SuppliesId": {
 				{
 					URL: "https://supplies-api.wildberries.ru",
@@ -140,6 +164,18 @@ func NewConfiguration() *Configuration {
 				{
 					URL: "https://supplies-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV1Drafts": {
+				{
+					URL: "https://supplies-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV1DraftsDraftIdItems": {
+				{
+					URL: "https://supplies-api.wildberries.ru",
+					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1Supplies": {

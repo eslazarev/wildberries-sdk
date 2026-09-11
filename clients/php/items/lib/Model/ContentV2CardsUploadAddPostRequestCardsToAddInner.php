@@ -60,7 +60,7 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner implements ModelInterfac
         'brand' => 'string',
         'vendor_code' => 'string',
         'kiz_marked' => 'bool',
-        'wholesale' => '\Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerWholesale',
+        'wholesale' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale',
         'title' => 'string',
         'description' => 'string',
         'dimensions' => '\Wildberries\Sdk\Items\Model\ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions',
@@ -451,7 +451,7 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner implements ModelInterfac
     /**
      * Gets wholesale
      *
-     * @return \Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerWholesale|null
+     * @return \Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale|null
      */
     public function getWholesale()
     {
@@ -461,7 +461,7 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner implements ModelInterfac
     /**
      * Sets wholesale
      *
-     * @param \Wildberries\Sdk\Items\Model\ContentV2GetCardsListPost200ResponseCardsInnerWholesale|null $wholesale wholesale
+     * @param \Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale|null $wholesale wholesale
      *
      * @return self
      */

@@ -74,6 +74,18 @@ class DefaultApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'deleteV1DraftsDraftId' => [
+            'application/json',
+        ],
+        'deleteV1DraftsDraftIdItems' => [
+            'application/json',
+        ],
+        'getV1Drafts' => [
+            'application/json',
+        ],
+        'getV1DraftsDraftIdItems' => [
+            'application/json',
+        ],
         'getV1SuppliesId' => [
             'application/json',
         ],
@@ -90,6 +102,12 @@ class DefaultApi
             'application/json',
         ],
         'postV1AcceptanceOptions' => [
+            'application/json',
+        ],
+        'postV1Drafts' => [
+            'application/json',
+        ],
+        'postV1DraftsDraftIdItems' => [
             'application/json',
         ],
         'postV1Supplies' => [
@@ -141,6 +159,1550 @@ class DefaultApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation deleteV1DraftsDraftId
+     *
+     * Удалить черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftId'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteV1DraftsDraftId($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftId'][0])
+    {
+        $this->deleteV1DraftsDraftIdWithHttpInfo($draft_id, $hostIndex, $variables, $contentType);
+    }
+
+    /**
+     * Operation deleteV1DraftsDraftIdWithHttpInfo
+     *
+     * Удалить черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftId'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteV1DraftsDraftIdWithHttpInfo($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftId'][0])
+    {
+        $request = $this->deleteV1DraftsDraftIdRequest($draft_id, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteV1DraftsDraftIdAsync
+     *
+     * Удалить черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteV1DraftsDraftIdAsync($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftId'][0])
+    {
+        return $this->deleteV1DraftsDraftIdAsyncWithHttpInfo($draft_id, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteV1DraftsDraftIdAsyncWithHttpInfo
+     *
+     * Удалить черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteV1DraftsDraftIdAsyncWithHttpInfo($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftId'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteV1DraftsDraftIdRequest($draft_id, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteV1DraftsDraftId'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteV1DraftsDraftIdRequest($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftId'][0])
+    {
+
+        // verify the required parameter 'draft_id' is set
+        if ($draft_id === null || (is_array($draft_id) && count($draft_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $draft_id when calling deleteV1DraftsDraftId'
+            );
+        }
+
+
+        $resourcePath = '/api/supplies/v1/drafts/{draftId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($draft_id !== null) {
+            $resourcePath = str_replace(
+                '{draftId}',
+                ObjectSerializer::toPathValue($draft_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsFordeleteV1DraftsDraftId();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation deleteV1DraftsDraftId
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsFordeleteV1DraftsDraftId(): array
+    {
+        return [
+            [
+                "url" => "https://supplies-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation deleteV1DraftsDraftIdItems
+     *
+     * Удалить товары из черновика
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteitemsRequest $models_draft_deleteitems_request models_draft_deleteitems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteItemsErrorResponse|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response
+     */
+    public function deleteV1DraftsDraftIdItems($draft_id, $models_draft_deleteitems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftIdItems'][0])
+    {
+        list($response) = $this->deleteV1DraftsDraftIdItemsWithHttpInfo($draft_id, $models_draft_deleteitems_request, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteV1DraftsDraftIdItemsWithHttpInfo
+     *
+     * Удалить товары из черновика
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteitemsRequest $models_draft_deleteitems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteItemsErrorResponse|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteV1DraftsDraftIdItemsWithHttpInfo($draft_id, $models_draft_deleteitems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftIdItems'][0])
+    {
+        $request = $this->deleteV1DraftsDraftIdItemsRequest($draft_id, $models_draft_deleteitems_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteItemsErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteItemsErrorResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteItemsErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteV1DraftsDraftIdItemsAsync
+     *
+     * Удалить товары из черновика
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteitemsRequest $models_draft_deleteitems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteV1DraftsDraftIdItemsAsync($draft_id, $models_draft_deleteitems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftIdItems'][0])
+    {
+        return $this->deleteV1DraftsDraftIdItemsAsyncWithHttpInfo($draft_id, $models_draft_deleteitems_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteV1DraftsDraftIdItemsAsyncWithHttpInfo
+     *
+     * Удалить товары из черновика
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteitemsRequest $models_draft_deleteitems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteV1DraftsDraftIdItemsAsyncWithHttpInfo($draft_id, $models_draft_deleteitems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftIdItems'][0])
+    {
+        $returnType = '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteItemsErrorResponse';
+        $request = $this->deleteV1DraftsDraftIdItemsRequest($draft_id, $models_draft_deleteitems_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteV1DraftsDraftIdItems'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftDeleteitemsRequest $models_draft_deleteitems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteV1DraftsDraftIdItemsRequest($draft_id, $models_draft_deleteitems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['deleteV1DraftsDraftIdItems'][0])
+    {
+
+        // verify the required parameter 'draft_id' is set
+        if ($draft_id === null || (is_array($draft_id) && count($draft_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $draft_id when calling deleteV1DraftsDraftIdItems'
+            );
+        }
+
+        // verify the required parameter 'models_draft_deleteitems_request' is set
+        if ($models_draft_deleteitems_request === null || (is_array($models_draft_deleteitems_request) && count($models_draft_deleteitems_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $models_draft_deleteitems_request when calling deleteV1DraftsDraftIdItems'
+            );
+        }
+
+
+        $resourcePath = '/api/supplies/v1/drafts/{draftId}/items';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($draft_id !== null) {
+            $resourcePath = str_replace(
+                '{draftId}',
+                ObjectSerializer::toPathValue($draft_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($models_draft_deleteitems_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($models_draft_deleteitems_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $models_draft_deleteitems_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsFordeleteV1DraftsDraftIdItems();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation deleteV1DraftsDraftIdItems
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsFordeleteV1DraftsDraftIdItems(): array
+    {
+        return [
+            [
+                "url" => "https://supplies-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation getV1Drafts
+     *
+     * Список черновиков
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  int|null $limit Количество черновиков в ответе (optional, default to 1000)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)
+     * @param  string|null $sort Сортировка:   - &#x60;createdDt&#x60; — по дате создания черновика   - &#x60;updatedDt&#x60; — по дате обновления черновика (optional, default to 'createDt')
+     * @param  string|null $order Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию (optional, default to 'desc')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftsResponse|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response
+     */
+    public function getV1Drafts($limit = 1000, $offset = 0, $sort = 'createDt', $order = 'desc', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Drafts'][0])
+    {
+        list($response) = $this->getV1DraftsWithHttpInfo($limit, $offset, $sort, $order, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getV1DraftsWithHttpInfo
+     *
+     * Список черновиков
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  int|null $limit Количество черновиков в ответе (optional, default to 1000)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)
+     * @param  string|null $sort Сортировка:   - &#x60;createdDt&#x60; — по дате создания черновика   - &#x60;updatedDt&#x60; — по дате обновления черновика (optional, default to 'createDt')
+     * @param  string|null $order Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию (optional, default to 'desc')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftsResponse|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getV1DraftsWithHttpInfo($limit = 1000, $offset = 0, $sort = 'createDt', $order = 'desc', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Drafts'][0])
+    {
+        $request = $this->getV1DraftsRequest($limit, $offset, $sort, $order, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftsResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftsResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getV1DraftsAsync
+     *
+     * Список черновиков
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  int|null $limit Количество черновиков в ответе (optional, default to 1000)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)
+     * @param  string|null $sort Сортировка:   - &#x60;createdDt&#x60; — по дате создания черновика   - &#x60;updatedDt&#x60; — по дате обновления черновика (optional, default to 'createDt')
+     * @param  string|null $order Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию (optional, default to 'desc')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV1DraftsAsync($limit = 1000, $offset = 0, $sort = 'createDt', $order = 'desc', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Drafts'][0])
+    {
+        return $this->getV1DraftsAsyncWithHttpInfo($limit, $offset, $sort, $order, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getV1DraftsAsyncWithHttpInfo
+     *
+     * Список черновиков
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  int|null $limit Количество черновиков в ответе (optional, default to 1000)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)
+     * @param  string|null $sort Сортировка:   - &#x60;createdDt&#x60; — по дате создания черновика   - &#x60;updatedDt&#x60; — по дате обновления черновика (optional, default to 'createDt')
+     * @param  string|null $order Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию (optional, default to 'desc')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV1DraftsAsyncWithHttpInfo($limit = 1000, $offset = 0, $sort = 'createDt', $order = 'desc', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Drafts'][0])
+    {
+        $returnType = '\Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftsResponse';
+        $request = $this->getV1DraftsRequest($limit, $offset, $sort, $order, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getV1Drafts'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  int|null $limit Количество черновиков в ответе (optional, default to 1000)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)
+     * @param  string|null $sort Сортировка:   - &#x60;createdDt&#x60; — по дате создания черновика   - &#x60;updatedDt&#x60; — по дате обновления черновика (optional, default to 'createDt')
+     * @param  string|null $order Порядок выдачи:   - &#x60;desc&#x60; — по убыванию   - &#x60;asc&#x60; — по возрастанию (optional, default to 'desc')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getV1DraftsRequest($limit = 1000, $offset = 0, $sort = 'createDt', $order = 'desc', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Drafts'][0])
+    {
+
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV1Drafts, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 0) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV1Drafts, must be bigger than or equal to 0.');
+        }
+        
+        if ($offset !== null && $offset < 0) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling DefaultApi.getV1Drafts, must be bigger than or equal to 0.');
+        }
+        
+
+
+
+        $resourcePath = '/api/supplies/v1/drafts';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $sort,
+            'sort', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $order,
+            'order', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForgetV1Drafts();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation getV1Drafts
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForgetV1Drafts(): array
+    {
+        return [
+            [
+                "url" => "https://supplies-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation getV1DraftsDraftIdItems
+     *
+     * Список товаров в черновике
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftItemsResponse|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response
+     */
+    public function getV1DraftsDraftIdItems($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1DraftsDraftIdItems'][0])
+    {
+        list($response) = $this->getV1DraftsDraftIdItemsWithHttpInfo($draft_id, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getV1DraftsDraftIdItemsWithHttpInfo
+     *
+     * Список товаров в черновике
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftItemsResponse|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getV1DraftsDraftIdItemsWithHttpInfo($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1DraftsDraftIdItems'][0])
+    {
+        $request = $this->getV1DraftsDraftIdItemsRequest($draft_id, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftItemsResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftItemsResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftItemsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getV1DraftsDraftIdItemsAsync
+     *
+     * Список товаров в черновике
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV1DraftsDraftIdItemsAsync($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1DraftsDraftIdItems'][0])
+    {
+        return $this->getV1DraftsDraftIdItemsAsyncWithHttpInfo($draft_id, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getV1DraftsDraftIdItemsAsyncWithHttpInfo
+     *
+     * Список товаров в черновике
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV1DraftsDraftIdItemsAsyncWithHttpInfo($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1DraftsDraftIdItems'][0])
+    {
+        $returnType = '\Wildberries\Sdk\OrdersFbw\Model\ModelsListDraftItemsResponse';
+        $request = $this->getV1DraftsDraftIdItemsRequest($draft_id, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getV1DraftsDraftIdItems'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getV1DraftsDraftIdItemsRequest($draft_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1DraftsDraftIdItems'][0])
+    {
+
+        // verify the required parameter 'draft_id' is set
+        if ($draft_id === null || (is_array($draft_id) && count($draft_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $draft_id when calling getV1DraftsDraftIdItems'
+            );
+        }
+
+
+        $resourcePath = '/api/supplies/v1/drafts/{draftId}/items';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($draft_id !== null) {
+            $resourcePath = str_replace(
+                '{draftId}',
+                ObjectSerializer::toPathValue($draft_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForgetV1DraftsDraftIdItems();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation getV1DraftsDraftIdItems
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForgetV1DraftsDraftIdItems(): array
+    {
+        return [
+            [
+                "url" => "https://supplies-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
     }
 
     /**
@@ -2586,6 +4148,761 @@ class DefaultApi
             [
                 "url" => "https://supplies-api-sandbox.wildberries.ru",
                 "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
+     * Operation postV1Drafts
+     *
+     * Создать черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftCreateResponse|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response
+     */
+    public function postV1Drafts(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1Drafts'][0])
+    {
+        list($response) = $this->postV1DraftsWithHttpInfo($hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation postV1DraftsWithHttpInfo
+     *
+     * Создать черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftCreateResponse|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postV1DraftsWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1Drafts'][0])
+    {
+        $request = $this->postV1DraftsRequest($hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftCreateResponse',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftCreateResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftCreateResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postV1DraftsAsync
+     *
+     * Создать черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV1DraftsAsync(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1Drafts'][0])
+    {
+        return $this->postV1DraftsAsyncWithHttpInfo($hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postV1DraftsAsyncWithHttpInfo
+     *
+     * Создать черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV1DraftsAsyncWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1Drafts'][0])
+    {
+        $returnType = '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftCreateResponse';
+        $request = $this->postV1DraftsRequest($hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postV1Drafts'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1Drafts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postV1DraftsRequest(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1Drafts'][0])
+    {
+
+
+        $resourcePath = '/api/supplies/v1/drafts';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForpostV1Drafts();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation postV1Drafts
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForpostV1Drafts(): array
+    {
+        return [
+            [
+                "url" => "https://supplies-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation postV1DraftsDraftIdItems
+     *
+     * Добавить товары в черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAdditemsRequest $models_draft_additems_request models_draft_additems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAddItemsErrorResponse|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response
+     */
+    public function postV1DraftsDraftIdItems($draft_id, $models_draft_additems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1DraftsDraftIdItems'][0])
+    {
+        list($response) = $this->postV1DraftsDraftIdItemsWithHttpInfo($draft_id, $models_draft_additems_request, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation postV1DraftsDraftIdItemsWithHttpInfo
+     *
+     * Добавить товары в черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAdditemsRequest $models_draft_additems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAddItemsErrorResponse|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postV1DraftsDraftIdItemsWithHttpInfo($draft_id, $models_draft_additems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1DraftsDraftIdItems'][0])
+    {
+        $request = $this->postV1DraftsDraftIdItemsRequest($draft_id, $models_draft_additems_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAddItemsErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAddItemsErrorResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAddItemsErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\ErrorsDraftError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postV1DraftsDraftIdItemsAsync
+     *
+     * Добавить товары в черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAdditemsRequest $models_draft_additems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV1DraftsDraftIdItemsAsync($draft_id, $models_draft_additems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1DraftsDraftIdItems'][0])
+    {
+        return $this->postV1DraftsDraftIdItemsAsyncWithHttpInfo($draft_id, $models_draft_additems_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postV1DraftsDraftIdItemsAsyncWithHttpInfo
+     *
+     * Добавить товары в черновик
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAdditemsRequest $models_draft_additems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV1DraftsDraftIdItemsAsyncWithHttpInfo($draft_id, $models_draft_additems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1DraftsDraftIdItems'][0])
+    {
+        $returnType = '\Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAddItemsErrorResponse';
+        $request = $this->postV1DraftsDraftIdItemsRequest($draft_id, $models_draft_additems_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postV1DraftsDraftIdItems'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://supplies-api.wildberries.ru
+     *
+     * @param  string $draft_id ID черновика (required)
+     * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsDraftAdditemsRequest $models_draft_additems_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1DraftsDraftIdItems'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postV1DraftsDraftIdItemsRequest($draft_id, $models_draft_additems_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1DraftsDraftIdItems'][0])
+    {
+
+        // verify the required parameter 'draft_id' is set
+        if ($draft_id === null || (is_array($draft_id) && count($draft_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $draft_id when calling postV1DraftsDraftIdItems'
+            );
+        }
+
+        // verify the required parameter 'models_draft_additems_request' is set
+        if ($models_draft_additems_request === null || (is_array($models_draft_additems_request) && count($models_draft_additems_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $models_draft_additems_request when calling postV1DraftsDraftIdItems'
+            );
+        }
+
+
+        $resourcePath = '/api/supplies/v1/drafts/{draftId}/items';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($draft_id !== null) {
+            $resourcePath = str_replace(
+                '{draftId}',
+                ObjectSerializer::toPathValue($draft_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($models_draft_additems_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($models_draft_additems_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $models_draft_additems_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForpostV1DraftsDraftIdItems();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation postV1DraftsDraftIdItems
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForpostV1DraftsDraftIdItems(): array
+    {
+        return [
+            [
+                "url" => "https://supplies-api.wildberries.ru",
+                "description" => "No description provided",
             ]
         ];
     }

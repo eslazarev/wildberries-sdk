@@ -15,6 +15,49 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
+/// struct for typed errors of method [`delete_v1_drafts_draft_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteV1DraftsDraftIdError {
+    Status400(models::ErrorsDraftError),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status404(models::ErrorsDraftError),
+    Status429(models::PostV1AcceptanceOptions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_v1_drafts_draft_id_items`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteV1DraftsDraftIdItemsError {
+    Status400(models::ErrorsDraftError),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status404(models::ErrorsDraftError),
+    Status429(models::PostV1AcceptanceOptions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v1_drafts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV1DraftsError {
+    Status400(models::ErrorsDraftError),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status429(models::PostV1AcceptanceOptions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v1_drafts_draft_id_items`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV1DraftsDraftIdItemsError {
+    Status400(models::ErrorsDraftError),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status404(models::ErrorsDraftError),
+    Status429(models::PostV1AcceptanceOptions401Response),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_v1_supplies_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -86,6 +129,26 @@ pub enum PostV1AcceptanceOptionsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`post_v1_drafts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV1DraftsError {
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status429(models::PostV1AcceptanceOptions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v1_drafts_draft_id_items`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV1DraftsDraftIdItemsError {
+    Status400(models::ErrorsDraftError),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status404(models::ErrorsDraftError),
+    Status429(models::PostV1AcceptanceOptions401Response),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`post_v1_supplies`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -98,6 +161,192 @@ pub enum PostV1SuppliesError {
     UnknownValue(serde_json::Value),
 }
 
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет черновик поставки по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+pub async fn delete_v1_drafts_draft_id(configuration: &configuration::Configuration, draft_id: &str) -> Result<(), Error<DeleteV1DraftsDraftIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_draft_id = draft_id;
+
+    let uri_str = format!("{}/api/supplies/v1/drafts/{draftId}", configuration.base_path, draftId=crate::apis::urlencode(p_path_draft_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteV1DraftsDraftIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет товары из черновика поставки по списку баркодов.    <div class=\"description_important\">   Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.   </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+pub async fn delete_v1_drafts_draft_id_items(configuration: &configuration::Configuration, draft_id: &str, models_draft_deleteitems_request: models::ModelsDraftDeleteitemsRequest) -> Result<models::ModelsDraftDeleteItemsErrorResponse, Error<DeleteV1DraftsDraftIdItemsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_draft_id = draft_id;
+    let p_body_models_draft_deleteitems_request = models_draft_deleteitems_request;
+
+    let uri_str = format!("{}/api/supplies/v1/drafts/{draftId}/items", configuration.base_path, draftId=crate::apis::urlencode(p_path_draft_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_models_draft_deleteitems_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsDraftDeleteItemsErrorResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsDraftDeleteItemsErrorResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteV1DraftsDraftIdItemsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список черновиков поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+pub async fn get_v1_drafts(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>, sort: Option<&str>, order: Option<&str>) -> Result<models::ModelsListDraftsResponse, Error<GetV1DraftsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
+    let p_query_order = order;
+
+    let uri_str = format!("{}/api/supplies/v1/drafts", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_sort {
+        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_order {
+        req_builder = req_builder.query(&[("order", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsListDraftsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsListDraftsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV1DraftsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список товаров черновика.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+pub async fn get_v1_drafts_draft_id_items(configuration: &configuration::Configuration, draft_id: &str) -> Result<models::ModelsListDraftItemsResponse, Error<GetV1DraftsDraftIdItemsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_draft_id = draft_id;
+
+    let uri_str = format!("{}/api/supplies/v1/drafts/{draftId}/items", configuration.base_path, draftId=crate::apis::urlencode(p_path_draft_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsListDraftItemsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsListDraftItemsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV1DraftsDraftIdItemsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
 
 /// Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 pub async fn get_v1_supplies_id(configuration: &configuration::Configuration, id: i32, is_preorder_id: Option<bool>) -> Result<models::ModelsSupplyDetails, Error<GetV1SuppliesIdError>> {
@@ -382,6 +631,96 @@ pub async fn post_v1_acceptance_options(configuration: &configuration::Configura
     } else {
         let content = resp.text().await?;
         let entity: Option<PostV1AcceptanceOptionsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод создаёт пустой черновик поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+pub async fn post_v1_drafts(configuration: &configuration::Configuration, ) -> Result<models::ModelsDraftCreateResponse, Error<PostV1DraftsError>> {
+
+    let uri_str = format!("{}/api/supplies/v1/drafts", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsDraftCreateResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsDraftCreateResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV1DraftsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод добавляет товары в черновик поставки.  <div class=\"description_important\">   Метод работает по принципу атомарности:   - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\":[]}</code>   - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+pub async fn post_v1_drafts_draft_id_items(configuration: &configuration::Configuration, draft_id: &str, models_draft_additems_request: models::ModelsDraftAdditemsRequest) -> Result<models::ModelsDraftAddItemsErrorResponse, Error<PostV1DraftsDraftIdItemsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_draft_id = draft_id;
+    let p_body_models_draft_additems_request = models_draft_additems_request;
+
+    let uri_str = format!("{}/api/supplies/v1/drafts/{draftId}/items", configuration.base_path, draftId=crate::apis::urlencode(p_path_draft_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_models_draft_additems_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsDraftAddItemsErrorResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsDraftAddItemsErrorResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV1DraftsDraftIdItemsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

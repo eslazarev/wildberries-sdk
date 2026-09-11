@@ -246,12 +246,18 @@ print(feedbacks)
 - `in_store_pickup.DefaultApi.post_v3_click_collect_orders_status_reject` — `POST /api/marketplace/v3/click-collect/orders/status/reject` — Сообщить об отказе от заказов
 
 ### orders_fbw (`orders_fbw`)
+- `orders_fbw.DefaultApi.delete_v1_drafts_draft_id` — `DELETE /api/supplies/v1/drafts/{draftId}` — Удалить черновик
+- `orders_fbw.DefaultApi.delete_v1_drafts_draft_id_items` — `DELETE /api/supplies/v1/drafts/{draftId}/items` — Удалить товары из черновика
+- `orders_fbw.DefaultApi.get_v1_drafts` — `GET /api/supplies/v1/drafts` — Список черновиков
+- `orders_fbw.DefaultApi.get_v1_drafts_draft_id_items` — `GET /api/supplies/v1/drafts/{draftId}/items` — Список товаров в черновике
 - `orders_fbw.DefaultApi.get_v1_supplies_id` — `GET /api/v1/supplies/{ID}` — Детали поставки
 - `orders_fbw.DefaultApi.get_v1_supplies_id_goods` — `GET /api/v1/supplies/{ID}/goods` — Товары поставки
 - `orders_fbw.DefaultApi.get_v1_supplies_id_package` — `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
 - `orders_fbw.DefaultApi.get_v1_transit_tariffs` — `GET /api/v1/transit-tariffs` — Транзитные направления
 - `orders_fbw.DefaultApi.get_v1_warehouses` — `GET /api/v1/warehouses` — Список складов
 - `orders_fbw.DefaultApi.post_v1_acceptance_options` — `POST /api/v1/acceptance/options` — Опции приёмки
+- `orders_fbw.DefaultApi.post_v1_drafts` — `POST /api/supplies/v1/drafts` — Создать черновик
+- `orders_fbw.DefaultApi.post_v1_drafts_draft_id_items` — `POST /api/supplies/v1/drafts/{draftId}/items` — Добавить товары в черновик
 - `orders_fbw.DefaultApi.post_v1_supplies` — `POST /api/v1/supplies` — Список поставок
 
 ### promotion (`promotion`)

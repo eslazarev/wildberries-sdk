@@ -24,7 +24,7 @@ from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_cha
 from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request_cards_to_add_inner_dimensions import ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions
 from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request_cards_to_add_inner_sizes_inner import ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner
 from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_documents import ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments
-from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_wholesale import ContentV2GetCardsListPost200ResponseCardsInnerWholesale
+from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_wholesale import ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -36,7 +36,7 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner(BaseModel):
     brand: Optional[StrictStr] = Field(default=None, description="Бренд")
     vendor_code: Annotated[str, Field(strict=True, max_length=72)] = Field(description="Артикул продавца", alias="vendorCode")
     kiz_marked: Optional[StrictBool] = Field(default=False, description="Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), поле ответа `needKiz` ", alias="kizMarked")
-    wholesale: Optional[ContentV2GetCardsListPost200ResponseCardsInnerWholesale] = None
+    wholesale: Optional[ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale] = None
     title: Optional[Annotated[str, Field(strict=True, max_length=60)]] = Field(default=None, description="Наименование товара")
     description: Optional[StrictStr] = Field(default=None, description="Описание товара.<br> Максимальное количество символов зависит от категории товара<br> Стандарт — 2000, минимум — 1000, максимум — 5000<br> Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов ")
     dimensions: Optional[ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions] = None
@@ -120,7 +120,7 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner(BaseModel):
             "brand": obj.get("brand"),
             "vendorCode": obj.get("vendorCode"),
             "kizMarked": obj.get("kizMarked") if obj.get("kizMarked") is not None else False,
-            "wholesale": ContentV2GetCardsListPost200ResponseCardsInnerWholesale.from_dict(obj["wholesale"]) if obj.get("wholesale") is not None else None,
+            "wholesale": ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale.from_dict(obj["wholesale"]) if obj.get("wholesale") is not None else None,
             "title": obj.get("title"),
             "description": obj.get("description"),
             "dimensions": ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,

@@ -22,55 +22,55 @@ export interface MeasurementPenaltiesDataReportsInner {
     /**
      * Артикул WB
      */
-    nmId?: number;
+    nmId: number;
     /**
      * Предмет
      */
-    subjectName?: string;
+    subjectName: string;
     /**
      * ID замера
      */
-    dimId?: number;
+    dimId: number;
     /**
      * Разница в габаритах, %
      */
-    prcOver?: number;
+    prcOver: number;
     /**
      * Объём, л (фактические габариты по замеру на складе)
      */
-    volume?: number;
+    volume: number;
     /**
      * Ширина, см (фактические габариты по замеру на складе)
      */
-    width?: number;
+    width: number;
     /**
      * Длина, см (фактические габариты по замеру на складе)
      */
-    length?: number;
+    length: number;
     /**
      * Высота, см (фактические габариты по замеру на складе)
      */
-    height?: number;
+    height: number;
     /**
      * Объём, л (габариты карточки товара)
      */
-    volumeSup?: number;
+    volumeSup: number;
     /**
      * Ширина, см (габариты карточки товара)
      */
-    widthSup?: number;
+    widthSup: number;
     /**
      * Длина, см (габариты карточки товара)
      */
-    lengthSup?: number;
+    lengthSup: number;
     /**
      * Высота, см (габариты карточки товара)
      */
-    heightSup?: number;
+    heightSup: number;
     /**
      * Фото замеров
      */
-    photoUrls?: Array<string>;
+    photoUrls: Array<string>;
     /**
      * Дата штрафа
      */
@@ -94,12 +94,33 @@ export interface MeasurementPenaltiesDataReportsInner {
      * Сумма штрафа
      */
     penaltyAmount?: number;
+    /**
+     * Дата и время начала действия коэффициента
+     */
+    dateStart?: Date;
+    /**
+     * Дата и время окончания действия коэффициента
+     */
+    dateEnd?: Date;
 }
 
 /**
  * Check if a given object implements the MeasurementPenaltiesDataReportsInner interface.
  */
 export function instanceOfMeasurementPenaltiesDataReportsInner(value: object): value is MeasurementPenaltiesDataReportsInner {
+    if (!('nmId' in value) || value['nmId'] === undefined) return false;
+    if (!('subjectName' in value) || value['subjectName'] === undefined) return false;
+    if (!('dimId' in value) || value['dimId'] === undefined) return false;
+    if (!('prcOver' in value) || value['prcOver'] === undefined) return false;
+    if (!('volume' in value) || value['volume'] === undefined) return false;
+    if (!('width' in value) || value['width'] === undefined) return false;
+    if (!('length' in value) || value['length'] === undefined) return false;
+    if (!('height' in value) || value['height'] === undefined) return false;
+    if (!('volumeSup' in value) || value['volumeSup'] === undefined) return false;
+    if (!('widthSup' in value) || value['widthSup'] === undefined) return false;
+    if (!('lengthSup' in value) || value['lengthSup'] === undefined) return false;
+    if (!('heightSup' in value) || value['heightSup'] === undefined) return false;
+    if (!('photoUrls' in value) || value['photoUrls'] === undefined) return false;
     return true;
 }
 
@@ -113,24 +134,26 @@ export function MeasurementPenaltiesDataReportsInnerFromJSONTyped(json: any, ign
     }
     return {
         
-        'nmId': json['nmId'] == null ? undefined : json['nmId'],
-        'subjectName': json['subjectName'] == null ? undefined : json['subjectName'],
-        'dimId': json['dimId'] == null ? undefined : json['dimId'],
-        'prcOver': json['prcOver'] == null ? undefined : json['prcOver'],
-        'volume': json['volume'] == null ? undefined : json['volume'],
-        'width': json['width'] == null ? undefined : json['width'],
-        'length': json['length'] == null ? undefined : json['length'],
-        'height': json['height'] == null ? undefined : json['height'],
-        'volumeSup': json['volumeSup'] == null ? undefined : json['volumeSup'],
-        'widthSup': json['widthSup'] == null ? undefined : json['widthSup'],
-        'lengthSup': json['lengthSup'] == null ? undefined : json['lengthSup'],
-        'heightSup': json['heightSup'] == null ? undefined : json['heightSup'],
-        'photoUrls': json['photoUrls'] == null ? undefined : json['photoUrls'],
+        'nmId': json['nmId'],
+        'subjectName': json['subjectName'],
+        'dimId': json['dimId'],
+        'prcOver': json['prcOver'],
+        'volume': json['volume'],
+        'width': json['width'],
+        'length': json['length'],
+        'height': json['height'],
+        'volumeSup': json['volumeSup'],
+        'widthSup': json['widthSup'],
+        'lengthSup': json['lengthSup'],
+        'heightSup': json['heightSup'],
+        'photoUrls': json['photoUrls'],
         'dtBonus': json['dtBonus'] == null ? undefined : (parseDateTime(json['dtBonus'])),
         'isValid': json['isValid'] == null ? undefined : json['isValid'],
         'isValidDt': json['isValidDt'] == null ? undefined : (parseDateTime(json['isValidDt'])),
         'reversalAmount': json['reversalAmount'] == null ? undefined : json['reversalAmount'],
         'penaltyAmount': json['penaltyAmount'] == null ? undefined : json['penaltyAmount'],
+        'dateStart': json['dateStart'] == null ? undefined : (parseDateTime(json['dateStart'])),
+        'dateEnd': json['dateEnd'] == null ? undefined : (parseDateTime(json['dateEnd'])),
     };
 }
 
@@ -163,6 +186,8 @@ export function MeasurementPenaltiesDataReportsInnerToJSONTyped(value?: Measurem
         'isValidDt': value['isValidDt'] == null ? value['isValidDt'] : serializeDateTime(value['isValidDt']),
         'reversalAmount': value['reversalAmount'],
         'penaltyAmount': value['penaltyAmount'],
+        'dateStart': value['dateStart'] == null ? value['dateStart'] : serializeDateTime(value['dateStart']),
+        'dateEnd': value['dateEnd'] == null ? value['dateEnd'] : serializeDateTime(value['dateEnd']),
     };
 }
 

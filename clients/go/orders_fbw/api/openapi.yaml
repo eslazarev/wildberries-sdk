@@ -28,6 +28,9 @@ tags:
 - description: ""
   name: Информация о поставках
   x-displayName: Информация о поставках
+- description: ""
+  name: Черновики поставок
+  x-displayName: Черновики поставок
 paths:
   /api/v1/acceptance/options:
     post:
@@ -916,8 +919,648 @@ paths:
       x-category: supplies
     servers:
     - url: https://supplies-api.wildberries.ru
+  /api/supplies/v1/drafts:
+    get:
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает список ч\
+        ерновиков поставок.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
+        \ 10 запросов |\n</div>\n"
+      operationId: getV1Drafts
+      parameters:
+      - description: Количество черновиков в ответе
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 1000
+          maximum: 1000
+          minimum: 0
+          type: integer
+        style: form
+      - description: "Сколько элементов пропустить. Например, для значения 10 отве\
+          т начнется с 11 элемента"
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          type: integer
+        style: form
+      - description: |
+          Сортировка:
+            - `createdDt` — по дате создания черновика
+            - `updatedDt` — по дате обновления черновика
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: createDt
+          enum:
+          - createDt
+          - updateDt
+          type: string
+        style: form
+      - description: |
+          Порядок выдачи:
+            - `desc` — по убыванию
+            - `asc` — по возрастанию
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          default: desc
+          enum:
+          - asc
+          - desc
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                drafts:
+                - draftId: b5aed067-69d4-47b8-a5d0-591c615288f9
+                  phone: +7 123 *** 23 23
+                  skuQuantity: 5
+                  itemQuantity: 1
+                  createdAt: 2025-06-17T08:11:57.767Z
+                  updatedAt: 2025-06-17T08:11:57.767Z
+                total: 1
+              schema:
+                $ref: "#/components/schemas/models.ListDraftsResponse"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              examples:
+                BadLimitFormat:
+                  $ref: "#/components/examples/BadLimitFormat"
+                BadOffsetFormat:
+                  $ref: "#/components/examples/BadOffsetFormat"
+              schema:
+                $ref: "#/components/schemas/errors.DraftError"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Не авторизован
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Слишком много запросов
+      summary: Список черновиков
+      tags:
+      - Черновики поставок
+      x-readonly-method: true
+      x-token-types:
+      - personal
+      - service
+      x-category: supplies
+    post:
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод создаёт пустой черн\
+        овик поставки.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
+        \ 10 запросов |\n</div>\n"
+      operationId: postV1Drafts
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/models.DraftCreateResponse"
+          description: Успешно
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Не авторизован
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Слишком много запросов
+      summary: Создать черновик
+      tags:
+      - Черновики поставок
+      x-readonly-method: false
+      x-token-types:
+      - personal
+      - service
+      x-category: supplies
+    servers:
+    - url: https://supplies-api.wildberries.ru
+  /api/supplies/v1/drafts/{draftId}:
+    delete:
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод удаляет черновик по\
+        ставки по его ID.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
+        \ 10 запросов |\n</div>\n"
+      operationId: deleteV1DraftsDraftId
+      parameters:
+      - description: ID черновика
+        explode: false
+        in: path
+        name: draftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              example:
+                status: 400
+                title: bad request
+                detail: Неверный формат draftId
+                requestId: a6bdc2a4d2fde51c2036fa8af2483886
+                origin: supply-api
+              schema:
+                $ref: "#/components/schemas/errors.DraftError"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Не авторизован
+        "404":
+          content:
+            application/json:
+              example:
+                status: 404
+                title: not found
+                detail: Черновик не найден
+                requestId: a6bdc2a4d2fde51c2036fa8af2483886
+                origin: supply-api
+              schema:
+                $ref: "#/components/schemas/errors.DraftError"
+          description: Не найдено
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Слишком много запросов
+      summary: Удалить черновик
+      tags:
+      - Черновики поставок
+      x-readonly-method: false
+      x-token-types:
+      - personal
+      - service
+      x-category: supplies
+    servers:
+    - url: https://supplies-api.wildberries.ru
+  /api/supplies/v1/drafts/{draftId}/items:
+    delete:
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод удаляет товары из ч\
+        ерновика поставки по списку баркодов.\n\n  <div class=\"description_important\"\
+        >\n  Баркоды не валидируются. Если в запросе вы передали некорректные барк\
+        оды, вы не получите ошибку. При этом корректные баркоды будут удалены из ч\
+        ерновика.\n  </div>\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
+        \ 10 запросов |\n</div>\n"
+      operationId: deleteV1DraftsDraftIdItems
+      parameters:
+      - description: ID черновика
+        explode: false
+        in: path
+        name: draftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              skus:
+              - "123456789"
+            schema:
+              $ref: "#/components/schemas/models.DraftDeleteitemsRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                SuccessResponse:
+                  $ref: "#/components/examples/SuccessResponse1"
+              schema:
+                $ref: "#/components/schemas/models.DraftDeleteItemsErrorResponse"
+          description: |
+            Успешно
+        "400":
+          content:
+            application/json:
+              examples:
+                EmptyParameter:
+                  $ref: "#/components/examples/BadRequestDraftItems0"
+                WrongParameter:
+                  $ref: "#/components/examples/BadRequestDraftItems1"
+              schema:
+                $ref: "#/components/schemas/errors.DraftError"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Не авторизован
+        "404":
+          content:
+            application/json:
+              example:
+                status: 404
+                title: not found
+                detail: Черновик не найден
+                requestId: a6bdc2a4d2fde51c2036fa8af2483886
+                origin: supply-api
+              schema:
+                $ref: "#/components/schemas/errors.DraftError"
+          description: Не найдено
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Слишком много запросов
+      summary: Удалить товары из черновика
+      tags:
+      - Черновики поставок
+      x-readonly-method: false
+      x-category: supplies
+      x-token-types:
+      - personal
+      - service
+    get:
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает список т\
+        оваров черновика.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
+        \ 10 запросов |\n</div>\n"
+      operationId: getV1DraftsDraftIdItems
+      parameters:
+      - description: ID черновика
+        explode: false
+        in: path
+        name: draftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                items:
+                - sku: "2039395667350"
+                  quantity: 1000
+                  nmId: 123456789
+                  brandName: Brand
+                  subjectName: Комбинезоны для животных
+                  imgSrc: https://basket-13.wbbasket.ru/vol123/part3456/123456789/images/tm/1.webp
+                  title: комбенизон для собак
+                  techSize: "48"
+                  vendorCode: "1111"
+                  color: красный бархат
+                skuQuantity: 1
+                itemQuantity: 1
+              schema:
+                $ref: "#/components/schemas/models.ListDraftItemsResponse"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              examples:
+                BadDraftIdFormat:
+                  $ref: "#/components/examples/BadDraftIdFormat"
+              schema:
+                $ref: "#/components/schemas/errors.DraftError"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Не авторизован
+        "404":
+          content:
+            application/json:
+              example:
+                status: 404
+                title: not found
+                detail: Черновик не найден
+                requestId: a6bdc2a4d2fde51c2036fa8af2483886
+                origin: supply-api
+              schema:
+                $ref: "#/components/schemas/errors.DraftError"
+          description: Не найдено
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Слишком много запросов
+      summary: Список товаров в черновике
+      tags:
+      - Черновики поставок
+      x-readonly-method: true
+      x-token-types:
+      - personal
+      - service
+      x-category: supplies
+    post:
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод добавляет товары в\
+        \ черновик поставки.\n\n<div class=\"description_important\">\n\n Метод ра\
+        ботает по принципу атомарности:\n  - если все баркоды прошли валидацию усп\
+        ешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\"\
+        :[]}</code>\n  - если хотя бы один баркод не прошел валидацию, ни один тов\
+        ар в черновик не добавится. В ответе вернётся список невалидных баркодов\n\
+        \n</div>\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
+        \ 10 запросов |\n</div>\n"
+      operationId: postV1DraftsDraftIdItems
+      parameters:
+      - description: ID черновика
+        explode: false
+        in: path
+        name: draftId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              items:
+              - quantity: 1
+                sku: "1234567"
+              - quantity: 1
+                sku: "2000000512907"
+            schema:
+              $ref: "#/components/schemas/models.DraftAdditemsRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                invalidSku:
+                  $ref: "#/components/examples/InvalidSku"
+                SuccessResponse:
+                  $ref: "#/components/examples/SuccessResponse"
+              schema:
+                $ref: "#/components/schemas/models.DraftAddItemsErrorResponse"
+          description: |
+            Успешно
+        "400":
+          content:
+            application/json:
+              examples:
+                BadDraftIdFormat:
+                  $ref: "#/components/examples/BadDraftIdFormat"
+                ItemsArrayLimitExceeded:
+                  $ref: "#/components/examples/ItemsArrayLimitExceeded"
+              schema:
+                $ref: "#/components/schemas/errors.DraftError"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Не авторизован
+        "404":
+          content:
+            application/json:
+              example:
+                status: 404
+                title: not found
+                detail: Черновик не найден
+                requestId: a6bdc2a4d2fde51c2036fa8af2483886
+                origin: supply-api
+              schema:
+                $ref: "#/components/schemas/errors.DraftError"
+          description: Не найдено
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
+          description: Слишком много запросов
+      summary: Добавить товары в черновик
+      tags:
+      - Черновики поставок
+      x-readonly-method: false
+      x-category: supplies
+      x-token-types:
+      - personal
+      - service
+    servers:
+    - url: https://supplies-api.wildberries.ru
 components:
   examples:
+    BadDraftIdFormat:
+      description: Значение параметра `draftId` некорректно
+      value:
+        status: 400
+        title: bad request
+        detail: Неверный формат draftId
+        requestId: f02ddbea3875b553cab3ed899b7abd33
+        origin: supply-api
+    ItemsArrayLimitExceeded:
+      description: Превышен максимальный размер массива `items`
+      value:
+        status: 400
+        title: bad request
+        detail: Превышен максимальный размер массива items. Максимум 1000
+        requestId: test-request-id-1
+        origin: supply-api
+    BadRequestDraftItems0:
+      description: |
+        Не указано значение параметра
+      value:
+        status: 400
+        title: bad request
+        detail: Укажите значение параметра 'skus'
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+    BadRequestDraftItems1:
+      description: |
+        Не указан параметр
+      value:
+        status: 400
+        title: bad request
+        detail: Укажите параметр 'skus'
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+    InvalidSku:
+      description: |
+        Переданы некорректные баркоды.
+        Ни один баркод не добавлен в черновик
+      value:
+        results:
+        - sku: "1234567"
+          error:
+            title: Invalid sku
+            detail: Создайте карточку товара с этим баркодом
+    SuccessResponse:
+      description: Все баркоды успешно добавлены в черновик
+      value:
+        results: []
+    SuccessResponse1:
+      description: Успешно
+      value:
+        results: []
     RequestOptions:
       value:
       - quantity: 1
@@ -1143,6 +1786,306 @@ components:
             $ref: "#/components/schemas/postV1AcceptanceOptions_401_response"
       description: Слишком много запросов
   schemas:
+    errors.DraftError:
+      example:
+        status: 5
+        title: title
+        detail: detail
+        requestId: requestId
+        origin: origin
+      properties:
+        status:
+          description: HTTP статус-код
+          type: integer
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        requestId:
+          description: Уникальный ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+      required:
+      - origin
+      - requestId
+      - status
+      - title
+      type: object
+    models.DraftAdditemsRequest:
+      properties:
+        items:
+          description: Список товаров
+          items:
+            $ref: "#/components/schemas/models.Item"
+          maxItems: 1000
+          type: array
+      required:
+      - items
+      type: object
+    models.DraftAddItemsErrorResponse:
+      example:
+        results:
+        - error: ""
+          sku: sku
+        - error: ""
+          sku: sku
+      properties:
+        results:
+          description: Список невалидных баркодов с ошибками
+          items:
+            $ref: "#/components/schemas/models.DraftAddItemsResultItem"
+          type: array
+      required:
+      - results
+      type: object
+    models.DraftDeleteItemsErrorResponse:
+      example:
+        results:
+        - results
+        - results
+      properties:
+        results:
+          items:
+            description: TODO default missing array inner type to string
+            type: string
+          type: array
+      required:
+      - results
+      type: object
+    models.DraftAddItemsResultItem:
+      example:
+        error: ""
+        sku: sku
+      properties:
+        error:
+          allOf:
+          - $ref: "#/components/schemas/models.DraftAddItemsResultError"
+          description: Детали ошибки
+        sku:
+          description: Баркод
+          type: string
+      required:
+      - error
+      - sku
+      type: object
+    models.DraftAddItemsResultError:
+      properties:
+        detail:
+          description: Детали ошибки
+          example: Создайте карточку товара с этим баркодом
+          type: string
+        title:
+          description: Заголовок ошибки
+          example: Invalid sku
+          type: string
+      required:
+      - detail
+      - title
+      type: object
+    models.DraftCreateResponse:
+      example:
+        draftId: cd20d135-f13f-47a0-903c-3bd268b92047
+      properties:
+        draftId:
+          description: ID черновика
+          example: cd20d135-f13f-47a0-903c-3bd268b92047
+          type: string
+      required:
+      - draftId
+      type: object
+    models.DraftDeleteitemsRequest:
+      properties:
+        skus:
+          description: Список баркодов
+          items:
+            type: string
+          minItems: 1
+          type: array
+      required:
+      - skus
+      type: object
+    models.DraftItemItem:
+      example:
+        sku: sku
+        color: color
+        quantity: 1
+        brandName: brandName
+        imgSrc: imgSrc
+        nmId: 5
+        subjectName: subjectName
+        techSize: techSize
+        title: title
+        vendorCode: vendorCode
+      properties:
+        sku:
+          description: Баркод
+          type: string
+        color:
+          description: Цвет товара
+          type: string
+        quantity:
+          description: Количество единиц товара
+          type: integer
+        brandName:
+          description: Бренд
+          type: string
+        imgSrc:
+          description: Ссылка на изображение товара
+          type: string
+        nmId:
+          description: Артикул WB
+          type: integer
+        subjectName:
+          description: Предмет
+          type: string
+        techSize:
+          description: Размер товара
+          type: string
+        title:
+          description: Название товара
+          type: string
+        vendorCode:
+          description: Артикул продавца
+          type: string
+      required:
+      - brandName
+      - color
+      - imgSrc
+      - nmId
+      - quantity
+      - sku
+      - subjectName
+      - techSize
+      - title
+      - vendorCode
+      type: object
+    models.DraftItem:
+      example:
+        draftId: draftId
+        phone: phone
+        createdAt: createdAt
+        updatedAt: updatedAt
+        skuQuantity: 6
+        itemQuantity: 1
+      properties:
+        draftId:
+          description: ID черновика
+          type: string
+        phone:
+          description: "Телефон пользователя, создавшего черновик"
+          type: string
+        createdAt:
+          description: Дата и время создания черновика
+          format: ISO 8601
+          type: string
+        updatedAt:
+          description: Дата и время последнего обновления черновика
+          format: ISO 8601
+          type: string
+        skuQuantity:
+          description: Количество баркодов
+          type: integer
+        itemQuantity:
+          description: Количество единиц товара
+          type: integer
+      required:
+      - createdAt
+      - draftId
+      - itemQuantity
+      - phone
+      - skuQuantity
+      - updatedAt
+      type: object
+    models.ListDraftItemsResponse:
+      example:
+        skuQuantity: 0
+        itemQuantity: 6
+        items:
+        - sku: sku
+          color: color
+          quantity: 1
+          brandName: brandName
+          imgSrc: imgSrc
+          nmId: 5
+          subjectName: subjectName
+          techSize: techSize
+          title: title
+          vendorCode: vendorCode
+        - sku: sku
+          color: color
+          quantity: 1
+          brandName: brandName
+          imgSrc: imgSrc
+          nmId: 5
+          subjectName: subjectName
+          techSize: techSize
+          title: title
+          vendorCode: vendorCode
+      properties:
+        skuQuantity:
+          description: Количество баркодов
+          type: integer
+        itemQuantity:
+          description: Количество единиц товара
+          type: integer
+        items:
+          description: Список товаров
+          items:
+            $ref: "#/components/schemas/models.DraftItemItem"
+          type: array
+      required:
+      - itemQuantity
+      - items
+      - skuQuantity
+      type: object
+    models.ListDraftsResponse:
+      example:
+        total: 0
+        drafts:
+        - draftId: draftId
+          phone: phone
+          createdAt: createdAt
+          updatedAt: updatedAt
+          skuQuantity: 6
+          itemQuantity: 1
+        - draftId: draftId
+          phone: phone
+          createdAt: createdAt
+          updatedAt: updatedAt
+          skuQuantity: 6
+          itemQuantity: 1
+      properties:
+        total:
+          description: Общее количество черновиков
+          type: integer
+        drafts:
+          description: Список черновиков
+          items:
+            $ref: "#/components/schemas/models.DraftItem"
+          type: array
+      required:
+      - drafts
+      - total
+      type: object
+    models.Item:
+      properties:
+        quantity:
+          description: |
+            Количество единиц товара
+          maximum: 999999
+          minimum: 1
+          type: integer
+        sku:
+          description: Баркод из карточки товара
+          type: string
+      required:
+      - quantity
+      - sku
+      type: object
     models.TransitTariff:
       example:
         transitWarehouseName: transitWarehouseName

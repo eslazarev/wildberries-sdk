@@ -57,6 +57,7 @@ export * from './ContentV2CardsUploadPostRequestInnerVariantsInner';
 export * from './ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions';
 export * from './ContentV2CardsUploadPostRequestInnerVariantsInnerDocuments';
 export * from './ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner';
+export * from './ContentV2CardsUploadPostRequestInnerVariantsInnerWholesale';
 export * from './ContentV2DirectoryColorsGet200Response';
 export * from './ContentV2DirectoryColorsGet200ResponseDataInner';
 export * from './ContentV2DirectoryCountriesGet200Response';

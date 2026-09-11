@@ -234,12 +234,18 @@ main().catch(console.error);
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersStatusReject` — Сообщить об отказе от заказов
 
 ### orders_fbw (`orders_fbw`)
+- `orders_fbw.DefaultApi.deleteV1DraftsDraftId` — Удалить черновик
+- `orders_fbw.DefaultApi.deleteV1DraftsDraftIdItems` — Удалить товары из черновика
+- `orders_fbw.DefaultApi.getV1Drafts` — Список черновиков
+- `orders_fbw.DefaultApi.getV1DraftsDraftIdItems` — Список товаров в черновике
 - `orders_fbw.DefaultApi.getV1SuppliesId` — Детали поставки
 - `orders_fbw.DefaultApi.getV1SuppliesIdGoods` — Товары поставки
 - `orders_fbw.DefaultApi.getV1SuppliesIdPackage` — Упаковка поставки
 - `orders_fbw.DefaultApi.getV1TransitTariffs` — Транзитные направления
 - `orders_fbw.DefaultApi.getV1Warehouses` — Список складов
 - `orders_fbw.DefaultApi.postV1AcceptanceOptions` — Опции приёмки
+- `orders_fbw.DefaultApi.postV1Drafts` — Создать черновик
+- `orders_fbw.DefaultApi.postV1DraftsDraftIdItems` — Добавить товары в черновик
 - `orders_fbw.DefaultApi.postV1Supplies` — Список поставок
 
 ### promotion (`promotion`)

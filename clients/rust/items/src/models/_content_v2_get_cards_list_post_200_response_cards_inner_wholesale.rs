@@ -11,19 +11,19 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// ContentV2GetCardsListPost200ResponseCardsInnerWholesale : Оптовая продажа
+/// ContentV2GetCardsListPost200ResponseCardsInnerWholesale : B2B-продажа
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ContentV2GetCardsListPost200ResponseCardsInnerWholesale {
-    /// Предназначена ли карточка товара для оптовой продажи
+    /// Предназначен ли товар для продажи только B2B-покупателям:   - `true` — товар предназначен для продажи только B2B-покупателям   - `false` — товар предназначен для продажи B2B и B2C-покупателям 
     #[serde(rename = "enabled", skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
-    /// Количество единиц товара в упаковке
+    /// Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `\"enable\":true`
     #[serde(rename = "quantum", skip_serializing_if = "Option::is_none")]
     pub quantum: Option<f64>,
 }
 
 impl ContentV2GetCardsListPost200ResponseCardsInnerWholesale {
-    /// Оптовая продажа
+    /// B2B-продажа
     pub fn new() -> ContentV2GetCardsListPost200ResponseCardsInnerWholesale {
         ContentV2GetCardsListPost200ResponseCardsInnerWholesale {
             enabled: None,
