@@ -56,7 +56,7 @@
 - Тауарлармен жұмыс — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS тапсырыстары — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW тапсырыстары — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
-- DBS тапсырыстары — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)
+- DBS тапсырыстары — [`specs/05-dbs.yaml`](../../specs/05-dbs.yaml)
 - Дүкеннен алу — [`specs/06-in-store-pickup.yaml`](../../specs/06-in-store-pickup.yaml)
 - FBW жеткізілімдері — [`specs/07-orders-fbw.yaml`](../../specs/07-orders-fbw.yaml)
 - Маркетинг және жарнама — [`specs/08-promotion.yaml`](../../specs/08-promotion.yaml)
@@ -65,6 +65,5 @@
 - Аналитика — [`specs/11-analytics.yaml`](../../specs/11-analytics.yaml)
 - Есептер — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - Қаржы және бухгалтерия — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)
-- Wildberries Цифрлық — [`specs/14-wbd.yaml`](../../specs/14-wbd.yaml)
 
 Әр методтың толық тізімі (сипаттамалар Wildberries OpenAPI спецификацияларынан орыс тілінде алынған) [негізгі README](../../README.md#в-данный-момент-представлены-все-доступные-спецификации)-да.

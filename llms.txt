@@ -18,7 +18,7 @@ All five language clients share the same API surface because they are generated 
 - [02-items.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/02-items.yaml) — product catalog, media, characteristics
 - [03-orders-fbs.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/03-orders-fbs.yaml) — FBS (Fulfillment By Seller) orders
 - [04-orders-dbw.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/04-orders-dbw.yaml) — DBW (Delivery By Wildberries) orders
-- [05-orders-dbs.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/05-orders-dbs.yaml) — DBS (Delivery By Seller) orders
+- [05-dbs.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/05-dbs.yaml) — DBS (Delivery By Seller) orders
 - [06-in-store-pickup.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/06-in-store-pickup.yaml) — in-store pickup orders
 - [07-orders-fbw.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/07-orders-fbw.yaml) — FBW (Fulfillment By Wildberries) supplies
 - [08-promotion.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/08-promotion.yaml) — marketing, advertising, promotions

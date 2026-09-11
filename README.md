@@ -66,8 +66,8 @@ SDK выпускается с security-first процессом:
 - Работа с товарами: [`specs/02-items.yaml`](#работа-с-товарами-02-itemsyaml)
 - Заказы FBS: [`specs/03-orders-fbs.yaml`](#заказы-fbs-03-orders-fbsyaml)
 - Заказы DBW: [`specs/04-orders-dbw.yaml`](#заказы-dbw-04-orders-dbwyaml)
-- Заказы DBS: [`specs/05-orders-dbs.yaml`](#заказы-dbs-05-orders-dbsyaml)
-- Заказы Самовывоз: [`specs/06-in-store-pickup.yaml`](#заказы-самовывоз-06-in-store-pickupyaml)
+- DBS: [`specs/05-dbs.yaml`](#dbs-05-dbsyaml)
+- Самовывоз: [`specs/06-in-store-pickup.yaml`](#самовывоз-06-in-store-pickupyaml)
 - Поставки FBW: [`specs/07-orders-fbw.yaml`](#поставки-fbw-07-orders-fbwyaml)
 - Маркетинг и продвижение: [`specs/08-promotion.yaml`](#маркетинг-и-продвижение-08-promotionyaml)
 - Общение с покупателями: [`specs/09-communications.yaml`](#общение-с-покупателями-09-communicationsyaml)
@@ -75,7 +75,6 @@ SDK выпускается с security-first процессом:
 - Аналитика и данные: [`specs/11-analytics.yaml`](#аналитика-и-данные-11-analyticsyaml)
 - Отчёты: [`specs/12-reports.yaml`](#отчёты-12-reportsyaml)
 - Документы и бухгалтерия: [`specs/13-finances.yaml`](#документы-и-бухгалтерия-13-financesyaml)
-- Wildberries Цифровой: [`specs/14-wbd.yaml`](#wildberries-цифровой-14-wbdyaml)
 
 <!-- METHODS_LIST_START -->
 ### Общее (`01-general.yaml`)
