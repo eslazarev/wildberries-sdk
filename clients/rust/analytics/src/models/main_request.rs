@@ -42,15 +42,15 @@ pub struct MainRequest {
     pub include_search_texts: Option<bool>,
     /// Количество групп товаров в ответе
     #[serde(rename = "limit")]
-    pub limit: i32,
+    pub limit: u32,
     /// После какого элемента выдавать данные
     #[serde(rename = "offset")]
-    pub offset: i32,
+    pub offset: u32,
 }
 
 impl MainRequest {
     /// Параметры запроса для формирования главной страницы:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения 
-    pub fn new(current_period: models::Period, position_cluster: models::PositionCluster, order_by: models::OrderByMainAndDetails, limit: i32, offset: i32) -> MainRequest {
+    pub fn new(current_period: models::Period, position_cluster: models::PositionCluster, order_by: models::OrderByMainAndDetails, limit: u32, offset: u32) -> MainRequest {
         MainRequest {
             current_period: Box::new(current_period),
             past_period: None,

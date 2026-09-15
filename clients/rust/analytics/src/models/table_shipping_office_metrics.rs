@@ -16,23 +16,23 @@ use serde::{Deserialize, Serialize};
 pub struct TableShippingOfficeMetrics {
     /// Остатки на текущий день, шт.
     #[serde(rename = "stockCount")]
-    pub stock_count: i32,
+    pub stock_count: u64,
     /// Остатки на текущий день, сумма
     #[serde(rename = "stockSum")]
-    pub stock_sum: i32,
+    pub stock_sum: u64,
     #[serde(rename = "saleRate")]
     pub sale_rate: Box<models::TableCommonMetricsSaleRate>,
     /// В пути к клиенту, шт.
     #[serde(rename = "toClientCount")]
-    pub to_client_count: i32,
+    pub to_client_count: u64,
     /// В пути от клиента, шт.
     #[serde(rename = "fromClientCount")]
-    pub from_client_count: i32,
+    pub from_client_count: u64,
 }
 
 impl TableShippingOfficeMetrics {
     /// Общие метрики по регионам/складам отгрузки
-    pub fn new(stock_count: i32, stock_sum: i32, sale_rate: models::TableCommonMetricsSaleRate, to_client_count: i32, from_client_count: i32) -> TableShippingOfficeMetrics {
+    pub fn new(stock_count: u64, stock_sum: u64, sale_rate: models::TableCommonMetricsSaleRate, to_client_count: u64, from_client_count: u64) -> TableShippingOfficeMetrics {
         TableShippingOfficeMetrics {
             stock_count,
             stock_sum,

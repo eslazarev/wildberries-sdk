@@ -17,16 +17,16 @@ pub struct OrderFeedRequest {
     pub selected_period: Box<models::OrderFeedRequestSelectedPeriod>,
     /// Список артикулов WB для фильтрации
     #[serde(rename = "nmIds", skip_serializing_if = "Option::is_none")]
-    pub nm_ids: Option<Vec<i32>>,
+    pub nm_ids: Option<Vec<u64>>,
     /// Список ID предметов для фильтрации
     #[serde(rename = "subjectIds", skip_serializing_if = "Option::is_none")]
-    pub subject_ids: Option<Vec<i32>>,
+    pub subject_ids: Option<Vec<u64>>,
     /// Список брендов для фильтрации
     #[serde(rename = "brandNames", skip_serializing_if = "Option::is_none")]
     pub brand_names: Option<Vec<String>>,
     /// Список ID ярлыков для фильтрации
     #[serde(rename = "tagIds", skip_serializing_if = "Option::is_none")]
-    pub tag_ids: Option<Vec<i32>>,
+    pub tag_ids: Option<Vec<u64>>,
     #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
     pub pagination: Option<Box<models::OrderFeedRequestPagination>>,
 }

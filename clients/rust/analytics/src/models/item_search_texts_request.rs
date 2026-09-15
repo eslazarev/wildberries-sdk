@@ -20,7 +20,7 @@ pub struct ItemSearchTextsRequest {
     pub past_period: Option<Box<models::PastPeriod>>,
     /// Список артикулов WB
     #[serde(rename = "nmIds")]
-    pub nm_ids: Vec<i32>,
+    pub nm_ids: Vec<u64>,
     /// Фильтрация по поисковым запросам, по которым больше всего:   - `openCard` — перешли в карточку   - `addToCart` — добавили в корзину   - `openToCart` — конверсия в корзину   - `orders` — заказали товаров   - `cartToOrder` — конверсия в заказ 
     #[serde(rename = "topOrderBy")]
     pub top_order_by: TopOrderBy,
@@ -38,7 +38,7 @@ pub struct ItemSearchTextsRequest {
 
 impl ItemSearchTextsRequest {
     /// Параметры для запроса по рейтингу поисковых запросов:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения 
-    pub fn new(current_period: models::Period, nm_ids: Vec<i32>, top_order_by: TopOrderBy, order_by: models::OrderByGrTe, limit: models::TextLimit) -> ItemSearchTextsRequest {
+    pub fn new(current_period: models::Period, nm_ids: Vec<u64>, top_order_by: TopOrderBy, order_by: models::OrderByGrTe, limit: models::TextLimit) -> ItemSearchTextsRequest {
         ItemSearchTextsRequest {
             current_period: Box::new(current_period),
             past_period: None,

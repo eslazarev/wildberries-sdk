@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(untagged)]
 pub enum TextLimit {
     /// Количество поисковых запросов по товару для [стандартного](https://seller.wildberries.ru/monetization/tariffs) тарифа
-    StandardTariff(i32),
+    StandardTariff(u64),
     /// Количество поисковых запросов по товару для [продвинутого](https://seller.wildberries.ru/monetization/tariffs) тарифа
-    AdvancedTariff(i32),
+    AdvancedTariff(u64),
 }
 
 impl Default for TextLimit {

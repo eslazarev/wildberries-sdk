@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Тарифы
- * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/supplyRates)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/stockRates)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/returnCostToSeller)  </div> 
+ * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/rates#tag/fees)   2. [Тарифов на поставку](/openapi/rates#tag/supplyRates)   3. [Тарифов на остаток](/openapi/rates#tag/stockRates)   4. [Тарифов на возврат товаров продавцу](/openapi/rates#tag/returnCostToSeller)  </div> 
  *
  * The version of the OpenAPI document: rates
  * 

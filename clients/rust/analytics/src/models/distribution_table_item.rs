@@ -24,7 +24,7 @@ pub struct DistributionTableItem {
     pub vendor_code: String,
     /// ID предмета
     #[serde(rename = "subjectId")]
-    pub subject_id: i32,
+    pub subject_id: u64,
     /// Название предмета
     #[serde(rename = "subjectName")]
     pub subject_name: String,
@@ -66,7 +66,7 @@ pub struct DistributionTableItem {
 }
 
 impl DistributionTableItem {
-    pub fn new(nm_id: i64, title: String, vendor_code: String, subject_id: i32, subject_name: String, brand_name: String, tag_name: String, tag_id: i64, pinned_feedback: bool, rating: f64, feedback_rating: models::DistributionTableItemFeedbackRating, feedback_count: models::DistributionTableItemFeedbackCount, five_star: models::DistributionTableItemFiveStar, four_star: models::DistributionTableItemFourStar, three_star: models::DistributionTableItemThreeStar, two_star: models::DistributionTableItemTwoStar, one_star: models::DistributionTableItemOneStar, disqualified: i32, is_shadowed: bool) -> DistributionTableItem {
+    pub fn new(nm_id: i64, title: String, vendor_code: String, subject_id: u64, subject_name: String, brand_name: String, tag_name: String, tag_id: i64, pinned_feedback: bool, rating: f64, feedback_rating: models::DistributionTableItemFeedbackRating, feedback_count: models::DistributionTableItemFeedbackCount, five_star: models::DistributionTableItemFiveStar, four_star: models::DistributionTableItemFourStar, three_star: models::DistributionTableItemThreeStar, two_star: models::DistributionTableItemTwoStar, one_star: models::DistributionTableItemOneStar, disqualified: i32, is_shadowed: bool) -> DistributionTableItem {
         DistributionTableItem {
             nm_id,
             title,

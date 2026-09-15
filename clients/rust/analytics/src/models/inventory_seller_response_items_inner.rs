@@ -30,11 +30,11 @@ pub struct InventorySellerResponseItemsInner {
     pub region_name: String,
     /// Количество товара на складе, доступное клиентам для добавления в корзину
     #[serde(rename = "quantity")]
-    pub quantity: i32,
+    pub quantity: u64,
 }
 
 impl InventorySellerResponseItemsInner {
-    pub fn new(nm_id: i64, chrt_id: i64, warehouse_id: i64, warehouse_name: String, region_name: String, quantity: i32) -> InventorySellerResponseItemsInner {
+    pub fn new(nm_id: i64, chrt_id: i64, warehouse_id: i64, warehouse_name: String, region_name: String, quantity: u64) -> InventorySellerResponseItemsInner {
         InventorySellerResponseItemsInner {
             nm_id,
             chrt_id,

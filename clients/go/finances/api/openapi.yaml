@@ -7,7 +7,7 @@ info:
 
     <div class="api-block">
 
-    Просмотр [баланса](/openapi/financial-reports-and-accounting#tag/balance), [финансовых отчётов](/openapi/financial-reports-and-accounting#tag/financialReports) и [документов](/openapi/financial-reports-and-accounting#tag/documents) продавца.
+    Просмотр [баланса](/openapi/documents-and-accounting#tag/balance), [финансовых отчётов](/openapi/documents-and-accounting#tag/financialReports) и [документов](/openapi/documents-and-accounting#tag/documents) продавца.
 
     </div>
   title: Документы и бухгалтерия
@@ -730,7 +730,7 @@ paths:
   /api/v1/documents/categories:
     get:
       description: |
-        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList).
+        Метод возвращает категории документов для получения [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -836,7 +836,7 @@ paths:
   /api/v1/documents/list:
     get:
       description: |
-        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](/openapi/financial-reports-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
+        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -921,7 +921,7 @@ paths:
           example: asc
           type: string
         style: form
-      - description: "ID [категории документов](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsCategories)\
+      - description: "ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories)\
           \ из поля `name`"
         explode: true
         in: query
@@ -1061,7 +1061,7 @@ paths:
   /api/v1/documents/download:
     get:
       description: |
-        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList).
+        Метод загружает один документ из [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1183,7 +1183,7 @@ paths:
   /api/v1/documents/download/all:
     post:
       description: |
-        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList).
+        Метод загружает несколько документов из [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2346,7 +2346,7 @@ components:
           type: string
         srid:
           description: |
-            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./orders-dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
+            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
           example: 0f1c3999172603062979867564654dac5b702849
           type: string
       required:
@@ -2653,7 +2653,7 @@ components:
           type: string
         srid:
           description: |
-            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./orders-dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
+            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
           example: D0.r3f80c3eec6f845c6840128b4c19986f9.0.0
           type: string
         docTypeName:
@@ -2886,12 +2886,12 @@ components:
         title: Уведомление о выкупе
       properties:
         name:
-          description: "ID категории документа из параметра [запроса](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList)\
+          description: "ID категории документа из параметра [запроса](./documents-and-accounting#tag/documents/operation/getV1DocumentsList)\
             \ `category`"
           example: redeem-notification
           type: string
         title:
-          description: "Название категории документа из поля [ответа](./financial-reports-and-accounting#tag/documents/~1api~1v1~1documents~1list/get)\
+          description: "Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/~1api~1v1~1documents~1list/get)\
             \ `category`"
           example: Уведомление о выкупе
           type: string
@@ -2930,7 +2930,7 @@ components:
           example: redeem-notification
           type: string
         category:
-          description: "Название [категории документов](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsCategories)\
+          description: "Название [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories)\
             \ из поля ответа `title`"
           example: Уведомление о выкупе
           type: string

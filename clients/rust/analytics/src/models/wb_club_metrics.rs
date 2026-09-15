@@ -15,35 +15,35 @@ use serde::{Deserialize, Serialize};
 pub struct WbClubMetrics {
     /// Заказали товаров с WB Клубом, шт.
     #[serde(rename = "orderCount")]
-    pub order_count: i32,
+    pub order_count: u32,
     /// Заказали с WB Клубом на сумму
     #[serde(rename = "orderSum")]
-    pub order_sum: i32,
+    pub order_sum: u32,
     /// Выкупили с WB Клубом на сумму
     #[serde(rename = "buyoutSum")]
-    pub buyout_sum: i32,
+    pub buyout_sum: u32,
     /// Выкупили товаров с WB Клубом, шт.
     #[serde(rename = "buyoutCount")]
-    pub buyout_count: i32,
+    pub buyout_count: u32,
     /// Отменили и вернули с WB Клубом на сумму
     #[serde(rename = "cancelSum")]
-    pub cancel_sum: i32,
+    pub cancel_sum: u32,
     /// Отменили и вернули товаров с WB Клубом, шт.
     #[serde(rename = "cancelCount")]
-    pub cancel_count: i32,
+    pub cancel_count: u32,
     /// Средняя цена с WB Клубом
     #[serde(rename = "avgPrice")]
-    pub avg_price: i32,
+    pub avg_price: u32,
     /// Процент выкупа с WB Клубом
     #[serde(rename = "buyoutPercent")]
-    pub buyout_percent: i32,
+    pub buyout_percent: u32,
     /// Среднее количество заказов с WB Клубом в день, шт.
     #[serde(rename = "avgOrderCountPerDay")]
     pub avg_order_count_per_day: f64,
 }
 
 impl WbClubMetrics {
-    pub fn new(order_count: i32, order_sum: i32, buyout_sum: i32, buyout_count: i32, cancel_sum: i32, cancel_count: i32, avg_price: i32, buyout_percent: i32, avg_order_count_per_day: f64) -> WbClubMetrics {
+    pub fn new(order_count: u32, order_sum: u32, buyout_sum: u32, buyout_count: u32, cancel_sum: u32, cancel_count: u32, avg_price: u32, buyout_percent: u32, avg_order_count_per_day: f64) -> WbClubMetrics {
         WbClubMetrics {
             order_count,
             order_sum,

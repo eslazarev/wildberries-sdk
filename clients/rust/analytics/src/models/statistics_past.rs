@@ -18,31 +18,31 @@ pub struct StatisticsPast {
     pub period: Box<models::DatePeriod>,
     /// Количество переходов в карточку товара
     #[serde(rename = "openCount")]
-    pub open_count: i32,
+    pub open_count: u32,
     /// Положили в корзину, шт.
     #[serde(rename = "cartCount")]
     pub cart_count: i32,
     /// Заказали товаров, шт.
     #[serde(rename = "orderCount")]
-    pub order_count: i32,
+    pub order_count: u32,
     /// Заказали на сумму
     #[serde(rename = "orderSum")]
-    pub order_sum: i32,
+    pub order_sum: u32,
     /// Выкупили товаров, шт.
     #[serde(rename = "buyoutCount")]
-    pub buyout_count: i32,
+    pub buyout_count: u32,
     /// Выкупили на сумму
     #[serde(rename = "buyoutSum")]
-    pub buyout_sum: i32,
+    pub buyout_sum: u32,
     /// Отменили и вернули товаров, шт.
     #[serde(rename = "cancelCount")]
-    pub cancel_count: i32,
+    pub cancel_count: u32,
     /// Отменили и вернули на сумму
     #[serde(rename = "cancelSum")]
-    pub cancel_sum: i32,
+    pub cancel_sum: u32,
     /// Средняя цена
     #[serde(rename = "avgPrice")]
-    pub avg_price: i32,
+    pub avg_price: u32,
     /// Среднее количество заказов в день, шт.
     #[serde(rename = "avgOrdersCountPerDay")]
     pub avg_orders_count_per_day: f64,
@@ -64,7 +64,7 @@ pub struct StatisticsPast {
 }
 
 impl StatisticsPast {
-    pub fn new(period: models::DatePeriod, open_count: i32, cart_count: i32, order_count: i32, order_sum: i32, buyout_count: i32, buyout_sum: i32, cancel_count: i32, cancel_sum: i32, avg_price: i32, avg_orders_count_per_day: f64, share_order_percent: f64, add_to_wishlist: i32, time_to_ready: models::StatisticTimeToReady, localization_percent: i32, wb_club: models::StatisticWbClub, conversions: models::StatisticConversions) -> StatisticsPast {
+    pub fn new(period: models::DatePeriod, open_count: u32, cart_count: i32, order_count: u32, order_sum: u32, buyout_count: u32, buyout_sum: u32, cancel_count: u32, cancel_sum: u32, avg_price: u32, avg_orders_count_per_day: f64, share_order_percent: f64, add_to_wishlist: i32, time_to_ready: models::StatisticTimeToReady, localization_percent: i32, wb_club: models::StatisticWbClub, conversions: models::StatisticConversions) -> StatisticsPast {
         StatisticsPast {
             period: Box::new(period),
             open_count,

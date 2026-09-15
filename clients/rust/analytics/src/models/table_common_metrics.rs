@@ -16,10 +16,10 @@ use serde::{Deserialize, Serialize};
 pub struct TableCommonMetrics {
     /// Заказы, шт.
     #[serde(rename = "ordersCount")]
-    pub orders_count: i32,
+    pub orders_count: u64,
     /// Заказы, сумма
     #[serde(rename = "ordersSum")]
-    pub orders_sum: i32,
+    pub orders_sum: u64,
     /// Среднее количество заказов в день
     #[serde(rename = "avgOrders")]
     pub avg_orders: f64,
@@ -28,29 +28,29 @@ pub struct TableCommonMetrics {
     pub avg_orders_by_month: Vec<models::FloatGraphByPeriodItem>,
     /// Выкупы, шт.
     #[serde(rename = "buyoutCount")]
-    pub buyout_count: i32,
+    pub buyout_count: u64,
     /// Выкупы, сумма
     #[serde(rename = "buyoutSum")]
-    pub buyout_sum: i32,
+    pub buyout_sum: u64,
     /// Процент выкупа
     #[serde(rename = "buyoutPercent")]
-    pub buyout_percent: i32,
+    pub buyout_percent: u32,
     /// Остатки на текущий день, шт.
     #[serde(rename = "stockCount")]
-    pub stock_count: i32,
+    pub stock_count: u64,
     /// Стоимость остатков на текущий день
     #[serde(rename = "stockSum")]
-    pub stock_sum: i32,
+    pub stock_sum: u64,
     #[serde(rename = "saleRate")]
     pub sale_rate: Box<models::TableCommonMetricsSaleRate>,
     #[serde(rename = "avgStockTurnover")]
     pub avg_stock_turnover: Box<models::TableCommonMetricsAvgStockTurnover>,
     /// В пути к клиенту, шт.
     #[serde(rename = "toClientCount")]
-    pub to_client_count: i32,
+    pub to_client_count: u64,
     /// В пути от клиента, шт.
     #[serde(rename = "fromClientCount")]
-    pub from_client_count: i32,
+    pub from_client_count: u64,
     #[serde(rename = "officeMissingTime")]
     pub office_missing_time: Box<models::TableCommonMetricsOfficeMissingTime>,
     /// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
@@ -69,7 +69,7 @@ pub struct TableCommonMetrics {
 
 impl TableCommonMetrics {
     /// Метрики
-    pub fn new(orders_count: i32, orders_sum: i32, avg_orders: f64, avg_orders_by_month: Vec<models::FloatGraphByPeriodItem>, buyout_count: i32, buyout_sum: i32, buyout_percent: i32, stock_count: i32, stock_sum: i32, sale_rate: models::TableCommonMetricsSaleRate, avg_stock_turnover: models::TableCommonMetricsAvgStockTurnover, to_client_count: i32, from_client_count: i32, office_missing_time: models::TableCommonMetricsOfficeMissingTime, lost_orders_count: f64, lost_orders_sum: f64, lost_buyouts_count: f64, lost_buyouts_sum: f64) -> TableCommonMetrics {
+    pub fn new(orders_count: u64, orders_sum: u64, avg_orders: f64, avg_orders_by_month: Vec<models::FloatGraphByPeriodItem>, buyout_count: u64, buyout_sum: u64, buyout_percent: u32, stock_count: u64, stock_sum: u64, sale_rate: models::TableCommonMetricsSaleRate, avg_stock_turnover: models::TableCommonMetricsAvgStockTurnover, to_client_count: u64, from_client_count: u64, office_missing_time: models::TableCommonMetricsOfficeMissingTime, lost_orders_count: f64, lost_orders_sum: f64, lost_buyouts_count: f64, lost_buyouts_sum: f64) -> TableCommonMetrics {
         TableCommonMetrics {
             orders_count,
             orders_sum,

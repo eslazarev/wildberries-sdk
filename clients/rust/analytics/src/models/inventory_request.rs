@@ -22,10 +22,10 @@ pub struct InventoryRequest {
     pub chrt_ids: Option<Vec<i64>>,
     /// Количество строк в ответе
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
-    pub limit: Option<i32>,
+    pub limit: Option<u32>,
     /// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
     #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
-    pub offset: Option<i32>,
+    pub offset: Option<u32>,
 }
 
 impl InventoryRequest {

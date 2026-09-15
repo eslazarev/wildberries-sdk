@@ -18,14 +18,14 @@ pub struct VisibilityInfoByDayInner {
     pub dt: chrono::NaiveDate,
     /// Видимость карточки в результатах поиска, %
     #[serde(rename = "visibility")]
-    pub visibility: i32,
+    pub visibility: u64,
     /// Количество переходов в карточку
     #[serde(rename = "open")]
-    pub open: i32,
+    pub open: u64,
 }
 
 impl VisibilityInfoByDayInner {
-    pub fn new(dt: chrono::NaiveDate, visibility: i32, open: i32) -> VisibilityInfoByDayInner {
+    pub fn new(dt: chrono::NaiveDate, visibility: u64, open: u64) -> VisibilityInfoByDayInner {
         VisibilityInfoByDayInner {
             dt,
             visibility,

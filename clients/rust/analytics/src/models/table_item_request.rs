@@ -40,15 +40,15 @@ pub struct TableItemRequest {
     pub availability_filters: Vec<AvailabilityFilters>,
     /// Количество товаров в ответе
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
-    pub limit: Option<i32>,
+    pub limit: Option<u32>,
     /// После какого элемента выдавать данные
     #[serde(rename = "offset")]
-    pub offset: i32,
+    pub offset: u32,
 }
 
 impl TableItemRequest {
     /// Параметры запроса об остатках по товарам
-    pub fn new(current_period: models::PeriodInv, stock_type: models::StockType, skip_deleted_nm: bool, order_by: models::TableOrderBy, availability_filters: Vec<AvailabilityFilters>, offset: i32) -> TableItemRequest {
+    pub fn new(current_period: models::PeriodInv, stock_type: models::StockType, skip_deleted_nm: bool, order_by: models::TableOrderBy, availability_filters: Vec<AvailabilityFilters>, offset: u32) -> TableItemRequest {
         TableItemRequest {
             nm_ids: None,
             subject_id: None,

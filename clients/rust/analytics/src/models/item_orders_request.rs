@@ -17,14 +17,14 @@ pub struct ItemOrdersRequest {
     pub period: Box<models::PeriodOrdersRequest>,
     /// Артикул WB
     #[serde(rename = "nmId")]
-    pub nm_id: i32,
+    pub nm_id: u64,
     /// Поисковые запросы. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100 
     #[serde(rename = "searchTexts")]
     pub search_texts: Vec<String>,
 }
 
 impl ItemOrdersRequest {
-    pub fn new(period: models::PeriodOrdersRequest, nm_id: i32, search_texts: Vec<String>) -> ItemOrdersRequest {
+    pub fn new(period: models::PeriodOrdersRequest, nm_id: u64, search_texts: Vec<String>) -> ItemOrdersRequest {
         ItemOrdersRequest {
             period: Box::new(period),
             nm_id,

@@ -3213,7 +3213,7 @@ func (r ApiGetV1SupplierSubjectsRequest) Execute() ([]GetV1SupplierSubjects200Re
 /*
 GetV1SupplierSubjects Предметы для кампаний
 
-Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -5975,7 +5975,7 @@ func (r ApiPostV1CalendarPromotionsUploadRequest) Execute() (*PostV1CalendarProm
 PostV1CalendarPromotionsUpload Добавить товар в акцию
 
 Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).<br>
-Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).
+Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).
 
 <div class="description_important">
   Данный метод неприменим для автоакций.
@@ -6914,7 +6914,7 @@ func (r ApiPostV2SupplierNmsRequest) Execute() ([]PostV2SupplierNms200ResponseIn
 /*
 PostV2SupplierNms Карточки товаров для кампаний
 
-Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
+Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:

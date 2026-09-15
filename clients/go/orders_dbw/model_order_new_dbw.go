@@ -23,7 +23,7 @@ type OrderNewDBW struct {
 	Address NullableOrderNewDBWAddress `json:"address,omitempty"`
 	// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
 	SalePrice NullableInt32 `json:"salePrice,omitempty"`
-	// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515`
+	// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `\"subjectId\":515`
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
 	// Комментарий покупателя
 	Comment *string `json:"comment,omitempty"`
@@ -36,7 +36,7 @@ type OrderNewDBW struct {
 	Article *string `json:"article,omitempty"`
 	// Код цвета (только для колеруемых товаров)
 	ColorCode *string `json:"colorCode,omitempty"`
-	// Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./user-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed) 
+	// Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed) 
 	Rid *string `json:"rid,omitempty"`
 	// Дата создания сборочного задания
 	CreatedAt *time.Time `json:"createdAt,omitempty"`

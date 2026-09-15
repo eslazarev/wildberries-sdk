@@ -30,17 +30,17 @@ pub struct InventoryWbResponseItemsInner {
     pub region_name: String,
     /// Количество товара на складе, доступное клиентам для добавления в корзину
     #[serde(rename = "quantity")]
-    pub quantity: i32,
+    pub quantity: u64,
     /// В пути к клиенту
     #[serde(rename = "inWayToClient")]
-    pub in_way_to_client: i32,
+    pub in_way_to_client: u64,
     /// В пути от клиента
     #[serde(rename = "inWayFromClient")]
-    pub in_way_from_client: i32,
+    pub in_way_from_client: u64,
 }
 
 impl InventoryWbResponseItemsInner {
-    pub fn new(nm_id: i64, chrt_id: i64, warehouse_id: i64, warehouse_name: String, region_name: String, quantity: i32, in_way_to_client: i32, in_way_from_client: i32) -> InventoryWbResponseItemsInner {
+    pub fn new(nm_id: i64, chrt_id: i64, warehouse_id: i64, warehouse_name: String, region_name: String, quantity: u64, in_way_to_client: u64, in_way_from_client: u64) -> InventoryWbResponseItemsInner {
         InventoryWbResponseItemsInner {
             nm_id,
             chrt_id,

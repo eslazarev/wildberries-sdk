@@ -18,14 +18,14 @@ pub struct ItemOrdersMetrics {
     pub dt: chrono::NaiveDate,
     /// Средняя позиция товара в результатах поиска
     #[serde(rename = "avgPosition")]
-    pub avg_position: i32,
+    pub avg_position: u64,
     /// Сколько раз товары из поиска заказали
     #[serde(rename = "orders")]
-    pub orders: i32,
+    pub orders: u64,
 }
 
 impl ItemOrdersMetrics {
-    pub fn new(dt: chrono::NaiveDate, avg_position: i32, orders: i32) -> ItemOrdersMetrics {
+    pub fn new(dt: chrono::NaiveDate, avg_position: u64, orders: u64) -> ItemOrdersMetrics {
         ItemOrdersMetrics {
             dt,
             avg_position,

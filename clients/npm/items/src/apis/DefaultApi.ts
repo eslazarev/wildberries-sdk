@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Работа с товарами
- * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/work-with-products#tag/listingItems) и [редактировать](/openapi/work-with-products#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/work-with-products#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/work-with-products#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/work-with-products#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)   - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div>  
+ * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/item-management#tag/listingItems) и [редактировать](/openapi/item-management#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/item-management#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/item-management#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/item-management#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts)   - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div>  
  *
  * The version of the OpenAPI document: items
  * 
@@ -14,101 +14,6 @@
 
 import * as runtime from '../runtime';
 import {
-    type ApiV2BufferGoodsTaskGet200Response,
-    ApiV2BufferGoodsTaskGet200ResponseFromJSON,
-    ApiV2BufferGoodsTaskGet200ResponseToJSON,
-} from '../models/ApiV2BufferGoodsTaskGet200Response';
-import {
-    type ApiV2BufferTasksGet200Response,
-    ApiV2BufferTasksGet200ResponseFromJSON,
-    ApiV2BufferTasksGet200ResponseToJSON,
-} from '../models/ApiV2BufferTasksGet200Response';
-import {
-    type ApiV2HistoryGoodsTaskGet200Response,
-    ApiV2HistoryGoodsTaskGet200ResponseFromJSON,
-    ApiV2HistoryGoodsTaskGet200ResponseToJSON,
-} from '../models/ApiV2HistoryGoodsTaskGet200Response';
-import {
-    type ApiV2HistoryTasksGet200Response,
-    ApiV2HistoryTasksGet200ResponseFromJSON,
-    ApiV2HistoryTasksGet200ResponseToJSON,
-} from '../models/ApiV2HistoryTasksGet200Response';
-import {
-    type ApiV2ListGoodsFilterGet200Response,
-    ApiV2ListGoodsFilterGet200ResponseFromJSON,
-    ApiV2ListGoodsFilterGet200ResponseToJSON,
-} from '../models/ApiV2ListGoodsFilterGet200Response';
-import {
-    type ApiV2ListGoodsFilterPostRequest,
-    ApiV2ListGoodsFilterPostRequestFromJSON,
-    ApiV2ListGoodsFilterPostRequestToJSON,
-} from '../models/ApiV2ListGoodsFilterPostRequest';
-import {
-    type ApiV2ListGoodsSizeNmGet200Response,
-    ApiV2ListGoodsSizeNmGet200ResponseFromJSON,
-    ApiV2ListGoodsSizeNmGet200ResponseToJSON,
-} from '../models/ApiV2ListGoodsSizeNmGet200Response';
-import {
-    type ApiV2QuarantineGoodsGet200Response,
-    ApiV2QuarantineGoodsGet200ResponseFromJSON,
-    ApiV2QuarantineGoodsGet200ResponseToJSON,
-} from '../models/ApiV2QuarantineGoodsGet200Response';
-import {
-    type ApiV2UploadTaskClubDiscountPostRequest,
-    ApiV2UploadTaskClubDiscountPostRequestFromJSON,
-    ApiV2UploadTaskClubDiscountPostRequestToJSON,
-} from '../models/ApiV2UploadTaskClubDiscountPostRequest';
-import {
-    type ApiV2UploadTaskPostRequest,
-    ApiV2UploadTaskPostRequestFromJSON,
-    ApiV2UploadTaskPostRequestToJSON,
-} from '../models/ApiV2UploadTaskPostRequest';
-import {
-    type ApiV2UploadTaskSizePostRequest,
-    ApiV2UploadTaskSizePostRequestFromJSON,
-    ApiV2UploadTaskSizePostRequestToJSON,
-} from '../models/ApiV2UploadTaskSizePostRequest';
-import {
-    type ApiV3DbwWarehousesWarehouseIdContactsGet200Response,
-    ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseFromJSON,
-    ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseToJSON,
-} from '../models/ApiV3DbwWarehousesWarehouseIdContactsGet200Response';
-import {
-    type ApiV3StocksWarehouseIdDeleteRequest,
-    ApiV3StocksWarehouseIdDeleteRequestFromJSON,
-    ApiV3StocksWarehouseIdDeleteRequestToJSON,
-} from '../models/ApiV3StocksWarehouseIdDeleteRequest';
-import {
-    type ApiV3StocksWarehouseIdPost200Response,
-    ApiV3StocksWarehouseIdPost200ResponseFromJSON,
-    ApiV3StocksWarehouseIdPost200ResponseToJSON,
-} from '../models/ApiV3StocksWarehouseIdPost200Response';
-import {
-    type ApiV3StocksWarehouseIdPostRequest,
-    ApiV3StocksWarehouseIdPostRequestFromJSON,
-    ApiV3StocksWarehouseIdPostRequestToJSON,
-} from '../models/ApiV3StocksWarehouseIdPostRequest';
-import {
-    type ApiV3StocksWarehouseIdPutRequest,
-    ApiV3StocksWarehouseIdPutRequestFromJSON,
-    ApiV3StocksWarehouseIdPutRequestToJSON,
-} from '../models/ApiV3StocksWarehouseIdPutRequest';
-import {
-    type ApiV3WarehousesPost201Response,
-    ApiV3WarehousesPost201ResponseFromJSON,
-    ApiV3WarehousesPost201ResponseToJSON,
-} from '../models/ApiV3WarehousesPost201Response';
-import {
-    type ApiV3WarehousesPostRequest,
-    ApiV3WarehousesPostRequestFromJSON,
-    ApiV3WarehousesPostRequestToJSON,
-} from '../models/ApiV3WarehousesPostRequest';
-import {
-    type ApiV3WarehousesWarehouseIdPutRequest,
-    ApiV3WarehousesWarehouseIdPutRequestFromJSON,
-    ApiV3WarehousesWarehouseIdPutRequestToJSON,
-} from '../models/ApiV3WarehousesWarehouseIdPutRequest';
-import {
     type BrandsResponse,
     BrandsResponseFromJSON,
     BrandsResponseToJSON,
@@ -119,170 +24,10 @@ import {
     BrandsResponseErrorToJSON,
 } from '../models/BrandsResponseError';
 import {
-    type ContentV2BarcodesPost200Response,
-    ContentV2BarcodesPost200ResponseFromJSON,
-    ContentV2BarcodesPost200ResponseToJSON,
-} from '../models/ContentV2BarcodesPost200Response';
-import {
-    type ContentV2BarcodesPostRequest,
-    ContentV2BarcodesPostRequestFromJSON,
-    ContentV2BarcodesPostRequestToJSON,
-} from '../models/ContentV2BarcodesPostRequest';
-import {
-    type ContentV2CardsDeleteTrashPost200Response,
-    ContentV2CardsDeleteTrashPost200ResponseFromJSON,
-    ContentV2CardsDeleteTrashPost200ResponseToJSON,
-} from '../models/ContentV2CardsDeleteTrashPost200Response';
-import {
-    type ContentV2CardsDeleteTrashPostRequest,
-    ContentV2CardsDeleteTrashPostRequestFromJSON,
-    ContentV2CardsDeleteTrashPostRequestToJSON,
-} from '../models/ContentV2CardsDeleteTrashPostRequest';
-import {
-    type ContentV2CardsLimitsGet200Response,
-    ContentV2CardsLimitsGet200ResponseFromJSON,
-    ContentV2CardsLimitsGet200ResponseToJSON,
-} from '../models/ContentV2CardsLimitsGet200Response';
-import {
-    type ContentV2CardsMoveNmPost400Response,
-    ContentV2CardsMoveNmPost400ResponseFromJSON,
-    ContentV2CardsMoveNmPost400ResponseToJSON,
-} from '../models/ContentV2CardsMoveNmPost400Response';
-import {
-    type ContentV2CardsMoveNmPostRequest,
-    ContentV2CardsMoveNmPostRequestFromJSON,
-    ContentV2CardsMoveNmPostRequestToJSON,
-} from '../models/ContentV2CardsMoveNmPostRequest';
-import {
-    type ContentV2CardsUpdatePost413Response,
-    ContentV2CardsUpdatePost413ResponseFromJSON,
-    ContentV2CardsUpdatePost413ResponseToJSON,
-} from '../models/ContentV2CardsUpdatePost413Response';
-import {
-    type ContentV2CardsUpdatePostRequestInner,
-    ContentV2CardsUpdatePostRequestInnerFromJSON,
-    ContentV2CardsUpdatePostRequestInnerToJSON,
-} from '../models/ContentV2CardsUpdatePostRequestInner';
-import {
-    type ContentV2CardsUploadAddPostRequest,
-    ContentV2CardsUploadAddPostRequestFromJSON,
-    ContentV2CardsUploadAddPostRequestToJSON,
-} from '../models/ContentV2CardsUploadAddPostRequest';
-import {
-    type ContentV2CardsUploadPostRequestInner,
-    ContentV2CardsUploadPostRequestInnerFromJSON,
-    ContentV2CardsUploadPostRequestInnerToJSON,
-} from '../models/ContentV2CardsUploadPostRequestInner';
-import {
-    type ContentV2DirectoryColorsGet200Response,
-    ContentV2DirectoryColorsGet200ResponseFromJSON,
-    ContentV2DirectoryColorsGet200ResponseToJSON,
-} from '../models/ContentV2DirectoryColorsGet200Response';
-import {
-    type ContentV2DirectoryCountriesGet200Response,
-    ContentV2DirectoryCountriesGet200ResponseFromJSON,
-    ContentV2DirectoryCountriesGet200ResponseToJSON,
-} from '../models/ContentV2DirectoryCountriesGet200Response';
-import {
-    type ContentV2DirectoryKindsGet200Response,
-    ContentV2DirectoryKindsGet200ResponseFromJSON,
-    ContentV2DirectoryKindsGet200ResponseToJSON,
-} from '../models/ContentV2DirectoryKindsGet200Response';
-import {
-    type ContentV2DirectorySeasonsGet200Response,
-    ContentV2DirectorySeasonsGet200ResponseFromJSON,
-    ContentV2DirectorySeasonsGet200ResponseToJSON,
-} from '../models/ContentV2DirectorySeasonsGet200Response';
-import {
-    type ContentV2DirectoryTnvedGet200Response,
-    ContentV2DirectoryTnvedGet200ResponseFromJSON,
-    ContentV2DirectoryTnvedGet200ResponseToJSON,
-} from '../models/ContentV2DirectoryTnvedGet200Response';
-import {
-    type ContentV2DirectoryVatGet200Response,
-    ContentV2DirectoryVatGet200ResponseFromJSON,
-    ContentV2DirectoryVatGet200ResponseToJSON,
-} from '../models/ContentV2DirectoryVatGet200Response';
-import {
-    type ContentV2GetCardsListPost200Response,
-    ContentV2GetCardsListPost200ResponseFromJSON,
-    ContentV2GetCardsListPost200ResponseToJSON,
-} from '../models/ContentV2GetCardsListPost200Response';
-import {
-    type ContentV2GetCardsListPostRequest,
-    ContentV2GetCardsListPostRequestFromJSON,
-    ContentV2GetCardsListPostRequestToJSON,
-} from '../models/ContentV2GetCardsListPostRequest';
-import {
-    type ContentV2GetCardsTrashPost200Response,
-    ContentV2GetCardsTrashPost200ResponseFromJSON,
-    ContentV2GetCardsTrashPost200ResponseToJSON,
-} from '../models/ContentV2GetCardsTrashPost200Response';
-import {
-    type ContentV2GetCardsTrashPostRequest,
-    ContentV2GetCardsTrashPostRequestFromJSON,
-    ContentV2GetCardsTrashPostRequestToJSON,
-} from '../models/ContentV2GetCardsTrashPostRequest';
-import {
-    type ContentV2ObjectAllGet200Response,
-    ContentV2ObjectAllGet200ResponseFromJSON,
-    ContentV2ObjectAllGet200ResponseToJSON,
-} from '../models/ContentV2ObjectAllGet200Response';
-import {
-    type ContentV2ObjectAllGet403Response,
-    ContentV2ObjectAllGet403ResponseFromJSON,
-    ContentV2ObjectAllGet403ResponseToJSON,
-} from '../models/ContentV2ObjectAllGet403Response';
-import {
-    type ContentV2ObjectCharcsSubjectIdGet200Response,
-    ContentV2ObjectCharcsSubjectIdGet200ResponseFromJSON,
-    ContentV2ObjectCharcsSubjectIdGet200ResponseToJSON,
-} from '../models/ContentV2ObjectCharcsSubjectIdGet200Response';
-import {
-    type ContentV2ObjectParentAllGet200Response,
-    ContentV2ObjectParentAllGet200ResponseFromJSON,
-    ContentV2ObjectParentAllGet200ResponseToJSON,
-} from '../models/ContentV2ObjectParentAllGet200Response';
-import {
-    type ContentV2ObjectParentAllGet401Response,
-    ContentV2ObjectParentAllGet401ResponseFromJSON,
-    ContentV2ObjectParentAllGet401ResponseToJSON,
-} from '../models/ContentV2ObjectParentAllGet401Response';
-import {
-    type ContentV2TagIdPatchRequest,
-    ContentV2TagIdPatchRequestFromJSON,
-    ContentV2TagIdPatchRequestToJSON,
-} from '../models/ContentV2TagIdPatchRequest';
-import {
-    type ContentV2TagNomenclatureLinkPostRequest,
-    ContentV2TagNomenclatureLinkPostRequestFromJSON,
-    ContentV2TagNomenclatureLinkPostRequestToJSON,
-} from '../models/ContentV2TagNomenclatureLinkPostRequest';
-import {
-    type ContentV2TagPostRequest,
-    ContentV2TagPostRequestFromJSON,
-    ContentV2TagPostRequestToJSON,
-} from '../models/ContentV2TagPostRequest';
-import {
-    type ContentV2TagsGet200Response,
-    ContentV2TagsGet200ResponseFromJSON,
-    ContentV2TagsGet200ResponseToJSON,
-} from '../models/ContentV2TagsGet200Response';
-import {
-    type ContentV2TagsGet402Response,
-    ContentV2TagsGet402ResponseFromJSON,
-    ContentV2TagsGet402ResponseToJSON,
-} from '../models/ContentV2TagsGet402Response';
-import {
-    type ContentV3MediaFilePost200Response,
-    ContentV3MediaFilePost200ResponseFromJSON,
-    ContentV3MediaFilePost200ResponseToJSON,
-} from '../models/ContentV3MediaFilePost200Response';
-import {
-    type ContentV3MediaSavePostRequest,
-    ContentV3MediaSavePostRequestFromJSON,
-    ContentV3MediaSavePostRequestToJSON,
-} from '../models/ContentV3MediaSavePostRequest';
+    type DeleteV3StocksWarehouseIdRequest,
+    DeleteV3StocksWarehouseIdRequestFromJSON,
+    DeleteV3StocksWarehouseIdRequestToJSON,
+} from '../models/DeleteV3StocksWarehouseIdRequest';
 import {
     type GetRecomReq,
     GetRecomReqFromJSON,
@@ -294,6 +39,116 @@ import {
     GetRecomResToJSON,
 } from '../models/GetRecomRes';
 import {
+    type GetV2BufferGoodsTask200Response,
+    GetV2BufferGoodsTask200ResponseFromJSON,
+    GetV2BufferGoodsTask200ResponseToJSON,
+} from '../models/GetV2BufferGoodsTask200Response';
+import {
+    type GetV2BufferTasks200Response,
+    GetV2BufferTasks200ResponseFromJSON,
+    GetV2BufferTasks200ResponseToJSON,
+} from '../models/GetV2BufferTasks200Response';
+import {
+    type GetV2CardsLimits200Response,
+    GetV2CardsLimits200ResponseFromJSON,
+    GetV2CardsLimits200ResponseToJSON,
+} from '../models/GetV2CardsLimits200Response';
+import {
+    type GetV2DirectoryColors200Response,
+    GetV2DirectoryColors200ResponseFromJSON,
+    GetV2DirectoryColors200ResponseToJSON,
+} from '../models/GetV2DirectoryColors200Response';
+import {
+    type GetV2DirectoryCountries200Response,
+    GetV2DirectoryCountries200ResponseFromJSON,
+    GetV2DirectoryCountries200ResponseToJSON,
+} from '../models/GetV2DirectoryCountries200Response';
+import {
+    type GetV2DirectoryKinds200Response,
+    GetV2DirectoryKinds200ResponseFromJSON,
+    GetV2DirectoryKinds200ResponseToJSON,
+} from '../models/GetV2DirectoryKinds200Response';
+import {
+    type GetV2DirectorySeasons200Response,
+    GetV2DirectorySeasons200ResponseFromJSON,
+    GetV2DirectorySeasons200ResponseToJSON,
+} from '../models/GetV2DirectorySeasons200Response';
+import {
+    type GetV2DirectoryTnved200Response,
+    GetV2DirectoryTnved200ResponseFromJSON,
+    GetV2DirectoryTnved200ResponseToJSON,
+} from '../models/GetV2DirectoryTnved200Response';
+import {
+    type GetV2DirectoryVat200Response,
+    GetV2DirectoryVat200ResponseFromJSON,
+    GetV2DirectoryVat200ResponseToJSON,
+} from '../models/GetV2DirectoryVat200Response';
+import {
+    type GetV2HistoryGoodsTask200Response,
+    GetV2HistoryGoodsTask200ResponseFromJSON,
+    GetV2HistoryGoodsTask200ResponseToJSON,
+} from '../models/GetV2HistoryGoodsTask200Response';
+import {
+    type GetV2HistoryTasks200Response,
+    GetV2HistoryTasks200ResponseFromJSON,
+    GetV2HistoryTasks200ResponseToJSON,
+} from '../models/GetV2HistoryTasks200Response';
+import {
+    type GetV2ListGoodsFilter200Response,
+    GetV2ListGoodsFilter200ResponseFromJSON,
+    GetV2ListGoodsFilter200ResponseToJSON,
+} from '../models/GetV2ListGoodsFilter200Response';
+import {
+    type GetV2ListGoodsSizeNm200Response,
+    GetV2ListGoodsSizeNm200ResponseFromJSON,
+    GetV2ListGoodsSizeNm200ResponseToJSON,
+} from '../models/GetV2ListGoodsSizeNm200Response';
+import {
+    type GetV2ObjectAll200Response,
+    GetV2ObjectAll200ResponseFromJSON,
+    GetV2ObjectAll200ResponseToJSON,
+} from '../models/GetV2ObjectAll200Response';
+import {
+    type GetV2ObjectAll403Response,
+    GetV2ObjectAll403ResponseFromJSON,
+    GetV2ObjectAll403ResponseToJSON,
+} from '../models/GetV2ObjectAll403Response';
+import {
+    type GetV2ObjectCharcsSubjectId200Response,
+    GetV2ObjectCharcsSubjectId200ResponseFromJSON,
+    GetV2ObjectCharcsSubjectId200ResponseToJSON,
+} from '../models/GetV2ObjectCharcsSubjectId200Response';
+import {
+    type GetV2ObjectParentAll200Response,
+    GetV2ObjectParentAll200ResponseFromJSON,
+    GetV2ObjectParentAll200ResponseToJSON,
+} from '../models/GetV2ObjectParentAll200Response';
+import {
+    type GetV2ObjectParentAll401Response,
+    GetV2ObjectParentAll401ResponseFromJSON,
+    GetV2ObjectParentAll401ResponseToJSON,
+} from '../models/GetV2ObjectParentAll401Response';
+import {
+    type GetV2QuarantineGoods200Response,
+    GetV2QuarantineGoods200ResponseFromJSON,
+    GetV2QuarantineGoods200ResponseToJSON,
+} from '../models/GetV2QuarantineGoods200Response';
+import {
+    type GetV2Tags200Response,
+    GetV2Tags200ResponseFromJSON,
+    GetV2Tags200ResponseToJSON,
+} from '../models/GetV2Tags200Response';
+import {
+    type GetV2Tags402Response,
+    GetV2Tags402ResponseFromJSON,
+    GetV2Tags402ResponseToJSON,
+} from '../models/GetV2Tags402Response';
+import {
+    type GetV3DbwWarehousesWarehouseIdContacts200Response,
+    GetV3DbwWarehousesWarehouseIdContacts200ResponseFromJSON,
+    GetV3DbwWarehousesWarehouseIdContacts200ResponseToJSON,
+} from '../models/GetV3DbwWarehousesWarehouseIdContacts200Response';
+import {
     type MediaErrors,
     MediaErrorsFromJSON,
     MediaErrorsToJSON,
@@ -303,6 +158,11 @@ import {
     OfficeFromJSON,
     OfficeToJSON,
 } from '../models/Office';
+import {
+    type PatchV2TagIdRequest,
+    PatchV2TagIdRequestFromJSON,
+    PatchV2TagIdRequestToJSON,
+} from '../models/PatchV2TagIdRequest';
 import {
     type PostV1UploadTaskB2bWholesale200Response,
     PostV1UploadTaskB2bWholesale200ResponseFromJSON,
@@ -318,6 +178,146 @@ import {
     PostV1UploadTaskB2bWholesaleRequestFromJSON,
     PostV1UploadTaskB2bWholesaleRequestToJSON,
 } from '../models/PostV1UploadTaskB2bWholesaleRequest';
+import {
+    type PostV2Barcodes200Response,
+    PostV2Barcodes200ResponseFromJSON,
+    PostV2Barcodes200ResponseToJSON,
+} from '../models/PostV2Barcodes200Response';
+import {
+    type PostV2BarcodesRequest,
+    PostV2BarcodesRequestFromJSON,
+    PostV2BarcodesRequestToJSON,
+} from '../models/PostV2BarcodesRequest';
+import {
+    type PostV2CardsDeleteTrash200Response,
+    PostV2CardsDeleteTrash200ResponseFromJSON,
+    PostV2CardsDeleteTrash200ResponseToJSON,
+} from '../models/PostV2CardsDeleteTrash200Response';
+import {
+    type PostV2CardsDeleteTrashRequest,
+    PostV2CardsDeleteTrashRequestFromJSON,
+    PostV2CardsDeleteTrashRequestToJSON,
+} from '../models/PostV2CardsDeleteTrashRequest';
+import {
+    type PostV2CardsMoveNm400Response,
+    PostV2CardsMoveNm400ResponseFromJSON,
+    PostV2CardsMoveNm400ResponseToJSON,
+} from '../models/PostV2CardsMoveNm400Response';
+import {
+    type PostV2CardsMoveNmRequest,
+    PostV2CardsMoveNmRequestFromJSON,
+    PostV2CardsMoveNmRequestToJSON,
+} from '../models/PostV2CardsMoveNmRequest';
+import {
+    type PostV2CardsUpdate413Response,
+    PostV2CardsUpdate413ResponseFromJSON,
+    PostV2CardsUpdate413ResponseToJSON,
+} from '../models/PostV2CardsUpdate413Response';
+import {
+    type PostV2CardsUpdateRequestInner,
+    PostV2CardsUpdateRequestInnerFromJSON,
+    PostV2CardsUpdateRequestInnerToJSON,
+} from '../models/PostV2CardsUpdateRequestInner';
+import {
+    type PostV2CardsUploadAddRequest,
+    PostV2CardsUploadAddRequestFromJSON,
+    PostV2CardsUploadAddRequestToJSON,
+} from '../models/PostV2CardsUploadAddRequest';
+import {
+    type PostV2CardsUploadRequestInner,
+    PostV2CardsUploadRequestInnerFromJSON,
+    PostV2CardsUploadRequestInnerToJSON,
+} from '../models/PostV2CardsUploadRequestInner';
+import {
+    type PostV2GetCardsList200Response,
+    PostV2GetCardsList200ResponseFromJSON,
+    PostV2GetCardsList200ResponseToJSON,
+} from '../models/PostV2GetCardsList200Response';
+import {
+    type PostV2GetCardsListRequest,
+    PostV2GetCardsListRequestFromJSON,
+    PostV2GetCardsListRequestToJSON,
+} from '../models/PostV2GetCardsListRequest';
+import {
+    type PostV2GetCardsTrash200Response,
+    PostV2GetCardsTrash200ResponseFromJSON,
+    PostV2GetCardsTrash200ResponseToJSON,
+} from '../models/PostV2GetCardsTrash200Response';
+import {
+    type PostV2GetCardsTrashRequest,
+    PostV2GetCardsTrashRequestFromJSON,
+    PostV2GetCardsTrashRequestToJSON,
+} from '../models/PostV2GetCardsTrashRequest';
+import {
+    type PostV2ListGoodsFilterRequest,
+    PostV2ListGoodsFilterRequestFromJSON,
+    PostV2ListGoodsFilterRequestToJSON,
+} from '../models/PostV2ListGoodsFilterRequest';
+import {
+    type PostV2TagNomenclatureLinkRequest,
+    PostV2TagNomenclatureLinkRequestFromJSON,
+    PostV2TagNomenclatureLinkRequestToJSON,
+} from '../models/PostV2TagNomenclatureLinkRequest';
+import {
+    type PostV2TagRequest,
+    PostV2TagRequestFromJSON,
+    PostV2TagRequestToJSON,
+} from '../models/PostV2TagRequest';
+import {
+    type PostV2UploadTaskClubDiscountRequest,
+    PostV2UploadTaskClubDiscountRequestFromJSON,
+    PostV2UploadTaskClubDiscountRequestToJSON,
+} from '../models/PostV2UploadTaskClubDiscountRequest';
+import {
+    type PostV2UploadTaskRequest,
+    PostV2UploadTaskRequestFromJSON,
+    PostV2UploadTaskRequestToJSON,
+} from '../models/PostV2UploadTaskRequest';
+import {
+    type PostV2UploadTaskSizeRequest,
+    PostV2UploadTaskSizeRequestFromJSON,
+    PostV2UploadTaskSizeRequestToJSON,
+} from '../models/PostV2UploadTaskSizeRequest';
+import {
+    type PostV3MediaFile200Response,
+    PostV3MediaFile200ResponseFromJSON,
+    PostV3MediaFile200ResponseToJSON,
+} from '../models/PostV3MediaFile200Response';
+import {
+    type PostV3MediaSaveRequest,
+    PostV3MediaSaveRequestFromJSON,
+    PostV3MediaSaveRequestToJSON,
+} from '../models/PostV3MediaSaveRequest';
+import {
+    type PostV3StocksWarehouseId200Response,
+    PostV3StocksWarehouseId200ResponseFromJSON,
+    PostV3StocksWarehouseId200ResponseToJSON,
+} from '../models/PostV3StocksWarehouseId200Response';
+import {
+    type PostV3StocksWarehouseIdRequest,
+    PostV3StocksWarehouseIdRequestFromJSON,
+    PostV3StocksWarehouseIdRequestToJSON,
+} from '../models/PostV3StocksWarehouseIdRequest';
+import {
+    type PostV3Warehouses201Response,
+    PostV3Warehouses201ResponseFromJSON,
+    PostV3Warehouses201ResponseToJSON,
+} from '../models/PostV3Warehouses201Response';
+import {
+    type PostV3WarehousesRequest,
+    PostV3WarehousesRequestFromJSON,
+    PostV3WarehousesRequestToJSON,
+} from '../models/PostV3WarehousesRequest';
+import {
+    type PutV3StocksWarehouseIdRequest,
+    PutV3StocksWarehouseIdRequestFromJSON,
+    PutV3StocksWarehouseIdRequestToJSON,
+} from '../models/PutV3StocksWarehouseIdRequest';
+import {
+    type PutV3WarehousesWarehouseIdRequest,
+    PutV3WarehousesWarehouseIdRequestFromJSON,
+    PutV3WarehousesWarehouseIdRequestToJSON,
+} from '../models/PutV3WarehousesWarehouseIdRequest';
 import {
     type RequestAlreadyExistsError,
     RequestAlreadyExistsErrorFromJSON,
@@ -419,7 +419,32 @@ import {
     WarehouseToJSON,
 } from '../models/Warehouse';
 
-export interface ApiContentV1BrandsGetRequest {
+export interface DeleteV2TagIdRequest {
+    /**
+     * Числовой ID ярлыка
+     */
+    id: number;
+}
+
+export interface DeleteV3StocksWarehouseIdOperationRequest {
+    /**
+     * ID склада продавца
+     */
+    warehouseId: number;
+    /**
+     * 
+     */
+    deleteV3StocksWarehouseIdRequest: DeleteV3StocksWarehouseIdRequest;
+}
+
+export interface DeleteV3WarehousesWarehouseIdRequest {
+    /**
+     * ID склада продавца
+     */
+    warehouseId: number;
+}
+
+export interface GetV1BrandsRequest {
     /**
      * ID предмета
      */
@@ -430,7 +455,7 @@ export interface ApiContentV1BrandsGetRequest {
     next?: number;
 }
 
-export interface ApiV2BufferGoodsTaskGetRequest {
+export interface GetV2BufferGoodsTaskRequest {
     /**
      * Сколько элементов вывести на одной странице (пагинация)
      */
@@ -445,247 +470,14 @@ export interface ApiV2BufferGoodsTaskGetRequest {
     offset?: number;
 }
 
-export interface ApiV2BufferTasksGetRequest {
+export interface GetV2BufferTasksRequest {
     /**
      * ID загрузки
      */
     uploadID: number;
 }
 
-export interface ApiV2HistoryGoodsTaskGetRequest {
-    /**
-     * Сколько элементов вывести на одной странице (пагинация)
-     */
-    limit: number;
-    /**
-     * ID загрузки
-     */
-    uploadID: number;
-    /**
-     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
-     */
-    offset?: number;
-}
-
-export interface ApiV2HistoryTasksGetRequest {
-    /**
-     * ID загрузки
-     */
-    uploadID: number;
-}
-
-export interface ApiV2ListGoodsFilterGetRequest {
-    /**
-     * Сколько элементов вывести на одной странице (пагинация)
-     */
-    limit: number;
-    /**
-     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
-     */
-    offset?: number;
-    /**
-     * Артикул WB для поиска товара
-     */
-    filterNmID?: number;
-}
-
-export interface ApiV2ListGoodsFilterPostOperationRequest {
-    /**
-     * 
-     */
-    apiV2ListGoodsFilterPostRequest: ApiV2ListGoodsFilterPostRequest;
-}
-
-export interface ApiV2ListGoodsSizeNmGetRequest {
-    /**
-     * Сколько элементов вывести на одной странице (пагинация)
-     */
-    limit: number;
-    /**
-     * Артикул WB
-     */
-    nmID: number;
-    /**
-     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
-     */
-    offset?: number;
-}
-
-export interface ApiV2QuarantineGoodsGetRequest {
-    /**
-     * Сколько элементов вывести на одной странице (пагинация)
-     */
-    limit: number;
-    /**
-     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
-     */
-    offset?: number;
-}
-
-export interface ApiV2UploadTaskClubDiscountPostOperationRequest {
-    /**
-     * 
-     */
-    apiV2UploadTaskClubDiscountPostRequest: ApiV2UploadTaskClubDiscountPostRequest;
-}
-
-export interface ApiV2UploadTaskPostOperationRequest {
-    /**
-     * 
-     */
-    apiV2UploadTaskPostRequest: ApiV2UploadTaskPostRequest;
-}
-
-export interface ApiV2UploadTaskSizePostOperationRequest {
-    /**
-     * 
-     */
-    apiV2UploadTaskSizePostRequest: ApiV2UploadTaskSizePostRequest;
-}
-
-export interface ApiV3DbwWarehousesWarehouseIdContactsGetRequest {
-    /**
-     * ID склада продавца
-     */
-    warehouseId: number;
-}
-
-export interface ApiV3DbwWarehousesWarehouseIdContactsPutRequest {
-    /**
-     * ID склада продавца
-     */
-    warehouseId: number;
-    /**
-     * 
-     */
-    storeContactRequestBody: StoreContactRequestBody;
-}
-
-export interface ApiV3StocksWarehouseIdDeleteOperationRequest {
-    /**
-     * ID склада продавца
-     */
-    warehouseId: number;
-    /**
-     * 
-     */
-    apiV3StocksWarehouseIdDeleteRequest: ApiV3StocksWarehouseIdDeleteRequest;
-}
-
-export interface ApiV3StocksWarehouseIdPostOperationRequest {
-    /**
-     * ID склада продавца
-     */
-    warehouseId: number;
-    /**
-     * 
-     */
-    apiV3StocksWarehouseIdPostRequest: ApiV3StocksWarehouseIdPostRequest;
-}
-
-export interface ApiV3StocksWarehouseIdPutOperationRequest {
-    /**
-     * ID склада продавца
-     */
-    warehouseId: number;
-    /**
-     * 
-     */
-    apiV3StocksWarehouseIdPutRequest?: ApiV3StocksWarehouseIdPutRequest;
-}
-
-export interface ApiV3WarehousesPostOperationRequest {
-    /**
-     * 
-     */
-    apiV3WarehousesPostRequest: ApiV3WarehousesPostRequest;
-}
-
-export interface ApiV3WarehousesWarehouseIdDeleteRequest {
-    /**
-     * ID склада продавца
-     */
-    warehouseId: number;
-}
-
-export interface ApiV3WarehousesWarehouseIdPutOperationRequest {
-    /**
-     * ID склада продавца
-     */
-    warehouseId: number;
-    /**
-     * 
-     */
-    apiV3WarehousesWarehouseIdPutRequest: ApiV3WarehousesWarehouseIdPutRequest;
-}
-
-export interface ContentV2BarcodesPostOperationRequest {
-    /**
-     * 
-     */
-    contentV2BarcodesPostRequest: ContentV2BarcodesPostRequest;
-}
-
-export interface ContentV2CardsDeleteTrashPostOperationRequest {
-    /**
-     * 
-     */
-    contentV2CardsDeleteTrashPostRequest: ContentV2CardsDeleteTrashPostRequest;
-}
-
-export interface ContentV2CardsErrorListPostRequest {
-    /**
-     * 
-     */
-    requestPublicViewerPublicErrorsTableListV2: RequestPublicViewerPublicErrorsTableListV2;
-    /**
-     * Язык названий предметов:
-     *   - `ru` — русский
-     *   - `en` — английский
-     *   - `zh` — китайский
-     * 
-     * Не используется в песочнице
-     * 
-     */
-    locale?: string;
-}
-
-export interface ContentV2CardsMoveNmPostOperationRequest {
-    /**
-     * 
-     */
-    contentV2CardsMoveNmPostRequest?: ContentV2CardsMoveNmPostRequest;
-}
-
-export interface ContentV2CardsRecoverPostRequest {
-    /**
-     * 
-     */
-    contentV2CardsDeleteTrashPostRequest: ContentV2CardsDeleteTrashPostRequest;
-}
-
-export interface ContentV2CardsUpdatePostRequest {
-    /**
-     * 
-     */
-    contentV2CardsUpdatePostRequestInner?: Array<ContentV2CardsUpdatePostRequestInner>;
-}
-
-export interface ContentV2CardsUploadAddPostOperationRequest {
-    /**
-     * 
-     */
-    contentV2CardsUploadAddPostRequest?: ContentV2CardsUploadAddPostRequest;
-}
-
-export interface ContentV2CardsUploadPostRequest {
-    /**
-     * 
-     */
-    contentV2CardsUploadPostRequestInner?: Array<ContentV2CardsUploadPostRequestInner>;
-}
-
-export interface ContentV2DirectoryColorsGetRequest {
+export interface GetV2DirectoryColorsRequest {
     /**
      * Язык полей ответа `subjectName` и `name`:
      *   - `ru` — русский
@@ -698,7 +490,7 @@ export interface ContentV2DirectoryColorsGetRequest {
     locale?: string;
 }
 
-export interface ContentV2DirectoryCountriesGetRequest {
+export interface GetV2DirectoryCountriesRequest {
     /**
      * Язык полей ответа `subjectName` и `name`:
      *   - `ru` — русский
@@ -711,7 +503,7 @@ export interface ContentV2DirectoryCountriesGetRequest {
     locale?: string;
 }
 
-export interface ContentV2DirectoryKindsGetRequest {
+export interface GetV2DirectoryKindsRequest {
     /**
      * Язык полей ответа `subjectName` и `name`:
      *   - `ru` — русский
@@ -724,7 +516,7 @@ export interface ContentV2DirectoryKindsGetRequest {
     locale?: string;
 }
 
-export interface ContentV2DirectorySeasonsGetRequest {
+export interface GetV2DirectorySeasonsRequest {
     /**
      * Язык полей ответа `subjectName` и `name`:
      *   - `ru` — русский
@@ -737,7 +529,7 @@ export interface ContentV2DirectorySeasonsGetRequest {
     locale?: string;
 }
 
-export interface ContentV2DirectoryTnvedGetRequest {
+export interface GetV2DirectoryTnvedRequest {
     /**
      * ID предмета
      */
@@ -758,7 +550,7 @@ export interface ContentV2DirectoryTnvedGetRequest {
     locale?: string;
 }
 
-export interface ContentV2DirectoryVatGetRequest {
+export interface GetV2DirectoryVatRequest {
     /**
      * Язык полей ответа `subjectName` и `name`:
      *   - `ru` — русский
@@ -771,41 +563,59 @@ export interface ContentV2DirectoryVatGetRequest {
     locale?: string;
 }
 
-export interface ContentV2GetCardsListPostOperationRequest {
+export interface GetV2HistoryGoodsTaskRequest {
     /**
-     * 
+     * Сколько элементов вывести на одной странице (пагинация)
      */
-    contentV2GetCardsListPostRequest: ContentV2GetCardsListPostRequest;
+    limit: number;
     /**
-     * Язык полей ответа `name`, `value` и `object`:
-     *   - `ru` — русский
-     *   - `en` — английский
-     *   - `zh` — китайский
-     * 
-     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
-     * 
+     * ID загрузки
      */
-    locale?: string;
+    uploadID: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
+    offset?: number;
 }
 
-export interface ContentV2GetCardsTrashPostOperationRequest {
+export interface GetV2HistoryTasksRequest {
     /**
-     * 
+     * ID загрузки
      */
-    contentV2GetCardsTrashPostRequest: ContentV2GetCardsTrashPostRequest;
-    /**
-     * Язык полей ответа `name`, `value` и `object`:
-     *   - `ru` — русский
-     *   - `en` — английский
-     *   - `zh` — китайский
-     * 
-     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
-     * 
-     */
-    locale?: ContentV2GetCardsTrashPostOperationLocaleEnum;
+    uploadID: number;
 }
 
-export interface ContentV2ObjectAllGetRequest {
+export interface GetV2ListGoodsFilterRequest {
+    /**
+     * Сколько элементов вывести на одной странице (пагинация)
+     */
+    limit: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
+    offset?: number;
+    /**
+     * Артикул WB для поиска товара
+     */
+    filterNmID?: number;
+}
+
+export interface GetV2ListGoodsSizeNmRequest {
+    /**
+     * Сколько элементов вывести на одной странице (пагинация)
+     */
+    limit: number;
+    /**
+     * Артикул WB
+     */
+    nmID: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
+    offset?: number;
+}
+
+export interface GetV2ObjectAllRequest {
     /**
      * Язык полей ответа:
      *   - `ru` — русский
@@ -834,7 +644,7 @@ export interface ContentV2ObjectAllGetRequest {
     parentID?: number;
 }
 
-export interface ContentV2ObjectCharcsSubjectIdGetRequest {
+export interface GetV2ObjectCharcsSubjectIdRequest {
     /**
      * ID предмета
      */
@@ -851,7 +661,7 @@ export interface ContentV2ObjectCharcsSubjectIdGetRequest {
     locale?: string;
 }
 
-export interface ContentV2ObjectParentAllGetRequest {
+export interface GetV2ObjectParentAllRequest {
     /**
      * Язык поля ответа `name`:
      *   - `ru` — русский
@@ -864,61 +674,33 @@ export interface ContentV2ObjectParentAllGetRequest {
     locale?: string;
 }
 
-export interface ContentV2TagIdDeleteRequest {
+export interface GetV2QuarantineGoodsRequest {
+    /**
+     * Сколько элементов вывести на одной странице (пагинация)
+     */
+    limit: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
+    offset?: number;
+}
+
+export interface GetV3DbwWarehousesWarehouseIdContactsRequest {
+    /**
+     * ID склада продавца
+     */
+    warehouseId: number;
+}
+
+export interface PatchV2TagIdOperationRequest {
     /**
      * Числовой ID ярлыка
      */
     id: number;
-}
-
-export interface ContentV2TagIdPatchOperationRequest {
-    /**
-     * Числовой ID ярлыка
-     */
-    id: number;
     /**
      * 
      */
-    contentV2TagIdPatchRequest: ContentV2TagIdPatchRequest;
-}
-
-export interface ContentV2TagNomenclatureLinkPostOperationRequest {
-    /**
-     * 
-     */
-    contentV2TagNomenclatureLinkPostRequest: ContentV2TagNomenclatureLinkPostRequest;
-}
-
-export interface ContentV2TagPostOperationRequest {
-    /**
-     * 
-     */
-    contentV2TagPostRequest: ContentV2TagPostRequest;
-}
-
-export interface ContentV3MediaFilePostRequest {
-    /**
-     * Артикул WB
-     */
-    xNmId: string;
-    /**
-     * Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.
-     * 
-     * Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов.
-     * 
-     */
-    xPhotoNumber: number;
-    /**
-     * 
-     */
-    uploadfile?: Blob;
-}
-
-export interface ContentV3MediaSavePostOperationRequest {
-    /**
-     * 
-     */
-    contentV3MediaSavePostRequest: ContentV3MediaSavePostRequest;
+    patchV2TagIdRequest: PatchV2TagIdRequest;
 }
 
 export interface PostV1RecommendationsListRequest {
@@ -942,19 +724,398 @@ export interface PostV1UploadTaskB2bWholesaleOperationRequest {
     postV1UploadTaskB2bWholesaleRequest: PostV1UploadTaskB2bWholesaleRequest;
 }
 
+export interface PostV2BarcodesOperationRequest {
+    /**
+     * 
+     */
+    postV2BarcodesRequest: PostV2BarcodesRequest;
+}
+
+export interface PostV2CardsDeleteTrashOperationRequest {
+    /**
+     * 
+     */
+    postV2CardsDeleteTrashRequest: PostV2CardsDeleteTrashRequest;
+}
+
+export interface PostV2CardsErrorListRequest {
+    /**
+     * 
+     */
+    requestPublicViewerPublicErrorsTableListV2: RequestPublicViewerPublicErrorsTableListV2;
+    /**
+     * Язык названий предметов:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице
+     * 
+     */
+    locale?: string;
+}
+
+export interface PostV2CardsMoveNmOperationRequest {
+    /**
+     * 
+     */
+    postV2CardsMoveNmRequest?: PostV2CardsMoveNmRequest;
+}
+
+export interface PostV2CardsRecoverRequest {
+    /**
+     * 
+     */
+    postV2CardsDeleteTrashRequest: PostV2CardsDeleteTrashRequest;
+}
+
+export interface PostV2CardsUpdateRequest {
+    /**
+     * 
+     */
+    postV2CardsUpdateRequestInner?: Array<PostV2CardsUpdateRequestInner>;
+}
+
+export interface PostV2CardsUploadRequest {
+    /**
+     * 
+     */
+    postV2CardsUploadRequestInner?: Array<PostV2CardsUploadRequestInner>;
+}
+
+export interface PostV2CardsUploadAddOperationRequest {
+    /**
+     * 
+     */
+    postV2CardsUploadAddRequest?: PostV2CardsUploadAddRequest;
+}
+
+export interface PostV2GetCardsListOperationRequest {
+    /**
+     * 
+     */
+    postV2GetCardsListRequest: PostV2GetCardsListRequest;
+    /**
+     * Язык полей ответа `name`, `value` и `object`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
+    locale?: string;
+}
+
+export interface PostV2GetCardsTrashOperationRequest {
+    /**
+     * 
+     */
+    postV2GetCardsTrashRequest: PostV2GetCardsTrashRequest;
+    /**
+     * Язык полей ответа `name`, `value` и `object`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
+    locale?: PostV2GetCardsTrashOperationLocaleEnum;
+}
+
+export interface PostV2ListGoodsFilterOperationRequest {
+    /**
+     * 
+     */
+    postV2ListGoodsFilterRequest: PostV2ListGoodsFilterRequest;
+}
+
+export interface PostV2TagOperationRequest {
+    /**
+     * 
+     */
+    postV2TagRequest: PostV2TagRequest;
+}
+
+export interface PostV2TagNomenclatureLinkOperationRequest {
+    /**
+     * 
+     */
+    postV2TagNomenclatureLinkRequest: PostV2TagNomenclatureLinkRequest;
+}
+
+export interface PostV2UploadTaskOperationRequest {
+    /**
+     * 
+     */
+    postV2UploadTaskRequest: PostV2UploadTaskRequest;
+}
+
+export interface PostV2UploadTaskClubDiscountOperationRequest {
+    /**
+     * 
+     */
+    postV2UploadTaskClubDiscountRequest: PostV2UploadTaskClubDiscountRequest;
+}
+
+export interface PostV2UploadTaskSizeOperationRequest {
+    /**
+     * 
+     */
+    postV2UploadTaskSizeRequest: PostV2UploadTaskSizeRequest;
+}
+
+export interface PostV3MediaFileRequest {
+    /**
+     * Артикул WB
+     */
+    xNmId: string;
+    /**
+     * Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.
+     * 
+     * Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов.
+     * 
+     */
+    xPhotoNumber: number;
+    /**
+     * 
+     */
+    uploadfile?: Blob;
+}
+
+export interface PostV3MediaSaveOperationRequest {
+    /**
+     * 
+     */
+    postV3MediaSaveRequest: PostV3MediaSaveRequest;
+}
+
+export interface PostV3StocksWarehouseIdOperationRequest {
+    /**
+     * ID склада продавца
+     */
+    warehouseId: number;
+    /**
+     * 
+     */
+    postV3StocksWarehouseIdRequest: PostV3StocksWarehouseIdRequest;
+}
+
+export interface PostV3WarehousesOperationRequest {
+    /**
+     * 
+     */
+    postV3WarehousesRequest: PostV3WarehousesRequest;
+}
+
+export interface PutV3DbwWarehousesWarehouseIdContactsRequest {
+    /**
+     * ID склада продавца
+     */
+    warehouseId: number;
+    /**
+     * 
+     */
+    storeContactRequestBody: StoreContactRequestBody;
+}
+
+export interface PutV3StocksWarehouseIdOperationRequest {
+    /**
+     * ID склада продавца
+     */
+    warehouseId: number;
+    /**
+     * 
+     */
+    putV3StocksWarehouseIdRequest?: PutV3StocksWarehouseIdRequest;
+}
+
+export interface PutV3WarehousesWarehouseIdOperationRequest {
+    /**
+     * ID склада продавца
+     */
+    warehouseId: number;
+    /**
+     * 
+     */
+    putV3WarehousesWarehouseIdRequest: PutV3WarehousesWarehouseIdRequest;
+}
+
 /**
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for apiContentV1BrandsGet without sending the request
+     * Creates request options for deleteV2TagId without sending the request
      */
-    async apiContentV1BrandsGetRequestOpts(requestParameters: ApiContentV1BrandsGetRequest): Promise<runtime.RequestOpts> {
+    async deleteV2TagIdRequestOpts(requestParameters: DeleteV2TagIdRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling deleteV2TagId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/tag/{id}`;
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
+
+        return {
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод удаляет ярлык из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Удаление ярлыка
+     */
+    async deleteV2TagIdRaw(requestParameters: DeleteV2TagIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
+        const requestOptions = await this.deleteV2TagIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseContentErrorFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод удаляет ярлык из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Удаление ярлыка
+     */
+    async deleteV2TagId(requestParameters: DeleteV2TagIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
+        const response = await this.deleteV2TagIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for deleteV3StocksWarehouseId without sending the request
+     */
+    async deleteV3StocksWarehouseIdRequestOpts(requestParameters: DeleteV3StocksWarehouseIdOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['warehouseId'] == null) {
+            throw new runtime.RequiredError(
+                'warehouseId',
+                'Required parameter "warehouseId" was null or undefined when calling deleteV3StocksWarehouseId().'
+            );
+        }
+
+        if (requestParameters['deleteV3StocksWarehouseIdRequest'] == null) {
+            throw new runtime.RequiredError(
+                'deleteV3StocksWarehouseIdRequest',
+                'Required parameter "deleteV3StocksWarehouseIdRequest" was null or undefined when calling deleteV3StocksWarehouseId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/stocks/{warehouseId}`;
+        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
+
+        return {
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DeleteV3StocksWarehouseIdRequestToJSON(requestParameters['deleteV3StocksWarehouseIdRequest']),
+        };
+    }
+
+    /**
+     * Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).  <div class=\"description_important\">   <strong>Действие необратимо</strong>. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 2 запроса |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Удалить остатки товаров
+     */
+    async deleteV3StocksWarehouseIdRaw(requestParameters: DeleteV3StocksWarehouseIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.deleteV3StocksWarehouseIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).  <div class=\"description_important\">   <strong>Действие необратимо</strong>. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 2 запроса |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Удалить остатки товаров
+     */
+    async deleteV3StocksWarehouseId(requestParameters: DeleteV3StocksWarehouseIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteV3StocksWarehouseIdRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for deleteV3WarehousesWarehouseId without sending the request
+     */
+    async deleteV3WarehousesWarehouseIdRequestOpts(requestParameters: DeleteV3WarehousesWarehouseIdRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['warehouseId'] == null) {
+            throw new runtime.RequiredError(
+                'warehouseId',
+                'Required parameter "warehouseId" was null or undefined when calling deleteV3WarehousesWarehouseId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/warehouses/{warehouseId}`;
+        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
+
+        return {
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод удаляет [склад продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Удалить склад продавца
+     */
+    async deleteV3WarehousesWarehouseIdRaw(requestParameters: DeleteV3WarehousesWarehouseIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.deleteV3WarehousesWarehouseIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод удаляет [склад продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Удалить склад продавца
+     */
+    async deleteV3WarehousesWarehouseId(requestParameters: DeleteV3WarehousesWarehouseIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteV3WarehousesWarehouseIdRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for getV1Brands without sending the request
+     */
+    async getV1BrandsRequestOpts(requestParameters: GetV1BrandsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['subjectId'] == null) {
             throw new runtime.RequiredError(
                 'subjectId',
-                'Required parameter "subjectId" was null or undefined when calling apiContentV1BrandsGet().'
+                'Required parameter "subjectId" was null or undefined when calling getV1Brands().'
             );
         }
 
@@ -989,8 +1150,8 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает список брендов по ID предмета.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Бренды
      */
-    async apiContentV1BrandsGetRaw(requestParameters: ApiContentV1BrandsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BrandsResponse>> {
-        const requestOptions = await this.apiContentV1BrandsGetRequestOpts(requestParameters);
+    async getV1BrandsRaw(requestParameters: GetV1BrandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BrandsResponse>> {
+        const requestOptions = await this.getV1BrandsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BrandsResponseFromJSON(jsonValue));
@@ -1000,26 +1161,26 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает список брендов по ID предмета.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Бренды
      */
-    async apiContentV1BrandsGet(requestParameters: ApiContentV1BrandsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BrandsResponse> {
-        const response = await this.apiContentV1BrandsGetRaw(requestParameters, initOverrides);
+    async getV1Brands(requestParameters: GetV1BrandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BrandsResponse> {
+        const response = await this.getV1BrandsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV2BufferGoodsTaskGet without sending the request
+     * Creates request options for getV2BufferGoodsTask without sending the request
      */
-    async apiV2BufferGoodsTaskGetRequestOpts(requestParameters: ApiV2BufferGoodsTaskGetRequest): Promise<runtime.RequestOpts> {
+    async getV2BufferGoodsTaskRequestOpts(requestParameters: GetV2BufferGoodsTaskRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['limit'] == null) {
             throw new runtime.RequiredError(
                 'limit',
-                'Required parameter "limit" was null or undefined when calling apiV2BufferGoodsTaskGet().'
+                'Required parameter "limit" was null or undefined when calling getV2BufferGoodsTask().'
             );
         }
 
         if (requestParameters['uploadID'] == null) {
             throw new runtime.RequiredError(
                 'uploadID',
-                'Required parameter "uploadID" was null or undefined when calling apiV2BufferGoodsTaskGet().'
+                'Required parameter "uploadID" was null or undefined when calling getV2BufferGoodsTask().'
             );
         }
 
@@ -1058,30 +1219,30 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Детализация необработанной загрузки
      */
-    async apiV2BufferGoodsTaskGetRaw(requestParameters: ApiV2BufferGoodsTaskGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2BufferGoodsTaskGet200Response>> {
-        const requestOptions = await this.apiV2BufferGoodsTaskGetRequestOpts(requestParameters);
+    async getV2BufferGoodsTaskRaw(requestParameters: GetV2BufferGoodsTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2BufferGoodsTask200Response>> {
+        const requestOptions = await this.getV2BufferGoodsTaskRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2BufferGoodsTaskGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2BufferGoodsTask200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Детализация необработанной загрузки
      */
-    async apiV2BufferGoodsTaskGet(requestParameters: ApiV2BufferGoodsTaskGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2BufferGoodsTaskGet200Response> {
-        const response = await this.apiV2BufferGoodsTaskGetRaw(requestParameters, initOverrides);
+    async getV2BufferGoodsTask(requestParameters: GetV2BufferGoodsTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2BufferGoodsTask200Response> {
+        const response = await this.getV2BufferGoodsTaskRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV2BufferTasksGet without sending the request
+     * Creates request options for getV2BufferTasks without sending the request
      */
-    async apiV2BufferTasksGetRequestOpts(requestParameters: ApiV2BufferTasksGetRequest): Promise<runtime.RequestOpts> {
+    async getV2BufferTasksRequestOpts(requestParameters: GetV2BufferTasksRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['uploadID'] == null) {
             throw new runtime.RequiredError(
                 'uploadID',
-                'Required parameter "uploadID" was null or undefined when calling apiV2BufferTasksGet().'
+                'Required parameter "uploadID" was null or undefined when calling getV2BufferTasks().'
             );
         }
 
@@ -1112,1247 +1273,26 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает информацию про загрузку скидок в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Состояние необработанной загрузки
      */
-    async apiV2BufferTasksGetRaw(requestParameters: ApiV2BufferTasksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2BufferTasksGet200Response>> {
-        const requestOptions = await this.apiV2BufferTasksGetRequestOpts(requestParameters);
+    async getV2BufferTasksRaw(requestParameters: GetV2BufferTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2BufferTasks200Response>> {
+        const requestOptions = await this.getV2BufferTasksRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2BufferTasksGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2BufferTasks200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает информацию про загрузку скидок в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Состояние необработанной загрузки
      */
-    async apiV2BufferTasksGet(requestParameters: ApiV2BufferTasksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2BufferTasksGet200Response> {
-        const response = await this.apiV2BufferTasksGetRaw(requestParameters, initOverrides);
+    async getV2BufferTasks(requestParameters: GetV2BufferTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2BufferTasks200Response> {
+        const response = await this.getV2BufferTasksRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV2HistoryGoodsTaskGet without sending the request
+     * Creates request options for getV2CardsLimits without sending the request
      */
-    async apiV2HistoryGoodsTaskGetRequestOpts(requestParameters: ApiV2HistoryGoodsTaskGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['limit'] == null) {
-            throw new runtime.RequiredError(
-                'limit',
-                'Required parameter "limit" was null or undefined when calling apiV2HistoryGoodsTaskGet().'
-            );
-        }
-
-        if (requestParameters['uploadID'] == null) {
-            throw new runtime.RequiredError(
-                'uploadID',
-                'Required parameter "uploadID" was null or undefined when calling apiV2HistoryGoodsTaskGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        if (requestParameters['offset'] != null) {
-            queryParameters['offset'] = requestParameters['offset'];
-        }
-
-        if (requestParameters['uploadID'] != null) {
-            queryParameters['uploadID'] = requestParameters['uploadID'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/history/goods/task`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post\">товаров</a>, цен для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post\">размеров товаров</a> <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post\">скидок WB Клуба</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Детализация обработанной загрузки
-     */
-    async apiV2HistoryGoodsTaskGetRaw(requestParameters: ApiV2HistoryGoodsTaskGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2HistoryGoodsTaskGet200Response>> {
-        const requestOptions = await this.apiV2HistoryGoodsTaskGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2HistoryGoodsTaskGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post\">товаров</a>, цен для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post\">размеров товаров</a> <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post\">скидок WB Клуба</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Детализация обработанной загрузки
-     */
-    async apiV2HistoryGoodsTaskGet(requestParameters: ApiV2HistoryGoodsTaskGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2HistoryGoodsTaskGet200Response> {
-        const response = await this.apiV2HistoryGoodsTaskGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV2HistoryTasksGet without sending the request
-     */
-    async apiV2HistoryTasksGetRequestOpts(requestParameters: ApiV2HistoryTasksGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['uploadID'] == null) {
-            throw new runtime.RequiredError(
-                'uploadID',
-                'Required parameter "uploadID" was null or undefined when calling apiV2HistoryTasksGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['uploadID'] != null) {
-            queryParameters['uploadID'] = requestParameters['uploadID'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/history/tasks`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает информацию об обработанной загрузке цен и скидок.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post\">товаров</a>, цен для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post\">размеров товаров</a>, <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post\">скидок WB Клуба</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Состояние обработанной загрузки
-     */
-    async apiV2HistoryTasksGetRaw(requestParameters: ApiV2HistoryTasksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2HistoryTasksGet200Response>> {
-        const requestOptions = await this.apiV2HistoryTasksGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2HistoryTasksGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию об обработанной загрузке цен и скидок.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post\">товаров</a>, цен для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post\">размеров товаров</a>, <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post\">скидок WB Клуба</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Состояние обработанной загрузки
-     */
-    async apiV2HistoryTasksGet(requestParameters: ApiV2HistoryTasksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2HistoryTasksGet200Response> {
-        const response = await this.apiV2HistoryTasksGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV2ListGoodsFilterGet without sending the request
-     */
-    async apiV2ListGoodsFilterGetRequestOpts(requestParameters: ApiV2ListGoodsFilterGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['limit'] == null) {
-            throw new runtime.RequiredError(
-                'limit',
-                'Required parameter "limit" was null or undefined when calling apiV2ListGoodsFilterGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        if (requestParameters['offset'] != null) {
-            queryParameters['offset'] = requestParameters['offset'];
-        }
-
-        if (requestParameters['filterNmID'] != null) {
-            queryParameters['filterNmID'] = requestParameters['filterNmID'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/list/goods/filter`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post) и [оптовые скидки для B2B-продаж](/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать только один артикул. <br><br> Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.<br><br> Используйте отдельные методы, чтобы получить информацию:   - о [нескольких товарах по артикулам](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post)   - о [размерах товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Получить товары с ценами
-     */
-    async apiV2ListGoodsFilterGetRaw(requestParameters: ApiV2ListGoodsFilterGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2ListGoodsFilterGet200Response>> {
-        const requestOptions = await this.apiV2ListGoodsFilterGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2ListGoodsFilterGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post) и [оптовые скидки для B2B-продаж](/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать только один артикул. <br><br> Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.<br><br> Используйте отдельные методы, чтобы получить информацию:   - о [нескольких товарах по артикулам](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post)   - о [размерах товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Получить товары с ценами
-     */
-    async apiV2ListGoodsFilterGet(requestParameters: ApiV2ListGoodsFilterGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2ListGoodsFilterGet200Response> {
-        const response = await this.apiV2ListGoodsFilterGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV2ListGoodsFilterPost without sending the request
-     */
-    async apiV2ListGoodsFilterPostRequestOpts(requestParameters: ApiV2ListGoodsFilterPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiV2ListGoodsFilterPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV2ListGoodsFilterPostRequest',
-                'Required parameter "apiV2ListGoodsFilterPostRequest" was null or undefined when calling apiV2ListGoodsFilterPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/list/goods/filter`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV2ListGoodsFilterPostRequestToJSON(requestParameters['apiV2ListGoodsFilterPostRequest']),
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post) и [оптовые скидки для B2B-продаж](/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать более одного артикула. <br><br> Используйте отдельные методы, чтобы получить информацию:   - обо [всех товарах продавца, не указывая артикулы](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get)   - о [размерах товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Получить товары с ценами по артикулам
-     */
-    async apiV2ListGoodsFilterPostRaw(requestParameters: ApiV2ListGoodsFilterPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2ListGoodsFilterGet200Response>> {
-        const requestOptions = await this.apiV2ListGoodsFilterPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2ListGoodsFilterGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post) и [оптовые скидки для B2B-продаж](/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать более одного артикула. <br><br> Используйте отдельные методы, чтобы получить информацию:   - обо [всех товарах продавца, не указывая артикулы](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get)   - о [размерах товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Получить товары с ценами по артикулам
-     */
-    async apiV2ListGoodsFilterPost(requestParameters: ApiV2ListGoodsFilterPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2ListGoodsFilterGet200Response> {
-        const response = await this.apiV2ListGoodsFilterPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV2ListGoodsSizeNmGet without sending the request
-     */
-    async apiV2ListGoodsSizeNmGetRequestOpts(requestParameters: ApiV2ListGoodsSizeNmGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['limit'] == null) {
-            throw new runtime.RequiredError(
-                'limit',
-                'Required parameter "limit" was null or undefined when calling apiV2ListGoodsSizeNmGet().'
-            );
-        }
-
-        if (requestParameters['nmID'] == null) {
-            throw new runtime.RequiredError(
-                'nmID',
-                'Required parameter "nmID" was null or undefined when calling apiV2ListGoodsSizeNmGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        if (requestParameters['offset'] != null) {
-            queryParameters['offset'] = requestParameters['offset'];
-        }
-
-        if (requestParameters['nmID'] != null) {
-            queryParameters['nmID'] = requestParameters['nmID'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/list/goods/size/nm`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post). <br><br> Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `\"editableSizePrice\":true`. <br><br> Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Получить размеры товара с ценами
-     */
-    async apiV2ListGoodsSizeNmGetRaw(requestParameters: ApiV2ListGoodsSizeNmGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2ListGoodsSizeNmGet200Response>> {
-        const requestOptions = await this.apiV2ListGoodsSizeNmGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2ListGoodsSizeNmGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post). <br><br> Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `\"editableSizePrice\":true`. <br><br> Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Получить размеры товара с ценами
-     */
-    async apiV2ListGoodsSizeNmGet(requestParameters: ApiV2ListGoodsSizeNmGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2ListGoodsSizeNmGet200Response> {
-        const response = await this.apiV2ListGoodsSizeNmGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV2QuarantineGoodsGet without sending the request
-     */
-    async apiV2QuarantineGoodsGetRequestOpts(requestParameters: ApiV2QuarantineGoodsGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['limit'] == null) {
-            throw new runtime.RequiredError(
-                'limit',
-                'Required parameter "limit" was null or undefined when calling apiV2QuarantineGoodsGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        if (requestParameters['offset'] != null) {
-            queryParameters['offset'] = requestParameters['offset'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/quarantine/goods`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о товарах в карантине. <br><br> Если новая цена товара со скидкой будет минимум в 3 раза меньше старой, товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в ответах методов [состояний загрузок](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get). <br><br> Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). <br><br> Для товаров с [поразмерной установкой цен](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post) карантин не применяется. <br><br> В [песочнице](/sandbox) товары автоматически удаляются из карантина через 3 дня.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Получить товары в карантине
-     */
-    async apiV2QuarantineGoodsGetRaw(requestParameters: ApiV2QuarantineGoodsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2QuarantineGoodsGet200Response>> {
-        const requestOptions = await this.apiV2QuarantineGoodsGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2QuarantineGoodsGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию о товарах в карантине. <br><br> Если новая цена товара со скидкой будет минимум в 3 раза меньше старой, товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в ответах методов [состояний загрузок](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get). <br><br> Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). <br><br> Для товаров с [поразмерной установкой цен](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post) карантин не применяется. <br><br> В [песочнице](/sandbox) товары автоматически удаляются из карантина через 3 дня.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Получить товары в карантине
-     */
-    async apiV2QuarantineGoodsGet(requestParameters: ApiV2QuarantineGoodsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2QuarantineGoodsGet200Response> {
-        const response = await this.apiV2QuarantineGoodsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV2UploadTaskClubDiscountPost without sending the request
-     */
-    async apiV2UploadTaskClubDiscountPostRequestOpts(requestParameters: ApiV2UploadTaskClubDiscountPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiV2UploadTaskClubDiscountPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV2UploadTaskClubDiscountPostRequest',
-                'Required parameter "apiV2UploadTaskClubDiscountPostRequest" was null or undefined when calling apiV2UploadTaskClubDiscountPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/upload/task/club-discount`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV2UploadTaskClubDiscountPostRequestToJSON(requestParameters['apiV2UploadTaskClubDiscountPostRequest']),
-        };
-    }
-
-    /**
-     * Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Установить скидки WB Клуба
-     */
-    async apiV2UploadTaskClubDiscountPostRaw(requestParameters: ApiV2UploadTaskClubDiscountPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaskCreated>> {
-        const requestOptions = await this.apiV2UploadTaskClubDiscountPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TaskCreatedFromJSON(jsonValue));
-    }
-
-    /**
-     * Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Установить скидки WB Клуба
-     */
-    async apiV2UploadTaskClubDiscountPost(requestParameters: ApiV2UploadTaskClubDiscountPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TaskCreated> {
-        const response = await this.apiV2UploadTaskClubDiscountPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV2UploadTaskPost without sending the request
-     */
-    async apiV2UploadTaskPostRequestOpts(requestParameters: ApiV2UploadTaskPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiV2UploadTaskPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV2UploadTaskPostRequest',
-                'Required parameter "apiV2UploadTaskPostRequest" was null or undefined when calling apiV2UploadTaskPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/upload/task`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV2UploadTaskPostRequestToJSON(requestParameters['apiV2UploadTaskPostRequest']),
-        };
-    }
-
-    /**
-     * Метод устанавливает цены и скидки для товаров. <br><br> Чтобы установить цены для размеров товара, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Установить цены и скидки
-     */
-    async apiV2UploadTaskPostRaw(requestParameters: ApiV2UploadTaskPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaskCreated>> {
-        const requestOptions = await this.apiV2UploadTaskPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TaskCreatedFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод устанавливает цены и скидки для товаров. <br><br> Чтобы установить цены для размеров товара, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Установить цены и скидки
-     */
-    async apiV2UploadTaskPost(requestParameters: ApiV2UploadTaskPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TaskCreated> {
-        const response = await this.apiV2UploadTaskPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV2UploadTaskSizePost without sending the request
-     */
-    async apiV2UploadTaskSizePostRequestOpts(requestParameters: ApiV2UploadTaskSizePostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiV2UploadTaskSizePostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV2UploadTaskSizePostRequest',
-                'Required parameter "apiV2UploadTaskSizePostRequest" was null or undefined when calling apiV2UploadTaskSizePost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/upload/task/size`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV2UploadTaskSizePostRequestToJSON(requestParameters['apiV2UploadTaskSizePostRequest']),
-        };
-    }
-
-    /**
-     * Метод устанавливает цены отдельно для размеров товаров.  Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get) `\"editableSizePrice\":true`.  Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Установить цены для размеров
-     */
-    async apiV2UploadTaskSizePostRaw(requestParameters: ApiV2UploadTaskSizePostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaskCreated>> {
-        const requestOptions = await this.apiV2UploadTaskSizePostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => TaskCreatedFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод устанавливает цены отдельно для размеров товаров.  Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get) `\"editableSizePrice\":true`.  Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Установить цены для размеров
-     */
-    async apiV2UploadTaskSizePost(requestParameters: ApiV2UploadTaskSizePostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TaskCreated> {
-        const response = await this.apiV2UploadTaskSizePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3DbwWarehousesWarehouseIdContactsGet without sending the request
-     */
-    async apiV3DbwWarehousesWarehouseIdContactsGetRequestOpts(requestParameters: ApiV3DbwWarehousesWarehouseIdContactsGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['warehouseId'] == null) {
-            throw new runtime.RequiredError(
-                'warehouseId',
-                'Required parameter "warehouseId" was null or undefined when calling apiV3DbwWarehousesWarehouseIdContactsGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/dbw/warehouses/{warehouseId}/contacts`;
-        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает список контактов, привязанных к [складу продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get). <br> Только для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Список контактов
-     */
-    async apiV3DbwWarehousesWarehouseIdContactsGetRaw(requestParameters: ApiV3DbwWarehousesWarehouseIdContactsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3DbwWarehousesWarehouseIdContactsGet200Response>> {
-        const requestOptions = await this.apiV3DbwWarehousesWarehouseIdContactsGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает список контактов, привязанных к [складу продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get). <br> Только для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Список контактов
-     */
-    async apiV3DbwWarehousesWarehouseIdContactsGet(requestParameters: ApiV3DbwWarehousesWarehouseIdContactsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3DbwWarehousesWarehouseIdContactsGet200Response> {
-        const response = await this.apiV3DbwWarehousesWarehouseIdContactsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3DbwWarehousesWarehouseIdContactsPut without sending the request
-     */
-    async apiV3DbwWarehousesWarehouseIdContactsPutRequestOpts(requestParameters: ApiV3DbwWarehousesWarehouseIdContactsPutRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['warehouseId'] == null) {
-            throw new runtime.RequiredError(
-                'warehouseId',
-                'Required parameter "warehouseId" was null or undefined when calling apiV3DbwWarehousesWarehouseIdContactsPut().'
-            );
-        }
-
-        if (requestParameters['storeContactRequestBody'] == null) {
-            throw new runtime.RequiredError(
-                'storeContactRequestBody',
-                'Required parameter "storeContactRequestBody" was null or undefined when calling apiV3DbwWarehousesWarehouseIdContactsPut().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/dbw/warehouses/{warehouseId}/contacts`;
-        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
-
-        return {
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: StoreContactRequestBodyToJSON(requestParameters['storeContactRequestBody']),
-        };
-    }
-
-    /**
-     * Метод обновляет список контактов [склада продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).  <div class=\"description_important\">   Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять. </div>  Только для складов с типом доставки `3` — курьером WB (DBW). <br><br> К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Обновить список контактов
-     */
-    async apiV3DbwWarehousesWarehouseIdContactsPutRaw(requestParameters: ApiV3DbwWarehousesWarehouseIdContactsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3DbwWarehousesWarehouseIdContactsPutRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод обновляет список контактов [склада продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).  <div class=\"description_important\">   Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять. </div>  Только для складов с типом доставки `3` — курьером WB (DBW). <br><br> К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Обновить список контактов
-     */
-    async apiV3DbwWarehousesWarehouseIdContactsPut(requestParameters: ApiV3DbwWarehousesWarehouseIdContactsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3DbwWarehousesWarehouseIdContactsPutRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for apiV3OfficesGet without sending the request
-     */
-    async apiV3OfficesGetRequestOpts(): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/offices`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/post) или [редактировании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses~1%7BwarehouseId%7D/put).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Получить список складов WB
-     */
-    async apiV3OfficesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Office>>> {
-        const requestOptions = await this.apiV3OfficesGetRequestOpts();
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(OfficeFromJSON));
-    }
-
-    /**
-     * Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/post) или [редактировании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses~1%7BwarehouseId%7D/put).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Получить список складов WB
-     */
-    async apiV3OfficesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Office>> {
-        const response = await this.apiV3OfficesGetRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3StocksWarehouseIdDelete without sending the request
-     */
-    async apiV3StocksWarehouseIdDeleteRequestOpts(requestParameters: ApiV3StocksWarehouseIdDeleteOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['warehouseId'] == null) {
-            throw new runtime.RequiredError(
-                'warehouseId',
-                'Required parameter "warehouseId" was null or undefined when calling apiV3StocksWarehouseIdDelete().'
-            );
-        }
-
-        if (requestParameters['apiV3StocksWarehouseIdDeleteRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV3StocksWarehouseIdDeleteRequest',
-                'Required parameter "apiV3StocksWarehouseIdDeleteRequest" was null or undefined when calling apiV3StocksWarehouseIdDelete().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/stocks/{warehouseId}`;
-        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
-
-        return {
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV3StocksWarehouseIdDeleteRequestToJSON(requestParameters['apiV3StocksWarehouseIdDeleteRequest']),
-        };
-    }
-
-    /**
-     * Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   <strong>Действие необратимо</strong>. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 2 запроса |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Удалить остатки товаров
-     */
-    async apiV3StocksWarehouseIdDeleteRaw(requestParameters: ApiV3StocksWarehouseIdDeleteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3StocksWarehouseIdDeleteRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   <strong>Действие необратимо</strong>. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 2 запроса |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Удалить остатки товаров
-     */
-    async apiV3StocksWarehouseIdDelete(requestParameters: ApiV3StocksWarehouseIdDeleteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3StocksWarehouseIdDeleteRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for apiV3StocksWarehouseIdPost without sending the request
-     */
-    async apiV3StocksWarehouseIdPostRequestOpts(requestParameters: ApiV3StocksWarehouseIdPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['warehouseId'] == null) {
-            throw new runtime.RequiredError(
-                'warehouseId',
-                'Required parameter "warehouseId" was null or undefined when calling apiV3StocksWarehouseIdPost().'
-            );
-        }
-
-        if (requestParameters['apiV3StocksWarehouseIdPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV3StocksWarehouseIdPostRequest',
-                'Required parameter "apiV3StocksWarehouseIdPostRequest" was null or undefined when calling apiV3StocksWarehouseIdPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/stocks/{warehouseId}`;
-        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV3StocksWarehouseIdPostRequestToJSON(requestParameters['apiV3StocksWarehouseIdPostRequest']),
-        };
-    }
-
-    /**
-     * Метод возвращает данные об остатках товаров на [складах продавца](/openapi/work-with-products#tag/Sklady-prodavca).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Получить остатки товаров
-     */
-    async apiV3StocksWarehouseIdPostRaw(requestParameters: ApiV3StocksWarehouseIdPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3StocksWarehouseIdPost200Response>> {
-        const requestOptions = await this.apiV3StocksWarehouseIdPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV3StocksWarehouseIdPost200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает данные об остатках товаров на [складах продавца](/openapi/work-with-products#tag/Sklady-prodavca).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Получить остатки товаров
-     */
-    async apiV3StocksWarehouseIdPost(requestParameters: ApiV3StocksWarehouseIdPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3StocksWarehouseIdPost200Response> {
-        const response = await this.apiV3StocksWarehouseIdPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3StocksWarehouseIdPut without sending the request
-     */
-    async apiV3StocksWarehouseIdPutRequestOpts(requestParameters: ApiV3StocksWarehouseIdPutOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['warehouseId'] == null) {
-            throw new runtime.RequiredError(
-                'warehouseId',
-                'Required parameter "warehouseId" was null or undefined when calling apiV3StocksWarehouseIdPut().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/stocks/{warehouseId}`;
-        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
-
-        return {
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV3StocksWarehouseIdPutRequestToJSON(requestParameters['apiV3StocksWarehouseIdPutRequest']),
-        };
-    }
-
-    /**
-     * Метод обновляет количество остатков товаров продавца [в списке](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (<code>204</code>), но остатки не обновятся. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Обновить остатки товаров
-     */
-    async apiV3StocksWarehouseIdPutRaw(requestParameters: ApiV3StocksWarehouseIdPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3StocksWarehouseIdPutRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод обновляет количество остатков товаров продавца [в списке](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (<code>204</code>), но остатки не обновятся. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Обновить остатки товаров
-     */
-    async apiV3StocksWarehouseIdPut(requestParameters: ApiV3StocksWarehouseIdPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3StocksWarehouseIdPutRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for apiV3WarehousesGet without sending the request
-     */
-    async apiV3WarehousesGetRequestOpts(): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/warehouses`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Получить список складов продавца
-     */
-    async apiV3WarehousesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Warehouse>>> {
-        const requestOptions = await this.apiV3WarehousesGetRequestOpts();
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(WarehouseFromJSON));
-    }
-
-    /**
-     * Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Получить список складов продавца
-     */
-    async apiV3WarehousesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Warehouse>> {
-        const response = await this.apiV3WarehousesGetRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3WarehousesPost without sending the request
-     */
-    async apiV3WarehousesPostRequestOpts(requestParameters: ApiV3WarehousesPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiV3WarehousesPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV3WarehousesPostRequest',
-                'Required parameter "apiV3WarehousesPostRequest" was null or undefined when calling apiV3WarehousesPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/warehouses`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV3WarehousesPostRequestToJSON(requestParameters['apiV3WarehousesPostRequest']),
-        };
-    }
-
-    /**
-     * Метод создаёт склад продавца для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Создать склад продавца
-     */
-    async apiV3WarehousesPostRaw(requestParameters: ApiV3WarehousesPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3WarehousesPost201Response>> {
-        const requestOptions = await this.apiV3WarehousesPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV3WarehousesPost201ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод создаёт склад продавца для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Создать склад продавца
-     */
-    async apiV3WarehousesPost(requestParameters: ApiV3WarehousesPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3WarehousesPost201Response> {
-        const response = await this.apiV3WarehousesPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3WarehousesWarehouseIdDelete without sending the request
-     */
-    async apiV3WarehousesWarehouseIdDeleteRequestOpts(requestParameters: ApiV3WarehousesWarehouseIdDeleteRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['warehouseId'] == null) {
-            throw new runtime.RequiredError(
-                'warehouseId',
-                'Required parameter "warehouseId" was null or undefined when calling apiV3WarehousesWarehouseIdDelete().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/warehouses/{warehouseId}`;
-        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
-
-        return {
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод удаляет [склад продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Удалить склад продавца
-     */
-    async apiV3WarehousesWarehouseIdDeleteRaw(requestParameters: ApiV3WarehousesWarehouseIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3WarehousesWarehouseIdDeleteRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод удаляет [склад продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Удалить склад продавца
-     */
-    async apiV3WarehousesWarehouseIdDelete(requestParameters: ApiV3WarehousesWarehouseIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3WarehousesWarehouseIdDeleteRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for apiV3WarehousesWarehouseIdPut without sending the request
-     */
-    async apiV3WarehousesWarehouseIdPutRequestOpts(requestParameters: ApiV3WarehousesWarehouseIdPutOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['warehouseId'] == null) {
-            throw new runtime.RequiredError(
-                'warehouseId',
-                'Required parameter "warehouseId" was null or undefined when calling apiV3WarehousesWarehouseIdPut().'
-            );
-        }
-
-        if (requestParameters['apiV3WarehousesWarehouseIdPutRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV3WarehousesWarehouseIdPutRequest',
-                'Required parameter "apiV3WarehousesWarehouseIdPutRequest" was null or undefined when calling apiV3WarehousesWarehouseIdPut().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/warehouses/{warehouseId}`;
-        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
-
-        return {
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV3WarehousesWarehouseIdPutRequestToJSON(requestParameters['apiV3WarehousesWarehouseIdPutRequest']),
-        };
-    }
-
-    /**
-     * Метод обновляет данные [склада продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get), кроме складов для сверхгабаритных товаров (СГТ, `\"cargoType\":2`).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Обновить склад продавца
-     */
-    async apiV3WarehousesWarehouseIdPutRaw(requestParameters: ApiV3WarehousesWarehouseIdPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3WarehousesWarehouseIdPutRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод обновляет данные [склада продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get), кроме складов для сверхгабаритных товаров (СГТ, `\"cargoType\":2`).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-     * Обновить склад продавца
-     */
-    async apiV3WarehousesWarehouseIdPut(requestParameters: ApiV3WarehousesWarehouseIdPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3WarehousesWarehouseIdPutRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for contentV2BarcodesPost without sending the request
-     */
-    async contentV2BarcodesPostRequestOpts(requestParameters: ContentV2BarcodesPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['contentV2BarcodesPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'contentV2BarcodesPostRequest',
-                'Required parameter "contentV2BarcodesPostRequest" was null or undefined when calling contentV2BarcodesPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/barcodes`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ContentV2BarcodesPostRequestToJSON(requestParameters['contentV2BarcodesPostRequest']),
-        };
-    }
-
-    /**
-     * Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Генерация баркодов
-     */
-    async contentV2BarcodesPostRaw(requestParameters: ContentV2BarcodesPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2BarcodesPost200Response>> {
-        const requestOptions = await this.contentV2BarcodesPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2BarcodesPost200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Генерация баркодов
-     */
-    async contentV2BarcodesPost(requestParameters: ContentV2BarcodesPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2BarcodesPost200Response> {
-        const response = await this.contentV2BarcodesPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2CardsDeleteTrashPost without sending the request
-     */
-    async contentV2CardsDeleteTrashPostRequestOpts(requestParameters: ContentV2CardsDeleteTrashPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['contentV2CardsDeleteTrashPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'contentV2CardsDeleteTrashPostRequest',
-                'Required parameter "contentV2CardsDeleteTrashPostRequest" was null or undefined when calling contentV2CardsDeleteTrashPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/cards/delete/trash`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ContentV2CardsDeleteTrashPostRequestToJSON(requestParameters['contentV2CardsDeleteTrashPostRequest']),
-        };
-    }
-
-    /**
-     * Метод переносит [карточки товаров в корзину](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post).  <div class=\"description_important\">   После переноса в корзину карточке товара присваивается новый <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров </div>  Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.<br> Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards). <br><br> Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Перенос карточек товаров в корзину
-     */
-    async contentV2CardsDeleteTrashPostRaw(requestParameters: ContentV2CardsDeleteTrashPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2CardsDeleteTrashPost200Response>> {
-        const requestOptions = await this.contentV2CardsDeleteTrashPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2CardsDeleteTrashPost200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод переносит [карточки товаров в корзину](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post).  <div class=\"description_important\">   После переноса в корзину карточке товара присваивается новый <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров </div>  Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.<br> Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards). <br><br> Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Перенос карточек товаров в корзину
-     */
-    async contentV2CardsDeleteTrashPost(requestParameters: ContentV2CardsDeleteTrashPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2CardsDeleteTrashPost200Response> {
-        const response = await this.contentV2CardsDeleteTrashPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2CardsErrorListPost without sending the request
-     */
-    async contentV2CardsErrorListPostRequestOpts(requestParameters: ContentV2CardsErrorListPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['requestPublicViewerPublicErrorsTableListV2'] == null) {
-            throw new runtime.RequiredError(
-                'requestPublicViewerPublicErrorsTableListV2',
-                'Required parameter "requestPublicViewerPublicErrorsTableListV2" was null or undefined when calling contentV2CardsErrorListPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['locale'] != null) {
-            queryParameters['locale'] = requestParameters['locale'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/cards/error/list`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RequestPublicViewerPublicErrorsTableListV2ToJSON(requestParameters['requestPublicViewerPublicErrorsTableListV2']),
-        };
-    }
-
-    /**
-     * Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок. <br><br> Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:   - все ошибки по одному массиву `variants` одного запроса при [создании](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post) карточек товаров   - все ошибки одного запроса при [создании с присоединением](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post) или [редактировании](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post) карточек товаров <br><br> Чтобы получить более 100 пакетов, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"cursor\": {             \"limit\": 100           },           \"order\": {             \"ascending\": true           }         }</pre>   2. Скопируйте `\"updatedAt\":\"***\",\"batchUUID\":\"***\" `из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока не получите в ответе `\"next\":false`. Это будет означать, что вы получили все пакеты.  <div class=\"description_important\">   Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1limits/get\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li> </ul>  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Список несозданных карточек товаров с ошибками
-     */
-    async contentV2CardsErrorListPostRaw(requestParameters: ContentV2CardsErrorListPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponsePublicViewerPublicErrorsTableListV2>> {
-        const requestOptions = await this.contentV2CardsErrorListPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponsePublicViewerPublicErrorsTableListV2FromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок. <br><br> Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:   - все ошибки по одному массиву `variants` одного запроса при [создании](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post) карточек товаров   - все ошибки одного запроса при [создании с присоединением](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post) или [редактировании](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post) карточек товаров <br><br> Чтобы получить более 100 пакетов, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"cursor\": {             \"limit\": 100           },           \"order\": {             \"ascending\": true           }         }</pre>   2. Скопируйте `\"updatedAt\":\"***\",\"batchUUID\":\"***\" `из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока не получите в ответе `\"next\":false`. Это будет означать, что вы получили все пакеты.  <div class=\"description_important\">   Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1limits/get\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li> </ul>  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Список несозданных карточек товаров с ошибками
-     */
-    async contentV2CardsErrorListPost(requestParameters: ContentV2CardsErrorListPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponsePublicViewerPublicErrorsTableListV2> {
-        const response = await this.contentV2CardsErrorListPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2CardsLimitsGet without sending the request
-     */
-    async contentV2CardsLimitsGetRequestOpts(): Promise<runtime.RequestOpts> {
+    async getV2CardsLimitsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2373,266 +1313,29 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post).<br><br>  Формула для получения количества карточек, которые можно создать:  > (`freeLimits` + `paidLimits`) - количество созданных карточек  Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post) и [список карточек товаров в корзине](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1limits/get\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li> </ul>   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).<br><br>  Формула для получения количества карточек, которые можно создать:  > (`freeLimits` + `paidLimits`) - количество созданных карточек  Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/getV2CardsLimits\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsErrorList\">получения несозданных карточек товаров с ошибками</a></li> </ul>   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Лимиты карточек товаров
      */
-    async contentV2CardsLimitsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2CardsLimitsGet200Response>> {
-        const requestOptions = await this.contentV2CardsLimitsGetRequestOpts();
+    async getV2CardsLimitsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2CardsLimits200Response>> {
+        const requestOptions = await this.getV2CardsLimitsRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2CardsLimitsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2CardsLimits200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post).<br><br>  Формула для получения количества карточек, которые можно создать:  > (`freeLimits` + `paidLimits`) - количество созданных карточек  Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post) и [список карточек товаров в корзине](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1limits/get\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li> </ul>   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).<br><br>  Формула для получения количества карточек, которые можно создать:  > (`freeLimits` + `paidLimits`) - количество созданных карточек  Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/getV2CardsLimits\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsErrorList\">получения несозданных карточек товаров с ошибками</a></li> </ul>   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Лимиты карточек товаров
      */
-    async contentV2CardsLimitsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2CardsLimitsGet200Response> {
-        const response = await this.contentV2CardsLimitsGetRaw(initOverrides);
+    async getV2CardsLimits(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2CardsLimits200Response> {
+        const response = await this.getV2CardsLimitsRaw(initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2CardsMoveNmPost without sending the request
+     * Creates request options for getV2DirectoryColors without sending the request
      */
-    async contentV2CardsMoveNmPostRequestOpts(requestParameters: ContentV2CardsMoveNmPostOperationRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/cards/moveNm`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ContentV2CardsMoveNmPostRequestToJSON(requestParameters['contentV2CardsMoveNmPostRequest']),
-        };
-    }
-
-    /**
-     * Метод [объединяет и разъединяет](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`. <br><br> Для объединения карточек товаров сделайте запрос **с указанием** `imtID`. Можно объединять не более 30 карточек товаров.<br> Для разъединения карточек товаров сделайте запрос **без указания** `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`. <br><br> Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.<br> Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.<br> <br> Максимальный размер запроса 10 Мб.  <div class=\"description_important\">   Объединить можно карточки товаров только в рамках одного предмета </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Объединение и разъединение карточек товаров
-     */
-    async contentV2CardsMoveNmPostRaw(requestParameters: ContentV2CardsMoveNmPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseItemList>> {
-        const requestOptions = await this.contentV2CardsMoveNmPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseItemListFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод [объединяет и разъединяет](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`. <br><br> Для объединения карточек товаров сделайте запрос **с указанием** `imtID`. Можно объединять не более 30 карточек товаров.<br> Для разъединения карточек товаров сделайте запрос **без указания** `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`. <br><br> Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.<br> Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.<br> <br> Максимальный размер запроса 10 Мб.  <div class=\"description_important\">   Объединить можно карточки товаров только в рамках одного предмета </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Объединение и разъединение карточек товаров
-     */
-    async contentV2CardsMoveNmPost(requestParameters: ContentV2CardsMoveNmPostOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseItemList> {
-        const response = await this.contentV2CardsMoveNmPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2CardsRecoverPost without sending the request
-     */
-    async contentV2CardsRecoverPostRequestOpts(requestParameters: ContentV2CardsRecoverPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['contentV2CardsDeleteTrashPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'contentV2CardsDeleteTrashPostRequest',
-                'Required parameter "contentV2CardsDeleteTrashPostRequest" was null or undefined when calling contentV2CardsRecoverPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/cards/recover`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ContentV2CardsDeleteTrashPostRequestToJSON(requestParameters['contentV2CardsDeleteTrashPostRequest']),
-        };
-    }
-
-    /**
-     * Метод восстанавливает [карточки товаров из корзины](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post).  <div class=\"description_important\">   Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров — что был присвоен ей при <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">перемещении в корзину</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Восстановление карточек товаров из корзины
-     */
-    async contentV2CardsRecoverPostRaw(requestParameters: ContentV2CardsRecoverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2CardsDeleteTrashPost200Response>> {
-        const requestOptions = await this.contentV2CardsRecoverPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2CardsDeleteTrashPost200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод восстанавливает [карточки товаров из корзины](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post).  <div class=\"description_important\">   Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров — что был присвоен ей при <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">перемещении в корзину</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Восстановление карточек товаров из корзины
-     */
-    async contentV2CardsRecoverPost(requestParameters: ContentV2CardsRecoverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2CardsDeleteTrashPost200Response> {
-        const response = await this.contentV2CardsRecoverPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2CardsUpdatePost without sending the request
-     */
-    async contentV2CardsUpdatePostRequestOpts(requestParameters: ContentV2CardsUpdatePostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/cards/update`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['contentV2CardsUpdatePostRequestInner']!.map(ContentV2CardsUpdatePostRequestInnerToJSON),
-        };
-    }
-
-    /**
-     * Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.  <div class=\"description_important\">   Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post\">списке карточек товаров</a> и <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post\">списке карточек товаров в корзине</a>. </div>  С помощью этого метода нельзя обновлять или удалять:   - баркоды размеров товара. Можно только добавить дополнительные баркоды   - параметры `photos`, `video` и `tags`   - цены товаров. Цену можно задать, только если вы добавляете новые размеры  При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:   - [Установить цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post), если у [товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) `\"editablePriceSize\":false`   - [Установить цены для размеров](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post), если у [товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) `\"editablePriceSize\":true`  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br> Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
-     * Редактирование карточек товаров
-     */
-    async contentV2CardsUpdatePostRaw(requestParameters: ContentV2CardsUpdatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseItemList>> {
-        const requestOptions = await this.contentV2CardsUpdatePostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseItemListFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.  <div class=\"description_important\">   Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post\">списке карточек товаров</a> и <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post\">списке карточек товаров в корзине</a>. </div>  С помощью этого метода нельзя обновлять или удалять:   - баркоды размеров товара. Можно только добавить дополнительные баркоды   - параметры `photos`, `video` и `tags`   - цены товаров. Цену можно задать, только если вы добавляете новые размеры  При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:   - [Установить цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post), если у [товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) `\"editablePriceSize\":false`   - [Установить цены для размеров](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post), если у [товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) `\"editablePriceSize\":true`  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br> Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
-     * Редактирование карточек товаров
-     */
-    async contentV2CardsUpdatePost(requestParameters: ContentV2CardsUpdatePostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseItemList> {
-        const response = await this.contentV2CardsUpdatePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2CardsUploadAddPost without sending the request
-     */
-    async contentV2CardsUploadAddPostRequestOpts(requestParameters: ContentV2CardsUploadAddPostOperationRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/cards/upload/add`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ContentV2CardsUploadAddPostRequestToJSON(requestParameters['contentV2CardsUploadAddPostRequest']),
-        };
-    }
-
-    /**
-     * Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
-     * Создание карточек товаров с присоединением
-     */
-    async contentV2CardsUploadAddPostRaw(requestParameters: ContentV2CardsUploadAddPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseItemList>> {
-        const requestOptions = await this.contentV2CardsUploadAddPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseItemListFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
-     * Создание карточек товаров с присоединением
-     */
-    async contentV2CardsUploadAddPost(requestParameters: ContentV2CardsUploadAddPostOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseItemList> {
-        const response = await this.contentV2CardsUploadAddPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2CardsUploadPost without sending the request
-     */
-    async contentV2CardsUploadPostRequestOpts(requestParameters: ContentV2CardsUploadPostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/cards/upload`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['contentV2CardsUploadPostRequestInner']!.map(ContentV2CardsUploadPostRequestInnerToJSON),
-        };
-    }
-
-    /**
-     * Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>  <div class=\"description_important\">   Есть две формы запроса: для создания отдельных и объединённых карточек товаров </div>  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br> Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
-     * Создание карточек товаров
-     */
-    async contentV2CardsUploadPostRaw(requestParameters: ContentV2CardsUploadPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseItemList>> {
-        const requestOptions = await this.contentV2CardsUploadPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseItemListFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>  <div class=\"description_important\">   Есть две формы запроса: для создания отдельных и объединённых карточек товаров </div>  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br> Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
-     * Создание карточек товаров
-     */
-    async contentV2CardsUploadPost(requestParameters: ContentV2CardsUploadPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseItemList> {
-        const response = await this.contentV2CardsUploadPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2DirectoryColorsGet without sending the request
-     */
-    async contentV2DirectoryColorsGetRequestOpts(requestParameters: ContentV2DirectoryColorsGetRequest): Promise<runtime.RequestOpts> {
+    async getV2DirectoryColorsRequestOpts(requestParameters: GetV2DirectoryColorsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['locale'] != null) {
@@ -2657,29 +1360,29 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Цвет`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
      * Цвет
      */
-    async contentV2DirectoryColorsGetRaw(requestParameters: ContentV2DirectoryColorsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectoryColorsGet200Response>> {
-        const requestOptions = await this.contentV2DirectoryColorsGetRequestOpts(requestParameters);
+    async getV2DirectoryColorsRaw(requestParameters: GetV2DirectoryColorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectoryColors200Response>> {
+        const requestOptions = await this.getV2DirectoryColorsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectoryColorsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2DirectoryColors200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Цвет`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
      * Цвет
      */
-    async contentV2DirectoryColorsGet(requestParameters: ContentV2DirectoryColorsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectoryColorsGet200Response> {
-        const response = await this.contentV2DirectoryColorsGetRaw(requestParameters, initOverrides);
+    async getV2DirectoryColors(requestParameters: GetV2DirectoryColorsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectoryColors200Response> {
+        const response = await this.getV2DirectoryColorsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2DirectoryCountriesGet without sending the request
+     * Creates request options for getV2DirectoryCountries without sending the request
      */
-    async contentV2DirectoryCountriesGetRequestOpts(requestParameters: ContentV2DirectoryCountriesGetRequest): Promise<runtime.RequestOpts> {
+    async getV2DirectoryCountriesRequestOpts(requestParameters: GetV2DirectoryCountriesRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['locale'] != null) {
@@ -2704,29 +1407,29 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Страна производства`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Страна производства
      */
-    async contentV2DirectoryCountriesGetRaw(requestParameters: ContentV2DirectoryCountriesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectoryCountriesGet200Response>> {
-        const requestOptions = await this.contentV2DirectoryCountriesGetRequestOpts(requestParameters);
+    async getV2DirectoryCountriesRaw(requestParameters: GetV2DirectoryCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectoryCountries200Response>> {
+        const requestOptions = await this.getV2DirectoryCountriesRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectoryCountriesGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2DirectoryCountries200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Страна производства`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Страна производства
      */
-    async contentV2DirectoryCountriesGet(requestParameters: ContentV2DirectoryCountriesGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectoryCountriesGet200Response> {
-        const response = await this.contentV2DirectoryCountriesGetRaw(requestParameters, initOverrides);
+    async getV2DirectoryCountries(requestParameters: GetV2DirectoryCountriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectoryCountries200Response> {
+        const response = await this.getV2DirectoryCountriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2DirectoryKindsGet without sending the request
+     * Creates request options for getV2DirectoryKinds without sending the request
      */
-    async contentV2DirectoryKindsGetRequestOpts(requestParameters: ContentV2DirectoryKindsGetRequest): Promise<runtime.RequestOpts> {
+    async getV2DirectoryKindsRequestOpts(requestParameters: GetV2DirectoryKindsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['locale'] != null) {
@@ -2751,29 +1454,29 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Пол`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
      * Пол
      */
-    async contentV2DirectoryKindsGetRaw(requestParameters: ContentV2DirectoryKindsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectoryKindsGet200Response>> {
-        const requestOptions = await this.contentV2DirectoryKindsGetRequestOpts(requestParameters);
+    async getV2DirectoryKindsRaw(requestParameters: GetV2DirectoryKindsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectoryKinds200Response>> {
+        const requestOptions = await this.getV2DirectoryKindsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectoryKindsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2DirectoryKinds200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Пол`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
      * Пол
      */
-    async contentV2DirectoryKindsGet(requestParameters: ContentV2DirectoryKindsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectoryKindsGet200Response> {
-        const response = await this.contentV2DirectoryKindsGetRaw(requestParameters, initOverrides);
+    async getV2DirectoryKinds(requestParameters: GetV2DirectoryKindsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectoryKinds200Response> {
+        const response = await this.getV2DirectoryKindsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2DirectorySeasonsGet without sending the request
+     * Creates request options for getV2DirectorySeasons without sending the request
      */
-    async contentV2DirectorySeasonsGetRequestOpts(requestParameters: ContentV2DirectorySeasonsGetRequest): Promise<runtime.RequestOpts> {
+    async getV2DirectorySeasonsRequestOpts(requestParameters: GetV2DirectorySeasonsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['locale'] != null) {
@@ -2798,33 +1501,33 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
      * Сезон
      */
-    async contentV2DirectorySeasonsGetRaw(requestParameters: ContentV2DirectorySeasonsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectorySeasonsGet200Response>> {
-        const requestOptions = await this.contentV2DirectorySeasonsGetRequestOpts(requestParameters);
+    async getV2DirectorySeasonsRaw(requestParameters: GetV2DirectorySeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectorySeasons200Response>> {
+        const requestOptions = await this.getV2DirectorySeasonsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectorySeasonsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2DirectorySeasons200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
      * Сезон
      */
-    async contentV2DirectorySeasonsGet(requestParameters: ContentV2DirectorySeasonsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectorySeasonsGet200Response> {
-        const response = await this.contentV2DirectorySeasonsGetRaw(requestParameters, initOverrides);
+    async getV2DirectorySeasons(requestParameters: GetV2DirectorySeasonsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectorySeasons200Response> {
+        const response = await this.getV2DirectorySeasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2DirectoryTnvedGet without sending the request
+     * Creates request options for getV2DirectoryTnved without sending the request
      */
-    async contentV2DirectoryTnvedGetRequestOpts(requestParameters: ContentV2DirectoryTnvedGetRequest): Promise<runtime.RequestOpts> {
+    async getV2DirectoryTnvedRequestOpts(requestParameters: GetV2DirectoryTnvedRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['subjectID'] == null) {
             throw new runtime.RequiredError(
                 'subjectID',
-                'Required parameter "subjectID" was null or undefined when calling contentV2DirectoryTnvedGet().'
+                'Required parameter "subjectID" was null or undefined when calling getV2DirectoryTnved().'
             );
         }
 
@@ -2860,29 +1563,29 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту ТНВЭД-кода.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * ТНВЭД-код
      */
-    async contentV2DirectoryTnvedGetRaw(requestParameters: ContentV2DirectoryTnvedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectoryTnvedGet200Response>> {
-        const requestOptions = await this.contentV2DirectoryTnvedGetRequestOpts(requestParameters);
+    async getV2DirectoryTnvedRaw(requestParameters: GetV2DirectoryTnvedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectoryTnved200Response>> {
+        const requestOptions = await this.getV2DirectoryTnvedRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectoryTnvedGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2DirectoryTnved200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту ТНВЭД-кода.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * ТНВЭД-код
      */
-    async contentV2DirectoryTnvedGet(requestParameters: ContentV2DirectoryTnvedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectoryTnvedGet200Response> {
-        const response = await this.contentV2DirectoryTnvedGetRaw(requestParameters, initOverrides);
+    async getV2DirectoryTnved(requestParameters: GetV2DirectoryTnvedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectoryTnved200Response> {
+        const response = await this.getV2DirectoryTnvedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2DirectoryVatGet without sending the request
+     * Creates request options for getV2DirectoryVat without sending the request
      */
-    async contentV2DirectoryVatGetRequestOpts(requestParameters: ContentV2DirectoryVatGetRequest): Promise<runtime.RequestOpts> {
+    async getV2DirectoryVatRequestOpts(requestParameters: GetV2DirectoryVatRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['locale'] != null) {
@@ -2907,143 +1610,283 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
      * Ставка НДС
      */
-    async contentV2DirectoryVatGetRaw(requestParameters: ContentV2DirectoryVatGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectoryVatGet200Response>> {
-        const requestOptions = await this.contentV2DirectoryVatGetRequestOpts(requestParameters);
+    async getV2DirectoryVatRaw(requestParameters: GetV2DirectoryVatRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectoryVat200Response>> {
+        const requestOptions = await this.getV2DirectoryVatRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectoryVatGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2DirectoryVat200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+     * Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
      * Ставка НДС
      */
-    async contentV2DirectoryVatGet(requestParameters: ContentV2DirectoryVatGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectoryVatGet200Response> {
-        const response = await this.contentV2DirectoryVatGetRaw(requestParameters, initOverrides);
+    async getV2DirectoryVat(requestParameters: GetV2DirectoryVatRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectoryVat200Response> {
+        const response = await this.getV2DirectoryVatRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2GetCardsListPost without sending the request
+     * Creates request options for getV2HistoryGoodsTask without sending the request
      */
-    async contentV2GetCardsListPostRequestOpts(requestParameters: ContentV2GetCardsListPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['contentV2GetCardsListPostRequest'] == null) {
+    async getV2HistoryGoodsTaskRequestOpts(requestParameters: GetV2HistoryGoodsTaskRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['limit'] == null) {
             throw new runtime.RequiredError(
-                'contentV2GetCardsListPostRequest',
-                'Required parameter "contentV2GetCardsListPostRequest" was null or undefined when calling contentV2GetCardsListPost().'
+                'limit',
+                'Required parameter "limit" was null or undefined when calling getV2HistoryGoodsTask().'
+            );
+        }
+
+        if (requestParameters['uploadID'] == null) {
+            throw new runtime.RequiredError(
+                'uploadID',
+                'Required parameter "uploadID" was null or undefined when calling getV2HistoryGoodsTask().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['locale'] != null) {
-            queryParameters['locale'] = requestParameters['locale'];
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['uploadID'] != null) {
+            queryParameters['uploadID'] = requestParameters['uploadID'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.apiKey) {
             headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
         }
 
 
-        let urlPath = `/content/v2/get/cards/list`;
+        let urlPath = `/api/v2/history/goods/task`;
 
         return {
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: ContentV2GetCardsListPostRequestToJSON(requestParameters['contentV2GetCardsListPostRequest']),
         };
     }
 
     /**
-     * Метод возвращает список созданных карточек товаров.  <div class=\"description_important\">   В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post\">отдельный метод</a> </div>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             },             \"filter\": {               \"withPhoto\": -1             }           }         }</pre>      Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"updatedAt\":\"***\",\"nmID\":\"***\"` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа текущей выгрузки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
-     * Список карточек товаров
+     * Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask\">товаров</a>, цен для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize\">размеров товаров</a> <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount\">скидок WB Клуба</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Детализация обработанной загрузки
      */
-    async contentV2GetCardsListPostRaw(requestParameters: ContentV2GetCardsListPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2GetCardsListPost200Response>> {
-        const requestOptions = await this.contentV2GetCardsListPostRequestOpts(requestParameters);
+    async getV2HistoryGoodsTaskRaw(requestParameters: GetV2HistoryGoodsTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2HistoryGoodsTask200Response>> {
+        const requestOptions = await this.getV2HistoryGoodsTaskRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2GetCardsListPost200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2HistoryGoodsTask200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает список созданных карточек товаров.  <div class=\"description_important\">   В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post\">отдельный метод</a> </div>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             },             \"filter\": {               \"withPhoto\": -1             }           }         }</pre>      Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"updatedAt\":\"***\",\"nmID\":\"***\"` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа текущей выгрузки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
-     * Список карточек товаров
+     * Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask\">товаров</a>, цен для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize\">размеров товаров</a> <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount\">скидок WB Клуба</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Детализация обработанной загрузки
      */
-    async contentV2GetCardsListPost(requestParameters: ContentV2GetCardsListPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2GetCardsListPost200Response> {
-        const response = await this.contentV2GetCardsListPostRaw(requestParameters, initOverrides);
+    async getV2HistoryGoodsTask(requestParameters: GetV2HistoryGoodsTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2HistoryGoodsTask200Response> {
+        const response = await this.getV2HistoryGoodsTaskRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2GetCardsTrashPost without sending the request
+     * Creates request options for getV2HistoryTasks without sending the request
      */
-    async contentV2GetCardsTrashPostRequestOpts(requestParameters: ContentV2GetCardsTrashPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['contentV2GetCardsTrashPostRequest'] == null) {
+    async getV2HistoryTasksRequestOpts(requestParameters: GetV2HistoryTasksRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['uploadID'] == null) {
             throw new runtime.RequiredError(
-                'contentV2GetCardsTrashPostRequest',
-                'Required parameter "contentV2GetCardsTrashPostRequest" was null or undefined when calling contentV2GetCardsTrashPost().'
+                'uploadID',
+                'Required parameter "uploadID" was null or undefined when calling getV2HistoryTasks().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['locale'] != null) {
-            queryParameters['locale'] = requestParameters['locale'];
+        if (requestParameters['uploadID'] != null) {
+            queryParameters['uploadID'] = requestParameters['uploadID'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.apiKey) {
             headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
         }
 
 
-        let urlPath = `/content/v2/get/cards/trash`;
+        let urlPath = `/api/v2/history/tasks`;
 
         return {
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: ContentV2GetCardsTrashPostRequestToJSON(requestParameters['contentV2GetCardsTrashPostRequest']),
         };
     }
 
     /**
-     * Метод возвращает список карточек товаров в корзине.<br><br>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию.   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             }           }         }</pre>      Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"trashedAt\":\"***\",\"nmID\":***` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа текущей выгрузки.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Список карточек товаров в корзине
+     * Метод возвращает информацию об обработанной загрузке цен и скидок.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask\">товаров</a>, цен для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize\">размеров товаров</a>, <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount\">скидок WB Клуба</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Состояние обработанной загрузки
      */
-    async contentV2GetCardsTrashPostRaw(requestParameters: ContentV2GetCardsTrashPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2GetCardsTrashPost200Response>> {
-        const requestOptions = await this.contentV2GetCardsTrashPostRequestOpts(requestParameters);
+    async getV2HistoryTasksRaw(requestParameters: GetV2HistoryTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2HistoryTasks200Response>> {
+        const requestOptions = await this.getV2HistoryTasksRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2GetCardsTrashPost200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2HistoryTasks200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает список карточек товаров в корзине.<br><br>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию.   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             }           }         }</pre>      Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"trashedAt\":\"***\",\"nmID\":***` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа текущей выгрузки.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Список карточек товаров в корзине
+     * Метод возвращает информацию об обработанной загрузке цен и скидок.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask\">товаров</a>, цен для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize\">размеров товаров</a>, <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount\">скидок WB Клуба</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Состояние обработанной загрузки
      */
-    async contentV2GetCardsTrashPost(requestParameters: ContentV2GetCardsTrashPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2GetCardsTrashPost200Response> {
-        const response = await this.contentV2GetCardsTrashPostRaw(requestParameters, initOverrides);
+    async getV2HistoryTasks(requestParameters: GetV2HistoryTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2HistoryTasks200Response> {
+        const response = await this.getV2HistoryTasksRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2ObjectAllGet without sending the request
+     * Creates request options for getV2ListGoodsFilter without sending the request
      */
-    async contentV2ObjectAllGetRequestOpts(requestParameters: ContentV2ObjectAllGetRequest): Promise<runtime.RequestOpts> {
+    async getV2ListGoodsFilterRequestOpts(requestParameters: GetV2ListGoodsFilterRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['limit'] == null) {
+            throw new runtime.RequiredError(
+                'limit',
+                'Required parameter "limit" was null or undefined when calling getV2ListGoodsFilter().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['filterNmID'] != null) {
+            queryParameters['filterNmID'] = requestParameters['filterNmID'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v2/list/goods/filter`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать только один артикул. <br><br> Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.<br><br> Используйте отдельные методы, чтобы получить информацию:   - о [нескольких товарах по артикулам](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter)   - о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Получить товары с ценами
+     */
+    async getV2ListGoodsFilterRaw(requestParameters: GetV2ListGoodsFilterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2ListGoodsFilter200Response>> {
+        const requestOptions = await this.getV2ListGoodsFilterRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2ListGoodsFilter200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать только один артикул. <br><br> Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.<br><br> Используйте отдельные методы, чтобы получить информацию:   - о [нескольких товарах по артикулам](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter)   - о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Получить товары с ценами
+     */
+    async getV2ListGoodsFilter(requestParameters: GetV2ListGoodsFilterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2ListGoodsFilter200Response> {
+        const response = await this.getV2ListGoodsFilterRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV2ListGoodsSizeNm without sending the request
+     */
+    async getV2ListGoodsSizeNmRequestOpts(requestParameters: GetV2ListGoodsSizeNmRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['limit'] == null) {
+            throw new runtime.RequiredError(
+                'limit',
+                'Required parameter "limit" was null or undefined when calling getV2ListGoodsSizeNm().'
+            );
+        }
+
+        if (requestParameters['nmID'] == null) {
+            throw new runtime.RequiredError(
+                'nmID',
+                'Required parameter "nmID" was null or undefined when calling getV2ListGoodsSizeNm().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['nmID'] != null) {
+            queryParameters['nmID'] = requestParameters['nmID'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v2/list/goods/size/nm`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount). <br><br> Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `\"editableSizePrice\":true`. <br><br> Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Получить размеры товара с ценами
+     */
+    async getV2ListGoodsSizeNmRaw(requestParameters: GetV2ListGoodsSizeNmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2ListGoodsSizeNm200Response>> {
+        const requestOptions = await this.getV2ListGoodsSizeNmRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2ListGoodsSizeNm200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount). <br><br> Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `\"editableSizePrice\":true`. <br><br> Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Получить размеры товара с ценами
+     */
+    async getV2ListGoodsSizeNm(requestParameters: GetV2ListGoodsSizeNmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2ListGoodsSizeNm200Response> {
+        const response = await this.getV2ListGoodsSizeNmRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV2ObjectAll without sending the request
+     */
+    async getV2ObjectAllRequestOpts(requestParameters: GetV2ObjectAllRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['locale'] != null) {
@@ -3084,33 +1927,33 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список названий [родительских категорий предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает список названий [родительских категорий предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Список предметов
      */
-    async contentV2ObjectAllGetRaw(requestParameters: ContentV2ObjectAllGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2ObjectAllGet200Response>> {
-        const requestOptions = await this.contentV2ObjectAllGetRequestOpts(requestParameters);
+    async getV2ObjectAllRaw(requestParameters: GetV2ObjectAllRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2ObjectAll200Response>> {
+        const requestOptions = await this.getV2ObjectAllRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2ObjectAllGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2ObjectAll200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает список названий [родительских категорий предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает список названий [родительских категорий предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Список предметов
      */
-    async contentV2ObjectAllGet(requestParameters: ContentV2ObjectAllGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2ObjectAllGet200Response> {
-        const response = await this.contentV2ObjectAllGetRaw(requestParameters, initOverrides);
+    async getV2ObjectAll(requestParameters: GetV2ObjectAllRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2ObjectAll200Response> {
+        const response = await this.getV2ObjectAllRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2ObjectCharcsSubjectIdGet without sending the request
+     * Creates request options for getV2ObjectCharcsSubjectId without sending the request
      */
-    async contentV2ObjectCharcsSubjectIdGetRequestOpts(requestParameters: ContentV2ObjectCharcsSubjectIdGetRequest): Promise<runtime.RequestOpts> {
+    async getV2ObjectCharcsSubjectIdRequestOpts(requestParameters: GetV2ObjectCharcsSubjectIdRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['subjectId'] == null) {
             throw new runtime.RequiredError(
                 'subjectId',
-                'Required parameter "subjectId" was null or undefined when calling contentV2ObjectCharcsSubjectIdGet().'
+                'Required parameter "subjectId" was null or undefined when calling getV2ObjectCharcsSubjectId().'
             );
         }
 
@@ -3139,29 +1982,29 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get).  <div class=\"description_important\">   Для получения значений характеристик <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1colors/get\">Цвет</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1kinds/get\">Пол</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1countries/get\">Страна производства</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1seasons/get\">Сезон</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1vat/get\">Ставка НДС</a> и <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1tnved/get\">ТНВЭД-код</a> используйте отдельные методы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).  <div class=\"description_important\">   Для получения значений характеристик <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors\">Цвет</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds\">Пол</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries\">Страна производства</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons\">Сезон</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat\">Ставка НДС</a> и <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved\">ТНВЭД-код</a> используйте отдельные методы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Характеристики предмета
      */
-    async contentV2ObjectCharcsSubjectIdGetRaw(requestParameters: ContentV2ObjectCharcsSubjectIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2ObjectCharcsSubjectIdGet200Response>> {
-        const requestOptions = await this.contentV2ObjectCharcsSubjectIdGetRequestOpts(requestParameters);
+    async getV2ObjectCharcsSubjectIdRaw(requestParameters: GetV2ObjectCharcsSubjectIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2ObjectCharcsSubjectId200Response>> {
+        const requestOptions = await this.getV2ObjectCharcsSubjectIdRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2ObjectCharcsSubjectIdGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2ObjectCharcsSubjectId200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get).  <div class=\"description_important\">   Для получения значений характеристик <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1colors/get\">Цвет</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1kinds/get\">Пол</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1countries/get\">Страна производства</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1seasons/get\">Сезон</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1vat/get\">Ставка НДС</a> и <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1tnved/get\">ТНВЭД-код</a> используйте отдельные методы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).  <div class=\"description_important\">   Для получения значений характеристик <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors\">Цвет</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds\">Пол</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries\">Страна производства</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons\">Сезон</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat\">Ставка НДС</a> и <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved\">ТНВЭД-код</a> используйте отдельные методы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Характеристики предмета
      */
-    async contentV2ObjectCharcsSubjectIdGet(requestParameters: ContentV2ObjectCharcsSubjectIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2ObjectCharcsSubjectIdGet200Response> {
-        const response = await this.contentV2ObjectCharcsSubjectIdGetRaw(requestParameters, initOverrides);
+    async getV2ObjectCharcsSubjectId(requestParameters: GetV2ObjectCharcsSubjectIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2ObjectCharcsSubjectId200Response> {
+        const response = await this.getV2ObjectCharcsSubjectIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2ObjectParentAllGet without sending the request
+     * Creates request options for getV2ObjectParentAll without sending the request
      */
-    async contentV2ObjectParentAllGetRequestOpts(requestParameters: ContentV2ObjectParentAllGetRequest): Promise<runtime.RequestOpts> {
+    async getV2ObjectParentAllRequestOpts(requestParameters: GetV2ObjectParentAllRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['locale'] != null) {
@@ -3186,37 +2029,45 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/work-with-products#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Родительские категории товаров
      */
-    async contentV2ObjectParentAllGetRaw(requestParameters: ContentV2ObjectParentAllGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2ObjectParentAllGet200Response>> {
-        const requestOptions = await this.contentV2ObjectParentAllGetRequestOpts(requestParameters);
+    async getV2ObjectParentAllRaw(requestParameters: GetV2ObjectParentAllRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2ObjectParentAll200Response>> {
+        const requestOptions = await this.getV2ObjectParentAllRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2ObjectParentAllGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2ObjectParentAll200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/work-with-products#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Родительские категории товаров
      */
-    async contentV2ObjectParentAllGet(requestParameters: ContentV2ObjectParentAllGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2ObjectParentAllGet200Response> {
-        const response = await this.contentV2ObjectParentAllGetRaw(requestParameters, initOverrides);
+    async getV2ObjectParentAll(requestParameters: GetV2ObjectParentAllRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2ObjectParentAll200Response> {
+        const response = await this.getV2ObjectParentAllRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2TagIdDelete without sending the request
+     * Creates request options for getV2QuarantineGoods without sending the request
      */
-    async contentV2TagIdDeleteRequestOpts(requestParameters: ContentV2TagIdDeleteRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['id'] == null) {
+    async getV2QuarantineGoodsRequestOpts(requestParameters: GetV2QuarantineGoodsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['limit'] == null) {
             throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling contentV2TagIdDelete().'
+                'limit',
+                'Required parameter "limit" was null or undefined when calling getV2QuarantineGoods().'
             );
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -3225,208 +2076,40 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
 
-        let urlPath = `/content/v2/tag/{id}`;
-        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
+        let urlPath = `/api/v2/quarantine/goods`;
 
         return {
             path: urlPath,
-            method: 'DELETE',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         };
     }
 
     /**
-     * Метод удаляет ярлык из [списка ярлыков](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Удаление ярлыка
+     * Метод возвращает информацию о товарах в карантине. <br><br> Если новая цена товара со скидкой будет минимум в 3 раза меньше старой, товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в ответах методов [состояний загрузок](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks). <br><br> Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). <br><br> Для товаров с [поразмерной установкой цен](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется. <br><br> В [песочнице](/sandbox) товары автоматически удаляются из карантина через 3 дня.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Получить товары в карантине
      */
-    async contentV2TagIdDeleteRaw(requestParameters: ContentV2TagIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
-        const requestOptions = await this.contentV2TagIdDeleteRequestOpts(requestParameters);
+    async getV2QuarantineGoodsRaw(requestParameters: GetV2QuarantineGoodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2QuarantineGoods200Response>> {
+        const requestOptions = await this.getV2QuarantineGoodsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseContentErrorFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2QuarantineGoods200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод удаляет ярлык из [списка ярлыков](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Удаление ярлыка
+     * Метод возвращает информацию о товарах в карантине. <br><br> Если новая цена товара со скидкой будет минимум в 3 раза меньше старой, товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в ответах методов [состояний загрузок](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks). <br><br> Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). <br><br> Для товаров с [поразмерной установкой цен](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется. <br><br> В [песочнице](/sandbox) товары автоматически удаляются из карантина через 3 дня.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Получить товары в карантине
      */
-    async contentV2TagIdDelete(requestParameters: ContentV2TagIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
-        const response = await this.contentV2TagIdDeleteRaw(requestParameters, initOverrides);
+    async getV2QuarantineGoods(requestParameters: GetV2QuarantineGoodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2QuarantineGoods200Response> {
+        const response = await this.getV2QuarantineGoodsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV2TagIdPatch without sending the request
+     * Creates request options for getV2Tags without sending the request
      */
-    async contentV2TagIdPatchRequestOpts(requestParameters: ContentV2TagIdPatchOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling contentV2TagIdPatch().'
-            );
-        }
-
-        if (requestParameters['contentV2TagIdPatchRequest'] == null) {
-            throw new runtime.RequiredError(
-                'contentV2TagIdPatchRequest',
-                'Required parameter "contentV2TagIdPatchRequest" was null or undefined when calling contentV2TagIdPatch().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/tag/{id}`;
-        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
-
-        return {
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ContentV2TagIdPatchRequestToJSON(requestParameters['contentV2TagIdPatchRequest']),
-        };
-    }
-
-    /**
-     * Метод заменяет данные ярлыка: имя и цвет. <br>Новые данные можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Изменение ярлыка
-     */
-    async contentV2TagIdPatchRaw(requestParameters: ContentV2TagIdPatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
-        const requestOptions = await this.contentV2TagIdPatchRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseContentErrorFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод заменяет данные ярлыка: имя и цвет. <br>Новые данные можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Изменение ярлыка
-     */
-    async contentV2TagIdPatch(requestParameters: ContentV2TagIdPatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
-        const response = await this.contentV2TagIdPatchRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2TagNomenclatureLinkPost without sending the request
-     */
-    async contentV2TagNomenclatureLinkPostRequestOpts(requestParameters: ContentV2TagNomenclatureLinkPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['contentV2TagNomenclatureLinkPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'contentV2TagNomenclatureLinkPostRequest',
-                'Required parameter "contentV2TagNomenclatureLinkPostRequest" was null or undefined when calling contentV2TagNomenclatureLinkPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/tag/nomenclature/link`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ContentV2TagNomenclatureLinkPostRequestToJSON(requestParameters['contentV2TagNomenclatureLinkPostRequest']),
-        };
-    }
-
-    /**
-     * Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.<br> При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Управление ярлыками в карточке товара
-     */
-    async contentV2TagNomenclatureLinkPostRaw(requestParameters: ContentV2TagNomenclatureLinkPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
-        const requestOptions = await this.contentV2TagNomenclatureLinkPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseContentErrorFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.<br> При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Управление ярлыками в карточке товара
-     */
-    async contentV2TagNomenclatureLinkPost(requestParameters: ContentV2TagNomenclatureLinkPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
-        const response = await this.contentV2TagNomenclatureLinkPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2TagPost without sending the request
-     */
-    async contentV2TagPostRequestOpts(requestParameters: ContentV2TagPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['contentV2TagPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'contentV2TagPostRequest',
-                'Required parameter "contentV2TagPostRequest" was null or undefined when calling contentV2TagPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/content/v2/tag`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ContentV2TagPostRequestToJSON(requestParameters['contentV2TagPostRequest']),
-        };
-    }
-
-    /**
-     * Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов. <br>Созданный ярлык можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Создание ярлыка
-     */
-    async contentV2TagPostRaw(requestParameters: ContentV2TagPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
-        const requestOptions = await this.contentV2TagPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseContentErrorFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов. <br>Созданный ярлык можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Создание ярлыка
-     */
-    async contentV2TagPost(requestParameters: ContentV2TagPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
-        const response = await this.contentV2TagPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for contentV2TagsGet without sending the request
-     */
-    async contentV2TagsGetRequestOpts(): Promise<runtime.RequestOpts> {
+    async getV2TagsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3450,37 +2133,30 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Список ярлыков
      */
-    async contentV2TagsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2TagsGet200Response>> {
-        const requestOptions = await this.contentV2TagsGetRequestOpts();
+    async getV2TagsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2Tags200Response>> {
+        const requestOptions = await this.getV2TagsRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2TagsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2Tags200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
      * Список ярлыков
      */
-    async contentV2TagsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2TagsGet200Response> {
-        const response = await this.contentV2TagsGetRaw(initOverrides);
+    async getV2Tags(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2Tags200Response> {
+        const response = await this.getV2TagsRaw(initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV3MediaFilePost without sending the request
+     * Creates request options for getV3DbwWarehousesWarehouseIdContacts without sending the request
      */
-    async contentV3MediaFilePostRequestOpts(requestParameters: ContentV3MediaFilePostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['xNmId'] == null) {
+    async getV3DbwWarehousesWarehouseIdContactsRequestOpts(requestParameters: GetV3DbwWarehousesWarehouseIdContactsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['warehouseId'] == null) {
             throw new runtime.RequiredError(
-                'xNmId',
-                'Required parameter "xNmId" was null or undefined when calling contentV3MediaFilePost().'
-            );
-        }
-
-        if (requestParameters['xPhotoNumber'] == null) {
-            throw new runtime.RequiredError(
-                'xPhotoNumber',
-                'Required parameter "xPhotoNumber" was null or undefined when calling contentV3MediaFilePost().'
+                'warehouseId',
+                'Required parameter "warehouseId" was null or undefined when calling getV3DbwWarehousesWarehouseIdContacts().'
             );
         }
 
@@ -3488,78 +2164,143 @@ export class DefaultApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters['xNmId'] != null) {
-            headerParameters['X-Nm-Id'] = String(requestParameters['xNmId']);
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
         }
 
-        if (requestParameters['xPhotoNumber'] != null) {
-            headerParameters['X-Photo-Number'] = String(requestParameters['xPhotoNumber']);
-        }
+
+        let urlPath = `/api/v3/dbw/warehouses/{warehouseId}/contacts`;
+        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает список контактов, привязанных к [складу продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses). <br> Только для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Список контактов
+     */
+    async getV3DbwWarehousesWarehouseIdContactsRaw(requestParameters: GetV3DbwWarehousesWarehouseIdContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV3DbwWarehousesWarehouseIdContacts200Response>> {
+        const requestOptions = await this.getV3DbwWarehousesWarehouseIdContactsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV3DbwWarehousesWarehouseIdContacts200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает список контактов, привязанных к [складу продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses). <br> Только для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Список контактов
+     */
+    async getV3DbwWarehousesWarehouseIdContacts(requestParameters: GetV3DbwWarehousesWarehouseIdContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV3DbwWarehousesWarehouseIdContacts200Response> {
+        const response = await this.getV3DbwWarehousesWarehouseIdContactsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV3Offices without sending the request
+     */
+    async getV3OfficesRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.apiKey) {
             headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
         }
 
-        const consumes: runtime.Consume[] = [
-            { contentType: 'multipart/form-data' },
-        ];
-        // @ts-ignore: canConsumeForm may be unused
-        const canConsumeForm = runtime.canConsumeForm(consumes);
 
-        let formParams: { append(param: string, value: any): any };
-        let useForm = false;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
-        if (useForm) {
-            formParams = new FormData();
-        } else {
-            formParams = new URLSearchParams();
-        }
-
-        if (requestParameters['uploadfile'] != null) {
-            formParams.append('uploadfile', requestParameters['uploadfile'] as any);
-        }
-
-
-        let urlPath = `/content/v3/media/file`;
+        let urlPath = `/api/v3/offices`;
 
         return {
             path: urlPath,
-            method: 'POST',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: formParams,
         };
     }
 
     /**
-     * Метод загружает и добавляет один медиафайл к карточке товара.  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700x900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Загрузить медиафайл
+     * Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Получить список складов WB
      */
-    async contentV3MediaFilePostRaw(requestParameters: ContentV3MediaFilePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV3MediaFilePost200Response>> {
-        const requestOptions = await this.contentV3MediaFilePostRequestOpts(requestParameters);
+    async getV3OfficesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Office>>> {
+        const requestOptions = await this.getV3OfficesRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV3MediaFilePost200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(OfficeFromJSON));
     }
 
     /**
-     * Метод загружает и добавляет один медиафайл к карточке товара.  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700x900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Загрузить медиафайл
+     * Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Получить список складов WB
      */
-    async contentV3MediaFilePost(requestParameters: ContentV3MediaFilePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV3MediaFilePost200Response> {
-        const response = await this.contentV3MediaFilePostRaw(requestParameters, initOverrides);
+    async getV3Offices(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Office>> {
+        const response = await this.getV3OfficesRaw(initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for contentV3MediaSavePost without sending the request
+     * Creates request options for getV3Warehouses without sending the request
      */
-    async contentV3MediaSavePostRequestOpts(requestParameters: ContentV3MediaSavePostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['contentV3MediaSavePostRequest'] == null) {
+    async getV3WarehousesRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/warehouses`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Получить список складов продавца
+     */
+    async getV3WarehousesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Warehouse>>> {
+        const requestOptions = await this.getV3WarehousesRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(WarehouseFromJSON));
+    }
+
+    /**
+     * Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Получить список складов продавца
+     */
+    async getV3Warehouses(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Warehouse>> {
+        const response = await this.getV3WarehousesRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for patchV2TagId without sending the request
+     */
+    async patchV2TagIdRequestOpts(requestParameters: PatchV2TagIdOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
-                'contentV3MediaSavePostRequest',
-                'Required parameter "contentV3MediaSavePostRequest" was null or undefined when calling contentV3MediaSavePost().'
+                'id',
+                'Required parameter "id" was null or undefined when calling patchV2TagId().'
+            );
+        }
+
+        if (requestParameters['patchV2TagIdRequest'] == null) {
+            throw new runtime.RequiredError(
+                'patchV2TagIdRequest',
+                'Required parameter "patchV2TagIdRequest" was null or undefined when calling patchV2TagId().'
             );
         }
 
@@ -3574,34 +2315,35 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
 
-        let urlPath = `/content/v3/media/save`;
+        let urlPath = `/content/v2/tag/{id}`;
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
 
         return {
             path: urlPath,
-            method: 'POST',
+            method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: ContentV3MediaSavePostRequestToJSON(requestParameters['contentV3MediaSavePostRequest']),
+            body: PatchV2TagIdRequestToJSON(requestParameters['patchV2TagIdRequest']),
         };
     }
 
     /**
-     * Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.  <div class=\"description_important\">   Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы. </div>  Требования к ссылкам:   * ссылка должна вести прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации, например. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной   * для доступа к файлу по ссылке не нужна авторизация  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700×900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Загрузить медиафайлы по ссылкам
+     * Метод заменяет данные ярлыка: имя и цвет. <br>Новые данные можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Изменение ярлыка
      */
-    async contentV3MediaSavePostRaw(requestParameters: ContentV3MediaSavePostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV3MediaFilePost200Response>> {
-        const requestOptions = await this.contentV3MediaSavePostRequestOpts(requestParameters);
+    async patchV2TagIdRaw(requestParameters: PatchV2TagIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
+        const requestOptions = await this.patchV2TagIdRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV3MediaFilePost200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseContentErrorFromJSON(jsonValue));
     }
 
     /**
-     * Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.  <div class=\"description_important\">   Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы. </div>  Требования к ссылкам:   * ссылка должна вести прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации, например. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной   * для доступа к файлу по ссылке не нужна авторизация  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700×900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * Загрузить медиафайлы по ссылкам
+     * Метод заменяет данные ярлыка: имя и цвет. <br>Новые данные можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Изменение ярлыка
      */
-    async contentV3MediaSavePost(requestParameters: ContentV3MediaSavePostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV3MediaFilePost200Response> {
-        const response = await this.contentV3MediaSavePostRaw(requestParameters, initOverrides);
+    async patchV2TagId(requestParameters: PatchV2TagIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
+        const response = await this.patchV2TagIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -3738,7 +2480,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
      * Установить оптовые скидки для B2B-продаж
      */
     async postV1UploadTaskB2bWholesaleRaw(requestParameters: PostV1UploadTaskB2bWholesaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1UploadTaskB2bWholesale200Response>> {
@@ -3749,7 +2491,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
      * Установить оптовые скидки для B2B-продаж
      */
     async postV1UploadTaskB2bWholesale(requestParameters: PostV1UploadTaskB2bWholesaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1UploadTaskB2bWholesale200Response> {
@@ -3757,14 +2499,1272 @@ export class DefaultApi extends runtime.BaseAPI {
         return await response.value();
     }
 
+    /**
+     * Creates request options for postV2Barcodes without sending the request
+     */
+    async postV2BarcodesRequestOpts(requestParameters: PostV2BarcodesOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2BarcodesRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2BarcodesRequest',
+                'Required parameter "postV2BarcodesRequest" was null or undefined when calling postV2Barcodes().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/barcodes`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2BarcodesRequestToJSON(requestParameters['postV2BarcodesRequest']),
+        };
+    }
+
+    /**
+     * Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Генерация баркодов
+     */
+    async postV2BarcodesRaw(requestParameters: PostV2BarcodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV2Barcodes200Response>> {
+        const requestOptions = await this.postV2BarcodesRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV2Barcodes200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Генерация баркодов
+     */
+    async postV2Barcodes(requestParameters: PostV2BarcodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV2Barcodes200Response> {
+        const response = await this.postV2BarcodesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2CardsDeleteTrash without sending the request
+     */
+    async postV2CardsDeleteTrashRequestOpts(requestParameters: PostV2CardsDeleteTrashOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2CardsDeleteTrashRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2CardsDeleteTrashRequest',
+                'Required parameter "postV2CardsDeleteTrashRequest" was null or undefined when calling postV2CardsDeleteTrash().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/cards/delete/trash`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2CardsDeleteTrashRequestToJSON(requestParameters['postV2CardsDeleteTrashRequest']),
+        };
+    }
+
+    /**
+     * Метод переносит [карточки товаров в корзину](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/item-management#tag/listings/operation/postV2CardsRecover).  <div class=\"description_important\">   После переноса в корзину карточке товара присваивается новый <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров </div>  Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.<br> Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards). <br><br> Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Перенос карточек товаров в корзину
+     */
+    async postV2CardsDeleteTrashRaw(requestParameters: PostV2CardsDeleteTrashOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV2CardsDeleteTrash200Response>> {
+        const requestOptions = await this.postV2CardsDeleteTrashRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV2CardsDeleteTrash200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод переносит [карточки товаров в корзину](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/item-management#tag/listings/operation/postV2CardsRecover).  <div class=\"description_important\">   После переноса в корзину карточке товара присваивается новый <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров </div>  Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.<br> Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards). <br><br> Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Перенос карточек товаров в корзину
+     */
+    async postV2CardsDeleteTrash(requestParameters: PostV2CardsDeleteTrashOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV2CardsDeleteTrash200Response> {
+        const response = await this.postV2CardsDeleteTrashRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2CardsErrorList without sending the request
+     */
+    async postV2CardsErrorListRequestOpts(requestParameters: PostV2CardsErrorListRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['requestPublicViewerPublicErrorsTableListV2'] == null) {
+            throw new runtime.RequiredError(
+                'requestPublicViewerPublicErrorsTableListV2',
+                'Required parameter "requestPublicViewerPublicErrorsTableListV2" was null or undefined when calling postV2CardsErrorList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['locale'] != null) {
+            queryParameters['locale'] = requestParameters['locale'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/cards/error/list`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RequestPublicViewerPublicErrorsTableListV2ToJSON(requestParameters['requestPublicViewerPublicErrorsTableListV2']),
+        };
+    }
+
+    /**
+     * Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок. <br><br> Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:   - все ошибки по одному массиву `variants` одного запроса при [создании](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) карточек товаров   - все ошибки одного запроса при [создании с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) или [редактировании](/openapi/item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров <br><br> Чтобы получить более 100 пакетов, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"cursor\": {             \"limit\": 100           },           \"order\": {             \"ascending\": true           }         }</pre>   2. Скопируйте `\"updatedAt\":\"***\",\"batchUUID\":\"***\" `из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока не получите в ответе `\"next\":false`. Это будет означать, что вы получили все пакеты.  <div class=\"description_important\">   Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/getV2CardsLimits\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsErrorList\">получения несозданных карточек товаров с ошибками</a></li> </ul>  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Список несозданных карточек товаров с ошибками
+     */
+    async postV2CardsErrorListRaw(requestParameters: PostV2CardsErrorListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponsePublicViewerPublicErrorsTableListV2>> {
+        const requestOptions = await this.postV2CardsErrorListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponsePublicViewerPublicErrorsTableListV2FromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок. <br><br> Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:   - все ошибки по одному массиву `variants` одного запроса при [создании](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) карточек товаров   - все ошибки одного запроса при [создании с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) или [редактировании](/openapi/item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров <br><br> Чтобы получить более 100 пакетов, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"cursor\": {             \"limit\": 100           },           \"order\": {             \"ascending\": true           }         }</pre>   2. Скопируйте `\"updatedAt\":\"***\",\"batchUUID\":\"***\" `из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока не получите в ответе `\"next\":false`. Это будет означать, что вы получили все пакеты.  <div class=\"description_important\">   Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/getV2CardsLimits\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsErrorList\">получения несозданных карточек товаров с ошибками</a></li> </ul>  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Список несозданных карточек товаров с ошибками
+     */
+    async postV2CardsErrorList(requestParameters: PostV2CardsErrorListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponsePublicViewerPublicErrorsTableListV2> {
+        const response = await this.postV2CardsErrorListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2CardsMoveNm without sending the request
+     */
+    async postV2CardsMoveNmRequestOpts(requestParameters: PostV2CardsMoveNmOperationRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/cards/moveNm`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2CardsMoveNmRequestToJSON(requestParameters['postV2CardsMoveNmRequest']),
+        };
+    }
+
+    /**
+     * Метод [объединяет и разъединяет](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`. <br><br> Для объединения карточек товаров сделайте запрос **с указанием** `imtID`. Можно объединять не более 30 карточек товаров.<br> Для разъединения карточек товаров сделайте запрос **без указания** `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`. <br><br> Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.<br> Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.<br> <br> Максимальный размер запроса 10 Мб.  <div class=\"description_important\">   Объединить можно карточки товаров только в рамках одного предмета </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Объединение и разъединение карточек товаров
+     */
+    async postV2CardsMoveNmRaw(requestParameters: PostV2CardsMoveNmOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseItemList>> {
+        const requestOptions = await this.postV2CardsMoveNmRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseItemListFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод [объединяет и разъединяет](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`. <br><br> Для объединения карточек товаров сделайте запрос **с указанием** `imtID`. Можно объединять не более 30 карточек товаров.<br> Для разъединения карточек товаров сделайте запрос **без указания** `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`. <br><br> Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.<br> Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.<br> <br> Максимальный размер запроса 10 Мб.  <div class=\"description_important\">   Объединить можно карточки товаров только в рамках одного предмета </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Объединение и разъединение карточек товаров
+     */
+    async postV2CardsMoveNm(requestParameters: PostV2CardsMoveNmOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseItemList> {
+        const response = await this.postV2CardsMoveNmRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2CardsRecover without sending the request
+     */
+    async postV2CardsRecoverRequestOpts(requestParameters: PostV2CardsRecoverRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2CardsDeleteTrashRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2CardsDeleteTrashRequest',
+                'Required parameter "postV2CardsDeleteTrashRequest" was null or undefined when calling postV2CardsRecover().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/cards/recover`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2CardsDeleteTrashRequestToJSON(requestParameters['postV2CardsDeleteTrashRequest']),
+        };
+    }
+
+    /**
+     * Метод восстанавливает [карточки товаров из корзины](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).  <div class=\"description_important\">   Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров — что был присвоен ей при <a href=\"/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash\">перемещении в корзину</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Восстановление карточек товаров из корзины
+     */
+    async postV2CardsRecoverRaw(requestParameters: PostV2CardsRecoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV2CardsDeleteTrash200Response>> {
+        const requestOptions = await this.postV2CardsRecoverRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV2CardsDeleteTrash200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод восстанавливает [карточки товаров из корзины](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).  <div class=\"description_important\">   Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров — что был присвоен ей при <a href=\"/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash\">перемещении в корзину</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Восстановление карточек товаров из корзины
+     */
+    async postV2CardsRecover(requestParameters: PostV2CardsRecoverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV2CardsDeleteTrash200Response> {
+        const response = await this.postV2CardsRecoverRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2CardsUpdate without sending the request
+     */
+    async postV2CardsUpdateRequestOpts(requestParameters: PostV2CardsUpdateRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/cards/update`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['postV2CardsUpdateRequestInner']!.map(PostV2CardsUpdateRequestInnerToJSON),
+        };
+    }
+
+    /**
+     * Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.  <div class=\"description_important\">   Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в <a href=\"/openapi/item-management#tag/listings/operation/postV2GetCardsList\">списке карточек товаров</a> и <a href=\"/openapi/item-management#tag/listings/operation/postV2GetCardsTrash\">списке карточек товаров в корзине</a>. </div>  С помощью этого метода нельзя обновлять или удалять:   - баркоды размеров товара. Можно только добавить дополнительные баркоды   - параметры `photos`, `video` и `tags`   - цены товаров. Цену можно задать, только если вы добавляете новые размеры  При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:   - [Установить цены и скидки](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `\"editablePriceSize\":false`   - [Установить цены для размеров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `\"editablePriceSize\":true`  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).<br> Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
+     * Редактирование карточек товаров
+     */
+    async postV2CardsUpdateRaw(requestParameters: PostV2CardsUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseItemList>> {
+        const requestOptions = await this.postV2CardsUpdateRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseItemListFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.  <div class=\"description_important\">   Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в <a href=\"/openapi/item-management#tag/listings/operation/postV2GetCardsList\">списке карточек товаров</a> и <a href=\"/openapi/item-management#tag/listings/operation/postV2GetCardsTrash\">списке карточек товаров в корзине</a>. </div>  С помощью этого метода нельзя обновлять или удалять:   - баркоды размеров товара. Можно только добавить дополнительные баркоды   - параметры `photos`, `video` и `tags`   - цены товаров. Цену можно задать, только если вы добавляете новые размеры  При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:   - [Установить цены и скидки](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `\"editablePriceSize\":false`   - [Установить цены для размеров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `\"editablePriceSize\":true`  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).<br> Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
+     * Редактирование карточек товаров
+     */
+    async postV2CardsUpdate(requestParameters: PostV2CardsUpdateRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseItemList> {
+        const response = await this.postV2CardsUpdateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2CardsUpload without sending the request
+     */
+    async postV2CardsUploadRequestOpts(requestParameters: PostV2CardsUploadRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/cards/upload`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['postV2CardsUploadRequestInner']!.map(PostV2CardsUploadRequestInnerToJSON),
+        };
+    }
+
+    /**
+     * Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>  <div class=\"description_important\">   Есть две формы запроса: для создания отдельных и объединённых карточек товаров </div>  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br> Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
+     * Создание карточек товаров
+     */
+    async postV2CardsUploadRaw(requestParameters: PostV2CardsUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseItemList>> {
+        const requestOptions = await this.postV2CardsUploadRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseItemListFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>  <div class=\"description_important\">   Есть две формы запроса: для создания отдельных и объединённых карточек товаров </div>  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br> Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
+     * Создание карточек товаров
+     */
+    async postV2CardsUpload(requestParameters: PostV2CardsUploadRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseItemList> {
+        const response = await this.postV2CardsUploadRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2CardsUploadAdd without sending the request
+     */
+    async postV2CardsUploadAddRequestOpts(requestParameters: PostV2CardsUploadAddOperationRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/cards/upload/add`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2CardsUploadAddRequestToJSON(requestParameters['postV2CardsUploadAddRequest']),
+        };
+    }
+
+    /**
+     * Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).<br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
+     * Создание карточек товаров с присоединением
+     */
+    async postV2CardsUploadAddRaw(requestParameters: PostV2CardsUploadAddOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseItemList>> {
+        const requestOptions = await this.postV2CardsUploadAddRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseItemListFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).<br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
+     * Создание карточек товаров с присоединением
+     */
+    async postV2CardsUploadAdd(requestParameters: PostV2CardsUploadAddOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseItemList> {
+        const response = await this.postV2CardsUploadAddRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2GetCardsList without sending the request
+     */
+    async postV2GetCardsListRequestOpts(requestParameters: PostV2GetCardsListOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2GetCardsListRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2GetCardsListRequest',
+                'Required parameter "postV2GetCardsListRequest" was null or undefined when calling postV2GetCardsList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['locale'] != null) {
+            queryParameters['locale'] = requestParameters['locale'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/get/cards/list`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2GetCardsListRequestToJSON(requestParameters['postV2GetCardsListRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает список созданных карточек товаров.  <div class=\"description_important\">   В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через <a href=\"/openapi/item-management#tag/listings/operation/postV2GetCardsTrash\">отдельный метод</a> </div>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             },             \"filter\": {               \"withPhoto\": -1             }           }         }</pre>      Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"updatedAt\":\"***\",\"nmID\":\"***\"` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа текущей выгрузки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
+     * Список карточек товаров
+     */
+    async postV2GetCardsListRaw(requestParameters: PostV2GetCardsListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV2GetCardsList200Response>> {
+        const requestOptions = await this.postV2GetCardsListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV2GetCardsList200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает список созданных карточек товаров.  <div class=\"description_important\">   В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через <a href=\"/openapi/item-management#tag/listings/operation/postV2GetCardsTrash\">отдельный метод</a> </div>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             },             \"filter\": {               \"withPhoto\": -1             }           }         }</pre>      Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"updatedAt\":\"***\",\"nmID\":\"***\"` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа текущей выгрузки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
+     * Список карточек товаров
+     */
+    async postV2GetCardsList(requestParameters: PostV2GetCardsListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV2GetCardsList200Response> {
+        const response = await this.postV2GetCardsListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2GetCardsTrash without sending the request
+     */
+    async postV2GetCardsTrashRequestOpts(requestParameters: PostV2GetCardsTrashOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2GetCardsTrashRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2GetCardsTrashRequest',
+                'Required parameter "postV2GetCardsTrashRequest" was null or undefined when calling postV2GetCardsTrash().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['locale'] != null) {
+            queryParameters['locale'] = requestParameters['locale'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/get/cards/trash`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2GetCardsTrashRequestToJSON(requestParameters['postV2GetCardsTrashRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает список карточек товаров в корзине.<br><br>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию.   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             }           }         }</pre>      Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"trashedAt\":\"***\",\"nmID\":***` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа текущей выгрузки.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Список карточек товаров в корзине
+     */
+    async postV2GetCardsTrashRaw(requestParameters: PostV2GetCardsTrashOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV2GetCardsTrash200Response>> {
+        const requestOptions = await this.postV2GetCardsTrashRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV2GetCardsTrash200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает список карточек товаров в корзине.<br><br>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию.   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             }           }         }</pre>      Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"trashedAt\":\"***\",\"nmID\":***` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа текущей выгрузки.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Список карточек товаров в корзине
+     */
+    async postV2GetCardsTrash(requestParameters: PostV2GetCardsTrashOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV2GetCardsTrash200Response> {
+        const response = await this.postV2GetCardsTrashRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2ListGoodsFilter without sending the request
+     */
+    async postV2ListGoodsFilterRequestOpts(requestParameters: PostV2ListGoodsFilterOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2ListGoodsFilterRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2ListGoodsFilterRequest',
+                'Required parameter "postV2ListGoodsFilterRequest" was null or undefined when calling postV2ListGoodsFilter().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v2/list/goods/filter`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2ListGoodsFilterRequestToJSON(requestParameters['postV2ListGoodsFilterRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать более одного артикула. <br><br> Используйте отдельные методы, чтобы получить информацию:   - обо [всех товарах продавца, не указывая артикулы](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter)   - о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Получить товары с ценами по артикулам
+     */
+    async postV2ListGoodsFilterRaw(requestParameters: PostV2ListGoodsFilterOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2ListGoodsFilter200Response>> {
+        const requestOptions = await this.postV2ListGoodsFilterRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2ListGoodsFilter200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать более одного артикула. <br><br> Используйте отдельные методы, чтобы получить информацию:   - обо [всех товарах продавца, не указывая артикулы](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter)   - о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Получить товары с ценами по артикулам
+     */
+    async postV2ListGoodsFilter(requestParameters: PostV2ListGoodsFilterOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2ListGoodsFilter200Response> {
+        const response = await this.postV2ListGoodsFilterRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2Tag without sending the request
+     */
+    async postV2TagRequestOpts(requestParameters: PostV2TagOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2TagRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2TagRequest',
+                'Required parameter "postV2TagRequest" was null or undefined when calling postV2Tag().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/tag`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2TagRequestToJSON(requestParameters['postV2TagRequest']),
+        };
+    }
+
+    /**
+     * Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов. <br>Созданный ярлык можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Создание ярлыка
+     */
+    async postV2TagRaw(requestParameters: PostV2TagOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
+        const requestOptions = await this.postV2TagRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseContentErrorFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов. <br>Созданный ярлык можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Создание ярлыка
+     */
+    async postV2Tag(requestParameters: PostV2TagOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
+        const response = await this.postV2TagRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2TagNomenclatureLink without sending the request
+     */
+    async postV2TagNomenclatureLinkRequestOpts(requestParameters: PostV2TagNomenclatureLinkOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2TagNomenclatureLinkRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2TagNomenclatureLinkRequest',
+                'Required parameter "postV2TagNomenclatureLinkRequest" was null or undefined when calling postV2TagNomenclatureLink().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v2/tag/nomenclature/link`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2TagNomenclatureLinkRequestToJSON(requestParameters['postV2TagNomenclatureLinkRequest']),
+        };
+    }
+
+    /**
+     * Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.<br> При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Управление ярлыками в карточке товара
+     */
+    async postV2TagNomenclatureLinkRaw(requestParameters: PostV2TagNomenclatureLinkOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
+        const requestOptions = await this.postV2TagNomenclatureLinkRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseContentErrorFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.<br> При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Управление ярлыками в карточке товара
+     */
+    async postV2TagNomenclatureLink(requestParameters: PostV2TagNomenclatureLinkOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
+        const response = await this.postV2TagNomenclatureLinkRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2UploadTask without sending the request
+     */
+    async postV2UploadTaskRequestOpts(requestParameters: PostV2UploadTaskOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2UploadTaskRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2UploadTaskRequest',
+                'Required parameter "postV2UploadTaskRequest" was null or undefined when calling postV2UploadTask().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v2/upload/task`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2UploadTaskRequestToJSON(requestParameters['postV2UploadTaskRequest']),
+        };
+    }
+
+    /**
+     * Метод устанавливает цены и скидки для товаров. <br><br> Чтобы установить цены для размеров товара, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Установить цены и скидки
+     */
+    async postV2UploadTaskRaw(requestParameters: PostV2UploadTaskOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaskCreated>> {
+        const requestOptions = await this.postV2UploadTaskRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TaskCreatedFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод устанавливает цены и скидки для товаров. <br><br> Чтобы установить цены для размеров товара, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Установить цены и скидки
+     */
+    async postV2UploadTask(requestParameters: PostV2UploadTaskOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TaskCreated> {
+        const response = await this.postV2UploadTaskRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2UploadTaskClubDiscount without sending the request
+     */
+    async postV2UploadTaskClubDiscountRequestOpts(requestParameters: PostV2UploadTaskClubDiscountOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2UploadTaskClubDiscountRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2UploadTaskClubDiscountRequest',
+                'Required parameter "postV2UploadTaskClubDiscountRequest" was null or undefined when calling postV2UploadTaskClubDiscount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v2/upload/task/club-discount`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2UploadTaskClubDiscountRequestToJSON(requestParameters['postV2UploadTaskClubDiscountRequest']),
+        };
+    }
+
+    /**
+     * Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Установить скидки WB Клуба
+     */
+    async postV2UploadTaskClubDiscountRaw(requestParameters: PostV2UploadTaskClubDiscountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaskCreated>> {
+        const requestOptions = await this.postV2UploadTaskClubDiscountRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TaskCreatedFromJSON(jsonValue));
+    }
+
+    /**
+     * Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Установить скидки WB Клуба
+     */
+    async postV2UploadTaskClubDiscount(requestParameters: PostV2UploadTaskClubDiscountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TaskCreated> {
+        const response = await this.postV2UploadTaskClubDiscountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2UploadTaskSize without sending the request
+     */
+    async postV2UploadTaskSizeRequestOpts(requestParameters: PostV2UploadTaskSizeOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV2UploadTaskSizeRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV2UploadTaskSizeRequest',
+                'Required parameter "postV2UploadTaskSizeRequest" was null or undefined when calling postV2UploadTaskSize().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v2/upload/task/size`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2UploadTaskSizeRequestToJSON(requestParameters['postV2UploadTaskSizeRequest']),
+        };
+    }
+
+    /**
+     * Метод устанавливает цены отдельно для размеров товаров.  Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm) `\"editableSizePrice\":true`.  Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Установить цены для размеров
+     */
+    async postV2UploadTaskSizeRaw(requestParameters: PostV2UploadTaskSizeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaskCreated>> {
+        const requestOptions = await this.postV2UploadTaskSizeRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TaskCreatedFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод устанавливает цены отдельно для размеров товаров.  Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm) `\"editableSizePrice\":true`.  Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Установить цены для размеров
+     */
+    async postV2UploadTaskSize(requestParameters: PostV2UploadTaskSizeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TaskCreated> {
+        const response = await this.postV2UploadTaskSizeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3MediaFile without sending the request
+     */
+    async postV3MediaFileRequestOpts(requestParameters: PostV3MediaFileRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['xNmId'] == null) {
+            throw new runtime.RequiredError(
+                'xNmId',
+                'Required parameter "xNmId" was null or undefined when calling postV3MediaFile().'
+            );
+        }
+
+        if (requestParameters['xPhotoNumber'] == null) {
+            throw new runtime.RequiredError(
+                'xPhotoNumber',
+                'Required parameter "xPhotoNumber" was null or undefined when calling postV3MediaFile().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters['xNmId'] != null) {
+            headerParameters['X-Nm-Id'] = String(requestParameters['xNmId']);
+        }
+
+        if (requestParameters['xPhotoNumber'] != null) {
+            headerParameters['X-Photo-Number'] = String(requestParameters['xPhotoNumber']);
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+        const consumes: runtime.Consume[] = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['uploadfile'] != null) {
+            formParams.append('uploadfile', requestParameters['uploadfile'] as any);
+        }
+
+
+        let urlPath = `/content/v3/media/file`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        };
+    }
+
+    /**
+     * Метод загружает и добавляет один медиафайл к карточке товара.  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700x900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Загрузить медиафайл
+     */
+    async postV3MediaFileRaw(requestParameters: PostV3MediaFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV3MediaFile200Response>> {
+        const requestOptions = await this.postV3MediaFileRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV3MediaFile200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод загружает и добавляет один медиафайл к карточке товара.  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700x900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Загрузить медиафайл
+     */
+    async postV3MediaFile(requestParameters: PostV3MediaFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV3MediaFile200Response> {
+        const response = await this.postV3MediaFileRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3MediaSave without sending the request
+     */
+    async postV3MediaSaveRequestOpts(requestParameters: PostV3MediaSaveOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV3MediaSaveRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV3MediaSaveRequest',
+                'Required parameter "postV3MediaSaveRequest" was null or undefined when calling postV3MediaSave().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/content/v3/media/save`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV3MediaSaveRequestToJSON(requestParameters['postV3MediaSaveRequest']),
+        };
+    }
+
+    /**
+     * Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.  <div class=\"description_important\">   Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы. </div>  Требования к ссылкам:   * для доступа к файлу по ссылке не нужна авторизация   * ссылка ведёт прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации. Ссылка должна заканчиваться на имя файла с расширением — например, `/file_name.jpg`. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной. <br>   Помните, что некоторые хранилища не формируют прямые ссылки и поэтому не подходят для использования. К таким хранилищам относится, например, **Google Drive**, который формирует ссылки только на предпросмотр файла либо на служебные страницы.  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700×900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Загрузить медиафайлы по ссылкам
+     */
+    async postV3MediaSaveRaw(requestParameters: PostV3MediaSaveOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV3MediaFile200Response>> {
+        const requestOptions = await this.postV3MediaSaveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV3MediaFile200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.  <div class=\"description_important\">   Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы. </div>  Требования к ссылкам:   * для доступа к файлу по ссылке не нужна авторизация   * ссылка ведёт прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации. Ссылка должна заканчиваться на имя файла с расширением — например, `/file_name.jpg`. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной. <br>   Помните, что некоторые хранилища не формируют прямые ссылки и поэтому не подходят для использования. К таким хранилищам относится, например, **Google Drive**, который формирует ссылки только на предпросмотр файла либо на служебные страницы.  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700×900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Загрузить медиафайлы по ссылкам
+     */
+    async postV3MediaSave(requestParameters: PostV3MediaSaveOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV3MediaFile200Response> {
+        const response = await this.postV3MediaSaveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3StocksWarehouseId without sending the request
+     */
+    async postV3StocksWarehouseIdRequestOpts(requestParameters: PostV3StocksWarehouseIdOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['warehouseId'] == null) {
+            throw new runtime.RequiredError(
+                'warehouseId',
+                'Required parameter "warehouseId" was null or undefined when calling postV3StocksWarehouseId().'
+            );
+        }
+
+        if (requestParameters['postV3StocksWarehouseIdRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV3StocksWarehouseIdRequest',
+                'Required parameter "postV3StocksWarehouseIdRequest" was null or undefined when calling postV3StocksWarehouseId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/stocks/{warehouseId}`;
+        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV3StocksWarehouseIdRequestToJSON(requestParameters['postV3StocksWarehouseIdRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает данные об остатках товаров на [складах продавца](/openapi/item-management#tag/sellerWarehouses).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Получить остатки товаров
+     */
+    async postV3StocksWarehouseIdRaw(requestParameters: PostV3StocksWarehouseIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV3StocksWarehouseId200Response>> {
+        const requestOptions = await this.postV3StocksWarehouseIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV3StocksWarehouseId200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает данные об остатках товаров на [складах продавца](/openapi/item-management#tag/sellerWarehouses).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Получить остатки товаров
+     */
+    async postV3StocksWarehouseId(requestParameters: PostV3StocksWarehouseIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV3StocksWarehouseId200Response> {
+        const response = await this.postV3StocksWarehouseIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3Warehouses without sending the request
+     */
+    async postV3WarehousesRequestOpts(requestParameters: PostV3WarehousesOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV3WarehousesRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV3WarehousesRequest',
+                'Required parameter "postV3WarehousesRequest" was null or undefined when calling postV3Warehouses().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/warehouses`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV3WarehousesRequestToJSON(requestParameters['postV3WarehousesRequest']),
+        };
+    }
+
+    /**
+     * Метод создаёт склад продавца для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Создать склад продавца
+     */
+    async postV3WarehousesRaw(requestParameters: PostV3WarehousesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV3Warehouses201Response>> {
+        const requestOptions = await this.postV3WarehousesRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV3Warehouses201ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод создаёт склад продавца для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Создать склад продавца
+     */
+    async postV3Warehouses(requestParameters: PostV3WarehousesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV3Warehouses201Response> {
+        const response = await this.postV3WarehousesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for putV3DbwWarehousesWarehouseIdContacts without sending the request
+     */
+    async putV3DbwWarehousesWarehouseIdContactsRequestOpts(requestParameters: PutV3DbwWarehousesWarehouseIdContactsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['warehouseId'] == null) {
+            throw new runtime.RequiredError(
+                'warehouseId',
+                'Required parameter "warehouseId" was null or undefined when calling putV3DbwWarehousesWarehouseIdContacts().'
+            );
+        }
+
+        if (requestParameters['storeContactRequestBody'] == null) {
+            throw new runtime.RequiredError(
+                'storeContactRequestBody',
+                'Required parameter "storeContactRequestBody" was null or undefined when calling putV3DbwWarehousesWarehouseIdContacts().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/dbw/warehouses/{warehouseId}/contacts`;
+        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
+
+        return {
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: StoreContactRequestBodyToJSON(requestParameters['storeContactRequestBody']),
+        };
+    }
+
+    /**
+     * Метод обновляет список контактов [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  <div class=\"description_important\">   Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять. </div>  Только для складов с типом доставки `3` — курьером WB (DBW). <br><br> К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Обновить список контактов
+     */
+    async putV3DbwWarehousesWarehouseIdContactsRaw(requestParameters: PutV3DbwWarehousesWarehouseIdContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.putV3DbwWarehousesWarehouseIdContactsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод обновляет список контактов [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  <div class=\"description_important\">   Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять. </div>  Только для складов с типом доставки `3` — курьером WB (DBW). <br><br> К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Обновить список контактов
+     */
+    async putV3DbwWarehousesWarehouseIdContacts(requestParameters: PutV3DbwWarehousesWarehouseIdContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.putV3DbwWarehousesWarehouseIdContactsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for putV3StocksWarehouseId without sending the request
+     */
+    async putV3StocksWarehouseIdRequestOpts(requestParameters: PutV3StocksWarehouseIdOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['warehouseId'] == null) {
+            throw new runtime.RequiredError(
+                'warehouseId',
+                'Required parameter "warehouseId" was null or undefined when calling putV3StocksWarehouseId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/stocks/{warehouseId}`;
+        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
+
+        return {
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutV3StocksWarehouseIdRequestToJSON(requestParameters['putV3StocksWarehouseIdRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет количество остатков товаров продавца [в списке](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).  <div class=\"description_important\">   Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (<code>204</code>), но остатки не обновятся. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Обновить остатки товаров
+     */
+    async putV3StocksWarehouseIdRaw(requestParameters: PutV3StocksWarehouseIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.putV3StocksWarehouseIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод обновляет количество остатков товаров продавца [в списке](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).  <div class=\"description_important\">   Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (<code>204</code>), но остатки не обновятся. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Обновить остатки товаров
+     */
+    async putV3StocksWarehouseId(requestParameters: PutV3StocksWarehouseIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.putV3StocksWarehouseIdRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for putV3WarehousesWarehouseId without sending the request
+     */
+    async putV3WarehousesWarehouseIdRequestOpts(requestParameters: PutV3WarehousesWarehouseIdOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['warehouseId'] == null) {
+            throw new runtime.RequiredError(
+                'warehouseId',
+                'Required parameter "warehouseId" was null or undefined when calling putV3WarehousesWarehouseId().'
+            );
+        }
+
+        if (requestParameters['putV3WarehousesWarehouseIdRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putV3WarehousesWarehouseIdRequest',
+                'Required parameter "putV3WarehousesWarehouseIdRequest" was null or undefined when calling putV3WarehousesWarehouseId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/warehouses/{warehouseId}`;
+        urlPath = urlPath.replace('{warehouseId}', encodeURIComponent(String(requestParameters['warehouseId'])));
+
+        return {
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutV3WarehousesWarehouseIdRequestToJSON(requestParameters['putV3WarehousesWarehouseIdRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет данные [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `\"cargoType\":2`).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Обновить склад продавца
+     */
+    async putV3WarehousesWarehouseIdRaw(requestParameters: PutV3WarehousesWarehouseIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.putV3WarehousesWarehouseIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод обновляет данные [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `\"cargoType\":2`).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Обновить склад продавца
+     */
+    async putV3WarehousesWarehouseId(requestParameters: PutV3WarehousesWarehouseIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.putV3WarehousesWarehouseIdRaw(requestParameters, initOverrides);
+    }
+
 }
 
 /**
  * @export
  */
-export const ContentV2GetCardsTrashPostOperationLocaleEnum = {
+export const PostV2GetCardsTrashOperationLocaleEnum = {
     Ru: 'ru',
     En: 'en',
     Zh: 'zh',
 } as const;
-export type ContentV2GetCardsTrashPostOperationLocaleEnum = typeof ContentV2GetCardsTrashPostOperationLocaleEnum[keyof typeof ContentV2GetCardsTrashPostOperationLocaleEnum];
+export type PostV2GetCardsTrashOperationLocaleEnum = typeof PostV2GetCardsTrashOperationLocaleEnum[keyof typeof PostV2GetCardsTrashOperationLocaleEnum];

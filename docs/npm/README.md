@@ -70,58 +70,58 @@ main().catch(console.error);
 - `general.WBAPIApi.getPing` — Проверка подключения
 
 ### items (`items`)
-- `items.DefaultApi.apiContentV1BrandsGet` — Бренды
-- `items.DefaultApi.apiV2BufferGoodsTaskGet` — Детализация необработанной загрузки
-- `items.DefaultApi.apiV2BufferTasksGet` — Состояние необработанной загрузки
-- `items.DefaultApi.apiV2HistoryGoodsTaskGet` — Детализация обработанной загрузки
-- `items.DefaultApi.apiV2HistoryTasksGet` — Состояние обработанной загрузки
-- `items.DefaultApi.apiV2ListGoodsFilterGet` — Получить товары с ценами
-- `items.DefaultApi.apiV2ListGoodsFilterPost` — Получить товары с ценами по артикулам
-- `items.DefaultApi.apiV2ListGoodsSizeNmGet` — Получить размеры товара с ценами
-- `items.DefaultApi.apiV2QuarantineGoodsGet` — Получить товары в карантине
-- `items.DefaultApi.apiV2UploadTaskClubDiscountPost` — Установить скидки WB Клуба
-- `items.DefaultApi.apiV2UploadTaskPost` — Установить цены и скидки
-- `items.DefaultApi.apiV2UploadTaskSizePost` — Установить цены для размеров
-- `items.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsGet` — Список контактов
-- `items.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsPut` — Обновить список контактов
-- `items.DefaultApi.apiV3OfficesGet` — Получить список складов WB
-- `items.DefaultApi.apiV3StocksWarehouseIdDelete` — Удалить остатки товаров
-- `items.DefaultApi.apiV3StocksWarehouseIdPost` — Получить остатки товаров
-- `items.DefaultApi.apiV3StocksWarehouseIdPut` — Обновить остатки товаров
-- `items.DefaultApi.apiV3WarehousesGet` — Получить список складов продавца
-- `items.DefaultApi.apiV3WarehousesPost` — Создать склад продавца
-- `items.DefaultApi.apiV3WarehousesWarehouseIdDelete` — Удалить склад продавца
-- `items.DefaultApi.apiV3WarehousesWarehouseIdPut` — Обновить склад продавца
-- `items.DefaultApi.contentV2BarcodesPost` — Генерация баркодов
-- `items.DefaultApi.contentV2CardsDeleteTrashPost` — Перенос карточек товаров в корзину
-- `items.DefaultApi.contentV2CardsErrorListPost` — Список несозданных карточек товаров с ошибками
-- `items.DefaultApi.contentV2CardsLimitsGet` — Лимиты карточек товаров
-- `items.DefaultApi.contentV2CardsMoveNmPost` — Объединение и разъединение карточек товаров
-- `items.DefaultApi.contentV2CardsRecoverPost` — Восстановление карточек товаров из корзины
-- `items.DefaultApi.contentV2CardsUpdatePost` — Редактирование карточек товаров
-- `items.DefaultApi.contentV2CardsUploadAddPost` — Создание карточек товаров с присоединением
-- `items.DefaultApi.contentV2CardsUploadPost` — Создание карточек товаров
-- `items.DefaultApi.contentV2DirectoryColorsGet` — Цвет
-- `items.DefaultApi.contentV2DirectoryCountriesGet` — Страна производства
-- `items.DefaultApi.contentV2DirectoryKindsGet` — Пол
-- `items.DefaultApi.contentV2DirectorySeasonsGet` — Сезон
-- `items.DefaultApi.contentV2DirectoryTnvedGet` — ТНВЭД-код
-- `items.DefaultApi.contentV2DirectoryVatGet` — Ставка НДС
-- `items.DefaultApi.contentV2GetCardsListPost` — Список карточек товаров
-- `items.DefaultApi.contentV2GetCardsTrashPost` — Список карточек товаров в корзине
-- `items.DefaultApi.contentV2ObjectAllGet` — Список предметов
-- `items.DefaultApi.contentV2ObjectCharcsSubjectIdGet` — Характеристики предмета
-- `items.DefaultApi.contentV2ObjectParentAllGet` — Родительские категории товаров
-- `items.DefaultApi.contentV2TagIdDelete` — Удаление ярлыка
-- `items.DefaultApi.contentV2TagIdPatch` — Изменение ярлыка
-- `items.DefaultApi.contentV2TagNomenclatureLinkPost` — Управление ярлыками в карточке товара
-- `items.DefaultApi.contentV2TagPost` — Создание ярлыка
-- `items.DefaultApi.contentV2TagsGet` — Список ярлыков
-- `items.DefaultApi.contentV3MediaFilePost` — Загрузить медиафайл
-- `items.DefaultApi.contentV3MediaSavePost` — Загрузить медиафайлы по ссылкам
+- `items.DefaultApi.deleteV2TagId` — Удаление ярлыка
+- `items.DefaultApi.deleteV3StocksWarehouseId` — Удалить остатки товаров
+- `items.DefaultApi.deleteV3WarehousesWarehouseId` — Удалить склад продавца
+- `items.DefaultApi.getV1Brands` — Бренды
+- `items.DefaultApi.getV2BufferGoodsTask` — Детализация необработанной загрузки
+- `items.DefaultApi.getV2BufferTasks` — Состояние необработанной загрузки
+- `items.DefaultApi.getV2CardsLimits` — Лимиты карточек товаров
+- `items.DefaultApi.getV2DirectoryColors` — Цвет
+- `items.DefaultApi.getV2DirectoryCountries` — Страна производства
+- `items.DefaultApi.getV2DirectoryKinds` — Пол
+- `items.DefaultApi.getV2DirectorySeasons` — Сезон
+- `items.DefaultApi.getV2DirectoryTnved` — ТНВЭД-код
+- `items.DefaultApi.getV2DirectoryVat` — Ставка НДС
+- `items.DefaultApi.getV2HistoryGoodsTask` — Детализация обработанной загрузки
+- `items.DefaultApi.getV2HistoryTasks` — Состояние обработанной загрузки
+- `items.DefaultApi.getV2ListGoodsFilter` — Получить товары с ценами
+- `items.DefaultApi.getV2ListGoodsSizeNm` — Получить размеры товара с ценами
+- `items.DefaultApi.getV2ObjectAll` — Список предметов
+- `items.DefaultApi.getV2ObjectCharcsSubjectId` — Характеристики предмета
+- `items.DefaultApi.getV2ObjectParentAll` — Родительские категории товаров
+- `items.DefaultApi.getV2QuarantineGoods` — Получить товары в карантине
+- `items.DefaultApi.getV2Tags` — Список ярлыков
+- `items.DefaultApi.getV3DbwWarehousesWarehouseIdContacts` — Список контактов
+- `items.DefaultApi.getV3Offices` — Получить список складов WB
+- `items.DefaultApi.getV3Warehouses` — Получить список складов продавца
+- `items.DefaultApi.patchV2TagId` — Изменение ярлыка
 - `items.DefaultApi.postV1RecommendationsList` — Список рекомендаций в карточках товаров
 - `items.DefaultApi.postV1RecommendationsSet` — Установить рекомендации для товаров
 - `items.DefaultApi.postV1UploadTaskB2bWholesale` — Установить оптовые скидки для B2B-продаж
+- `items.DefaultApi.postV2Barcodes` — Генерация баркодов
+- `items.DefaultApi.postV2CardsDeleteTrash` — Перенос карточек товаров в корзину
+- `items.DefaultApi.postV2CardsErrorList` — Список несозданных карточек товаров с ошибками
+- `items.DefaultApi.postV2CardsMoveNm` — Объединение и разъединение карточек товаров
+- `items.DefaultApi.postV2CardsRecover` — Восстановление карточек товаров из корзины
+- `items.DefaultApi.postV2CardsUpdate` — Редактирование карточек товаров
+- `items.DefaultApi.postV2CardsUpload` — Создание карточек товаров
+- `items.DefaultApi.postV2CardsUploadAdd` — Создание карточек товаров с присоединением
+- `items.DefaultApi.postV2GetCardsList` — Список карточек товаров
+- `items.DefaultApi.postV2GetCardsTrash` — Список карточек товаров в корзине
+- `items.DefaultApi.postV2ListGoodsFilter` — Получить товары с ценами по артикулам
+- `items.DefaultApi.postV2Tag` — Создание ярлыка
+- `items.DefaultApi.postV2TagNomenclatureLink` — Управление ярлыками в карточке товара
+- `items.DefaultApi.postV2UploadTask` — Установить цены и скидки
+- `items.DefaultApi.postV2UploadTaskClubDiscount` — Установить скидки WB Клуба
+- `items.DefaultApi.postV2UploadTaskSize` — Установить цены для размеров
+- `items.DefaultApi.postV3MediaFile` — Загрузить медиафайл
+- `items.DefaultApi.postV3MediaSave` — Загрузить медиафайлы по ссылкам
+- `items.DefaultApi.postV3StocksWarehouseId` — Получить остатки товаров
+- `items.DefaultApi.postV3Warehouses` — Создать склад продавца
+- `items.DefaultApi.putV3DbwWarehousesWarehouseIdContacts` — Обновить список контактов
+- `items.DefaultApi.putV3StocksWarehouseId` — Обновить остатки товаров
+- `items.DefaultApi.putV3WarehousesWarehouseId` — Обновить склад продавца
 
 ### orders_fbs (`orders_fbs`)
 - `orders_fbs.DefaultApi.getMarketplaceV3FbsSettingsAutoreturns` — Получить настройки автовозврата продавца

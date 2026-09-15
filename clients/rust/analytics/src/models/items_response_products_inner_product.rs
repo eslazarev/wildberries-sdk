@@ -27,7 +27,7 @@ pub struct ItemsResponseProductsInnerProduct {
     pub brand_name: String,
     /// ID предмета
     #[serde(rename = "subjectId")]
-    pub subject_id: i32,
+    pub subject_id: u64,
     /// Название предмета
     #[serde(rename = "subjectName")]
     pub subject_name: String,
@@ -45,7 +45,7 @@ pub struct ItemsResponseProductsInnerProduct {
 }
 
 impl ItemsResponseProductsInnerProduct {
-    pub fn new(nm_id: i64, title: String, vendor_code: String, brand_name: String, subject_id: i32, subject_name: String, tags: Vec<models::Tag>, product_rating: f64, feedback_rating: f64, stocks: models::ItemStocks) -> ItemsResponseProductsInnerProduct {
+    pub fn new(nm_id: i64, title: String, vendor_code: String, brand_name: String, subject_id: u64, subject_name: String, tags: Vec<models::Tag>, product_rating: f64, feedback_rating: f64, stocks: models::ItemStocks) -> ItemsResponseProductsInnerProduct {
         ItemsResponseProductsInnerProduct {
             nm_id,
             title,

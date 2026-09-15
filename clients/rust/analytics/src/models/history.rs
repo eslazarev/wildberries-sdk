@@ -18,38 +18,38 @@ pub struct History {
     pub date: chrono::NaiveDate,
     /// Количество переходов в карточку товара
     #[serde(rename = "openCount")]
-    pub open_count: i32,
+    pub open_count: u32,
     /// Положили в корзину, шт.
     #[serde(rename = "cartCount")]
-    pub cart_count: i32,
+    pub cart_count: u32,
     /// Заказали товаров, шт.
     #[serde(rename = "orderCount")]
-    pub order_count: i32,
+    pub order_count: u32,
     /// Заказали на сумму
     #[serde(rename = "orderSum")]
-    pub order_sum: i32,
+    pub order_sum: u32,
     /// Выкупили товаров, шт.
     #[serde(rename = "buyoutCount")]
-    pub buyout_count: i32,
+    pub buyout_count: u32,
     /// Выкупили на сумму
     #[serde(rename = "buyoutSum")]
-    pub buyout_sum: i32,
+    pub buyout_sum: u32,
     /// Процент выкупа
     #[serde(rename = "buyoutPercent")]
-    pub buyout_percent: i32,
+    pub buyout_percent: u32,
     /// Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %
     #[serde(rename = "addToCartConversion")]
-    pub add_to_cart_conversion: i32,
+    pub add_to_cart_conversion: u32,
     /// Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ
     #[serde(rename = "cartToOrderConversion")]
-    pub cart_to_order_conversion: i32,
+    pub cart_to_order_conversion: u32,
     /// Количество добавлений товара в **Отложенные**
     #[serde(rename = "addToWishlistCount")]
-    pub add_to_wishlist_count: i32,
+    pub add_to_wishlist_count: u32,
 }
 
 impl History {
-    pub fn new(date: chrono::NaiveDate, open_count: i32, cart_count: i32, order_count: i32, order_sum: i32, buyout_count: i32, buyout_sum: i32, buyout_percent: i32, add_to_cart_conversion: i32, cart_to_order_conversion: i32, add_to_wishlist_count: i32) -> History {
+    pub fn new(date: chrono::NaiveDate, open_count: u32, cart_count: u32, order_count: u32, order_sum: u32, buyout_count: u32, buyout_sum: u32, buyout_percent: u32, add_to_cart_conversion: u32, cart_to_order_conversion: u32, add_to_wishlist_count: u32) -> History {
         History {
             date,
             open_count,

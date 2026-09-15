@@ -90,58 +90,58 @@ SDK выпускается с security-first процессом:
 - `GET /ping` — Проверка подключения (getPing)
 
 ### Работа с товарами (`02-items.yaml`)
-- `GET /api/content/v1/brands` — Бренды
+- `GET /api/content/v1/brands` — Бренды (getV1Brands)
 - `POST /api/content/v1/recommendations/list` — Список рекомендаций в карточках товаров (postV1RecommendationsList)
 - `POST /api/content/v1/recommendations/set` — Установить рекомендации для товаров (postV1RecommendationsSet)
 - `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж (postV1UploadTaskB2bWholesale)
-- `GET /api/v2/buffer/goods/task` — Детализация необработанной загрузки
-- `GET /api/v2/buffer/tasks` — Состояние необработанной загрузки
-- `GET /api/v2/history/goods/task` — Детализация обработанной загрузки
-- `GET /api/v2/history/tasks` — Состояние обработанной загрузки
-- `GET /api/v2/list/goods/filter` — Получить товары с ценами
-- `POST /api/v2/list/goods/filter` — Получить товары с ценами по артикулам
-- `GET /api/v2/list/goods/size/nm` — Получить размеры товара с ценами
-- `GET /api/v2/quarantine/goods` — Получить товары в карантине
-- `POST /api/v2/upload/task` — Установить цены и скидки
-- `POST /api/v2/upload/task/club-discount` — Установить скидки WB Клуба
-- `POST /api/v2/upload/task/size` — Установить цены для размеров
-- `GET /api/v3/dbw/warehouses/{warehouseId}/contacts` — Список контактов
-- `PUT /api/v3/dbw/warehouses/{warehouseId}/contacts` — Обновить список контактов
-- `GET /api/v3/offices` — Получить список складов WB
-- `POST /api/v3/stocks/{warehouseId}` — Получить остатки товаров
-- `PUT /api/v3/stocks/{warehouseId}` — Обновить остатки товаров
-- `DELETE /api/v3/stocks/{warehouseId}` — Удалить остатки товаров
-- `GET /api/v3/warehouses` — Получить список складов продавца
-- `POST /api/v3/warehouses` — Создать склад продавца
-- `PUT /api/v3/warehouses/{warehouseId}` — Обновить склад продавца
-- `DELETE /api/v3/warehouses/{warehouseId}` — Удалить склад продавца
-- `POST /content/v2/barcodes` — Генерация баркодов
-- `POST /content/v2/cards/delete/trash` — Перенос карточек товаров в корзину
-- `POST /content/v2/cards/error/list` — Список несозданных карточек товаров с ошибками
-- `GET /content/v2/cards/limits` — Лимиты карточек товаров
-- `POST /content/v2/cards/moveNm` — Объединение и разъединение карточек товаров
-- `POST /content/v2/cards/recover` — Восстановление карточек товаров из корзины
-- `POST /content/v2/cards/update` — Редактирование карточек товаров
-- `POST /content/v2/cards/upload` — Создание карточек товаров
-- `POST /content/v2/cards/upload/add` — Создание карточек товаров с присоединением
-- `GET /content/v2/directory/colors` — Цвет
-- `GET /content/v2/directory/countries` — Страна производства
-- `GET /content/v2/directory/kinds` — Пол
-- `GET /content/v2/directory/seasons` — Сезон
-- `GET /content/v2/directory/tnved` — ТНВЭД-код
-- `GET /content/v2/directory/vat` — Ставка НДС
-- `POST /content/v2/get/cards/list` — Список карточек товаров
-- `POST /content/v2/get/cards/trash` — Список карточек товаров в корзине
-- `GET /content/v2/object/all` — Список предметов
-- `GET /content/v2/object/charcs/{subjectId}` — Характеристики предмета
-- `GET /content/v2/object/parent/all` — Родительские категории товаров
-- `POST /content/v2/tag` — Создание ярлыка
-- `POST /content/v2/tag/nomenclature/link` — Управление ярлыками в карточке товара
-- `PATCH /content/v2/tag/{id}` — Изменение ярлыка
-- `DELETE /content/v2/tag/{id}` — Удаление ярлыка
-- `GET /content/v2/tags` — Список ярлыков
-- `POST /content/v3/media/file` — Загрузить медиафайл
-- `POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам
+- `GET /api/v2/buffer/goods/task` — Детализация необработанной загрузки (getV2BufferGoodsTask)
+- `GET /api/v2/buffer/tasks` — Состояние необработанной загрузки (getV2BufferTasks)
+- `GET /api/v2/history/goods/task` — Детализация обработанной загрузки (getV2HistoryGoodsTask)
+- `GET /api/v2/history/tasks` — Состояние обработанной загрузки (getV2HistoryTasks)
+- `GET /api/v2/list/goods/filter` — Получить товары с ценами (getV2ListGoodsFilter)
+- `POST /api/v2/list/goods/filter` — Получить товары с ценами по артикулам (postV2ListGoodsFilter)
+- `GET /api/v2/list/goods/size/nm` — Получить размеры товара с ценами (getV2ListGoodsSizeNm)
+- `GET /api/v2/quarantine/goods` — Получить товары в карантине (getV2QuarantineGoods)
+- `POST /api/v2/upload/task` — Установить цены и скидки (postV2UploadTask)
+- `POST /api/v2/upload/task/club-discount` — Установить скидки WB Клуба (postV2UploadTaskClubDiscount)
+- `POST /api/v2/upload/task/size` — Установить цены для размеров (postV2UploadTaskSize)
+- `GET /api/v3/dbw/warehouses/{warehouseId}/contacts` — Список контактов (getV3DbwWarehousesWarehouseIdContacts)
+- `PUT /api/v3/dbw/warehouses/{warehouseId}/contacts` — Обновить список контактов (putV3DbwWarehousesWarehouseIdContacts)
+- `GET /api/v3/offices` — Получить список складов WB (getV3Offices)
+- `POST /api/v3/stocks/{warehouseId}` — Получить остатки товаров (postV3StocksWarehouseId)
+- `PUT /api/v3/stocks/{warehouseId}` — Обновить остатки товаров (putV3StocksWarehouseId)
+- `DELETE /api/v3/stocks/{warehouseId}` — Удалить остатки товаров (deleteV3StocksWarehouseId)
+- `GET /api/v3/warehouses` — Получить список складов продавца (getV3Warehouses)
+- `POST /api/v3/warehouses` — Создать склад продавца (postV3Warehouses)
+- `PUT /api/v3/warehouses/{warehouseId}` — Обновить склад продавца (putV3WarehousesWarehouseId)
+- `DELETE /api/v3/warehouses/{warehouseId}` — Удалить склад продавца (deleteV3WarehousesWarehouseId)
+- `POST /content/v2/barcodes` — Генерация баркодов (postV2Barcodes)
+- `POST /content/v2/cards/delete/trash` — Перенос карточек товаров в корзину (postV2CardsDeleteTrash)
+- `POST /content/v2/cards/error/list` — Список несозданных карточек товаров с ошибками (postV2CardsErrorList)
+- `GET /content/v2/cards/limits` — Лимиты карточек товаров (getV2CardsLimits)
+- `POST /content/v2/cards/moveNm` — Объединение и разъединение карточек товаров (postV2CardsMoveNm)
+- `POST /content/v2/cards/recover` — Восстановление карточек товаров из корзины (postV2CardsRecover)
+- `POST /content/v2/cards/update` — Редактирование карточек товаров (postV2CardsUpdate)
+- `POST /content/v2/cards/upload` — Создание карточек товаров (postV2CardsUpload)
+- `POST /content/v2/cards/upload/add` — Создание карточек товаров с присоединением (postV2CardsUploadAdd)
+- `GET /content/v2/directory/colors` — Цвет (getV2DirectoryColors)
+- `GET /content/v2/directory/countries` — Страна производства (getV2DirectoryCountries)
+- `GET /content/v2/directory/kinds` — Пол (getV2DirectoryKinds)
+- `GET /content/v2/directory/seasons` — Сезон (getV2DirectorySeasons)
+- `GET /content/v2/directory/tnved` — ТНВЭД-код (getV2DirectoryTnved)
+- `GET /content/v2/directory/vat` — Ставка НДС (getV2DirectoryVat)
+- `POST /content/v2/get/cards/list` — Список карточек товаров (postV2GetCardsList)
+- `POST /content/v2/get/cards/trash` — Список карточек товаров в корзине (postV2GetCardsTrash)
+- `GET /content/v2/object/all` — Список предметов (getV2ObjectAll)
+- `GET /content/v2/object/charcs/{subjectId}` — Характеристики предмета (getV2ObjectCharcsSubjectId)
+- `GET /content/v2/object/parent/all` — Родительские категории товаров (getV2ObjectParentAll)
+- `POST /content/v2/tag` — Создание ярлыка (postV2Tag)
+- `POST /content/v2/tag/nomenclature/link` — Управление ярлыками в карточке товара (postV2TagNomenclatureLink)
+- `PATCH /content/v2/tag/{id}` — Изменение ярлыка (patchV2TagId)
+- `DELETE /content/v2/tag/{id}` — Удаление ярлыка (deleteV2TagId)
+- `GET /content/v2/tags` — Список ярлыков (getV2Tags)
+- `POST /content/v3/media/file` — Загрузить медиафайл (postV3MediaFile)
+- `POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам (postV3MediaSave)
 
 ### Заказы FBS (`03-orders-fbs.yaml`)
 - `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ (getV3FbsDictionariesCountriesOksm)

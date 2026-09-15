@@ -20,12 +20,12 @@ pub struct CommonInfo {
     pub advertised_products: Box<models::CommonInfoAdvertisedProducts>,
     /// Общее количество товаров
     #[serde(rename = "totalProducts")]
-    pub total_products: i32,
+    pub total_products: u64,
 }
 
 impl CommonInfo {
     /// Общая информация
-    pub fn new(supplier_rating: models::CommonInfoSupplierRating, advertised_products: models::CommonInfoAdvertisedProducts, total_products: i32) -> CommonInfo {
+    pub fn new(supplier_rating: models::CommonInfoSupplierRating, advertised_products: models::CommonInfoAdvertisedProducts, total_products: u64) -> CommonInfo {
         CommonInfo {
             supplier_rating: Box::new(supplier_rating),
             advertised_products: Box::new(advertised_products),

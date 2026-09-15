@@ -1,7 +1,7 @@
 /*
 Общение с покупателями
 
-<div class=\"description_important\">   Узнать больше об общении с покупателями можно в <a href=\"https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью методов общения с покупателями вы можете работать с:   1. [Вопросами](/openapi/user-communication#tag/questions) и [отзывами](/openapi/user-communication#tag/feedbacks) покупателей   2. [Закреплёнными отзывами](/openapi/user-communication#tag/pinnedFeedbacks)   3. [Чатами с покупателями](/openapi/user-communication#tag/buyersChat)   4. [Заявками покупателей на возврат](/openapi/user-communication#tag/buyersReturns)  Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Voprosy-i-otzyvy) для управления тестовыми вопросами и отзывами  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami\">инструкции</a> по работе с разделом <strong>Общение с покупателями</strong> </div>  
+<div class=\"description_important\">   Узнать больше об общении с покупателями можно в <a href=\"https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью методов общения с покупателями вы можете работать с:   1. [Вопросами](/openapi/customer-communication#tag/questions) и [отзывами](/openapi/customer-communication#tag/feedbacks) покупателей   2. [Закреплёнными отзывами](/openapi/customer-communication#tag/pinnedFeedbacks)   3. [Чатами с покупателями](/openapi/customer-communication#tag/buyersChat)   4. [Заявками покупателей на возврат](/openapi/customer-communication#tag/buyersReturns)  Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Voprosy-i-otzyvy) для управления тестовыми вопросами и отзывами  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami\">инструкции</a> по работе с разделом <strong>Общение с покупателями</strong> </div>  
 
 API version: communication
 */
@@ -45,7 +45,7 @@ func (r ApiDeleteFeedbacksV1PinsRequest) Execute() (*DeleteFeedbacksV1Pins200Res
 DeleteFeedbacksV1Pins Открепить отзывы
 
 Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br>
-Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/user-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
+Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -963,7 +963,7 @@ func (r ApiGetV1ClaimsRequest) Execute() (*GetV1Claims200Response, *http.Respons
 /*
 GetV1Claims Заявки покупателей на возврат
 
-Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/user-communication#tag/buyersReturns/operation/patchV1Claim).
+Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1174,7 +1174,7 @@ func (r ApiGetV1FeedbackRequest) Execute() (*GetV1Feedback200Response, *http.Res
 /*
 GetV1Feedback Получить отзыв по ID
 
-Метод возвращает данные [отзыва](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
+Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -1645,7 +1645,7 @@ func (r ApiGetV1FeedbacksArchiveRequest) Execute() (*GetV1FeedbacksArchive200Res
 /*
 GetV1FeedbacksArchive Список архивных отзывов
 
-Метод возвращает список архивных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks).
+Метод возвращает список архивных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
 <br><br>
 Отзыв становится архивным, если:
   - на отзыв получен ответ
@@ -1876,7 +1876,7 @@ func (r ApiGetV1FeedbacksCountRequest) Execute() (*GetV1FeedbacksCount200Respons
 /*
 GetV1FeedbacksCount Количество отзывов
 
-Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
+Метод возвращает количество обработанных или необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
 Отзыв считается обработанным, если выполняется одно из условий:
   - на отзыв получен ответ
   - отзыв содержит только оценку (без текста и фото)
@@ -2070,7 +2070,7 @@ func (r ApiGetV1FeedbacksCountUnansweredRequest) Execute() (*GetV1FeedbacksCount
 GetV1FeedbacksCountUnanswered Необработанные отзывы
 
 Метод возвращает:
-  - количество необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
+  - количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -2239,7 +2239,7 @@ func (r ApiGetV1NewFeedbacksQuestionsRequest) Execute() (*GetV1NewFeedbacksQuest
 /*
 GetV1NewFeedbacksQuestions Непросмотренные отзывы и вопросы
 
-Метод проверяет наличие непросмотренных [вопросов](/openapi/user-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
+Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -2415,7 +2415,7 @@ func (r ApiGetV1QuestionRequest) Execute() (*GetV1Question200Response, *http.Res
 /*
 GetV1Question Получить вопрос по ID
 
-Метод возвращает данные [вопроса](/openapi/user-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/user-communication#tag/questions/operation/patchV1Questions).
+Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -2880,7 +2880,7 @@ func (r ApiGetV1QuestionsCountRequest) Execute() (*GetV1QuestionsCount200Respons
 /*
 GetV1QuestionsCount Количество вопросов
 
-Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/user-communication#tag/questions/operation/getV1Questions) за заданный период.
+Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -3073,7 +3073,7 @@ func (r ApiGetV1QuestionsCountUnansweredRequest) Execute() (*GetV1QuestionsCount
 /*
 GetV1QuestionsCountUnanswered Неотвеченные вопросы
 
-Метод возвращает общее количество неотвеченных [вопросов](/openapi/user-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
+Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -3242,7 +3242,7 @@ func (r ApiGetV1SellerChatsRequest) Execute() (*ChatsResponse, *http.Response, e
 /*
 GetV1SellerChats Список чатов
 
-Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/user-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/user-communication#tag/buyersChat/operation/postV1SellerMessage).
+Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3428,7 +3428,7 @@ GetV1SellerDownloadId Получить файл из сообщения
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID файла, см. значение поля `downloadID` в методе [События чатов](./user-communication#tag/buyersChat/operation/getV1SellerEvents)
+ @param id ID файла, см. значение поля `downloadID` в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
  @return ApiGetV1SellerDownloadIdRequest
 */
 func (a *DefaultApiService) GetV1SellerDownloadId(ctx context.Context, id string) ApiGetV1SellerDownloadIdRequest {
@@ -3613,7 +3613,7 @@ func (r ApiGetV1SellerEventsRequest) Execute() (*EventsResponse, *http.Response,
 /*
 GetV1SellerEvents События чатов
 
-Метод возвращает список событий всех [чатов с покупателями](/openapi/user-communication#tag/buyersChat/operation/getV1SellerChats).
+Метод возвращает список событий всех [чатов с покупателями](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
 
 Чтобы получить все события:
   1. Сделайте первый запрос без параметра `next`.
@@ -3807,7 +3807,7 @@ func (r ApiPatchV1ClaimRequest) Execute() (*http.Response, error) {
 /*
 PatchV1Claim Ответ на заявку покупателя
 
-Метод отправляет ответ на [заявку](/openapi/user-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
+Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3987,7 +3987,7 @@ func (r ApiPatchV1FeedbacksAnswerRequest) Execute() (*http.Response, error) {
 /*
 PatchV1FeedbacksAnswer Отредактировать ответ на отзыв
 
-Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
+Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
 <br><br>
 Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.
 
@@ -4160,7 +4160,7 @@ func (r ApiPatchV1QuestionsRequest) Execute() (*PatchV1Questions200Response, *ht
 PatchV1Questions Работа с вопросами
 
 В зависимости от тела запроса, метод позволяет:
-  - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный
+  - отметить [вопрос](/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный
   - отклонить вопрос
   - ответить на вопрос или отредактировать ответ
 
@@ -4381,7 +4381,7 @@ func (r ApiPostFeedbacksV1PinsRequest) Execute() (*PostFeedbacksV1Pins200Respons
 PostFeedbacksV1Pins Закрепить отзывы
 
 Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br>
-Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/user-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
+Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
 <br>
 Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.
 
@@ -4577,7 +4577,7 @@ func (r ApiPostV1FeedbacksAnswerRequest) Execute() (*http.Response, error) {
 /*
 PostV1FeedbacksAnswer Ответить на отзыв
 
-Метод позволяет ответить на [отзыв](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
+Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
 
 <div class="description_important">
   ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
@@ -4758,7 +4758,7 @@ func (r ApiPostV1FeedbacksOrderReturnRequest) Execute() (*PatchV1Questions200Res
 /*
 PostV1FeedbacksOrderReturn Возврат товара по ID отзыва
 
-Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks).
+Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
 <br><br>
 Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.
 
@@ -4952,7 +4952,7 @@ type ApiPostV1SellerMessageRequest struct {
 	file []*os.File
 }
 
-// Подпись чата. Можно получить из [информации по чату](./user-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./user-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;. 
+// Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;. 
 func (r ApiPostV1SellerMessageRequest) ReplySign(replySign string) ApiPostV1SellerMessageRequest {
 	r.replySign = &replySign
 	return r
@@ -4977,7 +4977,7 @@ func (r ApiPostV1SellerMessageRequest) Execute() (*MessageResponse, *http.Respon
 /*
 PostV1SellerMessage Отправить сообщение
 
-Метод отправляет сообщения в [чат с покупателем](/openapi/user-communication#tag/buyersChat/operation/getV1SellerChats).
+Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:

@@ -22,12 +22,12 @@ pub struct TableSearchTextItemAllOfOpenCard {
     pub dynamics: Option<i32>,
     /// Процент, на который показатель количества открытий карточки товара выше, чем у карточек других продавцов по поисковому запросу
     #[serde(rename = "percentile")]
-    pub percentile: i32,
+    pub percentile: u64,
 }
 
 impl TableSearchTextItemAllOfOpenCard {
     /// Количество переходов в карточку товара из поиска
-    pub fn new(current: i32, percentile: i32) -> TableSearchTextItemAllOfOpenCard {
+    pub fn new(current: i32, percentile: u64) -> TableSearchTextItemAllOfOpenCard {
         TableSearchTextItemAllOfOpenCard {
             current,
             dynamics: None,

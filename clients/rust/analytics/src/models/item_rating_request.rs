@@ -40,15 +40,15 @@ pub struct ItemRatingRequest {
     pub order_by: Box<models::OrderByItemRating>,
     /// Количество товаров в ответе
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
-    pub limit: Option<i32>,
+    pub limit: Option<u32>,
     /// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
     #[serde(rename = "offset")]
-    pub offset: i32,
+    pub offset: u32,
 }
 
 impl ItemRatingRequest {
     /// Параметры запроса
-    pub fn new(current_period: models::PeriodItemRating, order_by: models::OrderByItemRating, offset: i32) -> ItemRatingRequest {
+    pub fn new(current_period: models::PeriodItemRating, order_by: models::OrderByItemRating, offset: u32) -> ItemRatingRequest {
         ItemRatingRequest {
             current_period: Box::new(current_period),
             past_period: None,

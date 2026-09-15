@@ -19,7 +19,7 @@ pub struct TableGroupItem {
     pub subject_name: Option<String>,
     /// ID предмета
     #[serde(rename = "subjectId", skip_serializing_if = "Option::is_none")]
-    pub subject_id: Option<i32>,
+    pub subject_id: Option<u64>,
     /// Бренд
     #[serde(rename = "brandName", skip_serializing_if = "Option::is_none")]
     pub brand_name: Option<String>,

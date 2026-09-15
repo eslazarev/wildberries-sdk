@@ -16,18 +16,18 @@ use serde::{Deserialize, Serialize};
 pub struct ItemStocks {
     /// Общее количество остатков на складах WB на текущий день, шт.
     #[serde(rename = "wb")]
-    pub wb: i32,
+    pub wb: u32,
     /// Общее количество остатков на складах продавца на текущий день, шт.
     #[serde(rename = "mp")]
-    pub mp: i32,
+    pub mp: u32,
     /// Сумма остатков на складах на текущий день, шт.
     #[serde(rename = "balanceSum")]
-    pub balance_sum: i32,
+    pub balance_sum: u32,
 }
 
 impl ItemStocks {
     /// Остатки
-    pub fn new(wb: i32, mp: i32, balance_sum: i32) -> ItemStocks {
+    pub fn new(wb: u32, mp: u32, balance_sum: u32) -> ItemStocks {
         ItemStocks {
             wb,
             mp,

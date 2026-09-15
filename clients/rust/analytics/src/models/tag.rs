@@ -16,7 +16,7 @@ use serde::{Deserialize, Serialize};
 pub struct Tag {
     /// ID ярлыка
     #[serde(rename = "id")]
-    pub id: i32,
+    pub id: u64,
     /// Название ярлыка
     #[serde(rename = "name")]
     pub name: String,
@@ -24,7 +24,7 @@ pub struct Tag {
 
 impl Tag {
     /// Ярлык
-    pub fn new(id: i32, name: String) -> Tag {
+    pub fn new(id: u64, name: String) -> Tag {
         Tag {
             id,
             name,

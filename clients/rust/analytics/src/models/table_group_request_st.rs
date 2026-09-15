@@ -39,14 +39,14 @@ pub struct TableGroupRequestSt {
     pub order_by: Box<models::TableOrderBy>,
     /// Количество групп в ответе
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
-    pub limit: Option<i32>,
+    pub limit: Option<u32>,
     /// После какого элемента выдавать данные
     #[serde(rename = "offset")]
-    pub offset: i32,
+    pub offset: u32,
 }
 
 impl TableGroupRequestSt {
-    pub fn new(current_period: models::PeriodInv, stock_type: models::StockType, skip_deleted_nm: bool, availability_filters: Vec<AvailabilityFilters>, order_by: models::TableOrderBy, offset: i32) -> TableGroupRequestSt {
+    pub fn new(current_period: models::PeriodInv, stock_type: models::StockType, skip_deleted_nm: bool, availability_filters: Vec<AvailabilityFilters>, order_by: models::TableOrderBy, offset: u32) -> TableGroupRequestSt {
         TableGroupRequestSt {
             nm_ids: None,
             subject_ids: None,

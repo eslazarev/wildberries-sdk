@@ -1,7 +1,7 @@
 /*
  * Работа с товарами
  *
- * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/work-with-products#tag/listingItems) и [редактировать](/openapi/work-with-products#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/work-with-products#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/work-with-products#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/work-with-products#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)   - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div>  
+ * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/item-management#tag/listingItems) и [редактировать](/openapi/item-management#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/item-management#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/item-management#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/item-management#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts)   - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div>  
  *
  * The version of the OpenAPI document: items
  * 
@@ -17,591 +17,297 @@ use tokio::fs::File as TokioFile;
 use tokio_util::codec::{BytesCodec, FramedRead};
 
 
-/// struct for typed errors of method [`api_content_v1_brands_get`]
+/// struct for typed errors of method [`delete_v2_tag_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiContentV1BrandsGetError {
+pub enum DeleteV2TagIdError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_v3_stocks_warehouse_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteV3StocksWarehouseIdError {
+    Status400(models::Error),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_v3_warehouses_warehouse_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteV3WarehousesWarehouseIdError {
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v1_brands`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV1BrandsError {
     Status400(models::BrandsResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ContentV2ObjectAllGet403Response),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::GetV2ObjectAll403Response),
     Status404(models::BrandsResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_buffer_goods_task_get`]
+/// struct for typed errors of method [`get_v2_buffer_goods_task`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2BufferGoodsTaskGetError {
+pub enum GetV2BufferGoodsTaskError {
     Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_buffer_tasks_get`]
+/// struct for typed errors of method [`get_v2_buffer_tasks`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2BufferTasksGetError {
+pub enum GetV2BufferTasksError {
     Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_history_goods_task_get`]
+/// struct for typed errors of method [`get_v2_cards_limits`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2HistoryGoodsTaskGetError {
+pub enum GetV2CardsLimitsError {
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_directory_colors`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2DirectoryColorsError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_directory_countries`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2DirectoryCountriesError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_directory_kinds`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2DirectoryKindsError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_directory_seasons`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2DirectorySeasonsError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_directory_tnved`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2DirectoryTnvedError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_directory_vat`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2DirectoryVatError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_history_goods_task`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2HistoryGoodsTaskError {
     Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_history_tasks_get`]
+/// struct for typed errors of method [`get_v2_history_tasks`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2HistoryTasksGetError {
+pub enum GetV2HistoryTasksError {
     Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_list_goods_filter_get`]
+/// struct for typed errors of method [`get_v2_list_goods_filter`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2ListGoodsFilterGetError {
+pub enum GetV2ListGoodsFilterError {
     Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_list_goods_filter_post`]
+/// struct for typed errors of method [`get_v2_list_goods_size_nm`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2ListGoodsFilterPostError {
+pub enum GetV2ListGoodsSizeNmError {
     Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_list_goods_size_nm_get`]
+/// struct for typed errors of method [`get_v2_object_all`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2ListGoodsSizeNmGetError {
-    Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+pub enum GetV2ObjectAllError {
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::GetV2ObjectAll403Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_quarantine_goods_get`]
+/// struct for typed errors of method [`get_v2_object_charcs_subject_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2QuarantineGoodsGetError {
+pub enum GetV2ObjectCharcsSubjectIdError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_object_parent_all`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2ObjectParentAllError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_quarantine_goods`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2QuarantineGoodsError {
     Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::ResponseError),
     Status422(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_upload_task_club_discount_post`]
+/// struct for typed errors of method [`get_v2_tags`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2UploadTaskClubDiscountPostError {
-    Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseError),
-    Status409(models::ResponseError),
-    Status422(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+pub enum GetV2TagsError {
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_upload_task_post`]
+/// struct for typed errors of method [`get_v3_dbw_warehouses_warehouse_id_contacts`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2UploadTaskPostError {
-    Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseError),
-    Status409(models::ResponseError),
-    Status422(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_upload_task_size_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2UploadTaskSizePostError {
-    Status400(models::ResponseError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseError),
-    Status409(models::ResponseError),
-    Status422(models::ResponseError),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_dbw_warehouses_warehouse_id_contacts_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3DbwWarehousesWarehouseIdContactsGetError {
+pub enum GetV3DbwWarehousesWarehouseIdContactsError {
     Status400(models::Error),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::Error),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v3_dbw_warehouses_warehouse_id_contacts_put`]
+/// struct for typed errors of method [`get_v3_offices`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV3DbwWarehousesWarehouseIdContactsPutError {
-    Status400(models::Error),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
+pub enum GetV3OfficesError {
+    Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::Error),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v3_offices_get`]
+/// struct for typed errors of method [`get_v3_warehouses`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV3OfficesGetError {
-    Status401(models::ContentV2ObjectParentAllGet401Response),
+pub enum GetV3WarehousesError {
+    Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::Error),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v3_stocks_warehouse_id_delete`]
+/// struct for typed errors of method [`patch_v2_tag_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV3StocksWarehouseIdDeleteError {
-    Status400(models::Error),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_stocks_warehouse_id_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3StocksWarehouseIdPostError {
-    Status400(models::Error),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_stocks_warehouse_id_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3StocksWarehouseIdPutError {
-    Status400(models::Error),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status406(models::UpdateBlocked),
-    Status409(Vec<models::StocksWarehouseErrorInner>),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_warehouses_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3WarehousesGetError {
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::Error),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_warehouses_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3WarehousesPostError {
-    Status400(models::Error),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_warehouses_warehouse_id_delete`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3WarehousesWarehouseIdDeleteError {
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_warehouses_warehouse_id_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3WarehousesWarehouseIdPutError {
-    Status400(models::Error),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_barcodes_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2BarcodesPostError {
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_cards_delete_trash_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2CardsDeleteTrashPostError {
+pub enum PatchV2TagIdError {
     Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_cards_error_list_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2CardsErrorListPostError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_cards_limits_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2CardsLimitsGetError {
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_cards_move_nm_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2CardsMoveNmPostError {
-    Status400(models::ContentV2CardsMoveNmPost400Response),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseItemList),
-    Status413(String),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_cards_recover_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2CardsRecoverPostError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_cards_update_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2CardsUpdatePostError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status413(models::ContentV2CardsUpdatePost413Response),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_cards_upload_add_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2CardsUploadAddPostError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ContentV2ObjectAllGet403Response),
-    Status413(models::ContentV2CardsUpdatePost413Response),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_cards_upload_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2CardsUploadPostError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ContentV2ObjectAllGet403Response),
-    Status413(models::ContentV2CardsUpdatePost413Response),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_directory_colors_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2DirectoryColorsGetError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_directory_countries_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2DirectoryCountriesGetError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_directory_kinds_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2DirectoryKindsGetError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_directory_seasons_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2DirectorySeasonsGetError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_directory_tnved_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2DirectoryTnvedGetError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_directory_vat_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2DirectoryVatGetError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_get_cards_list_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2GetCardsListPostError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_get_cards_trash_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2GetCardsTrashPostError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_object_all_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2ObjectAllGetError {
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ContentV2ObjectAllGet403Response),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_object_charcs_subject_id_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2ObjectCharcsSubjectIdGetError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_object_parent_all_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2ObjectParentAllGetError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_tag_id_delete`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2TagIdDeleteError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_tag_id_patch`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2TagIdPatchError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_tag_nomenclature_link_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2TagNomenclatureLinkPostError {
-    Status400(models::ResponseContentError),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_tag_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2TagPostError {
-    Status400(models::ResponseBodyContentError400),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v2_tags_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV2TagsGetError {
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::ResponseBodyContentError403),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v3_media_file_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV3MediaFilePostError {
-    Status400(models::MediaErrors),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::MediaErrors),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`content_v3_media_save_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ContentV3MediaSavePostError {
-    Status400(models::MediaErrors),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
-    Status402(models::ContentV2TagsGet402Response),
-    Status403(models::MediaErrors),
-    Status409(models::MediaErrors),
-    Status422(models::MediaErrors),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -610,9 +316,9 @@ pub enum ContentV3MediaSavePostError {
 #[serde(untagged)]
 pub enum PostV1RecommendationsListError {
     Status400(models::Response400GetRecom),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::Response4Xx),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -621,9 +327,9 @@ pub enum PostV1RecommendationsListError {
 #[serde(untagged)]
 pub enum PostV1RecommendationsSetError {
     Status400(models::Response400SetRecom),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::Response4Xx),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -632,15 +338,424 @@ pub enum PostV1RecommendationsSetError {
 #[serde(untagged)]
 pub enum PostV1UploadTaskB2bWholesaleError {
     Status400(models::ResponseErrorV3),
-    Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::ResponseErrorV3),
-    Status429(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_barcodes`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2BarcodesError {
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_cards_delete_trash`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2CardsDeleteTrashError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_cards_error_list`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2CardsErrorListError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_cards_move_nm`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2CardsMoveNmError {
+    Status400(models::PostV2CardsMoveNm400Response),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseItemList),
+    Status413(String),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_cards_recover`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2CardsRecoverError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_cards_update`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2CardsUpdateError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status413(models::PostV2CardsUpdate413Response),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_cards_upload`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2CardsUploadError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::GetV2ObjectAll403Response),
+    Status413(models::PostV2CardsUpdate413Response),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_cards_upload_add`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2CardsUploadAddError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::GetV2ObjectAll403Response),
+    Status413(models::PostV2CardsUpdate413Response),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_get_cards_list`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2GetCardsListError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_get_cards_trash`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2GetCardsTrashError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_list_goods_filter`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2ListGoodsFilterError {
+    Status400(models::ResponseError),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseError),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_tag`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2TagError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_tag_nomenclature_link`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2TagNomenclatureLinkError {
+    Status400(models::ResponseContentError),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_upload_task`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2UploadTaskError {
+    Status400(models::ResponseError),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseError),
+    Status409(models::ResponseError),
+    Status422(models::ResponseError),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_upload_task_club_discount`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2UploadTaskClubDiscountError {
+    Status400(models::ResponseError),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseError),
+    Status409(models::ResponseError),
+    Status422(models::ResponseError),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_upload_task_size`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2UploadTaskSizeError {
+    Status400(models::ResponseError),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::ResponseError),
+    Status409(models::ResponseError),
+    Status422(models::ResponseError),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_media_file`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3MediaFileError {
+    Status400(models::MediaErrors),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::MediaErrors),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_media_save`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3MediaSaveError {
+    Status400(models::MediaErrors),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::MediaErrors),
+    Status409(models::MediaErrors),
+    Status422(models::MediaErrors),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_stocks_warehouse_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3StocksWarehouseIdError {
+    Status400(models::Error),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_warehouses`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3WarehousesError {
+    Status400(models::Error),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_dbw_warehouses_warehouse_id_contacts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3DbwWarehousesWarehouseIdContactsError {
+    Status400(models::Error),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::Error),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_stocks_warehouse_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3StocksWarehouseIdError {
+    Status400(models::Error),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status406(models::UpdateBlocked),
+    Status409(Vec<models::StocksWarehouseErrorInner>),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_warehouses_warehouse_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3WarehousesWarehouseIdError {
+    Status400(models::Error),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
 }
 
 
+/// Метод удаляет ярлык из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn delete_v2_tag_id(configuration: &configuration::Configuration, id: i32) -> Result<models::ResponseContentError, Error<DeleteV2TagIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_id = id;
+
+    let uri_str = format!("{}/content/v2/tag/{id}", configuration.base_path, id=p_path_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseContentError`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseContentError`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteV2TagIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).  <div class=\"description_important\">   <strong>Действие необратимо</strong>. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 2 запроса |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn delete_v3_stocks_warehouse_id(configuration: &configuration::Configuration, warehouse_id: i64, delete_v3_stocks_warehouse_id_request: models::DeleteV3StocksWarehouseIdRequest) -> Result<(), Error<DeleteV3StocksWarehouseIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_warehouse_id = warehouse_id;
+    let p_body_delete_v3_stocks_warehouse_id_request = delete_v3_stocks_warehouse_id_request;
+
+    let uri_str = format!("{}/api/v3/stocks/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_delete_v3_stocks_warehouse_id_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteV3StocksWarehouseIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод удаляет [склад продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn delete_v3_warehouses_warehouse_id(configuration: &configuration::Configuration, warehouse_id: i64) -> Result<(), Error<DeleteV3WarehousesWarehouseIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_warehouse_id = warehouse_id;
+
+    let uri_str = format!("{}/api/v3/warehouses/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteV3WarehousesWarehouseIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 /// Метод возвращает список брендов по ID предмета.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_content_v1_brands_get(configuration: &configuration::Configuration, subject_id: i32, next: Option<i32>) -> Result<models::BrandsResponse, Error<ApiContentV1BrandsGetError>> {
+pub async fn get_v1_brands(configuration: &configuration::Configuration, subject_id: i32, next: Option<i32>) -> Result<models::BrandsResponse, Error<GetV1BrandsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_subject_id = subject_id;
     let p_query_next = next;
@@ -684,13 +799,13 @@ pub async fn api_content_v1_brands_get(configuration: &configuration::Configurat
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiContentV1BrandsGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1BrandsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_buffer_goods_task_get(configuration: &configuration::Configuration, limit: i32, upload_id: i32, offset: Option<i32>) -> Result<models::ApiV2BufferGoodsTaskGet200Response, Error<ApiV2BufferGoodsTaskGetError>> {
+pub async fn get_v2_buffer_goods_task(configuration: &configuration::Configuration, limit: i32, upload_id: i32, offset: Option<i32>) -> Result<models::GetV2BufferGoodsTask200Response, Error<GetV2BufferGoodsTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_limit = limit;
     let p_query_upload_id = upload_id;
@@ -731,18 +846,18 @@ pub async fn api_v2_buffer_goods_task_get(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2BufferGoodsTaskGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2BufferGoodsTaskGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2BufferGoodsTask200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2BufferGoodsTask200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV2BufferGoodsTaskGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2BufferGoodsTaskError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Метод возвращает информацию про загрузку скидок в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_buffer_tasks_get(configuration: &configuration::Configuration, upload_id: i32) -> Result<models::ApiV2BufferTasksGet200Response, Error<ApiV2BufferTasksGetError>> {
+pub async fn get_v2_buffer_tasks(configuration: &configuration::Configuration, upload_id: i32) -> Result<models::GetV2BufferTasks200Response, Error<GetV2BufferTasksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_upload_id = upload_id;
 
@@ -777,1000 +892,18 @@ pub async fn api_v2_buffer_tasks_get(configuration: &configuration::Configuratio
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2BufferTasksGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2BufferTasksGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2BufferTasks200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2BufferTasks200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV2BufferTasksGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2BufferTasksError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post\">товаров</a>, цен для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post\">размеров товаров</a> <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post\">скидок WB Клуба</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_history_goods_task_get(configuration: &configuration::Configuration, limit: i32, upload_id: i32, offset: Option<i32>) -> Result<models::ApiV2HistoryGoodsTaskGet200Response, Error<ApiV2HistoryGoodsTaskGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_upload_id = upload_id;
-    let p_query_offset = offset;
-
-    let uri_str = format!("{}/api/v2/history/goods/task", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    req_builder = req_builder.query(&[("uploadID", &p_query_upload_id.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2HistoryGoodsTaskGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2HistoryGoodsTaskGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2HistoryGoodsTaskGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию об обработанной загрузке цен и скидок.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post\">товаров</a>, цен для <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post\">размеров товаров</a>, <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post\">скидок WB Клуба</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_history_tasks_get(configuration: &configuration::Configuration, upload_id: i32) -> Result<models::ApiV2HistoryTasksGet200Response, Error<ApiV2HistoryTasksGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_upload_id = upload_id;
-
-    let uri_str = format!("{}/api/v2/history/tasks", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("uploadID", &p_query_upload_id.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2HistoryTasksGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2HistoryTasksGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2HistoryTasksGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post) и [оптовые скидки для B2B-продаж](/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать только один артикул. <br><br> Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.<br><br> Используйте отдельные методы, чтобы получить информацию:   - о [нескольких товарах по артикулам](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post)   - о [размерах товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_list_goods_filter_get(configuration: &configuration::Configuration, limit: i32, offset: Option<i32>, filter_nm_id: Option<i32>) -> Result<models::ApiV2ListGoodsFilterGet200Response, Error<ApiV2ListGoodsFilterGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_offset = offset;
-    let p_query_filter_nm_id = filter_nm_id;
-
-    let uri_str = format!("{}/api/v2/list/goods/filter", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_filter_nm_id {
-        req_builder = req_builder.query(&[("filterNmID", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2ListGoodsFilterGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2ListGoodsFilterGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2ListGoodsFilterGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post) и [оптовые скидки для B2B-продаж](/openapi/work-with-products#tag/Ceny-i-skidki/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать более одного артикула. <br><br> Используйте отдельные методы, чтобы получить информацию:   - обо [всех товарах продавца, не указывая артикулы](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get)   - о [размерах товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_list_goods_filter_post(configuration: &configuration::Configuration, api_v2_list_goods_filter_post_request: models::ApiV2ListGoodsFilterPostRequest) -> Result<models::ApiV2ListGoodsFilterGet200Response, Error<ApiV2ListGoodsFilterPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v2_list_goods_filter_post_request = api_v2_list_goods_filter_post_request;
-
-    let uri_str = format!("{}/api/v2/list/goods/filter", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v2_list_goods_filter_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2ListGoodsFilterGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2ListGoodsFilterGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2ListGoodsFilterPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1club-discount/post). <br><br> Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `\"editableSizePrice\":true`. <br><br> Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_list_goods_size_nm_get(configuration: &configuration::Configuration, limit: i32, nm_id: i32, offset: Option<i32>) -> Result<models::ApiV2ListGoodsSizeNmGet200Response, Error<ApiV2ListGoodsSizeNmGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_nm_id = nm_id;
-    let p_query_offset = offset;
-
-    let uri_str = format!("{}/api/v2/list/goods/size/nm", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    req_builder = req_builder.query(&[("nmID", &p_query_nm_id.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2ListGoodsSizeNmGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2ListGoodsSizeNmGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2ListGoodsSizeNmGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию о товарах в карантине. <br><br> Если новая цена товара со скидкой будет минимум в 3 раза меньше старой, товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в ответах методов [состояний загрузок](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get). <br><br> Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). <br><br> Для товаров с [поразмерной установкой цен](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post) карантин не применяется. <br><br> В [песочнице](/sandbox) товары автоматически удаляются из карантина через 3 дня.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_quarantine_goods_get(configuration: &configuration::Configuration, limit: i32, offset: Option<i32>) -> Result<models::ApiV2QuarantineGoodsGet200Response, Error<ApiV2QuarantineGoodsGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_offset = offset;
-
-    let uri_str = format!("{}/api/v2/quarantine/goods", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2QuarantineGoodsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2QuarantineGoodsGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2QuarantineGoodsGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_upload_task_club_discount_post(configuration: &configuration::Configuration, api_v2_upload_task_club_discount_post_request: models::ApiV2UploadTaskClubDiscountPostRequest) -> Result<models::TaskCreated, Error<ApiV2UploadTaskClubDiscountPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v2_upload_task_club_discount_post_request = api_v2_upload_task_club_discount_post_request;
-
-    let uri_str = format!("{}/api/v2/upload/task/club-discount", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v2_upload_task_club_discount_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TaskCreated`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TaskCreated`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2UploadTaskClubDiscountPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод устанавливает цены и скидки для товаров. <br><br> Чтобы установить цены для размеров товара, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_upload_task_post(configuration: &configuration::Configuration, api_v2_upload_task_post_request: models::ApiV2UploadTaskPostRequest) -> Result<models::TaskCreated, Error<ApiV2UploadTaskPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v2_upload_task_post_request = api_v2_upload_task_post_request;
-
-    let uri_str = format!("{}/api/v2/upload/task", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v2_upload_task_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TaskCreated`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TaskCreated`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2UploadTaskPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод устанавливает цены отдельно для размеров товаров.  Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get) `\"editableSizePrice\":true`.  Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn api_v2_upload_task_size_post(configuration: &configuration::Configuration, api_v2_upload_task_size_post_request: models::ApiV2UploadTaskSizePostRequest) -> Result<models::TaskCreated, Error<ApiV2UploadTaskSizePostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v2_upload_task_size_post_request = api_v2_upload_task_size_post_request;
-
-    let uri_str = format!("{}/api/v2/upload/task/size", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v2_upload_task_size_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TaskCreated`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TaskCreated`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2UploadTaskSizePostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список контактов, привязанных к [складу продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get). <br> Только для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_warehouses_warehouse_id_contacts_get(configuration: &configuration::Configuration, warehouse_id: i64) -> Result<models::ApiV3DbwWarehousesWarehouseIdContactsGet200Response, Error<ApiV3DbwWarehousesWarehouseIdContactsGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_warehouse_id = warehouse_id;
-
-    let uri_str = format!("{}/api/v3/dbw/warehouses/{warehouseId}/contacts", configuration.base_path, warehouseId=p_path_warehouse_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3DbwWarehousesWarehouseIdContactsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3DbwWarehousesWarehouseIdContactsGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3DbwWarehousesWarehouseIdContactsGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет список контактов [склада продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).  <div class=\"description_important\">   Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять. </div>  Только для складов с типом доставки `3` — курьером WB (DBW). <br><br> К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_warehouses_warehouse_id_contacts_put(configuration: &configuration::Configuration, warehouse_id: i64, store_contact_request_body: models::StoreContactRequestBody) -> Result<(), Error<ApiV3DbwWarehousesWarehouseIdContactsPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_warehouse_id = warehouse_id;
-    let p_body_store_contact_request_body = store_contact_request_body;
-
-    let uri_str = format!("{}/api/v3/dbw/warehouses/{warehouseId}/contacts", configuration.base_path, warehouseId=p_path_warehouse_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_store_contact_request_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3DbwWarehousesWarehouseIdContactsPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/post) или [редактировании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses~1%7BwarehouseId%7D/put).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_offices_get(configuration: &configuration::Configuration, ) -> Result<Vec<models::Office>, Error<ApiV3OfficesGetError>> {
-
-    let uri_str = format!("{}/api/v3/offices", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Office&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Office&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OfficesGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   <strong>Действие необратимо</strong>. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 2 запроса |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_stocks_warehouse_id_delete(configuration: &configuration::Configuration, warehouse_id: i64, api_v3_stocks_warehouse_id_delete_request: models::ApiV3StocksWarehouseIdDeleteRequest) -> Result<(), Error<ApiV3StocksWarehouseIdDeleteError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_warehouse_id = warehouse_id;
-    let p_body_api_v3_stocks_warehouse_id_delete_request = api_v3_stocks_warehouse_id_delete_request;
-
-    let uri_str = format!("{}/api/v3/stocks/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_stocks_warehouse_id_delete_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3StocksWarehouseIdDeleteError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает данные об остатках товаров на [складах продавца](/openapi/work-with-products#tag/Sklady-prodavca).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_stocks_warehouse_id_post(configuration: &configuration::Configuration, warehouse_id: i64, api_v3_stocks_warehouse_id_post_request: models::ApiV3StocksWarehouseIdPostRequest) -> Result<models::ApiV3StocksWarehouseIdPost200Response, Error<ApiV3StocksWarehouseIdPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_warehouse_id = warehouse_id;
-    let p_body_api_v3_stocks_warehouse_id_post_request = api_v3_stocks_warehouse_id_post_request;
-
-    let uri_str = format!("{}/api/v3/stocks/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_stocks_warehouse_id_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3StocksWarehouseIdPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3StocksWarehouseIdPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3StocksWarehouseIdPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет количество остатков товаров продавца [в списке](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (<code>204</code>), но остатки не обновятся. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_stocks_warehouse_id_put(configuration: &configuration::Configuration, warehouse_id: i64, api_v3_stocks_warehouse_id_put_request: Option<models::ApiV3StocksWarehouseIdPutRequest>) -> Result<(), Error<ApiV3StocksWarehouseIdPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_warehouse_id = warehouse_id;
-    let p_body_api_v3_stocks_warehouse_id_put_request = api_v3_stocks_warehouse_id_put_request;
-
-    let uri_str = format!("{}/api/v3/stocks/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_stocks_warehouse_id_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3StocksWarehouseIdPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_warehouses_get(configuration: &configuration::Configuration, ) -> Result<Vec<models::Warehouse>, Error<ApiV3WarehousesGetError>> {
-
-    let uri_str = format!("{}/api/v3/warehouses", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Warehouse&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Warehouse&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3WarehousesGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод создаёт склад продавца для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_warehouses_post(configuration: &configuration::Configuration, api_v3_warehouses_post_request: models::ApiV3WarehousesPostRequest) -> Result<models::ApiV3WarehousesPost201Response, Error<ApiV3WarehousesPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v3_warehouses_post_request = api_v3_warehouses_post_request;
-
-    let uri_str = format!("{}/api/v3/warehouses", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_warehouses_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3WarehousesPost201Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3WarehousesPost201Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3WarehousesPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод удаляет [склад продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_warehouses_warehouse_id_delete(configuration: &configuration::Configuration, warehouse_id: i64) -> Result<(), Error<ApiV3WarehousesWarehouseIdDeleteError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_warehouse_id = warehouse_id;
-
-    let uri_str = format!("{}/api/v3/warehouses/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3WarehousesWarehouseIdDeleteError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет данные [склада продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get), кроме складов для сверхгабаритных товаров (СГТ, `\"cargoType\":2`).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_warehouses_warehouse_id_put(configuration: &configuration::Configuration, warehouse_id: i64, api_v3_warehouses_warehouse_id_put_request: models::ApiV3WarehousesWarehouseIdPutRequest) -> Result<(), Error<ApiV3WarehousesWarehouseIdPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_warehouse_id = warehouse_id;
-    let p_body_api_v3_warehouses_warehouse_id_put_request = api_v3_warehouses_warehouse_id_put_request;
-
-    let uri_str = format!("{}/api/v3/warehouses/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_warehouses_warehouse_id_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3WarehousesWarehouseIdPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_barcodes_post(configuration: &configuration::Configuration, content_v2_barcodes_post_request: models::ContentV2BarcodesPostRequest) -> Result<models::ContentV2BarcodesPost200Response, Error<ContentV2BarcodesPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v2_barcodes_post_request = content_v2_barcodes_post_request;
-
-    let uri_str = format!("{}/content/v2/barcodes", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_content_v2_barcodes_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2BarcodesPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2BarcodesPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2BarcodesPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод переносит [карточки товаров в корзину](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post).  <div class=\"description_important\">   После переноса в корзину карточке товара присваивается новый <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров </div>  Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.<br> Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards). <br><br> Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn content_v2_cards_delete_trash_post(configuration: &configuration::Configuration, content_v2_cards_delete_trash_post_request: models::ContentV2CardsDeleteTrashPostRequest) -> Result<models::ContentV2CardsDeleteTrashPost200Response, Error<ContentV2CardsDeleteTrashPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v2_cards_delete_trash_post_request = content_v2_cards_delete_trash_post_request;
-
-    let uri_str = format!("{}/content/v2/cards/delete/trash", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_content_v2_cards_delete_trash_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2CardsDeleteTrashPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2CardsDeleteTrashPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2CardsDeleteTrashPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок. <br><br> Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:   - все ошибки по одному массиву `variants` одного запроса при [создании](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post) карточек товаров   - все ошибки одного запроса при [создании с присоединением](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post) или [редактировании](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post) карточек товаров <br><br> Чтобы получить более 100 пакетов, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"cursor\": {             \"limit\": 100           },           \"order\": {             \"ascending\": true           }         }</pre>   2. Скопируйте `\"updatedAt\":\"***\",\"batchUUID\":\"***\" `из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока не получите в ответе `\"next\":false`. Это будет означать, что вы получили все пакеты.  <div class=\"description_important\">   Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1limits/get\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li> </ul>  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_cards_error_list_post(configuration: &configuration::Configuration, request_public_viewer_public_errors_table_list_v2: models::RequestPublicViewerPublicErrorsTableListV2, locale: Option<&str>) -> Result<models::ResponsePublicViewerPublicErrorsTableListV2, Error<ContentV2CardsErrorListPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_request_public_viewer_public_errors_table_list_v2 = request_public_viewer_public_errors_table_list_v2;
-    let p_query_locale = locale;
-
-    let uri_str = format!("{}/content/v2/cards/error/list", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref param_value) = p_query_locale {
-        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_request_public_viewer_public_errors_table_list_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponsePublicViewerPublicErrorsTableListV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponsePublicViewerPublicErrorsTableListV2`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2CardsErrorListPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post).<br><br>  Формула для получения количества карточек, которые можно создать:  > (`freeLimits` + `paidLimits`) - количество созданных карточек  Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post) и [список карточек товаров в корзине](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1limits/get\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li> </ul>   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_cards_limits_get(configuration: &configuration::Configuration, ) -> Result<models::ContentV2CardsLimitsGet200Response, Error<ContentV2CardsLimitsGetError>> {
+/// Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).<br><br>  Формула для получения количества карточек, которые можно создать:  > (`freeLimits` + `paidLimits`) - количество созданных карточек  Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/getV2CardsLimits\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsErrorList\">получения несозданных карточек товаров с ошибками</a></li> </ul>   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_cards_limits(configuration: &configuration::Configuration, ) -> Result<models::GetV2CardsLimits200Response, Error<GetV2CardsLimitsError>> {
 
     let uri_str = format!("{}/content/v2/cards/limits", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1802,248 +935,18 @@ pub async fn content_v2_cards_limits_get(configuration: &configuration::Configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2CardsLimitsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2CardsLimitsGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2CardsLimits200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2CardsLimits200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2CardsLimitsGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2CardsLimitsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод [объединяет и разъединяет](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`. <br><br> Для объединения карточек товаров сделайте запрос **с указанием** `imtID`. Можно объединять не более 30 карточек товаров.<br> Для разъединения карточек товаров сделайте запрос **без указания** `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`. <br><br> Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.<br> Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.<br> <br> Максимальный размер запроса 10 Мб.  <div class=\"description_important\">   Объединить можно карточки товаров только в рамках одного предмета </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_cards_move_nm_post(configuration: &configuration::Configuration, content_v2_cards_move_nm_post_request: Option<models::ContentV2CardsMoveNmPostRequest>) -> Result<models::ResponseItemList, Error<ContentV2CardsMoveNmPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v2_cards_move_nm_post_request = content_v2_cards_move_nm_post_request;
-
-    let uri_str = format!("{}/content/v2/cards/moveNm", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_content_v2_cards_move_nm_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseItemList`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseItemList`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2CardsMoveNmPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод восстанавливает [карточки товаров из корзины](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post).  <div class=\"description_important\">   Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров — что был присвоен ей при <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">перемещении в корзину</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn content_v2_cards_recover_post(configuration: &configuration::Configuration, content_v2_cards_delete_trash_post_request: models::ContentV2CardsDeleteTrashPostRequest) -> Result<models::ContentV2CardsDeleteTrashPost200Response, Error<ContentV2CardsRecoverPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v2_cards_delete_trash_post_request = content_v2_cards_delete_trash_post_request;
-
-    let uri_str = format!("{}/content/v2/cards/recover", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_content_v2_cards_delete_trash_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2CardsDeleteTrashPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2CardsDeleteTrashPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2CardsRecoverPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.  <div class=\"description_important\">   Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post\">списке карточек товаров</a> и <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post\">списке карточек товаров в корзине</a>. </div>  С помощью этого метода нельзя обновлять или удалять:   - баркоды размеров товара. Можно только добавить дополнительные баркоды   - параметры `photos`, `video` и `tags`   - цены товаров. Цену можно задать, только если вы добавляете новые размеры  При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:   - [Установить цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post), если у [товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) `\"editablePriceSize\":false`   - [Установить цены для размеров](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post), если у [товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) `\"editablePriceSize\":true`  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br> Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
-pub async fn content_v2_cards_update_post(configuration: &configuration::Configuration, _content_v2_cards_update_post_request_inner: Option<Vec<models::ContentV2CardsUpdatePostRequestInner>>) -> Result<models::ResponseItemList, Error<ContentV2CardsUpdatePostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body__content_v2_cards_update_post_request_inner = _content_v2_cards_update_post_request_inner;
-
-    let uri_str = format!("{}/content/v2/cards/update", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body__content_v2_cards_update_post_request_inner);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseItemList`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseItemList`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2CardsUpdatePostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
-pub async fn content_v2_cards_upload_add_post(configuration: &configuration::Configuration, content_v2_cards_upload_add_post_request: Option<models::ContentV2CardsUploadAddPostRequest>) -> Result<models::ResponseItemList, Error<ContentV2CardsUploadAddPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v2_cards_upload_add_post_request = content_v2_cards_upload_add_post_request;
-
-    let uri_str = format!("{}/content/v2/cards/upload/add", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_content_v2_cards_upload_add_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseItemList`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseItemList`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2CardsUploadAddPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>  <div class=\"description_important\">   Есть две формы запроса: для создания отдельных и объединённых карточек товаров </div>  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br> Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
-pub async fn content_v2_cards_upload_post(configuration: &configuration::Configuration, _content_v2_cards_upload_post_request_inner: Option<Vec<models::ContentV2CardsUploadPostRequestInner>>) -> Result<models::ResponseItemList, Error<ContentV2CardsUploadPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body__content_v2_cards_upload_post_request_inner = _content_v2_cards_upload_post_request_inner;
-
-    let uri_str = format!("{}/content/v2/cards/upload", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body__content_v2_cards_upload_post_request_inner);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseItemList`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseItemList`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2CardsUploadPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Цвет`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
-pub async fn content_v2_directory_colors_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2DirectoryColorsGet200Response, Error<ContentV2DirectoryColorsGetError>> {
+/// Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+pub async fn get_v2_directory_colors(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::GetV2DirectoryColors200Response, Error<GetV2DirectoryColorsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
 
@@ -2080,18 +983,18 @@ pub async fn content_v2_directory_colors_get(configuration: &configuration::Conf
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectoryColorsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectoryColorsGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2DirectoryColors200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2DirectoryColors200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2DirectoryColorsGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2DirectoryColorsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Страна производства`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_directory_countries_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2DirectoryCountriesGet200Response, Error<ContentV2DirectoryCountriesGetError>> {
+/// Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_directory_countries(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::GetV2DirectoryCountries200Response, Error<GetV2DirectoryCountriesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
 
@@ -2128,18 +1031,18 @@ pub async fn content_v2_directory_countries_get(configuration: &configuration::C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectoryCountriesGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectoryCountriesGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2DirectoryCountries200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2DirectoryCountries200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2DirectoryCountriesGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2DirectoryCountriesError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Пол`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
-pub async fn content_v2_directory_kinds_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2DirectoryKindsGet200Response, Error<ContentV2DirectoryKindsGetError>> {
+/// Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+pub async fn get_v2_directory_kinds(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::GetV2DirectoryKinds200Response, Error<GetV2DirectoryKindsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
 
@@ -2176,18 +1079,18 @@ pub async fn content_v2_directory_kinds_get(configuration: &configuration::Confi
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectoryKindsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectoryKindsGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2DirectoryKinds200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2DirectoryKinds200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2DirectoryKindsGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2DirectoryKindsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
-pub async fn content_v2_directory_seasons_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2DirectorySeasonsGet200Response, Error<ContentV2DirectorySeasonsGetError>> {
+/// Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+pub async fn get_v2_directory_seasons(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::GetV2DirectorySeasons200Response, Error<GetV2DirectorySeasonsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
 
@@ -2224,18 +1127,18 @@ pub async fn content_v2_directory_seasons_get(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectorySeasonsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectorySeasonsGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2DirectorySeasons200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2DirectorySeasons200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2DirectorySeasonsGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2DirectorySeasonsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту ТНВЭД-кода.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_directory_tnved_get(configuration: &configuration::Configuration, subject_id: i32, search: Option<i32>, locale: Option<&str>) -> Result<models::ContentV2DirectoryTnvedGet200Response, Error<ContentV2DirectoryTnvedGetError>> {
+/// Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_directory_tnved(configuration: &configuration::Configuration, subject_id: i32, search: Option<i32>, locale: Option<&str>) -> Result<models::GetV2DirectoryTnved200Response, Error<GetV2DirectoryTnvedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_subject_id = subject_id;
     let p_query_search = search;
@@ -2278,18 +1181,18 @@ pub async fn content_v2_directory_tnved_get(configuration: &configuration::Confi
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectoryTnvedGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectoryTnvedGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2DirectoryTnved200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2DirectoryTnved200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2DirectoryTnvedGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2DirectoryTnvedError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
-pub async fn content_v2_directory_vat_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2DirectoryVatGet200Response, Error<ContentV2DirectoryVatGetError>> {
+/// Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
+pub async fn get_v2_directory_vat(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::GetV2DirectoryVat200Response, Error<GetV2DirectoryVatError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
 
@@ -2326,28 +1229,31 @@ pub async fn content_v2_directory_vat_get(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectoryVatGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectoryVatGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2DirectoryVat200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2DirectoryVat200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2DirectoryVatGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2DirectoryVatError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает список созданных карточек товаров.  <div class=\"description_important\">   В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через <a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post\">отдельный метод</a> </div>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             },             \"filter\": {               \"withPhoto\": -1             }           }         }</pre>      Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"updatedAt\":\"***\",\"nmID\":\"***\"` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа текущей выгрузки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
-pub async fn content_v2_get_cards_list_post(configuration: &configuration::Configuration, content_v2_get_cards_list_post_request: models::ContentV2GetCardsListPostRequest, locale: Option<&str>) -> Result<models::ContentV2GetCardsListPost200Response, Error<ContentV2GetCardsListPostError>> {
+/// Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask\">товаров</a>, цен для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize\">размеров товаров</a> <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount\">скидок WB Клуба</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_history_goods_task(configuration: &configuration::Configuration, limit: i32, upload_id: i32, offset: Option<i32>) -> Result<models::GetV2HistoryGoodsTask200Response, Error<GetV2HistoryGoodsTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v2_get_cards_list_post_request = content_v2_get_cards_list_post_request;
-    let p_query_locale = locale;
+    let p_query_limit = limit;
+    let p_query_upload_id = upload_id;
+    let p_query_offset = offset;
 
-    let uri_str = format!("{}/content/v2/get/cards/list", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+    let uri_str = format!("{}/api/v2/history/goods/task", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_query_locale {
-        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
+    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
+    req_builder = req_builder.query(&[("uploadID", &p_query_upload_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -2359,7 +1265,6 @@ pub async fn content_v2_get_cards_list_post(configuration: &configuration::Confi
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_content_v2_get_cards_list_post_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2376,28 +1281,25 @@ pub async fn content_v2_get_cards_list_post(configuration: &configuration::Confi
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2GetCardsListPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2GetCardsListPost200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2HistoryGoodsTask200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2HistoryGoodsTask200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2GetCardsListPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2HistoryGoodsTaskError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает список карточек товаров в корзине.<br><br>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию.   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             }           }         }</pre>      Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"trashedAt\":\"***\",\"nmID\":***` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа текущей выгрузки.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_get_cards_trash_post(configuration: &configuration::Configuration, content_v2_get_cards_trash_post_request: models::ContentV2GetCardsTrashPostRequest, locale: Option<&str>) -> Result<models::ContentV2GetCardsTrashPost200Response, Error<ContentV2GetCardsTrashPostError>> {
+/// Метод возвращает информацию об обработанной загрузке цен и скидок.  <div class=\"description_important\">   Обработанная загрузка — это загрузка цен и скидок для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask\">товаров</a>, цен для <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize\">размеров товаров</a>, <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount\">скидок WB Клуба</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale\">оптовых скидок для B2B-продаж</a>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_history_tasks(configuration: &configuration::Configuration, upload_id: i32) -> Result<models::GetV2HistoryTasks200Response, Error<GetV2HistoryTasksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v2_get_cards_trash_post_request = content_v2_get_cards_trash_post_request;
-    let p_query_locale = locale;
+    let p_query_upload_id = upload_id;
 
-    let uri_str = format!("{}/content/v2/get/cards/trash", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+    let uri_str = format!("{}/api/v2/history/tasks", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_query_locale {
-        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("uploadID", &p_query_upload_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -2409,7 +1311,6 @@ pub async fn content_v2_get_cards_trash_post(configuration: &configuration::Conf
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_content_v2_get_cards_trash_post_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2426,18 +1327,124 @@ pub async fn content_v2_get_cards_trash_post(configuration: &configuration::Conf
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2GetCardsTrashPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2GetCardsTrashPost200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2HistoryTasks200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2HistoryTasks200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2GetCardsTrashPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2HistoryTasksError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает список названий [родительских категорий предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_object_all_get(configuration: &configuration::Configuration, locale: Option<&str>, name: Option<&str>, limit: Option<i32>, offset: Option<i32>, parent_id: Option<i32>) -> Result<models::ContentV2ObjectAllGet200Response, Error<ContentV2ObjectAllGetError>> {
+/// Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать только один артикул. <br><br> Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.<br><br> Используйте отдельные методы, чтобы получить информацию:   - о [нескольких товарах по артикулам](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter)   - о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_list_goods_filter(configuration: &configuration::Configuration, limit: i32, offset: Option<i32>, filter_nm_id: Option<i32>) -> Result<models::GetV2ListGoodsFilter200Response, Error<GetV2ListGoodsFilterError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_filter_nm_id = filter_nm_id;
+
+    let uri_str = format!("{}/api/v2/list/goods/filter", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_filter_nm_id {
+        req_builder = req_builder.query(&[("filterNmID", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2ListGoodsFilter200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2ListGoodsFilter200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV2ListGoodsFilterError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount). <br><br> Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `\"editableSizePrice\":true`. <br><br> Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_list_goods_size_nm(configuration: &configuration::Configuration, limit: i32, nm_id: i32, offset: Option<i32>) -> Result<models::GetV2ListGoodsSizeNm200Response, Error<GetV2ListGoodsSizeNmError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_limit = limit;
+    let p_query_nm_id = nm_id;
+    let p_query_offset = offset;
+
+    let uri_str = format!("{}/api/v2/list/goods/size/nm", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    req_builder = req_builder.query(&[("nmID", &p_query_nm_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2ListGoodsSizeNm200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2ListGoodsSizeNm200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV2ListGoodsSizeNmError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список названий [родительских категорий предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_object_all(configuration: &configuration::Configuration, locale: Option<&str>, name: Option<&str>, limit: Option<i32>, offset: Option<i32>, parent_id: Option<i32>) -> Result<models::GetV2ObjectAll200Response, Error<GetV2ObjectAllError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
     let p_query_name = name;
@@ -2490,18 +1497,18 @@ pub async fn content_v2_object_all_get(configuration: &configuration::Configurat
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2ObjectAllGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2ObjectAllGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2ObjectAll200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2ObjectAll200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2ObjectAllGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2ObjectAllError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get).  <div class=\"description_important\">   Для получения значений характеристик <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1colors/get\">Цвет</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1kinds/get\">Пол</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1countries/get\">Страна производства</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1seasons/get\">Сезон</a>, <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1vat/get\">Ставка НДС</a> и <a href=\"/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1directory~1tnved/get\">ТНВЭД-код</a> используйте отдельные методы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_object_charcs_subject_id_get(configuration: &configuration::Configuration, subject_id: i32, locale: Option<&str>) -> Result<models::ContentV2ObjectCharcsSubjectIdGet200Response, Error<ContentV2ObjectCharcsSubjectIdGetError>> {
+/// Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).  <div class=\"description_important\">   Для получения значений характеристик <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors\">Цвет</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds\">Пол</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries\">Страна производства</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons\">Сезон</a>, <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat\">Ставка НДС</a> и <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved\">ТНВЭД-код</a> используйте отдельные методы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_object_charcs_subject_id(configuration: &configuration::Configuration, subject_id: i32, locale: Option<&str>) -> Result<models::GetV2ObjectCharcsSubjectId200Response, Error<GetV2ObjectCharcsSubjectIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_subject_id = subject_id;
     let p_query_locale = locale;
@@ -2539,18 +1546,18 @@ pub async fn content_v2_object_charcs_subject_id_get(configuration: &configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2ObjectCharcsSubjectIdGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2ObjectCharcsSubjectIdGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2ObjectCharcsSubjectId200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2ObjectCharcsSubjectId200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2ObjectCharcsSubjectIdGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2ObjectCharcsSubjectIdError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/work-with-products#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_object_parent_all_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2ObjectParentAllGet200Response, Error<ContentV2ObjectParentAllGetError>> {
+/// Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_object_parent_all(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::GetV2ObjectParentAll200Response, Error<GetV2ObjectParentAllError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
 
@@ -2587,24 +1594,29 @@ pub async fn content_v2_object_parent_all_get(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2ObjectParentAllGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2ObjectParentAllGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2ObjectParentAll200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2ObjectParentAll200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2ObjectParentAllGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2ObjectParentAllError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод удаляет ярлык из [списка ярлыков](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_tag_id_delete(configuration: &configuration::Configuration, id: i32) -> Result<models::ResponseContentError, Error<ContentV2TagIdDeleteError>> {
+/// Метод возвращает информацию о товарах в карантине. <br><br> Если новая цена товара со скидкой будет минимум в 3 раза меньше старой, товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в ответах методов [состояний загрузок](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks). <br><br> Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). <br><br> Для товаров с [поразмерной установкой цен](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется. <br><br> В [песочнице](/sandbox) товары автоматически удаляются из карантина через 3 дня.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_quarantine_goods(configuration: &configuration::Configuration, limit: i32, offset: Option<i32>) -> Result<models::GetV2QuarantineGoods200Response, Error<GetV2QuarantineGoodsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_id = id;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
-    let uri_str = format!("{}/content/v2/tag/{id}", configuration.base_path, id=p_path_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+    let uri_str = format!("{}/api/v2/quarantine/goods", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -2632,157 +1644,18 @@ pub async fn content_v2_tag_id_delete(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseContentError`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseContentError`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2QuarantineGoods200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2QuarantineGoods200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2TagIdDeleteError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод заменяет данные ярлыка: имя и цвет. <br>Новые данные можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_tag_id_patch(configuration: &configuration::Configuration, id: i32, content_v2_tag_id_patch_request: models::ContentV2TagIdPatchRequest) -> Result<models::ResponseContentError, Error<ContentV2TagIdPatchError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_id = id;
-    let p_body_content_v2_tag_id_patch_request = content_v2_tag_id_patch_request;
-
-    let uri_str = format!("{}/content/v2/tag/{id}", configuration.base_path, id=p_path_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_content_v2_tag_id_patch_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseContentError`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseContentError`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2TagIdPatchError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.<br> При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_tag_nomenclature_link_post(configuration: &configuration::Configuration, content_v2_tag_nomenclature_link_post_request: models::ContentV2TagNomenclatureLinkPostRequest) -> Result<models::ResponseContentError, Error<ContentV2TagNomenclatureLinkPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v2_tag_nomenclature_link_post_request = content_v2_tag_nomenclature_link_post_request;
-
-    let uri_str = format!("{}/content/v2/tag/nomenclature/link", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_content_v2_tag_nomenclature_link_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseContentError`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseContentError`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2TagNomenclatureLinkPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов. <br>Созданный ярлык можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_tag_post(configuration: &configuration::Configuration, content_v2_tag_post_request: models::ContentV2TagPostRequest) -> Result<models::ResponseContentError, Error<ContentV2TagPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v2_tag_post_request = content_v2_tag_post_request;
-
-    let uri_str = format!("{}/content/v2/tag", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_content_v2_tag_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseContentError`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseContentError`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ContentV2TagPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2QuarantineGoodsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v2_tags_get(configuration: &configuration::Configuration, ) -> Result<models::ContentV2TagsGet200Response, Error<ContentV2TagsGetError>> {
+pub async fn get_v2_tags(configuration: &configuration::Configuration, ) -> Result<models::GetV2Tags200Response, Error<GetV2TagsError>> {
 
     let uri_str = format!("{}/content/v2/tags", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -2814,31 +1687,27 @@ pub async fn content_v2_tags_get(configuration: &configuration::Configuration, )
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2TagsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2TagsGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2Tags200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2Tags200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV2TagsGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2TagsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод загружает и добавляет один медиафайл к карточке товара.  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700x900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v3_media_file_post(configuration: &configuration::Configuration, x_nm_id: &str, x_photo_number: i32, uploadfile: Option<std::path::PathBuf>) -> Result<models::ContentV3MediaFilePost200Response, Error<ContentV3MediaFilePostError>> {
+/// Метод возвращает список контактов, привязанных к [складу продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses). <br> Только для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn get_v3_dbw_warehouses_warehouse_id_contacts(configuration: &configuration::Configuration, warehouse_id: i64) -> Result<models::GetV3DbwWarehousesWarehouseIdContacts200Response, Error<GetV3DbwWarehousesWarehouseIdContactsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_header_x_nm_id = x_nm_id;
-    let p_header_x_photo_number = x_photo_number;
-    let p_form_uploadfile = uploadfile;
+    let p_path_warehouse_id = warehouse_id;
 
-    let uri_str = format!("{}/content/v3/media/file", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+    let uri_str = format!("{}/api/v3/dbw/warehouses/{warehouseId}/contacts", configuration.base_path, warehouseId=p_path_warehouse_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.header("X-Nm-Id", p_header_x_nm_id.to_string());
-    req_builder = req_builder.header("X-Photo-Number", p_header_x_photo_number.to_string());
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();
         let value = match apikey.prefix {
@@ -2847,15 +1716,6 @@ pub async fn content_v3_media_file_post(configuration: &configuration::Configura
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    let mut multipart_form = reqwest::multipart::Form::new();
-    if let Some(ref param_value) = p_form_uploadfile {
-                let file = TokioFile::open(param_value).await?;
-                let stream = FramedRead::new(file, BytesCodec::new());
-                let file_name = param_value.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
-                let file_part = reqwest::multipart::Part::stream(reqwest::Body::wrap_stream(stream)).file_name(file_name);
-                multipart_form = multipart_form.part("uploadfile", file_part);
-    }
-    req_builder = req_builder.multipart(multipart_form);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2872,23 +1732,21 @@ pub async fn content_v3_media_file_post(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV3MediaFilePost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV3MediaFilePost200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3DbwWarehousesWarehouseIdContacts200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3DbwWarehousesWarehouseIdContacts200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV3MediaFilePostError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV3DbwWarehousesWarehouseIdContactsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.  <div class=\"description_important\">   Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы. </div>  Требования к ссылкам:   * ссылка должна вести прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации, например. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной   * для доступа к файлу по ссылке не нужна авторизация  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700×900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-pub async fn content_v3_media_save_post(configuration: &configuration::Configuration, content_v3_media_save_post_request: models::ContentV3MediaSavePostRequest) -> Result<models::ContentV3MediaFilePost200Response, Error<ContentV3MediaSavePostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_content_v3_media_save_post_request = content_v3_media_save_post_request;
+/// Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_offices(configuration: &configuration::Configuration, ) -> Result<Vec<models::Office>, Error<GetV3OfficesError>> {
 
-    let uri_str = format!("{}/content/v3/media/save", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+    let uri_str = format!("{}/api/v3/offices", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -2901,7 +1759,6 @@ pub async fn content_v3_media_save_post(configuration: &configuration::Configura
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_content_v3_media_save_post_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2918,12 +1775,102 @@ pub async fn content_v3_media_save_post(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV3MediaFilePost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV3MediaFilePost200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Office&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Office&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ContentV3MediaSavePostError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV3OfficesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_warehouses(configuration: &configuration::Configuration, ) -> Result<Vec<models::Warehouse>, Error<GetV3WarehousesError>> {
+
+    let uri_str = format!("{}/api/v3/warehouses", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Warehouse&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Warehouse&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3WarehousesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод заменяет данные ярлыка: имя и цвет. <br>Новые данные можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn patch_v2_tag_id(configuration: &configuration::Configuration, id: i32, patch_v2_tag_id_request: models::PatchV2TagIdRequest) -> Result<models::ResponseContentError, Error<PatchV2TagIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_id = id;
+    let p_body_patch_v2_tag_id_request = patch_v2_tag_id_request;
+
+    let uri_str = format!("{}/content/v2/tag/{id}", configuration.base_path, id=p_path_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_patch_v2_tag_id_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseContentError`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseContentError`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PatchV2TagIdError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -3020,7 +1967,7 @@ pub async fn post_v1_recommendations_set(configuration: &configuration::Configur
     }
 }
 
-///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
 pub async fn post_v1_upload_task_b2b_wholesale(configuration: &configuration::Configuration, post_v1_upload_task_b2b_wholesale_request: models::PostV1UploadTaskB2bWholesaleRequest) -> Result<models::PostV1UploadTaskB2bWholesale200Response, Error<PostV1UploadTaskB2bWholesaleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_post_v1_upload_task_b2b_wholesale_request = post_v1_upload_task_b2b_wholesale_request;
@@ -3062,6 +2009,1059 @@ pub async fn post_v1_upload_task_b2b_wholesale(configuration: &configuration::Co
     } else {
         let content = resp.text().await?;
         let entity: Option<PostV1UploadTaskB2bWholesaleError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_barcodes(configuration: &configuration::Configuration, post_v2_barcodes_request: models::PostV2BarcodesRequest) -> Result<models::PostV2Barcodes200Response, Error<PostV2BarcodesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_barcodes_request = post_v2_barcodes_request;
+
+    let uri_str = format!("{}/content/v2/barcodes", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_barcodes_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2Barcodes200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2Barcodes200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2BarcodesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод переносит [карточки товаров в корзину](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/item-management#tag/listings/operation/postV2CardsRecover).  <div class=\"description_important\">   После переноса в корзину карточке товара присваивается новый <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров </div>  Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.<br> Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards). <br><br> Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn post_v2_cards_delete_trash(configuration: &configuration::Configuration, post_v2_cards_delete_trash_request: models::PostV2CardsDeleteTrashRequest) -> Result<models::PostV2CardsDeleteTrash200Response, Error<PostV2CardsDeleteTrashError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_cards_delete_trash_request = post_v2_cards_delete_trash_request;
+
+    let uri_str = format!("{}/content/v2/cards/delete/trash", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_cards_delete_trash_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2CardsDeleteTrash200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2CardsDeleteTrash200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2CardsDeleteTrashError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок. <br><br> Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:   - все ошибки по одному массиву `variants` одного запроса при [создании](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) карточек товаров   - все ошибки одного запроса при [создании с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) или [редактировании](/openapi/item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров <br><br> Чтобы получить более 100 пакетов, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"cursor\": {             \"limit\": 100           },           \"order\": {             \"ascending\": true           }         }</pre>   2. Скопируйте `\"updatedAt\":\"***\",\"batchUUID\":\"***\" `из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока не получите в ответе `\"next\":false`. Это будет означать, что вы получили все пакеты.  <div class=\"description_important\">   Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/getV2CardsLimits\">получения лимитов карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsErrorList\">получения несозданных карточек товаров с ошибками</a></li> </ul>  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_cards_error_list(configuration: &configuration::Configuration, request_public_viewer_public_errors_table_list_v2: models::RequestPublicViewerPublicErrorsTableListV2, locale: Option<&str>) -> Result<models::ResponsePublicViewerPublicErrorsTableListV2, Error<PostV2CardsErrorListError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_request_public_viewer_public_errors_table_list_v2 = request_public_viewer_public_errors_table_list_v2;
+    let p_query_locale = locale;
+
+    let uri_str = format!("{}/content/v2/cards/error/list", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = p_query_locale {
+        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_request_public_viewer_public_errors_table_list_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponsePublicViewerPublicErrorsTableListV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponsePublicViewerPublicErrorsTableListV2`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2CardsErrorListError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод [объединяет и разъединяет](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`. <br><br> Для объединения карточек товаров сделайте запрос **с указанием** `imtID`. Можно объединять не более 30 карточек товаров.<br> Для разъединения карточек товаров сделайте запрос **без указания** `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`. <br><br> Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.<br> Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.<br> <br> Максимальный размер запроса 10 Мб.  <div class=\"description_important\">   Объединить можно карточки товаров только в рамках одного предмета </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_cards_move_nm(configuration: &configuration::Configuration, post_v2_cards_move_nm_request: Option<models::PostV2CardsMoveNmRequest>) -> Result<models::ResponseItemList, Error<PostV2CardsMoveNmError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_cards_move_nm_request = post_v2_cards_move_nm_request;
+
+    let uri_str = format!("{}/content/v2/cards/moveNm", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_cards_move_nm_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseItemList`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseItemList`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2CardsMoveNmError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод восстанавливает [карточки товаров из корзины](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).  <div class=\"description_important\">   Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov\">объединённых</a> карточек товаров — что был присвоен ей при <a href=\"/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash\">перемещении в корзину</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn post_v2_cards_recover(configuration: &configuration::Configuration, post_v2_cards_delete_trash_request: models::PostV2CardsDeleteTrashRequest) -> Result<models::PostV2CardsDeleteTrash200Response, Error<PostV2CardsRecoverError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_cards_delete_trash_request = post_v2_cards_delete_trash_request;
+
+    let uri_str = format!("{}/content/v2/cards/recover", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_cards_delete_trash_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2CardsDeleteTrash200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2CardsDeleteTrash200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2CardsRecoverError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.  <div class=\"description_important\">   Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в <a href=\"/openapi/item-management#tag/listings/operation/postV2GetCardsList\">списке карточек товаров</a> и <a href=\"/openapi/item-management#tag/listings/operation/postV2GetCardsTrash\">списке карточек товаров в корзине</a>. </div>  С помощью этого метода нельзя обновлять или удалять:   - баркоды размеров товара. Можно только добавить дополнительные баркоды   - параметры `photos`, `video` и `tags`   - цены товаров. Цену можно задать, только если вы добавляете новые размеры  При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:   - [Установить цены и скидки](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `\"editablePriceSize\":false`   - [Установить цены для размеров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `\"editablePriceSize\":true`  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).<br> Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
+pub async fn post_v2_cards_update(configuration: &configuration::Configuration, post_v2_cards_update_request_inner: Option<Vec<models::PostV2CardsUpdateRequestInner>>) -> Result<models::ResponseItemList, Error<PostV2CardsUpdateError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_cards_update_request_inner = post_v2_cards_update_request_inner;
+
+    let uri_str = format!("{}/content/v2/cards/update", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_cards_update_request_inner);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseItemList`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseItemList`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2CardsUpdateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>  <div class=\"description_important\">   Есть две формы запроса: для создания отдельных и объединённых карточек товаров </div>  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br> Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.<br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | </div> 
+pub async fn post_v2_cards_upload(configuration: &configuration::Configuration, post_v2_cards_upload_request_inner: Option<Vec<models::PostV2CardsUploadRequestInner>>) -> Result<models::ResponseItemList, Error<PostV2CardsUploadError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_cards_upload_request_inner = post_v2_cards_upload_request_inner;
+
+    let uri_str = format!("{}/content/v2/cards/upload", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_cards_upload_request_inner);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseItemList`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseItemList`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2CardsUploadError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.  Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`. <br><br> Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).<br> Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.<br><br>  В песочнице карточка товара создаётся сразу, без ожидания.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
+pub async fn post_v2_cards_upload_add(configuration: &configuration::Configuration, post_v2_cards_upload_add_request: Option<models::PostV2CardsUploadAddRequest>) -> Result<models::ResponseItemList, Error<PostV2CardsUploadAddError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_cards_upload_add_request = post_v2_cards_upload_add_request;
+
+    let uri_str = format!("{}/content/v2/cards/upload/add", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_cards_upload_add_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseItemList`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseItemList`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2CardsUploadAddError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список созданных карточек товаров.  <div class=\"description_important\">   В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через <a href=\"/openapi/item-management#tag/listings/operation/postV2GetCardsTrash\">отдельный метод</a> </div>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию:   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             },             \"filter\": {               \"withPhoto\": -1             }           }         }</pre>      Чтобы после выгрузки получать только новые или обновлённые карточки товаров, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"updatedAt\":\"***\",\"nmID\":\"***\"` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"updatedAt\":\"***\",\"nmID\":\"***\"}` из последнего ответа текущей выгрузки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
+pub async fn post_v2_get_cards_list(configuration: &configuration::Configuration, post_v2_get_cards_list_request: models::PostV2GetCardsListRequest, locale: Option<&str>) -> Result<models::PostV2GetCardsList200Response, Error<PostV2GetCardsListError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_get_cards_list_request = post_v2_get_cards_list_request;
+    let p_query_locale = locale;
+
+    let uri_str = format!("{}/content/v2/get/cards/list", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = p_query_locale {
+        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_get_cards_list_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2GetCardsList200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2GetCardsList200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2GetCardsListError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список карточек товаров в корзине.<br><br>  Чтобы получить **больше 100** карточек товаров, используйте пагинацию.   1. Сделайте первый запрос: <br>       <pre style=\"background-color: rgb(38 50 56 / 5%); color: #e53935\">         {           \"settings\": {             \"sort\": {               \"ascending\": true             },             \"cursor\": {               \"limit\": 100             }           }         }</pre>      Чтобы получать только карточки товаров, которые были перенесены в корзину после выгрузки, используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Скопируйте `\"trashedAt\":\"***\",\"nmID\":***` из `cursor` ответа и вставьте в `cursor` запроса.   3. Повторите запрос.   4. Повторяйте пункты 2 и 3, пока значение `total` в ответе не станет меньше, чем значение `limit` в запросе. Это будет означать, что вы получили все карточки.  Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:   1. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `\"sort\":{\"ascending\":true}`.   2. Укажите в первом запросе сохранённые поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":\"***\"}`. Продолжайте использовать сортировку по возрастанию.   3. Сохраните поля `\"cursor\":{\"trashedAt\":\"***\",\"nmID\":***}` из последнего ответа текущей выгрузки.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_get_cards_trash(configuration: &configuration::Configuration, post_v2_get_cards_trash_request: models::PostV2GetCardsTrashRequest, locale: Option<&str>) -> Result<models::PostV2GetCardsTrash200Response, Error<PostV2GetCardsTrashError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_get_cards_trash_request = post_v2_get_cards_trash_request;
+    let p_query_locale = locale;
+
+    let uri_str = format!("{}/content/v2/get/cards/trash", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = p_query_locale {
+        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_get_cards_trash_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2GetCardsTrash200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2GetCardsTrash200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2GetCardsTrashError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale). <br><br> В одном запросе можно указать более одного артикула. <br><br> Используйте отдельные методы, чтобы получить информацию:   - обо [всех товарах продавца, не указывая артикулы](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter)   - о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_list_goods_filter(configuration: &configuration::Configuration, post_v2_list_goods_filter_request: models::PostV2ListGoodsFilterRequest) -> Result<models::GetV2ListGoodsFilter200Response, Error<PostV2ListGoodsFilterError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_list_goods_filter_request = post_v2_list_goods_filter_request;
+
+    let uri_str = format!("{}/api/v2/list/goods/filter", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_list_goods_filter_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2ListGoodsFilter200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2ListGoodsFilter200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2ListGoodsFilterError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов. <br>Созданный ярлык можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_tag(configuration: &configuration::Configuration, post_v2_tag_request: models::PostV2TagRequest) -> Result<models::ResponseContentError, Error<PostV2TagError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_tag_request = post_v2_tag_request;
+
+    let uri_str = format!("{}/content/v2/tag", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_tag_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseContentError`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseContentError`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2TagError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.<br> При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_tag_nomenclature_link(configuration: &configuration::Configuration, post_v2_tag_nomenclature_link_request: models::PostV2TagNomenclatureLinkRequest) -> Result<models::ResponseContentError, Error<PostV2TagNomenclatureLinkError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_tag_nomenclature_link_request = post_v2_tag_nomenclature_link_request;
+
+    let uri_str = format!("{}/content/v2/tag/nomenclature/link", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_tag_nomenclature_link_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResponseContentError`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResponseContentError`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2TagNomenclatureLinkError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод устанавливает цены и скидки для товаров. <br><br> Чтобы установить цены для размеров товара, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_upload_task(configuration: &configuration::Configuration, post_v2_upload_task_request: models::PostV2UploadTaskRequest) -> Result<models::TaskCreated, Error<PostV2UploadTaskError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_upload_task_request = post_v2_upload_task_request;
+
+    let uri_str = format!("{}/api/v2/upload/task", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_upload_task_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TaskCreated`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TaskCreated`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2UploadTaskError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_upload_task_club_discount(configuration: &configuration::Configuration, post_v2_upload_task_club_discount_request: models::PostV2UploadTaskClubDiscountRequest) -> Result<models::TaskCreated, Error<PostV2UploadTaskClubDiscountError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_upload_task_club_discount_request = post_v2_upload_task_club_discount_request;
+
+    let uri_str = format!("{}/api/v2/upload/task/club-discount", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_upload_task_club_discount_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TaskCreated`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TaskCreated`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2UploadTaskClubDiscountError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод устанавливает цены отдельно для размеров товаров.  Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm) `\"editableSizePrice\":true`.  Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask).  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks\">состояния</a> и <a href=\"/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v2_upload_task_size(configuration: &configuration::Configuration, post_v2_upload_task_size_request: models::PostV2UploadTaskSizeRequest) -> Result<models::TaskCreated, Error<PostV2UploadTaskSizeError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_upload_task_size_request = post_v2_upload_task_size_request;
+
+    let uri_str = format!("{}/api/v2/upload/task/size", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v2_upload_task_size_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TaskCreated`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TaskCreated`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2UploadTaskSizeError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод загружает и добавляет один медиафайл к карточке товара.  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700x900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v3_media_file(configuration: &configuration::Configuration, x_nm_id: &str, x_photo_number: i32, uploadfile: Option<std::path::PathBuf>) -> Result<models::PostV3MediaFile200Response, Error<PostV3MediaFileError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_header_x_nm_id = x_nm_id;
+    let p_header_x_photo_number = x_photo_number;
+    let p_form_uploadfile = uploadfile;
+
+    let uri_str = format!("{}/content/v3/media/file", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.header("X-Nm-Id", p_header_x_nm_id.to_string());
+    req_builder = req_builder.header("X-Photo-Number", p_header_x_photo_number.to_string());
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    let mut multipart_form = reqwest::multipart::Form::new();
+    if let Some(ref param_value) = p_form_uploadfile {
+                let file = TokioFile::open(param_value).await?;
+                let stream = FramedRead::new(file, BytesCodec::new());
+                let file_name = param_value.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+                let file_part = reqwest::multipart::Part::stream(reqwest::Body::wrap_stream(stream)).file_name(file_name);
+                multipart_form = multipart_form.part("uploadfile", file_part);
+    }
+    req_builder = req_builder.multipart(multipart_form);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3MediaFile200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3MediaFile200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3MediaFileError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.  <div class=\"description_important\">   Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы. </div>  Требования к ссылкам:   * для доступа к файлу по ссылке не нужна авторизация   * ссылка ведёт прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации. Ссылка должна заканчиваться на имя файла с расширением — например, `/file_name.jpg`. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной. <br>   Помните, что некоторые хранилища не формируют прямые ссылки и поэтому не подходят для использования. К таким хранилищам относится, например, **Google Drive**, который формирует ссылки только на предпросмотр файла либо на служебные страницы.  Требования к изображениям:   * максимум изображений для одной карточки товара — 30   * минимальное разрешение — 700×900 px   * максимальный размер — 32 Мб   * минимальное качество — 65%   * форматы — JPG, PNG, BMP, GIF (статичные), WebP  Требования к видео:   * максимум одно видео для одной карточки товара   * максимальный размер — 50 Мб   * форматы — MOV, MP4  Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn post_v3_media_save(configuration: &configuration::Configuration, post_v3_media_save_request: models::PostV3MediaSaveRequest) -> Result<models::PostV3MediaFile200Response, Error<PostV3MediaSaveError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v3_media_save_request = post_v3_media_save_request;
+
+    let uri_str = format!("{}/content/v3/media/save", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_media_save_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3MediaFile200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3MediaFile200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3MediaSaveError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает данные об остатках товаров на [складах продавца](/openapi/item-management#tag/sellerWarehouses).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_stocks_warehouse_id(configuration: &configuration::Configuration, warehouse_id: i64, post_v3_stocks_warehouse_id_request: models::PostV3StocksWarehouseIdRequest) -> Result<models::PostV3StocksWarehouseId200Response, Error<PostV3StocksWarehouseIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_warehouse_id = warehouse_id;
+    let p_body_post_v3_stocks_warehouse_id_request = post_v3_stocks_warehouse_id_request;
+
+    let uri_str = format!("{}/api/v3/stocks/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_stocks_warehouse_id_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3StocksWarehouseId200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3StocksWarehouseId200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3StocksWarehouseIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод создаёт склад продавца для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_warehouses(configuration: &configuration::Configuration, post_v3_warehouses_request: models::PostV3WarehousesRequest) -> Result<models::PostV3Warehouses201Response, Error<PostV3WarehousesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v3_warehouses_request = post_v3_warehouses_request;
+
+    let uri_str = format!("{}/api/v3/warehouses", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_warehouses_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3Warehouses201Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3Warehouses201Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3WarehousesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет список контактов [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  <div class=\"description_important\">   Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять. </div>  Только для складов с типом доставки `3` — курьером WB (DBW). <br><br> К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn put_v3_dbw_warehouses_warehouse_id_contacts(configuration: &configuration::Configuration, warehouse_id: i64, store_contact_request_body: models::StoreContactRequestBody) -> Result<(), Error<PutV3DbwWarehousesWarehouseIdContactsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_warehouse_id = warehouse_id;
+    let p_body_store_contact_request_body = store_contact_request_body;
+
+    let uri_str = format!("{}/api/v3/dbw/warehouses/{warehouseId}/contacts", configuration.base_path, warehouseId=p_path_warehouse_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_store_contact_request_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3DbwWarehousesWarehouseIdContactsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет количество остатков товаров продавца [в списке](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).  <div class=\"description_important\">   Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (<code>204</code>), но остатки не обновятся. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn put_v3_stocks_warehouse_id(configuration: &configuration::Configuration, warehouse_id: i64, put_v3_stocks_warehouse_id_request: Option<models::PutV3StocksWarehouseIdRequest>) -> Result<(), Error<PutV3StocksWarehouseIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_warehouse_id = warehouse_id;
+    let p_body_put_v3_stocks_warehouse_id_request = put_v3_stocks_warehouse_id_request;
+
+    let uri_str = format!("{}/api/v3/stocks/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_stocks_warehouse_id_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3StocksWarehouseIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет данные [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `\"cargoType\":2`).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn put_v3_warehouses_warehouse_id(configuration: &configuration::Configuration, warehouse_id: i64, put_v3_warehouses_warehouse_id_request: models::PutV3WarehousesWarehouseIdRequest) -> Result<(), Error<PutV3WarehousesWarehouseIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_warehouse_id = warehouse_id;
+    let p_body_put_v3_warehouses_warehouse_id_request = put_v3_warehouses_warehouse_id_request;
+
+    let uri_str = format!("{}/api/v3/warehouses/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_warehouses_warehouse_id_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3WarehousesWarehouseIdError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

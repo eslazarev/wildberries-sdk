@@ -17,7 +17,7 @@ pub struct ItemHistoryRequest {
     pub selected_period: Box<models::ItemsRequestSelectedPeriod>,
     /// Артикулы WB, по которым нужно составить отчёт 
     #[serde(rename = "nmIds")]
-    pub nm_ids: Vec<i32>,
+    pub nm_ids: Vec<u64>,
     /// Скрыть удалённые товары
     #[serde(rename = "skipDeletedNm", skip_serializing_if = "Option::is_none")]
     pub skip_deleted_nm: Option<bool>,
@@ -26,7 +26,7 @@ pub struct ItemHistoryRequest {
 }
 
 impl ItemHistoryRequest {
-    pub fn new(selected_period: models::ItemsRequestSelectedPeriod, nm_ids: Vec<i32>) -> ItemHistoryRequest {
+    pub fn new(selected_period: models::ItemsRequestSelectedPeriod, nm_ids: Vec<u64>) -> ItemHistoryRequest {
         ItemHistoryRequest {
             selected_period: Box::new(selected_period),
             nm_ids,

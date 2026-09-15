@@ -22,12 +22,12 @@ pub struct TableSearchTextItemAllOfAddToCart {
     pub dynamics: Option<i32>,
     /// Процент, на который показатель добавлений в корзину выше, чем у карточек других продавцов по поисковому запросу
     #[serde(rename = "percentile")]
-    pub percentile: i32,
+    pub percentile: u64,
 }
 
 impl TableSearchTextItemAllOfAddToCart {
     /// Сколько раз товар из поиска добавили в корзину
-    pub fn new(current: i32, percentile: i32) -> TableSearchTextItemAllOfAddToCart {
+    pub fn new(current: i32, percentile: u64) -> TableSearchTextItemAllOfAddToCart {
         TableSearchTextItemAllOfAddToCart {
             current,
             dynamics: None,

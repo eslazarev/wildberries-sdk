@@ -42,15 +42,15 @@ pub struct TableGroupRequest {
     pub include_search_texts: Option<bool>,
     /// Количество групп товаров в ответе
     #[serde(rename = "limit")]
-    pub limit: i32,
+    pub limit: u32,
     /// После какого элемента выдавать данные
     #[serde(rename = "offset")]
-    pub offset: i32,
+    pub offset: u32,
 }
 
 impl TableGroupRequest {
     /// Параметры запроса для пагинации по группам:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения 
-    pub fn new(current_period: models::Period, order_by: models::OrderByGrTe, position_cluster: models::PositionCluster, limit: i32, offset: i32) -> TableGroupRequest {
+    pub fn new(current_period: models::Period, order_by: models::OrderByGrTe, position_cluster: models::PositionCluster, limit: u32, offset: u32) -> TableGroupRequest {
         TableGroupRequest {
             current_period: Box::new(current_period),
             past_period: None,

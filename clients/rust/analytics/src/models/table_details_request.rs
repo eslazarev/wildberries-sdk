@@ -29,7 +29,7 @@ pub struct TableDetailsRequest {
     pub tag_id: Option<i64>,
     /// Список артикулов WB
     #[serde(rename = "nmIds", skip_serializing_if = "Option::is_none")]
-    pub nm_ids: Option<Vec<i32>>,
+    pub nm_ids: Option<Vec<u64>>,
     #[serde(rename = "orderBy")]
     pub order_by: Box<models::OrderByMainAndDetails>,
     /// Товары с какой средней позицией в поиске показывать в отчёте:   - `all` — все   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже 
@@ -43,15 +43,15 @@ pub struct TableDetailsRequest {
     pub include_search_texts: Option<bool>,
     /// Количество товаров в ответе
     #[serde(rename = "limit")]
-    pub limit: i32,
+    pub limit: u32,
     /// После какого элемента выдавать данные
     #[serde(rename = "offset")]
-    pub offset: i32,
+    pub offset: u32,
 }
 
 impl TableDetailsRequest {
     /// Параметры запроса для пагинации по товарам в группе:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения 
-    pub fn new(current_period: models::Period, order_by: models::OrderByMainAndDetails, position_cluster: PositionCluster, limit: i32, offset: i32) -> TableDetailsRequest {
+    pub fn new(current_period: models::Period, order_by: models::OrderByMainAndDetails, position_cluster: PositionCluster, limit: u32, offset: u32) -> TableDetailsRequest {
         TableDetailsRequest {
             current_period: Box::new(current_period),
             past_period: None,

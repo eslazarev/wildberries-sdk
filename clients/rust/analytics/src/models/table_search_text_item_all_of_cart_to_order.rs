@@ -22,12 +22,12 @@ pub struct TableSearchTextItemAllOfCartToOrder {
     pub dynamics: Option<i32>,
     /// Процент, на который показатель конверсии в заказ выше, чем у карточек других продавцов по поисковому запросу
     #[serde(rename = "percentile")]
-    pub percentile: i32,
+    pub percentile: u64,
 }
 
 impl TableSearchTextItemAllOfCartToOrder {
     /// Конверсия в заказ из поиска — доля заказов товара по отношению ко всем добавлениям товара из поиска в корзину
-    pub fn new(current: i32, percentile: i32) -> TableSearchTextItemAllOfCartToOrder {
+    pub fn new(current: i32, percentile: u64) -> TableSearchTextItemAllOfCartToOrder {
         TableSearchTextItemAllOfCartToOrder {
             current,
             dynamics: None,

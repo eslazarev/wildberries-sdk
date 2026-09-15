@@ -1,7 +1,7 @@
 /*
 DBS
 
-<div class=\"description_important\">   Узнать больше о модели DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/orders-dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers) DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя  </div> 
+<div class=\"description_important\">   Узнать больше о модели DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/dbs#tag/dbsLabelIdentifiers) DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя  </div> 
 
 API version: dbs
 */
@@ -22,7 +22,7 @@ var _ MappedNullable = &OrderNewDBS{}
 type OrderNewDBS struct {
 	// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
 	SalePrice NullableInt32 `json:"salePrice,omitempty"`
-	// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515`
+	// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `\"subjectId\":515`
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
 	// Комментарий покупателя
 	Comment *string `json:"comment,omitempty"`
@@ -36,7 +36,7 @@ type OrderNewDBS struct {
 	Article *string `json:"article,omitempty"`
 	// Код цвета (только для колеруемых товаров)
 	ColorCode *string `json:"colorCode,omitempty"`
-	// Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./user-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed) 
+	// Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed) 
 	Rid interface{} `json:"rid,omitempty"`
 	// Дата создания сборочного задания
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
@@ -54,9 +54,9 @@ type OrderNewDBS struct {
 	ChrtId *int32 `json:"chrtId,omitempty"`
 	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
 	Price *int32 `json:"price,omitempty"`
-	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода 
+	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода 
 	FinalPrice *int32 `json:"finalPrice,omitempty"`
-	// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода 
+	// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода 
 	ConvertedFinalPrice *int32 `json:"convertedFinalPrice,omitempty"`
 	// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
 	ConvertedPrice *int32 `json:"convertedPrice,omitempty"`

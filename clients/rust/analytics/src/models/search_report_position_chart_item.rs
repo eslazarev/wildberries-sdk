@@ -18,14 +18,14 @@ pub struct SearchReportPositionChartItem {
     pub dt: String,
     /// Средняя позиция товара в результатах поиска
     #[serde(rename = "average")]
-    pub average: i32,
+    pub average: u64,
     /// Медианная позиция товара в результатах поиска
     #[serde(rename = "median")]
-    pub median: i32,
+    pub median: u64,
 }
 
 impl SearchReportPositionChartItem {
-    pub fn new(dt: String, average: i32, median: i32) -> SearchReportPositionChartItem {
+    pub fn new(dt: String, average: u64, median: u64) -> SearchReportPositionChartItem {
         SearchReportPositionChartItem {
             dt,
             average,

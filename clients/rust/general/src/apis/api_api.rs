@@ -27,7 +27,7 @@ pub enum GetV2NewsError {
 
 
 /// Метод позволяет получать новости портала продавцов. <br> Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`. <br> За один запрос можно получить не более 100 новостей.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn get_v2_news(configuration: &configuration::Configuration, from: Option<chrono::NaiveDate>, from_id: Option<i32>) -> Result<models::GetV2News200Response, Error<GetV2NewsError>> {
+pub async fn get_v2_news(configuration: &configuration::Configuration, from: Option<chrono::NaiveDate>, from_id: Option<u64>) -> Result<models::GetV2News200Response, Error<GetV2NewsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_from = from;
     let p_query_from_id = from_id;

@@ -18,14 +18,14 @@ pub struct ItemOrdersTextItem {
     pub text: String,
     /// Количество обращений с поисковым запросом
     #[serde(rename = "frequency")]
-    pub frequency: i32,
+    pub frequency: u64,
     /// Статистика по датам
     #[serde(rename = "dateItems")]
     pub date_items: Vec<models::ItemOrdersMetrics>,
 }
 
 impl ItemOrdersTextItem {
-    pub fn new(text: String, frequency: i32, date_items: Vec<models::ItemOrdersMetrics>) -> ItemOrdersTextItem {
+    pub fn new(text: String, frequency: u64, date_items: Vec<models::ItemOrdersMetrics>) -> ItemOrdersTextItem {
         ItemOrdersTextItem {
             text,
             frequency,

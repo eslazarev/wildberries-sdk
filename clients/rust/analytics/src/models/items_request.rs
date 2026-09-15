@@ -19,16 +19,16 @@ pub struct ItemsRequest {
     pub past_period: Option<Box<models::ItemsRequestPastPeriod>>,
     /// Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах 
     #[serde(rename = "nmIds", skip_serializing_if = "Option::is_none")]
-    pub nm_ids: Option<Vec<i32>>,
+    pub nm_ids: Option<Vec<u64>>,
     /// Список брендов для фильтрации
     #[serde(rename = "brandNames", skip_serializing_if = "Option::is_none")]
     pub brand_names: Option<Vec<String>>,
     /// Список ID предметов для фильтрации
     #[serde(rename = "subjectIds", skip_serializing_if = "Option::is_none")]
-    pub subject_ids: Option<Vec<i32>>,
+    pub subject_ids: Option<Vec<u64>>,
     /// Список ID ярлыков для фильтрации
     #[serde(rename = "tagIds", skip_serializing_if = "Option::is_none")]
-    pub tag_ids: Option<Vec<i32>>,
+    pub tag_ids: Option<Vec<u64>>,
     /// Скрыть удалённые товары
     #[serde(rename = "skipDeletedNm", skip_serializing_if = "Option::is_none")]
     pub skip_deleted_nm: Option<bool>,
@@ -36,10 +36,10 @@ pub struct ItemsRequest {
     pub order_by: Option<Box<models::OrderBy>>,
     /// Количество карточек товара в ответе
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
-    pub limit: Option<i32>,
+    pub limit: Option<u32>,
     /// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
     #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
-    pub offset: Option<i32>,
+    pub offset: Option<u32>,
 }
 
 impl ItemsRequest {

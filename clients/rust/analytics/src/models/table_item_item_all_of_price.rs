@@ -16,15 +16,15 @@ use serde::{Deserialize, Serialize};
 pub struct TableItemItemAllOfPrice {
     /// Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
     #[serde(rename = "minPrice")]
-    pub min_price: i32,
+    pub min_price: u64,
     /// Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
     #[serde(rename = "maxPrice")]
-    pub max_price: i32,
+    pub max_price: u64,
 }
 
 impl TableItemItemAllOfPrice {
     /// Цена
-    pub fn new(min_price: i32, max_price: i32) -> TableItemItemAllOfPrice {
+    pub fn new(min_price: u64, max_price: u64) -> TableItemItemAllOfPrice {
         TableItemItemAllOfPrice {
             min_price,
             max_price,

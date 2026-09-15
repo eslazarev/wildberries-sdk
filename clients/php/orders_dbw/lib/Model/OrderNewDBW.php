@@ -547,7 +547,7 @@ class OrderNewDBW implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets required_meta
      *
-     * @param string[]|null $required_meta Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515`
+     * @param string[]|null $required_meta Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `\"subjectId\":515`
      *
      * @return self
      */
@@ -747,7 +747,7 @@ class OrderNewDBW implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rid
      *
-     * @param string|null $rid Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./user-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
+     * @param string|null $rid Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      *
      * @return self
      */
