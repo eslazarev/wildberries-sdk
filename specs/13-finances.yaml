@@ -9,7 +9,7 @@ info:
 
     <div class="api-block">
 
-    Просмотр [баланса](/openapi/financial-reports-and-accounting#tag/balance), [финансовых отчётов](/openapi/financial-reports-and-accounting#tag/financialReports) и [документов](/openapi/financial-reports-and-accounting#tag/documents) продавца.
+    Просмотр [баланса](/openapi/documents-and-accounting#tag/balance), [финансовых отчётов](/openapi/documents-and-accounting#tag/financialReports) и [документов](/openapi/documents-and-accounting#tag/documents) продавца.
 
     </div>
   x-file-name: finances
@@ -509,7 +509,7 @@ paths:
         - HeaderApiKey: []
       summary: Категории документов
       description: |
-        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList).
+        Метод возвращает категории документов для получения [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -552,7 +552,7 @@ paths:
         - Документы
       summary: Список документов
       description: |
-        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](/openapi/financial-reports-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
+        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -616,7 +616,7 @@ paths:
           schema:
             type: string
             example: redeem-notification
-          description: ID [категории документов](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`
+          description: ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`
         - in: query
           name: serviceName
           schema:
@@ -668,7 +668,7 @@ paths:
         - Документы
       summary: Получить документ
       description: |
-        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList).
+        Метод загружает один документ из [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -726,7 +726,7 @@ paths:
         - Документы
       summary: Получить документы
       description: |
-        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList).
+        Метод загружает несколько документов из [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -824,11 +824,11 @@ components:
                   name:
                     type: string
                     example: redeem-notification
-                    description: ID категории документа из параметра [запроса](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
+                    description: ID категории документа из параметра [запроса](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
                   title:
                     type: string
                     example: Уведомление о выкупе
-                    description: Название категории документа из поля [ответа](./financial-reports-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`
+                    description: Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`
     GetList:
       properties:
         data:
@@ -851,7 +851,7 @@ components:
                   category:
                     type: string
                     example: Уведомление о выкупе
-                    description: Название [категории документов](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля ответа `title`
+                    description: Название [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля ответа `title`
                   extensions:
                     type: array
                     items:
@@ -1629,7 +1629,7 @@ components:
           example: 0f1c3999172603062979867564654dac5b702849
           type: string
           description: |
-            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./orders-dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
+            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
     AcquiringReportListReq:
       type: object
       description: Параметры запроса
@@ -1818,7 +1818,7 @@ components:
           example: D0.r3f80c3eec6f845c6840128b4c19986f9.0.0
           type: string
           description: |
-            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./orders-dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
+            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
         docTypeName:
           example: Продажа
           type: string
