@@ -1,6 +1,22 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.15)
+- Товары/Контент: раздел документации переименован/перенесён с `/openapi/work-with-products` на `/openapi/item-management`; обновлены ссылки на теги (в т.ч. `pricesAndDiscounts`, `sellerWarehouses`, `sellerWarehousesInventory`).
+- Товары/Контент: для большинства методов добавлены `operationId` (в т.ч. `getV2ObjectParentAll`, `getV2ObjectAll`, `getV2ObjectCharcsSubjectId`, `getV2Directory*`, `getV1Brands`, `getV2Tags`, `postV2Tag`, `patchV2TagId`, `deleteV2TagId`, `postV2TagNomenclatureLink`, `postV2GetCardsList`, `postV2CardsErrorList`, `postV2CardsUpdate`, `postV2CardsMoveNm`, `postV2CardsDeleteTrash`, `postV2CardsRecover`, `postV2GetCardsTrash`, `getV2CardsLimits`, `postV2Barcodes`, `postV2CardsUpload`, `postV2CardsUploadAdd`, `postV3MediaFile`, `postV3MediaSave`).
+- Товары/Контент: в схемах ответов упрощены ссылки на причины ошибок — `reason` теперь напрямую `$ref` на `reasonDocument`/`reasonListing` (убран `allOf`-обёртка).
+- Товары/Медиафайлы: уточнены требования к ссылкам при загрузке медиа по URL (ссылка должна быть прямой на файл и заканчиваться расширением; добавлено предупреждение, что Google Drive и подобные хранилища могут не давать прямые ссылки).
+- Цены и скидки: добавлены `operationId` для методов загрузки/истории/буфера/получения товаров и размеров (`postV2UploadTask`, `postV2UploadTaskSize`, `postV2UploadTaskClubDiscount`, `getV2HistoryTasks`, `getV2HistoryGoodsTask`, `getV2BufferTasks`, `getV2BufferGoodsTask`, `getV2ListGoodsFilter`, `postV2ListGoodsFilter`, `getV2ListGoodsSizeNm`, `getV2QuarantineGoods`).
+- Цены и скидки: обновлена логика описания карантина цен — вместо правила «в 3 раза меньше старой» указано «меньше порогового значения» (с ссылкой на документацию порога) в описании `Items`.
+- Склады продавца/Остатки (FBS): добавлены `operationId` для методов остатков и складов (`putV3StocksWarehouseId`, `deleteV3StocksWarehouseId`, `postV3StocksWarehouseId`, `getV3Offices`, `getV3Warehouses`, `postV3Warehouses`, `putV3WarehousesWarehouseId`, `deleteV3WarehousesWarehouseId`, `getV3DbwWarehousesWarehouseIdContacts`, `putV3DbwWarehousesWarehouseIdContacts`).
+- Заказы FBS/DBW/Самовывоз/DBS: обновлены ссылки на раздел общения с покупателями — `/openapi/user-communication` → `/openapi/customer-communication`; ссылки на фин. детализации — `/openapi/financial-reports-and-accounting` → `/openapi/documents-and-accounting`.
+- DBS: обновлены ссылки на документацию раздела — `/openapi/orders-dbs` → `/openapi/dbs` (в т.ч. для статусов сборочных заданий и методов маркировки).
+- Общение с покупателями: раздел документации переименован/перенесён с `/openapi/user-communication` на `/openapi/customer-communication` (обновлены все внутренние ссылки на вопросы/отзывы/чаты/возвраты).
+- Тарифы: раздел документации переименован/перенесён с `/openapi/wb-tariffs` на `/openapi/rates`; в описании комиссий обновлена ссылка на родительские категории на `item-management`.
+- Аналитика: ссылки на фин. детализации обновлены на `/openapi/documents-and-accounting#tag/financialReports`; в отчётах по остаткам изменено обозначение агрегированных данных по складам продавца с `"Маркетплейс"` на `"Свой склад"` (в описаниях и CSV-примерах).
+- Отчёты: ссылки на фин. детализации обновлены на `/openapi/documents-and-accounting#tag/financialReports`.
+- Финансы: раздел документации переименован/перенесён с `/openapi/financial-reports-and-accounting` на `/openapi/documents-and-accounting` (баланс/финансовые отчёты/документы); в описаниях полей `srid/rid` обновлена ссылка на DBS (`./orders-dbs` → `./dbs`).
+
 ### Changed (2026.09.11)
 - Товары (Контент)
   - Поле `wholesale` переименовано/уточнено по смыслу: описание изменено с «Оптовая продажа» на «B2B-продажа».

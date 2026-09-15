@@ -10,10 +10,10 @@ info:
     <div class="api-block">
 
     С помощью методов общения с покупателями вы можете работать с:
-      1. [Вопросами](/openapi/user-communication#tag/questions) и [отзывами](/openapi/user-communication#tag/feedbacks) покупателей
-      2. [Закреплёнными отзывами](/openapi/user-communication#tag/pinnedFeedbacks)
-      3. [Чатами с покупателями](/openapi/user-communication#tag/buyersChat)
-      4. [Заявками покупателей на возврат](/openapi/user-communication#tag/buyersReturns)
+      1. [Вопросами](/openapi/customer-communication#tag/questions) и [отзывами](/openapi/customer-communication#tag/feedbacks) покупателей
+      2. [Закреплёнными отзывами](/openapi/customer-communication#tag/pinnedFeedbacks)
+      3. [Чатами с покупателями](/openapi/customer-communication#tag/buyersChat)
+      4. [Заявками покупателей на возврат](/openapi/customer-communication#tag/buyersReturns)
 
     Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Voprosy-i-otzyvy) для управления тестовыми вопросами и отзывами
 
@@ -60,7 +60,7 @@ paths:
         - HeaderApiKey: []
       summary: Непросмотренные отзывы и вопросы
       description: |
-        Метод проверяет наличие непросмотренных [вопросов](/openapi/user-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
+        Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -152,7 +152,7 @@ paths:
         - HeaderApiKey: []
       summary: Неотвеченные вопросы
       description: |
-        Метод возвращает общее количество неотвеченных [вопросов](/openapi/user-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
+        Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -238,7 +238,7 @@ paths:
         - HeaderApiKey: []
       summary: Количество вопросов
       description: |
-        Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/user-communication#tag/questions/operation/getV1Questions) за заданный период.
+        Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -584,7 +584,7 @@ paths:
       summary: Работа с вопросами
       description: |
         В зависимости от тела запроса, метод позволяет:
-          - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный
+          - отметить [вопрос](/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный
           - отклонить вопрос
           - ответить на вопрос или отредактировать ответ
 
@@ -764,7 +764,7 @@ paths:
         - HeaderApiKey: []
       summary: Получить вопрос по ID
       description: |
-        Метод возвращает данные [вопроса](/openapi/user-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/user-communication#tag/questions/operation/patchV1Questions).
+        Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -944,7 +944,7 @@ paths:
       summary: Необработанные отзывы
       description: |
         Метод возвращает:
-          - количество необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
+          - количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -1030,7 +1030,7 @@ paths:
         - HeaderApiKey: []
       summary: Количество отзывов
       description: |
-        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
+        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
         Отзыв считается обработанным, если выполняется одно из условий:
           - на отзыв получен ответ
           - отзыв содержит только оценку (без текста и фото)
@@ -1356,7 +1356,7 @@ paths:
         - HeaderApiKey: []
       summary: Ответить на отзыв
       description: |
-        Метод позволяет ответить на [отзыв](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
+        Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
 
         <div class="description_important">
           ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
@@ -1428,7 +1428,7 @@ paths:
         - HeaderApiKey: []
       summary: Отредактировать ответ на отзыв
       description: |
-        Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
+        Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
         <br><br>
         Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.
 
@@ -1493,7 +1493,7 @@ paths:
         - HeaderApiKey: []
       summary: Возврат товара по ID отзыва
       description: |
-        Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks).
+        Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
         <br><br>
         Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.
 
@@ -1593,7 +1593,7 @@ paths:
         - HeaderApiKey: []
       summary: Получить отзыв по ID
       description: |
-        Метод возвращает данные [отзыва](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
+        Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -1911,7 +1911,7 @@ paths:
         - HeaderApiKey: []
       summary: Список архивных отзывов
       description: |
-        Метод возвращает список архивных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks).
+        Метод возвращает список архивных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
         <br><br>
         Отзыв становится архивным, если:
           - на отзыв получен ответ
@@ -2226,7 +2226,7 @@ paths:
       summary: Закрепить отзывы
       description: |
         Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br>
-        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/user-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
+        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
         <br>
         Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.
 
@@ -2313,7 +2313,7 @@ paths:
       summary: Открепить отзывы
       description: |
         Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br>
-        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/user-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
+        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -2552,7 +2552,7 @@ paths:
         - HeaderApiKey: []
       summary: Список чатов
       description: |
-        Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/user-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/user-communication#tag/buyersChat/operation/postV1SellerMessage).
+        Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2593,7 +2593,7 @@ paths:
         - HeaderApiKey: []
       summary: События чатов
       description: |
-        Метод возвращает список событий всех [чатов с покупателями](/openapi/user-communication#tag/buyersChat/operation/getV1SellerChats).
+        Метод возвращает список событий всех [чатов с покупателями](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
 
         Чтобы получить все события:
           1. Сделайте первый запрос без параметра `next`.
@@ -2752,7 +2752,7 @@ paths:
         - HeaderApiKey: []
       summary: Отправить сообщение
       description: |
-        Метод отправляет сообщения в [чат с покупателем](/openapi/user-communication#tag/buyersChat/operation/getV1SellerChats).
+        Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2779,7 +2779,7 @@ paths:
                   maxLength: 255
                   type: string
                   description: |
-                    Подпись чата. Можно получить из [информации по чату](./user-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./user-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле `"isNewChat": true`.
+                    Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле `"isNewChat": true`.
                 message:
                   maxLength: 1000
                   type: string
@@ -2903,7 +2903,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: ID файла, см. значение поля `downloadID` в методе [События чатов](./user-communication#tag/buyersChat/operation/getV1SellerEvents)
+          description: ID файла, см. значение поля `downloadID` в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
           required: true
           schema:
             type: string
@@ -3024,7 +3024,7 @@ paths:
         - Возвраты покупателями
       summary: Заявки покупателей на возврат
       description: |
-        Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/user-communication#tag/buyersReturns/operation/patchV1Claim).
+        Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3069,7 +3069,7 @@ paths:
         - Возвраты покупателями
       summary: Ответ на заявку покупателя
       description: |
-        Метод отправляет ответ на [заявку](/openapi/user-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
+        Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3495,7 +3495,7 @@ components:
         replySign:
           type: string
           description: |
-            Подпись чата. Требуется при [отправке сообщения](./user-communication#tag/buyersChat/operation/postV1SellerMessage)
+            Подпись чата. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage)
           example: 1:4019cd7d-cca8-4e90-8b11-f78afbea42e3:54828159:bc3a4c04079f5956cff170b25e73523aa1208b5c0bd7aea1e520a64ae3e212b1ebae6712661f3afd27520fa785fa3042254e8a3100ce00644322054ae7cfcd0e
         clientName:
           type: string
@@ -3566,7 +3566,7 @@ components:
         replySign:
           type: string
           description: |
-            Подпись чата. Доступна только при `"isNewChat": true`. Требуется при [отправке сообщения](./user-communication#tag/buyersChat/operation/postV1SellerMessage)
+            Подпись чата. Доступна только при `"isNewChat": true`. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage)
         sender:
           $ref: '#/components/schemas/Sender'
         clientName:
@@ -3605,7 +3605,7 @@ components:
           type: string
           description: Дата загрузки файла
         downloadID:
-          description: ID файла. [Получить файл](./user-communication#tag/buyersChat/operation/getV1SellerDownloadId)
+          description: ID файла. [Получить файл](./customer-communication#tag/buyersChat/operation/getV1SellerDownloadId)
           type: string
         name:
           type: string
@@ -3635,18 +3635,18 @@ components:
           description: |
             Уникальный ID заказа. <br>
             Примечание: `rid` — это `srid` в ответах методов:
-              - [Заявки покупателей на возврат](./user-communication#tag/buyersReturns/operation/getV1Claims)
+              - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims)
               - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)
               - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)
               - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)
               - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)
-              - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)
-              - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)
-              - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
-              - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
+              - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)
+              - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)
+              - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
+              - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
         size:
           type: string
-          description: Размер товара, соответствует `wbSize` в [карточке товара](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post)
+          description: Размер товара, соответствует `wbSize` в [карточке товара](./item-management#tag/listings/operation/postV2GetCardsList)
     LastMessage:
       type: object
       example:
@@ -3667,7 +3667,7 @@ components:
           type: string
           description: Дата загрузки изображения
         downloadID:
-          description: ID файла. [Получить файл](./user-communication#tag/buyersChat/operation/getV1SellerDownloadId)
+          description: ID файла. [Получить файл](./customer-communication#tag/buyersChat/operation/getV1SellerDownloadId)
           type: string
         url:
           type: string
@@ -4334,7 +4334,7 @@ components:
                     actions:
                       type: array
                       description: |
-                        Варианты [ответа продавца на заявку](./user-communication#tag/buyersReturns/operation/patchV1Claim).<br>Отклонённые заявки можно пересмотреть. Если массив пуст, с заявкой работать нельзя.
+                        Варианты [ответа продавца на заявку](./customer-communication#tag/buyersReturns/operation/patchV1Claim).<br>Отклонённые заявки можно пересмотреть. Если массив пуст, с заявкой работать нельзя.
                           * `approve1` — одобрить с проверкой брака.<br>Деньги вернутся покупателю после возврата товара. Товар будет проверен на складе. При подтверждении брака/ошибки вложения товар будет отправлен продавцу. Если брак/ошибка вложения не подтвердятся, товар будет возвращён в продажу.<br>Неприменимо при модели <strong>[Самовывоз](./in-store-pickup)</strong>.
                           * `approve2` — одобрить и забрать товар.<br> Деньги вернутся покупателю после возврата товара. Товар будет отправлен продавцу.<br>Неприменимо при модели <strong>[Самовывоз](./in-store-pickup)</strong>.
                           * `autorefund1` — одобрить без возврата товара.<br> Товар останется у покупателя. Деньги за него будут возвращены покупателю без возврата товара.
@@ -4357,7 +4357,7 @@ components:
                       description: Уникальный ID заказа, по товару которого создана заявка
                     origin_id_info:
                       type: string
-                      description: Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./user-communication#tag/buyersReturns/operation/patchV1Claim).<br>Применимо только для товаров **Apple** предмета `Смартфоны` (`"subjectId":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post) параметры и поля `price` и `discount`)
+                      description: Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./customer-communication#tag/buyersReturns/operation/patchV1Claim).<br>Применимо только для товаров **Apple** предмета `Смартфоны` (`"subjectId":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./item-management#tag/pricesAndDiscounts/operation/postV2UploadTask) параметры и поля `price` и `discount`)
                       nullable: true
                     delivery_dt:
                       type: string
@@ -4418,7 +4418,7 @@ components:
                 format: UUID
                 example: fe3e9337-e9f9-423c-8930-946a8ebef80
               action:
-                description: Действие с заявкой.<br>Используйте одно из значений массива `actions` — ответа [метода получения заявок](./user-communication#tag/buyersReturns/operation/getV1Claims)
+                description: Действие с заявкой.<br>Используйте одно из значений массива `actions` — ответа [метода получения заявок](./customer-communication#tag/buyersReturns/operation/getV1Claims)
                 type: string
                 example: rejectcustom
               comment:
