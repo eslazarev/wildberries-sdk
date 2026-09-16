@@ -1369,7 +1369,7 @@ paths:
           - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.
           - бонусных начислениях WB.
 
-        Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/finances/operation/getV1Budget).
+        Чтобы получить информацию о бюджетах кампаний, используйте метод [Бюджеты кампаний](/openapi/promotion#tag/finances/operation/postV2Budget).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1445,6 +1445,69 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+  /api/advert/v2/budget:
+    servers:
+      - url: https://advert-api.wildberries.ru
+        description: |
+          **Prod**
+    post:
+      operationId: postV2Budget
+      x-readonly-method: true
+      x-category: advert
+      security:
+        - HeaderApiKey: []
+      summary: Остатки бюджетов кампаний
+      description: |
+        Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+        Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):
+          - `4` — готова к запуску
+          - `9` — активна
+          - `11` — на паузе
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса |
+        | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса |
+        | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
+        | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+        </div>
+      tags:
+        - Финансы
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/V2BudgetRequest'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V2BudgetResponse'
+              examples:
+                V1BudgetResponse:
+                  $ref: '#/components/examples/V2BudgetResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                CampaignNotBelongSeller:
+                  $ref: '#/components/examples/CampaignNotBelongSeller'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
   /adv/v1/budget:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1456,12 +1519,15 @@ paths:
     get:
       operationId: getV1Budget
       x-readonly-method: true
+      deprecated: true
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Бюджет кампании
       description: |
-        Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
+        Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).
+
+
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1541,7 +1607,7 @@ paths:
         - HeaderApiKey: []
       summary: Пополнение бюджета кампании
       description: |
-        Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/getV1Budget) кампании. <br>
+        Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/postV2Budget) кампании. <br>
         Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).
 
         <div class="description_limit">
@@ -2088,8 +2154,8 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/V0BidsRecommendationsCpmResponse'
-                  - $ref: '#/components/schemas/V0BidsRecommendationsCpcResponse'
+                  - $ref: '#/components/schemas/V0BidsRecommendationsCpmResponse1'
+                  - $ref: '#/components/schemas/V0BidsRecommendationsCpcResponse2'
               examples:
                 V0BidsRecommendationsCpmResponse:
                   $ref: '#/components/examples/V0BidsRecommendationsCpmResponse'
@@ -4335,6 +4401,52 @@ paths:
           $ref: '#/components/responses/429'
 components:
   schemas:
+    V2BudgetRequest:
+      type: object
+      required:
+        - advertIds
+      properties:
+        advertIds:
+          type: array
+          minItems: 1
+          maxItems: 50
+          description: Список ID кампаний
+          items:
+            type: integer
+          example:
+            - 1234567
+            - 63453471
+    V2BudgetResponse:
+      type: object
+      required:
+        - adverts
+      properties:
+        adverts:
+          type: array
+          nullable: true
+          description: Данные по кампаниям
+          items:
+            $ref: '#/components/schemas/V1BudgetAdvert'
+    V1BudgetAdvert:
+      type: object
+      required:
+        - advertId
+        - currency
+        - total
+      properties:
+        advertId:
+          type: integer
+          description: ID кампании
+          example: 1234567
+        currency:
+          type: string
+          description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          format: ISO 4217
+          example: RUB
+        total:
+          description: Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          type: integer
+          example: 3000
     V1SetNormQueryBidsRequestItem:
       type: object
       required:
@@ -4452,7 +4564,7 @@ components:
           description: |
             Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
              Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум
-    V0BidsRecommendationsCpmResponse:
+    V0BidsRecommendationsCpmResponse1:
       type: object
       properties:
         advertId:
@@ -4477,7 +4589,7 @@ components:
           description: |
             Тип оплаты:
               - `cpm` — за показы
-    V0BidsRecommendationsCpcResponse:
+    V0BidsRecommendationsCpcResponse2:
       type: object
       properties:
         advertId:
@@ -6621,6 +6733,12 @@ components:
             reachMin:
               bidKopecks: 32000
         paymentType: cpm
+    V2BudgetResponse:
+      value:
+        adverts:
+          - advertId: 123456789
+            currency: RUB
+            total: 6000
     V0BidsRecommendationsCpcResponse:
       value:
         advertId: 12345678

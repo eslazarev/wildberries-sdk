@@ -738,7 +738,7 @@ components:
                 description: Комиссия по модели **Самовывоз из магазина продавца** (`C&C`), %
               kgvpSupplier:
                 type: number
-                description: Комиссия по моделям **Витрина** (`DBS`) и **Курьер WB** (`DBW`), %
+                description: Комиссия по моделям **Витрина** (`DBS`) и **Деливери WB** (`DBW`), %
               kgvpSupplierExpress:
                 type: number
                 description: Комиссия по модели **Витрина экспресс** (`EDBS`), %
