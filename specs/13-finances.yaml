@@ -106,7 +106,7 @@ paths:
 
         Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).
         <br><br>
-        Данные доступны с 1 января 2025 года.
+        Данные доступны с 29 января 2024 года.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -133,7 +133,7 @@ paths:
         '204':
           description: Нет данных
         '400':
-          $ref: '#/components/responses/response400FinancialReports'
+          $ref: '#/components/responses/response400SalesReports'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -174,7 +174,7 @@ paths:
 
         Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
         <br><br>
-        Данные доступны с 1 января 2025 года.
+        Данные доступны с 29 января 2024 года.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -209,7 +209,7 @@ paths:
         '204':
           description: Нет данных
         '400':
-          $ref: '#/components/responses/response400FinancialReports'
+          $ref: '#/components/responses/response400SalesReports'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -225,6 +225,8 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
                 Response403TokenType:
                   $ref: '#/components/examples/Response403TokenType'
+        '404':
+          $ref: '#/components/responses/response404SalesReports'
         '429':
           $ref: '#/components/responses/429'
   /api/finance/v1/sales-reports/detailed:
@@ -277,7 +279,7 @@ paths:
         '204':
           description: Нет данных
         '400':
-          $ref: '#/components/responses/response400FinancialReports'
+          $ref: '#/components/responses/response400SalesReports'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -336,7 +338,7 @@ paths:
         '204':
           description: Нет данных
         '400':
-          $ref: '#/components/responses/response400FinancialReports'
+          $ref: '#/components/responses/response400AcquiringReports'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -410,7 +412,7 @@ paths:
         '204':
           description: Нет данных
         '400':
-          $ref: '#/components/responses/response400FinancialReports'
+          $ref: '#/components/responses/response400AcquiringReports'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -426,6 +428,8 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
                 Response403TokenType:
                   $ref: '#/components/examples/Response403TokenType'
+        '404':
+          $ref: '#/components/responses/response404AcquiringReports'
         '429':
           $ref: '#/components/responses/429'
   /api/finance/v1/acquiring/detailed:
@@ -478,7 +482,7 @@ paths:
         '204':
           description: Нет данных
         '400':
-          $ref: '#/components/responses/response400FinancialReports'
+          $ref: '#/components/responses/response400AcquiringReports'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -1006,8 +1010,7 @@ components:
           enum:
             - 1
             - 2
-            - 3
-          description: "Тип отчёта:\n  - `1`\_— основной\n  - `2`\_— по\_выкупам\n  - `3` — по выкупам для Грузии\n"
+          description: "Тип отчёта:\n  - `1`\_— основной\n  - `2`\_— по\_выкупам\n"
           example: 1
         retailAmountSum:
           type: string
@@ -1023,7 +1026,7 @@ components:
           example: 0
         deliveryServiceSum:
           type: string
-          description: Стоимость логистики
+          description: Стоимость доставки
           example: '2558.47'
         paidStorageSum:
           type: string
@@ -1035,7 +1038,7 @@ components:
           example: '243.81'
         deductionSum:
           type: string
-          description: Прочие удержания и выплаты
+          description: Прочие удержания/выплаты
           example: '150'
         penaltySum:
           type: string
@@ -1043,11 +1046,11 @@ components:
           example: '1457.61'
         additionalPaymentSum:
           type: string
-          description: Корректировка Вознаграждения Вайлдберриз (ВВ)
+          description: Корректировка Вознаграждения Wildberries (ВВ)
           example: '9509.71'
         cashbackAmountSum:
           type: string
-          description: Сумма, удержанная за начисленные баллы программы лояльности
+          description: Сумма баллов, удержанных по программе лояльности
           example: '2'
         cashbackDiscountSum:
           type: string
@@ -1088,7 +1091,7 @@ components:
           example:
             - rrdId
             - nmId
-            - docTypeName
+            - currency
             - retailAmount
             - acquiringFee
             - srid
@@ -1274,8 +1277,7 @@ components:
           enum:
             - 1
             - 2
-            - 3
-          description: "Тип отчёта:\n  - `1`\_— основной\n  - `2`\_— по\_выкупам\n  - `3` — по выкупам для Грузии\n"
+          description: "Тип отчёта:\n  - `1`\_— основной\n  - `2`\_— по\_выкупам\n"
           example: 1
         rrdId:
           example: 1232610467
@@ -1342,7 +1344,7 @@ components:
         retailAmount:
           example: '367'
           type: string
-          description: Вайлдберриз реализовал Товар (Пр)
+          description: Wildberries реализовал Товар (Пр)
         salePercent:
           example: 0
           type: integer
@@ -1403,8 +1405,8 @@ components:
           type: number
           description: Итоговая согласованная скидка, %
         sellerPromo:
-          example: '0'
-          type: string
+          example: 0
+          type: number
           description: Промокод, %
         spp:
           example: 25.31
@@ -1439,27 +1441,27 @@ components:
         acquiringFee:
           example: '14.89'
           type: string
-          description: Компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов
+          description: Компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов
         acquiringPercent:
           example: 4.06
           type: number
-          description: Размер компенсации платёжных услуг/Комиссии за интеграцию платёжных сервисов, %
+          description: Размер компенсации платёжных услуг/комиссии за интеграцию платёжных сервисов
         paymentProcessing:
           example: Комиссия за организацию платежа с НДС
           type: string
-          description: 'Тип платежа: компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов'
+          description: 'Тип платежа: компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов'
         acquiringBank:
-          example: Тинькофф
+          example: Вайлдберриз Банк
           type: string
           description: Наименование банка-эквайера
         vw:
           example: '22.25'
           type: string
-          description: Вознаграждение Вайлдберриз (ВВ), без НДС
+          description: Вознаграждение Wildberries (ВВ), без НДС
         vwNds:
           example: '4.45'
           type: string
-          description: НДС с вознаграждения Вайлдберриз
+          description: НДС с вознаграждения Wildberries
         ppvzOfficeName:
           example: Москва Москва Очаковское шоссе 6к2
           type: string
@@ -1483,7 +1485,7 @@ components:
         bonusTypeName:
           example: Штраф МП. Невыполненный заказ (отмена клиентом после недовоза)
           type: string
-          description: Виды логистики, штрафов и корректировок ВВ
+          description: Виды доставок, штрафов и корректировок ВВ
         stickerId:
           example: '1964038895'
           type: string
@@ -1503,11 +1505,11 @@ components:
         additionalPayment:
           example: '0'
           type: string
-          description: Корректировка Вознаграждения Вайлдберриз (ВВ)
+          description: Корректировка Вознаграждения Wildberries (ВВ)
         rebillLogisticCost:
           example: '1.349'
           type: string
-          description: Возмещение издержек по перевозке/по складским операциям с товаром
+          description: Возмещение издержек по перемещению и операционной обработке товара
         rebillLogisticOrg:
           example: ИП Иванов Иван Иванович(123456789012)
           type: string
@@ -1530,7 +1532,7 @@ components:
           example: 2816993144
         kiz:
           type: string
-          description: Код маркировки [Честного знака](https://честныйзнак.рф/)
+          description: Код маркировки [Честного знака](https://честныйзнак.рф)
           example: "0102900000376311210G2CIS?ehge)S\x1D91002A\x1D92F9Qof4FDo/31Icm14kmtuVYQzLypxm3HWkC1vQ/+pVVjm1dNAth1laFMoAGn7yEMWlTjxIe7lQnJqZ7TRZhlHQ=="
         isB2b:
           type: boolean
@@ -1550,7 +1552,7 @@ components:
           example: 1
         cashbackAmount:
           type: string
-          description: Сумма, удержанная за начисленные баллы программы лояльности
+          description: Сумма баллов, удержанных по программе лояльности
           example: '2'
         cashbackDiscount:
           type: string
@@ -1618,7 +1620,7 @@ components:
           example: false
         warehouseLogisticsCoeff:
           type: number
-          description: Коэффициент логистики
+          description: Коэффициент доставки
           example: 0
         orderUid:
           type: string
@@ -1759,7 +1761,7 @@ components:
           example:
             - rrdId
             - nmId
-            - docTypeName
+            - documentType
             - retailAmount
             - acquiringFee
             - srid
@@ -1771,7 +1773,7 @@ components:
         - currency
         - rrdId
         - nmId
-        - docTypeName
+        - documentType
         - retailAmount
         - saleDate
         - acqDate
@@ -1799,7 +1801,7 @@ components:
           type: string
           description: Дата операции
         acquiringBank:
-          example: Тинькофф
+          example: Вайлдберриз Банк
           type: string
           description: Наименование банка-эквайера
         tin:
@@ -1819,7 +1821,7 @@ components:
           type: string
           description: |
             ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
-        docTypeName:
+        documentType:
           example: Продажа
           type: string
           description: Тип документа
@@ -1830,7 +1832,7 @@ components:
         retailAmount:
           example: '367'
           type: string
-          description: Вайлдберриз реализовал Товар (Пр)
+          description: Wildberries реализовал Товар (Пр)
         acquiringFee:
           example: '14.89'
           type: string
@@ -2025,11 +2027,17 @@ components:
             status: 429
             statusText: Too Many Requests
             timestamp: '2024-09-30T06:52:38Z'
-    response400FinancialReports:
+    response400SalesReports:
       description: Неправильный запрос
       content:
         application/problem+json:
           schema:
+            required:
+              - status
+              - title
+              - detail
+              - requestId
+              - origin
             type: object
             properties:
               status:
@@ -2039,15 +2047,114 @@ components:
               title:
                 type: string
                 description: Заголовок ошибки
-                example: GetReportDetailByPeriodNB decode error
+                example: GetReportDetailByPeriodNBAndNNB decode error
               detail:
                 type: string
                 description: Детали ошибки
-                example: 'GetReportDetailByPeriodNB decode error: missing dateTo params'
+                example: 'GetReportDetailByPeriodNBAndNNB decode error: Key: ''FinancialDetailedByPeriodRequestV4.DateTo'' Error:Field validation for ''DateTo'' failed on the ''required'' tag'
               requestId:
                 type: string
                 description: ID запроса
                 example: b065c204-c5f7-431b-b12c-d4c2cc6347ec
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+                example: open-api-finreports
+    response400AcquiringReports:
+      description: Неправильный запрос
+      content:
+        application/problem+json:
+          schema:
+            required:
+              - status
+              - title
+              - detail
+              - requestId
+              - origin
+            type: object
+            properties:
+              status:
+                type: integer
+                description: HTTP статус-код
+                example: 400
+              title:
+                type: string
+                description: Заголовок ошибки
+                example: GetAcquiringGeneralReport decode error
+              detail:
+                type: string
+                description: Детали ошибки
+                example: 'GetAcquiringGeneralReport decode error: Key: ''AcquiringGeneralReportRequestV2.DateTo'' Error:Field validation for ''DateTo'' failed on the ''required'' tag'
+              requestId:
+                type: string
+                description: ID запроса
+                example: 4950c661-9056-4baa-a0ed-c7e498c4a557
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+                example: open-api-finreports
+    response404SalesReports:
+      description: Не найдено
+      content:
+        application/problem+json:
+          schema:
+            required:
+              - status
+              - title
+              - detail
+              - requestId
+              - origin
+            type: object
+            properties:
+              status:
+                type: integer
+                description: HTTP статус-код
+                example: 404
+              title:
+                type: string
+                description: Заголовок ошибки
+                example: GetDetailsByReportID error
+              detail:
+                type: string
+                description: Детали ошибки
+                example: 'GetDetailsByReportID error: generate meta key: get report data: report id not found'
+              requestId:
+                type: string
+                description: ID запроса
+                example: 4565feab-860b-493c-ad8d-6eda4d1902db
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+                example: open-api-finreports
+    response404AcquiringReports:
+      description: Не найдено
+      content:
+        application/problem+json:
+          schema:
+            required:
+              - status
+              - title
+              - detail
+              - requestId
+              - origin
+            type: object
+            properties:
+              status:
+                type: integer
+                description: HTTP статус-код
+                example: 404
+              title:
+                type: string
+                description: Заголовок ошибки
+                example: GetAcquiringReportByReportID usecase error
+              detail:
+                type: string
+                description: Детали ошибки
+                example: 'GetAcquiringReportByReportID usecase error: generate meta key: get report data: report id not found'
+              requestId:
+                type: string
+                description: ID запроса
+                example: b8c4a3db-2860-4df6-99dc-10602ddbc003
               origin:
                 type: string
                 description: ID внутреннего сервиса WB

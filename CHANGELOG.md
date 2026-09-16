@@ -1,6 +1,27 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.16)
+- Цены и скидки: обновлено описание карантина цен — критерий изменён с «в 3 раза меньше старой» на «меньше порогового значения»; ссылка на ошибку перенесена на метод детализации загрузки `getV2HistoryGoodsTask` (вместо упоминания «состояний загрузок`/getV2HistoryTasks`).
+- Цены и скидки: в схеме `Items` изменена ссылка `Good` → `Item` (переименование компонента).
+- Цены и скидки: удалено поле `isBadTurnover` из схем `Good/Item` и `SizeGood` (признак неликвидного товара больше не возвращается).
+- Цены и скидки: обновлены пример и описание `errorText` — оставлен кейс про Price Quarantine с пороговым значением; пример текста ошибки изменён.
+
+- Заказы DBW / Склады: терминология обновлена — «доставка курьером WB (DBW)» переименована в «Деливери WB (DBW)» в описаниях методов и перечислениях типов доставки (значение `3` без изменения).
+
+- Продвижение / Финансы: добавлен новый метод `POST /api/advert/v2/budget` (operationId `postV2Budget`) для получения остатков бюджетов по списку кампаний (`advertIds` 1..50); лимит 20 запросов/мин (интервал 3 сек, всплеск 4), базовый — 4/час.
+- Продвижение / Финансы: метод `GET /adv/v1/budget` помечен как `deprecated` и будет отключён 16 ноября (ссылка на release notes).
+- Продвижение / Финансы: в описаниях документации и пополнения бюджета обновлены ссылки — получение бюджетов теперь через `postV2Budget` (вместо `getV1Budget`).
+- Продвижение: в ответе рекомендаций ставок изменены ссылки на схемы `V0BidsRecommendationsCpmResponse` → `V0BidsRecommendationsCpmResponse1` и `V0BidsRecommendationsCpcResponse` → `V0BidsRecommendationsCpcResponse2` (переименование компонентов).
+
+- Финансы: для отчётов реализации и их детализаций изменена доступность данных — с 01.01.2025 на 29.01.2024.
+- Финансы: для методов sales-reports и acquiring заменены ссылки на 400-ответы: `response400FinancialReports` → `response400SalesReports` / `response400AcquiringReports`; добавлены новые схемы ошибок с обязательными полями (`status`, `title`, `detail`, `requestId`, `origin`).
+- Финансы: добавлены 404-ответы `response404SalesReports` и `response404AcquiringReports` для методов получения детализаций по ID отчёта.
+- Финансы: в схемах отчётов удалён тип отчёта `3` («по выкупам для Грузии») — теперь только `1` и `2`.
+- Финансы: переименовано поле `docTypeName` → `documentType` (в т.ч. в required/примерных списках полей).
+- Финансы: изменён тип поля `sellerPromo` со `string` на `number`.
+- Финансы: обновлены описания/примеры ряда полей (например, `deliveryServiceSum` — «Стоимость доставки», `deductionSum` — «Прочие удержания/выплаты», `acquiringBank` пример → «Вайлдберриз Банк», уточнения формулировок по вознаграждению Wildberries и логистике).
+
 ### Changed (2026.09.15)
 - Товары/Контент: раздел документации переименован/перенесён с `/openapi/work-with-products` на `/openapi/item-management`; обновлены ссылки на теги (в т.ч. `pricesAndDiscounts`, `sellerWarehouses`, `sellerWarehousesInventory`).
 - Товары/Контент: для большинства методов добавлены `operationId` (в т.ч. `getV2ObjectParentAll`, `getV2ObjectAll`, `getV2ObjectCharcsSubjectId`, `getV2Directory*`, `getV1Brands`, `getV2Tags`, `postV2Tag`, `patchV2TagId`, `deleteV2TagId`, `postV2TagNomenclatureLink`, `postV2GetCardsList`, `postV2CardsErrorList`, `postV2CardsUpdate`, `postV2CardsMoveNm`, `postV2CardsDeleteTrash`, `postV2CardsRecover`, `postV2GetCardsTrash`, `getV2CardsLimits`, `postV2Barcodes`, `postV2CardsUpload`, `postV2CardsUploadAdd`, `postV3MediaFile`, `postV3MediaSave`).
