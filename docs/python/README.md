@@ -270,7 +270,7 @@ print(feedbacks)
 - `promotion.DefaultApi.get_v1_advert` — `GET /adv/v1/advert` — Информация о медиакампании
 - `promotion.DefaultApi.get_v1_adverts` — `GET /adv/v1/adverts` — Список медиакампаний
 - `promotion.DefaultApi.get_v1_balance` — `GET /adv/v1/balance` — Баланс
-- `promotion.DefaultApi.get_v1_budget` — `GET /adv/v1/budget` — Бюджет кампании
+- `promotion.DefaultApi.get_v1_budget` — `GET /adv/v1/budget` — (Deprecated) Бюджет кампании
 - `promotion.DefaultApi.get_v1_calendar_promotions` — `GET /api/v1/calendar/promotions` — Список акций
 - `promotion.DefaultApi.get_v1_calendar_promotions_details` — `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
 - `promotion.DefaultApi.get_v1_calendar_promotions_nomenclatures` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
@@ -297,6 +297,7 @@ print(feedbacks)
 - `promotion.DefaultApi.post_v1_normquery_bids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
 - `promotion.DefaultApi.post_v1_normquery_stats` — `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
 - `promotion.DefaultApi.post_v1_stats` — `POST /adv/v1/stats` — Статистика медиакампаний
+- `promotion.DefaultApi.post_v2_budget` — `POST /api/advert/v2/budget` — Остатки бюджетов кампаний
 - `promotion.DefaultApi.post_v2_seacat_save_ad` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
 - `promotion.DefaultApi.post_v2_supplier_nms` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
 - `promotion.DefaultApi.put_v0_auction_placements` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой

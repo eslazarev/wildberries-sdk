@@ -66,7 +66,7 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
         'tax_registration_reason_code' => 'string',
         'sale_date' => 'string',
         'srid' => 'string',
-        'doc_type_name' => 'string',
+        'document_type' => 'string',
         'nm_id' => 'int',
         'retail_amount' => 'string',
         'acquiring_fee' => 'string',
@@ -93,7 +93,7 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
         'tax_registration_reason_code' => null,
         'sale_date' => null,
         'srid' => null,
-        'doc_type_name' => null,
+        'document_type' => null,
         'nm_id' => null,
         'retail_amount' => null,
         'acquiring_fee' => null,
@@ -118,7 +118,7 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
         'tax_registration_reason_code' => false,
         'sale_date' => false,
         'srid' => false,
-        'doc_type_name' => false,
+        'document_type' => false,
         'nm_id' => false,
         'retail_amount' => false,
         'acquiring_fee' => false,
@@ -223,7 +223,7 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
         'tax_registration_reason_code' => 'taxRegistrationReasonCode',
         'sale_date' => 'saleDate',
         'srid' => 'srid',
-        'doc_type_name' => 'docTypeName',
+        'document_type' => 'documentType',
         'nm_id' => 'nmId',
         'retail_amount' => 'retailAmount',
         'acquiring_fee' => 'acquiringFee',
@@ -248,7 +248,7 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
         'tax_registration_reason_code' => 'setTaxRegistrationReasonCode',
         'sale_date' => 'setSaleDate',
         'srid' => 'setSrid',
-        'doc_type_name' => 'setDocTypeName',
+        'document_type' => 'setDocumentType',
         'nm_id' => 'setNmId',
         'retail_amount' => 'setRetailAmount',
         'acquiring_fee' => 'setAcquiringFee',
@@ -273,7 +273,7 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
         'tax_registration_reason_code' => 'getTaxRegistrationReasonCode',
         'sale_date' => 'getSaleDate',
         'srid' => 'getSrid',
-        'doc_type_name' => 'getDocTypeName',
+        'document_type' => 'getDocumentType',
         'nm_id' => 'getNmId',
         'retail_amount' => 'getRetailAmount',
         'acquiring_fee' => 'getAcquiringFee',
@@ -349,7 +349,7 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('tax_registration_reason_code', $data ?? [], null);
         $this->setIfExists('sale_date', $data ?? [], null);
         $this->setIfExists('srid', $data ?? [], null);
-        $this->setIfExists('doc_type_name', $data ?? [], null);
+        $this->setIfExists('document_type', $data ?? [], null);
         $this->setIfExists('nm_id', $data ?? [], null);
         $this->setIfExists('retail_amount', $data ?? [], null);
         $this->setIfExists('acquiring_fee', $data ?? [], null);
@@ -411,8 +411,8 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['srid'] === null) {
             $invalidProperties[] = "'srid' can't be null";
         }
-        if ($this->container['doc_type_name'] === null) {
-            $invalidProperties[] = "'doc_type_name' can't be null";
+        if ($this->container['document_type'] === null) {
+            $invalidProperties[] = "'document_type' can't be null";
         }
         if ($this->container['nm_id'] === null) {
             $invalidProperties[] = "'nm_id' can't be null";
@@ -670,28 +670,28 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets doc_type_name
+     * Gets document_type
      *
      * @return string
      */
-    public function getDocTypeName()
+    public function getDocumentType()
     {
-        return $this->container['doc_type_name'];
+        return $this->container['document_type'];
     }
 
     /**
-     * Sets doc_type_name
+     * Sets document_type
      *
-     * @param string $doc_type_name Тип документа
+     * @param string $document_type Тип документа
      *
      * @return self
      */
-    public function setDocTypeName($doc_type_name)
+    public function setDocumentType($document_type)
     {
-        if (is_null($doc_type_name)) {
-            throw new \InvalidArgumentException('non-nullable doc_type_name cannot be null');
+        if (is_null($document_type)) {
+            throw new \InvalidArgumentException('non-nullable document_type cannot be null');
         }
-        $this->container['doc_type_name'] = $doc_type_name;
+        $this->container['document_type'] = $document_type;
 
         return $this;
     }
@@ -736,7 +736,7 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets retail_amount
      *
-     * @param string $retail_amount Вайлдберриз реализовал Товар (Пр)
+     * @param string $retail_amount Wildberries реализовал Товар (Пр)
      *
      * @return self
      */

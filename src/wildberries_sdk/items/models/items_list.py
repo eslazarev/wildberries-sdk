@@ -37,8 +37,7 @@ class ItemsList(BaseModel):
     club_discount: Optional[StrictInt] = Field(default=None, description="Скидка WB Клуба, %", alias="clubDiscount", json_schema_extra={"examples": [5]})
     editable_size_price: Optional[StrictBool] = Field(default=None, description="Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя ", alias="editableSizePrice", json_schema_extra={"examples": [True]})
     wholesale_discount_threshold: Optional[List[WholesaleDiscountThresholdRes]] = Field(default=None, description="Оптовые скидки разных уровней для B2B", alias="wholesaleDiscountThreshold")
-    is_bad_turnover: Optional[StrictBool] = Field(default=None, description="Признак неликвидного товара:   - `true` — неликвидный товар с [низким индексом остатка](https://seller.wildberries.ru/instructions/ru/ru/material/stocks-index?categoryId=e324ce0f-9a2a-4b8d-8fd1-72f751b09b3b&goBackOption=prevRoute#%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B8-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B0-%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0)   - Поле отсутствует — ликвидный товар ", alias="isBadTurnover", json_schema_extra={"examples": [True]})
-    __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "sizes", "currencyIsoCode4217", "discount", "clubDiscount", "editableSizePrice", "wholesaleDiscountThreshold", "isBadTurnover"]
+    __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "sizes", "currencyIsoCode4217", "discount", "clubDiscount", "editableSizePrice", "wholesaleDiscountThreshold"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -110,8 +109,7 @@ class ItemsList(BaseModel):
             "discount": obj.get("discount"),
             "clubDiscount": obj.get("clubDiscount"),
             "editableSizePrice": obj.get("editableSizePrice"),
-            "wholesaleDiscountThreshold": [WholesaleDiscountThresholdRes.from_dict(_item) for _item in obj["wholesaleDiscountThreshold"]] if obj.get("wholesaleDiscountThreshold") is not None else None,
-            "isBadTurnover": obj.get("isBadTurnover")
+            "wholesaleDiscountThreshold": [WholesaleDiscountThresholdRes.from_dict(_item) for _item in obj["wholesaleDiscountThreshold"]] if obj.get("wholesaleDiscountThreshold") is not None else None
         })
         return _obj
 

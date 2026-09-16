@@ -17,34 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.promotion.models.v0_bid_recommendation_base import V0BidRecommendationBase
-from wildberries_sdk.promotion.models.v0_bid_recommendation_norm_query import V0BidRecommendationNormQuery
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class V0BidsRecommendationsCpmResponse(BaseModel):
+class V2BudgetRequest(BaseModel):
     """
-    V0BidsRecommendationsCpmResponse
+    V2BudgetRequest
     """ # noqa: E501
-    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании", alias="advertId")
-    base: Optional[V0BidRecommendationBase] = None
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    norm_queries: Optional[List[V0BidRecommendationNormQuery]] = Field(default=None, description="Рекомендуемые ставки для поисковых кластеров", alias="normQueries")
-    payment_type: Optional[StrictStr] = Field(default=None, description="Тип оплаты:   - `cpm` — за показы ", alias="paymentType")
-    __properties: ClassVar[List[str]] = ["advertId", "base", "nmId", "normQueries", "paymentType"]
-
-    @field_validator('payment_type')
-    def payment_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['cpm']):
-            raise ValueError("must be one of enum values ('cpm')")
-        return value
+    advert_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=50)] = Field(description="Список ID кампаний", alias="advertIds", json_schema_extra={"examples": [[1234567, 63453471]]})
+    __properties: ClassVar[List[str]] = ["advertIds"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -64,7 +49,7 @@ class V0BidsRecommendationsCpmResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of V0BidsRecommendationsCpmResponse from a JSON string"""
+        """Create an instance of V2BudgetRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -85,20 +70,11 @@ class V0BidsRecommendationsCpmResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of base
-        if self.base:
-            _dict['base'] = self.base.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in norm_queries (list)
-        _items = []
-        if self.norm_queries:
-            for _item_norm_queries in self.norm_queries:
-                _items.append(_item_norm_queries.to_dict() if _item_norm_queries is not None else None)
-            _dict['normQueries'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of V0BidsRecommendationsCpmResponse from a dict"""
+        """Create an instance of V2BudgetRequest from a dict"""
         if obj is None:
             return None
 
@@ -106,11 +82,7 @@ class V0BidsRecommendationsCpmResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "base": V0BidRecommendationBase.from_dict(obj["base"]) if obj.get("base") is not None else None,
-            "nmId": obj.get("nmId"),
-            "normQueries": [V0BidRecommendationNormQuery.from_dict(_item) for _item in obj["normQueries"]] if obj.get("normQueries") is not None else None,
-            "paymentType": obj.get("paymentType")
+            "advertIds": obj.get("advertIds")
         })
         return _obj
 

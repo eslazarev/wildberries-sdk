@@ -351,7 +351,6 @@ class SalesReportListRes implements ModelInterface, ArrayAccess, \JsonSerializab
 
     public const REPORT_TYPE_NUMBER_1 = 1;
     public const REPORT_TYPE_NUMBER_2 = 2;
-    public const REPORT_TYPE_NUMBER_3 = 3;
 
     /**
      * Gets allowable values of the enum
@@ -363,7 +362,6 @@ class SalesReportListRes implements ModelInterface, ArrayAccess, \JsonSerializab
         return [
             self::REPORT_TYPE_NUMBER_1,
             self::REPORT_TYPE_NUMBER_2,
-            self::REPORT_TYPE_NUMBER_3,
         ];
     }
 
@@ -694,7 +692,7 @@ class SalesReportListRes implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets report_type
      *
-     * @param int $report_type Тип отчёта:   - `1` — основной   - `2` — по выкупам   - `3` — по выкупам для Грузии
+     * @param int $report_type Тип отчёта:   - `1` — основной   - `2` — по выкупам
      *
      * @return self
      */
@@ -812,7 +810,7 @@ class SalesReportListRes implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets delivery_service_sum
      *
-     * @param string $delivery_service_sum Стоимость логистики
+     * @param string $delivery_service_sum Стоимость доставки
      *
      * @return self
      */
@@ -893,7 +891,7 @@ class SalesReportListRes implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets deduction_sum
      *
-     * @param string $deduction_sum Прочие удержания и выплаты
+     * @param string $deduction_sum Прочие удержания/выплаты
      *
      * @return self
      */
@@ -947,7 +945,7 @@ class SalesReportListRes implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets additional_payment_sum
      *
-     * @param string $additional_payment_sum Корректировка Вознаграждения Вайлдберриз (ВВ)
+     * @param string $additional_payment_sum Корректировка Вознаграждения Wildberries (ВВ)
      *
      * @return self
      */
@@ -974,7 +972,7 @@ class SalesReportListRes implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets cashback_amount_sum
      *
-     * @param string $cashback_amount_sum Сумма, удержанная за начисленные баллы программы лояльности
+     * @param string $cashback_amount_sum Сумма баллов, удержанных по программе лояльности
      *
      * @return self
      */

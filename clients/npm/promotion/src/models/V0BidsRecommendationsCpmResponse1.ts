@@ -31,9 +31,9 @@ import {
 /**
  * 
  * @export
- * @interface V0BidsRecommendationsCpmResponse
+ * @interface V0BidsRecommendationsCpmResponse1
  */
-export interface V0BidsRecommendationsCpmResponse {
+export interface V0BidsRecommendationsCpmResponse1 {
     /**
      * ID кампании
      */
@@ -55,31 +55,31 @@ export interface V0BidsRecommendationsCpmResponse {
      *   - `cpm` — за показы
      * 
      */
-    paymentType?: V0BidsRecommendationsCpmResponsePaymentTypeEnum;
+    paymentType?: V0BidsRecommendationsCpmResponse1PaymentTypeEnum;
 }
 
 
 /**
  * @export
  */
-export const V0BidsRecommendationsCpmResponsePaymentTypeEnum = {
+export const V0BidsRecommendationsCpmResponse1PaymentTypeEnum = {
     Cpm: 'cpm',
 } as const;
-export type V0BidsRecommendationsCpmResponsePaymentTypeEnum = typeof V0BidsRecommendationsCpmResponsePaymentTypeEnum[keyof typeof V0BidsRecommendationsCpmResponsePaymentTypeEnum];
+export type V0BidsRecommendationsCpmResponse1PaymentTypeEnum = typeof V0BidsRecommendationsCpmResponse1PaymentTypeEnum[keyof typeof V0BidsRecommendationsCpmResponse1PaymentTypeEnum];
 
 
 /**
- * Check if a given object implements the V0BidsRecommendationsCpmResponse interface.
+ * Check if a given object implements the V0BidsRecommendationsCpmResponse1 interface.
  */
-export function instanceOfV0BidsRecommendationsCpmResponse(value: object): value is V0BidsRecommendationsCpmResponse {
+export function instanceOfV0BidsRecommendationsCpmResponse1(value: object): value is V0BidsRecommendationsCpmResponse1 {
     return true;
 }
 
-export function V0BidsRecommendationsCpmResponseFromJSON(json: any): V0BidsRecommendationsCpmResponse {
-    return V0BidsRecommendationsCpmResponseFromJSONTyped(json, false);
+export function V0BidsRecommendationsCpmResponse1FromJSON(json: any): V0BidsRecommendationsCpmResponse1 {
+    return V0BidsRecommendationsCpmResponse1FromJSONTyped(json, false);
 }
 
-export function V0BidsRecommendationsCpmResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): V0BidsRecommendationsCpmResponse {
+export function V0BidsRecommendationsCpmResponse1FromJSONTyped(json: any, ignoreDiscriminator: boolean): V0BidsRecommendationsCpmResponse1 {
     if (json == null) {
         return json;
     }
@@ -93,11 +93,11 @@ export function V0BidsRecommendationsCpmResponseFromJSONTyped(json: any, ignoreD
     };
 }
 
-export function V0BidsRecommendationsCpmResponseToJSON(json: any): V0BidsRecommendationsCpmResponse {
-    return V0BidsRecommendationsCpmResponseToJSONTyped(json, false);
+export function V0BidsRecommendationsCpmResponse1ToJSON(json: any): V0BidsRecommendationsCpmResponse1 {
+    return V0BidsRecommendationsCpmResponse1ToJSONTyped(json, false);
 }
 
-export function V0BidsRecommendationsCpmResponseToJSONTyped(value?: V0BidsRecommendationsCpmResponse | null, ignoreDiscriminator: boolean = false): any {
+export function V0BidsRecommendationsCpmResponse1ToJSONTyped(value?: V0BidsRecommendationsCpmResponse1 | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

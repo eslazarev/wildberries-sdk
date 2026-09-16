@@ -34,17 +34,17 @@ class SalesReportListRes(BaseModel):
     date_to: date = Field(description="Дата конца отчётного периода", alias="dateTo", json_schema_extra={"examples": ["2026-03-22"]})
     create_date: date = Field(description="Дата формирования отчёта", alias="createDate", json_schema_extra={"examples": ["2026-03-23"]})
     currency: StrictStr = Field(description="Валюта отчёта", json_schema_extra={"examples": ["RUB"]})
-    report_type: StrictInt = Field(description="Тип отчёта:   - `1` — основной   - `2` — по выкупам   - `3` — по выкупам для Грузии ", alias="reportType", json_schema_extra={"examples": [1]})
+    report_type: StrictInt = Field(description="Тип отчёта:   - `1` — основной   - `2` — по выкупам ", alias="reportType", json_schema_extra={"examples": [1]})
     retail_amount_sum: StrictStr = Field(description="Продажа", alias="retailAmountSum", json_schema_extra={"examples": ["258"]})
     for_pay_sum: StrictStr = Field(description="К перечислению за товар", alias="forPaySum", json_schema_extra={"examples": ["183.79"]})
     avg_sale_percent: Union[StrictFloat, StrictInt] = Field(description="Согласованная скидка, %", alias="avgSalePercent", json_schema_extra={"examples": [0]})
-    delivery_service_sum: StrictStr = Field(description="Стоимость логистики", alias="deliveryServiceSum", json_schema_extra={"examples": ["2558.47"]})
+    delivery_service_sum: StrictStr = Field(description="Стоимость доставки", alias="deliveryServiceSum", json_schema_extra={"examples": ["2558.47"]})
     paid_storage_sum: StrictStr = Field(description="Стоимость хранения", alias="paidStorageSum", json_schema_extra={"examples": ["626.84"]})
     paid_acceptance_sum: StrictStr = Field(description="Стоимость операций при приёмке", alias="paidAcceptanceSum", json_schema_extra={"examples": ["243.81"]})
-    deduction_sum: StrictStr = Field(description="Прочие удержания и выплаты", alias="deductionSum", json_schema_extra={"examples": ["150"]})
+    deduction_sum: StrictStr = Field(description="Прочие удержания/выплаты", alias="deductionSum", json_schema_extra={"examples": ["150"]})
     penalty_sum: StrictStr = Field(description="Общая сумма штрафов", alias="penaltySum", json_schema_extra={"examples": ["1457.61"]})
-    additional_payment_sum: StrictStr = Field(description="Корректировка Вознаграждения Вайлдберриз (ВВ)", alias="additionalPaymentSum", json_schema_extra={"examples": ["9509.71"]})
-    cashback_amount_sum: StrictStr = Field(description="Сумма, удержанная за начисленные баллы программы лояльности", alias="cashbackAmountSum", json_schema_extra={"examples": ["2"]})
+    additional_payment_sum: StrictStr = Field(description="Корректировка Вознаграждения Wildberries (ВВ)", alias="additionalPaymentSum", json_schema_extra={"examples": ["9509.71"]})
+    cashback_amount_sum: StrictStr = Field(description="Сумма баллов, удержанных по программе лояльности", alias="cashbackAmountSum", json_schema_extra={"examples": ["2"]})
     cashback_discount_sum: StrictStr = Field(description="Компенсация скидки по программе лояльности", alias="cashbackDiscountSum", json_schema_extra={"examples": ["19"]})
     cashback_commission_change_sum: StrictStr = Field(description="Стоимость участия в программе лояльности", alias="cashbackCommissionChangeSum", json_schema_extra={"examples": ["0.2"]})
     payment_schedule: StrictStr = Field(description="Разовое изменение срока перечисления денежных средств", alias="paymentSchedule", json_schema_extra={"examples": ["-1"]})
@@ -54,8 +54,8 @@ class SalesReportListRes(BaseModel):
     @field_validator('report_type')
     def report_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set([1, 2, 3]):
-            raise ValueError("must be one of enum values (1, 2, 3)")
+        if value not in set([1, 2]):
+            raise ValueError("must be one of enum values (1, 2)")
         return value
 
     model_config = ConfigDict(

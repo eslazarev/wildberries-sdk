@@ -21,8 +21,8 @@ var _ MappedNullable = &PostV2UploadTaskRequest{}
 
 // PostV2UploadTaskRequest struct for PostV2UploadTaskRequest
 type PostV2UploadTaskRequest struct {
-	// Товары, цены и скидки для них. Максимум 1 000 товаров. Цена и скидка не могут быть пустыми одновременно. <br><br> Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), она попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и товар будет продаваться по старой цене. Ошибка об этом будет в ответах методов состояний загрузок. <br><br> Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine) 
-	Data []Good `json:"data"`
+	// Товары, цены и скидки для них. Максимум 1 000 товаров. Цена и скидка не могут быть пустыми одновременно. <br><br> Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask). <br><br> Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine) 
+	Data []Item `json:"data"`
 }
 
 type _PostV2UploadTaskRequest PostV2UploadTaskRequest
@@ -31,7 +31,7 @@ type _PostV2UploadTaskRequest PostV2UploadTaskRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV2UploadTaskRequest(data []Good) *PostV2UploadTaskRequest {
+func NewPostV2UploadTaskRequest(data []Item) *PostV2UploadTaskRequest {
 	this := PostV2UploadTaskRequest{}
 	this.Data = data
 	return &this
@@ -46,9 +46,9 @@ func NewPostV2UploadTaskRequestWithDefaults() *PostV2UploadTaskRequest {
 }
 
 // GetData returns the Data field value
-func (o *PostV2UploadTaskRequest) GetData() []Good {
+func (o *PostV2UploadTaskRequest) GetData() []Item {
 	if o == nil {
-		var ret []Good
+		var ret []Item
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *PostV2UploadTaskRequest) GetData() []Good {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *PostV2UploadTaskRequest) GetDataOk() ([]Good, bool) {
+func (o *PostV2UploadTaskRequest) GetDataOk() ([]Item, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *PostV2UploadTaskRequest) GetDataOk() ([]Good, bool) {
 }
 
 // SetData sets field value
-func (o *PostV2UploadTaskRequest) SetData(v []Good) {
+func (o *PostV2UploadTaskRequest) SetData(v []Item) {
 	o.Data = v
 }
 

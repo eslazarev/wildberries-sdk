@@ -22,29 +22,34 @@ export interface PostV1SalesReportsList400Response {
     /**
      * HTTP статус-код
      */
-    status?: number;
+    status: number;
     /**
      * Заголовок ошибки
      */
-    title?: string;
+    title: string;
     /**
      * Детали ошибки
      */
-    detail?: string;
+    detail: string;
     /**
      * ID запроса
      */
-    requestId?: string;
+    requestId: string;
     /**
      * ID внутреннего сервиса WB
      */
-    origin?: string;
+    origin: string;
 }
 
 /**
  * Check if a given object implements the PostV1SalesReportsList400Response interface.
  */
 export function instanceOfPostV1SalesReportsList400Response(value: object): value is PostV1SalesReportsList400Response {
+    if (!('status' in value) || value['status'] === undefined) return false;
+    if (!('title' in value) || value['title'] === undefined) return false;
+    if (!('detail' in value) || value['detail'] === undefined) return false;
+    if (!('requestId' in value) || value['requestId'] === undefined) return false;
+    if (!('origin' in value) || value['origin'] === undefined) return false;
     return true;
 }
 
@@ -58,11 +63,11 @@ export function PostV1SalesReportsList400ResponseFromJSONTyped(json: any, ignore
     }
     return {
         
-        'status': json['status'] == null ? undefined : json['status'],
-        'title': json['title'] == null ? undefined : json['title'],
-        'detail': json['detail'] == null ? undefined : json['detail'],
-        'requestId': json['requestId'] == null ? undefined : json['requestId'],
-        'origin': json['origin'] == null ? undefined : json['origin'],
+        'status': json['status'],
+        'title': json['title'],
+        'detail': json['detail'],
+        'requestId': json['requestId'],
+        'origin': json['origin'],
     };
 }
 

@@ -1874,7 +1874,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Finances\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Finances\Model\AcquiringReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response
+     * @return \Wildberries\Sdk\Finances\Model\AcquiringReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response
      */
     public function postV1AcquiringDetailed($acquiring_reports_detailed_req, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1AcquiringDetailed'][0])
     {
@@ -1898,7 +1898,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Finances\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Finances\Model\AcquiringReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Finances\Model\AcquiringReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1AcquiringDetailedWithHttpInfo($acquiring_reports_detailed_req, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1AcquiringDetailed'][0])
     {
@@ -1936,7 +1936,7 @@ class DefaultApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response',
+                        '\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response',
                         $request,
                         $response,
                     );
@@ -1999,7 +1999,7 @@ class DefaultApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response',
+                        '\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2282,7 +2282,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Finances\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Finances\Model\AcquiringReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response
+     * @return \Wildberries\Sdk\Finances\Model\AcquiringReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\PostV1AcquiringDetailedReportId404Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response
      */
     public function postV1AcquiringDetailedReportId($report_id, $financial_reports_detailed_report_id_req, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1AcquiringDetailedReportId'][0])
     {
@@ -2307,7 +2307,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Finances\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Finances\Model\AcquiringReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Finances\Model\AcquiringReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\PostV1AcquiringDetailedReportId404Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1AcquiringDetailedReportIdWithHttpInfo($report_id, $financial_reports_detailed_report_id_req, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1AcquiringDetailedReportId'][0])
     {
@@ -2345,7 +2345,7 @@ class DefaultApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response',
+                        '\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response',
                         $request,
                         $response,
                     );
@@ -2364,6 +2364,12 @@ class DefaultApi
                 case 403:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Finances\Model\Response4XX',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Finances\Model\PostV1AcquiringDetailedReportId404Response',
                         $request,
                         $response,
                     );
@@ -2408,7 +2414,7 @@ class DefaultApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response',
+                        '\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2433,6 +2439,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Finances\Model\Response4XX',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Finances\Model\PostV1AcquiringDetailedReportId404Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2708,7 +2722,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Finances\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Finances\Model\AcquiringReportListRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response
+     * @return \Wildberries\Sdk\Finances\Model\AcquiringReportListRes[]|\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response
      */
     public function postV1AcquiringList($acquiring_report_list_req, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1AcquiringList'][0])
     {
@@ -2732,7 +2746,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Finances\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Finances\Model\AcquiringReportListRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Finances\Model\AcquiringReportListRes[]|\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1AcquiringListWithHttpInfo($acquiring_report_list_req, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1AcquiringList'][0])
     {
@@ -2770,7 +2784,7 @@ class DefaultApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response',
+                        '\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response',
                         $request,
                         $response,
                     );
@@ -2827,7 +2841,7 @@ class DefaultApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response',
+                        '\Wildberries\Sdk\Finances\Model\PostV1AcquiringList400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3910,7 +3924,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Finances\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Finances\Model\SalesReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response
+     * @return \Wildberries\Sdk\Finances\Model\SalesReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsDetailedReportId404Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response
      */
     public function postV1SalesReportsDetailedReportId($report_id, $financial_reports_detailed_report_id_req, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1SalesReportsDetailedReportId'][0])
     {
@@ -3935,7 +3949,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Finances\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Finances\Model\SalesReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Finances\Model\SalesReportsDetailedRes[]|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsList400Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance402Response|\Wildberries\Sdk\Finances\Model\Response4XX|\Wildberries\Sdk\Finances\Model\PostV1SalesReportsDetailedReportId404Response|\Wildberries\Sdk\Finances\Model\GetV1AccountBalance401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1SalesReportsDetailedReportIdWithHttpInfo($report_id, $financial_reports_detailed_report_id_req, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1SalesReportsDetailedReportId'][0])
     {
@@ -3992,6 +4006,12 @@ class DefaultApi
                 case 403:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Finances\Model\Response4XX',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Finances\Model\PostV1SalesReportsDetailedReportId404Response',
                         $request,
                         $response,
                     );
@@ -4061,6 +4081,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Finances\Model\Response4XX',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Finances\Model\PostV1SalesReportsDetailedReportId404Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

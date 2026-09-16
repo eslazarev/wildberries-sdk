@@ -994,7 +994,7 @@ func (a *DefaultApiService) PostV1AcquiringDetailedExecute(r ApiPostV1AcquiringD
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v PostV1SalesReportsList400Response
+			var v PostV1AcquiringList400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1192,7 +1192,7 @@ func (a *DefaultApiService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1Ac
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v PostV1SalesReportsList400Response
+			var v PostV1AcquiringList400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1226,6 +1226,17 @@ func (a *DefaultApiService) PostV1AcquiringDetailedReportIdExecute(r ApiPostV1Ac
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Response4XX
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v PostV1AcquiringDetailedReportId404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1386,7 +1397,7 @@ func (a *DefaultApiService) PostV1AcquiringListExecute(r ApiPostV1AcquiringListR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v PostV1SalesReportsList400Response
+			var v PostV1AcquiringList400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1856,7 +1867,7 @@ PostV1SalesReportsDetailedReportId Детализации к отчётам ре
 
 Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
 <br><br>
-Данные доступны с 1 января 2025 года.
+Данные доступны с 29 января 2024 года.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2003,6 +2014,17 @@ func (a *DefaultApiService) PostV1SalesReportsDetailedReportIdExecute(r ApiPostV
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v PostV1SalesReportsDetailedReportId404Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 429 {
 			var v GetV1AccountBalance401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2055,7 +2077,7 @@ PostV1SalesReportsList Список отчётов реализации
 
 Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).
 <br><br>
-Данные доступны с 1 января 2025 года.
+Данные доступны с 29 января 2024 года.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:

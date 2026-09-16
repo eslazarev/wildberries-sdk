@@ -519,7 +519,7 @@ class Warehouse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_type
      *
-     * @param int|null $delivery_type Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — доставка курьером WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS)
+     * @param int|null $delivery_type Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS)
      *
      * @return self
      */

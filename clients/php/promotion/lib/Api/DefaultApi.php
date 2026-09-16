@@ -182,6 +182,9 @@ class DefaultApi
         'postV1Stats' => [
             'application/json',
         ],
+        'postV2Budget' => [
+            'application/json',
+        ],
         'postV2SeacatSaveAd' => [
             'application/json',
         ],
@@ -3532,6 +3535,7 @@ class DefaultApi
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Promotion\Model\GetV1Budget200Response|string|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     * @deprecated
      */
     public function getV1Budget($id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Budget'][0])
     {
@@ -3557,6 +3561,7 @@ class DefaultApi
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Promotion\Model\GetV1Budget200Response|string|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getV1BudgetWithHttpInfo($id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Budget'][0])
     {
@@ -3704,6 +3709,7 @@ class DefaultApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getV1BudgetAsync($id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Budget'][0])
     {
@@ -3732,6 +3738,7 @@ class DefaultApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getV1BudgetAsyncWithHttpInfo($id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Budget'][0])
     {
@@ -3789,6 +3796,7 @@ class DefaultApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getV1BudgetRequest($id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Budget'][0])
     {
@@ -14169,6 +14177,399 @@ class DefaultApi
             [
                 "url" => "https://advert-media-api.wildberries.ru",
                 "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation postV2Budget
+     *
+     * Остатки бюджетов кампаний
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Promotion\Model\V2BudgetRequest $v2_budget_request v2_budget_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2Budget'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\Promotion\Model\V2BudgetResponse|string|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     */
+    public function postV2Budget($v2_budget_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2Budget'][0])
+    {
+        list($response) = $this->postV2BudgetWithHttpInfo($v2_budget_request, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation postV2BudgetWithHttpInfo
+     *
+     * Остатки бюджетов кампаний
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Promotion\Model\V2BudgetRequest $v2_budget_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2Budget'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\Promotion\Model\V2BudgetResponse|string|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postV2BudgetWithHttpInfo($v2_budget_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2Budget'][0])
+    {
+        $request = $this->postV2BudgetRequest($v2_budget_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\V2BudgetResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        'string',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\Promotion\Model\V2BudgetResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\V2BudgetResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postV2BudgetAsync
+     *
+     * Остатки бюджетов кампаний
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Promotion\Model\V2BudgetRequest $v2_budget_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2Budget'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV2BudgetAsync($v2_budget_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2Budget'][0])
+    {
+        return $this->postV2BudgetAsyncWithHttpInfo($v2_budget_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postV2BudgetAsyncWithHttpInfo
+     *
+     * Остатки бюджетов кампаний
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Promotion\Model\V2BudgetRequest $v2_budget_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2Budget'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV2BudgetAsyncWithHttpInfo($v2_budget_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2Budget'][0])
+    {
+        $returnType = '\Wildberries\Sdk\Promotion\Model\V2BudgetResponse';
+        $request = $this->postV2BudgetRequest($v2_budget_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postV2Budget'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Promotion\Model\V2BudgetRequest $v2_budget_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2Budget'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postV2BudgetRequest($v2_budget_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2Budget'][0])
+    {
+
+        // verify the required parameter 'v2_budget_request' is set
+        if ($v2_budget_request === null || (is_array($v2_budget_request) && count($v2_budget_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $v2_budget_request when calling postV2Budget'
+            );
+        }
+
+
+        $resourcePath = '/api/advert/v2/budget';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/plain', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($v2_budget_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($v2_budget_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $v2_budget_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForpostV2Budget();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation postV2Budget
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForpostV2Budget(): array
+    {
+        return [
+            [
+                "url" => "https://advert-api.wildberries.ru",
+                "description" => "**Prod**",
             ]
         ];
     }

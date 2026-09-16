@@ -5632,7 +5632,7 @@ paths:
       description: |
         Метод возвращает информацию о товарах в карантине.
         <br><br>
-        Если новая цена товара со скидкой будет минимум в 3 раза меньше старой, товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в ответах методов [состояний загрузок](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).
+        Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
         <br><br>
         Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
         <br><br>
@@ -6769,7 +6769,7 @@ paths:
     get:
       description: "Метод возвращает список контактов, привязанных к [складу прода\
         вца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).\n\
-        <br>\nТолько для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).\n\
+        <br>\nТолько для складов с типом доставки `3` — Деливери WB ([DBW](/openapi/orders-dbw)).\n\
         \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n\
         <ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получе\
@@ -6873,7 +6873,7 @@ paths:
         \n<div class=\"description_important\">\n  Список контактов перезаписывает\
         ся при обновлении. Поэтому в запросе нужно передать <strong>все</strong> п\
         араметры списка контактов, в том числе те, которые вы не собираетесь обнов\
-        лять.\n</div>\n\nТолько для складов с типом доставки `3` — курьером WB (DBW).\n\
+        лять.\n</div>\n\nТолько для складов с типом доставки `3` — Деливери WB (DBW).\n\
         <br><br>\nК складу можно добавить максимум 5 контактов. Чтобы удалить конт\
         акты, отправьте пустой массив `contacts`.\n\n<div class=\"description_limit\"\
         >\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Л\
@@ -8507,13 +8507,13 @@ components:
       description: |
         Товары, цены и скидки для них. Максимум 1 000 товаров. Цена и скидка не могут быть пустыми одновременно.
         <br><br>
-        Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), она попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и товар будет продаваться по старой цене. Ошибка об этом будет в ответах методов состояний загрузок.
+        Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
         <br><br>
         Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine)
       items:
-        $ref: "#/components/schemas/Good"
+        $ref: "#/components/schemas/Item"
       type: array
-    Good:
+    Item:
       properties:
         nmID:
           description: Артикул WB
@@ -8666,7 +8666,6 @@ components:
         - minQuantity: 10
           wholesaleDiscount: 10
           level: 1
-        isBadTurnover: true
       properties:
         nmID:
           description: Артикул WB
@@ -8705,13 +8704,6 @@ components:
           items:
             $ref: "#/components/schemas/WholesaleDiscountThresholdRes"
           type: array
-        isBadTurnover:
-          description: |
-            Признак неликвидного товара:
-              - `true` — неликвидный товар с [низким индексом остатка](https://seller.wildberries.ru/instructions/ru/ru/material/stocks-index?categoryId=e324ce0f-9a2a-4b8d-8fd1-72f751b09b3b&goBackOption=prevRoute#%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B8-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B0-%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0)
-              - Поле отсутствует — ликвидный товар
-          example: true
-          type: boolean
       type: object
     SizeGood:
       description: Информация о размере
@@ -8727,7 +8719,6 @@ components:
         clubDiscount: 5
         techSizeName: "42"
         editableSizePrice: true
-        isBadTurnover: true
       properties:
         nmID:
           description: Артикул WB
@@ -8776,13 +8767,6 @@ components:
             Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):
               - `true` — можно
               - `false` — нельзя
-          example: true
-          type: boolean
-        isBadTurnover:
-          description: |
-            Признак неликвидного товара:
-              - `true` — неликвидный товар с [низким индексом остатка](https://seller.wildberries.ru/instructions/ru/ru/material/stocks-index?categoryId=e324ce0f-9a2a-4b8d-8fd1-72f751b09b3b&goBackOption=prevRoute#%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B8-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B0-%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0)
-              - Поле отсутствует — ликвидный товар
           example: true
           type: boolean
       type: object
@@ -8853,8 +8837,8 @@ components:
         discount: 25
         clubDiscount: 5
         status: 1
-        errorText: You can't change the item price. Item was added to the Sale due
-          to high inventory
+        errorText: New price is several times lower than the current price. Item has
+          been moved to Price Quarantine
       properties:
         nmID:
           description: Артикул WB
@@ -8901,10 +8885,9 @@ components:
         errorText:
           description: |
             Текст ошибки. Например:
-              - `You can't change the item price. Item was added to the Sale due to high inventory` — ошибка возникает, если товар попал под распродажу по [индексу остатка](https://seller.wildberries.ru/instructions/ru/ru/material/A-1159).
-              - `The new price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой хотя бы в 3 раза меньше старой. Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
-          example: You can't change the item price. Item was added to the Sale due
-            to high inventory
+              - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
+          example: New price is several times lower than the current price. Item has
+            been moved to Price Quarantine
           nullable: true
           type: string
       type: object
@@ -9162,7 +9145,7 @@ components:
             Тип доставки, который принимает склад:
               - `1` — доставка на склад WB (FBS)
               - `2` — доставка силами продавца (DBS)
-              - `3` — доставка курьером WB (DBW)
+              - `3` — Деливери WB (DBW)
               - `5` — самовывоз (C&C)
               - `6` — экспресс-доставка силами продавца (ЕDBS)
           enum:
@@ -9229,7 +9212,7 @@ components:
             Тип доставки, который принимает склад:
               - `1` — доставка на склад WB (FBS)
               - `2` — доставка силами продавца (DBS)
-              - `3` — доставка курьером WB (DBW)
+              - `3` — Деливери WB (DBW)
               - `5` — самовывоз (C&C)
               - `6` — экспресс-доставка силами продавца (ЕDBS)
           enum:
@@ -12235,11 +12218,11 @@ components:
           description: |
             Товары, цены и скидки для них. Максимум 1 000 товаров. Цена и скидка не могут быть пустыми одновременно.
             <br><br>
-            Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), она попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и товар будет продаваться по старой цене. Ошибка об этом будет в ответах методов состояний загрузок.
+            Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
             <br><br>
             Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine)
           items:
-            $ref: "#/components/schemas/Good"
+            $ref: "#/components/schemas/Item"
           type: array
       required:
       - data
@@ -12438,8 +12421,8 @@ components:
           discount: 25
           clubDiscount: 5
           status: 1
-          errorText: You can't change the item price. Item was added to the Sale due
-            to high inventory
+          errorText: New price is several times lower than the current price. Item
+            has been moved to Price Quarantine
         - nmID: 544833232
           vendorCode: "34552332"
           sizeID: 54483342
@@ -12449,8 +12432,8 @@ components:
           discount: 25
           clubDiscount: 5
           status: 1
-          errorText: You can't change the item price. Item was added to the Sale due
-            to high inventory
+          errorText: New price is several times lower than the current price. Item
+            has been moved to Price Quarantine
       properties:
         uploadID:
           description: ID загрузки
@@ -12478,8 +12461,8 @@ components:
             discount: 25
             clubDiscount: 5
             status: 1
-            errorText: You can't change the item price. Item was added to the Sale
-              due to high inventory
+            errorText: New price is several times lower than the current price. Item
+              has been moved to Price Quarantine
           - nmID: 544833232
             vendorCode: "34552332"
             sizeID: 54483342
@@ -12489,8 +12472,8 @@ components:
             discount: 25
             clubDiscount: 5
             status: 1
-            errorText: You can't change the item price. Item was added to the Sale
-              due to high inventory
+            errorText: New price is several times lower than the current price. Item
+              has been moved to Price Quarantine
       properties:
         data:
           $ref: "#/components/schemas/getV2HistoryGoodsTask_200_response_data"
@@ -12623,7 +12606,6 @@ components:
           - minQuantity: 10
             wholesaleDiscount: 10
             level: 1
-          isBadTurnover: true
         - nmID: 98486
           vendorCode: "07326060"
           sizes:
@@ -12648,7 +12630,6 @@ components:
           - minQuantity: 10
             wholesaleDiscount: 10
             level: 1
-          isBadTurnover: true
       properties:
         listGoods:
           description: Информация о товарах
@@ -12686,7 +12667,6 @@ components:
             - minQuantity: 10
               wholesaleDiscount: 10
               level: 1
-            isBadTurnover: true
           - nmID: 98486
             vendorCode: "07326060"
             sizes:
@@ -12711,7 +12691,6 @@ components:
             - minQuantity: 10
               wholesaleDiscount: 10
               level: 1
-            isBadTurnover: true
         error: false
         errorText: ""
       properties:
@@ -12757,7 +12736,6 @@ components:
           clubDiscount: 5
           techSizeName: "42"
           editableSizePrice: true
-          isBadTurnover: true
         - nmID: 123
           sizeID: 98989887
           vendorCode: "34552332"
@@ -12769,7 +12747,6 @@ components:
           clubDiscount: 5
           techSizeName: "42"
           editableSizePrice: true
-          isBadTurnover: true
       properties:
         listGoods:
           description: Размеры товара
@@ -12793,7 +12770,6 @@ components:
             clubDiscount: 5
             techSizeName: "42"
             editableSizePrice: true
-            isBadTurnover: true
           - nmID: 123
             sizeID: 98989887
             vendorCode: "34552332"
@@ -12805,7 +12781,6 @@ components:
             clubDiscount: 5
             techSizeName: "42"
             editableSizePrice: true
-            isBadTurnover: true
         error: false
         errorText: errorText
       properties:

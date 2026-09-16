@@ -37,7 +37,7 @@ type GoodHistory struct {
 	ClubDiscount NullableInt32 `json:"clubDiscount,omitempty"`
 	// Статус товара:   * `2` — товар без ошибок, цена и/или скидка обновилась   * `3` — есть ошибки, данные не обновились 
 	Status *int32 `json:"status,omitempty"`
-	// Текст ошибки. Например:   - `You can't change the item price. Item was added to the Sale due to high inventory` — ошибка возникает, если товар попал под распродажу по [индексу остатка](https://seller.wildberries.ru/instructions/ru/ru/material/A-1159).   - `The new price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой хотя бы в 3 раза меньше старой. Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). 
+	// Текст ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). 
 	ErrorText NullableString `json:"errorText,omitempty"`
 }
 

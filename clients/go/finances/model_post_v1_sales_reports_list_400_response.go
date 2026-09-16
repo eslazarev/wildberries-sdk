@@ -12,6 +12,8 @@ package finances
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PostV1SalesReportsList400Response type satisfies the MappedNullable interface at compile time
@@ -20,23 +22,30 @@ var _ MappedNullable = &PostV1SalesReportsList400Response{}
 // PostV1SalesReportsList400Response struct for PostV1SalesReportsList400Response
 type PostV1SalesReportsList400Response struct {
 	// HTTP статус-код
-	Status *int32 `json:"status,omitempty"`
+	Status int32 `json:"status"`
 	// Заголовок ошибки
-	Title *string `json:"title,omitempty"`
+	Title string `json:"title"`
 	// Детали ошибки
-	Detail *string `json:"detail,omitempty"`
+	Detail string `json:"detail"`
 	// ID запроса
-	RequestId *string `json:"requestId,omitempty"`
+	RequestId string `json:"requestId"`
 	// ID внутреннего сервиса WB
-	Origin *string `json:"origin,omitempty"`
+	Origin string `json:"origin"`
 }
+
+type _PostV1SalesReportsList400Response PostV1SalesReportsList400Response
 
 // NewPostV1SalesReportsList400Response instantiates a new PostV1SalesReportsList400Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV1SalesReportsList400Response() *PostV1SalesReportsList400Response {
+func NewPostV1SalesReportsList400Response(status int32, title string, detail string, requestId string, origin string) *PostV1SalesReportsList400Response {
 	this := PostV1SalesReportsList400Response{}
+	this.Status = status
+	this.Title = title
+	this.Detail = detail
+	this.RequestId = requestId
+	this.Origin = origin
 	return &this
 }
 
@@ -48,164 +57,124 @@ func NewPostV1SalesReportsList400ResponseWithDefaults() *PostV1SalesReportsList4
 	return &this
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value
 func (o *PostV1SalesReportsList400Response) GetStatus() int32 {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Status
+
+	return o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *PostV1SalesReportsList400Response) GetStatusOk() (*int32, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return &o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *PostV1SalesReportsList400Response) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
+// SetStatus sets field value
 func (o *PostV1SalesReportsList400Response) SetStatus(v int32) {
-	o.Status = &v
+	o.Status = v
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise.
+// GetTitle returns the Title field value
 func (o *PostV1SalesReportsList400Response) GetTitle() string {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Title
+
+	return o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
 func (o *PostV1SalesReportsList400Response) GetTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Title, true
+	return &o.Title, true
 }
 
-// HasTitle returns a boolean if a field has been set.
-func (o *PostV1SalesReportsList400Response) HasTitle() bool {
-	if o != nil && !IsNil(o.Title) {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given string and assigns it to the Title field.
+// SetTitle sets field value
 func (o *PostV1SalesReportsList400Response) SetTitle(v string) {
-	o.Title = &v
+	o.Title = v
 }
 
-// GetDetail returns the Detail field value if set, zero value otherwise.
+// GetDetail returns the Detail field value
 func (o *PostV1SalesReportsList400Response) GetDetail() string {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Detail
+
+	return o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
+// GetDetailOk returns a tuple with the Detail field value
 // and a boolean to check if the value has been set.
 func (o *PostV1SalesReportsList400Response) GetDetailOk() (*string, bool) {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Detail, true
+	return &o.Detail, true
 }
 
-// HasDetail returns a boolean if a field has been set.
-func (o *PostV1SalesReportsList400Response) HasDetail() bool {
-	if o != nil && !IsNil(o.Detail) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetail gets a reference to the given string and assigns it to the Detail field.
+// SetDetail sets field value
 func (o *PostV1SalesReportsList400Response) SetDetail(v string) {
-	o.Detail = &v
+	o.Detail = v
 }
 
-// GetRequestId returns the RequestId field value if set, zero value otherwise.
+// GetRequestId returns the RequestId field value
 func (o *PostV1SalesReportsList400Response) GetRequestId() string {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RequestId
+
+	return o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
+// GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *PostV1SalesReportsList400Response) GetRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RequestId, true
+	return &o.RequestId, true
 }
 
-// HasRequestId returns a boolean if a field has been set.
-func (o *PostV1SalesReportsList400Response) HasRequestId() bool {
-	if o != nil && !IsNil(o.RequestId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+// SetRequestId sets field value
 func (o *PostV1SalesReportsList400Response) SetRequestId(v string) {
-	o.RequestId = &v
+	o.RequestId = v
 }
 
-// GetOrigin returns the Origin field value if set, zero value otherwise.
+// GetOrigin returns the Origin field value
 func (o *PostV1SalesReportsList400Response) GetOrigin() string {
-	if o == nil || IsNil(o.Origin) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Origin
+
+	return o.Origin
 }
 
-// GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
+// GetOriginOk returns a tuple with the Origin field value
 // and a boolean to check if the value has been set.
 func (o *PostV1SalesReportsList400Response) GetOriginOk() (*string, bool) {
-	if o == nil || IsNil(o.Origin) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Origin, true
+	return &o.Origin, true
 }
 
-// HasOrigin returns a boolean if a field has been set.
-func (o *PostV1SalesReportsList400Response) HasOrigin() bool {
-	if o != nil && !IsNil(o.Origin) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrigin gets a reference to the given string and assigns it to the Origin field.
+// SetOrigin sets field value
 func (o *PostV1SalesReportsList400Response) SetOrigin(v string) {
-	o.Origin = &v
+	o.Origin = v
 }
 
 func (o PostV1SalesReportsList400Response) MarshalJSON() ([]byte, error) {
@@ -218,22 +187,53 @@ func (o PostV1SalesReportsList400Response) MarshalJSON() ([]byte, error) {
 
 func (o PostV1SalesReportsList400Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
-	if !IsNil(o.Title) {
-		toSerialize["title"] = o.Title
-	}
-	if !IsNil(o.Detail) {
-		toSerialize["detail"] = o.Detail
-	}
-	if !IsNil(o.RequestId) {
-		toSerialize["requestId"] = o.RequestId
-	}
-	if !IsNil(o.Origin) {
-		toSerialize["origin"] = o.Origin
-	}
+	toSerialize["status"] = o.Status
+	toSerialize["title"] = o.Title
+	toSerialize["detail"] = o.Detail
+	toSerialize["requestId"] = o.RequestId
+	toSerialize["origin"] = o.Origin
 	return toSerialize, nil
+}
+
+func (o *PostV1SalesReportsList400Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"status",
+		"title",
+		"detail",
+		"requestId",
+		"origin",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPostV1SalesReportsList400Response := _PostV1SalesReportsList400Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPostV1SalesReportsList400Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostV1SalesReportsList400Response(varPostV1SalesReportsList400Response)
+
+	return err
 }
 
 type NullablePostV1SalesReportsList400Response struct {

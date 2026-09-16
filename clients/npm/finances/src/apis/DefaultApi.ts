@@ -84,6 +84,21 @@ import {
     GetV1DocumentsList400ResponseToJSON,
 } from '../models/GetV1DocumentsList400Response';
 import {
+    type PostV1AcquiringDetailedReportId404Response,
+    PostV1AcquiringDetailedReportId404ResponseFromJSON,
+    PostV1AcquiringDetailedReportId404ResponseToJSON,
+} from '../models/PostV1AcquiringDetailedReportId404Response';
+import {
+    type PostV1AcquiringList400Response,
+    PostV1AcquiringList400ResponseFromJSON,
+    PostV1AcquiringList400ResponseToJSON,
+} from '../models/PostV1AcquiringList400Response';
+import {
+    type PostV1SalesReportsDetailedReportId404Response,
+    PostV1SalesReportsDetailedReportId404ResponseFromJSON,
+    PostV1SalesReportsDetailedReportId404ResponseToJSON,
+} from '../models/PostV1SalesReportsDetailedReportId404Response';
+import {
     type PostV1SalesReportsList400Response,
     PostV1SalesReportsList400ResponseFromJSON,
     PostV1SalesReportsList400ResponseToJSON,
@@ -826,7 +841,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Детализации к отчётам реализации по ID отчётов
      */
     async postV1SalesReportsDetailedReportIdRaw(requestParameters: PostV1SalesReportsDetailedReportIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SalesReportsDetailedRes>>> {
@@ -837,7 +852,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Детализации к отчётам реализации по ID отчётов
      */
     async postV1SalesReportsDetailedReportId(requestParameters: PostV1SalesReportsDetailedReportIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SalesReportsDetailedRes> | null | undefined > {
@@ -886,7 +901,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Список отчётов реализации
      */
     async postV1SalesReportsListRaw(requestParameters: PostV1SalesReportsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SalesReportListRes>>> {
@@ -897,7 +912,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Список отчётов реализации
      */
     async postV1SalesReportsList(requestParameters: PostV1SalesReportsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SalesReportListRes> | null | undefined > {

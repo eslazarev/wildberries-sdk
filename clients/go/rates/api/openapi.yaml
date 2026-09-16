@@ -1471,8 +1471,8 @@ components:
             \ %"
           type: number
         kgvpSupplier:
-          description: "Комиссия по моделям **Витрина** (`DBS`) и **Курьер WB** (`DBW`),\
-            \ %"
+          description: "Комиссия по моделям **Витрина** (`DBS`) и **Деливери WB**\
+            \ (`DBW`), %"
           type: number
         kgvpSupplierExpress:
           description: "Комиссия по модели **Витрина экспресс** (`EDBS`), %"

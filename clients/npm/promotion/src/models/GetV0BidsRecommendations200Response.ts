@@ -13,27 +13,27 @@
  */
 
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { V0BidsRecommendationsCpcResponse } from './V0BidsRecommendationsCpcResponse';
+import type { V0BidsRecommendationsCpcResponse2 } from './V0BidsRecommendationsCpcResponse2';
 import {
-    instanceOfV0BidsRecommendationsCpcResponse,
-    V0BidsRecommendationsCpcResponseFromJSON,
-    V0BidsRecommendationsCpcResponseFromJSONTyped,
-    V0BidsRecommendationsCpcResponseToJSON,
-} from './V0BidsRecommendationsCpcResponse';
-import type { V0BidsRecommendationsCpmResponse } from './V0BidsRecommendationsCpmResponse';
+    instanceOfV0BidsRecommendationsCpcResponse2,
+    V0BidsRecommendationsCpcResponse2FromJSON,
+    V0BidsRecommendationsCpcResponse2FromJSONTyped,
+    V0BidsRecommendationsCpcResponse2ToJSON,
+} from './V0BidsRecommendationsCpcResponse2';
+import type { V0BidsRecommendationsCpmResponse1 } from './V0BidsRecommendationsCpmResponse1';
 import {
-    instanceOfV0BidsRecommendationsCpmResponse,
-    V0BidsRecommendationsCpmResponseFromJSON,
-    V0BidsRecommendationsCpmResponseFromJSONTyped,
-    V0BidsRecommendationsCpmResponseToJSON,
-} from './V0BidsRecommendationsCpmResponse';
+    instanceOfV0BidsRecommendationsCpmResponse1,
+    V0BidsRecommendationsCpmResponse1FromJSON,
+    V0BidsRecommendationsCpmResponse1FromJSONTyped,
+    V0BidsRecommendationsCpmResponse1ToJSON,
+} from './V0BidsRecommendationsCpmResponse1';
 
 /**
  * @type GetV0BidsRecommendations200Response
  * 
  * @export
  */
-export type GetV0BidsRecommendations200Response = V0BidsRecommendationsCpcResponse | V0BidsRecommendationsCpmResponse;
+export type GetV0BidsRecommendations200Response = V0BidsRecommendationsCpcResponse2 | V0BidsRecommendationsCpmResponse1;
 
 export function GetV0BidsRecommendations200ResponseFromJSON(json: any): GetV0BidsRecommendations200Response {
     return GetV0BidsRecommendations200ResponseFromJSONTyped(json, false);
@@ -46,11 +46,11 @@ export function GetV0BidsRecommendations200ResponseFromJSONTyped(json: any, igno
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfV0BidsRecommendationsCpcResponse(json)) {
-        return V0BidsRecommendationsCpcResponseFromJSONTyped(json, true);
+    if (instanceOfV0BidsRecommendationsCpcResponse2(json)) {
+        return V0BidsRecommendationsCpcResponse2FromJSONTyped(json, true);
     }
-    if (instanceOfV0BidsRecommendationsCpmResponse(json)) {
-        return V0BidsRecommendationsCpmResponseFromJSONTyped(json, true);
+    if (instanceOfV0BidsRecommendationsCpmResponse1(json)) {
+        return V0BidsRecommendationsCpmResponse1FromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -66,11 +66,11 @@ export function GetV0BidsRecommendations200ResponseToJSONTyped(value?: GetV0Bids
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfV0BidsRecommendationsCpcResponse(value)) {
-        return V0BidsRecommendationsCpcResponseToJSON(value as V0BidsRecommendationsCpcResponse);
+    if (instanceOfV0BidsRecommendationsCpcResponse2(value)) {
+        return V0BidsRecommendationsCpcResponse2ToJSON(value as V0BidsRecommendationsCpcResponse2);
     }
-    if (instanceOfV0BidsRecommendationsCpmResponse(value)) {
-        return V0BidsRecommendationsCpmResponseToJSON(value as V0BidsRecommendationsCpmResponse);
+    if (instanceOfV0BidsRecommendationsCpmResponse1(value)) {
+        return V0BidsRecommendationsCpmResponse1ToJSON(value as V0BidsRecommendationsCpmResponse1);
     }
     return {};
 }

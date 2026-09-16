@@ -43,7 +43,6 @@ export interface SalesReportsDetailedRes {
      * Тип отчёта:
      *   - `1` — основной
      *   - `2` — по выкупам
-     *   - `3` — по выкупам для Грузии
      * 
      */
     reportType: SalesReportsDetailedResReportTypeEnum;
@@ -108,7 +107,7 @@ export interface SalesReportsDetailedRes {
      */
     retailPrice: string;
     /**
-     * Вайлдберриз реализовал Товар (Пр)
+     * Wildberries реализовал Товар (Пр)
      */
     retailAmount: string;
     /**
@@ -170,7 +169,7 @@ export interface SalesReportsDetailedRes {
     /**
      * Промокод, %
      */
-    sellerPromo: string;
+    sellerPromo: number;
     /**
      * Платформенные скидки, %
      */
@@ -204,15 +203,15 @@ export interface SalesReportsDetailedRes {
      */
     ppvzReward: string;
     /**
-     * Компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов
+     * Компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов
      */
     acquiringFee: string;
     /**
-     * Размер компенсации платёжных услуг/Комиссии за интеграцию платёжных сервисов, %
+     * Размер компенсации платёжных услуг/комиссии за интеграцию платёжных сервисов
      */
     acquiringPercent: number;
     /**
-     * Тип платежа: компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов
+     * Тип платежа: компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов
      */
     paymentProcessing: string;
     /**
@@ -220,11 +219,11 @@ export interface SalesReportsDetailedRes {
      */
     acquiringBank: string;
     /**
-     * Вознаграждение Вайлдберриз (ВВ), без НДС
+     * Вознаграждение Wildberries (ВВ), без НДС
      */
     vw: string;
     /**
-     * НДС с вознаграждения Вайлдберриз
+     * НДС с вознаграждения Wildberries
      */
     vwNds: string;
     /**
@@ -248,7 +247,7 @@ export interface SalesReportsDetailedRes {
      */
     declarationNumber: string;
     /**
-     * Виды логистики, штрафов и корректировок ВВ
+     * Виды доставок, штрафов и корректировок ВВ
      */
     bonusTypeName?: string;
     /**
@@ -268,11 +267,11 @@ export interface SalesReportsDetailedRes {
      */
     penalty: string;
     /**
-     * Корректировка Вознаграждения Вайлдберриз (ВВ)
+     * Корректировка Вознаграждения Wildberries (ВВ)
      */
     additionalPayment: string;
     /**
-     * Возмещение издержек по перевозке/по складским операциям с товаром
+     * Возмещение издержек по перемещению и операционной обработке товара
      */
     rebillLogisticCost: string;
     /**
@@ -296,7 +295,7 @@ export interface SalesReportsDetailedRes {
      */
     orderId: number;
     /**
-     * Код маркировки [Честного знака](https://честныйзнак.рф/)
+     * Код маркировки [Честного знака](https://честныйзнак.рф)
      */
     kiz?: string;
     /**
@@ -316,7 +315,7 @@ export interface SalesReportsDetailedRes {
      */
     wibesDiscountPercent: number;
     /**
-     * Сумма, удержанная за начисленные баллы программы лояльности
+     * Сумма баллов, удержанных по программе лояльности
      */
     cashbackAmount: string;
     /**
@@ -384,7 +383,7 @@ export interface SalesReportsDetailedRes {
      */
     paidWithSocialCertificate: boolean;
     /**
-     * Коэффициент логистики
+     * Коэффициент доставки
      */
     warehouseLogisticsCoeff: number;
     /**
@@ -406,7 +405,6 @@ export interface SalesReportsDetailedRes {
 export const SalesReportsDetailedResReportTypeEnum = {
     NUMBER_1: 1,
     NUMBER_2: 2,
-    NUMBER_3: 3,
 } as const;
 export type SalesReportsDetailedResReportTypeEnum = typeof SalesReportsDetailedResReportTypeEnum[keyof typeof SalesReportsDetailedResReportTypeEnum];
 

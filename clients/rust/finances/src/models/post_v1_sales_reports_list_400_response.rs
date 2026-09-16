@@ -14,30 +14,30 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV1SalesReportsList400Response {
     /// HTTP статус-код
-    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<i32>,
+    #[serde(rename = "status")]
+    pub status: i32,
     /// Заголовок ошибки
-    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
-    pub title: Option<String>,
+    #[serde(rename = "title")]
+    pub title: String,
     /// Детали ошибки
-    #[serde(rename = "detail", skip_serializing_if = "Option::is_none")]
-    pub detail: Option<String>,
+    #[serde(rename = "detail")]
+    pub detail: String,
     /// ID запроса
-    #[serde(rename = "requestId", skip_serializing_if = "Option::is_none")]
-    pub request_id: Option<String>,
+    #[serde(rename = "requestId")]
+    pub request_id: String,
     /// ID внутреннего сервиса WB
-    #[serde(rename = "origin", skip_serializing_if = "Option::is_none")]
-    pub origin: Option<String>,
+    #[serde(rename = "origin")]
+    pub origin: String,
 }
 
 impl PostV1SalesReportsList400Response {
-    pub fn new() -> PostV1SalesReportsList400Response {
+    pub fn new(status: i32, title: String, detail: String, request_id: String, origin: String) -> PostV1SalesReportsList400Response {
         PostV1SalesReportsList400Response {
-            status: None,
-            title: None,
-            detail: None,
-            request_id: None,
-            origin: None,
+            status,
+            title,
+            detail,
+            request_id,
+            origin,
         }
     }
 }

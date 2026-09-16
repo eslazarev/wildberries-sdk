@@ -30,7 +30,7 @@ class FeeReportInner(BaseModel):
     kgvp_booking: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Комиссия по модели **Бронирование**, %", alias="kgvpBooking")
     kgvp_marketplace: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Комиссия по модели **Маркетплейс** (`FBS`), %", alias="kgvpMarketplace")
     kgvp_pickup: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Комиссия по модели **Самовывоз из магазина продавца** (`C&C`), %", alias="kgvpPickup")
-    kgvp_supplier: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Комиссия по моделям **Витрина** (`DBS`) и **Курьер WB** (`DBW`), %", alias="kgvpSupplier")
+    kgvp_supplier: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Комиссия по моделям **Витрина** (`DBS`) и **Деливери WB** (`DBW`), %", alias="kgvpSupplier")
     kgvp_supplier_express: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Комиссия по модели **Витрина экспресс** (`EDBS`), %", alias="kgvpSupplierExpress")
     paid_storage_kgvp: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Комиссия по модели **Склад WB** (`FBW`), %", alias="paidStorageKgvp")
     parent_id: Optional[StrictInt] = Field(default=None, description="ID родительской категории", alias="parentID")

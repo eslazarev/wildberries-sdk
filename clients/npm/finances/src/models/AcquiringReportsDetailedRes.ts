@@ -55,13 +55,13 @@ export interface AcquiringReportsDetailedRes {
     /**
      * Тип документа
      */
-    docTypeName: string;
+    documentType: string;
     /**
      * Артикул WB
      */
     nmId: number;
     /**
-     * Вайлдберриз реализовал Товар (Пр)
+     * Wildberries реализовал Товар (Пр)
      */
     retailAmount: string;
     /**
@@ -102,7 +102,7 @@ export function instanceOfAcquiringReportsDetailedRes(value: object): value is A
     if (!('taxRegistrationReasonCode' in value) || value['taxRegistrationReasonCode'] === undefined) return false;
     if (!('saleDate' in value) || value['saleDate'] === undefined) return false;
     if (!('srid' in value) || value['srid'] === undefined) return false;
-    if (!('docTypeName' in value) || value['docTypeName'] === undefined) return false;
+    if (!('documentType' in value) || value['documentType'] === undefined) return false;
     if (!('nmId' in value) || value['nmId'] === undefined) return false;
     if (!('retailAmount' in value) || value['retailAmount'] === undefined) return false;
     if (!('acquiringFee' in value) || value['acquiringFee'] === undefined) return false;
@@ -132,7 +132,7 @@ export function AcquiringReportsDetailedResFromJSONTyped(json: any, ignoreDiscri
         'taxRegistrationReasonCode': json['taxRegistrationReasonCode'],
         'saleDate': json['saleDate'],
         'srid': json['srid'],
-        'docTypeName': json['docTypeName'],
+        'documentType': json['documentType'],
         'nmId': json['nmId'],
         'retailAmount': json['retailAmount'],
         'acquiringFee': json['acquiringFee'],
@@ -163,7 +163,7 @@ export function AcquiringReportsDetailedResToJSONTyped(value?: AcquiringReportsD
         'taxRegistrationReasonCode': value['taxRegistrationReasonCode'],
         'saleDate': value['saleDate'],
         'srid': value['srid'],
-        'docTypeName': value['docTypeName'],
+        'documentType': value['documentType'],
         'nmId': value['nmId'],
         'retailAmount': value['retailAmount'],
         'acquiringFee': value['acquiringFee'],

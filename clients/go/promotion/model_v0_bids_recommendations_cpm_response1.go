@@ -14,40 +14,41 @@ import (
 	"encoding/json"
 )
 
-// checks if the V0BidsRecommendationsCpcResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &V0BidsRecommendationsCpcResponse{}
+// checks if the V0BidsRecommendationsCpmResponse1 type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &V0BidsRecommendationsCpmResponse1{}
 
-// V0BidsRecommendationsCpcResponse struct for V0BidsRecommendationsCpcResponse
-type V0BidsRecommendationsCpcResponse struct {
+// V0BidsRecommendationsCpmResponse1 struct for V0BidsRecommendationsCpmResponse1
+type V0BidsRecommendationsCpmResponse1 struct {
 	// ID кампании
 	AdvertId *int64 `json:"advertId,omitempty"`
-	// Рекомендуемые ставки для карточек товаров
-	Levels []V0BidRecommendationCPCLevels `json:"levels,omitempty"`
+	Base *V0BidRecommendationBase `json:"base,omitempty"`
 	// Артикул WB
 	NmId *int64 `json:"nmId,omitempty"`
-	// Тип оплаты:   - `cpc` — за клики 
+	// Рекомендуемые ставки для поисковых кластеров
+	NormQueries []V0BidRecommendationNormQuery `json:"normQueries,omitempty"`
+	// Тип оплаты:   - `cpm` — за показы 
 	PaymentType *string `json:"paymentType,omitempty"`
 }
 
-// NewV0BidsRecommendationsCpcResponse instantiates a new V0BidsRecommendationsCpcResponse object
+// NewV0BidsRecommendationsCpmResponse1 instantiates a new V0BidsRecommendationsCpmResponse1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0BidsRecommendationsCpcResponse() *V0BidsRecommendationsCpcResponse {
-	this := V0BidsRecommendationsCpcResponse{}
+func NewV0BidsRecommendationsCpmResponse1() *V0BidsRecommendationsCpmResponse1 {
+	this := V0BidsRecommendationsCpmResponse1{}
 	return &this
 }
 
-// NewV0BidsRecommendationsCpcResponseWithDefaults instantiates a new V0BidsRecommendationsCpcResponse object
+// NewV0BidsRecommendationsCpmResponse1WithDefaults instantiates a new V0BidsRecommendationsCpmResponse1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewV0BidsRecommendationsCpcResponseWithDefaults() *V0BidsRecommendationsCpcResponse {
-	this := V0BidsRecommendationsCpcResponse{}
+func NewV0BidsRecommendationsCpmResponse1WithDefaults() *V0BidsRecommendationsCpmResponse1 {
+	this := V0BidsRecommendationsCpmResponse1{}
 	return &this
 }
 
 // GetAdvertId returns the AdvertId field value if set, zero value otherwise.
-func (o *V0BidsRecommendationsCpcResponse) GetAdvertId() int64 {
+func (o *V0BidsRecommendationsCpmResponse1) GetAdvertId() int64 {
 	if o == nil || IsNil(o.AdvertId) {
 		var ret int64
 		return ret
@@ -57,7 +58,7 @@ func (o *V0BidsRecommendationsCpcResponse) GetAdvertId() int64 {
 
 // GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0BidsRecommendationsCpcResponse) GetAdvertIdOk() (*int64, bool) {
+func (o *V0BidsRecommendationsCpmResponse1) GetAdvertIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
@@ -65,7 +66,7 @@ func (o *V0BidsRecommendationsCpcResponse) GetAdvertIdOk() (*int64, bool) {
 }
 
 // HasAdvertId returns a boolean if a field has been set.
-func (o *V0BidsRecommendationsCpcResponse) HasAdvertId() bool {
+func (o *V0BidsRecommendationsCpmResponse1) HasAdvertId() bool {
 	if o != nil && !IsNil(o.AdvertId) {
 		return true
 	}
@@ -74,44 +75,44 @@ func (o *V0BidsRecommendationsCpcResponse) HasAdvertId() bool {
 }
 
 // SetAdvertId gets a reference to the given int64 and assigns it to the AdvertId field.
-func (o *V0BidsRecommendationsCpcResponse) SetAdvertId(v int64) {
+func (o *V0BidsRecommendationsCpmResponse1) SetAdvertId(v int64) {
 	o.AdvertId = &v
 }
 
-// GetLevels returns the Levels field value if set, zero value otherwise.
-func (o *V0BidsRecommendationsCpcResponse) GetLevels() []V0BidRecommendationCPCLevels {
-	if o == nil || IsNil(o.Levels) {
-		var ret []V0BidRecommendationCPCLevels
+// GetBase returns the Base field value if set, zero value otherwise.
+func (o *V0BidsRecommendationsCpmResponse1) GetBase() V0BidRecommendationBase {
+	if o == nil || IsNil(o.Base) {
+		var ret V0BidRecommendationBase
 		return ret
 	}
-	return o.Levels
+	return *o.Base
 }
 
-// GetLevelsOk returns a tuple with the Levels field value if set, nil otherwise
+// GetBaseOk returns a tuple with the Base field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0BidsRecommendationsCpcResponse) GetLevelsOk() ([]V0BidRecommendationCPCLevels, bool) {
-	if o == nil || IsNil(o.Levels) {
+func (o *V0BidsRecommendationsCpmResponse1) GetBaseOk() (*V0BidRecommendationBase, bool) {
+	if o == nil || IsNil(o.Base) {
 		return nil, false
 	}
-	return o.Levels, true
+	return o.Base, true
 }
 
-// HasLevels returns a boolean if a field has been set.
-func (o *V0BidsRecommendationsCpcResponse) HasLevels() bool {
-	if o != nil && !IsNil(o.Levels) {
+// HasBase returns a boolean if a field has been set.
+func (o *V0BidsRecommendationsCpmResponse1) HasBase() bool {
+	if o != nil && !IsNil(o.Base) {
 		return true
 	}
 
 	return false
 }
 
-// SetLevels gets a reference to the given []V0BidRecommendationCPCLevels and assigns it to the Levels field.
-func (o *V0BidsRecommendationsCpcResponse) SetLevels(v []V0BidRecommendationCPCLevels) {
-	o.Levels = v
+// SetBase gets a reference to the given V0BidRecommendationBase and assigns it to the Base field.
+func (o *V0BidsRecommendationsCpmResponse1) SetBase(v V0BidRecommendationBase) {
+	o.Base = &v
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
-func (o *V0BidsRecommendationsCpcResponse) GetNmId() int64 {
+func (o *V0BidsRecommendationsCpmResponse1) GetNmId() int64 {
 	if o == nil || IsNil(o.NmId) {
 		var ret int64
 		return ret
@@ -121,7 +122,7 @@ func (o *V0BidsRecommendationsCpcResponse) GetNmId() int64 {
 
 // GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0BidsRecommendationsCpcResponse) GetNmIdOk() (*int64, bool) {
+func (o *V0BidsRecommendationsCpmResponse1) GetNmIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
@@ -129,7 +130,7 @@ func (o *V0BidsRecommendationsCpcResponse) GetNmIdOk() (*int64, bool) {
 }
 
 // HasNmId returns a boolean if a field has been set.
-func (o *V0BidsRecommendationsCpcResponse) HasNmId() bool {
+func (o *V0BidsRecommendationsCpmResponse1) HasNmId() bool {
 	if o != nil && !IsNil(o.NmId) {
 		return true
 	}
@@ -138,12 +139,44 @@ func (o *V0BidsRecommendationsCpcResponse) HasNmId() bool {
 }
 
 // SetNmId gets a reference to the given int64 and assigns it to the NmId field.
-func (o *V0BidsRecommendationsCpcResponse) SetNmId(v int64) {
+func (o *V0BidsRecommendationsCpmResponse1) SetNmId(v int64) {
 	o.NmId = &v
 }
 
+// GetNormQueries returns the NormQueries field value if set, zero value otherwise.
+func (o *V0BidsRecommendationsCpmResponse1) GetNormQueries() []V0BidRecommendationNormQuery {
+	if o == nil || IsNil(o.NormQueries) {
+		var ret []V0BidRecommendationNormQuery
+		return ret
+	}
+	return o.NormQueries
+}
+
+// GetNormQueriesOk returns a tuple with the NormQueries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *V0BidsRecommendationsCpmResponse1) GetNormQueriesOk() ([]V0BidRecommendationNormQuery, bool) {
+	if o == nil || IsNil(o.NormQueries) {
+		return nil, false
+	}
+	return o.NormQueries, true
+}
+
+// HasNormQueries returns a boolean if a field has been set.
+func (o *V0BidsRecommendationsCpmResponse1) HasNormQueries() bool {
+	if o != nil && !IsNil(o.NormQueries) {
+		return true
+	}
+
+	return false
+}
+
+// SetNormQueries gets a reference to the given []V0BidRecommendationNormQuery and assigns it to the NormQueries field.
+func (o *V0BidsRecommendationsCpmResponse1) SetNormQueries(v []V0BidRecommendationNormQuery) {
+	o.NormQueries = v
+}
+
 // GetPaymentType returns the PaymentType field value if set, zero value otherwise.
-func (o *V0BidsRecommendationsCpcResponse) GetPaymentType() string {
+func (o *V0BidsRecommendationsCpmResponse1) GetPaymentType() string {
 	if o == nil || IsNil(o.PaymentType) {
 		var ret string
 		return ret
@@ -153,7 +186,7 @@ func (o *V0BidsRecommendationsCpcResponse) GetPaymentType() string {
 
 // GetPaymentTypeOk returns a tuple with the PaymentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V0BidsRecommendationsCpcResponse) GetPaymentTypeOk() (*string, bool) {
+func (o *V0BidsRecommendationsCpmResponse1) GetPaymentTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.PaymentType) {
 		return nil, false
 	}
@@ -161,7 +194,7 @@ func (o *V0BidsRecommendationsCpcResponse) GetPaymentTypeOk() (*string, bool) {
 }
 
 // HasPaymentType returns a boolean if a field has been set.
-func (o *V0BidsRecommendationsCpcResponse) HasPaymentType() bool {
+func (o *V0BidsRecommendationsCpmResponse1) HasPaymentType() bool {
 	if o != nil && !IsNil(o.PaymentType) {
 		return true
 	}
@@ -170,11 +203,11 @@ func (o *V0BidsRecommendationsCpcResponse) HasPaymentType() bool {
 }
 
 // SetPaymentType gets a reference to the given string and assigns it to the PaymentType field.
-func (o *V0BidsRecommendationsCpcResponse) SetPaymentType(v string) {
+func (o *V0BidsRecommendationsCpmResponse1) SetPaymentType(v string) {
 	o.PaymentType = &v
 }
 
-func (o V0BidsRecommendationsCpcResponse) MarshalJSON() ([]byte, error) {
+func (o V0BidsRecommendationsCpmResponse1) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -182,16 +215,19 @@ func (o V0BidsRecommendationsCpcResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o V0BidsRecommendationsCpcResponse) ToMap() (map[string]interface{}, error) {
+func (o V0BidsRecommendationsCpmResponse1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.AdvertId) {
 		toSerialize["advertId"] = o.AdvertId
 	}
-	if !IsNil(o.Levels) {
-		toSerialize["levels"] = o.Levels
+	if !IsNil(o.Base) {
+		toSerialize["base"] = o.Base
 	}
 	if !IsNil(o.NmId) {
 		toSerialize["nmId"] = o.NmId
+	}
+	if !IsNil(o.NormQueries) {
+		toSerialize["normQueries"] = o.NormQueries
 	}
 	if !IsNil(o.PaymentType) {
 		toSerialize["paymentType"] = o.PaymentType
@@ -199,38 +235,38 @@ func (o V0BidsRecommendationsCpcResponse) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
-type NullableV0BidsRecommendationsCpcResponse struct {
-	value *V0BidsRecommendationsCpcResponse
+type NullableV0BidsRecommendationsCpmResponse1 struct {
+	value *V0BidsRecommendationsCpmResponse1
 	isSet bool
 }
 
-func (v NullableV0BidsRecommendationsCpcResponse) Get() *V0BidsRecommendationsCpcResponse {
+func (v NullableV0BidsRecommendationsCpmResponse1) Get() *V0BidsRecommendationsCpmResponse1 {
 	return v.value
 }
 
-func (v *NullableV0BidsRecommendationsCpcResponse) Set(val *V0BidsRecommendationsCpcResponse) {
+func (v *NullableV0BidsRecommendationsCpmResponse1) Set(val *V0BidsRecommendationsCpmResponse1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableV0BidsRecommendationsCpcResponse) IsSet() bool {
+func (v NullableV0BidsRecommendationsCpmResponse1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableV0BidsRecommendationsCpcResponse) Unset() {
+func (v *NullableV0BidsRecommendationsCpmResponse1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableV0BidsRecommendationsCpcResponse(val *V0BidsRecommendationsCpcResponse) *NullableV0BidsRecommendationsCpcResponse {
-	return &NullableV0BidsRecommendationsCpcResponse{value: val, isSet: true}
+func NewNullableV0BidsRecommendationsCpmResponse1(val *V0BidsRecommendationsCpmResponse1) *NullableV0BidsRecommendationsCpmResponse1 {
+	return &NullableV0BidsRecommendationsCpmResponse1{value: val, isSet: true}
 }
 
-func (v NullableV0BidsRecommendationsCpcResponse) MarshalJSON() ([]byte, error) {
+func (v NullableV0BidsRecommendationsCpmResponse1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableV0BidsRecommendationsCpcResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableV0BidsRecommendationsCpmResponse1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -23,9 +23,9 @@ from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class Good(BaseModel):
+class Item(BaseModel):
     """
-    Good
+    Item
     """ # noqa: E501
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmID", json_schema_extra={"examples": [123]})
     price: Optional[StrictInt] = Field(default=None, description="Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`", json_schema_extra={"examples": [999]})
@@ -50,7 +50,7 @@ class Good(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Good from a JSON string"""
+        """Create an instance of Item from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -85,7 +85,7 @@ class Good(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Good from a dict"""
+        """Create an instance of Item from a dict"""
         if obj is None:
             return None
 

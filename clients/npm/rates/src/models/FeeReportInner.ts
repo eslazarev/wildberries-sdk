@@ -32,7 +32,7 @@ export interface FeeReportInner {
      */
     kgvpPickup?: number;
     /**
-     * Комиссия по моделям **Витрина** (`DBS`) и **Курьер WB** (`DBW`), %
+     * Комиссия по моделям **Витрина** (`DBS`) и **Деливери WB** (`DBW`), %
      */
     kgvpSupplier?: number;
     /**

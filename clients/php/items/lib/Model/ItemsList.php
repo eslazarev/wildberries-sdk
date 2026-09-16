@@ -65,8 +65,7 @@ class ItemsList implements ModelInterface, ArrayAccess, \JsonSerializable
         'discount' => 'int',
         'club_discount' => 'int',
         'editable_size_price' => 'bool',
-        'wholesale_discount_threshold' => '\Wildberries\Sdk\Items\Model\WholesaleDiscountThresholdRes[]',
-        'is_bad_turnover' => 'bool'
+        'wholesale_discount_threshold' => '\Wildberries\Sdk\Items\Model\WholesaleDiscountThresholdRes[]'
     ];
 
     /**
@@ -84,8 +83,7 @@ class ItemsList implements ModelInterface, ArrayAccess, \JsonSerializable
         'discount' => null,
         'club_discount' => null,
         'editable_size_price' => null,
-        'wholesale_discount_threshold' => null,
-        'is_bad_turnover' => null
+        'wholesale_discount_threshold' => null
     ];
 
     /**
@@ -101,8 +99,7 @@ class ItemsList implements ModelInterface, ArrayAccess, \JsonSerializable
         'discount' => false,
         'club_discount' => false,
         'editable_size_price' => false,
-        'wholesale_discount_threshold' => false,
-        'is_bad_turnover' => false
+        'wholesale_discount_threshold' => false
     ];
 
     /**
@@ -198,8 +195,7 @@ class ItemsList implements ModelInterface, ArrayAccess, \JsonSerializable
         'discount' => 'discount',
         'club_discount' => 'clubDiscount',
         'editable_size_price' => 'editableSizePrice',
-        'wholesale_discount_threshold' => 'wholesaleDiscountThreshold',
-        'is_bad_turnover' => 'isBadTurnover'
+        'wholesale_discount_threshold' => 'wholesaleDiscountThreshold'
     ];
 
     /**
@@ -215,8 +211,7 @@ class ItemsList implements ModelInterface, ArrayAccess, \JsonSerializable
         'discount' => 'setDiscount',
         'club_discount' => 'setClubDiscount',
         'editable_size_price' => 'setEditableSizePrice',
-        'wholesale_discount_threshold' => 'setWholesaleDiscountThreshold',
-        'is_bad_turnover' => 'setIsBadTurnover'
+        'wholesale_discount_threshold' => 'setWholesaleDiscountThreshold'
     ];
 
     /**
@@ -232,8 +227,7 @@ class ItemsList implements ModelInterface, ArrayAccess, \JsonSerializable
         'discount' => 'getDiscount',
         'club_discount' => 'getClubDiscount',
         'editable_size_price' => 'getEditableSizePrice',
-        'wholesale_discount_threshold' => 'getWholesaleDiscountThreshold',
-        'is_bad_turnover' => 'getIsBadTurnover'
+        'wholesale_discount_threshold' => 'getWholesaleDiscountThreshold'
     ];
 
     /**
@@ -301,7 +295,6 @@ class ItemsList implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('club_discount', $data ?? [], null);
         $this->setIfExists('editable_size_price', $data ?? [], null);
         $this->setIfExists('wholesale_discount_threshold', $data ?? [], null);
-        $this->setIfExists('is_bad_turnover', $data ?? [], null);
     }
 
     /**
@@ -558,33 +551,6 @@ class ItemsList implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable wholesale_discount_threshold cannot be null');
         }
         $this->container['wholesale_discount_threshold'] = $wholesale_discount_threshold;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_bad_turnover
-     *
-     * @return bool|null
-     */
-    public function getIsBadTurnover()
-    {
-        return $this->container['is_bad_turnover'];
-    }
-
-    /**
-     * Sets is_bad_turnover
-     *
-     * @param bool|null $is_bad_turnover Признак неликвидного товара:   - `true` — неликвидный товар с [низким индексом остатка](https://seller.wildberries.ru/instructions/ru/ru/material/stocks-index?categoryId=e324ce0f-9a2a-4b8d-8fd1-72f751b09b3b&goBackOption=prevRoute#%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B8-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B0-%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0)   - Поле отсутствует — ликвидный товар
-     *
-     * @return self
-     */
-    public function setIsBadTurnover($is_bad_turnover)
-    {
-        if (is_null($is_bad_turnover)) {
-            throw new \InvalidArgumentException('non-nullable is_bad_turnover cannot be null');
-        }
-        $this->container['is_bad_turnover'] = $is_bad_turnover;
 
         return $this;
     }

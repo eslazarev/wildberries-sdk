@@ -30,21 +30,21 @@ class AcquiringReportsDetailedRes(BaseModel):
     rrd_id: StrictInt = Field(description="ID строки", alias="rrdId", json_schema_extra={"examples": [1232610467]})
     report_id: StrictInt = Field(description="ID отчёта", alias="reportId", json_schema_extra={"examples": [1234567]})
     acq_date: StrictStr = Field(description="Дата операции", alias="acqDate", json_schema_extra={"examples": ["2026-03-21"]})
-    acquiring_bank: StrictStr = Field(description="Наименование банка-эквайера", alias="acquiringBank", json_schema_extra={"examples": ["Тинькофф"]})
+    acquiring_bank: StrictStr = Field(description="Наименование банка-эквайера", alias="acquiringBank", json_schema_extra={"examples": ["Вайлдберриз Банк"]})
     tin: StrictStr = Field(description="ИНН", json_schema_extra={"examples": ["010101010101"]})
     tax_registration_reason_code: StrictStr = Field(description="КПП", alias="taxRegistrationReasonCode", json_schema_extra={"examples": ["7701123301"]})
     sale_date: StrictStr = Field(description="Дата продажи", alias="saleDate", json_schema_extra={"examples": ["2026-03-21"]})
     srid: StrictStr = Field(description="ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid` ", json_schema_extra={"examples": ["D0.r3f80c3eec6f845c6840128b4c19986f9.0.0"]})
-    doc_type_name: StrictStr = Field(description="Тип документа", alias="docTypeName", json_schema_extra={"examples": ["Продажа"]})
+    document_type: StrictStr = Field(description="Тип документа", alias="documentType", json_schema_extra={"examples": ["Продажа"]})
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [1234567]})
-    retail_amount: StrictStr = Field(description="Вайлдберриз реализовал Товар (Пр)", alias="retailAmount", json_schema_extra={"examples": ["367"]})
+    retail_amount: StrictStr = Field(description="Wildberries реализовал Товар (Пр)", alias="retailAmount", json_schema_extra={"examples": ["367"]})
     acquiring_fee: StrictStr = Field(description="Размер комиссии за эквайринг, в том числе НДС", alias="acquiringFee", json_schema_extra={"examples": ["14.89"]})
     acquiring_fee_vat: StrictStr = Field(description="Сумма НДС", alias="acquiringFeeVat", json_schema_extra={"examples": ["4.06"]})
     invoice_number: StrictStr = Field(description="Номер счёта-фактуры", alias="invoiceNumber", json_schema_extra={"examples": ["С/Ф 123"]})
     invoice_date: StrictStr = Field(description="Дата счёта-фактуры", alias="invoiceDate", json_schema_extra={"examples": ["2026-03-20"]})
     shk_id: StrictInt = Field(description="Штрихкод", alias="shkId", json_schema_extra={"examples": [1239159661]})
     currency: StrictStr = Field(description="Валюта отчёта", json_schema_extra={"examples": ["RUB"]})
-    __properties: ClassVar[List[str]] = ["rrdId", "reportId", "acqDate", "acquiringBank", "tin", "taxRegistrationReasonCode", "saleDate", "srid", "docTypeName", "nmId", "retailAmount", "acquiringFee", "acquiringFeeVat", "invoiceNumber", "invoiceDate", "shkId", "currency"]
+    __properties: ClassVar[List[str]] = ["rrdId", "reportId", "acqDate", "acquiringBank", "tin", "taxRegistrationReasonCode", "saleDate", "srid", "documentType", "nmId", "retailAmount", "acquiringFee", "acquiringFeeVat", "invoiceNumber", "invoiceDate", "shkId", "currency"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -105,7 +105,7 @@ class AcquiringReportsDetailedRes(BaseModel):
             "taxRegistrationReasonCode": obj.get("taxRegistrationReasonCode"),
             "saleDate": obj.get("saleDate"),
             "srid": obj.get("srid"),
-            "docTypeName": obj.get("docTypeName"),
+            "documentType": obj.get("documentType"),
             "nmId": obj.get("nmId"),
             "retailAmount": obj.get("retailAmount"),
             "acquiringFee": obj.get("acquiringFee"),

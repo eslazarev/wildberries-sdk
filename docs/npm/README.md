@@ -285,6 +285,7 @@ main().catch(console.error);
 - `promotion.DefaultApi.postV1NormqueryBids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
 - `promotion.DefaultApi.postV1NormqueryStats` — Статистика по поисковым кластерам с детализацией по дням
 - `promotion.DefaultApi.postV1Stats` — Статистика медиакампаний
+- `promotion.DefaultApi.postV2Budget` — Остатки бюджетов кампаний
 - `promotion.DefaultApi.postV2SeacatSaveAd` — Создать кампанию
 - `promotion.DefaultApi.postV2SupplierNms` — Карточки товаров для кампаний
 - `promotion.DefaultApi.putV0AuctionPlacements` — Изменение мест размещения в кампаниях с ручной ставкой

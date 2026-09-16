@@ -61,9 +61,9 @@ from wildberries_sdk.items.models.get_v2_tags200_response_data import GetV2Tags2
 from wildberries_sdk.items.models.get_v2_tags402_response import GetV2Tags402Response
 from wildberries_sdk.items.models.get_v3_dbw_warehouses_warehouse_id_contacts200_response import GetV3DbwWarehousesWarehouseIdContacts200Response
 from wildberries_sdk.items.models.get_v3_dbw_warehouses_warehouse_id_contacts200_response_contacts_inner import GetV3DbwWarehousesWarehouseIdContacts200ResponseContactsInner
-from wildberries_sdk.items.models.good import Good
 from wildberries_sdk.items.models.good_buffer_history import GoodBufferHistory
 from wildberries_sdk.items.models.good_history import GoodHistory
+from wildberries_sdk.items.models.item import Item
 from wildberries_sdk.items.models.items_list import ItemsList
 from wildberries_sdk.items.models.items_list_sizes_inner import ItemsListSizesInner
 from wildberries_sdk.items.models.media_errors import MediaErrors

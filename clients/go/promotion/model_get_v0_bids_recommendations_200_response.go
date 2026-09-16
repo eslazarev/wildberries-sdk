@@ -18,21 +18,21 @@ import (
 
 // GetV0BidsRecommendations200Response - struct for GetV0BidsRecommendations200Response
 type GetV0BidsRecommendations200Response struct {
-	V0BidsRecommendationsCpcResponse *V0BidsRecommendationsCpcResponse
-	V0BidsRecommendationsCpmResponse *V0BidsRecommendationsCpmResponse
+	V0BidsRecommendationsCpcResponse2 *V0BidsRecommendationsCpcResponse2
+	V0BidsRecommendationsCpmResponse1 *V0BidsRecommendationsCpmResponse1
 }
 
-// V0BidsRecommendationsCpcResponseAsGetV0BidsRecommendations200Response is a convenience function that returns V0BidsRecommendationsCpcResponse wrapped in GetV0BidsRecommendations200Response
-func V0BidsRecommendationsCpcResponseAsGetV0BidsRecommendations200Response(v *V0BidsRecommendationsCpcResponse) GetV0BidsRecommendations200Response {
+// V0BidsRecommendationsCpcResponse2AsGetV0BidsRecommendations200Response is a convenience function that returns V0BidsRecommendationsCpcResponse2 wrapped in GetV0BidsRecommendations200Response
+func V0BidsRecommendationsCpcResponse2AsGetV0BidsRecommendations200Response(v *V0BidsRecommendationsCpcResponse2) GetV0BidsRecommendations200Response {
 	return GetV0BidsRecommendations200Response{
-		V0BidsRecommendationsCpcResponse: v,
+		V0BidsRecommendationsCpcResponse2: v,
 	}
 }
 
-// V0BidsRecommendationsCpmResponseAsGetV0BidsRecommendations200Response is a convenience function that returns V0BidsRecommendationsCpmResponse wrapped in GetV0BidsRecommendations200Response
-func V0BidsRecommendationsCpmResponseAsGetV0BidsRecommendations200Response(v *V0BidsRecommendationsCpmResponse) GetV0BidsRecommendations200Response {
+// V0BidsRecommendationsCpmResponse1AsGetV0BidsRecommendations200Response is a convenience function that returns V0BidsRecommendationsCpmResponse1 wrapped in GetV0BidsRecommendations200Response
+func V0BidsRecommendationsCpmResponse1AsGetV0BidsRecommendations200Response(v *V0BidsRecommendationsCpmResponse1) GetV0BidsRecommendations200Response {
 	return GetV0BidsRecommendations200Response{
-		V0BidsRecommendationsCpmResponse: v,
+		V0BidsRecommendationsCpmResponse1: v,
 	}
 }
 
@@ -41,44 +41,44 @@ func V0BidsRecommendationsCpmResponseAsGetV0BidsRecommendations200Response(v *V0
 func (dst *GetV0BidsRecommendations200Response) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into V0BidsRecommendationsCpcResponse
-	err = newStrictDecoder(data).Decode(&dst.V0BidsRecommendationsCpcResponse)
+	// try to unmarshal data into V0BidsRecommendationsCpcResponse2
+	err = newStrictDecoder(data).Decode(&dst.V0BidsRecommendationsCpcResponse2)
 	if err == nil {
-		jsonV0BidsRecommendationsCpcResponse, _ := json.Marshal(dst.V0BidsRecommendationsCpcResponse)
-		if string(jsonV0BidsRecommendationsCpcResponse) == "{}" { // empty struct
-			dst.V0BidsRecommendationsCpcResponse = nil
+		jsonV0BidsRecommendationsCpcResponse2, _ := json.Marshal(dst.V0BidsRecommendationsCpcResponse2)
+		if string(jsonV0BidsRecommendationsCpcResponse2) == "{}" { // empty struct
+			dst.V0BidsRecommendationsCpcResponse2 = nil
 		} else {
-			if err = validator.Validate(dst.V0BidsRecommendationsCpcResponse); err != nil {
-				dst.V0BidsRecommendationsCpcResponse = nil
+			if err = validator.Validate(dst.V0BidsRecommendationsCpcResponse2); err != nil {
+				dst.V0BidsRecommendationsCpcResponse2 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.V0BidsRecommendationsCpcResponse = nil
+		dst.V0BidsRecommendationsCpcResponse2 = nil
 	}
 
-	// try to unmarshal data into V0BidsRecommendationsCpmResponse
-	err = newStrictDecoder(data).Decode(&dst.V0BidsRecommendationsCpmResponse)
+	// try to unmarshal data into V0BidsRecommendationsCpmResponse1
+	err = newStrictDecoder(data).Decode(&dst.V0BidsRecommendationsCpmResponse1)
 	if err == nil {
-		jsonV0BidsRecommendationsCpmResponse, _ := json.Marshal(dst.V0BidsRecommendationsCpmResponse)
-		if string(jsonV0BidsRecommendationsCpmResponse) == "{}" { // empty struct
-			dst.V0BidsRecommendationsCpmResponse = nil
+		jsonV0BidsRecommendationsCpmResponse1, _ := json.Marshal(dst.V0BidsRecommendationsCpmResponse1)
+		if string(jsonV0BidsRecommendationsCpmResponse1) == "{}" { // empty struct
+			dst.V0BidsRecommendationsCpmResponse1 = nil
 		} else {
-			if err = validator.Validate(dst.V0BidsRecommendationsCpmResponse); err != nil {
-				dst.V0BidsRecommendationsCpmResponse = nil
+			if err = validator.Validate(dst.V0BidsRecommendationsCpmResponse1); err != nil {
+				dst.V0BidsRecommendationsCpmResponse1 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.V0BidsRecommendationsCpmResponse = nil
+		dst.V0BidsRecommendationsCpmResponse1 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.V0BidsRecommendationsCpcResponse = nil
-		dst.V0BidsRecommendationsCpmResponse = nil
+		dst.V0BidsRecommendationsCpcResponse2 = nil
+		dst.V0BidsRecommendationsCpmResponse1 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(GetV0BidsRecommendations200Response)")
 	} else if match == 1 {
@@ -94,12 +94,12 @@ func (dst *GetV0BidsRecommendations200Response) UnmarshalJSON(data []byte) error
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src GetV0BidsRecommendations200Response) MarshalJSON() ([]byte, error) {
-	if src.V0BidsRecommendationsCpcResponse != nil {
-		return json.Marshal(&src.V0BidsRecommendationsCpcResponse)
+	if src.V0BidsRecommendationsCpcResponse2 != nil {
+		return json.Marshal(&src.V0BidsRecommendationsCpcResponse2)
 	}
 
-	if src.V0BidsRecommendationsCpmResponse != nil {
-		return json.Marshal(&src.V0BidsRecommendationsCpmResponse)
+	if src.V0BidsRecommendationsCpmResponse1 != nil {
+		return json.Marshal(&src.V0BidsRecommendationsCpmResponse1)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -110,12 +110,12 @@ func (obj *GetV0BidsRecommendations200Response) GetActualInstance() (interface{}
 	if obj == nil {
 		return nil
 	}
-	if obj.V0BidsRecommendationsCpcResponse != nil {
-		return obj.V0BidsRecommendationsCpcResponse
+	if obj.V0BidsRecommendationsCpcResponse2 != nil {
+		return obj.V0BidsRecommendationsCpcResponse2
 	}
 
-	if obj.V0BidsRecommendationsCpmResponse != nil {
-		return obj.V0BidsRecommendationsCpmResponse
+	if obj.V0BidsRecommendationsCpmResponse1 != nil {
+		return obj.V0BidsRecommendationsCpmResponse1
 	}
 
 	// all schemas are nil
@@ -124,12 +124,12 @@ func (obj *GetV0BidsRecommendations200Response) GetActualInstance() (interface{}
 
 // Get the actual instance value
 func (obj GetV0BidsRecommendations200Response) GetActualInstanceValue() (interface{}) {
-	if obj.V0BidsRecommendationsCpcResponse != nil {
-		return *obj.V0BidsRecommendationsCpcResponse
+	if obj.V0BidsRecommendationsCpcResponse2 != nil {
+		return *obj.V0BidsRecommendationsCpcResponse2
 	}
 
-	if obj.V0BidsRecommendationsCpmResponse != nil {
-		return *obj.V0BidsRecommendationsCpmResponse
+	if obj.V0BidsRecommendationsCpmResponse1 != nil {
+		return *obj.V0BidsRecommendationsCpmResponse1
 	}
 
 	// all schemas are nil

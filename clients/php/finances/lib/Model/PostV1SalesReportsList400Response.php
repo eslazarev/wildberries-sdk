@@ -302,6 +302,21 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['detail'] === null) {
+            $invalidProperties[] = "'detail' can't be null";
+        }
+        if ($this->container['request_id'] === null) {
+            $invalidProperties[] = "'request_id' can't be null";
+        }
+        if ($this->container['origin'] === null) {
+            $invalidProperties[] = "'origin' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -320,7 +335,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Gets status
      *
-     * @return int|null
+     * @return int
      */
     public function getStatus()
     {
@@ -330,7 +345,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Sets status
      *
-     * @param int|null $status HTTP статус-код
+     * @param int $status HTTP статус-код
      *
      * @return self
      */
@@ -347,7 +362,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -357,7 +372,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Sets title
      *
-     * @param string|null $title Заголовок ошибки
+     * @param string $title Заголовок ошибки
      *
      * @return self
      */
@@ -374,7 +389,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Gets detail
      *
-     * @return string|null
+     * @return string
      */
     public function getDetail()
     {
@@ -384,7 +399,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Sets detail
      *
-     * @param string|null $detail Детали ошибки
+     * @param string $detail Детали ошибки
      *
      * @return self
      */
@@ -401,7 +416,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Gets request_id
      *
-     * @return string|null
+     * @return string
      */
     public function getRequestId()
     {
@@ -411,7 +426,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Sets request_id
      *
-     * @param string|null $request_id ID запроса
+     * @param string $request_id ID запроса
      *
      * @return self
      */
@@ -428,7 +443,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Gets origin
      *
-     * @return string|null
+     * @return string
      */
     public function getOrigin()
     {
@@ -438,7 +453,7 @@ class PostV1SalesReportsList400Response implements ModelInterface, ArrayAccess, 
     /**
      * Sets origin
      *
-     * @param string|null $origin ID внутреннего сервиса WB
+     * @param string $origin ID внутреннего сервиса WB
      *
      * @return self
      */

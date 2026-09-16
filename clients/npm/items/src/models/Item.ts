@@ -16,9 +16,9 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface Good
+ * @interface Item
  */
-export interface Good {
+export interface Item {
     /**
      * Артикул WB
      */
@@ -34,18 +34,18 @@ export interface Good {
 }
 
 /**
- * Check if a given object implements the Good interface.
+ * Check if a given object implements the Item interface.
  */
-export function instanceOfGood(value: object): value is Good {
+export function instanceOfItem(value: object): value is Item {
     if (!('nmID' in value) || value['nmID'] === undefined) return false;
     return true;
 }
 
-export function GoodFromJSON(json: any): Good {
-    return GoodFromJSONTyped(json, false);
+export function ItemFromJSON(json: any): Item {
+    return ItemFromJSONTyped(json, false);
 }
 
-export function GoodFromJSONTyped(json: any, ignoreDiscriminator: boolean): Good {
+export function ItemFromJSONTyped(json: any, ignoreDiscriminator: boolean): Item {
     if (json == null) {
         return json;
     }
@@ -57,11 +57,11 @@ export function GoodFromJSONTyped(json: any, ignoreDiscriminator: boolean): Good
     };
 }
 
-export function GoodToJSON(json: any): Good {
-    return GoodToJSONTyped(json, false);
+export function ItemToJSON(json: any): Item {
+    return ItemToJSONTyped(json, false);
 }
 
-export function GoodToJSONTyped(value?: Good | null, ignoreDiscriminator: boolean = false): any {
+export function ItemToJSONTyped(value?: Item | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

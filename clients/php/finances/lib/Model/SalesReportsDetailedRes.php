@@ -94,7 +94,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'delivery_service' => 'string',
         'gi_box_type_name' => 'string',
         'product_discount_for_report' => 'float',
-        'seller_promo' => 'string',
+        'seller_promo' => 'float',
         'spp' => 'float',
         'kvw_base' => 'float',
         'kvw' => 'float',
@@ -783,7 +783,6 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
 
     public const REPORT_TYPE_NUMBER_1 = 1;
     public const REPORT_TYPE_NUMBER_2 = 2;
-    public const REPORT_TYPE_NUMBER_3 = 3;
 
     /**
      * Gets allowable values of the enum
@@ -795,7 +794,6 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         return [
             self::REPORT_TYPE_NUMBER_1,
             self::REPORT_TYPE_NUMBER_2,
-            self::REPORT_TYPE_NUMBER_3,
         ];
     }
 
@@ -1375,7 +1373,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets report_type
      *
-     * @param int $report_type Тип отчёта:   - `1` — основной   - `2` — по выкупам   - `3` — по выкупам для Грузии
+     * @param int $report_type Тип отчёта:   - `1` — основной   - `2` — по выкупам
      *
      * @return self
      */
@@ -1817,7 +1815,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets retail_amount
      *
-     * @param string $retail_amount Вайлдберриз реализовал Товар (Пр)
+     * @param string $retail_amount Wildberries реализовал Товар (Пр)
      *
      * @return self
      */
@@ -2212,7 +2210,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets seller_promo
      *
-     * @return string
+     * @return float
      */
     public function getSellerPromo()
     {
@@ -2222,7 +2220,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets seller_promo
      *
-     * @param string $seller_promo Промокод, %
+     * @param float $seller_promo Промокод, %
      *
      * @return self
      */
@@ -2465,7 +2463,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets acquiring_fee
      *
-     * @param string $acquiring_fee Компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов
+     * @param string $acquiring_fee Компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов
      *
      * @return self
      */
@@ -2492,7 +2490,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets acquiring_percent
      *
-     * @param float $acquiring_percent Размер компенсации платёжных услуг/Комиссии за интеграцию платёжных сервисов, %
+     * @param float $acquiring_percent Размер компенсации платёжных услуг/комиссии за интеграцию платёжных сервисов
      *
      * @return self
      */
@@ -2519,7 +2517,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets payment_processing
      *
-     * @param string $payment_processing Тип платежа: компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов
+     * @param string $payment_processing Тип платежа: компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов
      *
      * @return self
      */
@@ -2573,7 +2571,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets vw
      *
-     * @param string $vw Вознаграждение Вайлдберриз (ВВ), без НДС
+     * @param string $vw Вознаграждение Wildberries (ВВ), без НДС
      *
      * @return self
      */
@@ -2600,7 +2598,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets vw_nds
      *
-     * @param string $vw_nds НДС с вознаграждения Вайлдберриз
+     * @param string $vw_nds НДС с вознаграждения Wildberries
      *
      * @return self
      */
@@ -2762,7 +2760,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets bonus_type_name
      *
-     * @param string|null $bonus_type_name Виды логистики, штрафов и корректировок ВВ
+     * @param string|null $bonus_type_name Виды доставок, штрафов и корректировок ВВ
      *
      * @return self
      */
@@ -2897,7 +2895,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets additional_payment
      *
-     * @param string $additional_payment Корректировка Вознаграждения Вайлдберриз (ВВ)
+     * @param string $additional_payment Корректировка Вознаграждения Wildberries (ВВ)
      *
      * @return self
      */
@@ -2924,7 +2922,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets rebill_logistic_cost
      *
-     * @param string $rebill_logistic_cost Возмещение издержек по перевозке/по складским операциям с товаром
+     * @param string $rebill_logistic_cost Возмещение издержек по перемещению и операционной обработке товара
      *
      * @return self
      */
@@ -3086,7 +3084,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets kiz
      *
-     * @param string|null $kiz Код маркировки [Честного знака](https://честныйзнак.рф/)
+     * @param string|null $kiz Код маркировки [Честного знака](https://честныйзнак.рф)
      *
      * @return self
      */
@@ -3221,7 +3219,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets cashback_amount
      *
-     * @param string $cashback_amount Сумма, удержанная за начисленные баллы программы лояльности
+     * @param string $cashback_amount Сумма баллов, удержанных по программе лояльности
      *
      * @return self
      */
@@ -3680,7 +3678,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets warehouse_logistics_coeff
      *
-     * @param float $warehouse_logistics_coeff Коэффициент логистики
+     * @param float $warehouse_logistics_coeff Коэффициент доставки
      *
      * @return self
      */

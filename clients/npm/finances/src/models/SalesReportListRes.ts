@@ -47,7 +47,6 @@ export interface SalesReportListRes {
      * Тип отчёта:
      *   - `1` — основной
      *   - `2` — по выкупам
-     *   - `3` — по выкупам для Грузии
      * 
      */
     reportType: SalesReportListResReportTypeEnum;
@@ -64,7 +63,7 @@ export interface SalesReportListRes {
      */
     avgSalePercent: number;
     /**
-     * Стоимость логистики
+     * Стоимость доставки
      */
     deliveryServiceSum: string;
     /**
@@ -76,7 +75,7 @@ export interface SalesReportListRes {
      */
     paidAcceptanceSum: string;
     /**
-     * Прочие удержания и выплаты
+     * Прочие удержания/выплаты
      */
     deductionSum: string;
     /**
@@ -84,11 +83,11 @@ export interface SalesReportListRes {
      */
     penaltySum: string;
     /**
-     * Корректировка Вознаграждения Вайлдберриз (ВВ)
+     * Корректировка Вознаграждения Wildberries (ВВ)
      */
     additionalPaymentSum: string;
     /**
-     * Сумма, удержанная за начисленные баллы программы лояльности
+     * Сумма баллов, удержанных по программе лояльности
      */
     cashbackAmountSum: string;
     /**
@@ -116,7 +115,6 @@ export interface SalesReportListRes {
 export const SalesReportListResReportTypeEnum = {
     NUMBER_1: 1,
     NUMBER_2: 2,
-    NUMBER_3: 3,
 } as const;
 export type SalesReportListResReportTypeEnum = typeof SalesReportListResReportTypeEnum[keyof typeof SalesReportListResReportTypeEnum];
 

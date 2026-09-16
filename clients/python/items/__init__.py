@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.155"
+__version__ = "0.1.156"
 
 # Define package exports
 __all__ = [
@@ -76,9 +76,9 @@ __all__ = [
     "GetV2Tags402Response",
     "GetV3DbwWarehousesWarehouseIdContacts200Response",
     "GetV3DbwWarehousesWarehouseIdContacts200ResponseContactsInner",
-    "Good",
     "GoodBufferHistory",
     "GoodHistory",
+    "Item",
     "ItemsList",
     "ItemsListSizesInner",
     "MediaErrors",
@@ -267,9 +267,9 @@ from wildberries_sdk.items.models.get_v2_tags200_response_data import GetV2Tags2
 from wildberries_sdk.items.models.get_v2_tags402_response import GetV2Tags402Response as GetV2Tags402Response
 from wildberries_sdk.items.models.get_v3_dbw_warehouses_warehouse_id_contacts200_response import GetV3DbwWarehousesWarehouseIdContacts200Response as GetV3DbwWarehousesWarehouseIdContacts200Response
 from wildberries_sdk.items.models.get_v3_dbw_warehouses_warehouse_id_contacts200_response_contacts_inner import GetV3DbwWarehousesWarehouseIdContacts200ResponseContactsInner as GetV3DbwWarehousesWarehouseIdContacts200ResponseContactsInner
-from wildberries_sdk.items.models.good import Good as Good
 from wildberries_sdk.items.models.good_buffer_history import GoodBufferHistory as GoodBufferHistory
 from wildberries_sdk.items.models.good_history import GoodHistory as GoodHistory
+from wildberries_sdk.items.models.item import Item as Item
 from wildberries_sdk.items.models.items_list import ItemsList as ItemsList
 from wildberries_sdk.items.models.items_list_sizes_inner import ItemsListSizesInner as ItemsListSizesInner
 from wildberries_sdk.items.models.media_errors import MediaErrors as MediaErrors

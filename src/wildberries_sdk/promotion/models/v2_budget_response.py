@@ -17,32 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.promotion.models.v0_bid_recommendation_cpc_levels import V0BidRecommendationCPCLevels
+from wildberries_sdk.promotion.models.v1_budget_advert import V1BudgetAdvert
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class V0BidsRecommendationsCpcResponse(BaseModel):
+class V2BudgetResponse(BaseModel):
     """
-    V0BidsRecommendationsCpcResponse
+    V2BudgetResponse
     """ # noqa: E501
-    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании", alias="advertId")
-    levels: Optional[List[V0BidRecommendationCPCLevels]] = Field(default=None, description="Рекомендуемые ставки для карточек товаров")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    payment_type: Optional[StrictStr] = Field(default=None, description="Тип оплаты:   - `cpc` — за клики ", alias="paymentType")
-    __properties: ClassVar[List[str]] = ["advertId", "levels", "nmId", "paymentType"]
-
-    @field_validator('payment_type')
-    def payment_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['cpc']):
-            raise ValueError("must be one of enum values ('cpc')")
-        return value
+    adverts: Optional[List[V1BudgetAdvert]] = Field(description="Данные по кампаниям")
+    __properties: ClassVar[List[str]] = ["adverts"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -62,7 +49,7 @@ class V0BidsRecommendationsCpcResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of V0BidsRecommendationsCpcResponse from a JSON string"""
+        """Create an instance of V2BudgetResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,17 +70,22 @@ class V0BidsRecommendationsCpcResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in levels (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in adverts (list)
         _items = []
-        if self.levels:
-            for _item_levels in self.levels:
-                _items.append(_item_levels.to_dict() if _item_levels is not None else None)
-            _dict['levels'] = _items
+        if self.adverts:
+            for _item_adverts in self.adverts:
+                _items.append(_item_adverts.to_dict() if _item_adverts is not None else None)
+            _dict['adverts'] = _items
+        # set to None if adverts (nullable) is None
+        # and model_fields_set contains the field
+        if self.adverts is None and "adverts" in self.model_fields_set:
+            _dict['adverts'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of V0BidsRecommendationsCpcResponse from a dict"""
+        """Create an instance of V2BudgetResponse from a dict"""
         if obj is None:
             return None
 
@@ -101,10 +93,7 @@ class V0BidsRecommendationsCpcResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "levels": [V0BidRecommendationCPCLevels.from_dict(_item) for _item in obj["levels"]] if obj.get("levels") is not None else None,
-            "nmId": obj.get("nmId"),
-            "paymentType": obj.get("paymentType")
+            "adverts": [V1BudgetAdvert.from_dict(_item) for _item in obj["adverts"]] if obj.get("adverts") is not None else None
         })
         return _obj
 

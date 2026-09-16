@@ -12,7 +12,7 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct V0BidsRecommendationsCpcResponse {
+pub struct V0BidsRecommendationsCpcResponse2 {
     /// ID кампании
     #[serde(rename = "advertId", skip_serializing_if = "Option::is_none")]
     pub advert_id: Option<i64>,
@@ -27,9 +27,9 @@ pub struct V0BidsRecommendationsCpcResponse {
     pub payment_type: Option<PaymentType>,
 }
 
-impl V0BidsRecommendationsCpcResponse {
-    pub fn new() -> V0BidsRecommendationsCpcResponse {
-        V0BidsRecommendationsCpcResponse {
+impl V0BidsRecommendationsCpcResponse2 {
+    pub fn new() -> V0BidsRecommendationsCpcResponse2 {
+        V0BidsRecommendationsCpcResponse2 {
             advert_id: None,
             levels: None,
             nm_id: None,

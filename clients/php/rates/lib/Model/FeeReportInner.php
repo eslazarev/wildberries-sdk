@@ -446,7 +446,7 @@ class FeeReportInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets kgvp_supplier
      *
-     * @param float|null $kgvp_supplier Комиссия по моделям **Витрина** (`DBS`) и **Курьер WB** (`DBW`), %
+     * @param float|null $kgvp_supplier Комиссия по моделям **Витрина** (`DBS`) и **Деливери WB** (`DBW`), %
      *
      * @return self
      */

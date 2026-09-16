@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,11 +27,11 @@ class PostV1SalesReportsList400Response(BaseModel):
     """
     PostV1SalesReportsList400Response
     """ # noqa: E501
-    status: Optional[StrictInt] = Field(default=None, description="HTTP статус-код", json_schema_extra={"examples": [400]})
-    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки", json_schema_extra={"examples": ["GetReportDetailByPeriodNB decode error"]})
-    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки", json_schema_extra={"examples": ["GetReportDetailByPeriodNB decode error: missing dateTo params"]})
-    request_id: Optional[StrictStr] = Field(default=None, description="ID запроса", alias="requestId", json_schema_extra={"examples": ["b065c204-c5f7-431b-b12c-d4c2cc6347ec"]})
-    origin: Optional[StrictStr] = Field(default=None, description="ID внутреннего сервиса WB", json_schema_extra={"examples": ["open-api-finreports"]})
+    status: StrictInt = Field(description="HTTP статус-код", json_schema_extra={"examples": [400]})
+    title: StrictStr = Field(description="Заголовок ошибки", json_schema_extra={"examples": ["GetReportDetailByPeriodNBAndNNB decode error"]})
+    detail: StrictStr = Field(description="Детали ошибки", json_schema_extra={"examples": ["GetReportDetailByPeriodNBAndNNB decode error: Key: 'FinancialDetailedByPeriodRequestV4.DateTo' Error:Field validation for 'DateTo' failed on the 'required' tag"]})
+    request_id: StrictStr = Field(description="ID запроса", alias="requestId", json_schema_extra={"examples": ["b065c204-c5f7-431b-b12c-d4c2cc6347ec"]})
+    origin: StrictStr = Field(description="ID внутреннего сервиса WB", json_schema_extra={"examples": ["open-api-finreports"]})
     __properties: ClassVar[List[str]] = ["status", "title", "detail", "requestId", "origin"]
 
     model_config = ConfigDict(

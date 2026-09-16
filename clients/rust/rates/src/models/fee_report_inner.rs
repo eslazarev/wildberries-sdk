@@ -22,7 +22,7 @@ pub struct FeeReportInner {
     /// Комиссия по модели **Самовывоз из магазина продавца** (`C&C`), %
     #[serde(rename = "kgvpPickup", skip_serializing_if = "Option::is_none")]
     pub kgvp_pickup: Option<f64>,
-    /// Комиссия по моделям **Витрина** (`DBS`) и **Курьер WB** (`DBW`), %
+    /// Комиссия по моделям **Витрина** (`DBS`) и **Деливери WB** (`DBW`), %
     #[serde(rename = "kgvpSupplier", skip_serializing_if = "Option::is_none")]
     pub kgvp_supplier: Option<f64>,
     /// Комиссия по модели **Витрина экспресс** (`EDBS`), %

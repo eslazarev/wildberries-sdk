@@ -30,7 +30,7 @@ class FinancialReportsDetailedReportIdReq(BaseModel):
     """ # noqa: E501
     limit: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(default=100000, description="Количество строк в ответе", json_schema_extra={"examples": [21100]})
     rrd_id: Optional[StrictInt] = Field(default=0, description="ID строки ответа. Необходим для получения отчёта частями.<br>Начинайте загрузку отчёта с `\"rrdid\":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.<br>Повторяйте запрос, пока не получите ответ `204` ", alias="rrdId")
-    fields: Optional[List[StrictStr]] = Field(default=None, description="Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля", json_schema_extra={"examples": [["rrdId", "nmId", "docTypeName", "retailAmount", "acquiringFee", "srid"]]})
+    fields: Optional[List[StrictStr]] = Field(default=None, description="Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля", json_schema_extra={"examples": [["rrdId", "nmId", "currency", "retailAmount", "acquiringFee", "srid"]]})
     __properties: ClassVar[List[str]] = ["limit", "rrdId", "fields"]
 
     model_config = ConfigDict(

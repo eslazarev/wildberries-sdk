@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { Good } from './Good';
+import type { Item } from './Item';
 import {
-    GoodFromJSON,
-    GoodFromJSONTyped,
-    GoodToJSON,
-    GoodToJSONTyped,
-} from './Good';
+    ItemFromJSON,
+    ItemFromJSONTyped,
+    ItemToJSON,
+    ItemToJSONTyped,
+} from './Item';
 
 /**
  * 
@@ -30,12 +30,12 @@ export interface PostV2UploadTaskRequest {
     /**
      * Товары, цены и скидки для них. Максимум 1 000 товаров. Цена и скидка не могут быть пустыми одновременно.
      * <br><br>
-     * Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), она попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и товар будет продаваться по старой цене. Ошибка об этом будет в ответах методов состояний загрузок.
+     * Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
      * <br><br>
      * Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine)
      * 
      */
-    data: Array<Good>;
+    data: Array<Item>;
 }
 
 /**
@@ -56,7 +56,7 @@ export function PostV2UploadTaskRequestFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'data': ((json['data'] as Array<any>).map(GoodFromJSON)),
+        'data': ((json['data'] as Array<any>).map(ItemFromJSON)),
     };
 }
 
@@ -71,7 +71,7 @@ export function PostV2UploadTaskRequestToJSONTyped(value?: PostV2UploadTaskReque
 
     return {
         
-        'data': ((value['data'] as Array<any>).map(GoodToJSON)),
+        'data': ((value['data'] as Array<any>).map(ItemToJSON)),
     };
 }
 

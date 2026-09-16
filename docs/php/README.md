@@ -298,6 +298,7 @@ var_dump($response);
 - `promotion.DefaultApi.postV1NormqueryBids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
 - `promotion.DefaultApi.postV1NormqueryStats` — `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
 - `promotion.DefaultApi.postV1Stats` — `POST /adv/v1/stats` — Статистика медиакампаний
+- `promotion.DefaultApi.postV2Budget` — `POST /api/advert/v2/budget` — Остатки бюджетов кампаний
 - `promotion.DefaultApi.postV2SeacatSaveAd` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
 - `promotion.DefaultApi.postV2SupplierNms` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
 - `promotion.DefaultApi.putV0AuctionPlacements` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой

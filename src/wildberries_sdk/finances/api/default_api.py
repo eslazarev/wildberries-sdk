@@ -1385,7 +1385,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[AcquiringReportsDetailedRes]",
             '204': None,
-            '400': "PostV1SalesReportsList400Response",
+            '400': "PostV1AcquiringList400Response",
             '401': "GetV1AccountBalance401Response",
             '402': "GetV1AccountBalance402Response",
             '403': "Response4XX",
@@ -1458,7 +1458,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[AcquiringReportsDetailedRes]",
             '204': None,
-            '400': "PostV1SalesReportsList400Response",
+            '400': "PostV1AcquiringList400Response",
             '401': "GetV1AccountBalance401Response",
             '402': "GetV1AccountBalance402Response",
             '403': "Response4XX",
@@ -1531,7 +1531,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[AcquiringReportsDetailedRes]",
             '204': None,
-            '400': "PostV1SalesReportsList400Response",
+            '400': "PostV1AcquiringList400Response",
             '401': "GetV1AccountBalance401Response",
             '402': "GetV1AccountBalance402Response",
             '403': "Response4XX",
@@ -1685,10 +1685,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[AcquiringReportsDetailedRes]",
             '204': None,
-            '400': "PostV1SalesReportsList400Response",
+            '400': "PostV1AcquiringList400Response",
             '401': "GetV1AccountBalance401Response",
             '402': "GetV1AccountBalance402Response",
             '403': "Response4XX",
+            '404': "PostV1AcquiringDetailedReportId404Response",
             '429': "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
@@ -1762,10 +1763,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[AcquiringReportsDetailedRes]",
             '204': None,
-            '400': "PostV1SalesReportsList400Response",
+            '400': "PostV1AcquiringList400Response",
             '401': "GetV1AccountBalance401Response",
             '402': "GetV1AccountBalance402Response",
             '403': "Response4XX",
+            '404': "PostV1AcquiringDetailedReportId404Response",
             '429': "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
@@ -1839,10 +1841,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[AcquiringReportsDetailedRes]",
             '204': None,
-            '400': "PostV1SalesReportsList400Response",
+            '400': "PostV1AcquiringList400Response",
             '401': "GetV1AccountBalance401Response",
             '402': "GetV1AccountBalance402Response",
             '403': "Response4XX",
+            '404': "PostV1AcquiringDetailedReportId404Response",
             '429': "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
@@ -1992,7 +1995,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[AcquiringReportListRes]",
             '204': None,
-            '400': "PostV1SalesReportsList400Response",
+            '400': "PostV1AcquiringList400Response",
             '401': "GetV1AccountBalance401Response",
             '403': "Response4XX",
             '429': "GetV1AccountBalance401Response",
@@ -2064,7 +2067,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[AcquiringReportListRes]",
             '204': None,
-            '400': "PostV1SalesReportsList400Response",
+            '400': "PostV1AcquiringList400Response",
             '401': "GetV1AccountBalance401Response",
             '403': "Response4XX",
             '429': "GetV1AccountBalance401Response",
@@ -2136,7 +2139,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[AcquiringReportListRes]",
             '204': None,
-            '400': "PostV1SalesReportsList400Response",
+            '400': "PostV1AcquiringList400Response",
             '401': "GetV1AccountBalance401Response",
             '403': "Response4XX",
             '429': "GetV1AccountBalance401Response",
@@ -2838,7 +2841,7 @@ class DefaultApi:
     ) -> List[SalesReportsDetailedRes]:
         """Детализации к отчётам реализации по ID отчётов
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param report_id: ID отчёта.<br>Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint) (required)
         :type report_id: int
@@ -2882,6 +2885,7 @@ class DefaultApi:
             '401': "GetV1AccountBalance401Response",
             '402': "GetV1AccountBalance402Response",
             '403': "Response4XX",
+            '404': "PostV1SalesReportsDetailedReportId404Response",
             '429': "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
@@ -2915,7 +2919,7 @@ class DefaultApi:
     ) -> ApiResponse[List[SalesReportsDetailedRes]]:
         """Детализации к отчётам реализации по ID отчётов
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param report_id: ID отчёта.<br>Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint) (required)
         :type report_id: int
@@ -2959,6 +2963,7 @@ class DefaultApi:
             '401': "GetV1AccountBalance401Response",
             '402': "GetV1AccountBalance402Response",
             '403': "Response4XX",
+            '404': "PostV1SalesReportsDetailedReportId404Response",
             '429': "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
@@ -2992,7 +2997,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Детализации к отчётам реализации по ID отчётов
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param report_id: ID отчёта.<br>Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint) (required)
         :type report_id: int
@@ -3036,6 +3041,7 @@ class DefaultApi:
             '401': "GetV1AccountBalance401Response",
             '402': "GetV1AccountBalance402Response",
             '403': "Response4XX",
+            '404': "PostV1SalesReportsDetailedReportId404Response",
             '429': "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
@@ -3148,7 +3154,7 @@ class DefaultApi:
     ) -> List[SalesReportListRes]:
         """Список отчётов реализации
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param sales_report_list_req: (required)
         :type sales_report_list_req: SalesReportListReq
@@ -3220,7 +3226,7 @@ class DefaultApi:
     ) -> ApiResponse[List[SalesReportListRes]]:
         """Список отчётов реализации
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param sales_report_list_req: (required)
         :type sales_report_list_req: SalesReportListReq
@@ -3292,7 +3298,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список отчётов реализации
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param sales_report_list_req: (required)
         :type sales_report_list_req: SalesReportListReq

@@ -304,6 +304,7 @@ SDK выпускается с security-first процессом:
 - `GET /api/advert/v1/config` — Конфигурационные значения продвижения (getV1Config)
 - `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца (postV1NormqueryBids)
 - `GET /api/advert/v2/adverts` — Информация о кампаниях (getV2Adverts)
+- `POST /api/advert/v2/budget` — Остатки бюджетов кампаний (postV2Budget)
 - `GET /api/v1/calendar/promotions` — Список акций (getV1CalendarPromotions)
 - `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях (getV1CalendarPromotionsDetails)
 - `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции (getV1CalendarPromotionsNomenclatures)

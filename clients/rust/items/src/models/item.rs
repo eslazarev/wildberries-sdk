@@ -12,7 +12,7 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Good {
+pub struct Item {
     /// Артикул WB
     #[serde(rename = "nmID")]
     pub nm_id: i32,
@@ -24,9 +24,9 @@ pub struct Good {
     pub discount: Option<Option<i32>>,
 }
 
-impl Good {
-    pub fn new(nm_id: i32) -> Good {
-        Good {
+impl Item {
+    pub fn new(nm_id: i32) -> Item {
+        Item {
             nm_id,
             price: None,
             discount: None,

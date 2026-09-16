@@ -39,12 +39,12 @@ pub struct AcquiringReportsDetailedRes {
     #[serde(rename = "srid")]
     pub srid: String,
     /// Тип документа
-    #[serde(rename = "docTypeName")]
-    pub doc_type_name: String,
+    #[serde(rename = "documentType")]
+    pub document_type: String,
     /// Артикул WB
     #[serde(rename = "nmId")]
     pub nm_id: i32,
-    /// Вайлдберриз реализовал Товар (Пр)
+    /// Wildberries реализовал Товар (Пр)
     #[serde(rename = "retailAmount")]
     pub retail_amount: String,
     /// Размер комиссии за эквайринг, в том числе НДС
@@ -69,7 +69,7 @@ pub struct AcquiringReportsDetailedRes {
 
 impl AcquiringReportsDetailedRes {
     /// Детализации к отчётам об издержках на приём платежей
-    pub fn new(rrd_id: i32, report_id: i64, acq_date: String, acquiring_bank: String, tin: String, tax_registration_reason_code: String, sale_date: String, srid: String, doc_type_name: String, nm_id: i32, retail_amount: String, acquiring_fee: String, acquiring_fee_vat: String, invoice_number: String, invoice_date: String, shk_id: i32, currency: String) -> AcquiringReportsDetailedRes {
+    pub fn new(rrd_id: i32, report_id: i64, acq_date: String, acquiring_bank: String, tin: String, tax_registration_reason_code: String, sale_date: String, srid: String, document_type: String, nm_id: i32, retail_amount: String, acquiring_fee: String, acquiring_fee_vat: String, invoice_number: String, invoice_date: String, shk_id: i32, currency: String) -> AcquiringReportsDetailedRes {
         AcquiringReportsDetailedRes {
             rrd_id,
             report_id,
@@ -79,7 +79,7 @@ impl AcquiringReportsDetailedRes {
             tax_registration_reason_code,
             sale_date,
             srid,
-            doc_type_name,
+            document_type,
             nm_id,
             retail_amount,
             acquiring_fee,

@@ -1,6 +1,6 @@
 <?php
 /**
- * V0BidsRecommendationsCpmResponse
+ * V0BidsRecommendationsCpcResponse2
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Wildberries\Sdk\Promotion\ObjectSerializer;
 
 /**
- * V0BidsRecommendationsCpmResponse Class Doc Comment
+ * V0BidsRecommendationsCpcResponse2 Class Doc Comment
  *
  * @category Class
  * @package  Wildberries\Sdk\Promotion
@@ -40,7 +40,7 @@ use \Wildberries\Sdk\Promotion\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class V0BidsRecommendationsCpcResponse2 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
      *
      * @var string
      */
-    protected static $openAPIModelName = 'V0BidsRecommendationsCpmResponse';
+    protected static $openAPIModelName = 'V0BidsRecommendationsCpcResponse2';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
      */
     protected static $openAPITypes = [
         'advert_id' => 'int',
-        'base' => '\Wildberries\Sdk\Promotion\Model\V0BidRecommendationBase',
+        'levels' => '\Wildberries\Sdk\Promotion\Model\V0BidRecommendationCPCLevels[]',
         'nm_id' => 'int',
-        'norm_queries' => '\Wildberries\Sdk\Promotion\Model\V0BidRecommendationNormQuery[]',
         'payment_type' => 'string'
     ];
 
@@ -73,9 +72,8 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
      */
     protected static $openAPIFormats = [
         'advert_id' => 'int64',
-        'base' => null,
+        'levels' => null,
         'nm_id' => 'int64',
-        'norm_queries' => null,
         'payment_type' => null
     ];
 
@@ -86,9 +84,8 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
      */
     protected static array $openAPINullables = [
         'advert_id' => false,
-        'base' => false,
+        'levels' => false,
         'nm_id' => false,
-        'norm_queries' => false,
         'payment_type' => false
     ];
 
@@ -179,9 +176,8 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
      */
     protected static $attributeMap = [
         'advert_id' => 'advertId',
-        'base' => 'base',
+        'levels' => 'levels',
         'nm_id' => 'nmId',
-        'norm_queries' => 'normQueries',
         'payment_type' => 'paymentType'
     ];
 
@@ -192,9 +188,8 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
      */
     protected static $setters = [
         'advert_id' => 'setAdvertId',
-        'base' => 'setBase',
+        'levels' => 'setLevels',
         'nm_id' => 'setNmId',
-        'norm_queries' => 'setNormQueries',
         'payment_type' => 'setPaymentType'
     ];
 
@@ -205,9 +200,8 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
      */
     protected static $getters = [
         'advert_id' => 'getAdvertId',
-        'base' => 'getBase',
+        'levels' => 'getLevels',
         'nm_id' => 'getNmId',
-        'norm_queries' => 'getNormQueries',
         'payment_type' => 'getPaymentType'
     ];
 
@@ -252,7 +246,7 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
         return self::$openAPIModelName;
     }
 
-    public const PAYMENT_TYPE_CPM = 'cpm';
+    public const PAYMENT_TYPE_CPC = 'cpc';
 
     /**
      * Gets allowable values of the enum
@@ -262,7 +256,7 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
     public function getPaymentTypeAllowableValues()
     {
         return [
-            self::PAYMENT_TYPE_CPM,
+            self::PAYMENT_TYPE_CPC,
         ];
     }
 
@@ -282,9 +276,8 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
     public function __construct(?array $data = null)
     {
         $this->setIfExists('advert_id', $data ?? [], null);
-        $this->setIfExists('base', $data ?? [], null);
+        $this->setIfExists('levels', $data ?? [], null);
         $this->setIfExists('nm_id', $data ?? [], null);
-        $this->setIfExists('norm_queries', $data ?? [], null);
         $this->setIfExists('payment_type', $data ?? [], null);
     }
 
@@ -367,28 +360,28 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets base
+     * Gets levels
      *
-     * @return \Wildberries\Sdk\Promotion\Model\V0BidRecommendationBase|null
+     * @return \Wildberries\Sdk\Promotion\Model\V0BidRecommendationCPCLevels[]|null
      */
-    public function getBase()
+    public function getLevels()
     {
-        return $this->container['base'];
+        return $this->container['levels'];
     }
 
     /**
-     * Sets base
+     * Sets levels
      *
-     * @param \Wildberries\Sdk\Promotion\Model\V0BidRecommendationBase|null $base base
+     * @param \Wildberries\Sdk\Promotion\Model\V0BidRecommendationCPCLevels[]|null $levels Рекомендуемые ставки для карточек товаров
      *
      * @return self
      */
-    public function setBase($base)
+    public function setLevels($levels)
     {
-        if (is_null($base)) {
-            throw new \InvalidArgumentException('non-nullable base cannot be null');
+        if (is_null($levels)) {
+            throw new \InvalidArgumentException('non-nullable levels cannot be null');
         }
-        $this->container['base'] = $base;
+        $this->container['levels'] = $levels;
 
         return $this;
     }
@@ -421,33 +414,6 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets norm_queries
-     *
-     * @return \Wildberries\Sdk\Promotion\Model\V0BidRecommendationNormQuery[]|null
-     */
-    public function getNormQueries()
-    {
-        return $this->container['norm_queries'];
-    }
-
-    /**
-     * Sets norm_queries
-     *
-     * @param \Wildberries\Sdk\Promotion\Model\V0BidRecommendationNormQuery[]|null $norm_queries Рекомендуемые ставки для поисковых кластеров
-     *
-     * @return self
-     */
-    public function setNormQueries($norm_queries)
-    {
-        if (is_null($norm_queries)) {
-            throw new \InvalidArgumentException('non-nullable norm_queries cannot be null');
-        }
-        $this->container['norm_queries'] = $norm_queries;
-
-        return $this;
-    }
-
-    /**
      * Gets payment_type
      *
      * @return string|null
@@ -460,7 +426,7 @@ class V0BidsRecommendationsCpmResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets payment_type
      *
-     * @param string|null $payment_type Тип оплаты:   - `cpm` — за показы
+     * @param string|null $payment_type Тип оплаты:   - `cpc` — за клики
      *
      * @return self
      */

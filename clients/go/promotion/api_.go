@@ -1517,7 +1517,7 @@ GetV1Balance Баланс
   - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.
   - бонусных начислениях WB.
 
-Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/finances/operation/getV1Budget).
+Чтобы получить информацию о бюджетах кампаний, используйте метод [Бюджеты кампаний](/openapi/promotion#tag/finances/operation/postV2Budget).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1693,7 +1693,9 @@ func (r ApiGetV1BudgetRequest) Execute() (*GetV1Budget200Response, *http.Respons
 /*
 GetV1Budget Бюджет кампании
 
-Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
+Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).
+
+
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1710,6 +1712,8 @@ GetV1Budget Бюджет кампании
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV1BudgetRequest
+
+Deprecated
 */
 func (a *DefaultApiService) GetV1Budget(ctx context.Context) ApiGetV1BudgetRequest {
 	return ApiGetV1BudgetRequest{
@@ -1720,6 +1724,7 @@ func (a *DefaultApiService) GetV1Budget(ctx context.Context) ApiGetV1BudgetReque
 
 // Execute executes the request
 //  @return GetV1Budget200Response
+// Deprecated
 func (a *DefaultApiService) GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV1Budget200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -5789,7 +5794,7 @@ func (r ApiPostV1BudgetDepositRequest) Execute() (*ResponseWithReturn, *http.Res
 /*
 PostV1BudgetDeposit Пополнение бюджета кампании
 
-Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/getV1Budget) кампании. <br>
+Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/postV2Budget) кампании. <br>
 Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).
 
 <div class="description_limit">
@@ -6660,6 +6665,190 @@ func (a *DefaultApiService) PostV1StatsExecute(r ApiPostV1StatsRequest) ([]PostV
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ResponseAdvError1
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV2BudgetRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	v2BudgetRequest *V2BudgetRequest
+}
+
+func (r ApiPostV2BudgetRequest) V2BudgetRequest(v2BudgetRequest V2BudgetRequest) ApiPostV2BudgetRequest {
+	r.v2BudgetRequest = &v2BudgetRequest
+	return r
+}
+
+func (r ApiPostV2BudgetRequest) Execute() (*V2BudgetResponse, *http.Response, error) {
+	return r.ApiService.PostV2BudgetExecute(r)
+}
+
+/*
+PostV2Budget Остатки бюджетов кампаний
+
+Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):
+  - `4` — готова к запуску
+  - `9` — активна
+  - `11` — на паузе
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса |
+| Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса |
+| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2BudgetRequest
+*/
+func (a *DefaultApiService) PostV2Budget(ctx context.Context) ApiPostV2BudgetRequest {
+	return ApiPostV2BudgetRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return V2BudgetResponse
+func (a *DefaultApiService) PostV2BudgetExecute(r ApiPostV2BudgetRequest) (*V2BudgetResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V2BudgetResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV2Budget")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/advert/v2/budget"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.v2BudgetRequest == nil {
+		return localVarReturnValue, nil, reportError("v2BudgetRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/plain", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.v2BudgetRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

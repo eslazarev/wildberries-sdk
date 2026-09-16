@@ -65,7 +65,7 @@ pub enum GetV1DocumentsListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostV1AcquiringDetailedError {
-    Status400(models::PostV1SalesReportsList400Response),
+    Status400(models::PostV1AcquiringList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
     Status403(models::Response4Xx),
@@ -77,10 +77,11 @@ pub enum PostV1AcquiringDetailedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostV1AcquiringDetailedReportIdError {
-    Status400(models::PostV1SalesReportsList400Response),
+    Status400(models::PostV1AcquiringList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
     Status403(models::Response4Xx),
+    Status404(models::PostV1AcquiringDetailedReportId404Response),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -89,7 +90,7 @@ pub enum PostV1AcquiringDetailedReportIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostV1AcquiringListError {
-    Status400(models::PostV1SalesReportsList400Response),
+    Status400(models::PostV1AcquiringList400Response),
     Status401(models::GetV1AccountBalance401Response),
     Status403(models::Response4Xx),
     Status429(models::GetV1AccountBalance401Response),
@@ -128,6 +129,7 @@ pub enum PostV1SalesReportsDetailedReportIdError {
     Status401(models::GetV1AccountBalance401Response),
     Status402(models::GetV1AccountBalance402Response),
     Status403(models::Response4Xx),
+    Status404(models::PostV1SalesReportsDetailedReportId404Response),
     Status429(models::GetV1AccountBalance401Response),
     UnknownValue(serde_json::Value),
 }
@@ -594,7 +596,7 @@ pub async fn post_v1_sales_reports_detailed(configuration: &configuration::Confi
     }
 }
 
-///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 pub async fn post_v1_sales_reports_detailed_report_id(configuration: &configuration::Configuration, report_id: i64, financial_reports_detailed_report_id_req: models::FinancialReportsDetailedReportIdReq) -> Result<Vec<models::SalesReportsDetailedRes>, Error<PostV1SalesReportsDetailedReportIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_report_id = report_id;
@@ -641,7 +643,7 @@ pub async fn post_v1_sales_reports_detailed_report_id(configuration: &configurat
     }
 }
 
-///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 pub async fn post_v1_sales_reports_list(configuration: &configuration::Configuration, sales_report_list_req: models::SalesReportListReq) -> Result<Vec<models::SalesReportListRes>, Error<PostV1SalesReportsListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_sales_report_list_req = sales_report_list_req;

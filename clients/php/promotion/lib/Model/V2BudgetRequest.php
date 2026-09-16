@@ -1,6 +1,6 @@
 <?php
 /**
- * V0BidsRecommendationsCpcResponse
+ * V2BudgetRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Wildberries\Sdk\Promotion\ObjectSerializer;
 
 /**
- * V0BidsRecommendationsCpcResponse Class Doc Comment
+ * V2BudgetRequest Class Doc Comment
  *
  * @category Class
  * @package  Wildberries\Sdk\Promotion
@@ -40,7 +40,7 @@ use \Wildberries\Sdk\Promotion\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class V2BudgetRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
      *
      * @var string
      */
-    protected static $openAPIModelName = 'V0BidsRecommendationsCpcResponse';
+    protected static $openAPIModelName = 'V2BudgetRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,7 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $openAPITypes = [
-        'advert_id' => 'int',
-        'levels' => '\Wildberries\Sdk\Promotion\Model\V0BidRecommendationCPCLevels[]',
-        'nm_id' => 'int',
-        'payment_type' => 'string'
+        'advert_ids' => 'int[]'
     ];
 
     /**
@@ -71,10 +68,7 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'advert_id' => 'int64',
-        'levels' => null,
-        'nm_id' => 'int64',
-        'payment_type' => null
+        'advert_ids' => null
     ];
 
     /**
@@ -83,10 +77,7 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'advert_id' => false,
-        'levels' => false,
-        'nm_id' => false,
-        'payment_type' => false
+        'advert_ids' => false
     ];
 
     /**
@@ -175,10 +166,7 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'advert_id' => 'advertId',
-        'levels' => 'levels',
-        'nm_id' => 'nmId',
-        'payment_type' => 'paymentType'
+        'advert_ids' => 'advertIds'
     ];
 
     /**
@@ -187,10 +175,7 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'advert_id' => 'setAdvertId',
-        'levels' => 'setLevels',
-        'nm_id' => 'setNmId',
-        'payment_type' => 'setPaymentType'
+        'advert_ids' => 'setAdvertIds'
     ];
 
     /**
@@ -199,10 +184,7 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'advert_id' => 'getAdvertId',
-        'levels' => 'getLevels',
-        'nm_id' => 'getNmId',
-        'payment_type' => 'getPaymentType'
+        'advert_ids' => 'getAdvertIds'
     ];
 
     /**
@@ -246,19 +228,6 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
         return self::$openAPIModelName;
     }
 
-    public const PAYMENT_TYPE_CPC = 'cpc';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPaymentTypeAllowableValues()
-    {
-        return [
-            self::PAYMENT_TYPE_CPC,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -275,10 +244,7 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('advert_id', $data ?? [], null);
-        $this->setIfExists('levels', $data ?? [], null);
-        $this->setIfExists('nm_id', $data ?? [], null);
-        $this->setIfExists('payment_type', $data ?? [], null);
+        $this->setIfExists('advert_ids', $data ?? [], null);
     }
 
     /**
@@ -308,13 +274,15 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getPaymentTypeAllowableValues();
-        if (!is_null($this->container['payment_type']) && !in_array($this->container['payment_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'payment_type', must be one of '%s'",
-                $this->container['payment_type'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['advert_ids'] === null) {
+            $invalidProperties[] = "'advert_ids' can't be null";
+        }
+        if ((count($this->container['advert_ids']) > 50)) {
+            $invalidProperties[] = "invalid value for 'advert_ids', number of items must be less than or equal to 50.";
+        }
+
+        if ((count($this->container['advert_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'advert_ids', number of items must be greater than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -333,119 +301,34 @@ class V0BidsRecommendationsCpcResponse implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets advert_id
+     * Gets advert_ids
      *
-     * @return int|null
+     * @return int[]
      */
-    public function getAdvertId()
+    public function getAdvertIds()
     {
-        return $this->container['advert_id'];
+        return $this->container['advert_ids'];
     }
 
     /**
-     * Sets advert_id
+     * Sets advert_ids
      *
-     * @param int|null $advert_id ID кампании
+     * @param int[] $advert_ids Список ID кампаний
      *
      * @return self
      */
-    public function setAdvertId($advert_id)
+    public function setAdvertIds($advert_ids)
     {
-        if (is_null($advert_id)) {
-            throw new \InvalidArgumentException('non-nullable advert_id cannot be null');
+        if (is_null($advert_ids)) {
+            throw new \InvalidArgumentException('non-nullable advert_ids cannot be null');
         }
-        $this->container['advert_id'] = $advert_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets levels
-     *
-     * @return \Wildberries\Sdk\Promotion\Model\V0BidRecommendationCPCLevels[]|null
-     */
-    public function getLevels()
-    {
-        return $this->container['levels'];
-    }
-
-    /**
-     * Sets levels
-     *
-     * @param \Wildberries\Sdk\Promotion\Model\V0BidRecommendationCPCLevels[]|null $levels Рекомендуемые ставки для карточек товаров
-     *
-     * @return self
-     */
-    public function setLevels($levels)
-    {
-        if (is_null($levels)) {
-            throw new \InvalidArgumentException('non-nullable levels cannot be null');
+        if ((count($advert_ids) > 50)) {
+            throw new \InvalidArgumentException('invalid value for $advert_ids when calling V2BudgetRequest., number of items must be less than or equal to 50.');
         }
-        $this->container['levels'] = $levels;
-
-        return $this;
-    }
-
-    /**
-     * Gets nm_id
-     *
-     * @return int|null
-     */
-    public function getNmId()
-    {
-        return $this->container['nm_id'];
-    }
-
-    /**
-     * Sets nm_id
-     *
-     * @param int|null $nm_id Артикул WB
-     *
-     * @return self
-     */
-    public function setNmId($nm_id)
-    {
-        if (is_null($nm_id)) {
-            throw new \InvalidArgumentException('non-nullable nm_id cannot be null');
+        if ((count($advert_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $advert_ids when calling V2BudgetRequest., number of items must be greater than or equal to 1.');
         }
-        $this->container['nm_id'] = $nm_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_type
-     *
-     * @return string|null
-     */
-    public function getPaymentType()
-    {
-        return $this->container['payment_type'];
-    }
-
-    /**
-     * Sets payment_type
-     *
-     * @param string|null $payment_type Тип оплаты:   - `cpc` — за клики
-     *
-     * @return self
-     */
-    public function setPaymentType($payment_type)
-    {
-        if (is_null($payment_type)) {
-            throw new \InvalidArgumentException('non-nullable payment_type cannot be null');
-        }
-        $allowedValues = $this->getPaymentTypeAllowableValues();
-        if (!in_array($payment_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'payment_type', must be one of '%s'",
-                    $payment_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['payment_type'] = $payment_type;
+        $this->container['advert_ids'] = $advert_ids;
 
         return $this;
     }

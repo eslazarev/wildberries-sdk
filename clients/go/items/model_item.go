@@ -16,11 +16,11 @@ import (
 	"fmt"
 )
 
-// checks if the Good type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &Good{}
+// checks if the Item type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Item{}
 
-// Good struct for Good
-type Good struct {
+// Item struct for Item
+type Item struct {
 	// Артикул WB
 	NmID int32 `json:"nmID"`
 	// Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`
@@ -29,28 +29,28 @@ type Good struct {
 	Discount NullableInt32 `json:"discount,omitempty"`
 }
 
-type _Good Good
+type _Item Item
 
-// NewGood instantiates a new Good object
+// NewItem instantiates a new Item object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGood(nmID int32) *Good {
-	this := Good{}
+func NewItem(nmID int32) *Item {
+	this := Item{}
 	this.NmID = nmID
 	return &this
 }
 
-// NewGoodWithDefaults instantiates a new Good object
+// NewItemWithDefaults instantiates a new Item object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGoodWithDefaults() *Good {
-	this := Good{}
+func NewItemWithDefaults() *Item {
+	this := Item{}
 	return &this
 }
 
 // GetNmID returns the NmID field value
-func (o *Good) GetNmID() int32 {
+func (o *Item) GetNmID() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -61,7 +61,7 @@ func (o *Good) GetNmID() int32 {
 
 // GetNmIDOk returns a tuple with the NmID field value
 // and a boolean to check if the value has been set.
-func (o *Good) GetNmIDOk() (*int32, bool) {
+func (o *Item) GetNmIDOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,12 +69,12 @@ func (o *Good) GetNmIDOk() (*int32, bool) {
 }
 
 // SetNmID sets field value
-func (o *Good) SetNmID(v int32) {
+func (o *Item) SetNmID(v int32) {
 	o.NmID = v
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Good) GetPrice() int32 {
+func (o *Item) GetPrice() int32 {
 	if o == nil || IsNil(o.Price.Get()) {
 		var ret int32
 		return ret
@@ -85,7 +85,7 @@ func (o *Good) GetPrice() int32 {
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Good) GetPriceOk() (*int32, bool) {
+func (o *Item) GetPriceOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *Good) GetPriceOk() (*int32, bool) {
 }
 
 // HasPrice returns a boolean if a field has been set.
-func (o *Good) HasPrice() bool {
+func (o *Item) HasPrice() bool {
 	if o != nil && o.Price.IsSet() {
 		return true
 	}
@@ -102,21 +102,21 @@ func (o *Good) HasPrice() bool {
 }
 
 // SetPrice gets a reference to the given NullableInt32 and assigns it to the Price field.
-func (o *Good) SetPrice(v int32) {
+func (o *Item) SetPrice(v int32) {
 	o.Price.Set(&v)
 }
 // SetPriceNil sets the value for Price to be an explicit nil
-func (o *Good) SetPriceNil() {
+func (o *Item) SetPriceNil() {
 	o.Price.Set(nil)
 }
 
 // UnsetPrice ensures that no value is present for Price, not even an explicit nil
-func (o *Good) UnsetPrice() {
+func (o *Item) UnsetPrice() {
 	o.Price.Unset()
 }
 
 // GetDiscount returns the Discount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Good) GetDiscount() int32 {
+func (o *Item) GetDiscount() int32 {
 	if o == nil || IsNil(o.Discount.Get()) {
 		var ret int32
 		return ret
@@ -127,7 +127,7 @@ func (o *Good) GetDiscount() int32 {
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Good) GetDiscountOk() (*int32, bool) {
+func (o *Item) GetDiscountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -135,7 +135,7 @@ func (o *Good) GetDiscountOk() (*int32, bool) {
 }
 
 // HasDiscount returns a boolean if a field has been set.
-func (o *Good) HasDiscount() bool {
+func (o *Item) HasDiscount() bool {
 	if o != nil && o.Discount.IsSet() {
 		return true
 	}
@@ -144,20 +144,20 @@ func (o *Good) HasDiscount() bool {
 }
 
 // SetDiscount gets a reference to the given NullableInt32 and assigns it to the Discount field.
-func (o *Good) SetDiscount(v int32) {
+func (o *Item) SetDiscount(v int32) {
 	o.Discount.Set(&v)
 }
 // SetDiscountNil sets the value for Discount to be an explicit nil
-func (o *Good) SetDiscountNil() {
+func (o *Item) SetDiscountNil() {
 	o.Discount.Set(nil)
 }
 
 // UnsetDiscount ensures that no value is present for Discount, not even an explicit nil
-func (o *Good) UnsetDiscount() {
+func (o *Item) UnsetDiscount() {
 	o.Discount.Unset()
 }
 
-func (o Good) MarshalJSON() ([]byte, error) {
+func (o Item) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -165,7 +165,7 @@ func (o Good) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Good) ToMap() (map[string]interface{}, error) {
+func (o Item) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["nmID"] = o.NmID
 	if o.Price.IsSet() {
@@ -177,7 +177,7 @@ func (o Good) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *Good) UnmarshalJSON(data []byte) (err error) {
+func (o *Item) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -199,53 +199,53 @@ func (o *Good) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varGood := _Good{}
+	varItem := _Item{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGood)
+	err = decoder.Decode(&varItem)
 
 	if err != nil {
 		return err
 	}
 
-	*o = Good(varGood)
+	*o = Item(varItem)
 
 	return err
 }
 
-type NullableGood struct {
-	value *Good
+type NullableItem struct {
+	value *Item
 	isSet bool
 }
 
-func (v NullableGood) Get() *Good {
+func (v NullableItem) Get() *Item {
 	return v.value
 }
 
-func (v *NullableGood) Set(val *Good) {
+func (v *NullableItem) Set(val *Item) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGood) IsSet() bool {
+func (v NullableItem) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGood) Unset() {
+func (v *NullableItem) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGood(val *Good) *NullableGood {
-	return &NullableGood{value: val, isSet: true}
+func NewNullableItem(val *Item) *NullableItem {
+	return &NullableItem{value: val, isSet: true}
 }
 
-func (v NullableGood) MarshalJSON() ([]byte, error) {
+func (v NullableItem) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGood) UnmarshalJSON(src []byte) error {
+func (v *NullableItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

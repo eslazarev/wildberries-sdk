@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.155"
+__version__ = "0.1.156"
 
 # Define package exports
 __all__ = [
@@ -142,8 +142,8 @@ __all__ = [
     "V0BidRecommendationReachMax",
     "V0BidRecommendationReachMedium",
     "V0BidRecommendationReachMin",
-    "V0BidsRecommendationsCpcResponse",
-    "V0BidsRecommendationsCpmResponse",
+    "V0BidsRecommendationsCpcResponse2",
+    "V0BidsRecommendationsCpmResponse1",
     "V0DeleteNormQueryBidsRequest",
     "V0DeleteNormQueryBidsRequestItem",
     "V0GetNormQueryBidsItem",
@@ -167,6 +167,7 @@ __all__ = [
     "V0SetMinusNormQueryRequest",
     "V0SetNormQueryBidsRequest",
     "V0SetNormQueryBidsRequestItem",
+    "V1BudgetAdvert",
     "V1GetNormQueryStatsRequest",
     "V1GetNormQueryStatsRequestItemsInner",
     "V1GetNormQueryStatsResponse",
@@ -177,6 +178,8 @@ __all__ = [
     "V1SetNormQueryBidsRequestItem",
     "V1SetNormQueryBidsResponse",
     "V1SetNormQueryBidsSuccessResponseItem",
+    "V2BudgetRequest",
+    "V2BudgetResponse",
     "V2GetConfigResponse",
 ]
 
@@ -309,8 +312,8 @@ from wildberries_sdk.promotion.models.v0_bid_recommendation_norm_query import V0
 from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_max import V0BidRecommendationReachMax as V0BidRecommendationReachMax
 from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_medium import V0BidRecommendationReachMedium as V0BidRecommendationReachMedium
 from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_min import V0BidRecommendationReachMin as V0BidRecommendationReachMin
-from wildberries_sdk.promotion.models.v0_bids_recommendations_cpc_response import V0BidsRecommendationsCpcResponse as V0BidsRecommendationsCpcResponse
-from wildberries_sdk.promotion.models.v0_bids_recommendations_cpm_response import V0BidsRecommendationsCpmResponse as V0BidsRecommendationsCpmResponse
+from wildberries_sdk.promotion.models.v0_bids_recommendations_cpc_response2 import V0BidsRecommendationsCpcResponse2 as V0BidsRecommendationsCpcResponse2
+from wildberries_sdk.promotion.models.v0_bids_recommendations_cpm_response1 import V0BidsRecommendationsCpmResponse1 as V0BidsRecommendationsCpmResponse1
 from wildberries_sdk.promotion.models.v0_delete_norm_query_bids_request import V0DeleteNormQueryBidsRequest as V0DeleteNormQueryBidsRequest
 from wildberries_sdk.promotion.models.v0_delete_norm_query_bids_request_item import V0DeleteNormQueryBidsRequestItem as V0DeleteNormQueryBidsRequestItem
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_item import V0GetNormQueryBidsItem as V0GetNormQueryBidsItem
@@ -334,6 +337,7 @@ from wildberries_sdk.promotion.models.v0_get_norm_query_stats_response import V0
 from wildberries_sdk.promotion.models.v0_set_minus_norm_query_request import V0SetMinusNormQueryRequest as V0SetMinusNormQueryRequest
 from wildberries_sdk.promotion.models.v0_set_norm_query_bids_request import V0SetNormQueryBidsRequest as V0SetNormQueryBidsRequest
 from wildberries_sdk.promotion.models.v0_set_norm_query_bids_request_item import V0SetNormQueryBidsRequestItem as V0SetNormQueryBidsRequestItem
+from wildberries_sdk.promotion.models.v1_budget_advert import V1BudgetAdvert as V1BudgetAdvert
 from wildberries_sdk.promotion.models.v1_get_norm_query_stats_request import V1GetNormQueryStatsRequest as V1GetNormQueryStatsRequest
 from wildberries_sdk.promotion.models.v1_get_norm_query_stats_request_items_inner import V1GetNormQueryStatsRequestItemsInner as V1GetNormQueryStatsRequestItemsInner
 from wildberries_sdk.promotion.models.v1_get_norm_query_stats_response import V1GetNormQueryStatsResponse as V1GetNormQueryStatsResponse
@@ -344,5 +348,7 @@ from wildberries_sdk.promotion.models.v1_set_norm_query_bids_request import V1Se
 from wildberries_sdk.promotion.models.v1_set_norm_query_bids_request_item import V1SetNormQueryBidsRequestItem as V1SetNormQueryBidsRequestItem
 from wildberries_sdk.promotion.models.v1_set_norm_query_bids_response import V1SetNormQueryBidsResponse as V1SetNormQueryBidsResponse
 from wildberries_sdk.promotion.models.v1_set_norm_query_bids_success_response_item import V1SetNormQueryBidsSuccessResponseItem as V1SetNormQueryBidsSuccessResponseItem
+from wildberries_sdk.promotion.models.v2_budget_request import V2BudgetRequest as V2BudgetRequest
+from wildberries_sdk.promotion.models.v2_budget_response import V2BudgetResponse as V2BudgetResponse
 from wildberries_sdk.promotion.models.v2_get_config_response import V2GetConfigResponse as V2GetConfigResponse
 

@@ -66,13 +66,6 @@ export interface SizeGood {
      * 
      */
     editableSizePrice?: boolean;
-    /**
-     * Признак неликвидного товара:
-     *   - `true` — неликвидный товар с [низким индексом остатка](https://seller.wildberries.ru/instructions/ru/ru/material/stocks-index?categoryId=e324ce0f-9a2a-4b8d-8fd1-72f751b09b3b&goBackOption=prevRoute#%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B8-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B0-%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0)
-     *   - Поле отсутствует — ликвидный товар
-     * 
-     */
-    isBadTurnover?: boolean;
 }
 
 /**
@@ -103,7 +96,6 @@ export function SizeGoodFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'clubDiscount': json['clubDiscount'] == null ? undefined : json['clubDiscount'],
         'techSizeName': json['techSizeName'] == null ? undefined : json['techSizeName'],
         'editableSizePrice': json['editableSizePrice'] == null ? undefined : json['editableSizePrice'],
-        'isBadTurnover': json['isBadTurnover'] == null ? undefined : json['isBadTurnover'],
     };
 }
 
@@ -129,7 +121,6 @@ export function SizeGoodToJSONTyped(value?: SizeGood | null, ignoreDiscriminator
         'clubDiscount': value['clubDiscount'],
         'techSizeName': value['techSizeName'],
         'editableSizePrice': value['editableSizePrice'],
-        'isBadTurnover': value['isBadTurnover'],
     };
 }
 

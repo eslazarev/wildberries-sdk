@@ -32,7 +32,7 @@ class AcquiringReportsDetailedReq(BaseModel):
     date_to: StrictStr = Field(description="Конечная дата отчёта.<br>Дата в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339). Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд.<br>Время передаётся в часовом поясе Москва `UTC+3`.<br>Примеры:   - `2025-06-20`   - `2025-06-20T23:59:59`   - `2025-06-20T00:00:00.12345`   - `2025-06-20T00:00:00` ", alias="dateTo", json_schema_extra={"examples": ["2026-03-20"]})
     limit: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(default=100000, description="Количество строк в ответе", json_schema_extra={"examples": [21100]})
     rrd_id: Optional[StrictInt] = Field(default=0, description="ID строки ответа. Необходим для получения отчёта частями.<br>Начинайте загрузку отчёта с `\"rrdid\":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.<br>Повторяйте запрос, пока не получите ответ `204` ", alias="rrdId")
-    fields: Optional[List[StrictStr]] = Field(default=None, description="Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля", json_schema_extra={"examples": [["rrdId", "nmId", "docTypeName", "retailAmount", "acquiringFee", "srid"]]})
+    fields: Optional[List[StrictStr]] = Field(default=None, description="Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля", json_schema_extra={"examples": [["rrdId", "nmId", "documentType", "retailAmount", "acquiringFee", "srid"]]})
     __properties: ClassVar[List[str]] = ["dateFrom", "dateTo", "limit", "rrdId", "fields"]
 
     model_config = ConfigDict(

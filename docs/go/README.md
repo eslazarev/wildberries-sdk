@@ -285,6 +285,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.PostV1NormqueryBids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
 - `promotion.DefaultApiService.PostV1NormqueryStats` — `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
 - `promotion.DefaultApiService.PostV1Stats` — `POST /adv/v1/stats` — Статистика медиакампаний
+- `promotion.DefaultApiService.PostV2Budget` — `POST /api/advert/v2/budget` — Остатки бюджетов кампаний
 - `promotion.DefaultApiService.PostV2SeacatSaveAd` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
 - `promotion.DefaultApiService.PostV2SupplierNms` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
 - `promotion.DefaultApiService.PutV0AuctionPlacements` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой

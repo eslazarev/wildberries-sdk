@@ -34,7 +34,7 @@ pub struct SalesReportListRes {
     /// Валюта отчёта
     #[serde(rename = "currency")]
     pub currency: String,
-    /// Тип отчёта:   - `1` — основной   - `2` — по выкупам   - `3` — по выкупам для Грузии 
+    /// Тип отчёта:   - `1` — основной   - `2` — по выкупам 
     #[serde(rename = "reportType")]
     pub report_type: ReportType,
     /// Продажа
@@ -46,7 +46,7 @@ pub struct SalesReportListRes {
     /// Согласованная скидка, %
     #[serde(rename = "avgSalePercent")]
     pub avg_sale_percent: f64,
-    /// Стоимость логистики
+    /// Стоимость доставки
     #[serde(rename = "deliveryServiceSum")]
     pub delivery_service_sum: String,
     /// Стоимость хранения
@@ -55,16 +55,16 @@ pub struct SalesReportListRes {
     /// Стоимость операций при приёмке
     #[serde(rename = "paidAcceptanceSum")]
     pub paid_acceptance_sum: String,
-    /// Прочие удержания и выплаты
+    /// Прочие удержания/выплаты
     #[serde(rename = "deductionSum")]
     pub deduction_sum: String,
     /// Общая сумма штрафов
     #[serde(rename = "penaltySum")]
     pub penalty_sum: String,
-    /// Корректировка Вознаграждения Вайлдберриз (ВВ)
+    /// Корректировка Вознаграждения Wildberries (ВВ)
     #[serde(rename = "additionalPaymentSum")]
     pub additional_payment_sum: String,
-    /// Сумма, удержанная за начисленные баллы программы лояльности
+    /// Сумма баллов, удержанных по программе лояльности
     #[serde(rename = "cashbackAmountSum")]
     pub cashback_amount_sum: String,
     /// Компенсация скидки по программе лояльности
@@ -109,13 +109,12 @@ impl SalesReportListRes {
         }
     }
 }
-/// Тип отчёта:   - `1` — основной   - `2` — по выкупам   - `3` — по выкупам для Грузии 
+/// Тип отчёта:   - `1` — основной   - `2` — по выкупам 
 #[repr(i64)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum ReportType {
     Variant1 = 1,
     Variant2 = 2,
-    Variant3 = 3,
 }
 
 impl std::fmt::Display for ReportType {
@@ -123,7 +122,6 @@ impl std::fmt::Display for ReportType {
         write!(f, "{}", match self {
             Self::Variant1 => "1",
             Self::Variant2 => "2",
-            Self::Variant3 => "3",
         })
     }
 }

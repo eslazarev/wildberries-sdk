@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.155"
+__version__ = "0.1.156"
 
 # Define package exports
 __all__ = [
@@ -48,6 +48,9 @@ __all__ = [
     "GetV1AccountBalance402Response",
     "GetV1AccountBalance403Response",
     "GetV1DocumentsList400Response",
+    "PostV1AcquiringDetailedReportId404Response",
+    "PostV1AcquiringList400Response",
+    "PostV1SalesReportsDetailedReportId404Response",
     "PostV1SalesReportsList400Response",
     "RequestDownload",
     "RequestDownloadParamsInner",
@@ -93,6 +96,9 @@ from wildberries_sdk.finances.models.get_v1_account_balance401_response import G
 from wildberries_sdk.finances.models.get_v1_account_balance402_response import GetV1AccountBalance402Response as GetV1AccountBalance402Response
 from wildberries_sdk.finances.models.get_v1_account_balance403_response import GetV1AccountBalance403Response as GetV1AccountBalance403Response
 from wildberries_sdk.finances.models.get_v1_documents_list400_response import GetV1DocumentsList400Response as GetV1DocumentsList400Response
+from wildberries_sdk.finances.models.post_v1_acquiring_detailed_report_id404_response import PostV1AcquiringDetailedReportId404Response as PostV1AcquiringDetailedReportId404Response
+from wildberries_sdk.finances.models.post_v1_acquiring_list400_response import PostV1AcquiringList400Response as PostV1AcquiringList400Response
+from wildberries_sdk.finances.models.post_v1_sales_reports_detailed_report_id404_response import PostV1SalesReportsDetailedReportId404Response as PostV1SalesReportsDetailedReportId404Response
 from wildberries_sdk.finances.models.post_v1_sales_reports_list400_response import PostV1SalesReportsList400Response as PostV1SalesReportsList400Response
 from wildberries_sdk.finances.models.request_download import RequestDownload as RequestDownload
 from wildberries_sdk.finances.models.request_download_params_inner import RequestDownloadParamsInner as RequestDownloadParamsInner

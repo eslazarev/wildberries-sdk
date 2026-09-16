@@ -47,9 +47,6 @@ pub struct SizeGood {
     /// Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя 
     #[serde(rename = "editableSizePrice", skip_serializing_if = "Option::is_none")]
     pub editable_size_price: Option<bool>,
-    /// Признак неликвидного товара:   - `true` — неликвидный товар с [низким индексом остатка](https://seller.wildberries.ru/instructions/ru/ru/material/stocks-index?categoryId=e324ce0f-9a2a-4b8d-8fd1-72f751b09b3b&goBackOption=prevRoute#%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B8-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B0-%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0)   - Поле отсутствует — ликвидный товар 
-    #[serde(rename = "isBadTurnover", skip_serializing_if = "Option::is_none")]
-    pub is_bad_turnover: Option<bool>,
 }
 
 impl SizeGood {
@@ -67,7 +64,6 @@ impl SizeGood {
             club_discount: None,
             tech_size_name: None,
             editable_size_price: None,
-            is_bad_turnover: None,
         }
     }
 }

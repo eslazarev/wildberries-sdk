@@ -35,8 +35,6 @@ type ItemsList struct {
 	EditableSizePrice *bool `json:"editableSizePrice,omitempty"`
 	// Оптовые скидки разных уровней для B2B
 	WholesaleDiscountThreshold []WholesaleDiscountThresholdRes `json:"wholesaleDiscountThreshold,omitempty"`
-	// Признак неликвидного товара:   - `true` — неликвидный товар с [низким индексом остатка](https://seller.wildberries.ru/instructions/ru/ru/material/stocks-index?categoryId=e324ce0f-9a2a-4b8d-8fd1-72f751b09b3b&goBackOption=prevRoute#%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B8-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B0-%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0)   - Поле отсутствует — ликвидный товар 
-	IsBadTurnover *bool `json:"isBadTurnover,omitempty"`
 }
 
 // NewItemsList instantiates a new ItemsList object
@@ -312,38 +310,6 @@ func (o *ItemsList) SetWholesaleDiscountThreshold(v []WholesaleDiscountThreshold
 	o.WholesaleDiscountThreshold = v
 }
 
-// GetIsBadTurnover returns the IsBadTurnover field value if set, zero value otherwise.
-func (o *ItemsList) GetIsBadTurnover() bool {
-	if o == nil || IsNil(o.IsBadTurnover) {
-		var ret bool
-		return ret
-	}
-	return *o.IsBadTurnover
-}
-
-// GetIsBadTurnoverOk returns a tuple with the IsBadTurnover field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ItemsList) GetIsBadTurnoverOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsBadTurnover) {
-		return nil, false
-	}
-	return o.IsBadTurnover, true
-}
-
-// HasIsBadTurnover returns a boolean if a field has been set.
-func (o *ItemsList) HasIsBadTurnover() bool {
-	if o != nil && !IsNil(o.IsBadTurnover) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsBadTurnover gets a reference to the given bool and assigns it to the IsBadTurnover field.
-func (o *ItemsList) SetIsBadTurnover(v bool) {
-	o.IsBadTurnover = &v
-}
-
 func (o ItemsList) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -377,9 +343,6 @@ func (o ItemsList) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.WholesaleDiscountThreshold) {
 		toSerialize["wholesaleDiscountThreshold"] = o.WholesaleDiscountThreshold
-	}
-	if !IsNil(o.IsBadTurnover) {
-		toSerialize["isBadTurnover"] = o.IsBadTurnover
 	}
 	return toSerialize, nil
 }

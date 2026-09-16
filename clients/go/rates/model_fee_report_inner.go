@@ -25,7 +25,7 @@ type FeeReportInner struct {
 	KgvpMarketplace *float32 `json:"kgvpMarketplace,omitempty"`
 	// Комиссия по модели **Самовывоз из магазина продавца** (`C&C`), %
 	KgvpPickup *float32 `json:"kgvpPickup,omitempty"`
-	// Комиссия по моделям **Витрина** (`DBS`) и **Курьер WB** (`DBW`), %
+	// Комиссия по моделям **Витрина** (`DBS`) и **Деливери WB** (`DBW`), %
 	KgvpSupplier *float32 `json:"kgvpSupplier,omitempty"`
 	// Комиссия по модели **Витрина экспресс** (`EDBS`), %
 	KgvpSupplierExpress *float32 `json:"kgvpSupplierExpress,omitempty"`

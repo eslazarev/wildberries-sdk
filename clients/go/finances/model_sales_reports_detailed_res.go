@@ -32,7 +32,7 @@ type SalesReportsDetailedRes struct {
 	CreateDate string `json:"createDate"`
 	// Валюта отчёта
 	Currency string `json:"currency"`
-	// Тип отчёта:   - `1` — основной   - `2` — по выкупам   - `3` — по выкупам для Грузии 
+	// Тип отчёта:   - `1` — основной   - `2` — по выкупам 
 	ReportType int32 `json:"reportType"`
 	// ID строки
 	RrdId int32 `json:"rrdId"`
@@ -64,7 +64,7 @@ type SalesReportsDetailedRes struct {
 	Quantity int32 `json:"quantity"`
 	// Цена розничная
 	RetailPrice string `json:"retailPrice"`
-	// Вайлдберриз реализовал Товар (Пр)
+	// Wildberries реализовал Товар (Пр)
 	RetailAmount string `json:"retailAmount"`
 	// Согласованный продуктовый дисконт, %
 	SalePercent int32 `json:"salePercent"`
@@ -95,7 +95,7 @@ type SalesReportsDetailedRes struct {
 	// Итоговая согласованная скидка, %
 	ProductDiscountForReport float32 `json:"productDiscountForReport"`
 	// Промокод, %
-	SellerPromo string `json:"sellerPromo"`
+	SellerPromo float32 `json:"sellerPromo"`
 	// Платформенные скидки, %
 	Spp float32 `json:"spp"`
 	// Размер кВВ без НДС, % базовый
@@ -112,17 +112,17 @@ type SalesReportsDetailedRes struct {
 	ForPay string `json:"forPay"`
 	// Возмещение за выдачу и возврат товаров на ПВЗ
 	PpvzReward string `json:"ppvzReward"`
-	// Компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов
+	// Компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов
 	AcquiringFee string `json:"acquiringFee"`
-	// Размер компенсации платёжных услуг/Комиссии за интеграцию платёжных сервисов, %
+	// Размер компенсации платёжных услуг/комиссии за интеграцию платёжных сервисов
 	AcquiringPercent float32 `json:"acquiringPercent"`
-	// Тип платежа: компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов
+	// Тип платежа: компенсация платёжных услуг/комиссия за интеграцию платёжных сервисов
 	PaymentProcessing string `json:"paymentProcessing"`
 	// Наименование банка-эквайера
 	AcquiringBank string `json:"acquiringBank"`
-	// Вознаграждение Вайлдберриз (ВВ), без НДС
+	// Вознаграждение Wildberries (ВВ), без НДС
 	Vw string `json:"vw"`
-	// НДС с вознаграждения Вайлдберриз
+	// НДС с вознаграждения Wildberries
 	VwNds string `json:"vwNds"`
 	// Наименование офиса доставки
 	PpvzOfficeName string `json:"ppvzOfficeName"`
@@ -134,7 +134,7 @@ type SalesReportsDetailedRes struct {
 	PpvzSupplierInn string `json:"ppvzSupplierInn"`
 	// Номер таможенной декларации
 	DeclarationNumber string `json:"declarationNumber"`
-	// Виды логистики, штрафов и корректировок ВВ
+	// Виды доставок, штрафов и корректировок ВВ
 	BonusTypeName *string `json:"bonusTypeName,omitempty"`
 	// Стикер МП
 	StickerId string `json:"stickerId"`
@@ -144,9 +144,9 @@ type SalesReportsDetailedRes struct {
 	SrvDbs bool `json:"srvDbs"`
 	// Общая сумма штрафов
 	Penalty string `json:"penalty"`
-	// Корректировка Вознаграждения Вайлдберриз (ВВ)
+	// Корректировка Вознаграждения Wildberries (ВВ)
 	AdditionalPayment string `json:"additionalPayment"`
-	// Возмещение издержек по перевозке/по складским операциям с товаром
+	// Возмещение издержек по перемещению и операционной обработке товара
 	RebillLogisticCost string `json:"rebillLogisticCost"`
 	// Организатор перевозки
 	RebillLogisticOrg *string `json:"rebillLogisticOrg,omitempty"`
@@ -158,7 +158,7 @@ type SalesReportsDetailedRes struct {
 	PaidAcceptance string `json:"paidAcceptance"`
 	// ID сборочного задания
 	OrderId int32 `json:"orderId"`
-	// Код маркировки [Честного знака](https://честныйзнак.рф/)
+	// Код маркировки [Честного знака](https://честныйзнак.рф)
 	Kiz *string `json:"kiz,omitempty"`
 	// Признак B2B-продажи
 	IsB2b bool `json:"isB2b"`
@@ -168,7 +168,7 @@ type SalesReportsDetailedRes struct {
 	InstallmentCofinancingAmount string `json:"installmentCofinancingAmount"`
 	// Скидка Wibes, %
 	WibesDiscountPercent float32 `json:"wibesDiscountPercent"`
-	// Сумма, удержанная за начисленные баллы программы лояльности
+	// Сумма баллов, удержанных по программе лояльности
 	CashbackAmount string `json:"cashbackAmount"`
 	// Компенсация скидки по программе лояльности
 	CashbackDiscount string `json:"cashbackDiscount"`
@@ -202,7 +202,7 @@ type SalesReportsDetailedRes struct {
 	B2bCustomerTin string `json:"b2bCustomerTin"`
 	// Оплата социальным сертификатом
 	PaidWithSocialCertificate bool `json:"paidWithSocialCertificate"`
-	// Коэффициент логистики
+	// Коэффициент доставки
 	WarehouseLogisticsCoeff float32 `json:"warehouseLogisticsCoeff"`
 	// ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid` 
 	OrderUid string `json:"orderUid"`
@@ -216,7 +216,7 @@ type _SalesReportsDetailedRes SalesReportsDetailedRes
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSalesReportsDetailedRes(reportId int64, dateFrom string, dateTo string, createDate string, currency string, reportType int32, rrdId int32, giId int32, dlvPrc float32, fixTariffDateFrom string, fixTariffDateTo string, subjectName string, nmId int32, brandName string, vendorCode string, title string, techSize string, sku string, docTypeName string, quantity int32, retailPrice string, retailAmount string, salePercent int32, commissionPercent float32, officeName string, sellerOperName string, orderDt time.Time, saleDt time.Time, rrDate string, shkId int32, retailPriceWithDisc string, deliveryAmount int32, returnAmount int32, deliveryService string, giBoxTypeName string, productDiscountForReport float32, sellerPromo string, spp float32, kvwBase float32, kvw float32, supRatingUp float32, isKgvpV2 float32, ppvzSalesCommission string, forPay string, ppvzReward string, acquiringFee string, acquiringPercent float32, paymentProcessing string, acquiringBank string, vw string, vwNds string, ppvzOfficeName string, ppvzOfficeId int32, ppvzSupplierName string, ppvzSupplierInn string, declarationNumber string, stickerId string, country string, srvDbs bool, penalty string, additionalPayment string, rebillLogisticCost string, paidStorage string, deduction string, paidAcceptance string, orderId int32, isB2b bool, trbxId string, installmentCofinancingAmount string, wibesDiscountPercent float32, cashbackAmount string, cashbackDiscount string, cashbackCommissionChange string, paymentSchedule string, deliveryMethod string, sellerPromoId int32, sellerPromoDiscount float32, loyaltyId int32, loyaltyDiscount float32, uuidPromocode string, salePricePromocodeDiscountPrc float32, articleSubstitution string, salePriceAffiliatedDiscountPrc float32, salePriceWholesaleDiscountPrc float32, b2bCustomerTin string, paidWithSocialCertificate bool, warehouseLogisticsCoeff float32, orderUid string, srid string) *SalesReportsDetailedRes {
+func NewSalesReportsDetailedRes(reportId int64, dateFrom string, dateTo string, createDate string, currency string, reportType int32, rrdId int32, giId int32, dlvPrc float32, fixTariffDateFrom string, fixTariffDateTo string, subjectName string, nmId int32, brandName string, vendorCode string, title string, techSize string, sku string, docTypeName string, quantity int32, retailPrice string, retailAmount string, salePercent int32, commissionPercent float32, officeName string, sellerOperName string, orderDt time.Time, saleDt time.Time, rrDate string, shkId int32, retailPriceWithDisc string, deliveryAmount int32, returnAmount int32, deliveryService string, giBoxTypeName string, productDiscountForReport float32, sellerPromo float32, spp float32, kvwBase float32, kvw float32, supRatingUp float32, isKgvpV2 float32, ppvzSalesCommission string, forPay string, ppvzReward string, acquiringFee string, acquiringPercent float32, paymentProcessing string, acquiringBank string, vw string, vwNds string, ppvzOfficeName string, ppvzOfficeId int32, ppvzSupplierName string, ppvzSupplierInn string, declarationNumber string, stickerId string, country string, srvDbs bool, penalty string, additionalPayment string, rebillLogisticCost string, paidStorage string, deduction string, paidAcceptance string, orderId int32, isB2b bool, trbxId string, installmentCofinancingAmount string, wibesDiscountPercent float32, cashbackAmount string, cashbackDiscount string, cashbackCommissionChange string, paymentSchedule string, deliveryMethod string, sellerPromoId int32, sellerPromoDiscount float32, loyaltyId int32, loyaltyDiscount float32, uuidPromocode string, salePricePromocodeDiscountPrc float32, articleSubstitution string, salePriceAffiliatedDiscountPrc float32, salePriceWholesaleDiscountPrc float32, b2bCustomerTin string, paidWithSocialCertificate bool, warehouseLogisticsCoeff float32, orderUid string, srid string) *SalesReportsDetailedRes {
 	this := SalesReportsDetailedRes{}
 	this.ReportId = reportId
 	this.DateFrom = dateFrom
@@ -1183,9 +1183,9 @@ func (o *SalesReportsDetailedRes) SetProductDiscountForReport(v float32) {
 }
 
 // GetSellerPromo returns the SellerPromo field value
-func (o *SalesReportsDetailedRes) GetSellerPromo() string {
+func (o *SalesReportsDetailedRes) GetSellerPromo() float32 {
 	if o == nil {
-		var ret string
+		var ret float32
 		return ret
 	}
 
@@ -1194,7 +1194,7 @@ func (o *SalesReportsDetailedRes) GetSellerPromo() string {
 
 // GetSellerPromoOk returns a tuple with the SellerPromo field value
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetSellerPromoOk() (*string, bool) {
+func (o *SalesReportsDetailedRes) GetSellerPromoOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1202,7 +1202,7 @@ func (o *SalesReportsDetailedRes) GetSellerPromoOk() (*string, bool) {
 }
 
 // SetSellerPromo sets field value
-func (o *SalesReportsDetailedRes) SetSellerPromo(v string) {
+func (o *SalesReportsDetailedRes) SetSellerPromo(v float32) {
 	o.SellerPromo = v
 }
 

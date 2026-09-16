@@ -126,7 +126,7 @@ paths:
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает список о\
         тчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).\n\
-        <br><br>\nДанные доступны с 1 января 2025 года.\n\n<div class=\"description_limit\"\
+        <br><br>\nДанные доступны с 29 января 2024 года.\n\n<div class=\"description_limit\"\
         >\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Л\
         имит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал\
         \ | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1 запрос | 1 мин | 1 з\
@@ -215,7 +215,7 @@ paths:
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает детализа\
         ции к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements)\
-        \ по ID отчётов.\n<br><br>\nДанные доступны с 1 января 2025 года.\n\n<div\
+        \ по ID отчётов.\n<br><br>\nДанные доступны с 29 января 2024 года.\n\n<div\
         \ class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1 запрос | 1 мин | 1\
@@ -293,6 +293,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
+        "404":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/postV1SalesReportsDetailedReportId_404_response"
+          description: Не найдено
         "429":
           content:
             application/problem+json:
@@ -465,7 +471,7 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: "#/components/schemas/postV1SalesReportsList_400_response"
+                $ref: "#/components/schemas/postV1AcquiringList_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -563,7 +569,7 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: "#/components/schemas/postV1SalesReportsList_400_response"
+                $ref: "#/components/schemas/postV1AcquiringList_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -602,6 +608,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
+        "404":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/postV1AcquiringDetailedReportId_404_response"
+          description: Не найдено
         "429":
           content:
             application/problem+json:
@@ -661,7 +673,7 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: "#/components/schemas/postV1SalesReportsList_400_response"
+                $ref: "#/components/schemas/postV1AcquiringList_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -1419,12 +1431,30 @@ components:
           schema:
             $ref: "#/components/schemas/getV1AccountBalance_401_response"
       description: Слишком много запросов
-    response400FinancialReports:
+    response400SalesReports:
       content:
         application/problem+json:
           schema:
             $ref: "#/components/schemas/postV1SalesReportsList_400_response"
       description: Неправильный запрос
+    response400AcquiringReports:
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/postV1AcquiringList_400_response"
+      description: Неправильный запрос
+    response404SalesReports:
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/postV1SalesReportsDetailedReportId_404_response"
+      description: Не найдено
+    response404AcquiringReports:
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/postV1AcquiringDetailedReportId_404_response"
+      description: Не найдено
     Responses400List:
       content:
         application/json:
@@ -1658,11 +1688,9 @@ components:
             Тип отчёта:
               - `1` — основной
               - `2` — по выкупам
-              - `3` — по выкупам для Грузии
           enum:
           - 1
           - 2
-          - 3
           example: 1
           type: integer
         retailAmountSum:
@@ -1678,7 +1706,7 @@ components:
           example: 0
           type: number
         deliveryServiceSum:
-          description: Стоимость логистики
+          description: Стоимость доставки
           example: "2558.47"
           type: string
         paidStorageSum:
@@ -1690,7 +1718,7 @@ components:
           example: "243.81"
           type: string
         deductionSum:
-          description: Прочие удержания и выплаты
+          description: Прочие удержания/выплаты
           example: "150"
           type: string
         penaltySum:
@@ -1698,12 +1726,11 @@ components:
           example: "1457.61"
           type: string
         additionalPaymentSum:
-          description: Корректировка Вознаграждения Вайлдберриз (ВВ)
+          description: Корректировка Вознаграждения Wildberries (ВВ)
           example: "9509.71"
           type: string
         cashbackAmountSum:
-          description: "Сумма, удержанная за начисленные баллы программы лояльност\
-            и"
+          description: "Сумма баллов, удержанных по программе лояльности"
           example: "2"
           type: string
         cashbackDiscountSum:
@@ -1753,7 +1780,7 @@ components:
         fields:
         - rrdId
         - nmId
-        - docTypeName
+        - currency
         - retailAmount
         - acquiringFee
         - srid
@@ -1775,7 +1802,7 @@ components:
           example:
           - rrdId
           - nmId
-          - docTypeName
+          - currency
           - retailAmount
           - acquiringFee
           - srid
@@ -1895,7 +1922,7 @@ components:
         deliveryService: "0"
         giBoxTypeName: Монопаллета
         productDiscountForReport: 0
-        sellerPromo: "0"
+        sellerPromo: 0
         spp: 25.31
         kvwBase: 24.15
         kvw: 1.81
@@ -1907,7 +1934,7 @@ components:
         acquiringFee: "14.89"
         acquiringPercent: 4.06
         paymentProcessing: Комиссия за организацию платежа с НДС
-        acquiringBank: Тинькофф
+        acquiringBank: Вайлдберриз Банк
         vw: "22.25"
         vwNds: "4.45"
         ppvzOfficeName: Москва Москва Очаковское шоссе 6к2
@@ -1982,11 +2009,9 @@ components:
             Тип отчёта:
               - `1` — основной
               - `2` — по выкупам
-              - `3` — по выкупам для Грузии
           enum:
           - 1
           - 2
-          - 3
           example: 1
           type: integer
         rrdId:
@@ -2052,7 +2077,7 @@ components:
           example: "1249"
           type: string
         retailAmount:
-          description: Вайлдберриз реализовал Товар (Пр)
+          description: Wildberries реализовал Товар (Пр)
           example: "367"
           type: string
         salePercent:
@@ -2116,8 +2141,8 @@ components:
           type: number
         sellerPromo:
           description: "Промокод, %"
-          example: "0"
-          type: string
+          example: 0
+          type: number
         spp:
           description: "Платформенные скидки, %"
           example: 25.31
@@ -2150,30 +2175,30 @@ components:
           example: "0"
           type: string
         acquiringFee:
-          description: Компенсация платёжных услуг/Комиссия за интеграцию платёжных
+          description: Компенсация платёжных услуг/комиссия за интеграцию платёжных
             сервисов
           example: "14.89"
           type: string
         acquiringPercent:
-          description: "Размер компенсации платёжных услуг/Комиссии за интеграцию\
-            \ платёжных сервисов, %"
+          description: Размер компенсации платёжных услуг/комиссии за интеграцию платёжных
+            сервисов
           example: 4.06
           type: number
         paymentProcessing:
-          description: "Тип платежа: компенсация платёжных услуг/Комиссия за интег\
+          description: "Тип платежа: компенсация платёжных услуг/комиссия за интег\
             рацию платёжных сервисов"
           example: Комиссия за организацию платежа с НДС
           type: string
         acquiringBank:
           description: Наименование банка-эквайера
-          example: Тинькофф
+          example: Вайлдберриз Банк
           type: string
         vw:
-          description: "Вознаграждение Вайлдберриз (ВВ), без НДС"
+          description: "Вознаграждение Wildberries (ВВ), без НДС"
           example: "22.25"
           type: string
         vwNds:
-          description: НДС с вознаграждения Вайлдберриз
+          description: НДС с вознаграждения Wildberries
           example: "4.45"
           type: string
         ppvzOfficeName:
@@ -2197,7 +2222,7 @@ components:
           example: ""
           type: string
         bonusTypeName:
-          description: "Виды логистики, штрафов и корректировок ВВ"
+          description: "Виды доставок, штрафов и корректировок ВВ"
           example: Штраф МП. Невыполненный заказ (отмена клиентом после недовоза)
           type: string
         stickerId:
@@ -2217,11 +2242,12 @@ components:
           example: "231.35"
           type: string
         additionalPayment:
-          description: Корректировка Вознаграждения Вайлдберриз (ВВ)
+          description: Корректировка Вознаграждения Wildberries (ВВ)
           example: "0"
           type: string
         rebillLogisticCost:
-          description: Возмещение издержек по перевозке/по складским операциям с товаром
+          description: Возмещение издержек по перемещению и операционной обработке
+            товара
           example: "1.349"
           type: string
         rebillLogisticOrg:
@@ -2245,7 +2271,7 @@ components:
           example: 2816993144
           type: integer
         kiz:
-          description: "Код маркировки [Честного знака](https://честныйзнак.рф/)"
+          description: "Код маркировки [Честного знака](https://честныйзнак.рф)"
           example: "0102900000376311210G2CIS?ehge)S\x1d91002A\x1d92F9Qof4FDo/31Icm14kmtuVYQzLypxm3HWkC1vQ/+pVVjm1dNAth1laFMoAGn7yEMWlTjxIe7lQnJqZ7TRZhlHQ=="
           type: string
         isB2b:
@@ -2265,8 +2291,7 @@ components:
           example: 1
           type: number
         cashbackAmount:
-          description: "Сумма, удержанная за начисленные баллы программы лояльност\
-            и"
+          description: "Сумма баллов, удержанных по программе лояльности"
           example: "2"
           type: string
         cashbackDiscount:
@@ -2336,7 +2361,7 @@ components:
           example: false
           type: boolean
         warehouseLogisticsCoeff:
-          description: Коэффициент логистики
+          description: Коэффициент доставки
           example: 0
           type: number
         orderUid:
@@ -2550,7 +2575,7 @@ components:
         fields:
         - rrdId
         - nmId
-        - docTypeName
+        - documentType
         - retailAmount
         - acquiringFee
         - srid
@@ -2590,7 +2615,7 @@ components:
           example:
           - rrdId
           - nmId
-          - docTypeName
+          - documentType
           - retailAmount
           - acquiringFee
           - srid
@@ -2607,12 +2632,12 @@ components:
         rrdId: 1232610467
         reportId: 1234567
         acqDate: 2026-03-21
-        acquiringBank: Тинькофф
+        acquiringBank: Вайлдберриз Банк
         tin: "010101010101"
         taxRegistrationReasonCode: "7701123301"
         saleDate: 2026-03-21
         srid: D0.r3f80c3eec6f845c6840128b4c19986f9.0.0
-        docTypeName: Продажа
+        documentType: Продажа
         nmId: 1234567
         retailAmount: "367"
         acquiringFee: "14.89"
@@ -2637,7 +2662,7 @@ components:
           type: string
         acquiringBank:
           description: Наименование банка-эквайера
-          example: Тинькофф
+          example: Вайлдберриз Банк
           type: string
         tin:
           description: ИНН
@@ -2656,7 +2681,7 @@ components:
             ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
           example: D0.r3f80c3eec6f845c6840128b4c19986f9.0.0
           type: string
-        docTypeName:
+        documentType:
           description: Тип документа
           example: Продажа
           type: string
@@ -2665,7 +2690,7 @@ components:
           example: 1234567
           type: integer
         retailAmount:
-          description: Вайлдберриз реализовал Товар (Пр)
+          description: Wildberries реализовал Товар (Пр)
           example: "367"
           type: string
         acquiringFee:
@@ -2698,7 +2723,7 @@ components:
       - acquiringFee
       - acquiringFeeVat
       - currency
-      - docTypeName
+      - documentType
       - invoiceDate
       - invoiceNumber
       - nmId
@@ -2832,11 +2857,12 @@ components:
           type: integer
         title:
           description: Заголовок ошибки
-          example: GetReportDetailByPeriodNB decode error
+          example: GetReportDetailByPeriodNBAndNNB decode error
           type: string
         detail:
           description: Детали ошибки
-          example: "GetReportDetailByPeriodNB decode error: missing dateTo params"
+          example: "GetReportDetailByPeriodNBAndNNB decode error: Key: 'FinancialDetailedByPeriodRequestV4.DateTo'\
+            \ Error:Field validation for 'DateTo' failed on the 'required' tag"
           type: string
         requestId:
           description: ID запроса
@@ -2846,6 +2872,102 @@ components:
           description: ID внутреннего сервиса WB
           example: open-api-finreports
           type: string
+      required:
+      - detail
+      - origin
+      - requestId
+      - status
+      - title
+      type: object
+    postV1SalesReportsDetailedReportId_404_response:
+      properties:
+        status:
+          description: HTTP статус-код
+          example: 404
+          type: integer
+        title:
+          description: Заголовок ошибки
+          example: GetDetailsByReportID error
+          type: string
+        detail:
+          description: Детали ошибки
+          example: "GetDetailsByReportID error: generate meta key: get report data:\
+            \ report id not found"
+          type: string
+        requestId:
+          description: ID запроса
+          example: 4565feab-860b-493c-ad8d-6eda4d1902db
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          example: open-api-finreports
+          type: string
+      required:
+      - detail
+      - origin
+      - requestId
+      - status
+      - title
+      type: object
+    postV1AcquiringList_400_response:
+      properties:
+        status:
+          description: HTTP статус-код
+          example: 400
+          type: integer
+        title:
+          description: Заголовок ошибки
+          example: GetAcquiringGeneralReport decode error
+          type: string
+        detail:
+          description: Детали ошибки
+          example: "GetAcquiringGeneralReport decode error: Key: 'AcquiringGeneralReportRequestV2.DateTo'\
+            \ Error:Field validation for 'DateTo' failed on the 'required' tag"
+          type: string
+        requestId:
+          description: ID запроса
+          example: 4950c661-9056-4baa-a0ed-c7e498c4a557
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          example: open-api-finreports
+          type: string
+      required:
+      - detail
+      - origin
+      - requestId
+      - status
+      - title
+      type: object
+    postV1AcquiringDetailedReportId_404_response:
+      properties:
+        status:
+          description: HTTP статус-код
+          example: 404
+          type: integer
+        title:
+          description: Заголовок ошибки
+          example: GetAcquiringReportByReportID usecase error
+          type: string
+        detail:
+          description: Детали ошибки
+          example: "GetAcquiringReportByReportID usecase error: generate meta key:\
+            \ get report data: report id not found"
+          type: string
+        requestId:
+          description: ID запроса
+          example: b8c4a3db-2860-4df6-99dc-10602ddbc003
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          example: open-api-finreports
+          type: string
+      required:
+      - detail
+      - origin
+      - requestId
+      - status
+      - title
       type: object
     getV1DocumentsList_400_response:
       example:

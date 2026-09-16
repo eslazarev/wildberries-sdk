@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetV0BidsRecommendations200Response {
-    V0BidsRecommendationsCpmResponse(Box<models::V0BidsRecommendationsCpmResponse>),
-    V0BidsRecommendationsCpcResponse(Box<models::V0BidsRecommendationsCpcResponse>),
+    V0BidsRecommendationsCpmResponse1(Box<models::V0BidsRecommendationsCpmResponse1>),
+    V0BidsRecommendationsCpcResponse2(Box<models::V0BidsRecommendationsCpcResponse2>),
 }
 
 impl Default for GetV0BidsRecommendations200Response {
     fn default() -> Self {
-        Self::V0BidsRecommendationsCpmResponse(Default::default())
+        Self::V0BidsRecommendationsCpmResponse1(Default::default())
     }
 }
 /// Тип оплаты:   - `cpc` — за клики 

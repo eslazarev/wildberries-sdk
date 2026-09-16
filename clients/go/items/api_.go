@@ -4020,7 +4020,7 @@ GetV2QuarantineGoods Получить товары в карантине
 
 Метод возвращает информацию о товарах в карантине.
 <br><br>
-Если новая цена товара со скидкой будет минимум в 3 раза меньше старой, товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в ответах методов [состояний загрузок](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).
+Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
 <br><br>
 Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
 <br><br>
@@ -4409,7 +4409,7 @@ GetV3DbwWarehousesWarehouseIdContacts Список контактов
 
 Метод возвращает список контактов, привязанных к [складу продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 <br>
-Только для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).
+Только для складов с типом доставки `3` — Деливери WB ([DBW](/openapi/orders-dbw)).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
@@ -9978,7 +9978,7 @@ PutV3DbwWarehousesWarehouseIdContacts Обновить список контак
   Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.
 </div>
 
-Только для складов с типом доставки `3` — курьером WB (DBW).
+Только для складов с типом доставки `3` — Деливери WB (DBW).
 <br><br>
 К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.
 

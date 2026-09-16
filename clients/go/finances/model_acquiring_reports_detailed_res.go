@@ -38,10 +38,10 @@ type AcquiringReportsDetailedRes struct {
 	// ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid` 
 	Srid string `json:"srid"`
 	// Тип документа
-	DocTypeName string `json:"docTypeName"`
+	DocumentType string `json:"documentType"`
 	// Артикул WB
 	NmId int32 `json:"nmId"`
-	// Вайлдберриз реализовал Товар (Пр)
+	// Wildberries реализовал Товар (Пр)
 	RetailAmount string `json:"retailAmount"`
 	// Размер комиссии за эквайринг, в том числе НДС
 	AcquiringFee string `json:"acquiringFee"`
@@ -63,7 +63,7 @@ type _AcquiringReportsDetailedRes AcquiringReportsDetailedRes
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAcquiringReportsDetailedRes(rrdId int32, reportId int64, acqDate string, acquiringBank string, tin string, taxRegistrationReasonCode string, saleDate string, srid string, docTypeName string, nmId int32, retailAmount string, acquiringFee string, acquiringFeeVat string, invoiceNumber string, invoiceDate string, shkId int32, currency string) *AcquiringReportsDetailedRes {
+func NewAcquiringReportsDetailedRes(rrdId int32, reportId int64, acqDate string, acquiringBank string, tin string, taxRegistrationReasonCode string, saleDate string, srid string, documentType string, nmId int32, retailAmount string, acquiringFee string, acquiringFeeVat string, invoiceNumber string, invoiceDate string, shkId int32, currency string) *AcquiringReportsDetailedRes {
 	this := AcquiringReportsDetailedRes{}
 	this.RrdId = rrdId
 	this.ReportId = reportId
@@ -73,7 +73,7 @@ func NewAcquiringReportsDetailedRes(rrdId int32, reportId int64, acqDate string,
 	this.TaxRegistrationReasonCode = taxRegistrationReasonCode
 	this.SaleDate = saleDate
 	this.Srid = srid
-	this.DocTypeName = docTypeName
+	this.DocumentType = documentType
 	this.NmId = nmId
 	this.RetailAmount = retailAmount
 	this.AcquiringFee = acquiringFee
@@ -285,28 +285,28 @@ func (o *AcquiringReportsDetailedRes) SetSrid(v string) {
 	o.Srid = v
 }
 
-// GetDocTypeName returns the DocTypeName field value
-func (o *AcquiringReportsDetailedRes) GetDocTypeName() string {
+// GetDocumentType returns the DocumentType field value
+func (o *AcquiringReportsDetailedRes) GetDocumentType() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.DocTypeName
+	return o.DocumentType
 }
 
-// GetDocTypeNameOk returns a tuple with the DocTypeName field value
+// GetDocumentTypeOk returns a tuple with the DocumentType field value
 // and a boolean to check if the value has been set.
-func (o *AcquiringReportsDetailedRes) GetDocTypeNameOk() (*string, bool) {
+func (o *AcquiringReportsDetailedRes) GetDocumentTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.DocTypeName, true
+	return &o.DocumentType, true
 }
 
-// SetDocTypeName sets field value
-func (o *AcquiringReportsDetailedRes) SetDocTypeName(v string) {
-	o.DocTypeName = v
+// SetDocumentType sets field value
+func (o *AcquiringReportsDetailedRes) SetDocumentType(v string) {
+	o.DocumentType = v
 }
 
 // GetNmId returns the NmId field value
@@ -519,7 +519,7 @@ func (o AcquiringReportsDetailedRes) ToMap() (map[string]interface{}, error) {
 	toSerialize["taxRegistrationReasonCode"] = o.TaxRegistrationReasonCode
 	toSerialize["saleDate"] = o.SaleDate
 	toSerialize["srid"] = o.Srid
-	toSerialize["docTypeName"] = o.DocTypeName
+	toSerialize["documentType"] = o.DocumentType
 	toSerialize["nmId"] = o.NmId
 	toSerialize["retailAmount"] = o.RetailAmount
 	toSerialize["acquiringFee"] = o.AcquiringFee
@@ -544,7 +544,7 @@ func (o *AcquiringReportsDetailedRes) UnmarshalJSON(data []byte) (err error) {
 		"taxRegistrationReasonCode",
 		"saleDate",
 		"srid",
-		"docTypeName",
+		"documentType",
 		"nmId",
 		"retailAmount",
 		"acquiringFee",

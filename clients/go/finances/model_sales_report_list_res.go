@@ -33,7 +33,7 @@ type SalesReportListRes struct {
 	CreateDate string `json:"createDate"`
 	// Валюта отчёта
 	Currency string `json:"currency"`
-	// Тип отчёта:   - `1` — основной   - `2` — по выкупам   - `3` — по выкупам для Грузии 
+	// Тип отчёта:   - `1` — основной   - `2` — по выкупам 
 	ReportType int32 `json:"reportType"`
 	// Продажа
 	RetailAmountSum string `json:"retailAmountSum"`
@@ -41,19 +41,19 @@ type SalesReportListRes struct {
 	ForPaySum string `json:"forPaySum"`
 	// Согласованная скидка, %
 	AvgSalePercent float32 `json:"avgSalePercent"`
-	// Стоимость логистики
+	// Стоимость доставки
 	DeliveryServiceSum string `json:"deliveryServiceSum"`
 	// Стоимость хранения
 	PaidStorageSum string `json:"paidStorageSum"`
 	// Стоимость операций при приёмке
 	PaidAcceptanceSum string `json:"paidAcceptanceSum"`
-	// Прочие удержания и выплаты
+	// Прочие удержания/выплаты
 	DeductionSum string `json:"deductionSum"`
 	// Общая сумма штрафов
 	PenaltySum string `json:"penaltySum"`
-	// Корректировка Вознаграждения Вайлдберриз (ВВ)
+	// Корректировка Вознаграждения Wildberries (ВВ)
 	AdditionalPaymentSum string `json:"additionalPaymentSum"`
-	// Сумма, удержанная за начисленные баллы программы лояльности
+	// Сумма баллов, удержанных по программе лояльности
 	CashbackAmountSum string `json:"cashbackAmountSum"`
 	// Компенсация скидки по программе лояльности
 	CashbackDiscountSum string `json:"cashbackDiscountSum"`
