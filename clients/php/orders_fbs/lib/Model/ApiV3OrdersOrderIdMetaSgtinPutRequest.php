@@ -313,7 +313,7 @@ class ApiV3OrdersOrderIdMetaSgtinPutRequest implements ModelInterface, ArrayAcce
     /**
      * Sets sgtins
      *
-     * @param string[] $sgtins Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). <br> Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#bfd5fce8-e0fd-4f15-9d8b-e616fac02c2e) коды маркировки:   - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом)   - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста)    GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D`
+     * @param string[] $sgtins Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). <br> Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#1a16df06-567b-4260-a36d-659a60e3a0fd) коды маркировки:   - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом)   - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста)    GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D`
      *
      * @return self
      */
