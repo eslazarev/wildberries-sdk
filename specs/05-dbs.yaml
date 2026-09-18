@@ -21,9 +21,11 @@ tags:
   - name: Сборочные задания DBS
     x-displayName: Сборочные задания DBS
     description: ''
+    x-tagKey: dbsAssemblyOrders
   - name: Идентификаторы маркировки DBS
     x-displayName: Идентификаторы маркировки DBS
     description: ''
+    x-tagKey: dbsLabelIdentifiers
 paths:
   /api/v3/dbs/orders/new:
     servers:

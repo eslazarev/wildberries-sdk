@@ -28,27 +28,35 @@ tags:
   - name: Кампании
     x-displayName: Кампании
     description: ''
+    x-tagKey: campaigns
   - name: Создание кампаний
     x-displayName: Создание кампаний
     description: ''
+    x-tagKey: creatingCampaigns
   - name: Управление кампаниями
     x-displayName: Управление кампаниями
     description: ''
+    x-tagKey: campaignManagement
   - name: Поисковые кластеры
     x-displayName: Поисковые кластеры
     description: ''
+    x-tagKey: searchClusters
   - name: Финансы
     x-displayName: Финансы
     description: ''
+    x-tagKey: finances
   - name: Медиа
     x-displayName: Медиа
     description: ''
+    x-tagKey: media
   - name: Статистика
     x-displayName: Статистика
     description: ''
+    x-tagKey: statistics
   - name: Календарь акций
     x-displayName: Календарь акций
     description: ''
+    x-tagKey: promoCalendar
 paths:
   /adv/v1/promotion/count:
     servers:

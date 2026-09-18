@@ -30,30 +30,39 @@ tags:
   - name: Категории, предметы и характеристики
     x-displayName: Категории, предметы и характеристики
     description: ''
+    x-tagKey: categoriesSubcategoriesAndCharacteristics
   - name: Создание карточек товаров
     x-displayName: Создание карточек товаров
     description: ''
+    x-tagKey: listingItems
   - name: Карточки товаров
     x-displayName: Карточки товаров
     description: ''
+    x-tagKey: listings
   - name: Медиафайлы
     x-displayName: Медиафайлы
     description: ''
+    x-tagKey: mediaFiles
   - name: Ярлыки
     x-displayName: Ярлыки
     description: ''
+    x-tagKey: labels
   - name: Рекомендации
     x-displayName: Рекомендации
     description: ''
+    x-tagKey: recommendations
   - name: Цены и скидки
     x-displayName: Цены и скидки
     description: ''
+    x-tagKey: pricesAndDiscounts
   - name: Склады продавца
     x-displayName: Склады продавца
     description: ''
+    x-tagKey: sellerWarehouses
   - name: Остатки на складах продавца
     x-displayName: Остатки на складах продавца
     description: ''
+    x-tagKey: sellerWarehousesInventory
 paths:
   /content/v2/object/parent/all:
     servers:

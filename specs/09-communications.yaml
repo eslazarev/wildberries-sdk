@@ -31,18 +31,23 @@ tags:
   - name: Вопросы
     x-displayName: Вопросы
     description: ''
+    x-tagKey: questions
   - name: Отзывы
     x-displayName: Отзывы
     description: ''
+    x-tagKey: feedbacks
   - name: Закреплённые отзывы
     x-displayName: Закреплённые отзывы
     description: ''
+    x-tagKey: pinnedFeedbacks
   - name: Чат с покупателями
     x-displayName: Чат с покупателями
     description: ''
+    x-tagKey: buyersChat
   - name: Возвраты покупателями
     x-displayName: Возвраты покупателями
     description: ''
+    x-tagKey: buyersReturns
 paths:
   /api/v1/new-feedbacks-questions:
     servers:

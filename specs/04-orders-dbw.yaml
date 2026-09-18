@@ -23,9 +23,11 @@ tags:
   - name: Сборочные задания DBW
     x-displayName: Сборочные задания DBW
     description: ''
+    x-tagKey: dbwAssemblyOrders
   - name: Идентификаторы маркировки DBW
     x-displayName: Идентификаторы маркировки DBW
     description: ''
+    x-tagKey: dbwLabelIdentifiers
 paths:
   /api/v3/dbw/orders/new:
     servers:

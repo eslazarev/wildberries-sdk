@@ -23,15 +23,19 @@ tags:
   - name: Комиссии
     x-displayName: Комиссии
     description: ''
+    x-tagKey: fees
   - name: Тарифы на поставку
     x-displayName: Тарифы на поставку
     description: ''
+    x-tagKey: supplyRates
   - name: Тарифы на остаток
     x-displayName: Тарифы на остаток
     description: ''
+    x-tagKey: stockRates
   - name: Стоимость возврата продавцу
     x-displayName: Стоимость возврата продавцу
     description: ''
+    x-tagKey: returnCostToSeller
 paths:
   /api/v1/tariffs/commission:
     servers:
