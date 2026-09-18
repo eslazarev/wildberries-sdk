@@ -28,33 +28,43 @@ tags:
   - name: Основные отчёты
     x-displayName: Основные отчёты
     description: ''
+    x-tagKey: mainReports
   - name: Отчёт об остатках на складах
     x-displayName: Отчёт об остатках на складах
     description: ''
+    x-tagKey: warehousesInventoryReport
   - name: Отчёт о товарах c обязательной маркировкой
     x-displayName: Отчёт о товарах c обязательной маркировкой
     description: ''
+    x-tagKey: reportOnItemsWithMandatoryLabeling
   - name: Отчёты об удержаниях
     x-displayName: Отчёты об удержаниях
     description: ''
+    x-tagKey: retentionReports
   - name: Операции при приёмке
     x-displayName: Операции при приёмке
     description: ''
+    x-tagKey: acceptanceExpenses
   - name: Платное хранение
     x-displayName: Платное хранение
     description: ''
+    x-tagKey: paidStorage
   - name: Продажи по регионам
     x-displayName: Продажи по регионам
     description: ''
+    x-tagKey: salesByRegions
   - name: Доля бренда в продажах
     x-displayName: Доля бренда в продажах
     description: ''
+    x-tagKey: shareOfBrandInSales
   - name: Заблокированные карточки
     x-displayName: Заблокированные карточки
     description: ''
+    x-tagKey: blockedItems
   - name: Отчёт о возвратах и перемещении товаров
     x-displayName: Отчёт о возвратах и перемещении товаров
     description: ''
+    x-tagKey: returnsAndItemMovementReport
 paths:
   /api/v1/supplier/orders:
     servers:

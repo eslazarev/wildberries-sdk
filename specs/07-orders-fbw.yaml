@@ -23,12 +23,15 @@ tags:
   - name: Информация для формирования поставок
     x-displayName: Информация для формирования поставок
     description: ''
+    x-tagKey: informationForFormingSupplies
   - name: Информация о поставках
     x-displayName: Информация о поставках
     description: ''
+    x-tagKey: suppliesInformation
   - name: Черновики поставок
     x-displayName: Черновики поставок
     description: ''
+    x-tagKey: supplyDrafts
 paths:
   /api/v1/acceptance/options:
     servers:

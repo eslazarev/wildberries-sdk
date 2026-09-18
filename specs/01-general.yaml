@@ -27,21 +27,27 @@ tags:
   - name: Введение
     x-displayName: Введение
     description: ''
+    x-tagKey: introduction
   - name: Авторизация
     x-displayName: Авторизация
     description: ''
+    x-tagKey: authorization
   - name: Проверка подключения к WB API
     x-displayName: Проверка подключения к WB API
     description: ''
+    x-tagKey: connectionCheck
   - name: API новостей
     x-displayName: API новостей
     description: ''
+    x-tagKey: newsApi
   - name: Информация о продавце
     x-displayName: Информация о продавце
     description: ''
+    x-tagKey: sellerInformation
   - name: Управление пользователями продавца
     x-displayName: Управление пользователями продавца
     description: ''
+    x-tagKey: sellerUserManagement
 paths:
   /ping:
     servers:
@@ -49,7 +55,7 @@ paths:
     get:
       operationId: getPing
       x-readonly-method: true
-      x-category: all
+      x-category: commonapi
       tags:
         - Проверка подключения к WB API
       security:
@@ -85,8 +91,14 @@ paths:
         | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
 
         <div class="description_limit">
-          Максимум 3 запроса за 30 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 990 сек | 99 запросов | 10 сек | 99 запросов |
         </div>
+
+        Лимит действует отдельно для каждого варианта метода в зависимости от домена
       responses:
         '200':
           description: Успешно

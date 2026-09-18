@@ -33,6 +33,7 @@ tags:
   - name: Идентификаторы маркировки FBS
     x-displayName: Идентификаторы маркировки FBS
     description: ''
+    x-tagKey: fbsLabelIdentifiers
   - name: Поставки FBS
     description: ''
   - name: Пропуска FBS
@@ -40,6 +41,7 @@ tags:
   - name: Настройки автовозврата
     x-displayName: Настройки автовозврата
     description: ''
+    x-tagKey: autoreturnSettings
 paths:
   /api/v3/passes/offices:
     servers:
