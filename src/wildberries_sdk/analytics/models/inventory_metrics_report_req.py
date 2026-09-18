@@ -30,7 +30,7 @@ class InventoryMetricsReportReq(BaseModel):
     InventoryMetricsReportReq
     """ # noqa: E501
     id: UUID = Field(description="ID отчёта в UUID-формате. Генерируется продавцом самостоятельно")
-    report_type: StrictStr = Field(description="Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике остатков", alias="reportType")
+    report_type: StrictStr = Field(description="Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике остатков. <br> Данные отчёта обновляются 1 раз в 2 часа", alias="reportType")
     user_report_name: Optional[StrictStr] = Field(default=None, description="Название отчёта. Если не указано, сформируется автоматически", alias="userReportName")
     params: CommonReportFilters = Field(description="Параметры отчёта")
     __properties: ClassVar[List[str]] = ["id", "reportType", "userReportName", "params"]

@@ -16,7 +16,7 @@ pub struct InventoryMetricsReportReq {
     /// ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
     #[serde(rename = "id")]
     pub id: uuid::Uuid,
-    /// Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике остатков
+    /// Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике остатков. <br> Данные отчёта обновляются 1 раз в 2 часа
     #[serde(rename = "reportType")]
     pub report_type: String,
     /// Название отчёта. Если не указано, сформируется автоматически

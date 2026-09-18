@@ -35,6 +35,7 @@ tags:
 - description: ""
   name: Идентификаторы маркировки FBS
   x-displayName: Идентификаторы маркировки FBS
+  x-tagKey: fbsLabelIdentifiers
 - description: ""
   name: Поставки FBS
 - description: ""
@@ -42,6 +43,7 @@ tags:
 - description: ""
   name: Настройки автовозврата
   x-displayName: Настройки автовозврата
+  x-tagKey: autoreturnSettings
 paths:
   /api/v3/passes/offices:
     get:

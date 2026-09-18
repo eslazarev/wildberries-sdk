@@ -32,7 +32,7 @@ export interface InventoryHistoryReportReq {
      */
     id: string;
     /**
-     * Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков
+     * Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков. <br> Данные отчёта обновляются 1 раз в 2 часа
      */
     reportType: string;
     /**

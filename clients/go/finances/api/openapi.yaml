@@ -21,12 +21,15 @@ tags:
 - description: ""
   name: Баланс
   x-displayName: Баланс
+  x-tagKey: balance
 - description: ""
   name: Финансовые отчёты
   x-displayName: Финансовые отчёты
+  x-tagKey: financialReports
 - description: ""
   name: Документы
   x-displayName: Документы
+  x-tagKey: documents
 paths:
   /api/v1/account/balance:
     get:

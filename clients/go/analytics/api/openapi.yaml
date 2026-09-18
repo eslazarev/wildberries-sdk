@@ -27,21 +27,27 @@ tags:
 - description: ""
   name: Воронка продаж
   x-displayName: Воронка продаж
+  x-tagKey: salesFunnel
 - description: ""
   name: Лента заказов
   x-displayName: Лента заказов
+  x-tagKey: orderFeed
 - description: ""
   name: Поисковые запросы по вашим товарам
   x-displayName: Поисковые запросы по вашим товарам
+  x-tagKey: searchQueriesForYourItems
 - description: ""
   name: История остатков
   x-displayName: История остатков
+  x-tagKey: stocksReport
 - description: ""
   name: Оценка товара
   x-displayName: Оценка товара
+  x-tagKey: itemRating
 - description: ""
   name: Аналитика продавца CSV
   x-displayName: Аналитика продавца CSV
+  x-tagKey: sellerAnalyticsCsv
 paths:
   /api/analytics/v3/sales-funnel/products:
     post:
@@ -2015,7 +2021,7 @@ paths:
         <br><br>
         Группа товаров описывается кортежем `subjectID, brandName, tagID`.<br><br>
 
-        Данные отчёта обновляются 1 раз в час.
+        Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2115,7 +2121,7 @@ paths:
         <br><br>
         Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.<br><br>
 
-        Данные отчёта обновляются 1 раз в час.
+        Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2221,7 +2227,7 @@ paths:
         Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.<br></br>
         Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"officeName":""`.<br><br>
 
-        Данные отчёта обновляются 1 раз в час.
+        Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2321,7 +2327,7 @@ paths:
         <br><br>
         Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"offices":[]`.<br><br>
 
-        Данные отчёта обновляются 1 раз в час.
+        Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -4907,7 +4913,7 @@ components:
           type: string
         reportType:
           description: Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике
-            остатков
+            остатков. <br> Данные отчёта обновляются 1 раз в 2 часа
           type: string
         userReportName:
           description: "Название отчёта. Если не указано, сформируется автоматичес\
@@ -4929,7 +4935,8 @@ components:
           format: uuid
           type: string
         reportType:
-          description: Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков
+          description: Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков.
+            <br> Данные отчёта обновляются 1 раз в 2 часа
           type: string
         userReportName:
           description: "Название отчёта. Если не указано, сформируется автоматичес\

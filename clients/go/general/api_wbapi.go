@@ -63,8 +63,14 @@ GetPing Проверка подключения
 | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
 
 <div class="description_limit">
-  Максимум 3 запроса за 30 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 990 сек | 99 запросов | 10 сек | 99 запросов |
 </div>
+
+Лимит действует отдельно для каждого варианта метода в зависимости от домена
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

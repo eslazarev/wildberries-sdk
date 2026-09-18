@@ -19,9 +19,11 @@ tags:
 - description: ""
   name: Сборочные задания Самовывоз
   x-displayName: Сборочные задания Самовывоз
+  x-tagKey: inStorePickupAssemblyOrders
 - description: ""
   name: Идентификаторы маркировки Самовывоз
   x-displayName: Идентификаторы маркировки Самовывоз
+  x-tagKey: inStorePickupLabelIdentifiers
 paths:
   /api/v3/click-collect/orders/new:
     get:

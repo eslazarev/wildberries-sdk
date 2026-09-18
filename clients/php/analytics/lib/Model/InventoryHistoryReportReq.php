@@ -359,7 +359,7 @@ class InventoryHistoryReportReq implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets report_type
      *
-     * @param string $report_type Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков
+     * @param string $report_type Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков. <br> Данные отчёта обновляются 1 раз в 2 часа
      *
      * @return self
      */

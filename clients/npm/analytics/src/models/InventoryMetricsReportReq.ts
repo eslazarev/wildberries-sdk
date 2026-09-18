@@ -32,7 +32,7 @@ export interface InventoryMetricsReportReq {
      */
     id: string;
     /**
-     * Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике остатков
+     * Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике остатков. <br> Данные отчёта обновляются 1 раз в 2 часа
      */
     reportType: string;
     /**

@@ -23,7 +23,7 @@ var _ MappedNullable = &InventoryHistoryReportReq{}
 type InventoryHistoryReportReq struct {
 	// ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
 	Id string `json:"id"`
-	// Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков
+	// Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков. <br> Данные отчёта обновляются 1 раз в 2 часа
 	ReportType string `json:"reportType"`
 	// Название отчёта. Если не указано, сформируется автоматически
 	UserReportName *string `json:"userReportName,omitempty"`

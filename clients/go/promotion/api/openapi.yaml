@@ -30,27 +30,35 @@ tags:
 - description: ""
   name: Кампании
   x-displayName: Кампании
+  x-tagKey: campaigns
 - description: ""
   name: Создание кампаний
   x-displayName: Создание кампаний
+  x-tagKey: creatingCampaigns
 - description: ""
   name: Управление кампаниями
   x-displayName: Управление кампаниями
+  x-tagKey: campaignManagement
 - description: ""
   name: Поисковые кластеры
   x-displayName: Поисковые кластеры
+  x-tagKey: searchClusters
 - description: ""
   name: Финансы
   x-displayName: Финансы
+  x-tagKey: finances
 - description: ""
   name: Медиа
   x-displayName: Медиа
+  x-tagKey: media
 - description: ""
   name: Статистика
   x-displayName: Статистика
+  x-tagKey: statistics
 - description: ""
   name: Календарь акций
   x-displayName: Календарь акций
+  x-tagKey: promoCalendar
 paths:
   /adv/v1/promotion/count:
     get:
