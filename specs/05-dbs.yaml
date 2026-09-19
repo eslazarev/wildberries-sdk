@@ -11,7 +11,7 @@ info:
 
     Управление [сборочными заданиями](/openapi/dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/dbs#tag/dbsLabelIdentifiers) DBS (Delivery by Seller).<br><br>
 
-    Вы можете протестировать методы DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя
+    Вы можете протестировать методы DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceDbs) для эмуляции действий пользователя
 
     </div>
   x-file-name: dbs
@@ -2398,6 +2398,7 @@ components:
           example: 123456789
         chrtId:
           type: integer
+          format: uint64
           nullable: false
           description: ID размера товара в системе WB
           example: 987654321
@@ -2573,6 +2574,7 @@ components:
           example: 12345678
         chrtId:
           type: integer
+          format: uint64
           nullable: false
           description: ID размера товара в системе WB
           example: 987654321

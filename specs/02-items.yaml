@@ -14,7 +14,7 @@ info:
       - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts)
       - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца
 
-    Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров
+    Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаров
 
     </div>
 
@@ -2109,7 +2109,7 @@ paths:
                             properties:
                               chrtID:
                                 type: integer
-                                format: int64
+                                format: uint64
                                 description: Числовой ID размера для данного артикула WB
                               techSize:
                                 type: string
@@ -2597,6 +2597,7 @@ paths:
                       properties:
                         chrtID:
                           type: integer
+                          format: uint64
                           description: |
                             ID размера для данного артикула WB<br>
                             Обязателен к заполнению для существующих размеров<br>
@@ -3254,6 +3255,7 @@ paths:
                             properties:
                               chrtID:
                                 type: integer
+                                format: uint64
                                 description: ID размера
                               techSize:
                                 type: string
@@ -5541,6 +5543,7 @@ paths:
                     properties:
                       chrtId:
                         type: integer
+                        format: uint64
                         description: ID размера товара
                         example: 12345678
                       amount:
@@ -5672,6 +5675,7 @@ paths:
                   description: Массив ID размеров товаров
                   items:
                     type: integer
+                    format: uint64
                     nullable: false
                     example: 123456789
               required:
@@ -5778,6 +5782,7 @@ paths:
                   description: Массив ID размеров товаров
                   items:
                     type: integer
+                    format: uint64
                     example: 12345678
               required:
                 - chrtIds
@@ -5797,6 +5802,7 @@ paths:
                       properties:
                         chrtId:
                           type: integer
+                          format: uint64
                           description: ID размера товара
                           example: 12345678
                         amount:
@@ -6746,6 +6752,7 @@ components:
                   description: Баркод
                 chrtId:
                   type: integer
+                  format: uint64
                   description: ID размера товара
                 amount:
                   type: integer

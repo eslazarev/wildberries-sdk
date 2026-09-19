@@ -2784,6 +2784,7 @@ components:
             description: ID поставки
           chrtId:
             type: integer
+            format: uint64
             description: ID размера для этого артикула WB
           size:
             type: string
