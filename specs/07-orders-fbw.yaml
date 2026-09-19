@@ -657,6 +657,8 @@ paths:
                   $ref: '#/components/examples/BadOffsetFormat'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
     post:
@@ -695,6 +697,8 @@ paths:
                 $ref: '#/components/schemas/models.DraftCreateResponse'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/supplies/v1/drafts/{draftId}:
@@ -734,6 +738,7 @@ paths:
           required: true
           schema:
             type: string
+            format: UUID
       responses:
         '204':
           description: Успешно
@@ -751,6 +756,8 @@ paths:
                 origin: supply-api
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '404':
           description: Не найдено
           content:
@@ -834,6 +841,8 @@ paths:
                   $ref: '#/components/examples/BadDraftIdFormat'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '404':
           description: Не найдено
           content:
@@ -928,6 +937,8 @@ paths:
                   $ref: '#/components/examples/ItemsArrayLimitExceeded'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '404':
           description: Не найдено
           content:
@@ -1013,6 +1024,8 @@ paths:
                   $ref: '#/components/examples/BadRequestDraftItems1'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '404':
           description: Не найдено
           content:
@@ -1027,6 +1040,114 @@ paths:
                 origin: supply-api
         '429':
           $ref: '#/components/responses/429'
+  /api/supplies/v1/discrepancies/{supplyId}:
+    servers:
+      - url: https://supplies-api.wildberries.ru
+    get:
+      operationId: getV1SuppliesSupplyIdDiscrepanciesQuantity
+      x-readonly-method: true
+      x-category: supplies
+      x-token-types:
+        - personal
+      tags:
+        - Информация о поставках
+      summary: Расхождения в поставке
+      description: |
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
+        </div>
+
+        Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
+        <br>
+        Для поставок принятых не позднее года назад.
+        <br><br>
+        **Типы расхождений:**
+        <br><br>
+        Расхождение в большую сторону:<br><br>
+        1. Избыток товара с заявленным баркодом:
+          - `"discrepancyType": "surplus"`
+          - `"discrepancyLabel": "surplus"`
+        2. Избыток товара с несоответствующим заявленному баркодом:
+          - `"discrepancyType": "surplus"`
+          - `"discrepancyLabel": "re-sorting"`
+
+        Расхождение в меньшую сторону:<br><br>
+        1. Не хватает товара:
+          - `"discrepancyType": "shortage"`
+          - `"discrepancyLabel": "shortage"`
+        2. Некоторые баркоды не соответствуют заявленным:
+          - `"discrepancyType": "shortage"`
+          - `"discrepancyLabel": "re-sorting"`
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 1 запрос | 1 мин | 1 запрос |
+        </div>
+      parameters:
+        - name: supplyId
+          in: path
+          description: ID поставки
+          required: true
+          schema:
+            type: string
+            format: integer
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/models.ItemDiscrepancyResponse'
+              examples:
+                ItemDiscrepancyResponse:
+                  $ref: '#/components/examples/ItemDiscrepancyResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                BadPathParamFormat:
+                  $ref: '#/components/examples/BadPathParamFormat'
+                BadSupplyIDPackage:
+                  $ref: '#/components/examples/BadSupplyIDPackage'
+                BadID:
+                  $ref: '#/components/examples/BadID'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.SupplyAcceptedMoreThanYearAgo'
+              examples:
+                SupplyAcceptedMoreThanYearAgo:
+                  $ref: '#/components/examples/SupplyAcceptedMoreThanYearAgo'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                SupplyNotFound:
+                  $ref: '#/components/examples/SupplyNotFound'
+        '429':
+          $ref: '#/components/responses/429'
 components:
   securitySchemes:
     HeaderApiKey:
@@ -1034,6 +1155,123 @@ components:
       name: Authorization
       in: header
   schemas:
+    models.ItemDiscrepancyResponse:
+      required:
+        - packageCode
+        - videoUrl
+        - videoStartsAt
+        - videoUnavailable
+        - items
+      type: object
+      properties:
+        packageCode:
+          description: ID упаковки
+          type: string
+        videoUrl:
+          description: Видео фиксации расхождений в процессе приёмки
+          type: string
+        videoStartsAt:
+          description: Дата и время видеофиксации расхождений в процессе приемки
+          type: string
+          format: date-time
+        videoUnavailable:
+          description: |
+            Доступность видео:
+               - `false` — видео доступно
+               - `true` — видео недоступно
+          type: boolean
+        items:
+          description: Товары поставки
+          type: array
+          items:
+            $ref: '#/components/schemas/models.DiscrepancyResponseItem'
+    models.DiscrepancyResponseItem:
+      type: object
+      required:
+        - actualAmount
+        - actualSku
+        - declaredAmount
+        - discrepancyQuantity
+        - discrepancyType
+        - declaredSku
+        - skuScans
+      properties:
+        declaredSku:
+          nullable: false
+          description: Баркод, заявленный при формировании поставки
+          type: string
+        discrepancyType:
+          nullable: false
+          type: string
+          description: |
+            Тип расхождения в целом по коробу:
+             - `surplus` — товара в коробе больше заявленного
+             - `shortage` — товара в коробе меньше заявленного
+             - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
+          enum:
+            - surplus
+            - shortage
+            - re-sorting
+        declaredAmount:
+          nullable: false
+          description: Количество товара, заявленное при формировании поставки
+          type: integer
+        actualAmount:
+          nullable: false
+          description: Фактическое количество товара
+          type: integer
+        discrepancyQuantity:
+          nullable: false
+          description: Разница между заявленным и фактическим количеством товара
+          type: integer
+        actualSku:
+          nullable: false
+          description: Фактический баркод
+          type: string
+        skuScans:
+          description: Результаты сканирования товаров
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/models.ItemScans'
+    models.ItemScans:
+      required:
+        - scanId
+        - declaredSku
+        - scanTime
+        - discrepancyLabel
+        - actualSku
+      type: object
+      properties:
+        scanId:
+          nullable: false
+          description: ID сканирования
+          type: integer
+        declaredSku:
+          nullable: false
+          description: Баркод, заявленный при формировании поставки
+          type: string
+        scanTime:
+          nullable: false
+          description: Дата и время сканирования
+          format: date-time
+          type: string
+        discrepancyLabel:
+          nullable: false
+          type: string
+          description: |
+            Тип расхождения товара:
+             - `surplus` — товара больше, чем заявлено
+             - `shortage` — товара меньше, чем заявлено
+             - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
+          enum:
+            - surplus
+            - shortage
+            - re-sorting
+        actualSku:
+          nullable: false
+          type: string
+          description: Фактический баркод
     errors.DraftError:
       required:
         - status
@@ -1544,6 +1782,12 @@ components:
           type: integer
           nullable: true
           description: Количество обезличенного товара, шт
+        discrepancies:
+          type: integer
+          description: |
+            Расхождения между заявленным и фактическим количеством товара в поставке.
+            <br>
+            Только при `"statusID":5`
         isBoxOnPallet:
           type: boolean
           description: |
@@ -1577,6 +1821,7 @@ components:
         acceptedQuantity: 10
         unloadingQuantity: 10
         depersonalizedQuantity: 0
+        discrepancies: 0
         isBoxOnPallet: true
     models.HandySupplyStatus:
       enum:
@@ -1783,7 +2028,67 @@ components:
         requestId:
           type: string
           description: ID запроса при наличии ошибок
+    models.SupplyAcceptedMoreThanYearAgo:
+      type: object
+      required:
+        - status
+        - title
+        - detail
+        - requestId
+        - origin
+      properties:
+        status:
+          type: integer
+          description: HTTP-статус код
+        title:
+          type: string
+          description: Краткое описание ошибки
+        detail:
+          type: string
+          description: Подробное описание ошибки
+        requestId:
+          type: string
+          description: ID запроса
+        origin:
+          type: string
+          description: Сервис, в котором произошла ошибка
+    Response4XX:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Заголовок ошибки
+        detail:
+          type: string
+          description: Детали ошибки
+        code:
+          type: string
+          description: Внутренний код ошибки
+        requestId:
+          type: string
+          description: ID запроса
+        origin:
+          type: string
+          description: ID внутреннего сервиса WB
+        status:
+          type: number
+          description: HTTP статус-код
+        statusText:
+          type: string
+          description: Расшифровка HTTP статус-кода
+        timestamp:
+          type: string
+          format: date-time
+          description: Дата и время запроса
   examples:
+    SupplyAcceptedMoreThanYearAgo:
+      summary: Поставка принята больше года назад
+      value:
+        status: 403
+        title: forbidden
+        detail: поставка принята больше года назад
+        requestId: 36c00cfacde02214ca39c0c7486746f1
+        origin: supply-api
     BadDraftIdFormat:
       description: Значение параметра `draftId` некорректно
       value:
@@ -1934,7 +2239,7 @@ components:
       value:
         status: 400
         title: bad request
-        detail: неверный формат id (должен быть int64)
+        detail: неверный формат id (должен быть int32)
         requestId: aee7d3a5378ef3c7ec0e7a5bc94abfcf
         origin: supply-api
       description: Значение параметра `ID` не указано или некорректно
@@ -1950,7 +2255,7 @@ components:
       value:
         status: 400
         title: bad request
-        detail: id выходит за рамки int64
+        detail: id выходит за рамки int32
         requestId: 0e35ac7fdbb94695db4004cb4c4ca12b
         origin: supply-api
       description: Длина значения параметра ID превышена
@@ -1995,6 +2300,40 @@ components:
               to: 0
               value: 3.9
           palletTariff: 6500
+    ItemDiscrepancyResponse:
+      value:
+        - packageCode: WB_2282893992
+          videoUrl: ''
+          videoStartsAt: '2026-07-11T10:02:42Z'
+          videoUnavailable: false
+          items:
+            - declaredSku: '1234567890'
+              discrepancyType: surplus
+              declaredAmount: 1
+              actualAmount: 2
+              discrepancyQuantity: 2
+              actualSku: '1234567890'
+              skuScans:
+                - scanId: 1
+                  declaredSku: '1234567890'
+                  scanTime: '2025-01-18T21:11:54+03:00'
+                  discrepancyLabel: surplus
+                  actualSku: '1234567890'
+                - scanId: 2
+                  declaredSku: '1234567890'
+                  scanTime: '2025-01-18T21:11:54+03:00'
+                  discrepancyLabel: surplus
+                  actualSku: '1234567890'
+    Response403TokenCategory:
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: '2026-09-03T13:55:15Z'
+      description: Неверная категория токена
   responses:
     '401':
       description: Не авторизован
