@@ -24,7 +24,7 @@ type TableSizeResponseSizesInner struct {
 	// Название размера
 	Name string `json:"name"`
 	// ID размера
-	ChrtID int64 `json:"chrtID"`
+	ChrtID int32 `json:"chrtID"`
 	// Склады
 	Offices []TableOfficeItem `json:"offices,omitempty"`
 	Metrics TableSizeResponseSizesInnerMetrics `json:"metrics"`
@@ -36,7 +36,7 @@ type _TableSizeResponseSizesInner TableSizeResponseSizesInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableSizeResponseSizesInner(name string, chrtID int64, metrics TableSizeResponseSizesInnerMetrics) *TableSizeResponseSizesInner {
+func NewTableSizeResponseSizesInner(name string, chrtID int32, metrics TableSizeResponseSizesInnerMetrics) *TableSizeResponseSizesInner {
 	this := TableSizeResponseSizesInner{}
 	this.Name = name
 	this.ChrtID = chrtID
@@ -77,9 +77,9 @@ func (o *TableSizeResponseSizesInner) SetName(v string) {
 }
 
 // GetChrtID returns the ChrtID field value
-func (o *TableSizeResponseSizesInner) GetChrtID() int64 {
+func (o *TableSizeResponseSizesInner) GetChrtID() int32 {
 	if o == nil {
-		var ret int64
+		var ret int32
 		return ret
 	}
 
@@ -88,7 +88,7 @@ func (o *TableSizeResponseSizesInner) GetChrtID() int64 {
 
 // GetChrtIDOk returns a tuple with the ChrtID field value
 // and a boolean to check if the value has been set.
-func (o *TableSizeResponseSizesInner) GetChrtIDOk() (*int64, bool) {
+func (o *TableSizeResponseSizesInner) GetChrtIDOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,7 +96,7 @@ func (o *TableSizeResponseSizesInner) GetChrtIDOk() (*int64, bool) {
 }
 
 // SetChrtID sets field value
-func (o *TableSizeResponseSizesInner) SetChrtID(v int64) {
+func (o *TableSizeResponseSizesInner) SetChrtID(v int32) {
 	o.ChrtID = v
 }
 

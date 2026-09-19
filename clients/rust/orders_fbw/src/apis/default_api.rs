@@ -21,6 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum DeleteV1DraftsDraftIdError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status404(models::ErrorsDraftError),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -32,6 +33,7 @@ pub enum DeleteV1DraftsDraftIdError {
 pub enum DeleteV1DraftsDraftIdItemsError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status404(models::ErrorsDraftError),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -43,6 +45,7 @@ pub enum DeleteV1DraftsDraftIdItemsError {
 pub enum GetV1DraftsError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -53,6 +56,7 @@ pub enum GetV1DraftsError {
 pub enum GetV1DraftsDraftIdItemsError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status404(models::ErrorsDraftError),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -91,6 +95,18 @@ pub enum GetV1SuppliesIdPackageError {
     Status401(models::PostV1AcceptanceOptions401Response),
     Status402(models::PostV1AcceptanceOptions402Response),
     Status403(models::PostV1AcceptanceOptions403Response),
+    Status429(models::PostV1AcceptanceOptions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v1_supplies_supply_id_discrepancies_quantity`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV1SuppliesSupplyIdDiscrepanciesQuantityError {
+    Status400(models::ModelsErrorModel),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status403(models::ModelsSupplyAcceptedMoreThanYearAgo),
+    Status404(models::ModelsErrorModel),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -134,6 +150,7 @@ pub enum PostV1AcceptanceOptionsError {
 #[serde(untagged)]
 pub enum PostV1DraftsError {
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -144,6 +161,7 @@ pub enum PostV1DraftsError {
 pub enum PostV1DraftsDraftIdItemsError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status403(models::PostV1AcceptanceOptions403Response),
     Status404(models::ErrorsDraftError),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -495,6 +513,51 @@ pub async fn get_v1_supplies_id_package(configuration: &configuration::Configura
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV1SuppliesIdPackageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке. <br> Для поставок принятых не позднее года назад. <br><br> **Типы расхождений:** <br><br> Расхождение в большую сторону:<br><br> 1. Избыток товара с заявленным баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"re-sorting\"`  Расхождение в меньшую сторону:<br><br> 1. Не хватает товара:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"re-sorting\"`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+pub async fn get_v1_supplies_supply_id_discrepancies_quantity(configuration: &configuration::Configuration, supply_id: &str) -> Result<Vec<models::ModelsItemDiscrepancyResponse>, Error<GetV1SuppliesSupplyIdDiscrepanciesQuantityError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_supply_id = supply_id;
+
+    let uri_str = format!("{}/api/supplies/v1/discrepancies/{supplyId}", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ModelsItemDiscrepancyResponse&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ModelsItemDiscrepancyResponse&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV1SuppliesSupplyIdDiscrepanciesQuantityError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

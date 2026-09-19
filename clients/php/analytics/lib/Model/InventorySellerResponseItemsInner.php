@@ -74,7 +74,7 @@ class InventorySellerResponseItemsInner implements ModelInterface, ArrayAccess, 
      */
     protected static $openAPIFormats = [
         'nm_id' => 'int64',
-        'chrt_id' => 'int64',
+        'chrt_id' => 'uint64',
         'warehouse_id' => 'int64',
         'warehouse_name' => null,
         'region_name' => null,

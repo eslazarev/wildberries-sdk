@@ -1,7 +1,7 @@
 /*
  * Заказы FBS
  *
- * <div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
+ * <div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/fbsSupplies)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/fbsPasses) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
  *
  * The version of the OpenAPI document: order
  * 
@@ -15,452 +15,55 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_marketplace_v3_fbs_orders_archive_get`]
+/// struct for typed errors of method [`delete_v3_orders_order_id_meta`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMarketplaceV3FbsOrdersArchiveGetError {
-    Status400(models::ArhiveOrderError400),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::ApiMarketplaceV3FbsOrdersArchiveGet403Response),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_orders_meta_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3OrdersMetaPostError {
-    Status400(models::V3ApiError),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::V3ApiError),
-    Status404(models::V3ApiError),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_orders_order_id_meta_customs_declaration_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutError {
+pub enum DeleteV3OrdersOrderIdMetaError {
     Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_v3_passes_pass_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteV3PassesPassIdError {
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_v3_supplies_supply_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteV3SuppliesSupplyIdError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
     Status403(models::Error),
     Status404(models::Error),
     Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_marketplace_v3_supplies_supply_id_order_ids_get`]
+/// struct for typed errors of method [`delete_v3_supplies_supply_id_trbx`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMarketplaceV3SuppliesSupplyIdOrderIdsGetError {
+pub enum DeleteV3SuppliesSupplyIdTrbxError {
     Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
     Status403(models::Error),
     Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_supplies_supply_id_orders_patch`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3SuppliesSupplyIdOrdersPatchError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_client_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersClientPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersGetError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_new_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersNewGetError {
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_order_id_cancel_patch`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersOrderIdCancelPatchError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_order_id_meta_delete`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersOrderIdMetaDeleteError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_order_id_meta_expiration_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersOrderIdMetaExpirationPutError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_order_id_meta_gtin_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersOrderIdMetaGtinPutError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_order_id_meta_imei_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersOrderIdMetaImeiPutError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_order_id_meta_sgtin_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersOrderIdMetaSgtinPutError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_order_id_meta_uin_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersOrderIdMetaUinPutError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_status_history_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersStatusHistoryPostError {
-    Status400(),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_status_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersStatusPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_stickers_cross_border_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersStickersCrossBorderPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_orders_stickers_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3OrdersStickersPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_passes_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3PassesGetError {
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_passes_offices_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3PassesOfficesGetError {
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_passes_pass_id_delete`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3PassesPassIdDeleteError {
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_passes_pass_id_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3PassesPassIdPutError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_passes_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3PassesPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesGetError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_orders_reshipment_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesOrdersReshipmentGetError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_supply_id_barcode_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesSupplyIdBarcodeGetError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_supply_id_delete`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesSupplyIdDeleteError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_supply_id_deliver_patch`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesSupplyIdDeliverPatchError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Model409SupplyDeliverError),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_supply_id_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesSupplyIdGetError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_supply_id_trbx_delete`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesSupplyIdTrbxDeleteError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_supply_id_trbx_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesSupplyIdTrbxGetError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_supply_id_trbx_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesSupplyIdTrbxPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_supplies_supply_id_trbx_stickers_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3SuppliesSupplyIdTrbxStickersPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
-    Status402(models::ApiV3PassesOfficesGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -468,9 +71,21 @@ pub enum ApiV3SuppliesSupplyIdTrbxStickersPostError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetV3FbsDictionariesCountriesOksmError {
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::GetV3FbsShippingPoints403Response),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_fbs_orders_archive`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3FbsOrdersArchiveError {
+    Status400(models::ArhiveOrderError400),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::GetV3FbsOrdersArchive403Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -479,9 +94,9 @@ pub enum GetV3FbsDictionariesCountriesOksmError {
 #[serde(untagged)]
 pub enum GetV3FbsShippingPointsError {
     Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::GetV3FbsShippingPoints403Response),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -490,10 +105,132 @@ pub enum GetV3FbsShippingPointsError {
 #[serde(untagged)]
 pub enum GetV3FbsSuppliesSupplyIdStickersSpotError {
     Status400(models::ApiErrorV3),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::GetV3FbsShippingPoints403Response),
     Status404(models::ApiErrorV3),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_orders`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3OrdersError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_orders_new`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3OrdersNewError {
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_passes`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3PassesError {
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_passes_offices`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3PassesOfficesError {
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_supplies`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3SuppliesError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_supplies_orders_reshipment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3SuppliesOrdersReshipmentError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_supplies_supply_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3SuppliesSupplyIdError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_supplies_supply_id_barcode`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3SuppliesSupplyIdBarcodeError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_supplies_supply_id_order_ids`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3SuppliesSupplyIdOrderIdsError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_supplies_supply_id_trbx`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3SuppliesSupplyIdTrbxError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -502,10 +239,10 @@ pub enum GetV3FbsSuppliesSupplyIdStickersSpotError {
 #[serde(untagged)]
 pub enum PatchV3FbsSuppliesShippingMethodError {
     Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::Error),
     Status409(models::V3ApiError),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -514,9 +251,51 @@ pub enum PatchV3FbsSuppliesShippingMethodError {
 #[serde(untagged)]
 pub enum PatchV3FbsSuppliesWaybillError {
     Status400(models::Error),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::Error),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_v3_orders_order_id_cancel`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchV3OrdersOrderIdCancelError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_v3_supplies_supply_id_deliver`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchV3SuppliesSupplyIdDeliverError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Model409SupplyDeliverError),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_v3_supplies_supply_id_orders`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchV3SuppliesSupplyIdOrdersError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -525,9 +304,136 @@ pub enum PatchV3FbsSuppliesWaybillError {
 #[serde(untagged)]
 pub enum PostV3FbsSuppliesSpotListError {
     Status400(models::ApiErrorV3),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::GetV3FbsShippingPoints403Response),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_orders_client`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3OrdersClientError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_orders_meta`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3OrdersMetaError {
+    Status400(models::V3ApiError),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::V3ApiError),
+    Status404(models::V3ApiError),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_orders_status`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3OrdersStatusError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_orders_status_history`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3OrdersStatusHistoryError {
+    Status400(),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_orders_stickers`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3OrdersStickersError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_orders_stickers_cross_border`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3OrdersStickersCrossBorderError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_passes`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3PassesError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_supplies`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3SuppliesError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_supplies_supply_id_trbx`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3SuppliesSupplyIdTrbxError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_supplies_supply_id_trbx_stickers`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3SuppliesSupplyIdTrbxStickersError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -536,411 +442,111 @@ pub enum PostV3FbsSuppliesSpotListError {
 #[serde(untagged)]
 pub enum PutV3FbsSuppliesSupplyIdSpotError {
     Status400(models::ApiErrorV3),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::GetV3FbsShippingPoints403Response),
     Status404(models::ApiErrorV3),
     Status409(models::ApiErrorV3),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_orders_order_id_meta_customs_declaration`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3OrdersOrderIdMetaCustomsDeclarationError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_orders_order_id_meta_expiration`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3OrdersOrderIdMetaExpirationError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_orders_order_id_meta_gtin`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3OrdersOrderIdMetaGtinError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_orders_order_id_meta_imei`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3OrdersOrderIdMetaImeiError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_orders_order_id_meta_sgtin`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3OrdersOrderIdMetaSgtinError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_orders_order_id_meta_uin`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3OrdersOrderIdMetaUinError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_v3_passes_pass_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV3PassesPassIdError {
+    Status400(models::Error),
+    Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Метод возвращает сборочные задания, созданные более 3 месяцев назад.<br> Часть сборочных заданий попадает в архив позже, чем через 3 месяца после создания, так как поставка переходит в архив только после того, как все заказы в ней будут завершены. Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn api_marketplace_v3_fbs_orders_archive_get(configuration: &configuration::Configuration, year: i32, month: i32, next: i64, limit: i32) -> Result<models::V3ArchiveOrders, Error<ApiMarketplaceV3FbsOrdersArchiveGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_year = year;
-    let p_query_month = month;
-    let p_query_next = next;
-    let p_query_limit = limit;
-
-    let uri_str = format!("{}/api/marketplace/v3/fbs/orders/archive", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("year", &p_query_year.to_string())]);
-    req_builder = req_builder.query(&[("month", &p_query_month.to_string())]);
-    req_builder = req_builder.query(&[("next", &p_query_next.to_string())]);
-    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V3ArchiveOrders`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V3ArchiveOrders`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3FbsOrdersArchiveGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1new/get), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1gtin/put)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)   - `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1expiration/put)   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_marketplace_v3_orders_meta_post(configuration: &configuration::Configuration, v3_get_meta_multi_request: models::V3GetMetaMultiRequest) -> Result<models::V3OrdersMetaApi, Error<ApiMarketplaceV3OrdersMetaPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_v3_get_meta_multi_request = v3_get_meta_multi_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/orders/meta", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_v3_get_meta_multi_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V3OrdersMetaApi`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V3OrdersMetaApi`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3OrdersMetaPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.  <div class=\"description_important\"> Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_marketplace_v3_orders_order_id_meta_customs_declaration_put(configuration: &configuration::Configuration, order_id: i64, api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: models::ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) -> Result<(), Error<ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-    let p_body_api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request = api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/orders/{orderId}/meta/customs-declaration", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список ID сборочных заданий, закреплённых за поставкой.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_marketplace_v3_supplies_supply_id_order_ids_get(configuration: &configuration::Configuration, supply_id: &str) -> Result<models::V3SupplyOrderIdsApi, Error<ApiMarketplaceV3SuppliesSupplyIdOrderIdsGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-
-    let uri_str = format!("{}/api/marketplace/v3/supplies/{supplyId}/order-ids", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V3SupplyOrderIdsApi`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V3SupplyOrderIdsApi`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3SuppliesSupplyIdOrderIdsGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод добавляет до 100 [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) к поставке и переводит их в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке.  Может перемещать сборочные задания:   - между активными поставками   - из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1supplies~1orders~1reshipment/get)  <div class=\"description_important\">   В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания <a href =\"./orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get\">из поля</a> <code>cargoType</code>.   <br>   После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.  </div>  <div class=\"description_important\"> В поставку нельзя добавить сборочные задания, поступившие на разные склады. </div> <div class=\"description_important\"> В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок. После этого поставка приобретает тип первого добавленного сборочного задания из поля <code>crossBorderType</code>. Далее в неё можно добавить только сборочные задания такого же типа. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_marketplace_v3_supplies_supply_id_orders_patch(configuration: &configuration::Configuration, supply_id: &str, api_marketplace_v3_supplies_supply_id_orders_patch_request: models::ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest) -> Result<(), Error<ApiMarketplaceV3SuppliesSupplyIdOrdersPatchError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-    let p_body_api_marketplace_v3_supplies_supply_id_orders_patch_request = api_marketplace_v3_supplies_supply_id_orders_patch_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/supplies/{supplyId}/orders", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_marketplace_v3_supplies_supply_id_orders_patch_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3SuppliesSupplyIdOrdersPatchError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод позволяет получать информацию о покупателе по ID сборочного задания.  Только для трансграничных поставок из **Турции**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_client_post(configuration: &configuration::Configuration, orders_request_api: models::OrdersRequestApi) -> Result<models::CrossborderTurkeyClientInfoResp, Error<ApiV3OrdersClientPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_orders_request_api = orders_request_api;
-
-    let uri_str = format!("{}/api/v3/orders/client", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_orders_request_api);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CrossborderTurkeyClientInfoResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CrossborderTurkeyClientInfoResp`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersClientPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post).  Чтобы получить данные за период, укажите в запросе даты начала и окончания периода. Максимум 30 календарных дней одним запросом. В ответе метода будут сборочные задания, созданные в указанный период.<br><br> Чтобы получить сборочные задания, созданные более 3 месяцев назад, используйте метод получения [списка архивных заказов](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1marketplace~1v3~1fbs~1orders~1archive/get).   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_get(configuration: &configuration::Configuration, limit: i32, next: i64, date_from: Option<i32>, date_to: Option<i32>) -> Result<models::ApiV3OrdersGet200Response, Error<ApiV3OrdersGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_next = next;
-    let p_query_date_from = date_from;
-    let p_query_date_to = date_to;
-
-    let uri_str = format!("{}/api/v3/orders", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
-    req_builder = req_builder.query(&[("next", &p_query_next.to_string())]);
-    if let Some(ref param_value) = p_query_date_from {
-        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_date_to {
-        req_builder = req_builder.query(&[("dateTo", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3OrdersGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3OrdersGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список всех новых [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get), которые есть у продавца на момент запроса.  <div class=\"description_important\"> Наличие в сборочных заданиях идентификаторов маркировки, указанных в полях <code>requiredMeta</code> и <code>optionalMeta</code>, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной <a href =\"https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs\">маркировке</a> средствами идентификации, необходимо указывать идентификаторы маркировки независимо от того, в каком поле они были получены (п. 4.6 <a href =\"https://seller.wildberries.ru/confirm-offer-condition/product/view\">Оферты</a>). <br> Рекомендуем добавлять в сборочные задания все идентификаторы маркировки, полученные в полях <code>requiredMeta</code> и <code>optionalMeta</code> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_new_get(configuration: &configuration::Configuration, ) -> Result<models::ApiV3OrdersNewGet200Response, Error<ApiV3OrdersNewGetError>> {
-
-    let uri_str = format!("{}/api/v3/orders/new", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3OrdersNewGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3OrdersNewGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersNewGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод отменяет [сборочное задание](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и переводит в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `cancel` — отменено продавцом.  <div class=\"description_important\"> Сборочное задание можно отменить до его передачи Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод <a href =\"/docs/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post\">POST /api/v3/orders/status</a>, поле <code>isCancellable</code>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_order_id_cancel_patch(configuration: &configuration::Configuration, order_id: i64) -> Result<(), Error<ApiV3OrdersOrderIdCancelPatchError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-
-    let uri_str = format!("{}/api/v3/orders/{orderId}/cancel", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersOrderIdCancelPatchError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод удаляет значение [идентификаторов маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) для переданного ключа. <br><br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1gtin/put)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put)  Можно передать только один ключ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_order_id_meta_delete(configuration: &configuration::Configuration, order_id: i64, key: &str) -> Result<(), Error<ApiV3OrdersOrderIdMetaDeleteError>> {
+/// Метод удаляет значение [идентификаторов маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа. <br><br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)  Можно передать только один ключ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn delete_v3_orders_order_id_meta(configuration: &configuration::Configuration, order_id: i64, key: &str) -> Result<(), Error<DeleteV3OrdersOrderIdMetaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_order_id = order_id;
     let p_query_key = key;
@@ -970,469 +576,13 @@ pub async fn api_v3_orders_order_id_meta_delete(configuration: &configuration::C
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersOrderIdMetaDeleteError> = serde_json::from_str(&content).ok();
+        let entity: Option<DeleteV3OrdersOrderIdMetaError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод закрепляет за [сборочным заданием](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) срок годности товара. Товар годен до указанной даты. <br> Закрепить срок годности можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `expiration`. <br><br> Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).<br> Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_order_id_meta_expiration_put(configuration: &configuration::Configuration, order_id: i64, api_v3_orders_order_id_meta_expiration_put_request: models::ApiV3OrdersOrderIdMetaExpirationPutRequest) -> Result<(), Error<ApiV3OrdersOrderIdMetaExpirationPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-    let p_body_api_v3_orders_order_id_meta_expiration_put_request = api_v3_orders_order_id_meta_expiration_put_request;
-
-    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/expiration", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_orders_order_id_meta_expiration_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersOrderIdMetaExpirationPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один GTIN.<br>  Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `gtin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_order_id_meta_gtin_put(configuration: &configuration::Configuration, order_id: i64, api_v3_orders_order_id_meta_gtin_put_request: models::ApiV3OrdersOrderIdMetaGtinPutRequest) -> Result<(), Error<ApiV3OrdersOrderIdMetaGtinPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-    let p_body_api_v3_orders_order_id_meta_gtin_put_request = api_v3_orders_order_id_meta_gtin_put_request;
-
-    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/gtin", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_orders_order_id_meta_gtin_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersOrderIdMetaGtinPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).<br> У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br> Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `imei`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_order_id_meta_imei_put(configuration: &configuration::Configuration, order_id: i64, api_v3_orders_order_id_meta_imei_put_request: models::ApiV3OrdersOrderIdMetaImeiPutRequest) -> Result<(), Error<ApiV3OrdersOrderIdMetaImeiPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-    let p_body_api_v3_orders_order_id_meta_imei_put_request = api_v3_orders_order_id_meta_imei_put_request;
-
-    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/imei", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_orders_order_id_meta_imei_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersOrderIdMetaImeiPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get). <br> Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `sgtin`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_order_id_meta_sgtin_put(configuration: &configuration::Configuration, order_id: i64, api_v3_orders_order_id_meta_sgtin_put_request: models::ApiV3OrdersOrderIdMetaSgtinPutRequest) -> Result<(), Error<ApiV3OrdersOrderIdMetaSgtinPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-    let p_body_api_v3_orders_order_id_meta_sgtin_put_request = api_v3_orders_order_id_meta_sgtin_put_request;
-
-    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/sgtin", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_orders_order_id_meta_sgtin_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersOrderIdMetaSgtinPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один УИН.<br> Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `uin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_order_id_meta_uin_put(configuration: &configuration::Configuration, order_id: i64, api_v3_orders_order_id_meta_uin_put_request: models::ApiV3OrdersOrderIdMetaUinPutRequest) -> Result<(), Error<ApiV3OrdersOrderIdMetaUinPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-    let p_body_api_v3_orders_order_id_meta_uin_put_request = api_v3_orders_order_id_meta_uin_put_request;
-
-    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/uin", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_orders_order_id_meta_uin_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersOrderIdMetaUinPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает историю [статусов](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) трансграничных поставок.  В песочнице этот метод всегда возвращает ответ <code>200</code>.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_status_history_post(configuration: &configuration::Configuration, api_v3_orders_status_history_post_request: Option<models::ApiV3OrdersStatusHistoryPostRequest>) -> Result<models::ApiV3OrdersStatusHistoryPost200Response, Error<ApiV3OrdersStatusHistoryPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v3_orders_status_history_post_request = api_v3_orders_status_history_post_request;
-
-    let uri_str = format!("{}/api/v3/orders/status/history", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_orders_status_history_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3OrdersStatusHistoryPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3OrdersStatusHistoryPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersStatusHistoryPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`:  | Статус   | Описание            | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new`      | **Новое сборочное задание** |  | | `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1marketplace~1v3~1supplies~1%7BsupplyId%7D~1orders/patch) | `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch) | | `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1%7BorderId%7D~1cancel/patch)| | `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_status_post(configuration: &configuration::Configuration, api_v3_orders_status_post_request: Option<models::ApiV3OrdersStatusPostRequest>) -> Result<models::ApiV3OrdersStatusPost200Response, Error<ApiV3OrdersStatusPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v3_orders_status_post_request = api_v3_orders_status_post_request;
-
-    let uri_str = format!("{}/api/v3/orders/status", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_orders_status_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3OrdersStatusPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3OrdersStatusPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersStatusPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список стикеров [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) трансграничных поставок в формате PDF.<br><br>  Для каждого сборочного задания в ответе указывается статус генерации стикера:   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.   - `ready` — стикер готов  <div class=\"description_important\">   Стикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус <code>ready</code>. </div>  Ограничения:   - За один запрос можно получить максимум 100 стикеров.   - Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`, `complete`.  В песочнице этот метод всегда возвращает ответ <code>200</code>.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn api_v3_orders_stickers_cross_border_post(configuration: &configuration::Configuration, api_v3_orders_stickers_cross_border_post_request: Option<models::ApiV3OrdersStickersCrossBorderPostRequest>) -> Result<models::ApiV3OrdersStickersCrossBorderPost200Response, Error<ApiV3OrdersStickersCrossBorderPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v3_orders_stickers_cross_border_post_request = api_v3_orders_stickers_cross_border_post_request;
-
-    let uri_str = format!("{}/api/v3/orders/stickers/cross-border", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_orders_stickers_cross_border_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3OrdersStickersCrossBorderPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3OrdersStickersCrossBorderPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersStickersCrossBorderPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) в [статусах](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке и `complete` — в доставке. <br><br> Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put), получить стикеры для этого сборочного задания невозможно.<br><br> За один запрос можно получить максимум 100 стикеров. <br> Можно получить стикер в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_orders_stickers_post(configuration: &configuration::Configuration, r#type: &str, width: i32, height: i32, api_v3_orders_stickers_post_request: Option<models::ApiV3OrdersStickersPostRequest>) -> Result<models::ApiV3OrdersStickersPost200Response, Error<ApiV3OrdersStickersPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_type = r#type;
-    let p_query_width = width;
-    let p_query_height = height;
-    let p_body_api_v3_orders_stickers_post_request = api_v3_orders_stickers_post_request;
-
-    let uri_str = format!("{}/api/v3/orders/stickers", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
-    req_builder = req_builder.query(&[("width", &p_query_width.to_string())]);
-    req_builder = req_builder.query(&[("height", &p_query_height.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_orders_stickers_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3OrdersStickersPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3OrdersStickersPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3OrdersStickersPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список всех [созданных](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/post) пропусков продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_passes_get(configuration: &configuration::Configuration, ) -> Result<Vec<models::Pass>, Error<ApiV3PassesGetError>> {
-
-    let uri_str = format!("{}/api/v3/passes", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Pass&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Pass&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3PassesGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список складов для привязки к [пропуску продавца](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get).  <div class=\"description_important\">   Данные, которые возвращает метод, могут меняться. Рекомендуем периодически синхронизировать список </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_passes_offices_get(configuration: &configuration::Configuration, ) -> Result<Vec<models::PassOffice>, Error<ApiV3PassesOfficesGetError>> {
-
-    let uri_str = format!("{}/api/v3/passes/offices", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PassOffice&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PassOffice&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3PassesOfficesGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод удаляет пропуск продавца [из списка](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_passes_pass_id_delete(configuration: &configuration::Configuration, pass_id: i64) -> Result<(), Error<ApiV3PassesPassIdDeleteError>> {
+/// Метод удаляет пропуск продавца [из списка](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn delete_v3_passes_pass_id(configuration: &configuration::Configuration, pass_id: i64) -> Result<(), Error<DeleteV3PassesPassIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_pass_id = pass_id;
 
@@ -1460,279 +610,13 @@ pub async fn api_v3_passes_pass_id_delete(configuration: &configuration::Configu
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3PassesPassIdDeleteError> = serde_json::from_str(&content).ok();
+        let entity: Option<DeleteV3PassesPassIdError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод обновляет данные [пропуска продавца](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get). В том числе, можно обновить данные привязанного склада WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_passes_pass_id_put(configuration: &configuration::Configuration, pass_id: i64, api_v3_passes_pass_id_put_request: models::ApiV3PassesPassIdPutRequest) -> Result<(), Error<ApiV3PassesPassIdPutError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_pass_id = pass_id;
-    let p_body_api_v3_passes_pass_id_put_request = api_v3_passes_pass_id_put_request;
-
-    let uri_str = format!("{}/api/v3/passes/{passId}", configuration.base_path, passId=p_path_pass_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_passes_pass_id_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3PassesPassIdPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод создаёт [пропуск продавца](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get) с привязкой к складу WB.  Пропуск действует 48 часов со времени создания.  <div class=\"description_limit\">   Максимум 1 запрос в 10 <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">минут</a> на один аккаунт продавца.    Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.    <hr>    В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_passes_post(configuration: &configuration::Configuration, api_v3_passes_post_request: models::ApiV3PassesPostRequest) -> Result<models::ApiV3PassesPost201Response, Error<ApiV3PassesPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v3_passes_post_request = api_v3_passes_post_request;
-
-    let uri_str = format!("{}/api/v3/passes", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_passes_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3PassesPost201Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3PassesPost201Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3PassesPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список [поставок](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_get(configuration: &configuration::Configuration, limit: i32, next: i64) -> Result<models::ApiV3SuppliesGet200Response, Error<ApiV3SuppliesGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_next = next;
-
-    let uri_str = format!("{}/api/v3/supplies", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
-    req_builder = req_builder.query(&[("next", &p_query_next.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3SuppliesGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3SuppliesGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get), требующие повторной отгрузки. <br><br> Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1marketplace~1v3~1supplies~1%7BsupplyId%7D~1orders/patch).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_orders_reshipment_get(configuration: &configuration::Configuration, ) -> Result<models::ApiV3SuppliesOrdersReshipmentGet200Response, Error<ApiV3SuppliesOrdersReshipmentGetError>> {
-
-    let uri_str = format!("{}/api/v3/supplies/orders/reshipment", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3SuppliesOrdersReshipmentGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3SuppliesOrdersReshipmentGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesOrdersReshipmentGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод создаёт новую [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get).  Ограничения: - Только для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) по модели FBS. - При добавлении в поставку все передаваемые сборочные задания в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `new` будут автоматически переведены в статус `confirm` — на сборке. - Если вы переведёте сборочное задание в статус `cancel` — отмена продавцом, прикрепленное сборочное задание автоматически удалится из поставки. - Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_post(configuration: &configuration::Configuration, api_v3_supplies_post_request: models::ApiV3SuppliesPostRequest) -> Result<models::ApiV3SuppliesPost201Response, Error<ApiV3SuppliesPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v3_supplies_post_request = api_v3_supplies_post_request;
-
-    let uri_str = format!("{}/api/v3/supplies", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_supplies_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3SuppliesPost201Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3SuppliesPost201Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает QR-код [поставки](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  QR-код поставки можно получить, только если поставка [передана в доставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch). <br><br> Размер — 580x400 px.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_supply_id_barcode_get(configuration: &configuration::Configuration, supply_id: &str, r#type: &str) -> Result<models::ApiV3SuppliesSupplyIdBarcodeGet200Response, Error<ApiV3SuppliesSupplyIdBarcodeGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-    let p_query_type = r#type;
-
-    let uri_str = format!("{}/api/v3/supplies/{supplyId}/barcode", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3SuppliesSupplyIdBarcodeGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3SuppliesSupplyIdBarcodeGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesSupplyIdBarcodeGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод удаляет [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get), если она активна и за ней не закреплено ни одно [сборочное задание](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_supply_id_delete(configuration: &configuration::Configuration, supply_id: &str) -> Result<(), Error<ApiV3SuppliesSupplyIdDeleteError>> {
+/// Метод удаляет [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId), если она активна и за ней не закреплено ни одно [сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn delete_v3_supplies_supply_id(configuration: &configuration::Configuration, supply_id: &str) -> Result<(), Error<DeleteV3SuppliesSupplyIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_supply_id = supply_id;
 
@@ -1760,95 +644,16 @@ pub async fn api_v3_supplies_supply_id_delete(configuration: &configuration::Con
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesSupplyIdDeleteError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла проверку  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  Обязательно [указывайте параметры отгрузки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_supply_id_deliver_patch(configuration: &configuration::Configuration, supply_id: &str) -> Result<(), Error<ApiV3SuppliesSupplyIdDeliverPatchError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-
-    let uri_str = format!("{}/api/v3/supplies/{supplyId}/deliver", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesSupplyIdDeliverPatchError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает подробную информацию о поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_supply_id_get(configuration: &configuration::Configuration, supply_id: &str) -> Result<models::Supply, Error<ApiV3SuppliesSupplyIdGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-
-    let uri_str = format!("{}/api/v3/supplies/{supplyId}", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Supply`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Supply`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesSupplyIdGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<DeleteV3SuppliesSupplyIdError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Метод удаляет грузоместа из поставки. <br><br> Можно удалить только пока поставка на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_supply_id_trbx_delete(configuration: &configuration::Configuration, supply_id: &str, api_v3_supplies_supply_id_trbx_delete_request: Option<models::ApiV3SuppliesSupplyIdTrbxDeleteRequest>) -> Result<(), Error<ApiV3SuppliesSupplyIdTrbxDeleteError>> {
+pub async fn delete_v3_supplies_supply_id_trbx(configuration: &configuration::Configuration, supply_id: &str, delete_v3_supplies_supply_id_trbx_request: Option<models::DeleteV3SuppliesSupplyIdTrbxRequest>) -> Result<(), Error<DeleteV3SuppliesSupplyIdTrbxError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_supply_id = supply_id;
-    let p_body_api_v3_supplies_supply_id_trbx_delete_request = api_v3_supplies_supply_id_trbx_delete_request;
+    let p_body_delete_v3_supplies_supply_id_trbx_request = delete_v3_supplies_supply_id_trbx_request;
 
     let uri_str = format!("{}/api/v3/supplies/{supplyId}/trbx", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -1864,7 +669,7 @@ pub async fn api_v3_supplies_supply_id_trbx_delete(configuration: &configuration
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v3_supplies_supply_id_trbx_delete_request);
+    req_builder = req_builder.json(&p_body_delete_v3_supplies_supply_id_trbx_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1875,148 +680,7 @@ pub async fn api_v3_supplies_supply_id_trbx_delete(configuration: &configuration
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesSupplyIdTrbxDeleteError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Возвращает список грузомест поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_supply_id_trbx_get(configuration: &configuration::Configuration, supply_id: &str) -> Result<models::ApiV3SuppliesSupplyIdTrbxGet200Response, Error<ApiV3SuppliesSupplyIdTrbxGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-
-    let uri_str = format!("{}/api/v3/supplies/{supplyId}/trbx", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3SuppliesSupplyIdTrbxGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3SuppliesSupplyIdTrbxGet200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesSupplyIdTrbxGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_supply_id_trbx_post(configuration: &configuration::Configuration, supply_id: &str, api_v3_supplies_supply_id_trbx_post_request: Option<models::ApiV3SuppliesSupplyIdTrbxPostRequest>) -> Result<models::ApiV3SuppliesSupplyIdTrbxPost201Response, Error<ApiV3SuppliesSupplyIdTrbxPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-    let p_body_api_v3_supplies_supply_id_trbx_post_request = api_v3_supplies_supply_id_trbx_post_request;
-
-    let uri_str = format!("{}/api/v3/supplies/{supplyId}/trbx", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_supplies_supply_id_trbx_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3SuppliesSupplyIdTrbxPost201Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3SuppliesSupplyIdTrbxPost201Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesSupplyIdTrbxPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает QR-стикеры в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG <br><br> Размер стикеров — 580x400 px.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
-pub async fn api_v3_supplies_supply_id_trbx_stickers_post(configuration: &configuration::Configuration, supply_id: &str, r#type: &str, api_v3_supplies_supply_id_trbx_stickers_post_request: Option<models::ApiV3SuppliesSupplyIdTrbxStickersPostRequest>) -> Result<models::ApiV3SuppliesSupplyIdTrbxStickersPost200Response, Error<ApiV3SuppliesSupplyIdTrbxStickersPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-    let p_query_type = r#type;
-    let p_body_api_v3_supplies_supply_id_trbx_stickers_post_request = api_v3_supplies_supply_id_trbx_stickers_post_request;
-
-    let uri_str = format!("{}/api/v3/supplies/{supplyId}/trbx/stickers", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_supplies_supply_id_trbx_stickers_post_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3SuppliesSupplyIdTrbxStickersPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3SuppliesSupplyIdTrbxStickersPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3SuppliesSupplyIdTrbxStickersPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<DeleteV3SuppliesSupplyIdTrbxError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -2064,7 +728,59 @@ pub async fn get_v3_fbs_dictionaries_countries_oksm(configuration: &configuratio
     }
 }
 
-/// Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+/// Метод возвращает сборочные задания, созданные более 3 месяцев назад.<br> Часть сборочных заданий попадает в архив позже, чем через 3 месяца после создания, так как поставка переходит в архив только после того, как все заказы в ней будут завершены. Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+pub async fn get_v3_fbs_orders_archive(configuration: &configuration::Configuration, year: i32, month: i32, next: i64, limit: i32) -> Result<models::V3ArchiveOrders, Error<GetV3FbsOrdersArchiveError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_year = year;
+    let p_query_month = month;
+    let p_query_next = next;
+    let p_query_limit = limit;
+
+    let uri_str = format!("{}/api/marketplace/v3/fbs/orders/archive", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("year", &p_query_year.to_string())]);
+    req_builder = req_builder.query(&[("month", &p_query_month.to_string())]);
+    req_builder = req_builder.query(&[("next", &p_query_next.to_string())]);
+    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V3ArchiveOrders`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V3ArchiveOrders`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3FbsOrdersArchiveError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 pub async fn get_v3_fbs_shipping_points(configuration: &configuration::Configuration, city: &str, cargo_type: i32) -> Result<models::ShippingPointsResponse, Error<GetV3FbsShippingPointsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_city = city;
@@ -2112,7 +828,7 @@ pub async fn get_v3_fbs_shipping_points(configuration: &configuration::Configura
     }
 }
 
-/// Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+/// Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 pub async fn get_v3_fbs_supplies_supply_id_stickers_spot(configuration: &configuration::Configuration, supply_id: &str) -> Result<models::SupplySpotQrCode, Error<GetV3FbsSuppliesSupplyIdStickersSpotError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_supply_id = supply_id;
@@ -2157,7 +873,465 @@ pub async fn get_v3_fbs_supplies_supply_id_stickers_spot(configuration: &configu
     }
 }
 
-/// Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+/// Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus).  Чтобы получить данные за период, укажите в запросе даты начала и окончания периода. Максимум 30 календарных дней одним запросом. В ответе метода будут сборочные задания, созданные в указанный период.<br><br> Чтобы получить сборочные задания, созданные более 3 месяцев назад, используйте метод получения [списка архивных заказов](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_orders(configuration: &configuration::Configuration, limit: i32, next: i64, date_from: Option<i32>, date_to: Option<i32>) -> Result<models::GetV3Orders200Response, Error<GetV3OrdersError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_limit = limit;
+    let p_query_next = next;
+    let p_query_date_from = date_from;
+    let p_query_date_to = date_to;
+
+    let uri_str = format!("{}/api/v3/orders", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
+    req_builder = req_builder.query(&[("next", &p_query_next.to_string())]);
+    if let Some(ref param_value) = p_query_date_from {
+        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_date_to {
+        req_builder = req_builder.query(&[("dateTo", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3Orders200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3Orders200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3OrdersError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список всех новых [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), которые есть у продавца на момент запроса.  <div class=\"description_important\"> Наличие в сборочных заданиях идентификаторов маркировки, указанных в полях <code>requiredMeta</code> и <code>optionalMeta</code>, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной <a href =\"https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs\">маркировке</a> средствами идентификации, необходимо указывать идентификаторы маркировки независимо от того, в каком поле они были получены (п. 4.6 <a href =\"https://seller.wildberries.ru/confirm-offer-condition/product/view\">Оферты</a>). <br> Рекомендуем добавлять в сборочные задания все идентификаторы маркировки, полученные в полях <code>requiredMeta</code> и <code>optionalMeta</code> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_orders_new(configuration: &configuration::Configuration, ) -> Result<models::GetV3OrdersNew200Response, Error<GetV3OrdersNewError>> {
+
+    let uri_str = format!("{}/api/v3/orders/new", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3OrdersNew200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3OrdersNew200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3OrdersNewError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список всех [созданных](/openapi/orders-fbs#tag/fbsPasses/operation/postV3Passes) пропусков продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_passes(configuration: &configuration::Configuration, ) -> Result<Vec<models::Pass>, Error<GetV3PassesError>> {
+
+    let uri_str = format!("{}/api/v3/passes", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Pass&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Pass&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3PassesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список складов для привязки к [пропуску продавца](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).  <div class=\"description_important\">   Данные, которые возвращает метод, могут меняться. Рекомендуем периодически синхронизировать список </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_passes_offices(configuration: &configuration::Configuration, ) -> Result<Vec<models::PassOffice>, Error<GetV3PassesOfficesError>> {
+
+    let uri_str = format!("{}/api/v3/passes/offices", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PassOffice&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PassOffice&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3PassesOfficesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список [поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_supplies(configuration: &configuration::Configuration, limit: i32, next: i64) -> Result<models::GetV3Supplies200Response, Error<GetV3SuppliesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_limit = limit;
+    let p_query_next = next;
+
+    let uri_str = format!("{}/api/v3/supplies", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
+    req_builder = req_builder.query(&[("next", &p_query_next.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3Supplies200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3Supplies200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3SuppliesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает все [сборочные задания](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), требующие повторной отгрузки. <br><br> Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_supplies_orders_reshipment(configuration: &configuration::Configuration, ) -> Result<models::GetV3SuppliesOrdersReshipment200Response, Error<GetV3SuppliesOrdersReshipmentError>> {
+
+    let uri_str = format!("{}/api/v3/supplies/orders/reshipment", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3SuppliesOrdersReshipment200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3SuppliesOrdersReshipment200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3SuppliesOrdersReshipmentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает подробную информацию о поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_supplies_supply_id(configuration: &configuration::Configuration, supply_id: &str) -> Result<models::Supply, Error<GetV3SuppliesSupplyIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_supply_id = supply_id;
+
+    let uri_str = format!("{}/api/v3/supplies/{supplyId}", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Supply`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Supply`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3SuppliesSupplyIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает QR-код [поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  QR-код поставки можно получить, только если поставка [передана в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver). <br><br> Размер — 580x400 px.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_supplies_supply_id_barcode(configuration: &configuration::Configuration, supply_id: &str, r#type: &str) -> Result<models::GetV3SuppliesSupplyIdBarcode200Response, Error<GetV3SuppliesSupplyIdBarcodeError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_supply_id = supply_id;
+    let p_query_type = r#type;
+
+    let uri_str = format!("{}/api/v3/supplies/{supplyId}/barcode", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3SuppliesSupplyIdBarcode200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3SuppliesSupplyIdBarcode200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3SuppliesSupplyIdBarcodeError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список ID сборочных заданий, закреплённых за поставкой.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_supplies_supply_id_order_ids(configuration: &configuration::Configuration, supply_id: &str) -> Result<models::V3SupplyOrderIdsApi, Error<GetV3SuppliesSupplyIdOrderIdsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_supply_id = supply_id;
+
+    let uri_str = format!("{}/api/marketplace/v3/supplies/{supplyId}/order-ids", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V3SupplyOrderIdsApi`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V3SupplyOrderIdsApi`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3SuppliesSupplyIdOrderIdsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Возвращает список грузомест поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn get_v3_supplies_supply_id_trbx(configuration: &configuration::Configuration, supply_id: &str) -> Result<models::GetV3SuppliesSupplyIdTrbx200Response, Error<GetV3SuppliesSupplyIdTrbxError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_supply_id = supply_id;
+
+    let uri_str = format!("{}/api/v3/supplies/{supplyId}/trbx", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3SuppliesSupplyIdTrbx200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3SuppliesSupplyIdTrbx200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3SuppliesSupplyIdTrbxError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 pub async fn patch_v3_fbs_supplies_shipping_method(configuration: &configuration::Configuration, update_supplies_shipping_method_request: models::UpdateSuppliesShippingMethodRequest) -> Result<models::UpdateSuppliesResponse, Error<PatchV3FbsSuppliesShippingMethodError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_update_supplies_shipping_method_request = update_supplies_shipping_method_request;
@@ -2203,7 +1377,7 @@ pub async fn patch_v3_fbs_supplies_shipping_method(configuration: &configuration
     }
 }
 
-/// Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+/// Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 pub async fn patch_v3_fbs_supplies_waybill(configuration: &configuration::Configuration, update_supplies_waybill: models::UpdateSuppliesWaybill) -> Result<models::UpdateSuppliesResponse, Error<PatchV3FbsSuppliesWaybillError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_update_supplies_waybill = update_supplies_waybill;
@@ -2245,6 +1419,110 @@ pub async fn patch_v3_fbs_supplies_waybill(configuration: &configuration::Config
     } else {
         let content = resp.text().await?;
         let entity: Option<PatchV3FbsSuppliesWaybillError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод отменяет [сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.  <div class=\"description_important\"> Сборочное задание можно отменить до его передачи Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод <a href =\"/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus\">POST /api/v3/orders/status</a>, поле <code>isCancellable</code>. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn patch_v3_orders_order_id_cancel(configuration: &configuration::Configuration, order_id: i64) -> Result<(), Error<PatchV3OrdersOrderIdCancelError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+
+    let uri_str = format!("{}/api/v3/orders/{orderId}/cancel", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PatchV3OrdersOrderIdCancelError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод закрывает [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) и переводит все [сборочные задания](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) в ней в [статус](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла проверку  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  Обязательно [указывайте параметры отгрузки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn patch_v3_supplies_supply_id_deliver(configuration: &configuration::Configuration, supply_id: &str) -> Result<(), Error<PatchV3SuppliesSupplyIdDeliverError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_supply_id = supply_id;
+
+    let uri_str = format!("{}/api/v3/supplies/{supplyId}/deliver", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PatchV3SuppliesSupplyIdDeliverError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод добавляет до 100 [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) к поставке и переводит их в [статус](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке.  Может перемещать сборочные задания:   - между активными поставками   - из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment)  <div class=\"description_important\">   В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания <a href =\"./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId\">из поля</a> <code>cargoType</code>.   <br>   После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.  </div>  <div class=\"description_important\"> В поставку нельзя добавить сборочные задания, поступившие на разные склады. </div> <div class=\"description_important\"> В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок. После этого поставка приобретает тип первого добавленного сборочного задания из поля <code>crossBorderType</code>. Далее в неё можно добавить только сборочные задания такого же типа. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn patch_v3_supplies_supply_id_orders(configuration: &configuration::Configuration, supply_id: &str, patch_v3_supplies_supply_id_orders_request: models::PatchV3SuppliesSupplyIdOrdersRequest) -> Result<(), Error<PatchV3SuppliesSupplyIdOrdersError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_supply_id = supply_id;
+    let p_body_patch_v3_supplies_supply_id_orders_request = patch_v3_supplies_supply_id_orders_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/supplies/{supplyId}/orders", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_patch_v3_supplies_supply_id_orders_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PatchV3SuppliesSupplyIdOrdersError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -2295,7 +1573,477 @@ pub async fn post_v3_fbs_supplies_spot_list(configuration: &configuration::Confi
     }
 }
 
-/// Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+/// Метод позволяет получать информацию о покупателе по ID сборочного задания.  Только для трансграничных поставок из **Турции**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_orders_client(configuration: &configuration::Configuration, orders_request_api: models::OrdersRequestApi) -> Result<models::CrossborderTurkeyClientInfoResp, Error<PostV3OrdersClientError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_orders_request_api = orders_request_api;
+
+    let uri_str = format!("{}/api/v3/orders/client", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_orders_request_api);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CrossborderTurkeyClientInfoResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CrossborderTurkeyClientInfoResp`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3OrdersClientError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3OrdersNew), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)   - `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaExpiration)   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_orders_meta(configuration: &configuration::Configuration, v3_get_meta_multi_request: models::V3GetMetaMultiRequest) -> Result<models::V3OrdersMetaApi, Error<PostV3OrdersMetaError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_v3_get_meta_multi_request = v3_get_meta_multi_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/orders/meta", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_v3_get_meta_multi_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V3OrdersMetaApi`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V3OrdersMetaApi`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3OrdersMetaError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`:  | Статус   | Описание            | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new`      | **Новое сборочное задание** |  | | `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) | `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_orders_status(configuration: &configuration::Configuration, post_v3_orders_status_request: Option<models::PostV3OrdersStatusRequest>) -> Result<models::PostV3OrdersStatus200Response, Error<PostV3OrdersStatusError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v3_orders_status_request = post_v3_orders_status_request;
+
+    let uri_str = format!("{}/api/v3/orders/status", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_orders_status_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3OrdersStatus200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3OrdersStatus200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3OrdersStatusError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает историю [статусов](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) для [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок.  В песочнице этот метод всегда возвращает ответ <code>200</code>.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_orders_status_history(configuration: &configuration::Configuration, post_v3_orders_status_history_request: Option<models::PostV3OrdersStatusHistoryRequest>) -> Result<models::PostV3OrdersStatusHistory200Response, Error<PostV3OrdersStatusHistoryError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v3_orders_status_history_request = post_v3_orders_status_history_request;
+
+    let uri_str = format!("{}/api/v3/orders/status/history", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_orders_status_history_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3OrdersStatusHistory200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3OrdersStatusHistory200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3OrdersStatusHistoryError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders) в [статусах](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке и `complete` — в доставке. <br><br> Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration), получить стикеры для этого сборочного задания невозможно.<br><br> За один запрос можно получить максимум 100 стикеров. <br> Можно получить стикер в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_orders_stickers(configuration: &configuration::Configuration, r#type: &str, width: i32, height: i32, post_v3_orders_stickers_request: Option<models::PostV3OrdersStickersRequest>) -> Result<models::PostV3OrdersStickers200Response, Error<PostV3OrdersStickersError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_type = r#type;
+    let p_query_width = width;
+    let p_query_height = height;
+    let p_body_post_v3_orders_stickers_request = post_v3_orders_stickers_request;
+
+    let uri_str = format!("{}/api/v3/orders/stickers", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
+    req_builder = req_builder.query(&[("width", &p_query_width.to_string())]);
+    req_builder = req_builder.query(&[("height", &p_query_height.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_orders_stickers_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3OrdersStickers200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3OrdersStickers200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3OrdersStickersError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список стикеров [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок в формате PDF.<br><br>  Для каждого сборочного задания в ответе указывается статус генерации стикера:   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.   - `ready` — стикер готов  <div class=\"description_important\">   Стикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус <code>ready</code>. </div>  Ограничения:   - За один запрос можно получить максимум 100 стикеров.   - Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm`, `complete`.  В песочнице этот метод всегда возвращает ответ <code>200</code>.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+pub async fn post_v3_orders_stickers_cross_border(configuration: &configuration::Configuration, post_v3_orders_stickers_cross_border_request: Option<models::PostV3OrdersStickersCrossBorderRequest>) -> Result<models::PostV3OrdersStickersCrossBorder200Response, Error<PostV3OrdersStickersCrossBorderError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v3_orders_stickers_cross_border_request = post_v3_orders_stickers_cross_border_request;
+
+    let uri_str = format!("{}/api/v3/orders/stickers/cross-border", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_orders_stickers_cross_border_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3OrdersStickersCrossBorder200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3OrdersStickersCrossBorder200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3OrdersStickersCrossBorderError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод создаёт [пропуск продавца](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes) с привязкой к складу WB.  Пропуск действует 48 часов со времени создания.  <div class=\"description_limit\">   Максимум 1 запрос в 10 <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">минут</a> на один аккаунт продавца.    Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.    <hr>    В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_passes(configuration: &configuration::Configuration, post_v3_passes_request: models::PostV3PassesRequest) -> Result<models::PostV3Passes201Response, Error<PostV3PassesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v3_passes_request = post_v3_passes_request;
+
+    let uri_str = format!("{}/api/v3/passes", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_passes_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3Passes201Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3Passes201Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3PassesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод создаёт новую [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).  Ограничения: - Только для [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по модели FBS. - При добавлении в поставку все передаваемые сборочные задания в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `new` будут автоматически переведены в статус `confirm` — на сборке. - Если вы переведёте сборочное задание в статус `cancel` — отмена продавцом, прикрепленное сборочное задание автоматически удалится из поставки. - Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_supplies(configuration: &configuration::Configuration, post_v3_supplies_request: models::PostV3SuppliesRequest) -> Result<models::PostV3Supplies201Response, Error<PostV3SuppliesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v3_supplies_request = post_v3_supplies_request;
+
+    let uri_str = format!("{}/api/v3/supplies", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_supplies_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3Supplies201Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3Supplies201Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3SuppliesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx) в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_supplies_supply_id_trbx(configuration: &configuration::Configuration, supply_id: &str, post_v3_supplies_supply_id_trbx_request: Option<models::PostV3SuppliesSupplyIdTrbxRequest>) -> Result<models::PostV3SuppliesSupplyIdTrbx201Response, Error<PostV3SuppliesSupplyIdTrbxError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_supply_id = supply_id;
+    let p_body_post_v3_supplies_supply_id_trbx_request = post_v3_supplies_supply_id_trbx_request;
+
+    let uri_str = format!("{}/api/v3/supplies/{supplyId}/trbx", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_supplies_supply_id_trbx_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3SuppliesSupplyIdTrbx201Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3SuppliesSupplyIdTrbx201Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3SuppliesSupplyIdTrbxError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает QR-стикеры в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG <br><br> Размер стикеров — 580x400 px.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn post_v3_supplies_supply_id_trbx_stickers(configuration: &configuration::Configuration, supply_id: &str, r#type: &str, post_v3_supplies_supply_id_trbx_stickers_request: Option<models::PostV3SuppliesSupplyIdTrbxStickersRequest>) -> Result<models::PostV3SuppliesSupplyIdTrbxStickers200Response, Error<PostV3SuppliesSupplyIdTrbxStickersError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_supply_id = supply_id;
+    let p_query_type = r#type;
+    let p_body_post_v3_supplies_supply_id_trbx_stickers_request = post_v3_supplies_supply_id_trbx_stickers_request;
+
+    let uri_str = format!("{}/api/v3/supplies/{supplyId}/trbx/stickers", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_supplies_supply_id_trbx_stickers_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3SuppliesSupplyIdTrbxStickers200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3SuppliesSupplyIdTrbxStickers200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3SuppliesSupplyIdTrbxStickersError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 pub async fn put_v3_fbs_supplies_supply_id_spot(configuration: &configuration::Configuration, supply_id: &str, put_v3_fbs_supplies_supply_id_spot_request: models::PutV3FbsSuppliesSupplyIdSpotRequest) -> Result<(), Error<PutV3FbsSuppliesSupplyIdSpotError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_supply_id = supply_id;
@@ -2327,6 +2075,258 @@ pub async fn put_v3_fbs_supplies_supply_id_spot(configuration: &configuration::C
     } else {
         let content = resp.text().await?;
         let entity: Option<PutV3FbsSuppliesSupplyIdSpotError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `customsDeclaration`.  <div class=\"description_important\"> Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn put_v3_orders_order_id_meta_customs_declaration(configuration: &configuration::Configuration, order_id: i64, put_v3_orders_order_id_meta_customs_declaration_request: models::PutV3OrdersOrderIdMetaCustomsDeclarationRequest) -> Result<(), Error<PutV3OrdersOrderIdMetaCustomsDeclarationError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+    let p_body_put_v3_orders_order_id_meta_customs_declaration_request = put_v3_orders_order_id_meta_customs_declaration_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/orders/{orderId}/meta/customs-declaration", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_orders_order_id_meta_customs_declaration_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3OrdersOrderIdMetaCustomsDeclarationError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод закрепляет за [сборочным заданием](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) срок годности товара. Товар годен до указанной даты. <br> Закрепить срок годности можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `expiration`. <br><br> Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).<br> Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn put_v3_orders_order_id_meta_expiration(configuration: &configuration::Configuration, order_id: i64, put_v3_orders_order_id_meta_expiration_request: models::PutV3OrdersOrderIdMetaExpirationRequest) -> Result<(), Error<PutV3OrdersOrderIdMetaExpirationError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+    let p_body_put_v3_orders_order_id_meta_expiration_request = put_v3_orders_order_id_meta_expiration_request;
+
+    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/expiration", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_orders_order_id_meta_expiration_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3OrdersOrderIdMetaExpirationError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один GTIN.<br>  Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `gtin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn put_v3_orders_order_id_meta_gtin(configuration: &configuration::Configuration, order_id: i64, put_v3_orders_order_id_meta_gtin_request: models::PutV3OrdersOrderIdMetaGtinRequest) -> Result<(), Error<PutV3OrdersOrderIdMetaGtinError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+    let p_body_put_v3_orders_order_id_meta_gtin_request = put_v3_orders_order_id_meta_gtin_request;
+
+    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/gtin", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_orders_order_id_meta_gtin_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3OrdersOrderIdMetaGtinError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).<br> У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br> Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `imei`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn put_v3_orders_order_id_meta_imei(configuration: &configuration::Configuration, order_id: i64, put_v3_orders_order_id_meta_imei_request: models::PutV3OrdersOrderIdMetaImeiRequest) -> Result<(), Error<PutV3OrdersOrderIdMetaImeiError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+    let p_body_put_v3_orders_order_id_meta_imei_request = put_v3_orders_order_id_meta_imei_request;
+
+    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/imei", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_orders_order_id_meta_imei_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3OrdersOrderIdMetaImeiError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders). <br> Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `sgtin`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn put_v3_orders_order_id_meta_sgtin(configuration: &configuration::Configuration, order_id: i64, put_v3_orders_order_id_meta_sgtin_request: models::PutV3OrdersOrderIdMetaSgtinRequest) -> Result<(), Error<PutV3OrdersOrderIdMetaSgtinError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+    let p_body_put_v3_orders_order_id_meta_sgtin_request = put_v3_orders_order_id_meta_sgtin_request;
+
+    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/sgtin", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_orders_order_id_meta_sgtin_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3OrdersOrderIdMetaSgtinError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один УИН.<br> Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `uin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn put_v3_orders_order_id_meta_uin(configuration: &configuration::Configuration, order_id: i64, put_v3_orders_order_id_meta_uin_request: models::PutV3OrdersOrderIdMetaUinRequest) -> Result<(), Error<PutV3OrdersOrderIdMetaUinError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+    let p_body_put_v3_orders_order_id_meta_uin_request = put_v3_orders_order_id_meta_uin_request;
+
+    let uri_str = format!("{}/api/v3/orders/{orderId}/meta/uin", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_orders_order_id_meta_uin_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3OrdersOrderIdMetaUinError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет данные [пропуска продавца](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes). В том числе, можно обновить данные привязанного склада WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+pub async fn put_v3_passes_pass_id(configuration: &configuration::Configuration, pass_id: i64, put_v3_passes_pass_id_request: models::PutV3PassesPassIdRequest) -> Result<(), Error<PutV3PassesPassIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_pass_id = pass_id;
+    let p_body_put_v3_passes_pass_id_request = put_v3_passes_pass_id_request;
+
+    let uri_str = format!("{}/api/v3/passes/{passId}", configuration.base_path, passId=p_path_pass_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_passes_pass_id_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3PassesPassIdError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

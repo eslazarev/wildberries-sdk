@@ -18,7 +18,7 @@ pub struct InventoryWbResponseItemsInner {
     pub nm_id: i64,
     /// ID размера
     #[serde(rename = "chrtId")]
-    pub chrt_id: i64,
+    pub chrt_id: u64,
     /// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
     #[serde(rename = "warehouseId")]
     pub warehouse_id: i64,
@@ -40,7 +40,7 @@ pub struct InventoryWbResponseItemsInner {
 }
 
 impl InventoryWbResponseItemsInner {
-    pub fn new(nm_id: i64, chrt_id: i64, warehouse_id: i64, warehouse_name: String, region_name: String, quantity: u64, in_way_to_client: u64, in_way_from_client: u64) -> InventoryWbResponseItemsInner {
+    pub fn new(nm_id: i64, chrt_id: u64, warehouse_id: i64, warehouse_name: String, region_name: String, quantity: u64, in_way_to_client: u64, in_way_from_client: u64) -> InventoryWbResponseItemsInner {
         InventoryWbResponseItemsInner {
             nm_id,
             chrt_id,

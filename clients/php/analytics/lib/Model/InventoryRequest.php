@@ -73,7 +73,7 @@ class InventoryRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'nm_ids' => 'int64',
-        'chrt_ids' => 'int64',
+        'chrt_ids' => 'uint64',
         'limit' => 'uint32',
         'offset' => 'uint32'
     ];

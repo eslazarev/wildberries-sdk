@@ -64,6 +64,11 @@ import {
     ModelsGoodInSupplyToJSON,
 } from '../models/ModelsGoodInSupply';
 import {
+    type ModelsItemDiscrepancyResponse,
+    ModelsItemDiscrepancyResponseFromJSON,
+    ModelsItemDiscrepancyResponseToJSON,
+} from '../models/ModelsItemDiscrepancyResponse';
+import {
     type ModelsListDraftItemsResponse,
     ModelsListDraftItemsResponseFromJSON,
     ModelsListDraftItemsResponseToJSON,
@@ -88,6 +93,11 @@ import {
     ModelsSupplyFromJSON,
     ModelsSupplyToJSON,
 } from '../models/ModelsSupply';
+import {
+    type ModelsSupplyAcceptedMoreThanYearAgo,
+    ModelsSupplyAcceptedMoreThanYearAgoFromJSON,
+    ModelsSupplyAcceptedMoreThanYearAgoToJSON,
+} from '../models/ModelsSupplyAcceptedMoreThanYearAgo';
 import {
     type ModelsSupplyDetails,
     ModelsSupplyDetailsFromJSON,
@@ -118,6 +128,11 @@ import {
     PostV1AcceptanceOptions403ResponseFromJSON,
     PostV1AcceptanceOptions403ResponseToJSON,
 } from '../models/PostV1AcceptanceOptions403Response';
+import {
+    type Response4XX,
+    Response4XXFromJSON,
+    Response4XXToJSON,
+} from '../models/Response4XX';
 
 export interface DeleteV1DraftsDraftIdRequest {
     /**
@@ -210,6 +225,13 @@ export interface GetV1SuppliesIdPackageRequest {
      * ID поставки
      */
     iD: number;
+}
+
+export interface GetV1SuppliesSupplyIdDiscrepanciesQuantityRequest {
+    /**
+     * ID поставки
+     */
+    supplyId: number;
 }
 
 export interface PostV1AcceptanceOptionsRequest {
@@ -641,6 +663,57 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getV1SuppliesIdPackage(requestParameters: GetV1SuppliesIdPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ModelsBox>> {
         const response = await this.getV1SuppliesIdPackageRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1SuppliesSupplyIdDiscrepanciesQuantity without sending the request
+     */
+    async getV1SuppliesSupplyIdDiscrepanciesQuantityRequestOpts(requestParameters: GetV1SuppliesSupplyIdDiscrepanciesQuantityRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['supplyId'] == null) {
+            throw new runtime.RequiredError(
+                'supplyId',
+                'Required parameter "supplyId" was null or undefined when calling getV1SuppliesSupplyIdDiscrepanciesQuantity().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/supplies/v1/discrepancies/{supplyId}`;
+        urlPath = urlPath.replace('{supplyId}', encodeURIComponent(String(requestParameters['supplyId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке. <br> Для поставок принятых не позднее года назад. <br><br> **Типы расхождений:** <br><br> Расхождение в большую сторону:<br><br> 1. Избыток товара с заявленным баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"re-sorting\"`  Расхождение в меньшую сторону:<br><br> 1. Не хватает товара:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"re-sorting\"`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * Расхождения в поставке
+     */
+    async getV1SuppliesSupplyIdDiscrepanciesQuantityRaw(requestParameters: GetV1SuppliesSupplyIdDiscrepanciesQuantityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsItemDiscrepancyResponse>>> {
+        const requestOptions = await this.getV1SuppliesSupplyIdDiscrepanciesQuantityRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ModelsItemDiscrepancyResponseFromJSON));
+    }
+
+    /**
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке. <br> Для поставок принятых не позднее года назад. <br><br> **Типы расхождений:** <br><br> Расхождение в большую сторону:<br><br> 1. Избыток товара с заявленным баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"re-sorting\"`  Расхождение в меньшую сторону:<br><br> 1. Не хватает товара:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"re-sorting\"`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * Расхождения в поставке
+     */
+    async getV1SuppliesSupplyIdDiscrepanciesQuantity(requestParameters: GetV1SuppliesSupplyIdDiscrepanciesQuantityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ModelsItemDiscrepancyResponse>> {
+        const response = await this.getV1SuppliesSupplyIdDiscrepanciesQuantityRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

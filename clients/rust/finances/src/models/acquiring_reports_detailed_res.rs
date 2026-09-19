@@ -35,7 +35,7 @@ pub struct AcquiringReportsDetailedRes {
     /// Дата продажи
     #[serde(rename = "saleDate")]
     pub sale_date: String,
-    /// ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid` 
+    /// ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid` 
     #[serde(rename = "srid")]
     pub srid: String,
     /// Тип документа

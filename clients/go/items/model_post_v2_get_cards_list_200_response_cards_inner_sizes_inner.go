@@ -1,7 +1,7 @@
 /*
 Работа с товарами
 
-<div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/item-management#tag/listingItems) и [редактировать](/openapi/item-management#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/item-management#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/item-management#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/item-management#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts)   - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div>  
+<div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/item-management#tag/listingItems) и [редактировать](/openapi/item-management#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/item-management#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/item-management#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/item-management#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts)   - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаров  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div>  
 
 API version: items
 */
@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV2GetCardsList200ResponseCardsInnerSizesInner{}
 // PostV2GetCardsList200ResponseCardsInnerSizesInner struct for PostV2GetCardsList200ResponseCardsInnerSizesInner
 type PostV2GetCardsList200ResponseCardsInnerSizesInner struct {
 	// Числовой ID размера для данного артикула WB
-	ChrtID *int64 `json:"chrtID,omitempty"`
+	ChrtID *int32 `json:"chrtID,omitempty"`
 	// Размер товара (А, XXL, 57 и др.)
 	TechSize *string `json:"techSize,omitempty"`
 	// Российский размер товара
@@ -47,9 +47,9 @@ func NewPostV2GetCardsList200ResponseCardsInnerSizesInnerWithDefaults() *PostV2G
 }
 
 // GetChrtID returns the ChrtID field value if set, zero value otherwise.
-func (o *PostV2GetCardsList200ResponseCardsInnerSizesInner) GetChrtID() int64 {
+func (o *PostV2GetCardsList200ResponseCardsInnerSizesInner) GetChrtID() int32 {
 	if o == nil || IsNil(o.ChrtID) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.ChrtID
@@ -57,7 +57,7 @@ func (o *PostV2GetCardsList200ResponseCardsInnerSizesInner) GetChrtID() int64 {
 
 // GetChrtIDOk returns a tuple with the ChrtID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsList200ResponseCardsInnerSizesInner) GetChrtIDOk() (*int64, bool) {
+func (o *PostV2GetCardsList200ResponseCardsInnerSizesInner) GetChrtIDOk() (*int32, bool) {
 	if o == nil || IsNil(o.ChrtID) {
 		return nil, false
 	}
@@ -73,8 +73,8 @@ func (o *PostV2GetCardsList200ResponseCardsInnerSizesInner) HasChrtID() bool {
 	return false
 }
 
-// SetChrtID gets a reference to the given int64 and assigns it to the ChrtID field.
-func (o *PostV2GetCardsList200ResponseCardsInnerSizesInner) SetChrtID(v int64) {
+// SetChrtID gets a reference to the given int32 and assigns it to the ChrtID field.
+func (o *PostV2GetCardsList200ResponseCardsInnerSizesInner) SetChrtID(v int32) {
 	o.ChrtID = &v
 }
 

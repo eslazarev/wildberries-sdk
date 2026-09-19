@@ -90,6 +90,9 @@ pub struct ModelsSupplyDetails {
     /// Количество обезличенного товара, шт
     #[serde(rename = "depersonalizedQuantity", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub depersonalized_quantity: Option<Option<i32>>,
+    /// Расхождения между заявленным и фактическим количеством товара в поставке. <br> Только при `\"statusID\":5` 
+    #[serde(rename = "discrepancies", skip_serializing_if = "Option::is_none")]
+    pub discrepancies: Option<i32>,
     /// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` 
     #[serde(rename = "isBoxOnPallet", skip_serializing_if = "Option::is_none")]
     pub is_box_on_pallet: Option<bool>,
@@ -123,6 +126,7 @@ impl ModelsSupplyDetails {
             accepted_quantity: None,
             unloading_quantity: None,
             depersonalized_quantity: None,
+            discrepancies: None,
             is_box_on_pallet: None,
         }
     }

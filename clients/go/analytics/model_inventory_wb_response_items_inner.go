@@ -24,7 +24,7 @@ type InventoryWbResponseItemsInner struct {
 	// Артикул WB
 	NmId int64 `json:"nmId"`
 	// ID размера
-	ChrtId int64 `json:"chrtId"`
+	ChrtId int32 `json:"chrtId"`
 	// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
 	WarehouseId int64 `json:"warehouseId"`
 	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
@@ -45,7 +45,7 @@ type _InventoryWbResponseItemsInner InventoryWbResponseItemsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInventoryWbResponseItemsInner(nmId int64, chrtId int64, warehouseId int64, warehouseName string, regionName string, quantity int32, inWayToClient int32, inWayFromClient int32) *InventoryWbResponseItemsInner {
+func NewInventoryWbResponseItemsInner(nmId int64, chrtId int32, warehouseId int64, warehouseName string, regionName string, quantity int32, inWayToClient int32, inWayFromClient int32) *InventoryWbResponseItemsInner {
 	this := InventoryWbResponseItemsInner{}
 	this.NmId = nmId
 	this.ChrtId = chrtId
@@ -91,9 +91,9 @@ func (o *InventoryWbResponseItemsInner) SetNmId(v int64) {
 }
 
 // GetChrtId returns the ChrtId field value
-func (o *InventoryWbResponseItemsInner) GetChrtId() int64 {
+func (o *InventoryWbResponseItemsInner) GetChrtId() int32 {
 	if o == nil {
-		var ret int64
+		var ret int32
 		return ret
 	}
 
@@ -102,7 +102,7 @@ func (o *InventoryWbResponseItemsInner) GetChrtId() int64 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value
 // and a boolean to check if the value has been set.
-func (o *InventoryWbResponseItemsInner) GetChrtIdOk() (*int64, bool) {
+func (o *InventoryWbResponseItemsInner) GetChrtIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -110,7 +110,7 @@ func (o *InventoryWbResponseItemsInner) GetChrtIdOk() (*int64, bool) {
 }
 
 // SetChrtId sets field value
-func (o *InventoryWbResponseItemsInner) SetChrtId(v int64) {
+func (o *InventoryWbResponseItemsInner) SetChrtId(v int32) {
 	o.ChrtId = v
 }
 

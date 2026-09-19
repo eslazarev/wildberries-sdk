@@ -138,6 +138,13 @@ export interface ModelsSupplyDetails {
      */
     depersonalizedQuantity?: number | null;
     /**
+     * Расхождения между заявленным и фактическим количеством товара в поставке.
+     * <br>
+     * Только при `"statusID":5`
+     * 
+     */
+    discrepancies?: number;
+    /**
      * Тип поставки — **Поштучная палета**:
      *   - `true` — да
      *   - `false` — нет
@@ -205,6 +212,7 @@ export function ModelsSupplyDetailsFromJSONTyped(json: any, ignoreDiscriminator:
         'acceptedQuantity': json['acceptedQuantity'] == null ? undefined : json['acceptedQuantity'],
         'unloadingQuantity': json['unloadingQuantity'] == null ? undefined : json['unloadingQuantity'],
         'depersonalizedQuantity': json['depersonalizedQuantity'] === undefined ? undefined : json['depersonalizedQuantity'] === null ? null : json['depersonalizedQuantity'],
+        'discrepancies': json['discrepancies'] == null ? undefined : json['discrepancies'],
         'isBoxOnPallet': json['isBoxOnPallet'] == null ? undefined : json['isBoxOnPallet'],
     };
 }
@@ -245,6 +253,7 @@ export function ModelsSupplyDetailsToJSONTyped(value?: ModelsSupplyDetails | nul
         'acceptedQuantity': value['acceptedQuantity'],
         'unloadingQuantity': value['unloadingQuantity'],
         'depersonalizedQuantity': value['depersonalizedQuantity'],
+        'discrepancies': value['discrepancies'],
         'isBoxOnPallet': value['isBoxOnPallet'],
     };
 }

@@ -60,7 +60,7 @@ pub struct OrderNewDbw {
     pub nm_id: Option<i32>,
     /// ID размера товара в системе WB
     #[serde(rename = "chrtId", skip_serializing_if = "Option::is_none")]
-    pub chrt_id: Option<i32>,
+    pub chrt_id: Option<u64>,
     /// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
     #[serde(rename = "price", skip_serializing_if = "Option::is_none")]
     pub price: Option<i32>,

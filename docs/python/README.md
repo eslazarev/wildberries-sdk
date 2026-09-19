@@ -136,53 +136,53 @@ print(feedbacks)
 - `items.DefaultApi.put_v3_warehouses_warehouse_id` — `PUT /api/v3/warehouses/{warehouseId}` — Обновить склад продавца
 
 ### orders_fbs (`orders_fbs`)
-- `orders_fbs.DefaultApi.api_marketplace_v3_fbs_orders_archive_get` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
-- `orders_fbs.DefaultApi.api_marketplace_v3_orders_meta_post` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
-- `orders_fbs.DefaultApi.api_marketplace_v3_orders_order_id_meta_customs_declaration_put` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
-- `orders_fbs.DefaultApi.api_marketplace_v3_supplies_supply_id_order_ids_get` — `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
-- `orders_fbs.DefaultApi.api_marketplace_v3_supplies_supply_id_orders_patch` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
-- `orders_fbs.DefaultApi.api_v3_orders_client_post` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
-- `orders_fbs.DefaultApi.api_v3_orders_get` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
-- `orders_fbs.DefaultApi.api_v3_orders_new_get` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_cancel_patch` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_delete` — `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_expiration_put` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_gtin_put` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_imei_put` — `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_sgtin_put` — `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить код маркировки Честного знака за сборочным заданием
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_uin_put` — `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием
-- `orders_fbs.DefaultApi.api_v3_orders_status_history_post` — `POST /api/v3/orders/status/history` — История статусов для сборочных заданий трансграничных поставок
-- `orders_fbs.DefaultApi.api_v3_orders_status_post` — `POST /api/v3/orders/status` — Получить статусы сборочных заданий
-- `orders_fbs.DefaultApi.api_v3_orders_stickers_cross_border_post` — `POST /api/v3/orders/stickers/cross-border` — Получить стикеры сборочных заданий трансграничных поставок
-- `orders_fbs.DefaultApi.api_v3_orders_stickers_post` — `POST /api/v3/orders/stickers` — Получить стикеры сборочных заданий
-- `orders_fbs.DefaultApi.api_v3_passes_get` — `GET /api/v3/passes` — Получить список пропусков
-- `orders_fbs.DefaultApi.api_v3_passes_offices_get` — `GET /api/v3/passes/offices` — Получить список складов, для которых требуется пропуск
-- `orders_fbs.DefaultApi.api_v3_passes_pass_id_delete` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
-- `orders_fbs.DefaultApi.api_v3_passes_pass_id_put` — `PUT /api/v3/passes/{passId}` — Обновить пропуск
-- `orders_fbs.DefaultApi.api_v3_passes_post` — `POST /api/v3/passes` — Создать пропуск
-- `orders_fbs.DefaultApi.api_v3_supplies_get` — `GET /api/v3/supplies` — Получить список поставок
-- `orders_fbs.DefaultApi.api_v3_supplies_orders_reshipment_get` — `GET /api/v3/supplies/orders/reshipment` — Получить все сборочные задания для повторной отгрузки
-- `orders_fbs.DefaultApi.api_v3_supplies_post` — `POST /api/v3/supplies` — Создать новую поставку
-- `orders_fbs.DefaultApi.api_v3_supplies_supply_id_barcode_get` — `GET /api/v3/supplies/{supplyId}/barcode` — Получить QR-код поставки
-- `orders_fbs.DefaultApi.api_v3_supplies_supply_id_delete` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
-- `orders_fbs.DefaultApi.api_v3_supplies_supply_id_deliver_patch` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
-- `orders_fbs.DefaultApi.api_v3_supplies_supply_id_get` — `GET /api/v3/supplies/{supplyId}` — Получить информацию о поставке
-- `orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_delete` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки
-- `orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_get` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
-- `orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_post` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
-- `orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_stickers_post` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
+- `orders_fbs.DefaultApi.delete_v3_orders_order_id_meta` — `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания
+- `orders_fbs.DefaultApi.delete_v3_passes_pass_id` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
+- `orders_fbs.DefaultApi.delete_v3_supplies_supply_id` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
+- `orders_fbs.DefaultApi.delete_v3_supplies_supply_id_trbx` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки
 - `orders_fbs.DefaultApi.get_marketplace_v3_fbs_settings_autoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
 - `orders_fbs.DefaultApi.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
 - `orders_fbs.DefaultApi.get_v3_fbs_dictionaries_countries_oksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
+- `orders_fbs.DefaultApi.get_v3_fbs_orders_archive` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `orders_fbs.DefaultApi.get_v3_fbs_shipping_points` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
 - `orders_fbs.DefaultApi.get_v3_fbs_supplies_supply_id_stickers_spot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
+- `orders_fbs.DefaultApi.get_v3_orders` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
+- `orders_fbs.DefaultApi.get_v3_orders_new` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий
+- `orders_fbs.DefaultApi.get_v3_passes` — `GET /api/v3/passes` — Получить список пропусков
+- `orders_fbs.DefaultApi.get_v3_passes_offices` — `GET /api/v3/passes/offices` — Получить список складов, для которых требуется пропуск
+- `orders_fbs.DefaultApi.get_v3_supplies` — `GET /api/v3/supplies` — Получить список поставок
+- `orders_fbs.DefaultApi.get_v3_supplies_orders_reshipment` — `GET /api/v3/supplies/orders/reshipment` — Получить все сборочные задания для повторной отгрузки
+- `orders_fbs.DefaultApi.get_v3_supplies_supply_id` — `GET /api/v3/supplies/{supplyId}` — Получить информацию о поставке
+- `orders_fbs.DefaultApi.get_v3_supplies_supply_id_barcode` — `GET /api/v3/supplies/{supplyId}/barcode` — Получить QR-код поставки
+- `orders_fbs.DefaultApi.get_v3_supplies_supply_id_order_ids` — `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
+- `orders_fbs.DefaultApi.get_v3_supplies_supply_id_trbx` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
 - `orders_fbs.DefaultApi.patch_marketplace_v3_fbs_settings_autoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
 - `orders_fbs.DefaultApi.patch_marketplace_v3_fbs_settings_autoreturns_items` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
 - `orders_fbs.DefaultApi.patch_v3_fbs_supplies_shipping_method` — `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок
 - `orders_fbs.DefaultApi.patch_v3_fbs_supplies_waybill` — `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок
+- `orders_fbs.DefaultApi.patch_v3_orders_order_id_cancel` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
+- `orders_fbs.DefaultApi.patch_v3_supplies_supply_id_deliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
+- `orders_fbs.DefaultApi.patch_v3_supplies_supply_id_orders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
 - `orders_fbs.DefaultApi.post_marketplace_v3_fbs_settings_autoreturns_items` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
 - `orders_fbs.DefaultApi.post_v3_fbs_supplies_spot_list` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок
+- `orders_fbs.DefaultApi.post_v3_orders_client` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
+- `orders_fbs.DefaultApi.post_v3_orders_meta` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
+- `orders_fbs.DefaultApi.post_v3_orders_status` — `POST /api/v3/orders/status` — Получить статусы сборочных заданий
+- `orders_fbs.DefaultApi.post_v3_orders_status_history` — `POST /api/v3/orders/status/history` — История статусов для сборочных заданий трансграничных поставок
+- `orders_fbs.DefaultApi.post_v3_orders_stickers` — `POST /api/v3/orders/stickers` — Получить стикеры сборочных заданий
+- `orders_fbs.DefaultApi.post_v3_orders_stickers_cross_border` — `POST /api/v3/orders/stickers/cross-border` — Получить стикеры сборочных заданий трансграничных поставок
+- `orders_fbs.DefaultApi.post_v3_passes` — `POST /api/v3/passes` — Создать пропуск
+- `orders_fbs.DefaultApi.post_v3_supplies` — `POST /api/v3/supplies` — Создать новую поставку
+- `orders_fbs.DefaultApi.post_v3_supplies_supply_id_trbx` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
+- `orders_fbs.DefaultApi.post_v3_supplies_supply_id_trbx_stickers` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
 - `orders_fbs.DefaultApi.put_v3_fbs_supplies_supply_id_spot` — `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку
+- `orders_fbs.DefaultApi.put_v3_orders_order_id_meta_customs_declaration` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
+- `orders_fbs.DefaultApi.put_v3_orders_order_id_meta_expiration` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
+- `orders_fbs.DefaultApi.put_v3_orders_order_id_meta_gtin` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
+- `orders_fbs.DefaultApi.put_v3_orders_order_id_meta_imei` — `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием
+- `orders_fbs.DefaultApi.put_v3_orders_order_id_meta_sgtin` — `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить код маркировки Честного знака за сборочным заданием
+- `orders_fbs.DefaultApi.put_v3_orders_order_id_meta_uin` — `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием
+- `orders_fbs.DefaultApi.put_v3_passes_pass_id` — `PUT /api/v3/passes/{passId}` — Обновить пропуск
 
 ### orders_dbw (`orders_dbw`)
 - `orders_dbw.DefaultApi.get_v3_dbw_orders` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях
@@ -253,6 +253,7 @@ print(feedbacks)
 - `orders_fbw.DefaultApi.get_v1_supplies_id` — `GET /api/v1/supplies/{ID}` — Детали поставки
 - `orders_fbw.DefaultApi.get_v1_supplies_id_goods` — `GET /api/v1/supplies/{ID}/goods` — Товары поставки
 - `orders_fbw.DefaultApi.get_v1_supplies_id_package` — `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
+- `orders_fbw.DefaultApi.get_v1_supplies_supply_id_discrepancies_quantity` — `GET /api/supplies/v1/discrepancies/{supplyId}` — Расхождения в поставке
 - `orders_fbw.DefaultApi.get_v1_transit_tariffs` — `GET /api/v1/transit-tariffs` — Транзитные направления
 - `orders_fbw.DefaultApi.get_v1_warehouses` — `GET /api/v1/warehouses` — Список складов
 - `orders_fbw.DefaultApi.post_v1_acceptance_options` — `POST /api/v1/acceptance/options` — Опции приёмки

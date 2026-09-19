@@ -2636,6 +2636,7 @@ components:
         chrtId:
           description: ID размера товара в системе WB
           example: 987654321
+          format: uint64
           nullable: false
           type: integer
         price:
@@ -2788,6 +2789,7 @@ components:
         chrtId:
           description: ID размера товара в системе WB
           example: 987654321
+          format: uint64
           nullable: false
           type: integer
         price:

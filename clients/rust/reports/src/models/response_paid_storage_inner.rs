@@ -33,7 +33,7 @@ pub struct ResponsePaidStorageInner {
     pub gi_id: Option<i32>,
     /// ID размера для этого артикула WB
     #[serde(rename = "chrtId", skip_serializing_if = "Option::is_none")]
-    pub chrt_id: Option<i32>,
+    pub chrt_id: Option<u64>,
     /// Размер (`techSize` в карточке товара)
     #[serde(rename = "size", skip_serializing_if = "Option::is_none")]
     pub size: Option<String>,

@@ -24,7 +24,7 @@ export interface GetCategoriesDataCategoriesInner {
      */
     name?: string;
     /**
-     * Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`
+     * Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
      */
     title?: string;
 }

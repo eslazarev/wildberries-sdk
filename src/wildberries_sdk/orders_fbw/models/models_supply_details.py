@@ -52,8 +52,9 @@ class ModelsSupplyDetails(BaseModel):
     accepted_quantity: Optional[StrictInt] = Field(default=None, description="Принято, шт", alias="acceptedQuantity")
     unloading_quantity: Optional[StrictInt] = Field(default=None, description="Количество товара, находящегося на раскладке, шт", alias="unloadingQuantity")
     depersonalized_quantity: Optional[StrictInt] = Field(default=None, description="Количество обезличенного товара, шт", alias="depersonalizedQuantity")
+    discrepancies: Optional[StrictInt] = Field(default=None, description="Расхождения между заявленным и фактическим количеством товара в поставке. <br> Только при `\"statusID\":5` ")
     is_box_on_pallet: Optional[StrictBool] = Field(default=None, description="Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` ", alias="isBoxOnPallet")
-    __properties: ClassVar[List[str]] = ["phone", "statusID", "virtualTypeID", "boxTypeID", "createDate", "supplyDate", "factDate", "updatedDate", "warehouseID", "warehouseName", "actualWarehouseID", "actualWarehouseName", "transitWarehouseID", "transitWarehouseName", "acceptanceCost", "paidAcceptanceCoefficient", "rejectReason", "supplierAssignName", "storageCoef", "deliveryCoef", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity", "depersonalizedQuantity", "isBoxOnPallet"]
+    __properties: ClassVar[List[str]] = ["phone", "statusID", "virtualTypeID", "boxTypeID", "createDate", "supplyDate", "factDate", "updatedDate", "warehouseID", "warehouseName", "actualWarehouseID", "actualWarehouseName", "transitWarehouseID", "transitWarehouseName", "acceptanceCost", "paidAcceptanceCoefficient", "rejectReason", "supplierAssignName", "storageCoef", "deliveryCoef", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity", "depersonalizedQuantity", "discrepancies", "isBoxOnPallet"]
 
     @field_validator('status_id')
     def status_id_validate_enum(cls, value):
@@ -201,6 +202,7 @@ class ModelsSupplyDetails(BaseModel):
             "acceptedQuantity": obj.get("acceptedQuantity"),
             "unloadingQuantity": obj.get("unloadingQuantity"),
             "depersonalizedQuantity": obj.get("depersonalizedQuantity"),
+            "discrepancies": obj.get("discrepancies"),
             "isBoxOnPallet": obj.get("isBoxOnPallet")
         })
         return _obj

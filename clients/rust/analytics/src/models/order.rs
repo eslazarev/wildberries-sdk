@@ -19,7 +19,7 @@ pub struct Order {
     pub nm_id: i64,
     /// ID размера
     #[serde(rename = "chrtId")]
-    pub chrt_id: i64,
+    pub chrt_id: u64,
     /// ID заказа
     #[serde(rename = "srid")]
     pub srid: String,
@@ -60,7 +60,7 @@ pub struct Order {
 
 impl Order {
     /// Заказ
-    pub fn new(nm_id: i64, chrt_id: i64, srid: String, created_at: chrono::DateTime<chrono::FixedOffset>, updated_at: chrono::DateTime<chrono::FixedOffset>, status: Status, warehouse_name: String, warehouse_region: String, is_mp: bool, destination_city: String, destination_district: String, seller_price: f64, is_b2b: bool) -> Order {
+    pub fn new(nm_id: i64, chrt_id: u64, srid: String, created_at: chrono::DateTime<chrono::FixedOffset>, updated_at: chrono::DateTime<chrono::FixedOffset>, status: Status, warehouse_name: String, warehouse_region: String, is_mp: bool, destination_city: String, destination_district: String, seller_price: f64, is_b2b: bool) -> Order {
         Order {
             nm_id,
             chrt_id,

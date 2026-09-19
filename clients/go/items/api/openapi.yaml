@@ -12,7 +12,7 @@ info:
       - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts)
       - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца
 
-    Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров
+    Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаров
 
     </div>
 
@@ -10879,7 +10879,7 @@ components:
       properties:
         chrtID:
           description: Числовой ID размера для данного артикула WB
-          format: int64
+          format: uint64
           type: integer
         techSize:
           description: "Размер товара (А, XXL, 57 и др.)"
@@ -11409,6 +11409,7 @@ components:
             ID размера для данного артикула WB<br>
             Обязателен к заполнению для существующих размеров<br>
             Для добавляемых размеров не указывается
+          format: uint64
           type: integer
         techSize:
           description: "Размер товара (например, XL, S, 45)"
@@ -11615,6 +11616,7 @@ components:
       properties:
         chrtID:
           description: ID размера
+          format: uint64
           type: integer
         techSize:
           description: Размер товара
@@ -12874,6 +12876,7 @@ components:
         chrtId:
           description: ID размера товара
           example: 12345678
+          format: uint64
           type: integer
         amount:
           description: Остаток
@@ -12900,6 +12903,7 @@ components:
           description: Массив ID размеров товаров
           items:
             example: 12345678
+            format: uint64
             type: integer
           maxItems: 1000
           type: array
@@ -12914,6 +12918,7 @@ components:
         chrtId:
           description: ID размера товара
           example: 12345678
+          format: uint64
           type: integer
         amount:
           description: Остаток
@@ -12941,6 +12946,7 @@ components:
           description: Массив ID размеров товаров
           items:
             example: 123456789
+            format: uint64
             nullable: false
             type: integer
           maxItems: 1000
@@ -13136,6 +13142,7 @@ components:
           type: string
         chrtId:
           description: ID размера товара
+          format: uint64
           type: integer
         amount:
           description: Остаток

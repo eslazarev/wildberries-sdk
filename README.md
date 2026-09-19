@@ -145,7 +145,7 @@ SDK выпускается с security-first процессом:
 
 ### Заказы FBS (`03-orders-fbs.yaml`)
 - `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ (getV3FbsDictionariesCountriesOksm)
-- `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
+- `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий (getV3FbsOrdersArchive)
 - `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца (getMarketplaceV3FbsSettingsAutoreturns)
 - `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца (patchMarketplaceV3FbsSettingsAutoreturns)
 - `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров (postMarketplaceV3FbsSettingsAutoreturnsItems)
@@ -157,40 +157,40 @@ SDK выпускается с security-first процессом:
 - `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок (patchV3FbsSuppliesWaybill)
 - `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку (putV3FbsSuppliesSupplyIdSpot)
 - `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ (getV3FbsSuppliesSupplyIdStickersSpot)
-- `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
-- `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
-- `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
-- `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
-- `GET /api/v3/orders` — Получить информацию о сборочных заданиях
-- `POST /api/v3/orders/client` — Заказы с информацией по клиенту
-- `GET /api/v3/orders/new` — Получить список новых сборочных заданий
-- `POST /api/v3/orders/status` — Получить статусы сборочных заданий
-- `POST /api/v3/orders/status/history` — История статусов для сборочных заданий трансграничных поставок
-- `POST /api/v3/orders/stickers` — Получить стикеры сборочных заданий
-- `POST /api/v3/orders/stickers/cross-border` — Получить стикеры сборочных заданий трансграничных поставок
-- `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
-- `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания
-- `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
-- `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
-- `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием
-- `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить код маркировки Честного знака за сборочным заданием
-- `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием
-- `GET /api/v3/passes` — Получить список пропусков
-- `POST /api/v3/passes` — Создать пропуск
-- `GET /api/v3/passes/offices` — Получить список складов, для которых требуется пропуск
-- `PUT /api/v3/passes/{passId}` — Обновить пропуск
-- `DELETE /api/v3/passes/{passId}` — Удалить пропуск
-- `GET /api/v3/supplies` — Получить список поставок
-- `POST /api/v3/supplies` — Создать новую поставку
-- `GET /api/v3/supplies/orders/reshipment` — Получить все сборочные задания для повторной отгрузки
-- `GET /api/v3/supplies/{supplyId}` — Получить информацию о поставке
-- `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
-- `GET /api/v3/supplies/{supplyId}/barcode` — Получить QR-код поставки
-- `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
-- `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
-- `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
-- `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки
-- `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
+- `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий (postV3OrdersMeta)
+- `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием (putV3OrdersOrderIdMetaCustomsDeclaration)
+- `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки (getV3SuppliesSupplyIdOrderIds)
+- `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке (patchV3SuppliesSupplyIdOrders)
+- `GET /api/v3/orders` — Получить информацию о сборочных заданиях (getV3Orders)
+- `POST /api/v3/orders/client` — Заказы с информацией по клиенту (postV3OrdersClient)
+- `GET /api/v3/orders/new` — Получить список новых сборочных заданий (getV3OrdersNew)
+- `POST /api/v3/orders/status` — Получить статусы сборочных заданий (postV3OrdersStatus)
+- `POST /api/v3/orders/status/history` — История статусов для сборочных заданий трансграничных поставок (postV3OrdersStatusHistory)
+- `POST /api/v3/orders/stickers` — Получить стикеры сборочных заданий (postV3OrdersStickers)
+- `POST /api/v3/orders/stickers/cross-border` — Получить стикеры сборочных заданий трансграничных поставок (postV3OrdersStickersCrossBorder)
+- `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание (patchV3OrdersOrderIdCancel)
+- `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания (deleteV3OrdersOrderIdMeta)
+- `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара (putV3OrdersOrderIdMetaExpiration)
+- `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием (putV3OrdersOrderIdMetaGtin)
+- `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием (putV3OrdersOrderIdMetaImei)
+- `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить код маркировки Честного знака за сборочным заданием (putV3OrdersOrderIdMetaSgtin)
+- `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием (putV3OrdersOrderIdMetaUin)
+- `GET /api/v3/passes` — Получить список пропусков (getV3Passes)
+- `POST /api/v3/passes` — Создать пропуск (postV3Passes)
+- `GET /api/v3/passes/offices` — Получить список складов, для которых требуется пропуск (getV3PassesOffices)
+- `PUT /api/v3/passes/{passId}` — Обновить пропуск (putV3PassesPassId)
+- `DELETE /api/v3/passes/{passId}` — Удалить пропуск (deleteV3PassesPassId)
+- `GET /api/v3/supplies` — Получить список поставок (getV3Supplies)
+- `POST /api/v3/supplies` — Создать новую поставку (postV3Supplies)
+- `GET /api/v3/supplies/orders/reshipment` — Получить все сборочные задания для повторной отгрузки (getV3SuppliesOrdersReshipment)
+- `GET /api/v3/supplies/{supplyId}` — Получить информацию о поставке (getV3SuppliesSupplyId)
+- `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку (deleteV3SuppliesSupplyId)
+- `GET /api/v3/supplies/{supplyId}/barcode` — Получить QR-код поставки (getV3SuppliesSupplyIdBarcode)
+- `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку (patchV3SuppliesSupplyIdDeliver)
+- `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки (getV3SuppliesSupplyIdTrbx)
+- `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке (postV3SuppliesSupplyIdTrbx)
+- `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки (deleteV3SuppliesSupplyIdTrbx)
+- `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки (postV3SuppliesSupplyIdTrbxStickers)
 
 ### Заказы DBW (`04-orders-dbw.yaml`)
 - `POST /api/marketplace/v3/dbw/orders/client` — Информация о покупателе (postV3DbwOrdersClient)
@@ -254,6 +254,7 @@ SDK выпускается с security-first процессом:
 - `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий (getV3ClickCollectOrdersNew)
 
 ### Поставки FBW (`07-orders-fbw.yaml`)
+- `GET /api/supplies/v1/discrepancies/{supplyId}` — Расхождения в поставке (getV1SuppliesSupplyIdDiscrepanciesQuantity)
 - `GET /api/supplies/v1/drafts` — Список черновиков (getV1Drafts)
 - `POST /api/supplies/v1/drafts` — Создать черновик (postV1Drafts)
 - `DELETE /api/supplies/v1/drafts/{draftId}` — Удалить черновик (deleteV1DraftsDraftId)

@@ -1,7 +1,7 @@
 /*
  * DBS
  *
- * <div class=\"description_important\">   Узнать больше о модели DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/dbs#tag/dbsLabelIdentifiers) DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя  </div> 
+ * <div class=\"description_important\">   Узнать больше о модели DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/dbs#tag/dbsLabelIdentifiers) DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceDbs) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: dbs
  * 
@@ -54,7 +54,7 @@ pub struct OrderDbs {
     pub nm_id: Option<i32>,
     /// ID размера товара в системе WB
     #[serde(rename = "chrtId", skip_serializing_if = "Option::is_none")]
-    pub chrt_id: Option<i32>,
+    pub chrt_id: Option<u64>,
     /// Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ
     #[serde(rename = "scanPrice", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub scan_price: Option<Option<i32>>,

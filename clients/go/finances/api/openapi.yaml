@@ -2374,7 +2374,7 @@ components:
           type: string
         srid:
           description: |
-            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
+            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
           example: 0f1c3999172603062979867564654dac5b702849
           type: string
       required:
@@ -2681,7 +2681,7 @@ components:
           type: string
         srid:
           description: |
-            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
+            ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
           example: D0.r3f80c3eec6f845c6840128b4c19986f9.0.0
           type: string
         documentType:
@@ -3016,7 +3016,7 @@ components:
           example: redeem-notification
           type: string
         title:
-          description: "Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/~1api~1v1~1documents~1list/get)\
+          description: "Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/operation/getV1DocumentsList)\
             \ `category`"
           example: Уведомление о выкупе
           type: string

@@ -13,7 +13,7 @@ info:
       3. [Чатами с покупателями](/openapi/customer-communication#tag/buyersChat)
       4. [Заявками покупателей на возврат](/openapi/customer-communication#tag/buyersReturns)
 
-    Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Voprosy-i-otzyvy) для управления тестовыми вопросами и отзывами
+    Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/questionsAndFeedbacks) для управления тестовыми вопросами и отзывами
 
     </div>
 

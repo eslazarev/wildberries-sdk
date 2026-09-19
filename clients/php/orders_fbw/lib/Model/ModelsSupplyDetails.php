@@ -82,6 +82,7 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'accepted_quantity' => 'int',
         'unloading_quantity' => 'int',
         'depersonalized_quantity' => 'int',
+        'discrepancies' => 'int',
         'is_box_on_pallet' => 'bool'
     ];
 
@@ -118,6 +119,7 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'accepted_quantity' => null,
         'unloading_quantity' => null,
         'depersonalized_quantity' => null,
+        'discrepancies' => null,
         'is_box_on_pallet' => null
     ];
 
@@ -152,6 +154,7 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'accepted_quantity' => false,
         'unloading_quantity' => false,
         'depersonalized_quantity' => true,
+        'discrepancies' => false,
         'is_box_on_pallet' => false
     ];
 
@@ -266,6 +269,7 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'accepted_quantity' => 'acceptedQuantity',
         'unloading_quantity' => 'unloadingQuantity',
         'depersonalized_quantity' => 'depersonalizedQuantity',
+        'discrepancies' => 'discrepancies',
         'is_box_on_pallet' => 'isBoxOnPallet'
     ];
 
@@ -300,6 +304,7 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'accepted_quantity' => 'setAcceptedQuantity',
         'unloading_quantity' => 'setUnloadingQuantity',
         'depersonalized_quantity' => 'setDepersonalizedQuantity',
+        'discrepancies' => 'setDiscrepancies',
         'is_box_on_pallet' => 'setIsBoxOnPallet'
     ];
 
@@ -334,6 +339,7 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'accepted_quantity' => 'getAcceptedQuantity',
         'unloading_quantity' => 'getUnloadingQuantity',
         'depersonalized_quantity' => 'getDepersonalizedQuantity',
+        'discrepancies' => 'getDiscrepancies',
         'is_box_on_pallet' => 'getIsBoxOnPallet'
     ];
 
@@ -442,6 +448,7 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('accepted_quantity', $data ?? [], null);
         $this->setIfExists('unloading_quantity', $data ?? [], null);
         $this->setIfExists('depersonalized_quantity', $data ?? [], null);
+        $this->setIfExists('discrepancies', $data ?? [], null);
         $this->setIfExists('is_box_on_pallet', $data ?? [], null);
     }
 
@@ -1261,6 +1268,33 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['depersonalized_quantity'] = $depersonalized_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets discrepancies
+     *
+     * @return int|null
+     */
+    public function getDiscrepancies()
+    {
+        return $this->container['discrepancies'];
+    }
+
+    /**
+     * Sets discrepancies
+     *
+     * @param int|null $discrepancies Расхождения между заявленным и фактическим количеством товара в поставке. <br> Только при `\"statusID\":5`
+     *
+     * @return self
+     */
+    public function setDiscrepancies($discrepancies)
+    {
+        if (is_null($discrepancies)) {
+            throw new \InvalidArgumentException('non-nullable discrepancies cannot be null');
+        }
+        $this->container['discrepancies'] = $discrepancies;
 
         return $this;
     }

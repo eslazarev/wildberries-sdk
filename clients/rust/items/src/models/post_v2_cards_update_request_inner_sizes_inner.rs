@@ -1,7 +1,7 @@
 /*
  * Работа с товарами
  *
- * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/item-management#tag/listingItems) и [редактировать](/openapi/item-management#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/item-management#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/item-management#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/item-management#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts)   - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div>  
+ * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/item-management#tag/listingItems) и [редактировать](/openapi/item-management#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/item-management#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/item-management#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/item-management#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts)   - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаров  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div>  
  *
  * The version of the OpenAPI document: items
  * 
@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct PostV2CardsUpdateRequestInnerSizesInner {
     /// ID размера для данного артикула WB<br> Обязателен к заполнению для существующих размеров<br> Для добавляемых размеров не указывается 
     #[serde(rename = "chrtID", skip_serializing_if = "Option::is_none")]
-    pub chrt_id: Option<i32>,
+    pub chrt_id: Option<u64>,
     /// Размер товара (например, XL, S, 45)
     #[serde(rename = "techSize", skip_serializing_if = "Option::is_none")]
     pub tech_size: Option<String>,

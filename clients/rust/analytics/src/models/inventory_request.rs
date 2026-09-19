@@ -19,7 +19,7 @@ pub struct InventoryRequest {
     pub nm_ids: Option<Vec<i64>>,
     /// ID размеров. Используется только для указанных в массиве `nmIds` артикулов
     #[serde(rename = "chrtIds", skip_serializing_if = "Option::is_none")]
-    pub chrt_ids: Option<Vec<i64>>,
+    pub chrt_ids: Option<Vec<u64>>,
     /// Количество строк в ответе
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
     pub limit: Option<u32>,

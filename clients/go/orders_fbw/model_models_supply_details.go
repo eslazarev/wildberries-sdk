@@ -69,6 +69,8 @@ type ModelsSupplyDetails struct {
 	UnloadingQuantity *int32 `json:"unloadingQuantity,omitempty"`
 	// Количество обезличенного товара, шт
 	DepersonalizedQuantity NullableInt32 `json:"depersonalizedQuantity,omitempty"`
+	// Расхождения между заявленным и фактическим количеством товара в поставке. <br> Только при `\"statusID\":5` 
+	Discrepancies *int32 `json:"discrepancies,omitempty"`
 	// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` 
 	IsBoxOnPallet *bool `json:"isBoxOnPallet,omitempty"`
 }
@@ -1010,6 +1012,38 @@ func (o *ModelsSupplyDetails) UnsetDepersonalizedQuantity() {
 	o.DepersonalizedQuantity.Unset()
 }
 
+// GetDiscrepancies returns the Discrepancies field value if set, zero value otherwise.
+func (o *ModelsSupplyDetails) GetDiscrepancies() int32 {
+	if o == nil || IsNil(o.Discrepancies) {
+		var ret int32
+		return ret
+	}
+	return *o.Discrepancies
+}
+
+// GetDiscrepanciesOk returns a tuple with the Discrepancies field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsSupplyDetails) GetDiscrepanciesOk() (*int32, bool) {
+	if o == nil || IsNil(o.Discrepancies) {
+		return nil, false
+	}
+	return o.Discrepancies, true
+}
+
+// HasDiscrepancies returns a boolean if a field has been set.
+func (o *ModelsSupplyDetails) HasDiscrepancies() bool {
+	if o != nil && !IsNil(o.Discrepancies) {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscrepancies gets a reference to the given int32 and assigns it to the Discrepancies field.
+func (o *ModelsSupplyDetails) SetDiscrepancies(v int32) {
+	o.Discrepancies = &v
+}
+
 // GetIsBoxOnPallet returns the IsBoxOnPallet field value if set, zero value otherwise.
 func (o *ModelsSupplyDetails) GetIsBoxOnPallet() bool {
 	if o == nil || IsNil(o.IsBoxOnPallet) {
@@ -1126,6 +1160,9 @@ func (o ModelsSupplyDetails) ToMap() (map[string]interface{}, error) {
 	}
 	if o.DepersonalizedQuantity.IsSet() {
 		toSerialize["depersonalizedQuantity"] = o.DepersonalizedQuantity.Get()
+	}
+	if !IsNil(o.Discrepancies) {
+		toSerialize["discrepancies"] = o.Discrepancies
 	}
 	if !IsNil(o.IsBoxOnPallet) {
 		toSerialize["isBoxOnPallet"] = o.IsBoxOnPallet

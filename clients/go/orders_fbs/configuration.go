@@ -1,7 +1,7 @@
 /*
 Заказы FBS
 
-<div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
+<div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/fbsSupplies)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/fbsPasses) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
 
 API version: order
 */
@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.158/go",
+		UserAgent:        "OpenAPI-Generator/0.1.159/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -128,13 +128,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Prod** ",
 				},
 			},
-			"FBSAPIService.ApiMarketplaceV3FbsOrdersArchiveGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"FBSAPIService.ApiMarketplaceV3OrdersMetaPost": {
+			"FBSAPIService.DeleteV3OrdersOrderIdMeta": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -144,7 +138,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut": {
+			"FBSAPIService.DeleteV3PassesPassId": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -154,7 +148,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.ApiMarketplaceV3SuppliesSupplyIdOrderIdsGet": {
+			"FBSAPIService.DeleteV3SuppliesSupplyId": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -164,303 +158,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.ApiMarketplaceV3SuppliesSupplyIdOrdersPatch": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersClientPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersNewGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersOrderIdCancelPatch": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersOrderIdMetaDelete": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersOrderIdMetaExpirationPut": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersOrderIdMetaGtinPut": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersOrderIdMetaImeiPut": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersOrderIdMetaSgtinPut": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersOrderIdMetaUinPut": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersStatusHistoryPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersStatusPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersStickersCrossBorderPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"FBSAPIService.ApiV3OrdersStickersPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3PassesGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3PassesOfficesGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3PassesPassIdDelete": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3PassesPassIdPut": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3PassesPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesOrdersReshipmentGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesSupplyIdBarcodeGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesSupplyIdDelete": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesSupplyIdDeliverPatch": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesSupplyIdGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesSupplyIdTrbxDelete": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesSupplyIdTrbxGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesSupplyIdTrbxPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.ApiV3SuppliesSupplyIdTrbxStickersPost": {
+			"FBSAPIService.DeleteV3SuppliesSupplyIdTrbx": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -471,6 +169,12 @@ func NewConfiguration() *Configuration {
 				},
 			},
 			"FBSAPIService.GetV3FbsDictionariesCountriesOksm": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"FBSAPIService.GetV3FbsOrdersArchive": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
@@ -488,6 +192,106 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
+			"FBSAPIService.GetV3Orders": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.GetV3OrdersNew": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.GetV3Passes": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.GetV3PassesOffices": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.GetV3Supplies": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.GetV3SuppliesOrdersReshipment": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.GetV3SuppliesSupplyId": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.GetV3SuppliesSupplyIdBarcode": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.GetV3SuppliesSupplyIdOrderIds": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.GetV3SuppliesSupplyIdTrbx": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
 			"FBSAPIService.PatchV3FbsSuppliesShippingMethod": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
@@ -500,16 +304,212 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
+			"FBSAPIService.PatchV3OrdersOrderIdCancel": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PatchV3SuppliesSupplyIdDeliver": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PatchV3SuppliesSupplyIdOrders": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
 			"FBSAPIService.PostV3FbsSuppliesSpotList": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
+			"FBSAPIService.PostV3OrdersClient": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PostV3OrdersMeta": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PostV3OrdersStatus": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PostV3OrdersStatusHistory": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PostV3OrdersStickers": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PostV3OrdersStickersCrossBorder": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"FBSAPIService.PostV3Passes": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PostV3Supplies": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PostV3SuppliesSupplyIdTrbx": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PostV3SuppliesSupplyIdTrbxStickers": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
 			"FBSAPIService.PutV3FbsSuppliesSupplyIdSpot": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
+				},
+			},
+			"FBSAPIService.PutV3OrdersOrderIdMetaCustomsDeclaration": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PutV3OrdersOrderIdMetaExpiration": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PutV3OrdersOrderIdMetaGtin": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PutV3OrdersOrderIdMetaImei": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PutV3OrdersOrderIdMetaSgtin": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PutV3OrdersOrderIdMetaUin": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"FBSAPIService.PutV3PassesPassId": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 		},

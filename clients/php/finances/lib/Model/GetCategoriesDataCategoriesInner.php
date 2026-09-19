@@ -336,7 +336,7 @@ class GetCategoriesDataCategoriesInner implements ModelInterface, ArrayAccess, \
     /**
      * Sets title
      *
-     * @param string|null $title Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`
+     * @param string|null $title Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
      *
      * @return self
      */

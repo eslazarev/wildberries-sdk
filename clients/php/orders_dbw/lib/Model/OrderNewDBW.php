@@ -104,7 +104,7 @@ class OrderNewDBW implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'int64',
         'warehouse_id' => null,
         'nm_id' => null,
-        'chrt_id' => null,
+        'chrt_id' => 'uint64',
         'price' => null,
         'converted_price' => null,
         'currency_code' => 'ISO 4217',

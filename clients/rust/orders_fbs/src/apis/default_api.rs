@@ -1,7 +1,7 @@
 /*
  * Заказы FBS
  *
- * <div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
+ * <div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/fbsSupplies)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/fbsPasses) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
  *
  * The version of the OpenAPI document: order
  * 
@@ -19,9 +19,9 @@ use super::{Error, configuration, ContentType};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMarketplaceV3FbsSettingsAutoreturnsError {
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,9 +30,9 @@ pub enum GetMarketplaceV3FbsSettingsAutoreturnsError {
 #[serde(untagged)]
 pub enum GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
     Status400(models::ApiErrorV3),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,9 +41,9 @@ pub enum GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
 #[serde(untagged)]
 pub enum PatchMarketplaceV3FbsSettingsAutoreturnsError {
     Status400(models::ApiErrorV3),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,9 +52,9 @@ pub enum PatchMarketplaceV3FbsSettingsAutoreturnsError {
 #[serde(untagged)]
 pub enum PatchMarketplaceV3FbsSettingsAutoreturnsItemsError {
     Status400(models::ApiErrorV3),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,9 +63,9 @@ pub enum PatchMarketplaceV3FbsSettingsAutoreturnsItemsError {
 #[serde(untagged)]
 pub enum PostMarketplaceV3FbsSettingsAutoreturnsItemsError {
     Status400(models::ApiErrorV3),
-    Status401(models::ApiV3PassesOfficesGet401Response),
+    Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
-    Status429(models::ApiV3PassesOfficesGet401Response),
+    Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 

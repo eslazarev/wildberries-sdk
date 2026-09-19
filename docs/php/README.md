@@ -142,48 +142,48 @@ var_dump($response);
 - `orders_fbs.DefaultApi.patchMarketplaceV3FbsSettingsAutoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
 - `orders_fbs.DefaultApi.patchMarketplaceV3FbsSettingsAutoreturnsItems` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
 - `orders_fbs.DefaultApi.postMarketplaceV3FbsSettingsAutoreturnsItems` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
-- `orders_fbs.FBSApi.apiMarketplaceV3FbsOrdersArchiveGet` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
-- `orders_fbs.FBSApi.apiMarketplaceV3OrdersMetaPost` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
-- `orders_fbs.FBSApi.apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
-- `orders_fbs.FBSApi.apiMarketplaceV3SuppliesSupplyIdOrderIdsGet` — `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
-- `orders_fbs.FBSApi.apiMarketplaceV3SuppliesSupplyIdOrdersPatch` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
-- `orders_fbs.FBSApi.apiV3OrdersClientPost` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
-- `orders_fbs.FBSApi.apiV3OrdersGet` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
-- `orders_fbs.FBSApi.apiV3OrdersNewGet` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdCancelPatch` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaDelete` — `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaExpirationPut` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaGtinPut` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaImeiPut` — `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaSgtinPut` — `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить код маркировки Честного знака за сборочным заданием
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaUinPut` — `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием
-- `orders_fbs.FBSApi.apiV3OrdersStatusHistoryPost` — `POST /api/v3/orders/status/history` — История статусов для сборочных заданий трансграничных поставок
-- `orders_fbs.FBSApi.apiV3OrdersStatusPost` — `POST /api/v3/orders/status` — Получить статусы сборочных заданий
-- `orders_fbs.FBSApi.apiV3OrdersStickersCrossBorderPost` — `POST /api/v3/orders/stickers/cross-border` — Получить стикеры сборочных заданий трансграничных поставок
-- `orders_fbs.FBSApi.apiV3OrdersStickersPost` — `POST /api/v3/orders/stickers` — Получить стикеры сборочных заданий
-- `orders_fbs.FBSApi.apiV3PassesGet` — `GET /api/v3/passes` — Получить список пропусков
-- `orders_fbs.FBSApi.apiV3PassesOfficesGet` — `GET /api/v3/passes/offices` — Получить список складов, для которых требуется пропуск
-- `orders_fbs.FBSApi.apiV3PassesPassIdDelete` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
-- `orders_fbs.FBSApi.apiV3PassesPassIdPut` — `PUT /api/v3/passes/{passId}` — Обновить пропуск
-- `orders_fbs.FBSApi.apiV3PassesPost` — `POST /api/v3/passes` — Создать пропуск
-- `orders_fbs.FBSApi.apiV3SuppliesGet` — `GET /api/v3/supplies` — Получить список поставок
-- `orders_fbs.FBSApi.apiV3SuppliesOrdersReshipmentGet` — `GET /api/v3/supplies/orders/reshipment` — Получить все сборочные задания для повторной отгрузки
-- `orders_fbs.FBSApi.apiV3SuppliesPost` — `POST /api/v3/supplies` — Создать новую поставку
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdBarcodeGet` — `GET /api/v3/supplies/{supplyId}/barcode` — Получить QR-код поставки
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdDelete` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdDeliverPatch` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdGet` — `GET /api/v3/supplies/{supplyId}` — Получить информацию о поставке
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxDelete` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxGet` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxPost` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxStickersPost` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
+- `orders_fbs.FBSApi.deleteV3OrdersOrderIdMeta` — `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания
+- `orders_fbs.FBSApi.deleteV3PassesPassId` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
+- `orders_fbs.FBSApi.deleteV3SuppliesSupplyId` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
+- `orders_fbs.FBSApi.deleteV3SuppliesSupplyIdTrbx` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки
 - `orders_fbs.FBSApi.getV3FbsDictionariesCountriesOksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
+- `orders_fbs.FBSApi.getV3FbsOrdersArchive` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `orders_fbs.FBSApi.getV3FbsShippingPoints` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
 - `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdStickersSpot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
+- `orders_fbs.FBSApi.getV3Orders` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
+- `orders_fbs.FBSApi.getV3OrdersNew` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий
+- `orders_fbs.FBSApi.getV3Passes` — `GET /api/v3/passes` — Получить список пропусков
+- `orders_fbs.FBSApi.getV3PassesOffices` — `GET /api/v3/passes/offices` — Получить список складов, для которых требуется пропуск
+- `orders_fbs.FBSApi.getV3Supplies` — `GET /api/v3/supplies` — Получить список поставок
+- `orders_fbs.FBSApi.getV3SuppliesOrdersReshipment` — `GET /api/v3/supplies/orders/reshipment` — Получить все сборочные задания для повторной отгрузки
+- `orders_fbs.FBSApi.getV3SuppliesSupplyId` — `GET /api/v3/supplies/{supplyId}` — Получить информацию о поставке
+- `orders_fbs.FBSApi.getV3SuppliesSupplyIdBarcode` — `GET /api/v3/supplies/{supplyId}/barcode` — Получить QR-код поставки
+- `orders_fbs.FBSApi.getV3SuppliesSupplyIdOrderIds` — `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
+- `orders_fbs.FBSApi.getV3SuppliesSupplyIdTrbx` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
 - `orders_fbs.FBSApi.patchV3FbsSuppliesShippingMethod` — `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок
 - `orders_fbs.FBSApi.patchV3FbsSuppliesWaybill` — `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок
+- `orders_fbs.FBSApi.patchV3OrdersOrderIdCancel` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
+- `orders_fbs.FBSApi.patchV3SuppliesSupplyIdDeliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
+- `orders_fbs.FBSApi.patchV3SuppliesSupplyIdOrders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
 - `orders_fbs.FBSApi.postV3FbsSuppliesSpotList` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок
+- `orders_fbs.FBSApi.postV3OrdersClient` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
+- `orders_fbs.FBSApi.postV3OrdersMeta` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
+- `orders_fbs.FBSApi.postV3OrdersStatus` — `POST /api/v3/orders/status` — Получить статусы сборочных заданий
+- `orders_fbs.FBSApi.postV3OrdersStatusHistory` — `POST /api/v3/orders/status/history` — История статусов для сборочных заданий трансграничных поставок
+- `orders_fbs.FBSApi.postV3OrdersStickers` — `POST /api/v3/orders/stickers` — Получить стикеры сборочных заданий
+- `orders_fbs.FBSApi.postV3OrdersStickersCrossBorder` — `POST /api/v3/orders/stickers/cross-border` — Получить стикеры сборочных заданий трансграничных поставок
+- `orders_fbs.FBSApi.postV3Passes` — `POST /api/v3/passes` — Создать пропуск
+- `orders_fbs.FBSApi.postV3Supplies` — `POST /api/v3/supplies` — Создать новую поставку
+- `orders_fbs.FBSApi.postV3SuppliesSupplyIdTrbx` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
+- `orders_fbs.FBSApi.postV3SuppliesSupplyIdTrbxStickers` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
 - `orders_fbs.FBSApi.putV3FbsSuppliesSupplyIdSpot` — `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку
+- `orders_fbs.FBSApi.putV3OrdersOrderIdMetaCustomsDeclaration` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
+- `orders_fbs.FBSApi.putV3OrdersOrderIdMetaExpiration` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
+- `orders_fbs.FBSApi.putV3OrdersOrderIdMetaGtin` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
+- `orders_fbs.FBSApi.putV3OrdersOrderIdMetaImei` — `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием
+- `orders_fbs.FBSApi.putV3OrdersOrderIdMetaSgtin` — `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить код маркировки Честного знака за сборочным заданием
+- `orders_fbs.FBSApi.putV3OrdersOrderIdMetaUin` — `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием
+- `orders_fbs.FBSApi.putV3PassesPassId` — `PUT /api/v3/passes/{passId}` — Обновить пропуск
 
 ### orders_dbw (`orders_dbw`)
 - `orders_dbw.DBWApi.getV3DbwOrders` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях
@@ -254,6 +254,7 @@ var_dump($response);
 - `orders_fbw.DefaultApi.getV1SuppliesId` — `GET /api/v1/supplies/{ID}` — Детали поставки
 - `orders_fbw.DefaultApi.getV1SuppliesIdGoods` — `GET /api/v1/supplies/{ID}/goods` — Товары поставки
 - `orders_fbw.DefaultApi.getV1SuppliesIdPackage` — `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
+- `orders_fbw.DefaultApi.getV1SuppliesSupplyIdDiscrepanciesQuantity` — `GET /api/supplies/v1/discrepancies/{supplyId}` — Расхождения в поставке
 - `orders_fbw.DefaultApi.getV1TransitTariffs` — `GET /api/v1/transit-tariffs` — Транзитные направления
 - `orders_fbw.DefaultApi.getV1Warehouses` — `GET /api/v1/warehouses` — Список складов
 - `orders_fbw.DefaultApi.postV1AcceptanceOptions` — `POST /api/v1/acceptance/options` — Опции приёмки

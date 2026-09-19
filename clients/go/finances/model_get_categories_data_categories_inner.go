@@ -21,7 +21,7 @@ var _ MappedNullable = &GetCategoriesDataCategoriesInner{}
 type GetCategoriesDataCategoriesInner struct {
 	// ID категории документа из параметра [запроса](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
 	Name *string `json:"name,omitempty"`
-	// Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`
+	// Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
 	Title *string `json:"title,omitempty"`
 }
 

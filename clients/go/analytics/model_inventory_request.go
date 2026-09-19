@@ -22,7 +22,7 @@ type InventoryRequest struct {
 	// Артикулы WB
 	NmIds []int64 `json:"nmIds,omitempty"`
 	// ID размеров. Используется только для указанных в массиве `nmIds` артикулов
-	ChrtIds []int64 `json:"chrtIds,omitempty"`
+	ChrtIds []int32 `json:"chrtIds,omitempty"`
 	// Количество строк в ответе
 	Limit *int32 `json:"limit,omitempty"`
 	// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
@@ -87,9 +87,9 @@ func (o *InventoryRequest) SetNmIds(v []int64) {
 }
 
 // GetChrtIds returns the ChrtIds field value if set, zero value otherwise.
-func (o *InventoryRequest) GetChrtIds() []int64 {
+func (o *InventoryRequest) GetChrtIds() []int32 {
 	if o == nil || IsNil(o.ChrtIds) {
-		var ret []int64
+		var ret []int32
 		return ret
 	}
 	return o.ChrtIds
@@ -97,7 +97,7 @@ func (o *InventoryRequest) GetChrtIds() []int64 {
 
 // GetChrtIdsOk returns a tuple with the ChrtIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InventoryRequest) GetChrtIdsOk() ([]int64, bool) {
+func (o *InventoryRequest) GetChrtIdsOk() ([]int32, bool) {
 	if o == nil || IsNil(o.ChrtIds) {
 		return nil, false
 	}
@@ -113,8 +113,8 @@ func (o *InventoryRequest) HasChrtIds() bool {
 	return false
 }
 
-// SetChrtIds gets a reference to the given []int64 and assigns it to the ChrtIds field.
-func (o *InventoryRequest) SetChrtIds(v []int64) {
+// SetChrtIds gets a reference to the given []int32 and assigns it to the ChrtIds field.
+func (o *InventoryRequest) SetChrtIds(v []int32) {
 	o.ChrtIds = v
 }
 

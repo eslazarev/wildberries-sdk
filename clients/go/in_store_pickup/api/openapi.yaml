@@ -5,7 +5,7 @@ info:
 
     Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.<br><br>
 
-    Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя
+    Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
 
     </div>
   title: Самовывоз
@@ -2469,6 +2469,7 @@ components:
           type: integer
         chrtId:
           description: ID размера товара в системе WB
+          format: uint64
           type: integer
         price:
           description: |
@@ -2653,6 +2654,7 @@ components:
         chrtId:
           description: ID размера товара в системе WB
           example: 12345676
+          format: uint64
           type: integer
         createdAt:
           description: Дата и время создания сборочного задания

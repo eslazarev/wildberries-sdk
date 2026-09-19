@@ -18,7 +18,7 @@ pub struct TableSizeResponseSizesInner {
     pub name: String,
     /// ID размера
     #[serde(rename = "chrtID")]
-    pub chrt_id: i64,
+    pub chrt_id: u64,
     /// Склады
     #[serde(rename = "offices", skip_serializing_if = "Option::is_none")]
     pub offices: Option<Vec<models::TableOfficeItem>>,
@@ -27,7 +27,7 @@ pub struct TableSizeResponseSizesInner {
 }
 
 impl TableSizeResponseSizesInner {
-    pub fn new(name: String, chrt_id: i64, metrics: models::TableSizeResponseSizesInnerMetrics) -> TableSizeResponseSizesInner {
+    pub fn new(name: String, chrt_id: u64, metrics: models::TableSizeResponseSizesInnerMetrics) -> TableSizeResponseSizesInner {
         TableSizeResponseSizesInner {
             name,
             chrt_id,

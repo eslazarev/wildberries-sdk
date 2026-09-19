@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.158"
+__version__ = "0.1.159"
 
 # Define package exports
 __all__ = [
@@ -31,6 +31,7 @@ __all__ = [
     "ErrorsDraftError",
     "ModelsBox",
     "ModelsDateFilterRequest",
+    "ModelsDiscrepancyResponseItem",
     "ModelsDraftAddItemsErrorResponse",
     "ModelsDraftAddItemsResultError",
     "ModelsDraftAddItemsResultItem",
@@ -46,6 +47,8 @@ __all__ = [
     "ModelsGoodInSupply",
     "ModelsHandySupplyStatus",
     "ModelsItem",
+    "ModelsItemDiscrepancyResponse",
+    "ModelsItemScans",
     "ModelsListDraftItemsResponse",
     "ModelsListDraftsResponse",
     "ModelsOptionsResultModel",
@@ -54,6 +57,7 @@ __all__ = [
     "ModelsOptionsResultModelResultInnerWarehousesInner",
     "ModelsSuppliesFiltersRequest",
     "ModelsSupply",
+    "ModelsSupplyAcceptedMoreThanYearAgo",
     "ModelsSupplyDetails",
     "ModelsTransitTariff",
     "ModelsVolumeTariff",
@@ -61,6 +65,7 @@ __all__ = [
     "PostV1AcceptanceOptions401Response",
     "PostV1AcceptanceOptions402Response",
     "PostV1AcceptanceOptions403Response",
+    "Response4XX",
 ]
 
 # import apis into sdk package
@@ -81,6 +86,7 @@ from wildberries_sdk.orders_fbw.exceptions import ApiException as ApiException
 from wildberries_sdk.orders_fbw.models.errors_draft_error import ErrorsDraftError as ErrorsDraftError
 from wildberries_sdk.orders_fbw.models.models_box import ModelsBox as ModelsBox
 from wildberries_sdk.orders_fbw.models.models_date_filter_request import ModelsDateFilterRequest as ModelsDateFilterRequest
+from wildberries_sdk.orders_fbw.models.models_discrepancy_response_item import ModelsDiscrepancyResponseItem as ModelsDiscrepancyResponseItem
 from wildberries_sdk.orders_fbw.models.models_draft_add_items_error_response import ModelsDraftAddItemsErrorResponse as ModelsDraftAddItemsErrorResponse
 from wildberries_sdk.orders_fbw.models.models_draft_add_items_result_error import ModelsDraftAddItemsResultError as ModelsDraftAddItemsResultError
 from wildberries_sdk.orders_fbw.models.models_draft_add_items_result_item import ModelsDraftAddItemsResultItem as ModelsDraftAddItemsResultItem
@@ -96,6 +102,8 @@ from wildberries_sdk.orders_fbw.models.models_good_in_box import ModelsGoodInBox
 from wildberries_sdk.orders_fbw.models.models_good_in_supply import ModelsGoodInSupply as ModelsGoodInSupply
 from wildberries_sdk.orders_fbw.models.models_handy_supply_status import ModelsHandySupplyStatus as ModelsHandySupplyStatus
 from wildberries_sdk.orders_fbw.models.models_item import ModelsItem as ModelsItem
+from wildberries_sdk.orders_fbw.models.models_item_discrepancy_response import ModelsItemDiscrepancyResponse as ModelsItemDiscrepancyResponse
+from wildberries_sdk.orders_fbw.models.models_item_scans import ModelsItemScans as ModelsItemScans
 from wildberries_sdk.orders_fbw.models.models_list_draft_items_response import ModelsListDraftItemsResponse as ModelsListDraftItemsResponse
 from wildberries_sdk.orders_fbw.models.models_list_drafts_response import ModelsListDraftsResponse as ModelsListDraftsResponse
 from wildberries_sdk.orders_fbw.models.models_options_result_model import ModelsOptionsResultModel as ModelsOptionsResultModel
@@ -104,6 +112,7 @@ from wildberries_sdk.orders_fbw.models.models_options_result_model_result_inner_
 from wildberries_sdk.orders_fbw.models.models_options_result_model_result_inner_warehouses_inner import ModelsOptionsResultModelResultInnerWarehousesInner as ModelsOptionsResultModelResultInnerWarehousesInner
 from wildberries_sdk.orders_fbw.models.models_supplies_filters_request import ModelsSuppliesFiltersRequest as ModelsSuppliesFiltersRequest
 from wildberries_sdk.orders_fbw.models.models_supply import ModelsSupply as ModelsSupply
+from wildberries_sdk.orders_fbw.models.models_supply_accepted_more_than_year_ago import ModelsSupplyAcceptedMoreThanYearAgo as ModelsSupplyAcceptedMoreThanYearAgo
 from wildberries_sdk.orders_fbw.models.models_supply_details import ModelsSupplyDetails as ModelsSupplyDetails
 from wildberries_sdk.orders_fbw.models.models_transit_tariff import ModelsTransitTariff as ModelsTransitTariff
 from wildberries_sdk.orders_fbw.models.models_volume_tariff import ModelsVolumeTariff as ModelsVolumeTariff
@@ -111,4 +120,5 @@ from wildberries_sdk.orders_fbw.models.models_warehouses_result_items import Mod
 from wildberries_sdk.orders_fbw.models.post_v1_acceptance_options401_response import PostV1AcceptanceOptions401Response as PostV1AcceptanceOptions401Response
 from wildberries_sdk.orders_fbw.models.post_v1_acceptance_options402_response import PostV1AcceptanceOptions402Response as PostV1AcceptanceOptions402Response
 from wildberries_sdk.orders_fbw.models.post_v1_acceptance_options403_response import PostV1AcceptanceOptions403Response as PostV1AcceptanceOptions403Response
+from wildberries_sdk.orders_fbw.models.response4_xx import Response4XX as Response4XX
 

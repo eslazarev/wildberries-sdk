@@ -18,7 +18,7 @@ pub struct InventorySellerResponseItemsInner {
     pub nm_id: i64,
     /// ID размера
     #[serde(rename = "chrtId")]
-    pub chrt_id: i64,
+    pub chrt_id: u64,
     /// ID склада
     #[serde(rename = "warehouseId")]
     pub warehouse_id: i64,
@@ -34,7 +34,7 @@ pub struct InventorySellerResponseItemsInner {
 }
 
 impl InventorySellerResponseItemsInner {
-    pub fn new(nm_id: i64, chrt_id: i64, warehouse_id: i64, warehouse_name: String, region_name: String, quantity: u64) -> InventorySellerResponseItemsInner {
+    pub fn new(nm_id: i64, chrt_id: u64, warehouse_id: i64, warehouse_name: String, region_name: String, quantity: u64) -> InventorySellerResponseItemsInner {
         InventorySellerResponseItemsInner {
             nm_id,
             chrt_id,

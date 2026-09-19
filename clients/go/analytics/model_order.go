@@ -25,7 +25,7 @@ type Order struct {
 	// Артикул WB
 	NmId int64 `json:"nmId"`
 	// ID размера
-	ChrtId int64 `json:"chrtId"`
+	ChrtId int32 `json:"chrtId"`
 	// ID заказа
 	Srid string `json:"srid"`
 	// Дата и время оформления заказа
@@ -58,7 +58,7 @@ type _Order Order
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrder(nmId int64, chrtId int64, srid string, createdAt time.Time, updatedAt time.Time, status string, warehouseName string, warehouseRegion string, isMp bool, destinationCity string, destinationDistrict string, sellerPrice float32, isB2b bool) *Order {
+func NewOrder(nmId int64, chrtId int32, srid string, createdAt time.Time, updatedAt time.Time, status string, warehouseName string, warehouseRegion string, isMp bool, destinationCity string, destinationDistrict string, sellerPrice float32, isB2b bool) *Order {
 	this := Order{}
 	this.NmId = nmId
 	this.ChrtId = chrtId
@@ -109,9 +109,9 @@ func (o *Order) SetNmId(v int64) {
 }
 
 // GetChrtId returns the ChrtId field value
-func (o *Order) GetChrtId() int64 {
+func (o *Order) GetChrtId() int32 {
 	if o == nil {
-		var ret int64
+		var ret int32
 		return ret
 	}
 
@@ -120,7 +120,7 @@ func (o *Order) GetChrtId() int64 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value
 // and a boolean to check if the value has been set.
-func (o *Order) GetChrtIdOk() (*int64, bool) {
+func (o *Order) GetChrtIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -128,7 +128,7 @@ func (o *Order) GetChrtIdOk() (*int64, bool) {
 }
 
 // SetChrtId sets field value
-func (o *Order) SetChrtId(v int64) {
+func (o *Order) SetChrtId(v int32) {
 	o.ChrtId = v
 }
 

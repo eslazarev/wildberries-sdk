@@ -24,7 +24,7 @@ type InventorySellerResponseItemsInner struct {
 	// Артикул WB
 	NmId int64 `json:"nmId"`
 	// ID размера
-	ChrtId int64 `json:"chrtId"`
+	ChrtId int32 `json:"chrtId"`
 	// ID склада
 	WarehouseId int64 `json:"warehouseId"`
 	// Название склада
@@ -41,7 +41,7 @@ type _InventorySellerResponseItemsInner InventorySellerResponseItemsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInventorySellerResponseItemsInner(nmId int64, chrtId int64, warehouseId int64, warehouseName string, regionName string, quantity int32) *InventorySellerResponseItemsInner {
+func NewInventorySellerResponseItemsInner(nmId int64, chrtId int32, warehouseId int64, warehouseName string, regionName string, quantity int32) *InventorySellerResponseItemsInner {
 	this := InventorySellerResponseItemsInner{}
 	this.NmId = nmId
 	this.ChrtId = chrtId
@@ -85,9 +85,9 @@ func (o *InventorySellerResponseItemsInner) SetNmId(v int64) {
 }
 
 // GetChrtId returns the ChrtId field value
-func (o *InventorySellerResponseItemsInner) GetChrtId() int64 {
+func (o *InventorySellerResponseItemsInner) GetChrtId() int32 {
 	if o == nil {
-		var ret int64
+		var ret int32
 		return ret
 	}
 
@@ -96,7 +96,7 @@ func (o *InventorySellerResponseItemsInner) GetChrtId() int64 {
 
 // GetChrtIdOk returns a tuple with the ChrtId field value
 // and a boolean to check if the value has been set.
-func (o *InventorySellerResponseItemsInner) GetChrtIdOk() (*int64, bool) {
+func (o *InventorySellerResponseItemsInner) GetChrtIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -104,7 +104,7 @@ func (o *InventorySellerResponseItemsInner) GetChrtIdOk() (*int64, bool) {
 }
 
 // SetChrtId sets field value
-func (o *InventorySellerResponseItemsInner) SetChrtId(v int64) {
+func (o *InventorySellerResponseItemsInner) SetChrtId(v int32) {
 	o.ChrtId = v
 }
 

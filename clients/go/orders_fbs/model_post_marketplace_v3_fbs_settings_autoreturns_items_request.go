@@ -1,7 +1,7 @@
 /*
 Заказы FBS
 
-<div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
+<div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/fbsSupplies)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/fbsPasses) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
 
 API version: order
 */
@@ -22,7 +22,7 @@ var _ MappedNullable = &PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest{}
 // PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest struct for PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 type PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest struct {
 	// Список ID размеров товаров в системе WB
-	ChrtIds []int64 `json:"chrtIds"`
+	ChrtIds []int32 `json:"chrtIds"`
 }
 
 type _PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
@@ -31,7 +31,7 @@ type _PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest PostMarketplaceV3FbsSe
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest(chrtIds []int64) *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
+func NewPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest(chrtIds []int32) *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
 	this := PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest{}
 	this.ChrtIds = chrtIds
 	return &this
@@ -46,9 +46,9 @@ func NewPostMarketplaceV3FbsSettingsAutoreturnsItemsRequestWithDefaults() *PostM
 }
 
 // GetChrtIds returns the ChrtIds field value
-func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) GetChrtIds() []int64 {
+func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) GetChrtIds() []int32 {
 	if o == nil {
-		var ret []int64
+		var ret []int32
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) GetChrtIds() []int
 
 // GetChrtIdsOk returns a tuple with the ChrtIds field value
 // and a boolean to check if the value has been set.
-func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) GetChrtIdsOk() ([]int64, bool) {
+func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) GetChrtIdsOk() ([]int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) GetChrtIdsOk() ([]
 }
 
 // SetChrtIds sets field value
-func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) SetChrtIds(v []int64) {
+func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) SetChrtIds(v []int32) {
 	o.ChrtIds = v
 }
 

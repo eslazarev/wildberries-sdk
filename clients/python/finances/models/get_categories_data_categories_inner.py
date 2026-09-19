@@ -28,7 +28,7 @@ class GetCategoriesDataCategoriesInner(BaseModel):
     GetCategoriesDataCategoriesInner
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, description="ID категории документа из параметра [запроса](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`", json_schema_extra={"examples": ["redeem-notification"]})
-    title: Optional[StrictStr] = Field(default=None, description="Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`", json_schema_extra={"examples": ["Уведомление о выкупе"]})
+    title: Optional[StrictStr] = Field(default=None, description="Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`", json_schema_extra={"examples": ["Уведомление о выкупе"]})
     __properties: ClassVar[List[str]] = ["name", "title"]
 
     model_config = ConfigDict(

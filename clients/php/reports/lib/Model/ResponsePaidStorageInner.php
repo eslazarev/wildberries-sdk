@@ -96,7 +96,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
         'warehouse' => null,
         'warehouse_coef' => null,
         'gi_id' => null,
-        'chrt_id' => null,
+        'chrt_id' => 'uint64',
         'size' => null,
         'barcode' => null,
         'subject' => null,

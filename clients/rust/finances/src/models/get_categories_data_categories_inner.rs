@@ -16,7 +16,7 @@ pub struct GetCategoriesDataCategoriesInner {
     /// ID категории документа из параметра [запроса](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    /// Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`
+    /// Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
     #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
 }
