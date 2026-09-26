@@ -117,6 +117,7 @@ paths:
           description: Не найдено
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: informationForFormingSupplies
   /api/v1/warehouses:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -170,6 +171,7 @@ paths:
           description: Не найдено
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: informationForFormingSupplies
   /api/v1/transit-tariffs:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -212,6 +214,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: informationForFormingSupplies
   /api/v1/supplies:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -328,6 +331,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: suppliesInformation
   /api/v1/supplies/{ID}:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -407,6 +411,7 @@ paths:
                   $ref: '#/components/examples/SupplyNotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: suppliesInformation
   /api/v1/supplies/{ID}/goods:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -497,6 +502,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: suppliesInformation
   /api/v1/supplies/{ID}/package:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -558,6 +564,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: suppliesInformation
   /api/supplies/v1/drafts:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -661,6 +668,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: supplyDrafts
     post:
       x-readonly-method: false
       x-token-types:
@@ -701,6 +709,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: supplyDrafts
   /api/supplies/v1/drafts/{draftId}:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -772,6 +781,7 @@ paths:
                 origin: supply-api
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: supplyDrafts
   /api/supplies/v1/drafts/{draftId}/items:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -857,6 +867,7 @@ paths:
                 origin: supply-api
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: supplyDrafts
     post:
       x-readonly-method: false
       x-category: supplies
@@ -953,6 +964,7 @@ paths:
                 origin: supply-api
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: supplyDrafts
     delete:
       x-readonly-method: false
       x-category: supplies
@@ -1040,6 +1052,7 @@ paths:
                 origin: supply-api
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: supplyDrafts
   /api/supplies/v1/discrepancies/{supplyId}:
     servers:
       - url: https://supplies-api.wildberries.ru
@@ -1049,13 +1062,16 @@ paths:
       x-category: supplies
       x-token-types:
         - personal
+        - service
       tags:
         - Информация о поставках
       summary: Расхождения в поставке
       description: |
+
         <div class="description_token">
             Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-                <strong>Персональному</strong> токену
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену
         </div>
 
         Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
@@ -1148,6 +1164,7 @@ paths:
                   $ref: '#/components/examples/SupplyNotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: suppliesInformation
 components:
   securitySchemes:
     HeaderApiKey:

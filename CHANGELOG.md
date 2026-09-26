@@ -1,6 +1,50 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.26)
+- Общие
+  - Добавлены `x-tagKey` для методов проверки подключения (`connectionCheck`), новостей (`newsApi`), информации о продавце (`sellerInformation`) и управления пользователями продавца (`sellerUserManagement`) — изменение только группировки/тегов в документации, без изменения контрактов.
+
+- Товары / Контент / Цены и скидки / Склады
+  - Массово добавлены `x-tagKey` для разделов: категории/характеристики, ярлыки (tags), карточки/листинги, медиафайлы, рекомендации, цены и скидки, склады/остатки — изменение структуры документации.
+  - В схемах ошибок поле `errorText` переописано как «Описание ошибки» (ранее «Текст ошибки»); добавлены/уточнены примеры для `ResponseError`-подобных схем и ряда error-examples (в т.ч. тексты про `nmID/nmIDs`, некорректный формат запроса, дубли).
+  - Уточнены тексты примеров ошибок (например, убраны `!`, заменены формулировки `item No.` → `nmID`, `size` → `sizeID`).
+
+- Заказы FBS / Поставки FBS
+  - Переразмечены и частично переставлены эндпоинты поставок: добавлены/обновлены серверы **Prod/Sandbox** для `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` и `GET|DELETE /api/v3/supplies/{supplyId}`; добавлено ограничение песочницы: **1 rps суммарно для всех методов Маркетплейса** (в описаниях).
+  - `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` (добавление сборочных заданий к поставке): изменён контракт ответа с `200` (тело `UpdateSuppliesResponse`) на `204 No Content`; добавлены ответы `402` и `404`; `409` теперь возвращает схему `Error` и пример `FailedToAddSupplyOrder`.
+  - `GET /api/v3/supplies/{supplyId}` (информация о поставке): добавлены ответы `402` и `404`; возвращаемая схема — `Supply`.
+  - `DELETE /api/v3/supplies/{supplyId}` (удаление поставки): `409` теперь описывает конфликт «за поставкой закреплены сборочные задания» и пример `SupplyHasOrders`.
+  - `GET /api/marketplace/v3/supplies/{supplyId}/order-ids`: изменён путь (ранее был `GET /api/v3/supplies/{supplyId}`), теперь возвращает только список ID сборочных заданий (`v3.SupplyOrderIDsAPI`); параметр `supplyId` описан явно в path.
+  - Возвращены/восстановлены эндпоинты FBS по отгрузке и ЭТрН в прежних путях:
+    - `GET /api/marketplace/v3/fbs/shipping-points` (список пунктов отгрузки) — снова доступен.
+    - `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` (параметры отгрузки) — снова доступен; ответ `200` теперь с `UpdateSuppliesShippingMethodResponse` (выделен отдельный тип ответа).
+    - `PATCH /api/marketplace/v3/fbs/supplies/waybill` (ID ЭТрН) — снова доступен; ответ `200` теперь с `UpdateSuppliesWaybillResponse` (выделен отдельный тип ответа).
+  - В `POST /api/v3/supplies/{supplyId}/deliver` добавлен новый вариант ошибки `FulfillmentSupplyBoxesRequired` (409) — требуется минимум одно грузоместо для фулфилмент-отгрузок.
+  - В схемах ответов батч-операций по поставкам разделены типы: `UpdateSuppliesShippingMethodResponse` и `UpdateSuppliesWaybillResponse`; детализированы структуры ошибок для `UpdatedSuppliesShippingMethod` и `UpdatedSuppliesWaybill`.
+  - В примерах `shippingType` изменён example: `transportCompany` → `selfShipping`.
+
+- Заказы DBW / DBS / Самовывоз из магазина / Заказы FBW
+  - Добавлены `x-tagKey` для группировки методов (сборочные задания, идентификаторы маркировки и т.п.) — изменения только в документации.
+  - FBW: метод `GET /api/supplies/v1/discrepancies/{supplyId}` теперь доступен также по **service** токену (добавлен в `x-token-types` и описание).
+
+- Продвижение (Реклама)
+  - Добавлено поле `minDailyLimit` в ответ `GET /api/advert/v1/config` (минимально допустимый дневной лимит в разменных единицах).
+  - Новый ресурс дневных лимитов CPC-кампаний: `GET|PUT /api/advert/v0/daily-limits`
+    - `GET` — получение настроек дневных лимитов по списку `advertIds` (до 100), лимит: **5 запросов/мин** (personal/service).
+    - `PUT` — включение/выключение и установка `dailyLimit` + `carryOverEnabled` для `advertIds` (до 100); добавлены ошибки `AdvertIdsCountInvalid`, `DailyLimitTooLow`.
+  - Добавлены новые схемы: `V0GetDailyLimitsResponse`, `V0DailyLimitAdvert`, `V0PutDailyLimitsRequest/Response` и результаты по кампаниям; в `V0PutDailyLimitsRequest` расширен `advertIds` до 100 и добавлены поля `enabled`, `dailyLimit`, `carryOverEnabled`.
+
+- Отчёты / Аналитика (seller-analytics)
+  - `GET /api/v1/analytics/goods-return` помечен как **deprecated** и будет отключён **26 октября** (описание заменено на уведомление).
+  - Добавлен новый эндпоинт отчёта по возвратам: `GET /api/analytics/v1/item-returns`
+    - Параметры: `dateFrom`, `dateTo`, `status` (`active|archive`), `limit` (≤1000), `offset`; ответы `200` (новая схема `GoodsReturn200Response`) и `204` (нет данных).
+  - Переименование схемы ошибок: `4xxResponse` → `4XXResponse` и обновление ссылок на неё в нескольких методах отчётов (контракт не меняется, только имя компонента).
+  - Добавлены `x-tagKey` для разделов отчётов (основные отчёты, остатки, удержания, платное хранение и т.д.) — изменения в документации.
+
+- Финансы / Документы
+  - Добавлены `x-tagKey` для баланса, финансовых отчётов и документов — изменения только в структуре документации.
+
 ### Changed (2026.09.19)
 - Общие
   - Ужесточён лимит запросов: было 99 запросов за 990 сек, стало 3 запроса за 30 сек (интервал 10 сек, burst 99 без изменений).

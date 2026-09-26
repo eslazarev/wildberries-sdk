@@ -97,6 +97,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/v3/dbs/orders:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -195,6 +196,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/final-price:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -258,6 +260,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/v3/dbs/groups/info:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -333,6 +336,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/v3/dbs/orders/client:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -416,6 +420,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/b2b/info:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -484,6 +489,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/v3/dbs/orders/delivery-date:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -564,6 +570,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/status/info:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -674,6 +681,7 @@ paths:
                 $ref: '#/components/schemas/api.BatchError'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/status/cancel:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -752,6 +760,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/status/confirm:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -829,6 +838,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/stickers:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -993,6 +1003,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/status/deliver:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1070,6 +1081,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/status/receive:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1191,6 +1203,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/status/reject:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1267,6 +1280,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsAssemblyOrders
   /api/marketplace/v3/dbs/orders/meta/details:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1343,6 +1357,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsLabelIdentifiers
   /api/marketplace/v3/dbs/orders/meta/delete:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1433,6 +1448,7 @@ paths:
                 $ref: '#/components/schemas/api.Error'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsLabelIdentifiers
   /api/marketplace/v3/dbs/orders/meta/sgtin:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1517,6 +1533,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsLabelIdentifiers
   /api/marketplace/v3/dbs/orders/meta/uin:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1602,6 +1619,7 @@ paths:
                 $ref: '#/components/schemas/api.Error'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsLabelIdentifiers
   /api/marketplace/v3/dbs/orders/meta/imei:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1687,6 +1705,7 @@ paths:
                 $ref: '#/components/schemas/api.Error'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsLabelIdentifiers
   /api/marketplace/v3/dbs/orders/meta/gtin:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1771,6 +1790,7 @@ paths:
                 $ref: '#/components/schemas/api.Error'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsLabelIdentifiers
   /api/marketplace/v3/dbs/orders/meta/customs-declaration:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1893,6 +1913,7 @@ paths:
                   $ref: '#/components/examples/FailedToUpdateMeta'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbsLabelIdentifiers
 components:
   securitySchemes:
     HeaderApiKey:

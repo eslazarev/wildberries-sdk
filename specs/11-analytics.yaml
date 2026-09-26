@@ -139,6 +139,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: salesFunnel
   /api/analytics/v3/sales-funnel/products/history:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -216,6 +217,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: salesFunnel
   /api/analytics/v3/sales-funnel/grouped/history:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -302,6 +304,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: salesFunnel
   /api/v2/nm-report/downloads:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -622,6 +625,7 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/response429Download'
                   - $ref: '#/components/schemas/response429DownloadDaily'
+      x-tagKey: sellerAnalyticsCsv
     get:
       operationId: getV2NmReportDownloads
       x-readonly-method: true
@@ -711,6 +715,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerAnalyticsCsv
   /api/v2/nm-report/downloads/retry:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -800,6 +805,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerAnalyticsCsv
   /api/v2/nm-report/downloads/file/{downloadId}:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -912,6 +918,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerAnalyticsCsv
   /api/v2/search-report/report:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -995,6 +1002,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchQueriesForYourItems
   /api/v2/search-report/table/groups:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1070,6 +1078,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchQueriesForYourItems
   /api/v2/search-report/table/details:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1149,6 +1158,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchQueriesForYourItems
   /api/v2/search-report/product/search-texts:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1225,6 +1235,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchQueriesForYourItems
   /api/v2/search-report/product/orders:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1303,6 +1314,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchQueriesForYourItems
   /api/analytics/v1/stocks-report/wb-warehouses:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1385,6 +1397,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: stocksReport
   /api/analytics/v1/stocks-report/seller-warehouses:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1463,6 +1476,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: stocksReport
   /api/v2/stocks-report/products/groups:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1533,6 +1547,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: stocksReport
   /api/v2/stocks-report/products/products:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1604,6 +1619,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: stocksReport
   /api/v2/stocks-report/products/sizes:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1680,6 +1696,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: stocksReport
   /api/v2/stocks-report/offices:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1750,6 +1767,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: stocksReport
   /api/analytics/v2/item-rating:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1824,6 +1842,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: itemRating
   /api/analytics/v1/order-feed:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1900,6 +1919,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: orderFeed
 components:
   schemas:
     MainRequest:
