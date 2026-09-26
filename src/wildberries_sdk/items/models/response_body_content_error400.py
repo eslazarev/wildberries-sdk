@@ -27,10 +27,10 @@ class ResponseBodyContentError400(BaseModel):
     """
     ResponseBodyContentError400
     """ # noqa: E501
-    data: Optional[Dict[str, Any]] = Field(default=None, description="Данные ошибки")
-    error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
-    additional_errors: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные ошибки", alias="additionalErrors")
+    data: Optional[Dict[str, Any]] = Field(default=None, description="Данные ошибки", json_schema_extra={"examples": [{}]})
+    error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки", json_schema_extra={"examples": [True]})
+    error_text: Optional[StrictStr] = Field(default=None, description="Описание ошибки", alias="errorText", json_schema_extra={"examples": ["Bad request"]})
+    additional_errors: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные ошибки", alias="additionalErrors", json_schema_extra={"examples": [{}]})
     __properties: ClassVar[List[str]] = ["data", "error", "errorText", "additionalErrors"]
 
     model_config = ConfigDict(

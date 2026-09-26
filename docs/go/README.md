@@ -252,6 +252,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 ### promotion (`promotion`)
 - `promotion.DefaultApiService.DeleteV0NormqueryBids` — `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров
 - `promotion.DefaultApiService.GetV0BidsRecommendations` — `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
+- `promotion.DefaultApiService.GetV0DailyLimits` — `GET /api/advert/v0/daily-limits` — Получить настройки дневных лимитов кампаний
 - `promotion.DefaultApiService.GetV0Delete` — `GET /adv/v0/delete` — Удаление кампании
 - `promotion.DefaultApiService.GetV0Pause` — `GET /adv/v0/pause` — Пауза кампании
 - `promotion.DefaultApiService.GetV0Start` — `GET /adv/v0/start` — Запуск кампании
@@ -290,6 +291,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.PostV2SeacatSaveAd` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
 - `promotion.DefaultApiService.PostV2SupplierNms` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
 - `promotion.DefaultApiService.PutV0AuctionPlacements` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой
+- `promotion.DefaultApiService.PutV0DailyLimits` — `PUT /api/advert/v0/daily-limits` — Настройка дневных лимитов кампаний
 
 ### communications (`communications`)
 - `communications.DefaultApiService.DeleteFeedbacksV1Pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
@@ -348,6 +350,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `analytics.CSVAPIService.PostV2NmReportDownloadsRetry` — `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно
 
 ### reports (`reports`)
+- `reports.DefaultApiService.GetAnalyticsV1GoodsReturn` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApiService.GetV1AcceptanceReport` — `GET /api/v1/acceptance_report` — Создать отчёт
 - `reports.DefaultApiService.GetV1AcceptanceReportTasksTaskIdDownload` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApiService.GetV1AcceptanceReportTasksTaskIdStatus` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус

@@ -7503,7 +7503,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesShippingMethodResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response
      */
     public function patchV3FbsSuppliesShippingMethod($update_supplies_shipping_method_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3FbsSuppliesShippingMethod'][0])
     {
@@ -7527,7 +7527,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesShippingMethodResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchV3FbsSuppliesShippingMethodWithHttpInfo($update_supplies_shipping_method_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3FbsSuppliesShippingMethod'][0])
     {
@@ -7559,7 +7559,7 @@ class FBSApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse',
+                        '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesShippingMethodResponse',
                         $request,
                         $response,
                     );
@@ -7611,7 +7611,7 @@ class FBSApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse',
+                '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesShippingMethodResponse',
                 $request,
                 $response,
             );
@@ -7620,7 +7620,7 @@ class FBSApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse',
+                        '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesShippingMethodResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7718,7 +7718,7 @@ class FBSApi
      */
     public function patchV3FbsSuppliesShippingMethodAsyncWithHttpInfo($update_supplies_shipping_method_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3FbsSuppliesShippingMethod'][0])
     {
-        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse';
+        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesShippingMethodResponse';
         $request = $this->patchV3FbsSuppliesShippingMethodRequest($update_supplies_shipping_method_request, $hostIndex, $variables, $contentType);
 
         return $this->client
@@ -7910,7 +7910,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesWaybillResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response
      */
     public function patchV3FbsSuppliesWaybill($update_supplies_waybill, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3FbsSuppliesWaybill'][0])
     {
@@ -7934,7 +7934,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesWaybillResponse|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response|\Wildberries\Sdk\OrdersFbs\Model\Error|\Wildberries\Sdk\OrdersFbs\Model\GetV3PassesOffices401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchV3FbsSuppliesWaybillWithHttpInfo($update_supplies_waybill, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3FbsSuppliesWaybill'][0])
     {
@@ -7966,7 +7966,7 @@ class FBSApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse',
+                        '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesWaybillResponse',
                         $request,
                         $response,
                     );
@@ -8012,7 +8012,7 @@ class FBSApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse',
+                '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesWaybillResponse',
                 $request,
                 $response,
             );
@@ -8021,7 +8021,7 @@ class FBSApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse',
+                        '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesWaybillResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8111,7 +8111,7 @@ class FBSApi
      */
     public function patchV3FbsSuppliesWaybillAsyncWithHttpInfo($update_supplies_waybill, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3FbsSuppliesWaybill'][0])
     {
-        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesResponse';
+        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\UpdateSuppliesWaybillResponse';
         $request = $this->patchV3FbsSuppliesWaybillRequest($update_supplies_waybill, $hostIndex, $variables, $contentType);
 
         return $this->client

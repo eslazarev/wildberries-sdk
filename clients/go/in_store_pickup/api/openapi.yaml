@@ -116,6 +116,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -259,6 +260,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -365,6 +367,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/click-collect/orders/status/confirm:
@@ -471,6 +474,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -582,6 +586,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -696,6 +701,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -826,6 +832,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -937,6 +944,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1048,6 +1056,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1174,6 +1183,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1285,6 +1295,7 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1392,6 +1403,7 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: inStorePickupLabelIdentifiers
   /api/marketplace/v3/click-collect/orders/meta/delete:
     post:
       description: |
@@ -1504,6 +1516,7 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -1619,6 +1632,7 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -1732,6 +1746,7 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -1846,6 +1861,7 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -1959,6 +1975,7 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -2070,6 +2087,7 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: inStorePickupLabelIdentifiers
     servers:
     - url: https://marketplace-api.wildberries.ru
 components:

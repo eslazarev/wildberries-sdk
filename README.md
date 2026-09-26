@@ -300,6 +300,8 @@ SDK выпускается с security-first процессом:
 - `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний (postV2SupplierNms)
 - `GET /adv/v3/fullstats` — Статистика кампаний (getV3Fullstats)
 - `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров (getV0BidsRecommendations)
+- `GET /api/advert/v0/daily-limits` — Получить настройки дневных лимитов кампаний (getV0DailyLimits)
+- `PUT /api/advert/v0/daily-limits` — Настройка дневных лимитов кампаний (putV0DailyLimits)
 - `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях (patchV1Bids)
 - `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров (postV1BidsMin)
 - `GET /api/advert/v1/config` — Конфигурационные значения продвижения (getV1Config)
@@ -369,6 +371,7 @@ SDK выпускается с security-first процессом:
 
 ### Отчёты (`12-reports.yaml`)
 - `GET /api/analytics/v1/deductions` — Подмены и неверные вложения (getV1Deductions)
+- `GET /api/analytics/v1/item-returns` — Получить отчёт (getAnalyticsV1GoodsReturn)
 - `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки (getV1MeasurementPenalties)
 - `GET /api/analytics/v1/warehouse-measurements` — Замеры склада (getV1WarehouseMeasurements)
 - `GET /api/v1/acceptance_report` — Создать отчёт (getV1AcceptanceReport)

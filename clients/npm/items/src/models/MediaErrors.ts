@@ -32,7 +32,7 @@ export interface MediaErrors {
      */
     error?: boolean;
     /**
-     * Текст ошибки
+     * Описание ошибки
      */
     errorText?: string;
 }

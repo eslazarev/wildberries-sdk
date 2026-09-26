@@ -174,6 +174,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - description: |
         **Prod**
@@ -341,6 +342,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - description: |
         **Prod**
@@ -469,6 +471,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - description: |
         **Prod**
@@ -578,6 +581,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - description: |
         **Prod**
@@ -687,6 +691,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - description: |
         **Prod**
@@ -802,6 +807,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - description: |
         **Prod**
@@ -911,6 +917,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - description: |
         **Prod**
@@ -1030,6 +1037,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - description: |
         **Prod**
@@ -1170,6 +1178,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - description: |
         **Prod**
@@ -1296,6 +1305,7 @@ paths:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
       x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
     servers:
     - url: https://content-api.wildberries.ru
   /content/v2/tags:
@@ -1395,6 +1405,7 @@ paths:
       - Ярлыки
       x-readonly-method: true
       x-category: content
+      x-tagKey: labels
     servers:
     - description: |
         **Prod**
@@ -1513,6 +1524,7 @@ paths:
       - Ярлыки
       x-readonly-method: false
       x-category: content
+      x-tagKey: labels
     servers:
     - description: |
         **Prod**
@@ -1633,6 +1645,7 @@ paths:
       - Ярлыки
       x-readonly-method: false
       x-category: content
+      x-tagKey: labels
     patch:
       description: |
         Метод заменяет данные ярлыка: имя и цвет.
@@ -1752,6 +1765,7 @@ paths:
       - Ярлыки
       x-readonly-method: false
       x-category: content
+      x-tagKey: labels
     servers:
     - description: |
         **Prod**
@@ -1868,6 +1882,7 @@ paths:
       - Ярлыки
       x-readonly-method: false
       x-category: content
+      x-tagKey: labels
     servers:
     - description: |
         **Prod**
@@ -2109,6 +2124,7 @@ paths:
       - Карточки товаров
       x-readonly-method: true
       x-category: content
+      x-tagKey: listings
     servers:
     - description: |
         **Prod**
@@ -2318,6 +2334,7 @@ paths:
       - Карточки товаров
       x-readonly-method: true
       x-category: content
+      x-tagKey: listings
     servers:
     - description: |
         **Prod**
@@ -2462,6 +2479,7 @@ paths:
       - Карточки товаров
       x-readonly-method: false
       x-category: content
+      x-tagKey: listings
     servers:
     - description: |
         **Prod**
@@ -2621,6 +2639,7 @@ paths:
       - Карточки товаров
       x-readonly-method: false
       x-category: content
+      x-tagKey: listings
     servers:
     - description: |
         **Prod**
@@ -2742,6 +2761,7 @@ paths:
       - Карточки товаров
       x-readonly-method: false
       x-category: content
+      x-tagKey: listings
     servers:
     - description: |
         **Prod**
@@ -2858,6 +2878,7 @@ paths:
       - Карточки товаров
       x-readonly-method: false
       x-category: content
+      x-tagKey: listings
     servers:
     - description: |
         **Prod**
@@ -3061,6 +3082,7 @@ paths:
       - Карточки товаров
       x-readonly-method: true
       x-category: content
+      x-tagKey: listings
     servers:
     - description: |
         **Prod**
@@ -3165,6 +3187,7 @@ paths:
       - Создание карточек товаров
       x-readonly-method: true
       x-category: content
+      x-tagKey: listingItems
     servers:
     - description: |
         **Prod**
@@ -3274,6 +3297,7 @@ paths:
       - Создание карточек товаров
       x-readonly-method: false
       x-category: content
+      x-tagKey: listingItems
     servers:
     - description: |
         **Prod**
@@ -3430,6 +3454,7 @@ paths:
       - Создание карточек товаров
       x-readonly-method: false
       x-category: content
+      x-tagKey: listingItems
     servers:
     - description: |
         **Prod**
@@ -3645,6 +3670,7 @@ paths:
       - Создание карточек товаров
       x-readonly-method: false
       x-category: content
+      x-tagKey: listingItems
     servers:
     - description: |
         **Prod**
@@ -3794,6 +3820,7 @@ paths:
       - Медиафайлы
       x-readonly-method: false
       x-category: content
+      x-tagKey: mediaFiles
     servers:
     - description: |
         **Prod**
@@ -3947,6 +3974,7 @@ paths:
       - Медиафайлы
       x-readonly-method: false
       x-category: content
+      x-tagKey: mediaFiles
     servers:
     - description: |
         **Prod**
@@ -4033,6 +4061,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: recommendations
     servers:
     - url: https://content-api.wildberries.ru
   /api/content/v1/recommendations/set:
@@ -4120,6 +4149,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: recommendations
     servers:
     - url: https://content-api.wildberries.ru
   /api/v2/upload/task:
@@ -4284,6 +4314,7 @@ paths:
       - Цены и скидки
       x-readonly-method: false
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -4457,6 +4488,7 @@ paths:
       - Цены и скидки
       x-readonly-method: false
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -4610,6 +4642,7 @@ paths:
       - Цены и скидки
       x-readonly-method: false
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -4737,6 +4770,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: pricesAndDiscounts
     servers:
     - url: https://discounts-prices-api.wildberries.ru
   /api/v2/history/tasks:
@@ -4844,6 +4878,7 @@ paths:
       - Цены и скидки
       x-readonly-method: true
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -4979,6 +5014,7 @@ paths:
       - Цены и скидки
       x-readonly-method: true
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -5091,6 +5127,7 @@ paths:
       - Цены и скидки
       x-readonly-method: true
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -5226,6 +5263,7 @@ paths:
       - Цены и скидки
       x-readonly-method: true
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -5376,6 +5414,7 @@ paths:
       - Цены и скидки
       x-readonly-method: true
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     post:
       description: |
         Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
@@ -5484,6 +5523,7 @@ paths:
       - Цены и скидки
       x-readonly-method: true
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -5629,6 +5669,7 @@ paths:
       - Цены и скидки
       x-readonly-method: true
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -5778,6 +5819,7 @@ paths:
       - Цены и скидки
       x-readonly-method: true
       x-category: discountsandprices
+      x-tagKey: pricesAndDiscounts
     servers:
     - description: |
         **Prod**
@@ -5928,6 +5970,7 @@ paths:
       - Остатки на складах продавца
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: sellerWarehousesInventory
     post:
       description: |
         Метод возвращает данные об остатках товаров на [складах продавца](/openapi/item-management#tag/sellerWarehouses).
@@ -6058,6 +6101,7 @@ paths:
       - Остатки на складах продавца
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: sellerWarehousesInventory
     put:
       description: |
         Метод обновляет количество остатков товаров продавца [в списке](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
@@ -6223,6 +6267,7 @@ paths:
       - Остатки на складах продавца
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: sellerWarehousesInventory
     servers:
     - description: |
         **Prod**
@@ -6314,6 +6359,7 @@ paths:
       - Склады продавца
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: sellerWarehouses
     servers:
     - description: |
         **Prod**
@@ -6405,6 +6451,7 @@ paths:
       - Склады продавца
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: sellerWarehouses
     post:
       description: |
         Метод создаёт склад продавца для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).
@@ -6526,6 +6573,7 @@ paths:
       - Склады продавца
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: sellerWarehouses
     servers:
     - description: |
         **Prod**
@@ -6639,6 +6687,7 @@ paths:
       - Склады продавца
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: sellerWarehouses
     put:
       description: |
         Метод обновляет данные [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).
@@ -6767,6 +6816,7 @@ paths:
       - Склады продавца
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: sellerWarehouses
     servers:
     - description: |
         **Prod**
@@ -6877,6 +6927,7 @@ paths:
       - Склады продавца
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: sellerWarehouses
     put:
       description: "Метод обновляет список контактов [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).\n\
         \n<div class=\"description_important\">\n  Список контактов перезаписывает\
@@ -6991,6 +7042,7 @@ paths:
       - Склады продавца
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: sellerWarehouses
     servers:
     - url: https://marketplace-api.wildberries.ru
 components:
@@ -7404,9 +7456,9 @@ components:
       value:
         data: null
         error: true
-        errorText: Недопустимо отправлять дублирующиеся запросы!
+        errorText: Недопустимо отправлять дублирующиеся запросы
         additionalErrors:
-          error: Недопустимо отправлять дублирующиеся запросы!
+          error: Недопустимо отправлять дублирующиеся запросы
     responseAllListingsInSameGroup:
       description: ""
       value:
@@ -7420,9 +7472,9 @@ components:
       value:
         data: null
         error: true
-        errorText: string
+        errorText: "The request format is incorrect, the nmIDs field cannot be empty"
         additionalErrors:
-          string: string
+          string: ""
     InvalidRequestFormatContent:
       description: Некорректный формат запроса
       value:
@@ -7488,7 +7540,7 @@ components:
       value:
         data: null
         error: true
-        errorText: Текст ошибки
+        errorText: "arguments could not be decoded: invalid syntax"
         additionalErrors: null
     responseBody400LenName:
       description: ""
@@ -7568,7 +7620,7 @@ components:
       value:
         data: null
         error: true
-        errorText: Duplicate item Nos.
+        errorText: Duplicate item nmIDs
     DuplicateSizeIDs:
       description: В запросе несколько одинаковых `sizeID`
       value:
@@ -7624,7 +7676,7 @@ components:
       value:
         data: null
         error: true
-        errorText: Invalid item No.
+        errorText: Invalid item nmID
     InvalidItemNoV3:
       description: Неправильный `nmId`
       value:
@@ -7642,7 +7694,7 @@ components:
       value:
         data: null
         error: true
-        errorText: Invalid size
+        errorText: Invalid sizeID
     PriceAndDiscountNotSpecified:
       description: Цена и скидка не указаны
       value:
@@ -8315,23 +8367,27 @@ components:
       type: object
     responseBodyContentError400:
       example:
-        data: "{}"
+        data: {}
         error: true
-        errorText: errorText
-        additionalErrors: "{}"
+        errorText: Bad request
+        additionalErrors: {}
       properties:
         data:
           description: Данные ошибки
+          example: {}
           nullable: true
           type: object
         error:
           description: Флаг ошибки
+          example: true
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
+          example: Bad request
           type: string
         additionalErrors:
           description: Дополнительные ошибки
+          example: {}
           nullable: true
           type: object
       type: object
@@ -8350,7 +8406,7 @@ components:
           description: Флаг ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
         additionalErrors:
           description: Дополнительные ошибки
@@ -8372,7 +8428,7 @@ components:
           description: Флаг ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
         additionalErrors:
           description: Дополнительные ошибки
@@ -8384,7 +8440,7 @@ components:
         additionalErrors: null
         data: null
         error: true
-        errorText: Error text
+        errorText: Failed to deserialize the JSON body into the target type
       properties:
         additionalErrors:
           description: Дополнительные ошибки
@@ -8398,7 +8454,7 @@ components:
           description: Флаг ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
       type: object
     ResponseError:
@@ -8415,7 +8471,7 @@ components:
           description: Флаг ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
       type: object
     ResponseErrorV3:
@@ -8467,7 +8523,7 @@ components:
           description: Флаг ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
       type: object
     UpdateBlocked:
@@ -8508,7 +8564,7 @@ components:
           example: false
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           example: ""
           type: string
       type: object
@@ -8830,7 +8886,7 @@ components:
           example: 1
           type: integer
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           nullable: true
           type: string
           example: null
@@ -8893,7 +8949,7 @@ components:
           type: integer
         errorText:
           description: |
-            Текст ошибки. Например:
+            Описание ошибки. Например:
               - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
           example: New price is several times lower than the current price. Item has
             been moved to Price Quarantine
@@ -10036,7 +10092,7 @@ components:
           description: Флаг наличия ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
         additionalErrors:
           description: Дополнительные ошибки
@@ -10161,7 +10217,7 @@ components:
           description: Флаг наличия ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
         additionalErrors:
           description: Дополнительные ошибки
@@ -10336,7 +10392,7 @@ components:
           description: Флаг наличия ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
         additionalErrors:
           description: Дополнительные ошибки
@@ -10378,7 +10434,7 @@ components:
           example: false
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
         additionalErrors:
           description: Дополнительные ошибки
@@ -12414,7 +12470,7 @@ components:
           example: false
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           example: ""
           type: string
       type: object
@@ -12508,7 +12564,7 @@ components:
           example: false
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           example: ""
           type: string
       type: object
@@ -12585,7 +12641,7 @@ components:
           example: false
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           example: ""
           type: string
       type: object
@@ -12712,7 +12768,7 @@ components:
           example: false
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           example: ""
           type: string
       required:
@@ -12802,7 +12858,7 @@ components:
           example: false
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
       type: object
     getV2QuarantineGoods_200_response_data:
@@ -12867,7 +12923,7 @@ components:
           example: false
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           example: ""
           type: string
       type: object

@@ -22,7 +22,7 @@ type GetV2HistoryTasks200Response struct {
 	Data NullableSellerTaskMetadata `json:"data,omitempty"`
 	// Флаг ошибки
 	Error *bool `json:"error,omitempty"`
-	// Текст ошибки
+	// Описание ошибки
 	ErrorText *string `json:"errorText,omitempty"`
 }
 

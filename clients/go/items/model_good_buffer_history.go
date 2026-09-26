@@ -37,7 +37,7 @@ type GoodBufferHistory struct {
 	ClubDiscount *int32 `json:"clubDiscount,omitempty"`
 	// Статус товара: `1` — в обработке 
 	Status *int32 `json:"status,omitempty"`
-	// Текст ошибки
+	// Описание ошибки
 	ErrorText NullableString `json:"errorText,omitempty"`
 }
 

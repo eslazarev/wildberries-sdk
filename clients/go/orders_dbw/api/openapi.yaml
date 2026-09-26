@@ -113,6 +113,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders:
@@ -248,6 +249,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/delivery-date:
@@ -349,6 +351,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbw/orders/client:
@@ -451,6 +454,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/status:
@@ -571,6 +575,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/{orderId}/confirm:
@@ -690,6 +695,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/stickers:
@@ -833,6 +839,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbw/orders/status/deliver:
@@ -952,6 +959,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/courier:
@@ -1053,6 +1061,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/{orderId}/cancel:
@@ -1175,6 +1184,7 @@ paths:
       - Сборочные задания DBW
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbwAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbw/orders/meta/details:
@@ -1288,6 +1298,7 @@ paths:
       - Идентификаторы маркировки DBW
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbwLabelIdentifiers
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbw/orders/meta/delete:
@@ -1407,6 +1418,7 @@ paths:
       - Идентификаторы маркировки DBW
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbwLabelIdentifiers
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbw/orders/meta/sgtin:
@@ -1522,6 +1534,7 @@ paths:
       - Идентификаторы маркировки DBW
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbwLabelIdentifiers
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/{orderId}/meta/uin:
@@ -1654,6 +1667,7 @@ paths:
       - Идентификаторы маркировки DBW
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbwLabelIdentifiers
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/{orderId}/meta/imei:
@@ -1787,6 +1801,7 @@ paths:
       - Идентификаторы маркировки DBW
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbwLabelIdentifiers
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/{orderId}/meta/gtin:
@@ -1920,6 +1935,7 @@ paths:
       - Идентификаторы маркировки DBW
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbwLabelIdentifiers
     servers:
     - url: https://marketplace-api.wildberries.ru
 components:

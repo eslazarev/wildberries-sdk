@@ -265,6 +265,7 @@ var_dump($response);
 ### promotion (`promotion`)
 - `promotion.DefaultApi.deleteV0NormqueryBids` — `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров
 - `promotion.DefaultApi.getV0BidsRecommendations` — `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
+- `promotion.DefaultApi.getV0DailyLimits` — `GET /api/advert/v0/daily-limits` — Получить настройки дневных лимитов кампаний
 - `promotion.DefaultApi.getV0Delete` — `GET /adv/v0/delete` — Удаление кампании
 - `promotion.DefaultApi.getV0Pause` — `GET /adv/v0/pause` — Пауза кампании
 - `promotion.DefaultApi.getV0Start` — `GET /adv/v0/start` — Запуск кампании
@@ -303,6 +304,7 @@ var_dump($response);
 - `promotion.DefaultApi.postV2SeacatSaveAd` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
 - `promotion.DefaultApi.postV2SupplierNms` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
 - `promotion.DefaultApi.putV0AuctionPlacements` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой
+- `promotion.DefaultApi.putV0DailyLimits` — `PUT /api/advert/v0/daily-limits` — Настройка дневных лимитов кампаний
 
 ### communications (`communications`)
 - `communications.DefaultApi.deleteFeedbacksV1Pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
@@ -362,6 +364,7 @@ var_dump($response);
 
 ### reports (`reports`)
 - `reports.CApi.postV1AnalyticsExciseReport` — `POST /api/v1/analytics/excise-report` — Получить отчёт
+- `reports.DefaultApi.getAnalyticsV1GoodsReturn` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApi.getV1AcceptanceReport` — `GET /api/v1/acceptance_report` — Создать отчёт
 - `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdDownload` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdStatus` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус

@@ -29,7 +29,7 @@ class UpdateSupplyShippingMethod(BaseModel):
     """ # noqa: E501
     shipping_dt: StrictStr = Field(description="Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`", alias="shippingDt", json_schema_extra={"examples": ["2026-08-31"]})
     shipping_point_id: StrictInt = Field(description="ID пункта отгрузки. Можно получить с помощью [отдельного метода](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)", alias="shippingPointId", json_schema_extra={"examples": [100]})
-    shipping_type: StrictStr = Field(description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле `waybillUuid` ", alias="shippingType", json_schema_extra={"examples": ["transportCompany"]})
+    shipping_type: StrictStr = Field(description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле `waybillUuid` ", alias="shippingType", json_schema_extra={"examples": ["selfShipping"]})
     supply_id: StrictStr = Field(description="ID поставки", alias="supplyId", json_schema_extra={"examples": ["WB-GI-100"]})
     __properties: ClassVar[List[str]] = ["shippingDt", "shippingPointId", "shippingType", "supplyId"]
 

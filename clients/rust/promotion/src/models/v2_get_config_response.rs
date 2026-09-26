@@ -28,16 +28,20 @@ pub struct V2GetConfigResponse {
     /// Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум 
     #[serde(rename = "minTopUp")]
     pub min_top_up: i64,
+    /// Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+    #[serde(rename = "minDailyLimit")]
+    pub min_daily_limit: i64,
 }
 
 impl V2GetConfigResponse {
-    pub fn new(currency: String, currency_code: i32, cpm_step: i64, cpc_step: i64, min_top_up: i64) -> V2GetConfigResponse {
+    pub fn new(currency: String, currency_code: i32, cpm_step: i64, cpc_step: i64, min_top_up: i64, min_daily_limit: i64) -> V2GetConfigResponse {
         V2GetConfigResponse {
             currency,
             currency_code,
             cpm_step,
             cpc_step,
             min_top_up,
+            min_daily_limit,
         }
     }
 }

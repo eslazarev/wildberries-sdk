@@ -40,7 +40,7 @@ pub struct GoodHistory {
     /// Статус товара:   * `2` — товар без ошибок, цена и/или скидка обновилась   * `3` — есть ошибки, данные не обновились 
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<i32>,
-    /// Текст ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). 
+    /// Описание ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). 
     #[serde(rename = "errorText", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub error_text: Option<Option<String>>,
 }

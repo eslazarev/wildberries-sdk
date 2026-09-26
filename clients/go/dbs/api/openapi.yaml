@@ -119,6 +119,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -268,6 +269,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -367,6 +369,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbs/groups/info:
@@ -472,6 +475,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -597,6 +601,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -705,6 +710,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbs/orders/delivery-date:
@@ -815,6 +821,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -960,6 +967,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1073,6 +1081,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1185,6 +1194,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1330,6 +1340,7 @@ paths:
       - personal
       - service
       - base-with-secret
+      x-tagKey: dbsAssemblyOrders
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbs/orders/status/deliver:
@@ -1437,6 +1448,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1548,6 +1560,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1659,6 +1672,7 @@ paths:
       - Сборочные задания DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsAssemblyOrders
     servers:
     - description: |
         **Prod**
@@ -1775,6 +1789,7 @@ paths:
       - Идентификаторы маркировки DBS
       x-readonly-method: true
       x-category: marketplace
+      x-tagKey: dbsLabelIdentifiers
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbs/orders/meta/delete:
@@ -1895,6 +1910,7 @@ paths:
       - Идентификаторы маркировки DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -2014,6 +2030,7 @@ paths:
       - Идентификаторы маркировки DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -2134,6 +2151,7 @@ paths:
       - Идентификаторы маркировки DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -2254,6 +2272,7 @@ paths:
       - Идентификаторы маркировки DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -2373,6 +2392,7 @@ paths:
       - Идентификаторы маркировки DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsLabelIdentifiers
     servers:
     - description: |
         **Prod**
@@ -2509,6 +2529,7 @@ paths:
       - Идентификаторы маркировки DBS
       x-readonly-method: false
       x-category: marketplace
+      x-tagKey: dbsLabelIdentifiers
     servers:
     - description: |
         **Prod**

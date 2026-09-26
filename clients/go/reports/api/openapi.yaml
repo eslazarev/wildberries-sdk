@@ -249,6 +249,7 @@ paths:
       - Основные отчёты
       x-readonly-method: true
       x-category: statistics
+      x-tagKey: mainReports
     servers:
     - description: |
         **Prod**
@@ -442,6 +443,7 @@ paths:
       - Основные отчёты
       x-readonly-method: true
       x-category: statistics
+      x-tagKey: mainReports
     servers:
     - description: |
         **Prod**
@@ -513,7 +515,7 @@ paths:
                 requestId: 8bbd7db59522d09926dd059892dbeff0
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -578,6 +580,7 @@ paths:
       - Отчёт о товарах c обязательной маркировкой
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: reportOnItemsWithMandatoryLabeling
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/warehouse_remains:
@@ -723,7 +726,7 @@ paths:
                 requestId: 6a6c2fba81f08e58670a7dab835ff0d7
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -790,6 +793,7 @@ paths:
       - Отчёт об остатках на складах
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: warehousesInventoryReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/warehouse_remains/tasks/{task_id}/status:
@@ -841,7 +845,7 @@ paths:
                 requestId: 52dd27a91a1a643feae7201b206462df
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -885,7 +889,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Не найдено
         "429":
           content:
@@ -909,6 +913,7 @@ paths:
       - Отчёт об остатках на складах
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: warehousesInventoryReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/warehouse_remains/tasks/{task_id}/download:
@@ -982,7 +987,7 @@ paths:
                 requestId: 44bac63ab29c46cb2d49392e6604c1a0
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -1036,7 +1041,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Не найдено
         "429":
           content:
@@ -1060,6 +1065,7 @@ paths:
       - Отчёт об остатках на складах
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: warehousesInventoryReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/measurement-penalties:
@@ -1198,6 +1204,7 @@ paths:
       - Отчёты об удержаниях
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: retentionReports
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/warehouse-measurements:
@@ -1336,6 +1343,7 @@ paths:
       - Отчёты об удержаниях
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: retentionReports
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/deductions:
@@ -1505,6 +1513,7 @@ paths:
       - Отчёты об удержаниях
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: retentionReports
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/antifraud-details:
@@ -1555,7 +1564,7 @@ paths:
                 IncorrectDate:
                   $ref: "#/components/examples/IncorrectDate"
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -1622,6 +1631,7 @@ paths:
       - Отчёты об удержаниях
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: retentionReports
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/goods-labeling:
@@ -1704,7 +1714,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -1771,6 +1781,7 @@ paths:
       - Отчёты об удержаниях
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: retentionReports
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/acceptance_report:
@@ -1840,7 +1851,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -1907,6 +1918,7 @@ paths:
       - Операции при приёмке
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: acceptanceExpenses
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/acceptance_report/tasks/{task_id}/status:
@@ -1958,7 +1970,7 @@ paths:
                 requestId: 44bac63ab29c46cb2d49392e6604c1a0
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2002,7 +2014,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Не найдено
         "429":
           content:
@@ -2026,6 +2038,7 @@ paths:
       - Операции при приёмке
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: acceptanceExpenses
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/acceptance_report/tasks/{task_id}/download:
@@ -2078,7 +2091,7 @@ paths:
                 requestId: 52dd27a91a1a643feae7201b206462df
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2132,7 +2145,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Не найдено
         "429":
           content:
@@ -2156,6 +2169,7 @@ paths:
       - Операции при приёмке
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: acceptanceExpenses
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/paid_storage:
@@ -2235,7 +2249,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2302,6 +2316,7 @@ paths:
       - Платное хранение
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: paidStorage
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/paid_storage/tasks/{task_id}/status:
@@ -2353,7 +2368,7 @@ paths:
                 requestId: 52dd27a91a1a643feae7201b206462df
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2397,7 +2412,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Не найдено
         "429":
           content:
@@ -2421,6 +2436,7 @@ paths:
       - Платное хранение
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: paidStorage
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/paid_storage/tasks/{task_id}/download:
@@ -2495,7 +2511,7 @@ paths:
                 requestId: 44bac63ab29c46cb2d49392e6604c1a0
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2549,7 +2565,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Не найдено
         "429":
           content:
@@ -2573,6 +2589,7 @@ paths:
       - Платное хранение
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: paidStorage
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/region-sale:
@@ -2639,7 +2656,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2706,6 +2723,7 @@ paths:
       - Продажи по регионам
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: salesByRegions
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/brand-share/brands:
@@ -2801,6 +2819,7 @@ paths:
       - Доля бренда в продажах
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: shareOfBrandInSales
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/brand-share/parent-subjects:
@@ -2906,7 +2925,7 @@ paths:
                 MissingBrand:
                   $ref: "#/components/examples/MissingBrand"
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2973,6 +2992,7 @@ paths:
       - Доля бренда в продажах
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: shareOfBrandInSales
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/brand-share:
@@ -3081,7 +3101,7 @@ paths:
                 MissingBrand:
                   $ref: "#/components/examples/MissingBrand"
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -3148,6 +3168,7 @@ paths:
       - Доля бренда в продажах
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: shareOfBrandInSales
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/banned-products/blocked:
@@ -3288,26 +3309,14 @@ paths:
       - Заблокированные карточки
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: blockedItems
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/goods-return:
     get:
+      deprecated: true
       description: |
-        Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). <br><br>
-
-        Можно получить отчёт максимум за 31 день.
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-        | Тип | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- | --- |
-        | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-        | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-        | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-        </div>
+        Метод будет отключен [26 октября](/release-notes?id=577).
       operationId: getV1AnalyticsGoodsReturn
       parameters:
       - description: Дата начала отчётного периода
@@ -3354,7 +3363,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/Model4xxResponse"
+                $ref: "#/components/schemas/Model4XXResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -3421,10 +3430,170 @@ paths:
       - Отчёт о возвратах и перемещении товаров
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: returnsAndItemMovementReport
+    servers:
+    - url: https://seller-analytics-api.wildberries.ru
+  /api/analytics/v1/item-returns:
+    get:
+      description: |
+        Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+      operationId: getAnalyticsV1GoodsReturn
+      parameters:
+      - description: Дата начала отчётного периода
+        explode: true
+        in: query
+        name: dateFrom
+        required: true
+        schema:
+          example: 2024-08-13
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания отчётного периода
+        explode: true
+        in: query
+        name: dateTo
+        required: true
+        schema:
+          example: 2024-08-27
+          format: date
+          type: string
+        style: form
+      - description: |
+          Статус возврата:
+            - `archive` — архивный
+            - `active` — активный
+        explode: true
+        in: query
+        name: status
+        required: true
+        schema:
+          enum:
+          - active
+          - archive
+          example: active
+          type: string
+        style: form
+      - description: Количество возвратов в ответе
+        explode: true
+        in: query
+        name: limit
+        required: true
+        schema:
+          example: 10
+          format: date
+          maximum: 1000
+          minimum: 0
+          type: integer
+        style: form
+      - description: "Сколько элементов пропустить. Например, для значения 10 отве\
+          т начнется с 11 элемента"
+        explode: true
+        in: query
+        name: offset
+        required: true
+        schema:
+          example: 3
+          format: date
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ReportExample:
+                  $ref: "#/components/examples/ReportExample"
+              schema:
+                $ref: "#/components/schemas/GoodsReturn200Response"
+          description: Успешно
+        "204":
+          description: Нет данных
+        "400":
+          content:
+            application/problem+json:
+              examples:
+                MissingDateTimeFrom:
+                  $ref: "#/components/examples/MissingDateTimeFrom"
+                MissingDateTimeTo:
+                  $ref: "#/components/examples/MissingDateTimeTo"
+                IncorrectDateTimeFrom:
+                  $ref: "#/components/examples/IncorrectDateTimeFrom"
+                IncorrectDateTimeTo:
+                  $ref: "#/components/examples/IncorrectDateTimeTo"
+                DateRangeExceeded:
+                  $ref: "#/components/examples/DateRangeExceeded"
+                DateRanges:
+                  $ref: "#/components/examples/DateRanges"
+              schema:
+                $ref: "#/components/schemas/Model4XXResponse"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
+          description: Не авторизован
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
+          description: Слишком много запросов
+      security:
+      - HeaderApiKey: []
+      summary: Получить отчёт
+      tags:
+      - Отчёт о возвратах и перемещении товаров
+      x-readonly-method: true
+      x-category: contentanalytics
+      x-tagKey: returnsAndItemMovementReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
 components:
   examples:
+    ReportExample:
+      description: Успешно
+      value:
+        count: 87
+        report:
+        - sku: "1234567890"
+          brand: ""
+          completedDt: null
+          dstOfficeAddress: "г. Клин (Московская область), улица Ленина, д. 8"
+          dstOfficeId: 33
+          expiredDt: null
+          kiz: null
+          nmId: 987654321
+          orderDt: 2026-08-24
+          orderId: 6789054321
+          readyToReturnDt: null
+          returnType: "Возврат товара, который приехал по МП, продавцу"
+          shkId: 987612345
+          srid: mp.1b4fc35bfe3f4b799cf01f8e11ffd2cb.r
+          returnStatus: В пути в пвз
+          stickerId: "918273645"
+          subjectName: Вода питьевая
+          techSize: "0"
     DateFromFieldRequired:
       description: Ошибка в запросе
       value:
@@ -3869,6 +4038,61 @@ components:
             $ref: "#/components/schemas/getV1AnalyticsBrandShare_200_response"
       description: Успешно
   schemas:
+    GoodsReturn200Response:
+      example:
+        count: 0
+        report:
+        - sku: "1680063403480"
+          brand: dub
+          completedDt: 2025-03-31T11:33:53
+          dstOfficeAddress: Жуковский Улица Маяковского 19
+          kiz: "0102900000376311210G2CIS?ehge)S\x1d91002A\x1d92F9Qof4FDo/31Icm14kmtuVYQzLypxm3HWkC1vQ/+pVVjm1dNAth1laFMoAGn7yEMWlTjxIe7lQnJqZ7TRZhlHQ=="
+          dstOfficeId: 310105
+          expiredDt: 2025-03-31T11:33:53
+          nmId: 12862181
+          orderDt: 2024-08-26
+          orderId: 2034240826
+          readyToReturnDt: 2025-01-31T08:33:50
+          returnReason: Цвет
+          returnType: Возврат заблокированного товара
+          shkId: 23411783472
+          srid: mp.123130940efa4d67af77f901594c7d2c.r
+          returnStatus: В пути в пвз
+          stickerId: "33811984302"
+          subjectName: Багажные бирки
+          techSize: "0"
+        - sku: "1680063403480"
+          brand: dub
+          completedDt: 2025-03-31T11:33:53
+          dstOfficeAddress: Жуковский Улица Маяковского 19
+          kiz: "0102900000376311210G2CIS?ehge)S\x1d91002A\x1d92F9Qof4FDo/31Icm14kmtuVYQzLypxm3HWkC1vQ/+pVVjm1dNAth1laFMoAGn7yEMWlTjxIe7lQnJqZ7TRZhlHQ=="
+          dstOfficeId: 310105
+          expiredDt: 2025-03-31T11:33:53
+          nmId: 12862181
+          orderDt: 2024-08-26
+          orderId: 2034240826
+          readyToReturnDt: 2025-01-31T08:33:50
+          returnReason: Цвет
+          returnType: Возврат заблокированного товара
+          shkId: 23411783472
+          srid: mp.123130940efa4d67af77f901594c7d2c.r
+          returnStatus: В пути в пвз
+          stickerId: "33811984302"
+          subjectName: Багажные бирки
+          techSize: "0"
+      properties:
+        count:
+          description: Общее количество возвратов за запрашиваемый период
+          type: integer
+        report:
+          description: Отчёт
+          items:
+            $ref: "#/components/schemas/GoodsReturn200Response_report_inner"
+          type: array
+      required:
+      - count
+      - report
+      type: object
     OrdersItem:
       example:
         date: date
@@ -4482,7 +4706,7 @@ components:
           description: ID задания на генерацию
           type: string
       type: object
-    Model4xxResponse:
+    Model4XXResponse:
       example:
         detail: detail
         origin: origin
@@ -5418,6 +5642,130 @@ components:
           items:
             $ref: "#/components/schemas/getV1AnalyticsGoodsReturn_200_response_report_inner"
           type: array
+      type: object
+    GoodsReturn200Response_report_inner:
+      example:
+        sku: "1680063403480"
+        brand: dub
+        completedDt: 2025-03-31T11:33:53
+        dstOfficeAddress: Жуковский Улица Маяковского 19
+        kiz: "0102900000376311210G2CIS?ehge)S\x1d91002A\x1d92F9Qof4FDo/31Icm14kmtuVYQzLypxm3HWkC1vQ/+pVVjm1dNAth1laFMoAGn7yEMWlTjxIe7lQnJqZ7TRZhlHQ=="
+        dstOfficeId: 310105
+        expiredDt: 2025-03-31T11:33:53
+        nmId: 12862181
+        orderDt: 2024-08-26
+        orderId: 2034240826
+        readyToReturnDt: 2025-01-31T08:33:50
+        returnReason: Цвет
+        returnType: Возврат заблокированного товара
+        shkId: 23411783472
+        srid: mp.123130940efa4d67af77f901594c7d2c.r
+        returnStatus: В пути в пвз
+        stickerId: "33811984302"
+        subjectName: Багажные бирки
+        techSize: "0"
+      properties:
+        sku:
+          description: Баркод
+          example: "1680063403480"
+          type: string
+        brand:
+          description: Бренд
+          example: dub
+          type: string
+        completedDt:
+          description: Дата и время выдачи возврата продавцу
+          example: 2025-03-31T11:33:53
+          nullable: true
+          type: string
+        dstOfficeAddress:
+          description: Адрес ПВЗ для выдачи возврата продавцу
+          example: Жуковский Улица Маяковского 19
+          type: string
+        kiz:
+          description: "Код маркировки [Честного знака](https://честныйзнак.рф/)"
+          example: "0102900000376311210G2CIS?ehge)S\x1d91002A\x1d92F9Qof4FDo/31Icm14kmtuVYQzLypxm3HWkC1vQ/+pVVjm1dNAth1laFMoAGn7yEMWlTjxIe7lQnJqZ7TRZhlHQ=="
+          nullable: true
+          type: string
+        dstOfficeId:
+          description: ID ПВЗ для выдачи возврата продавцу
+          example: 310105
+          type: integer
+        expiredDt:
+          description: Дата и время истечения срока хранения возврата
+          example: 2025-03-31T11:33:53
+          nullable: true
+          type: string
+        nmId:
+          description: Артикул WB
+          example: 12862181
+          type: integer
+        orderDt:
+          description: Дата заказа на возврат
+          example: 2024-08-26
+          format: date
+          type: string
+        orderId:
+          description: ID сборочного задания
+          example: 2034240826
+          type: integer
+        readyToReturnDt:
+          description: Дата и время готовности возврата к выдаче
+          example: 2025-01-31T08:33:50
+          nullable: true
+          type: string
+        returnReason:
+          description: Причина возврата.<br> Поле возвращается только при `"returnType":"Возврат
+            неопознанного товара"`
+          example: Цвет
+          type: string
+        returnType:
+          description: Тип возврата
+          example: Возврат заблокированного товара
+          type: string
+        shkId:
+          description: Штрихкод
+          example: 23411783472
+          type: integer
+        srid:
+          description: ID заказа на возврат
+          example: mp.123130940efa4d67af77f901594c7d2c.r
+          type: string
+        returnStatus:
+          description: Статус возврата
+          example: В пути в пвз
+          type: string
+        stickerId:
+          description: Стикер заказа на возврат
+          example: "33811984302"
+          type: string
+        subjectName:
+          description: Предмет
+          example: Багажные бирки
+          type: string
+        techSize:
+          description: Размер
+          example: "0"
+          type: string
+      required:
+      - brand
+      - completedDt
+      - dstOfficeAddress
+      - dstOfficeId
+      - expiredDt
+      - kiz
+      - nmId
+      - orderDt
+      - orderId
+      - readyToReturnDt
+      - returnStatus
+      - returnType
+      - shkId
+      - sku
+      - srid
+      - stickerId
+      - subjectName
+      - techSize
       type: object
     models_ExciseReportResponseData_inner:
       example:

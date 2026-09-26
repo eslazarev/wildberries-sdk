@@ -18,7 +18,7 @@ pub struct GetV2ListGoodsFilter200Response {
     /// Флаг ошибки
     #[serde(rename = "error")]
     pub error: bool,
-    /// Текст ошибки
+    /// Описание ошибки
     #[serde(rename = "errorText")]
     pub error_text: String,
 }

@@ -67,9 +67,10 @@ from wildberries_sdk.orders_fbs.models.shipping_points_response import ShippingP
 from wildberries_sdk.orders_fbs.models.supply import Supply
 from wildberries_sdk.orders_fbs.models.supply_spot_data_response import SupplySpotDataResponse
 from wildberries_sdk.orders_fbs.models.supply_spot_qr_code import SupplySpotQRCode
-from wildberries_sdk.orders_fbs.models.update_supplies_response import UpdateSuppliesResponse
 from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_request import UpdateSuppliesShippingMethodRequest
+from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_response import UpdateSuppliesShippingMethodResponse
 from wildberries_sdk.orders_fbs.models.update_supplies_waybill import UpdateSuppliesWaybill
+from wildberries_sdk.orders_fbs.models.update_supplies_waybill_response import UpdateSuppliesWaybillResponse
 from wildberries_sdk.orders_fbs.models.v3_archive_orders import V3ArchiveOrders
 from wildberries_sdk.orders_fbs.models.v3_get_meta_multi_request import V3GetMetaMultiRequest
 from wildberries_sdk.orders_fbs.models.v3_orders_meta_api import V3OrdersMetaAPI
@@ -6438,10 +6439,10 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> UpdateSuppliesResponse:
+    ) -> UpdateSuppliesShippingMethodResponse:
         """Установить параметры отгрузки поставок
 
-        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_shipping_method_request: (required)
         :type update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest
@@ -6476,7 +6477,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateSuppliesResponse",
+            '200': "UpdateSuppliesShippingMethodResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '403': "Error",
@@ -6510,10 +6511,10 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[UpdateSuppliesResponse]:
+    ) -> ApiResponse[UpdateSuppliesShippingMethodResponse]:
         """Установить параметры отгрузки поставок
 
-        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_shipping_method_request: (required)
         :type update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest
@@ -6548,7 +6549,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateSuppliesResponse",
+            '200': "UpdateSuppliesShippingMethodResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '403': "Error",
@@ -6585,7 +6586,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Установить параметры отгрузки поставок
 
-        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_shipping_method_request: (required)
         :type update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest
@@ -6620,7 +6621,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateSuppliesResponse",
+            '200': "UpdateSuppliesShippingMethodResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '403': "Error",
@@ -6731,10 +6732,10 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> UpdateSuppliesResponse:
+    ) -> UpdateSuppliesWaybillResponse:
         """Установить ID ЭТрН поставок
 
-        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>    В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_waybill: (required)
         :type update_supplies_waybill: UpdateSuppliesWaybill
@@ -6769,7 +6770,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateSuppliesResponse",
+            '200': "UpdateSuppliesWaybillResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '403': "Error",
@@ -6802,10 +6803,10 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[UpdateSuppliesResponse]:
+    ) -> ApiResponse[UpdateSuppliesWaybillResponse]:
         """Установить ID ЭТрН поставок
 
-        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>    В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_waybill: (required)
         :type update_supplies_waybill: UpdateSuppliesWaybill
@@ -6840,7 +6841,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateSuppliesResponse",
+            '200': "UpdateSuppliesWaybillResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '403': "Error",
@@ -6876,7 +6877,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Установить ID ЭТрН поставок
 
-        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>    В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_waybill: (required)
         :type update_supplies_waybill: UpdateSuppliesWaybill
@@ -6911,7 +6912,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateSuppliesResponse",
+            '200': "UpdateSuppliesWaybillResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '403': "Error",

@@ -34,6 +34,7 @@ from wildberries_sdk.reports.models.get_v1_analytics_goods_return200_response im
 from wildberries_sdk.reports.models.get_v1_analytics_region_sale200_response import GetV1AnalyticsRegionSale200Response
 from wildberries_sdk.reports.models.get_v1_deductions200_response import GetV1Deductions200Response
 from wildberries_sdk.reports.models.get_v1_warehouse_remains_tasks_task_id_download200_response_inner import GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner
+from wildberries_sdk.reports.models.goods_return200_response import GoodsReturn200Response
 from wildberries_sdk.reports.models.measurement_penalties import MeasurementPenalties
 from wildberries_sdk.reports.models.orders_item import OrdersItem
 from wildberries_sdk.reports.models.response_paid_storage_inner import ResponsePaidStorageInner
@@ -56,6 +57,371 @@ class DefaultApi:
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
+
+
+    @validate_call
+    def get_analytics_v1_goods_return(
+        self,
+        date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
+        date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
+        status: Annotated[StrictStr, Field(description="Статус возврата:   - `archive` — архивный   - `active` — активный ")],
+        limit: Annotated[int, Field(le=1000, strict=True, ge=0, description="Количество возвратов в ответе")],
+        offset: Annotated[StrictInt, Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> GoodsReturn200Response:
+        """Получить отчёт
+
+        Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+
+        :param date_from: Дата начала отчётного периода (required)
+        :type date_from: date
+        :param date_to: Дата окончания отчётного периода (required)
+        :type date_to: date
+        :param status: Статус возврата:   - `archive` — архивный   - `active` — активный  (required)
+        :type status: str
+        :param limit: Количество возвратов в ответе (required)
+        :type limit: int
+        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+        :type offset: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_analytics_v1_goods_return_serialize(
+            date_from=date_from,
+            date_to=date_to,
+            status=status,
+            limit=limit,
+            offset=offset,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoodsReturn200Response",
+            '204': None,
+            '400': "Model4XXResponse",
+            '401': "GetV1SupplierOrders401Response",
+            '429': "GetV1SupplierOrders401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_analytics_v1_goods_return_with_http_info(
+        self,
+        date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
+        date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
+        status: Annotated[StrictStr, Field(description="Статус возврата:   - `archive` — архивный   - `active` — активный ")],
+        limit: Annotated[int, Field(le=1000, strict=True, ge=0, description="Количество возвратов в ответе")],
+        offset: Annotated[StrictInt, Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[GoodsReturn200Response]:
+        """Получить отчёт
+
+        Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+
+        :param date_from: Дата начала отчётного периода (required)
+        :type date_from: date
+        :param date_to: Дата окончания отчётного периода (required)
+        :type date_to: date
+        :param status: Статус возврата:   - `archive` — архивный   - `active` — активный  (required)
+        :type status: str
+        :param limit: Количество возвратов в ответе (required)
+        :type limit: int
+        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+        :type offset: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_analytics_v1_goods_return_serialize(
+            date_from=date_from,
+            date_to=date_to,
+            status=status,
+            limit=limit,
+            offset=offset,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoodsReturn200Response",
+            '204': None,
+            '400': "Model4XXResponse",
+            '401': "GetV1SupplierOrders401Response",
+            '429': "GetV1SupplierOrders401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_analytics_v1_goods_return_without_preload_content(
+        self,
+        date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
+        date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
+        status: Annotated[StrictStr, Field(description="Статус возврата:   - `archive` — архивный   - `active` — активный ")],
+        limit: Annotated[int, Field(le=1000, strict=True, ge=0, description="Количество возвратов в ответе")],
+        offset: Annotated[StrictInt, Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Получить отчёт
+
+        Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+
+        :param date_from: Дата начала отчётного периода (required)
+        :type date_from: date
+        :param date_to: Дата окончания отчётного периода (required)
+        :type date_to: date
+        :param status: Статус возврата:   - `archive` — архивный   - `active` — активный  (required)
+        :type status: str
+        :param limit: Количество возвратов в ответе (required)
+        :type limit: int
+        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+        :type offset: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_analytics_v1_goods_return_serialize(
+            date_from=date_from,
+            date_to=date_to,
+            status=status,
+            limit=limit,
+            offset=offset,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GoodsReturn200Response",
+            '204': None,
+            '400': "Model4XXResponse",
+            '401': "GetV1SupplierOrders401Response",
+            '429': "GetV1SupplierOrders401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_analytics_v1_goods_return_serialize(
+        self,
+        date_from,
+        date_to,
+        status,
+        limit,
+        offset,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://seller-analytics-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if date_from is not None:
+            if isinstance(date_from, date):
+                _query_params.append(
+                    (
+                        'dateFrom',
+                        date_from.strftime(
+                            self.api_client.configuration.date_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('dateFrom', date_from))
+            
+        if date_to is not None:
+            if isinstance(date_to, date):
+                _query_params.append(
+                    (
+                        'dateTo',
+                        date_to.strftime(
+                            self.api_client.configuration.date_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('dateTo', date_to))
+            
+        if status is not None:
+            
+            _query_params.append(('status', status))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if offset is not None:
+            
+            _query_params.append(('offset', offset))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/problem+json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/analytics/v1/item-returns',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
 
 
     @validate_call
@@ -117,7 +483,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -193,7 +559,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -269,7 +635,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -413,11 +779,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner]",
             '204': None,
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -487,11 +853,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner]",
             '204': None,
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -561,11 +927,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner]",
             '204': None,
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -698,10 +1064,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -770,10 +1136,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -842,10 +1208,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -978,7 +1344,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsAntifraudDetails200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -1050,7 +1416,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsAntifraudDetails200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -1122,7 +1488,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsAntifraudDetails200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -1571,7 +1937,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsBrandShare200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -1655,7 +2021,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsBrandShare200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -1739,7 +2105,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsBrandShare200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -2166,7 +2532,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsBrandShareParentSubjects200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -2250,7 +2616,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsBrandShareParentSubjects200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -2334,7 +2700,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsBrandShareParentSubjects200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -2491,7 +2857,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsGoodsLabeling200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -2567,7 +2933,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsGoodsLabeling200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -2643,7 +3009,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsGoodsLabeling200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -2767,9 +3133,9 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> GetV1AnalyticsGoodsReturn200Response:
-        """Получить отчёт
+        """(Deprecated) Получить отчёт
 
-        Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). <br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод будет отключен [26 октября](/release-notes?id=577). 
 
         :param date_from: Дата начала отчётного периода (required)
         :type date_from: date
@@ -2796,6 +3162,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v1/analytics/goods-return is deprecated.", DeprecationWarning)
 
         _param = self._get_v1_analytics_goods_return_serialize(
             date_from=date_from,
@@ -2808,7 +3175,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsGoodsReturn200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -2843,9 +3210,9 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiResponse[GetV1AnalyticsGoodsReturn200Response]:
-        """Получить отчёт
+        """(Deprecated) Получить отчёт
 
-        Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). <br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод будет отключен [26 октября](/release-notes?id=577). 
 
         :param date_from: Дата начала отчётного периода (required)
         :type date_from: date
@@ -2872,6 +3239,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v1/analytics/goods-return is deprecated.", DeprecationWarning)
 
         _param = self._get_v1_analytics_goods_return_serialize(
             date_from=date_from,
@@ -2884,7 +3252,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsGoodsReturn200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -2919,9 +3287,9 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> RESTResponseType:
-        """Получить отчёт
+        """(Deprecated) Получить отчёт
 
-        Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). <br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод будет отключен [26 октября](/release-notes?id=577). 
 
         :param date_from: Дата начала отчётного периода (required)
         :type date_from: date
@@ -2948,6 +3316,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v1/analytics/goods-return is deprecated.", DeprecationWarning)
 
         _param = self._get_v1_analytics_goods_return_serialize(
             date_from=date_from,
@@ -2960,7 +3329,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsGoodsReturn200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -3125,7 +3494,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsRegionSale200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -3201,7 +3570,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsRegionSale200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -3277,7 +3646,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV1AnalyticsRegionSale200Response",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -4160,7 +4529,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -4236,7 +4605,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -4312,7 +4681,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -4456,11 +4825,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ResponsePaidStorageInner]",
             '204': None,
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -4530,11 +4899,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ResponsePaidStorageInner]",
             '204': None,
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -4604,11 +4973,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ResponsePaidStorageInner]",
             '204': None,
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -4741,10 +5110,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -4813,10 +5182,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -4885,10 +5254,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6004,7 +6373,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -6108,7 +6477,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -6212,7 +6581,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -6391,11 +6760,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner]",
             '204': None,
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6465,11 +6834,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner]",
             '204': None,
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6539,11 +6908,11 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner]",
             '204': None,
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6676,10 +7045,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6748,10 +7117,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6820,10 +7189,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '403': "GetV1SupplierOrders403Response",
-            '404': "Model4xxResponse",
+            '404': "Model4XXResponse",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -6964,7 +7333,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ExciseReportResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -7044,7 +7413,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ExciseReportResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
@@ -7124,7 +7493,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ExciseReportResponse",
-            '400': "Model4xxResponse",
+            '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
             '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",

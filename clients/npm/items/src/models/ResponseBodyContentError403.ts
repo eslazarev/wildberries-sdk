@@ -28,7 +28,7 @@ export interface ResponseBodyContentError403 {
      */
     error?: boolean;
     /**
-     * Текст ошибки
+     * Описание ошибки
      */
     errorText?: string;
     /**

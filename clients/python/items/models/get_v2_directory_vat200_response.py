@@ -29,7 +29,7 @@ class GetV2DirectoryVat200Response(BaseModel):
     """ # noqa: E501
     data: Optional[List[StrictStr]] = None
     error: Optional[StrictBool] = Field(default=None, description="Флаг наличия ошибки")
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
+    error_text: Optional[StrictStr] = Field(default=None, description="Описание ошибки", alias="errorText")
     additional_errors: Optional[StrictStr] = Field(default=None, description="Дополнительные ошибки", alias="additionalErrors")
     __properties: ClassVar[List[str]] = ["data", "error", "errorText", "additionalErrors"]
 

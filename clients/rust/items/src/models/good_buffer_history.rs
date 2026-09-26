@@ -40,7 +40,7 @@ pub struct GoodBufferHistory {
     /// Статус товара: `1` — в обработке 
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<i32>,
-    /// Текст ошибки
+    /// Описание ошибки
     #[serde(rename = "errorText", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub error_text: Option<Option<String>>,
 }

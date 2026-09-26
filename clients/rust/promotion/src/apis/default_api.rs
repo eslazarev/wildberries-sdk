@@ -37,6 +37,17 @@ pub enum GetV0BidsRecommendationsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_v0_daily_limits`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV0DailyLimitsError {
+    Status400(models::Response400),
+    Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
+    Status429(models::GetV1PromotionCount401Response),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_v0_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -461,6 +472,17 @@ pub enum PutV0AuctionPlacementsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`put_v0_daily_limits`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutV0DailyLimitsError {
+    Status400(models::Response400),
+    Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
+    Status429(models::GetV1PromotionCount401Response),
+    UnknownValue(serde_json::Value),
+}
+
 
 /// Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn delete_v0_normquery_bids(configuration: &configuration::Configuration, v0_delete_norm_query_bids_request: models::V0DeleteNormQueryBidsRequest) -> Result<(), Error<DeleteV0NormqueryBidsError>> {
@@ -541,6 +563,52 @@ pub async fn get_v0_bids_recommendations(configuration: &configuration::Configur
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV0BidsRecommendationsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+pub async fn get_v0_daily_limits(configuration: &configuration::Configuration, advert_ids: &str) -> Result<models::V0GetDailyLimitsResponse, Error<GetV0DailyLimitsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_advert_ids = advert_ids;
+
+    let uri_str = format!("{}/api/advert/v0/daily-limits", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("advertIds", &p_query_advert_ids.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V0GetDailyLimitsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V0GetDailyLimitsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV0DailyLimitsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -2263,6 +2331,52 @@ pub async fn put_v0_auction_placements(configuration: &configuration::Configurat
     } else {
         let content = resp.text().await?;
         let entity: Option<PutV0AuctionPlacementsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод включает, выключает и обновляет дневной лимит кампаний.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+pub async fn put_v0_daily_limits(configuration: &configuration::Configuration, v0_put_daily_limits_request: models::V0PutDailyLimitsRequest) -> Result<models::V0PutDailyLimitsResponse, Error<PutV0DailyLimitsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_v0_put_daily_limits_request = v0_put_daily_limits_request;
+
+    let uri_str = format!("{}/api/advert/v0/daily-limits", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_v0_put_daily_limits_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V0PutDailyLimitsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V0PutDailyLimitsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV0DailyLimitsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

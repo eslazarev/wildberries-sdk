@@ -252,6 +252,7 @@ main().catch(console.error);
 ### promotion (`promotion`)
 - `promotion.DefaultApi.deleteV0NormqueryBids` — Удалить ставки поисковых кластеров
 - `promotion.DefaultApi.getV0BidsRecommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
+- `promotion.DefaultApi.getV0DailyLimits` — Получить настройки дневных лимитов кампаний
 - `promotion.DefaultApi.getV0Delete` — Удаление кампании
 - `promotion.DefaultApi.getV0Pause` — Пауза кампании
 - `promotion.DefaultApi.getV0Start` — Запуск кампании
@@ -290,6 +291,7 @@ main().catch(console.error);
 - `promotion.DefaultApi.postV2SeacatSaveAd` — Создать кампанию
 - `promotion.DefaultApi.postV2SupplierNms` — Карточки товаров для кампаний
 - `promotion.DefaultApi.putV0AuctionPlacements` — Изменение мест размещения в кампаниях с ручной ставкой
+- `promotion.DefaultApi.putV0DailyLimits` — Настройка дневных лимитов кампаний
 
 ### communications (`communications`)
 - `communications.DefaultApi.deleteFeedbacksV1Pins` — Открепить отзывы
@@ -349,6 +351,7 @@ main().catch(console.error);
 
 ### reports (`reports`)
 - `reports.CApi.postV1AnalyticsExciseReport` — Получить отчёт
+- `reports.DefaultApi.getAnalyticsV1GoodsReturn` — Получить отчёт
 - `reports.DefaultApi.getV1AcceptanceReport` — Создать отчёт
 - `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdDownload` — Получить отчёт
 - `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdStatus` — Проверить статус

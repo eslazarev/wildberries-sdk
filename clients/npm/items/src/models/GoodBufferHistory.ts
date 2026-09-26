@@ -57,7 +57,7 @@ export interface GoodBufferHistory {
      */
     status?: number;
     /**
-     * Текст ошибки
+     * Описание ошибки
      */
     errorText?: string | null;
 }

@@ -32,7 +32,8 @@ class V2GetConfigResponse(BaseModel):
     cpm_step: StrictInt = Field(description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний", alias="cpmStep")
     cpc_step: StrictInt = Field(description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC", alias="cpcStep")
     min_top_up: StrictInt = Field(description="Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум ", alias="minTopUp")
-    __properties: ClassVar[List[str]] = ["currency", "currencyCode", "cpmStep", "cpcStep", "minTopUp"]
+    min_daily_limit: StrictInt = Field(description="Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ", alias="minDailyLimit")
+    __properties: ClassVar[List[str]] = ["currency", "currencyCode", "cpmStep", "cpcStep", "minTopUp", "minDailyLimit"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,7 +90,8 @@ class V2GetConfigResponse(BaseModel):
             "currencyCode": obj.get("currencyCode"),
             "cpmStep": obj.get("cpmStep"),
             "cpcStep": obj.get("cpcStep"),
-            "minTopUp": obj.get("minTopUp")
+            "minTopUp": obj.get("minTopUp"),
+            "minDailyLimit": obj.get("minDailyLimit")
         })
         return _obj
 

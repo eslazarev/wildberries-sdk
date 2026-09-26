@@ -166,6 +166,7 @@ paths:
       - Информация для формирования поставок
       x-readonly-method: true
       x-category: supplies
+      x-tagKey: informationForFormingSupplies
     servers:
     - description: |
         **Prod**
@@ -261,6 +262,7 @@ paths:
       - Информация для формирования поставок
       x-readonly-method: true
       x-category: supplies
+      x-tagKey: informationForFormingSupplies
     servers:
     - description: |
         **Prod**
@@ -350,6 +352,7 @@ paths:
       - Информация для формирования поставок
       x-readonly-method: true
       x-category: supplies
+      x-tagKey: informationForFormingSupplies
     servers:
     - url: https://supplies-api.wildberries.ru
   /api/v1/supplies:
@@ -522,6 +525,7 @@ paths:
       - Информация о поставках
       x-readonly-method: true
       x-category: supplies
+      x-tagKey: suppliesInformation
     servers:
     - url: https://supplies-api.wildberries.ru
   /api/v1/supplies/{ID}:
@@ -656,6 +660,7 @@ paths:
       - Информация о поставках
       x-readonly-method: true
       x-category: supplies
+      x-tagKey: suppliesInformation
     servers:
     - url: https://supplies-api.wildberries.ru
   /api/v1/supplies/{ID}/goods:
@@ -807,6 +812,7 @@ paths:
       - Информация о поставках
       x-readonly-method: true
       x-category: supplies
+      x-tagKey: suppliesInformation
     servers:
     - url: https://supplies-api.wildberries.ru
   /api/v1/supplies/{ID}/package:
@@ -920,6 +926,7 @@ paths:
       - Информация о поставках
       x-readonly-method: true
       x-category: supplies
+      x-tagKey: suppliesInformation
     servers:
     - url: https://supplies-api.wildberries.ru
   /api/supplies/v1/drafts:
@@ -1068,6 +1075,7 @@ paths:
       - personal
       - service
       x-category: supplies
+      x-tagKey: supplyDrafts
     post:
       description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
@@ -1140,6 +1148,7 @@ paths:
       - personal
       - service
       x-category: supplies
+      x-tagKey: supplyDrafts
     servers:
     - url: https://supplies-api.wildberries.ru
   /api/supplies/v1/drafts/{draftId}:
@@ -1245,6 +1254,7 @@ paths:
       - personal
       - service
       x-category: supplies
+      x-tagKey: supplyDrafts
     servers:
     - url: https://supplies-api.wildberries.ru
   /api/supplies/v1/drafts/{draftId}/items:
@@ -1368,6 +1378,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: supplyDrafts
     get:
       description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
@@ -1484,6 +1495,7 @@ paths:
       - personal
       - service
       x-category: supplies
+      x-tagKey: supplyDrafts
     post:
       description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
@@ -1611,45 +1623,28 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: supplyDrafts
     servers:
     - url: https://supplies-api.wildberries.ru
   /api/supplies/v1/discrepancies/{supplyId}:
     get:
-      description: |
-        <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-                <strong>Персональному</strong> токену
-        </div>
-
-        Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
-        <br>
-        Для поставок принятых не позднее года назад.
-        <br><br>
-        **Типы расхождений:**
-        <br><br>
-        Расхождение в большую сторону:<br><br>
-        1. Избыток товара с заявленным баркодом:
-          - `"discrepancyType": "surplus"`
-          - `"discrepancyLabel": "surplus"`
-        2. Избыток товара с несоответствующим заявленному баркодом:
-          - `"discrepancyType": "surplus"`
-          - `"discrepancyLabel": "re-sorting"`
-
-        Расхождение в меньшую сторону:<br><br>
-        1. Не хватает товара:
-          - `"discrepancyType": "shortage"`
-          - `"discrepancyLabel": "shortage"`
-        2. Некоторые баркоды не соответствуют заявленным:
-          - `"discrepancyType": "shortage"`
-          - `"discrepancyLabel": "re-sorting"`
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 1 запрос | 1 мин | 1 запрос |
-        </div>
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает информац\
+        ию о выявленных расхождениях между заявленным и фактическим количеством то\
+        вара в поставке.\n<br>\nДля поставок принятых не позднее года назад.\n<br><br>\n\
+        **Типы расхождений:**\n<br><br>\nРасхождение в большую сторону:<br><br>\n\
+        1. Избыток товара с заявленным баркодом:\n  - `\"discrepancyType\": \"surplus\"\
+        `\n  - `\"discrepancyLabel\": \"surplus\"`\n2. Избыток товара с несоответс\
+        твующим заявленному баркодом:\n  - `\"discrepancyType\": \"surplus\"`\n  -\
+        \ `\"discrepancyLabel\": \"re-sorting\"`\n\nРасхождение в меньшую сторону\
+        :<br><br>\n1. Не хватает товара:\n  - `\"discrepancyType\": \"shortage\"`\n\
+        \  - `\"discrepancyLabel\": \"shortage\"`\n2. Некоторые баркоды не соответ\
+        ствуют заявленным:\n  - `\"discrepancyType\": \"shortage\"`\n  - `\"discrepancyLabel\"\
+        : \"re-sorting\"`\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1 запрос | 1 мин | 1\
+        \ запрос |\n</div>\n"
       operationId: getV1SuppliesSupplyIdDiscrepanciesQuantity
       parameters:
       - description: ID поставки
@@ -1748,6 +1743,8 @@ paths:
       x-category: supplies
       x-token-types:
       - personal
+      - service
+      x-tagKey: suppliesInformation
     servers:
     - url: https://supplies-api.wildberries.ru
 components:

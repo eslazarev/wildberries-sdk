@@ -36,7 +36,7 @@ export interface GetV2DirectoryTnved200Response {
      */
     error?: boolean;
     /**
-     * Текст ошибки
+     * Описание ошибки
      */
     errorText?: string;
     /**

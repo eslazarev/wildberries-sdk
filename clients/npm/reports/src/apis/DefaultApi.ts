@@ -104,15 +104,20 @@ import {
     GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerToJSON,
 } from '../models/GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner';
 import {
+    type GoodsReturn200Response,
+    GoodsReturn200ResponseFromJSON,
+    GoodsReturn200ResponseToJSON,
+} from '../models/GoodsReturn200Response';
+import {
     type MeasurementPenalties,
     MeasurementPenaltiesFromJSON,
     MeasurementPenaltiesToJSON,
 } from '../models/MeasurementPenalties';
 import {
-    type Model4xxResponse,
-    Model4xxResponseFromJSON,
-    Model4xxResponseToJSON,
-} from '../models/Model4xxResponse';
+    type Model4XXResponse,
+    Model4XXResponseFromJSON,
+    Model4XXResponseToJSON,
+} from '../models/Model4XXResponse';
 import {
     type OrdersItem,
     OrdersItemFromJSON,
@@ -148,6 +153,32 @@ import {
     WHMFromJSON,
     WHMToJSON,
 } from '../models/WHM';
+
+export interface GetAnalyticsV1GoodsReturnRequest {
+    /**
+     * Дата начала отчётного периода
+     */
+    dateFrom: Date;
+    /**
+     * Дата окончания отчётного периода
+     */
+    dateTo: Date;
+    /**
+     * Статус возврата:
+     *   - `archive` — архивный
+     *   - `active` — активный
+     * 
+     */
+    status: GetAnalyticsV1GoodsReturnStatusEnum;
+    /**
+     * Количество возвратов в ответе
+     */
+    limit: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+     */
+    offset: number;
+}
 
 export interface GetV1AcceptanceReportRequest {
     /**
@@ -531,6 +562,111 @@ export interface GetV1WarehouseRemainsTasksTaskIdStatusRequest {
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
+
+    /**
+     * Creates request options for getAnalyticsV1GoodsReturn without sending the request
+     */
+    async getAnalyticsV1GoodsReturnRequestOpts(requestParameters: GetAnalyticsV1GoodsReturnRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['dateFrom'] == null) {
+            throw new runtime.RequiredError(
+                'dateFrom',
+                'Required parameter "dateFrom" was null or undefined when calling getAnalyticsV1GoodsReturn().'
+            );
+        }
+
+        if (requestParameters['dateTo'] == null) {
+            throw new runtime.RequiredError(
+                'dateTo',
+                'Required parameter "dateTo" was null or undefined when calling getAnalyticsV1GoodsReturn().'
+            );
+        }
+
+        if (requestParameters['status'] == null) {
+            throw new runtime.RequiredError(
+                'status',
+                'Required parameter "status" was null or undefined when calling getAnalyticsV1GoodsReturn().'
+            );
+        }
+
+        if (requestParameters['limit'] == null) {
+            throw new runtime.RequiredError(
+                'limit',
+                'Required parameter "limit" was null or undefined when calling getAnalyticsV1GoodsReturn().'
+            );
+        }
+
+        if (requestParameters['offset'] == null) {
+            throw new runtime.RequiredError(
+                'offset',
+                'Required parameter "offset" was null or undefined when calling getAnalyticsV1GoodsReturn().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['dateFrom'] != null) {
+            queryParameters['dateFrom'] = runtime.serializeDate(requestParameters['dateFrom'] as any);
+        }
+
+        if (requestParameters['dateTo'] != null) {
+            queryParameters['dateTo'] = runtime.serializeDate(requestParameters['dateTo'] as any);
+        }
+
+        if (requestParameters['status'] != null) {
+            queryParameters['status'] = requestParameters['status'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/analytics/v1/item-returns`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+     * Получить отчёт
+     */
+    async getAnalyticsV1GoodsReturnRaw(requestParameters: GetAnalyticsV1GoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GoodsReturn200Response>> {
+        const requestOptions = await this.getAnalyticsV1GoodsReturnRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GoodsReturn200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+     * Получить отчёт
+     */
+    async getAnalyticsV1GoodsReturn(requestParameters: GetAnalyticsV1GoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GoodsReturn200Response | null | undefined > {
+        const response = await this.getAnalyticsV1GoodsReturnRaw(requestParameters, initOverrides);
+        switch (response.raw.status) {
+            case 200:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
+    }
 
     /**
      * Creates request options for getV1AcceptanceReport without sending the request
@@ -1095,6 +1231,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      * Creates request options for getV1AnalyticsGoodsReturn without sending the request
+     * @deprecated
      */
     async getV1AnalyticsGoodsReturnRequestOpts(requestParameters: GetV1AnalyticsGoodsReturnRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['dateFrom'] == null) {
@@ -1139,8 +1276,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). <br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод будет отключен [26 октября](/release-notes?id=577). 
      * Получить отчёт
+     * @deprecated
      */
     async getV1AnalyticsGoodsReturnRaw(requestParameters: GetV1AnalyticsGoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsGoodsReturn200Response>> {
         const requestOptions = await this.getV1AnalyticsGoodsReturnRequestOpts(requestParameters);
@@ -1150,8 +1288,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). <br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод будет отключен [26 октября](/release-notes?id=577). 
      * Получить отчёт
+     * @deprecated
      */
     async getV1AnalyticsGoodsReturn(requestParameters: GetV1AnalyticsGoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsGoodsReturn200Response> {
         const response = await this.getV1AnalyticsGoodsReturnRaw(requestParameters, initOverrides);
@@ -1930,6 +2069,14 @@ export class DefaultApi extends runtime.BaseAPI {
 
 }
 
+/**
+ * @export
+ */
+export const GetAnalyticsV1GoodsReturnStatusEnum = {
+    Active: 'active',
+    Archive: 'archive',
+} as const;
+export type GetAnalyticsV1GoodsReturnStatusEnum = typeof GetAnalyticsV1GoodsReturnStatusEnum[keyof typeof GetAnalyticsV1GoodsReturnStatusEnum];
 /**
  * @export
  */

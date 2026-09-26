@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.159"
+__version__ = "0.1.160"
 
 # Define package exports
 __all__ = [
@@ -144,8 +144,10 @@ __all__ = [
     "V0BidRecommendationReachMin",
     "V0BidsRecommendationsCpcResponse2",
     "V0BidsRecommendationsCpmResponse1",
+    "V0DailyLimitAdvert",
     "V0DeleteNormQueryBidsRequest",
     "V0DeleteNormQueryBidsRequestItem",
+    "V0GetDailyLimitsResponse",
     "V0GetNormQueryBidsItem",
     "V0GetNormQueryBidsRequest",
     "V0GetNormQueryBidsRequestItem",
@@ -164,6 +166,9 @@ __all__ = [
     "V0GetNormQueryStatsRequest",
     "V0GetNormQueryStatsRequestItemsInner",
     "V0GetNormQueryStatsResponse",
+    "V0PutDailyLimitsAdvertResult",
+    "V0PutDailyLimitsRequest",
+    "V0PutDailyLimitsResponse",
     "V0SetMinusNormQueryRequest",
     "V0SetNormQueryBidsRequest",
     "V0SetNormQueryBidsRequestItem",
@@ -314,8 +319,10 @@ from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_medium import 
 from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_min import V0BidRecommendationReachMin as V0BidRecommendationReachMin
 from wildberries_sdk.promotion.models.v0_bids_recommendations_cpc_response2 import V0BidsRecommendationsCpcResponse2 as V0BidsRecommendationsCpcResponse2
 from wildberries_sdk.promotion.models.v0_bids_recommendations_cpm_response1 import V0BidsRecommendationsCpmResponse1 as V0BidsRecommendationsCpmResponse1
+from wildberries_sdk.promotion.models.v0_daily_limit_advert import V0DailyLimitAdvert as V0DailyLimitAdvert
 from wildberries_sdk.promotion.models.v0_delete_norm_query_bids_request import V0DeleteNormQueryBidsRequest as V0DeleteNormQueryBidsRequest
 from wildberries_sdk.promotion.models.v0_delete_norm_query_bids_request_item import V0DeleteNormQueryBidsRequestItem as V0DeleteNormQueryBidsRequestItem
+from wildberries_sdk.promotion.models.v0_get_daily_limits_response import V0GetDailyLimitsResponse as V0GetDailyLimitsResponse
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_item import V0GetNormQueryBidsItem as V0GetNormQueryBidsItem
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_request import V0GetNormQueryBidsRequest as V0GetNormQueryBidsRequest
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_request_item import V0GetNormQueryBidsRequestItem as V0GetNormQueryBidsRequestItem
@@ -334,6 +341,9 @@ from wildberries_sdk.promotion.models.v0_get_norm_query_stats_item_stat import V
 from wildberries_sdk.promotion.models.v0_get_norm_query_stats_request import V0GetNormQueryStatsRequest as V0GetNormQueryStatsRequest
 from wildberries_sdk.promotion.models.v0_get_norm_query_stats_request_items_inner import V0GetNormQueryStatsRequestItemsInner as V0GetNormQueryStatsRequestItemsInner
 from wildberries_sdk.promotion.models.v0_get_norm_query_stats_response import V0GetNormQueryStatsResponse as V0GetNormQueryStatsResponse
+from wildberries_sdk.promotion.models.v0_put_daily_limits_advert_result import V0PutDailyLimitsAdvertResult as V0PutDailyLimitsAdvertResult
+from wildberries_sdk.promotion.models.v0_put_daily_limits_request import V0PutDailyLimitsRequest as V0PutDailyLimitsRequest
+from wildberries_sdk.promotion.models.v0_put_daily_limits_response import V0PutDailyLimitsResponse as V0PutDailyLimitsResponse
 from wildberries_sdk.promotion.models.v0_set_minus_norm_query_request import V0SetMinusNormQueryRequest as V0SetMinusNormQueryRequest
 from wildberries_sdk.promotion.models.v0_set_norm_query_bids_request import V0SetNormQueryBidsRequest as V0SetNormQueryBidsRequest
 from wildberries_sdk.promotion.models.v0_set_norm_query_bids_request_item import V0SetNormQueryBidsRequestItem as V0SetNormQueryBidsRequestItem

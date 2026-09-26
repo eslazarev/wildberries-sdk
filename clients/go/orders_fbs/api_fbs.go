@@ -3566,7 +3566,7 @@ func (r ApiPatchV3FbsSuppliesShippingMethodRequest) UpdateSuppliesShippingMethod
 	return r
 }
 
-func (r ApiPatchV3FbsSuppliesShippingMethodRequest) Execute() (*UpdateSuppliesResponse, *http.Response, error) {
+func (r ApiPatchV3FbsSuppliesShippingMethodRequest) Execute() (*UpdateSuppliesShippingMethodResponse, *http.Response, error) {
 	return r.ApiService.PatchV3FbsSuppliesShippingMethodExecute(r)
 }
 
@@ -3581,7 +3581,7 @@ PatchV3FbsSuppliesShippingMethod Установить параметры отг�
   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>"shippingType":"transportCompany"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href="/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill">добавьте ID ЭТрН</a> заново.
 </div>
 
-Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>
+Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>
 
 В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
 
@@ -3608,13 +3608,13 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethod(ctx context.Context) Ap
 }
 
 // Execute executes the request
-//  @return UpdateSuppliesResponse
-func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesResponse, *http.Response, error) {
+//  @return UpdateSuppliesShippingMethodResponse
+func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesShippingMethodResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateSuppliesResponse
+		localVarReturnValue  *UpdateSuppliesShippingMethodResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3FbsSuppliesShippingMethod")
@@ -3766,7 +3766,7 @@ func (r ApiPatchV3FbsSuppliesWaybillRequest) UpdateSuppliesWaybill(updateSupplie
 	return r
 }
 
-func (r ApiPatchV3FbsSuppliesWaybillRequest) Execute() (*UpdateSuppliesResponse, *http.Response, error) {
+func (r ApiPatchV3FbsSuppliesWaybillRequest) Execute() (*UpdateSuppliesWaybillResponse, *http.Response, error) {
 	return r.ApiService.PatchV3FbsSuppliesWaybillExecute(r)
 }
 
@@ -3775,7 +3775,9 @@ PatchV3FbsSuppliesWaybill Установить ID ЭТрН поставок
 
 Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.<br><br>
 
-Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>
+ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>
+
+
 
 В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
 
@@ -3802,13 +3804,13 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybill(ctx context.Context) ApiPatchV
 }
 
 // Execute executes the request
-//  @return UpdateSuppliesResponse
-func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSuppliesWaybillRequest) (*UpdateSuppliesResponse, *http.Response, error) {
+//  @return UpdateSuppliesWaybillResponse
+func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSuppliesWaybillRequest) (*UpdateSuppliesWaybillResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateSuppliesResponse
+		localVarReturnValue  *UpdateSuppliesWaybillResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3FbsSuppliesWaybill")

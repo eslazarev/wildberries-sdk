@@ -25,7 +25,7 @@ type MediaErrors struct {
 	Data map[string]interface{} `json:"data,omitempty"`
 	// Флаг ошибки
 	Error *bool `json:"error,omitempty"`
-	// Текст ошибки
+	// Описание ошибки
 	ErrorText *string `json:"errorText,omitempty"`
 }
 

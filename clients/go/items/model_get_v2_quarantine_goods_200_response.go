@@ -22,7 +22,7 @@ type GetV2QuarantineGoods200Response struct {
 	Data NullableGetV2QuarantineGoods200ResponseData `json:"data,omitempty"`
 	// Флаг ошибки
 	Error *bool `json:"error,omitempty"`
-	// Текст ошибки
+	// Описание ошибки
 	ErrorText *string `json:"errorText,omitempty"`
 }
 

@@ -30,7 +30,7 @@ class TaskCreated(BaseModel):
     """ # noqa: E501
     data: Optional[TaskCreatedData] = None
     error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки", json_schema_extra={"examples": [False]})
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText", json_schema_extra={"examples": [""]})
+    error_text: Optional[StrictStr] = Field(default=None, description="Описание ошибки", alias="errorText", json_schema_extra={"examples": [""]})
     __properties: ClassVar[List[str]] = ["data", "error", "errorText"]
 
     model_config = ConfigDict(

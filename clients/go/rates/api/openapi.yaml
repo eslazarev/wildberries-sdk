@@ -146,6 +146,7 @@ paths:
       - Комиссии
       x-readonly-method: true
       x-category: commonapi
+      x-tagKey: fees
     servers:
     - url: https://common-api.wildberries.ru
   /api/tariffs/v1/acceptance/coefficients:
@@ -248,6 +249,7 @@ paths:
       - Тарифы на поставку
       x-readonly-method: true
       x-category: commonapi
+      x-tagKey: supplyRates
     servers:
     - url: https://common-api.wildberries.ru
   /api/v1/tariffs/box:
@@ -348,6 +350,7 @@ paths:
       - Тарифы на остаток
       x-readonly-method: true
       x-category: commonapi
+      x-tagKey: stockRates
     servers:
     - url: https://common-api.wildberries.ru
   /api/v1/tariffs/pallet:
@@ -449,6 +452,7 @@ paths:
       - Тарифы на остаток
       x-readonly-method: true
       x-category: commonapi
+      x-tagKey: stockRates
     servers:
     - url: https://common-api.wildberries.ru
   /api/v1/tariffs/return:
@@ -545,6 +549,7 @@ paths:
       - Стоимость возврата продавцу
       x-readonly-method: true
       x-category: commonapi
+      x-tagKey: returnCostToSeller
     servers:
     - url: https://common-api.wildberries.ru
 components:

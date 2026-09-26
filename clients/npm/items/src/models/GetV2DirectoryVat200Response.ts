@@ -28,7 +28,7 @@ export interface GetV2DirectoryVat200Response {
      */
     error?: boolean;
     /**
-     * Текст ошибки
+     * Описание ошибки
      */
     errorText?: string;
     /**

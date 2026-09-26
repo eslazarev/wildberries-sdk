@@ -41,6 +41,11 @@ export interface V2GetConfigResponse {
      * 
      */
     minTopUp: number;
+    /**
+     * Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * 
+     */
+    minDailyLimit: number;
 }
 
 /**
@@ -52,6 +57,7 @@ export function instanceOfV2GetConfigResponse(value: object): value is V2GetConf
     if (!('cpmStep' in value) || value['cpmStep'] === undefined) return false;
     if (!('cpcStep' in value) || value['cpcStep'] === undefined) return false;
     if (!('minTopUp' in value) || value['minTopUp'] === undefined) return false;
+    if (!('minDailyLimit' in value) || value['minDailyLimit'] === undefined) return false;
     return true;
 }
 
@@ -70,6 +76,7 @@ export function V2GetConfigResponseFromJSONTyped(json: any, ignoreDiscriminator:
         'cpmStep': json['cpmStep'],
         'cpcStep': json['cpcStep'],
         'minTopUp': json['minTopUp'],
+        'minDailyLimit': json['minDailyLimit'],
     };
 }
 
@@ -89,6 +96,7 @@ export function V2GetConfigResponseToJSONTyped(value?: V2GetConfigResponse | nul
         'cpmStep': value['cpmStep'],
         'cpcStep': value['cpcStep'],
         'minTopUp': value['minTopUp'],
+        'minDailyLimit': value['minDailyLimit'],
     };
 }
 

@@ -29,7 +29,7 @@ class ResponseError(BaseModel):
     """ # noqa: E501
     data: Optional[Dict[str, Any]] = Field(default=None, description="Данные ошибки")
     error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
+    error_text: Optional[StrictStr] = Field(default=None, description="Описание ошибки", alias="errorText")
     __properties: ClassVar[List[str]] = ["data", "error", "errorText"]
 
     model_config = ConfigDict(

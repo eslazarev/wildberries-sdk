@@ -30,7 +30,7 @@ class MediaErrors(BaseModel):
     additional_errors: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные ошибки", alias="additionalErrors")
     data: Optional[Dict[str, Any]] = Field(default=None, description="Данные ошибки")
     error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
+    error_text: Optional[StrictStr] = Field(default=None, description="Описание ошибки", alias="errorText")
     __properties: ClassVar[List[str]] = ["additionalErrors", "data", "error", "errorText"]
 
     model_config = ConfigDict(

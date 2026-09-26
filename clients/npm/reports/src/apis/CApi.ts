@@ -39,10 +39,10 @@ import {
     GetV1SupplierOrders403ResponseToJSON,
 } from '../models/GetV1SupplierOrders403Response';
 import {
-    type Model4xxResponse,
-    Model4xxResponseFromJSON,
-    Model4xxResponseToJSON,
-} from '../models/Model4xxResponse';
+    type Model4XXResponse,
+    Model4XXResponseFromJSON,
+    Model4XXResponseToJSON,
+} from '../models/Model4XXResponse';
 
 export interface PostV1AnalyticsExciseReportRequest {
     /**

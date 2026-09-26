@@ -178,6 +178,7 @@ paths:
       - Воронка продаж
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: salesFunnel
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v3/sales-funnel/products/history:
@@ -302,6 +303,7 @@ paths:
       - Воронка продаж
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: salesFunnel
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v3/sales-funnel/grouped/history:
@@ -431,6 +433,7 @@ paths:
       - Воронка продаж
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: salesFunnel
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/nm-report/downloads:
@@ -535,6 +538,7 @@ paths:
       - Аналитика продавца CSV
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: sellerAnalyticsCsv
     post:
       description: |
         Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>
@@ -838,6 +842,7 @@ paths:
       - Аналитика продавца CSV
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: sellerAnalyticsCsv
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/nm-report/downloads/retry:
@@ -936,6 +941,7 @@ paths:
       - Аналитика продавца CSV
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: sellerAnalyticsCsv
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/nm-report/downloads/file/{downloadId}:
@@ -1293,6 +1299,7 @@ paths:
       - Аналитика продавца CSV
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: sellerAnalyticsCsv
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/search-report/report:
@@ -1404,6 +1411,7 @@ paths:
       - Поисковые запросы по вашим товарам
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: searchQueriesForYourItems
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/search-report/table/groups:
@@ -1507,6 +1515,7 @@ paths:
       - Поисковые запросы по вашим товарам
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: searchQueriesForYourItems
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/search-report/table/details:
@@ -1614,6 +1623,7 @@ paths:
       - Поисковые запросы по вашим товарам
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: searchQueriesForYourItems
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/search-report/product/search-texts:
@@ -1718,6 +1728,7 @@ paths:
       - Поисковые запросы по вашим товарам
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: searchQueriesForYourItems
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/search-report/product/orders:
@@ -1824,6 +1835,7 @@ paths:
       - Поисковые запросы по вашим товарам
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: searchQueriesForYourItems
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/stocks-report/wb-warehouses:
@@ -1924,6 +1936,7 @@ paths:
       - personal
       - service
       - base-with-secret
+      x-tagKey: stocksReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/stocks-report/seller-warehouses:
@@ -2012,6 +2025,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: stocksReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/stocks-report/products/groups:
@@ -2112,6 +2126,7 @@ paths:
       - История остатков
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: stocksReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/stocks-report/products/products:
@@ -2212,6 +2227,7 @@ paths:
       - История остатков
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: stocksReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/stocks-report/products/sizes:
@@ -2318,6 +2334,7 @@ paths:
       - История остатков
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: stocksReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/stocks-report/offices:
@@ -2418,6 +2435,7 @@ paths:
       - История остатков
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: stocksReport
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v2/item-rating:
@@ -2503,6 +2521,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: itemRating
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/order-feed:
@@ -2601,6 +2620,7 @@ paths:
       - Лента заказов
       x-readonly-method: true
       x-category: contentanalytics
+      x-tagKey: orderFeed
     servers:
     - url: https://seller-analytics-api.wildberries.ru
 components:

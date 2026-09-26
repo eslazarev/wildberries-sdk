@@ -36,7 +36,7 @@ export interface TaskCreated {
      */
     error?: boolean;
     /**
-     * Текст ошибки
+     * Описание ошибки
      */
     errorText?: string;
 }

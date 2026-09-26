@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.159"
+__version__ = "0.1.160"
 
 # Define package exports
 __all__ = [
@@ -60,10 +60,12 @@ __all__ = [
     "GetV1SupplierOrders403Response",
     "GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner",
     "GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner",
+    "GoodsReturn200Response",
+    "GoodsReturn200ResponseReportInner",
     "MeasurementPenalties",
     "MeasurementPenaltiesData",
     "MeasurementPenaltiesDataReportsInner",
-    "Model4xxResponse",
+    "Model4XXResponse",
     "ModelsExciseReportResponse",
     "ModelsExciseReportResponseDataInner",
     "OrdersItem",
@@ -126,10 +128,12 @@ from wildberries_sdk.reports.models.get_v1_supplier_orders402_response import Ge
 from wildberries_sdk.reports.models.get_v1_supplier_orders403_response import GetV1SupplierOrders403Response as GetV1SupplierOrders403Response
 from wildberries_sdk.reports.models.get_v1_warehouse_remains_tasks_task_id_download200_response_inner import GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner as GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner
 from wildberries_sdk.reports.models.get_v1_warehouse_remains_tasks_task_id_download200_response_inner_warehouses_inner import GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner as GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner
+from wildberries_sdk.reports.models.goods_return200_response import GoodsReturn200Response as GoodsReturn200Response
+from wildberries_sdk.reports.models.goods_return200_response_report_inner import GoodsReturn200ResponseReportInner as GoodsReturn200ResponseReportInner
 from wildberries_sdk.reports.models.measurement_penalties import MeasurementPenalties as MeasurementPenalties
 from wildberries_sdk.reports.models.measurement_penalties_data import MeasurementPenaltiesData as MeasurementPenaltiesData
 from wildberries_sdk.reports.models.measurement_penalties_data_reports_inner import MeasurementPenaltiesDataReportsInner as MeasurementPenaltiesDataReportsInner
-from wildberries_sdk.reports.models.model4xx_response import Model4xxResponse as Model4xxResponse
+from wildberries_sdk.reports.models.model4_xx_response import Model4XXResponse as Model4XXResponse
 from wildberries_sdk.reports.models.models_excise_report_response import ModelsExciseReportResponse as ModelsExciseReportResponse
 from wildberries_sdk.reports.models.models_excise_report_response_data_inner import ModelsExciseReportResponseDataInner as ModelsExciseReportResponseDataInner
 from wildberries_sdk.reports.models.orders_item import OrdersItem as OrdersItem

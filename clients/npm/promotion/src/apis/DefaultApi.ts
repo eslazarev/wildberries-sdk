@@ -244,6 +244,11 @@ import {
     V0DeleteNormQueryBidsRequestToJSON,
 } from '../models/V0DeleteNormQueryBidsRequest';
 import {
+    type V0GetDailyLimitsResponse,
+    V0GetDailyLimitsResponseFromJSON,
+    V0GetDailyLimitsResponseToJSON,
+} from '../models/V0GetDailyLimitsResponse';
+import {
     type V0GetNormQueryBidsRequest,
     V0GetNormQueryBidsRequestFromJSON,
     V0GetNormQueryBidsRequestToJSON,
@@ -283,6 +288,16 @@ import {
     V0GetNormQueryStatsResponseFromJSON,
     V0GetNormQueryStatsResponseToJSON,
 } from '../models/V0GetNormQueryStatsResponse';
+import {
+    type V0PutDailyLimitsRequest,
+    V0PutDailyLimitsRequestFromJSON,
+    V0PutDailyLimitsRequestToJSON,
+} from '../models/V0PutDailyLimitsRequest';
+import {
+    type V0PutDailyLimitsResponse,
+    V0PutDailyLimitsResponseFromJSON,
+    V0PutDailyLimitsResponseToJSON,
+} from '../models/V0PutDailyLimitsResponse';
 import {
     type V0SetMinusNormQueryRequest,
     V0SetMinusNormQueryRequestFromJSON,
@@ -345,6 +360,13 @@ export interface GetV0BidsRecommendationsRequest {
      * ID кампании
      */
     advertId: number;
+}
+
+export interface GetV0DailyLimitsRequest {
+    /**
+     * ID кампаний, максимум 100. Укажите значения через запятую
+     */
+    advertIds: string;
 }
 
 export interface GetV0DeleteRequest {
@@ -705,6 +727,13 @@ export interface PutV0AuctionPlacementsOperationRequest {
     putV0AuctionPlacementsRequest: PutV0AuctionPlacementsRequest;
 }
 
+export interface PutV0DailyLimitsRequest {
+    /**
+     * 
+     */
+    v0PutDailyLimitsRequest: V0PutDailyLimitsRequest;
+}
+
 /**
  * 
  */
@@ -824,6 +853,60 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getV0BidsRecommendations(requestParameters: GetV0BidsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV0BidsRecommendations200Response> {
         const response = await this.getV0BidsRecommendationsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV0DailyLimits without sending the request
+     */
+    async getV0DailyLimitsRequestOpts(requestParameters: GetV0DailyLimitsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['advertIds'] == null) {
+            throw new runtime.RequiredError(
+                'advertIds',
+                'Required parameter "advertIds" was null or undefined when calling getV0DailyLimits().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['advertIds'] != null) {
+            queryParameters['advertIds'] = requestParameters['advertIds'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v0/daily-limits`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     * Получить настройки дневных лимитов кампаний
+     */
+    async getV0DailyLimitsRaw(requestParameters: GetV0DailyLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetDailyLimitsResponse>> {
+        const requestOptions = await this.getV0DailyLimitsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V0GetDailyLimitsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     * Получить настройки дневных лимитов кампаний
+     */
+    async getV0DailyLimits(requestParameters: GetV0DailyLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetDailyLimitsResponse> {
+        const response = await this.getV0DailyLimitsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2910,6 +2993,59 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async putV0AuctionPlacements(requestParameters: PutV0AuctionPlacementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.putV0AuctionPlacementsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for putV0DailyLimits without sending the request
+     */
+    async putV0DailyLimitsRequestOpts(requestParameters: PutV0DailyLimitsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v0PutDailyLimitsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v0PutDailyLimitsRequest',
+                'Required parameter "v0PutDailyLimitsRequest" was null or undefined when calling putV0DailyLimits().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v0/daily-limits`;
+
+        return {
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V0PutDailyLimitsRequestToJSON(requestParameters['v0PutDailyLimitsRequest']),
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод включает, выключает и обновляет дневной лимит кампаний.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     * Настройка дневных лимитов кампаний
+     */
+    async putV0DailyLimitsRaw(requestParameters: PutV0DailyLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0PutDailyLimitsResponse>> {
+        const requestOptions = await this.putV0DailyLimitsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V0PutDailyLimitsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод включает, выключает и обновляет дневной лимит кампаний.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     * Настройка дневных лимитов кампаний
+     */
+    async putV0DailyLimits(requestParameters: PutV0DailyLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0PutDailyLimitsResponse> {
+        const response = await this.putV0DailyLimitsRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
 }

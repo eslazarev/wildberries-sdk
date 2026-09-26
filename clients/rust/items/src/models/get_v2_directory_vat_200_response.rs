@@ -18,7 +18,7 @@ pub struct GetV2DirectoryVat200Response {
     /// Флаг наличия ошибки
     #[serde(rename = "error", skip_serializing_if = "Option::is_none")]
     pub error: Option<bool>,
-    /// Текст ошибки
+    /// Описание ошибки
     #[serde(rename = "errorText", skip_serializing_if = "Option::is_none")]
     pub error_text: Option<String>,
     /// Дополнительные ошибки

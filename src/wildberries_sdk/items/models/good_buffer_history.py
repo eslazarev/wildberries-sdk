@@ -36,7 +36,7 @@ class GoodBufferHistory(BaseModel):
     discount: Optional[StrictInt] = Field(default=None, description="Скидка, %", json_schema_extra={"examples": [25]})
     club_discount: Optional[StrictInt] = Field(default=None, description="Скидка WB Клуба, %", alias="clubDiscount", json_schema_extra={"examples": [5]})
     status: Optional[StrictInt] = Field(default=None, description="Статус товара: `1` — в обработке ", json_schema_extra={"examples": [1]})
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
+    error_text: Optional[StrictStr] = Field(default=None, description="Описание ошибки", alias="errorText")
     __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "sizeID", "techSizeName", "price", "currencyIsoCode4217", "discount", "clubDiscount", "status", "errorText"]
 
     model_config = ConfigDict(

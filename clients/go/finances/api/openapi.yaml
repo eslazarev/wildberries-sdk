@@ -121,6 +121,7 @@ paths:
       - Баланс
       x-readonly-method: true
       x-category: finance
+      x-tagKey: balance
     servers:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/sales-reports/list:
@@ -210,6 +211,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: financialReports
     servers:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/sales-reports/detailed/{reportId}:
@@ -327,6 +329,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: financialReports
     servers:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/sales-reports/detailed:
@@ -440,6 +443,7 @@ paths:
       - Финансовые отчёты
       x-readonly-method: true
       x-category: finance
+      x-tagKey: financialReports
     servers:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/acquiring/list:
@@ -528,6 +532,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: financialReports
     servers:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/acquiring/detailed/{reportId}:
@@ -642,6 +647,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: financialReports
     servers:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/acquiring/detailed:
@@ -740,6 +746,7 @@ paths:
       x-token-types:
       - personal
       - service
+      x-tagKey: financialReports
     servers:
     - url: https://finance-api.wildberries.ru
   /api/v1/documents/categories:
@@ -846,6 +853,7 @@ paths:
       - Документы
       x-readonly-method: true
       x-category: documents
+      x-tagKey: documents
     servers:
     - url: https://documents-api.wildberries.ru
   /api/v1/documents/list:
@@ -1071,6 +1079,7 @@ paths:
       - Документы
       x-readonly-method: true
       x-category: documents
+      x-tagKey: documents
     servers:
     - url: https://documents-api.wildberries.ru
   /api/v1/documents/download:
@@ -1193,6 +1202,7 @@ paths:
       - Документы
       x-readonly-method: true
       x-category: documents
+      x-tagKey: documents
     servers:
     - url: https://documents-api.wildberries.ru
   /api/v1/documents/download/all:
@@ -1319,6 +1329,7 @@ paths:
       - Документы
       x-readonly-method: true
       x-category: documents
+      x-tagKey: documents
     servers:
     - url: https://documents-api.wildberries.ru
 components:

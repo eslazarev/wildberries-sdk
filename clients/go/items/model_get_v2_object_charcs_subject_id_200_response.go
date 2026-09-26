@@ -23,7 +23,7 @@ type GetV2ObjectCharcsSubjectId200Response struct {
 	Data []GetV2ObjectCharcsSubjectId200ResponseDataInner `json:"data,omitempty"`
 	// Флаг наличия ошибки
 	Error *bool `json:"error,omitempty"`
-	// Текст ошибки
+	// Описание ошибки
 	ErrorText *string `json:"errorText,omitempty"`
 	// Дополнительные ошибки
 	AdditionalErrors NullableString `json:"additionalErrors,omitempty"`

@@ -36,7 +36,7 @@ export interface GetV2QuarantineGoods200Response {
      */
     error?: boolean;
     /**
-     * Текст ошибки
+     * Описание ошибки
      */
     errorText?: string;
 }

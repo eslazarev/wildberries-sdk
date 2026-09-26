@@ -157,6 +157,7 @@ paths:
       - Проверка подключения к WB API
       x-readonly-method: true
       x-category: commonapi
+      x-tagKey: connectionCheck
     servers:
     - url: https://common-api.wildberries.ru
   /api/communications/v2/news:
@@ -282,6 +283,7 @@ paths:
       - API новостей
       x-readonly-method: true
       x-category: commonapi
+      x-tagKey: newsApi
     servers:
     - url: https://common-api.wildberries.ru
   /api/v1/seller-info:
@@ -365,6 +367,7 @@ paths:
       - Информация о продавце
       x-readonly-method: true
       x-category: commonapi
+      x-tagKey: sellerInformation
     servers:
     - url: https://common-api.wildberries.ru
   /api/common/v1/rating:
@@ -458,6 +461,7 @@ paths:
       x-category: questionsandfeedback
       x-token-types:
       - service
+      x-tagKey: sellerInformation
     servers:
     - url: https://feedbacks-api.wildberries.ru
   /api/common/v1/subscriptions:
@@ -561,6 +565,7 @@ paths:
       x-category: commonapi
       x-token-types:
       - service
+      x-tagKey: sellerInformation
     servers:
     - url: https://common-api.wildberries.ru
   /api/common/v1/tariff-constructor/options:
@@ -684,6 +689,7 @@ paths:
       x-category: commonapi
       x-token-types:
       - service
+      x-tagKey: sellerInformation
     servers:
     - url: https://common-api.wildberries.ru
   /api/v1/invite:
@@ -782,6 +788,7 @@ paths:
       x-category: usermanagement
       x-token-types:
       - personal
+      x-tagKey: sellerUserManagement
     servers:
     - url: https://user-management-api.wildberries.ru
   /api/v1/users:
@@ -1152,6 +1159,7 @@ paths:
       x-category: usermanagement
       x-token-types:
       - personal
+      x-tagKey: sellerUserManagement
     servers:
     - url: https://user-management-api.wildberries.ru
   /api/v1/users/access:
@@ -1240,6 +1248,7 @@ paths:
       x-category: usermanagement
       x-token-types:
       - personal
+      x-tagKey: sellerUserManagement
     servers:
     - url: https://user-management-api.wildberries.ru
   /api/v1/user:
@@ -1330,6 +1339,7 @@ paths:
       x-category: usermanagement
       x-token-types:
       - personal
+      x-tagKey: sellerUserManagement
     servers:
     - url: https://user-management-api.wildberries.ru
 components:

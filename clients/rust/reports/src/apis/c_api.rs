@@ -19,7 +19,7 @@ use super::{Error, configuration, ContentType};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostV1AnalyticsExciseReportError {
-    Status400(models::Model4xxResponse),
+    Status400(models::Model4XxResponse),
     Status401(models::GetV1SupplierOrders401Response),
     Status402(models::GetV1SupplierOrders402Response),
     Status403(models::GetV1SupplierOrders403Response),

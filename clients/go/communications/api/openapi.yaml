@@ -138,6 +138,7 @@ paths:
       - Вопросы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: questions
     servers:
     - description: |
         **Prod**
@@ -232,6 +233,7 @@ paths:
       - Вопросы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: questions
     servers:
     - description: |
         **Prod**
@@ -371,6 +373,7 @@ paths:
       - Вопросы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: questions
     servers:
     - description: |
         **Prod**
@@ -570,6 +573,7 @@ paths:
       - Вопросы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: questions
     patch:
       description: |
         В зависимости от тела запроса, метод позволяет:
@@ -724,6 +728,7 @@ paths:
       - Вопросы
       x-readonly-method: false
       x-category: questionsandfeedback
+      x-tagKey: questions
     servers:
     - description: |
         **Prod**
@@ -859,6 +864,7 @@ paths:
       - Вопросы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: questions
     servers:
     - description: |
         **Prod**
@@ -954,6 +960,7 @@ paths:
       - Отзывы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: feedbacks
     servers:
     - description: |
         **Prod**
@@ -1095,6 +1102,7 @@ paths:
       - Отзывы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: feedbacks
     servers:
     - description: |
         **Prod**
@@ -1330,6 +1338,7 @@ paths:
       - Отзывы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: feedbacks
     servers:
     - description: |
         **Prod**
@@ -1433,6 +1442,7 @@ paths:
       - Отзывы
       x-readonly-method: false
       x-category: questionsandfeedback
+      x-tagKey: feedbacks
     post:
       description: |
         Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
@@ -1541,6 +1551,7 @@ paths:
       - Отзывы
       x-readonly-method: false
       x-category: questionsandfeedback
+      x-tagKey: feedbacks
     servers:
     - description: |
         **Prod**
@@ -1671,6 +1682,7 @@ paths:
       - Отзывы
       x-readonly-method: false
       x-category: questionsandfeedback
+      x-tagKey: feedbacks
     servers:
     - description: |
         **Prod**
@@ -1840,6 +1852,7 @@ paths:
       - Отзывы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: feedbacks
     servers:
     - description: |
         **Prod**
@@ -2051,6 +2064,7 @@ paths:
       - Отзывы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: feedbacks
     servers:
     - description: |
         **Prod**
@@ -2174,6 +2188,7 @@ paths:
       - Закреплённые отзывы
       x-readonly-method: false
       x-category: questionsandfeedback
+      x-tagKey: pinnedFeedbacks
     get:
       description: |
         Метод предоставляет список закреплённых и откреплённых отзывов.
@@ -2375,6 +2390,7 @@ paths:
       - Закреплённые отзывы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: pinnedFeedbacks
     post:
       description: |
         Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br>
@@ -2495,6 +2511,7 @@ paths:
       - Закреплённые отзывы
       x-readonly-method: false
       x-category: questionsandfeedback
+      x-tagKey: pinnedFeedbacks
     servers:
     - url: https://feedbacks-api.wildberries.ru
   /api/feedbacks/v1/pins/count:
@@ -2677,6 +2694,7 @@ paths:
       - Закреплённые отзывы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: pinnedFeedbacks
     servers:
     - url: https://feedbacks-api.wildberries.ru
   /api/feedbacks/v1/pins/limits:
@@ -2768,6 +2786,7 @@ paths:
       - Закреплённые отзывы
       x-readonly-method: true
       x-category: questionsandfeedback
+      x-tagKey: pinnedFeedbacks
     servers:
     - url: https://feedbacks-api.wildberries.ru
   /api/v1/seller/chats:
@@ -2861,6 +2880,7 @@ paths:
       - Чат с покупателями
       x-readonly-method: true
       x-category: buyerchat
+      x-tagKey: buyersChat
   /api/v1/seller/events:
     get:
       description: |
@@ -3056,6 +3076,7 @@ paths:
       - Чат с покупателями
       x-readonly-method: true
       x-category: buyerchat
+      x-tagKey: buyersChat
   /api/v1/seller/message:
     post:
       description: |
@@ -3203,6 +3224,7 @@ paths:
       - Чат с покупателями
       x-readonly-method: false
       x-category: buyerchat
+      x-tagKey: buyersChat
   /api/v1/seller/download/{id}:
     get:
       description: |
@@ -3341,6 +3363,7 @@ paths:
       - Чат с покупателями
       x-readonly-method: true
       x-category: buyerchat
+      x-tagKey: buyersChat
   /api/v1/claims:
     get:
       description: |
@@ -3493,6 +3516,7 @@ paths:
       - Возвраты покупателями
       x-readonly-method: true
       x-category: returns
+      x-tagKey: buyersReturns
     servers:
     - url: https://returns-api.wildberries.ru
   /api/v1/claim:
@@ -3588,6 +3612,7 @@ paths:
       - Возвраты покупателями
       x-readonly-method: false
       x-category: returns
+      x-tagKey: buyersReturns
     servers:
     - url: https://returns-api.wildberries.ru
 components:

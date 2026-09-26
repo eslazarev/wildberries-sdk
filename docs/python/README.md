@@ -264,6 +264,7 @@ print(feedbacks)
 ### promotion (`promotion`)
 - `promotion.DefaultApi.delete_v0_normquery_bids` — `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров
 - `promotion.DefaultApi.get_v0_bids_recommendations` — `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
+- `promotion.DefaultApi.get_v0_daily_limits` — `GET /api/advert/v0/daily-limits` — Получить настройки дневных лимитов кампаний
 - `promotion.DefaultApi.get_v0_delete` — `GET /adv/v0/delete` — Удаление кампании
 - `promotion.DefaultApi.get_v0_pause` — `GET /adv/v0/pause` — Пауза кампании
 - `promotion.DefaultApi.get_v0_start` — `GET /adv/v0/start` — Запуск кампании
@@ -302,6 +303,7 @@ print(feedbacks)
 - `promotion.DefaultApi.post_v2_seacat_save_ad` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
 - `promotion.DefaultApi.post_v2_supplier_nms` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
 - `promotion.DefaultApi.put_v0_auction_placements` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой
+- `promotion.DefaultApi.put_v0_daily_limits` — `PUT /api/advert/v0/daily-limits` — Настройка дневных лимитов кампаний
 
 ### communications (`communications`)
 - `communications.DefaultApi.delete_feedbacks_v1_pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
@@ -360,6 +362,7 @@ print(feedbacks)
 - `analytics.DefaultApi.post_v3_sales_funnel_products_history` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
 
 ### reports (`reports`)
+- `reports.DefaultApi.get_analytics_v1_goods_return` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApi.get_v1_acceptance_report` — `GET /api/v1/acceptance_report` — Создать отчёт
 - `reports.DefaultApi.get_v1_acceptance_report_tasks_task_id_download` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.get_v1_acceptance_report_tasks_task_id_status` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
@@ -369,7 +372,7 @@ print(feedbacks)
 - `reports.DefaultApi.get_v1_analytics_brand_share_brands` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
 - `reports.DefaultApi.get_v1_analytics_brand_share_parent_subjects` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда
 - `reports.DefaultApi.get_v1_analytics_goods_labeling` — `GET /api/v1/analytics/goods-labeling` — Маркировка товара
-- `reports.DefaultApi.get_v1_analytics_goods_return` — `GET /api/v1/analytics/goods-return` — Получить отчёт
+- `reports.DefaultApi.get_v1_analytics_goods_return` — `GET /api/v1/analytics/goods-return` — (Deprecated) Получить отчёт
 - `reports.DefaultApi.get_v1_analytics_region_sale` — `GET /api/v1/analytics/region-sale` — Получить отчёт
 - `reports.DefaultApi.get_v1_deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
 - `reports.DefaultApi.get_v1_measurement_penalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки

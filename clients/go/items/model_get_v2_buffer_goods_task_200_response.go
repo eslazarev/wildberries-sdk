@@ -22,7 +22,7 @@ type GetV2BufferGoodsTask200Response struct {
 	Data *GetV2BufferGoodsTask200ResponseData `json:"data,omitempty"`
 	// Флаг ошибки
 	Error *bool `json:"error,omitempty"`
-	// Текст ошибки
+	// Описание ошибки
 	ErrorText *string `json:"errorText,omitempty"`
 }
 

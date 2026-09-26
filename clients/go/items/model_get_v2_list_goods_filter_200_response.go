@@ -24,7 +24,7 @@ type GetV2ListGoodsFilter200Response struct {
 	Data GetV2ListGoodsFilter200ResponseData `json:"data"`
 	// Флаг ошибки
 	Error bool `json:"error"`
-	// Текст ошибки
+	// Описание ошибки
 	ErrorText string `json:"errorText"`
 }
 

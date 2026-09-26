@@ -264,20 +264,25 @@ import {
     SupplySpotQRCodeToJSON,
 } from '../models/SupplySpotQRCode';
 import {
-    type UpdateSuppliesResponse,
-    UpdateSuppliesResponseFromJSON,
-    UpdateSuppliesResponseToJSON,
-} from '../models/UpdateSuppliesResponse';
-import {
     type UpdateSuppliesShippingMethodRequest,
     UpdateSuppliesShippingMethodRequestFromJSON,
     UpdateSuppliesShippingMethodRequestToJSON,
 } from '../models/UpdateSuppliesShippingMethodRequest';
 import {
+    type UpdateSuppliesShippingMethodResponse,
+    UpdateSuppliesShippingMethodResponseFromJSON,
+    UpdateSuppliesShippingMethodResponseToJSON,
+} from '../models/UpdateSuppliesShippingMethodResponse';
+import {
     type UpdateSuppliesWaybill,
     UpdateSuppliesWaybillFromJSON,
     UpdateSuppliesWaybillToJSON,
 } from '../models/UpdateSuppliesWaybill';
+import {
+    type UpdateSuppliesWaybillResponse,
+    UpdateSuppliesWaybillResponseFromJSON,
+    UpdateSuppliesWaybillResponseToJSON,
+} from '../models/UpdateSuppliesWaybillResponse';
 import {
     type V3APIError,
     V3APIErrorFromJSON,
@@ -1696,21 +1701,21 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить параметры отгрузки поставок
      */
-    async patchV3FbsSuppliesShippingMethodRaw(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesResponse>> {
+    async patchV3FbsSuppliesShippingMethodRaw(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesShippingMethodResponse>> {
         const requestOptions = await this.patchV3FbsSuppliesShippingMethodRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateSuppliesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateSuppliesShippingMethodResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить параметры отгрузки поставок
      */
-    async patchV3FbsSuppliesShippingMethod(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesResponse> {
+    async patchV3FbsSuppliesShippingMethod(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesShippingMethodResponse> {
         const response = await this.patchV3FbsSuppliesShippingMethodRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1749,21 +1754,21 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>    В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить ID ЭТрН поставок
      */
-    async patchV3FbsSuppliesWaybillRaw(requestParameters: PatchV3FbsSuppliesWaybillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesResponse>> {
+    async patchV3FbsSuppliesWaybillRaw(requestParameters: PatchV3FbsSuppliesWaybillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesWaybillResponse>> {
         const requestOptions = await this.patchV3FbsSuppliesWaybillRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateSuppliesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateSuppliesWaybillResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>    В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить ID ЭТрН поставок
      */
-    async patchV3FbsSuppliesWaybill(requestParameters: PatchV3FbsSuppliesWaybillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesResponse> {
+    async patchV3FbsSuppliesWaybill(requestParameters: PatchV3FbsSuppliesWaybillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesWaybillResponse> {
         const response = await this.patchV3FbsSuppliesWaybillRaw(requestParameters, initOverrides);
         return await response.value();
     }

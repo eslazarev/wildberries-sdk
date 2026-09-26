@@ -31,6 +31,8 @@ type V2GetConfigResponse struct {
 	CpcStep int64 `json:"cpcStep"`
 	// Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум 
 	MinTopUp int64 `json:"minTopUp"`
+	// Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+	MinDailyLimit int64 `json:"minDailyLimit"`
 }
 
 type _V2GetConfigResponse V2GetConfigResponse
@@ -39,13 +41,14 @@ type _V2GetConfigResponse V2GetConfigResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2GetConfigResponse(currency string, currencyCode int32, cpmStep int64, cpcStep int64, minTopUp int64) *V2GetConfigResponse {
+func NewV2GetConfigResponse(currency string, currencyCode int32, cpmStep int64, cpcStep int64, minTopUp int64, minDailyLimit int64) *V2GetConfigResponse {
 	this := V2GetConfigResponse{}
 	this.Currency = currency
 	this.CurrencyCode = currencyCode
 	this.CpmStep = cpmStep
 	this.CpcStep = cpcStep
 	this.MinTopUp = minTopUp
+	this.MinDailyLimit = minDailyLimit
 	return &this
 }
 
@@ -177,6 +180,30 @@ func (o *V2GetConfigResponse) SetMinTopUp(v int64) {
 	o.MinTopUp = v
 }
 
+// GetMinDailyLimit returns the MinDailyLimit field value
+func (o *V2GetConfigResponse) GetMinDailyLimit() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.MinDailyLimit
+}
+
+// GetMinDailyLimitOk returns a tuple with the MinDailyLimit field value
+// and a boolean to check if the value has been set.
+func (o *V2GetConfigResponse) GetMinDailyLimitOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MinDailyLimit, true
+}
+
+// SetMinDailyLimit sets field value
+func (o *V2GetConfigResponse) SetMinDailyLimit(v int64) {
+	o.MinDailyLimit = v
+}
+
 func (o V2GetConfigResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -192,6 +219,7 @@ func (o V2GetConfigResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["cpmStep"] = o.CpmStep
 	toSerialize["cpcStep"] = o.CpcStep
 	toSerialize["minTopUp"] = o.MinTopUp
+	toSerialize["minDailyLimit"] = o.MinDailyLimit
 	return toSerialize, nil
 }
 
@@ -205,6 +233,7 @@ func (o *V2GetConfigResponse) UnmarshalJSON(data []byte) (err error) {
 		"cpmStep",
 		"cpcStep",
 		"minTopUp",
+		"minDailyLimit",
 	}
 
 	allProperties := make(map[string]interface{})

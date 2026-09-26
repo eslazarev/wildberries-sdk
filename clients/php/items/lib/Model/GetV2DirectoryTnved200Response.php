@@ -377,7 +377,7 @@ class GetV2DirectoryTnved200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets error_text
      *
-     * @param string|null $error_text Текст ошибки
+     * @param string|null $error_text Описание ошибки
      *
      * @return self
      */

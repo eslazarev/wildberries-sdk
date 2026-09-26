@@ -28,7 +28,7 @@ export interface ResponseError {
      */
     error?: boolean;
     /**
-     * Текст ошибки
+     * Описание ошибки
      */
     errorText?: string;
 }

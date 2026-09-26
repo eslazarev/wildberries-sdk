@@ -1448,9 +1448,11 @@ func (r ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest) Execute() ([]Model
 /*
 GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поставке
 
+
 <div class="description_token">
     Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-        <strong>Персональному</strong> токену
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену
 </div>
 
 Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
