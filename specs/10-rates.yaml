@@ -103,6 +103,7 @@ paths:
           $ref: '#/components/responses/402'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fees
   /api/tariffs/v1/acceptance/coefficients:
     servers:
       - url: https://common-api.wildberries.ru
@@ -167,6 +168,7 @@ paths:
           description: Не найдено
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: supplyRates
   /api/v1/tariffs/box:
     servers:
       - url: https://common-api.wildberries.ru
@@ -204,6 +206,7 @@ paths:
           $ref: '#/components/responses/402'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: stockRates
   /api/v1/tariffs/pallet:
     servers:
       - url: https://common-api.wildberries.ru
@@ -241,6 +244,7 @@ paths:
           $ref: '#/components/responses/402'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: stockRates
   /api/v1/tariffs/return:
     servers:
       - url: https://common-api.wildberries.ru
@@ -278,6 +282,7 @@ paths:
           $ref: '#/components/responses/402'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: returnCostToSeller
 components:
   examples:
     ResponseCoefficients:

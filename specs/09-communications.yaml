@@ -141,6 +141,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: questions
   /api/v1/questions/count-unanswered:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -227,6 +228,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: questions
   /api/v1/questions/count:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -342,6 +344,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: questions
   /api/v1/questions:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -580,6 +583,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: questions
     patch:
       operationId: patchV1Questions
       x-readonly-method: false
@@ -753,6 +757,7 @@ paths:
                   $ref: '#/components/examples/ResponsePatchQuestion'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: questions
   /api/v1/question:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -932,6 +937,7 @@ paths:
                   $ref: '#/components/examples/ResponseGetQuestionByIdErrEx'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: questions
   /api/v1/feedbacks/count-unanswered:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -1019,6 +1025,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: feedbacks
   /api/v1/feedbacks/count:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -1137,6 +1144,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: feedbacks
   /api/v1/feedbacks:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -1343,6 +1351,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: feedbacks
   /api/v1/feedbacks/answer:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -1423,6 +1432,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: feedbacks
     patch:
       operationId: patchV1FeedbacksAnswer
       x-readonly-method: false
@@ -1482,6 +1492,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: feedbacks
   /api/v1/feedbacks/order/return:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -1582,6 +1593,7 @@ paths:
                   $ref: '#/components/examples/responseUnsuccessfullyBackGoodError422'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: feedbacks
   /api/v1/feedback:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -1900,6 +1912,7 @@ paths:
                   $ref: '#/components/examples/ResponseGetFeedbackByIdErrEx'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: feedbacks
   /api/v1/feedbacks/archive:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -2084,6 +2097,7 @@ paths:
                   $ref: '#/components/examples/ResponseGetFeedbackArchive'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: feedbacks
   /api/feedbacks/v1/pins:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -2222,6 +2236,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pinnedFeedbacks
     post:
       operationId: postFeedbacksV1Pins
       x-readonly-method: false
@@ -2309,6 +2324,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pinnedFeedbacks
     delete:
       operationId: deleteFeedbacksV1Pins
       x-readonly-method: false
@@ -2386,6 +2402,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pinnedFeedbacks
   /api/feedbacks/v1/pins/count:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -2503,6 +2520,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pinnedFeedbacks
   /api/feedbacks/v1/pins/limits:
     servers:
       - url: https://feedbacks-api.wildberries.ru
@@ -2546,6 +2564,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pinnedFeedbacks
   /api/v1/seller/chats:
     get:
       operationId: getV1SellerChats
@@ -2587,6 +2606,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: buyersChat
   /api/v1/seller/events:
     get:
       operationId: getV1SellerEvents
@@ -2746,6 +2766,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: buyersChat
   /api/v1/seller/message:
     post:
       operationId: postV1SellerMessage
@@ -2879,6 +2900,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: buyersChat
   /api/v1/seller/download/{id}:
     get:
       operationId: getV1SellerDownloadId
@@ -3016,6 +3038,7 @@ paths:
                     type: string
                     description: ID запроса
                     example: 62f59a4ce21064f20b1bbc28c85f38d8
+      x-tagKey: buyersChat
   /api/v1/claims:
     servers:
       - url: https://returns-api.wildberries.ru
@@ -3061,6 +3084,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: buyersReturns
   /api/v1/claim:
     servers:
       - url: https://returns-api.wildberries.ru
@@ -3102,6 +3126,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: buyersReturns
 components:
   examples:
     contentTypeHeaderNotSpecified:

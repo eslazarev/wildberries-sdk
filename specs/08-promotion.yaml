@@ -151,6 +151,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaigns
   /api/advert/v2/adverts:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -292,6 +293,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaigns
   /api/advert/v1/bids/min:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -451,6 +453,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: creatingCampaigns
   /adv/v2/seacat/save-ad:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -568,6 +571,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: creatingCampaigns
   /adv/v1/supplier/subjects:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -647,6 +651,7 @@ paths:
           description: Не найдено
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: creatingCampaigns
   /adv/v2/supplier/nms:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -728,6 +733,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: creatingCampaigns
   /adv/v0/delete:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -786,6 +792,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/rename:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -868,6 +875,7 @@ paths:
                   $ref: '#/components/examples/CompanyNameChangeErr'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/start:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -939,6 +947,7 @@ paths:
                   $ref: '#/components/examples/StatusNoChangeAdv'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/pause:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1007,6 +1016,7 @@ paths:
                   $ref: '#/components/examples/StatusNoChangeAdv'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/stop:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1077,6 +1087,7 @@ paths:
                   $ref: '#/components/examples/StatusNoChangeAdv'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/auction/placements:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1183,6 +1194,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /api/advert/v1/bids:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1356,6 +1368,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v1/balance:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1453,6 +1466,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /api/advert/v2/budget:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1516,6 +1530,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v1/budget:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1599,6 +1614,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v1/budget/deposit:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1716,6 +1732,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v1/upd:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1846,6 +1863,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v1/payments:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -1971,6 +1989,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v0/auction/nms:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -2113,6 +2132,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /api/advert/v0/bids/recommendations:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -2188,6 +2208,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/normquery/stats:
     post:
       operationId: postV0NormqueryStats
@@ -2477,6 +2498,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: statistics
   /adv/v0/normquery/get-bids:
     post:
       operationId: postV0NormqueryGetBids
@@ -2571,6 +2593,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /api/advert/v1/config:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -2613,6 +2636,7 @@ paths:
                 cpmStep: 100000
                 currency: UZS
                 currencyCode: 860
+                minDailyLimit: 100000
                 minTopUp: 10000
         '401':
           $ref: '#/components/responses/401'
@@ -2629,6 +2653,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /api/advert/v1/normquery/bids:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -2702,6 +2727,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v0/normquery/bids:
     post:
       operationId: postV0NormqueryBids
@@ -2775,6 +2801,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
     delete:
       operationId: deleteV0NormqueryBids
       x-readonly-method: false
@@ -2846,6 +2873,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v0/normquery/get-minus:
     post:
       operationId: postV0NormqueryGetMinus
@@ -2926,6 +2954,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v0/normquery/set-minus:
     post:
       operationId: postV0NormquerySetMinus
@@ -2999,6 +3028,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v1/count:
     servers:
       - url: https://advert-media-api.wildberries.ru
@@ -3076,6 +3106,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: media
   /adv/v1/adverts:
     servers:
       - url: https://advert-media-api.wildberries.ru
@@ -3230,6 +3261,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: media
   /adv/v1/advert:
     servers:
       - url: https://advert-media-api.wildberries.ru
@@ -3527,6 +3559,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: media
   /adv/v3/fullstats:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -3955,6 +3988,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: statistics
   /adv/v1/stats:
     servers:
       - url: https://advert-media-api.wildberries.ru
@@ -4042,6 +4076,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: statistics
   /api/v1/calendar/promotions:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
@@ -4087,6 +4122,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: promoCalendar
   /api/v1/calendar/promotions/details:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
@@ -4128,6 +4164,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: promoCalendar
   /api/v1/calendar/promotions/nomenclatures:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
@@ -4175,6 +4212,7 @@ paths:
           $ref: '#/components/responses/ErrParameterValuesIncorrect'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: promoCalendar
   /api/v1/calendar/promotions/upload:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
@@ -4223,6 +4261,7 @@ paths:
           $ref: '#/components/responses/UnprocessableEntity'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: promoCalendar
   /adv/v0/normquery/list:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -4301,6 +4340,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v1/normquery/stats:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -4407,23 +4447,295 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: statistics
+  /api/advert/v0/daily-limits:
+    servers:
+      - url: https://advert-api.wildberries.ru
+        description: |
+          **Prod**
+    get:
+      x-readonly-method: true
+      x-category: advert
+      x-token-types:
+        - personal
+        - service
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Управление кампаниями
+      summary: Получить настройки дневных лимитов кампаний
+      description: |
+
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену
+        </div>
+
+        Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+        | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+        </div>
+      operationId: getV0DailyLimits
+      parameters:
+        - name: advertIds
+          in: query
+          required: true
+          description: ID кампаний, максимум 100. Укажите значения через запятую
+          schema:
+            type: string
+            example: 12346567,987654321
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V0GetDailyLimitsResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
+    put:
+      x-readonly-method: false
+      x-category: advert
+      x-token-types:
+        - personal
+        - service
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Управление кампаниями
+      summary: Настройка дневных лимитов кампаний
+      description: |
+
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену
+        </div>
+
+        Метод включает, выключает и обновляет дневной лимит кампаний.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+        | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+        </div>
+      operationId: putV0DailyLimits
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/V0PutDailyLimitsRequest'
+            example:
+              advertIds:
+                - 1234
+                - 5603
+              enabled: true
+              dailyLimit: 1000
+              carryOverEnabled: true
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V0PutDailyLimitsResponse'
+              example:
+                adverts:
+                  - advertId: 1234
+                    belowMinLimit: false
+                    requiredLimit: 0
+                  - advertId: 5603
+                    belowMinLimit: true
+                    requiredLimit: 3001
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response400'
+              examples:
+                AdvertIdsCountInvalid:
+                  $ref: '#/components/examples/AdvertIdsCountInvalid'
+                DailyLimitTooLow:
+                  $ref: '#/components/examples/DailyLimitTooLow'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
 components:
   schemas:
-    V2BudgetRequest:
+    V0GetDailyLimitsResponse:
+      type: object
+      required:
+        - adverts
+      properties:
+        adverts:
+          type: array
+          items:
+            $ref: '#/components/schemas/V0DailyLimitAdvert'
+    V0DailyLimitAdvert:
+      type: object
+      required:
+        - advertId
+        - enabled
+        - dailyLimit
+        - spentToday
+        - currency
+        - carryOverEnabled
+        - valid
+        - requiredLimit
+      properties:
+        advertId:
+          type: integer
+          format: int64
+          description: ID кампании
+          example: 12346
+        enabled:
+          type: boolean
+          description: |
+            - `true` — дневной лимит включен
+            - `false` — дневной лимит отключен
+          example: true
+        dailyLimit:
+          type: integer
+          format: int64
+          description: Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          example: 100000
+        spentToday:
+          type: integer
+          format: int64
+          description: Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          example: 35000
+        currency:
+          type: string
+          description: Код валюты
+          format: ISO 4217
+          example: RUB
+        carryOverEnabled:
+          type: boolean
+          description: |
+            Перенос остатка дневного лимита на следующий день.
+            Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.
+              - `true` — перенос остатка включен
+              - `false` — перенос остатка отключен
+          example: true
+        valid:
+          type: boolean
+          description: |
+            Хватает ли текущего размера лимита на установку ставок кампании:
+              - `true` — да
+              - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно
+          example: true
+        requiredLimit:
+          type: integer
+          format: int64
+          description: |
+            Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          example: 3001
+    V0PutDailyLimitsRequest:
       type: object
       required:
         - advertIds
+        - enabled
       properties:
         advertIds:
           type: array
           minItems: 1
-          maxItems: 50
-          description: Список ID кампаний
+          maxItems: 100
+          description: ID кампаний
           items:
             type: integer
+            format: int64
+            minimum: 1
           example:
-            - 1234567
-            - 63453471
+            - 987654321
+            - 123456789
+        enabled:
+          type: boolean
+          description: |
+            Включить лимит:
+              - `true` — да
+              - `false` — нет
+          example: true
+        dailyLimit:
+          type: integer
+          format: int64
+          minimum: 1000
+          description: |
+            Сумма дневного лимита. Параметр обязателен при `"enabled": true`.
+            Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]()
+          example: 1000
+        carryOverEnabled:
+          type: boolean
+          description: |
+            Переносить неиспользованный остаток лимита на следующий день:
+              - `true` — да
+              - `false` — нет
+
+            Параметр обязателен при `"enabled": true`
+          example: true
+    V0PutDailyLimitsAdvertResult:
+      type: object
+      required:
+        - advertId
+        - belowMinLimit
+        - requiredLimit
+      properties:
+        advertId:
+          type: integer
+          format: int64
+          description: ID кампании
+          example: 1234
+        belowMinLimit:
+          type: boolean
+          description: |
+            Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок `requiredLimit`:
+              - `true` — да
+              - `false` — нет
+          example: false
+        requiredLimit:
+          type: integer
+          format: int64
+          description: |
+            Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+            С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки
+          example: 3001
+    V0PutDailyLimitsResponse:
+      type: object
+      required:
+        - adverts
+      properties:
+        adverts:
+          type: array
+          items:
+            $ref: '#/components/schemas/V0PutDailyLimitsAdvertResult'
     V2BudgetResponse:
       type: object
       required:
@@ -4455,6 +4767,21 @@ components:
           description: Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
           type: integer
           example: 3000
+    V2BudgetRequest:
+      type: object
+      required:
+        - advertIds
+      properties:
+        advertIds:
+          type: array
+          minItems: 1
+          maxItems: 50
+          description: Список ID кампаний
+          items:
+            type: integer
+          example:
+            - 1234567
+            - 63453471
     V1SetNormQueryBidsRequestItem:
       type: object
       required:
@@ -4550,6 +4877,7 @@ components:
         - cpmStep
         - cpcStep
         - minTopUp
+        - minDailyLimit
       properties:
         currency:
           type: string
@@ -4572,6 +4900,11 @@ components:
           description: |
             Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
              Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум
+        minDailyLimit:
+          type: integer
+          format: int64
+          description: |
+            Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     V0BidsRecommendationsCpmResponse1:
       type: object
       properties:
@@ -6718,6 +7051,22 @@ components:
                 description: Текст ошибки
                 example: Failed to parse data
   examples:
+    DailyLimitTooLow:
+      summary: Сумма дневного лимита меньше минимально допустимой
+      value:
+        detail: dailyLimit must be at least 100000
+        origin: camp-api-public-cache
+        request_id: c9ba33416d616c4efb60407251ca8cdc
+        status: 400
+        title: bad request
+    AdvertIdsCountInvalid:
+      summary: Некорректное количество ID кампаний
+      value:
+        detail: advertIds must contain from 1 to 100 items
+        origin: camp-api-public-cache
+        request_id: f9cad0e8449a8f45caa9db75ef7018e6
+        status: 400
+        title: bad request
     InvalidRcIdAdv:
       value: Некорректный ID РК
     V0BidsRecommendationsCpmResponse:

@@ -94,6 +94,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/v3/dbw/orders:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -187,6 +188,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/v3/dbw/orders/delivery-date:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -262,6 +264,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/marketplace/v3/dbw/orders/client:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -340,6 +343,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/v3/dbw/orders/status:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -478,6 +482,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/v3/dbw/orders/{orderId}/confirm:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -553,6 +558,7 @@ paths:
                   $ref: '#/components/examples/StatusMismatch'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/v3/dbw/orders/stickers:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -715,6 +721,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/marketplace/v3/dbw/orders/status/deliver:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -807,6 +814,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/v3/dbw/orders/courier:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -881,6 +889,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/v3/dbw/orders/{orderId}/cancel:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -960,6 +969,7 @@ paths:
                   $ref: '#/components/examples/StatusMismatch'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwAssemblyOrders
   /api/marketplace/v3/dbw/orders/meta/details:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1043,6 +1053,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwLabelIdentifiers
   /api/marketplace/v3/dbw/orders/meta/delete:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1136,6 +1147,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwLabelIdentifiers
   /api/marketplace/v3/dbw/orders/meta/sgtin:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1223,6 +1235,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwLabelIdentifiers
   /api/v3/dbw/orders/{orderId}/meta/uin:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1313,6 +1326,7 @@ paths:
                   $ref: '#/components/examples/FailedToUpdateMeta'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwLabelIdentifiers
   /api/v3/dbw/orders/{orderId}/meta/imei:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1404,6 +1418,7 @@ paths:
                   $ref: '#/components/examples/FailedToUpdateMeta'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwLabelIdentifiers
   /api/v3/dbw/orders/{orderId}/meta/gtin:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1495,6 +1510,7 @@ paths:
                   $ref: '#/components/examples/FailedToUpdateMeta'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: dbwLabelIdentifiers
 components:
   securitySchemes:
     HeaderApiKey:

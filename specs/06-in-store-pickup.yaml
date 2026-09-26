@@ -88,6 +88,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/v3/click-collect/orders:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -188,6 +189,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/marketplace/v3/click-collect/orders/final-price:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -253,6 +255,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/marketplace/v3/click-collect/orders/status/confirm:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -320,6 +323,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/marketplace/v3/click-collect/orders/status/prepare:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -387,6 +391,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/v3/click-collect/orders/client:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -466,6 +471,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/v3/click-collect/orders/client/identity:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -561,6 +567,7 @@ paths:
                   $ref: '#/components/examples/InvalidPasscode'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/marketplace/v3/click-collect/orders/status/receive:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -628,6 +635,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/marketplace/v3/click-collect/orders/status/reject:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -695,6 +703,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/marketplace/v3/click-collect/orders/status/info:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -747,6 +756,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/marketplace/v3/click-collect/orders/status/cancel:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -814,6 +824,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupAssemblyOrders
   /api/marketplace/v3/click-collect/orders/meta/details:
     post:
       operationId: postV3ClickCollectOrdersMetaDetails
@@ -878,6 +889,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupLabelIdentifiers
   /api/marketplace/v3/click-collect/orders/meta/delete:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -953,6 +965,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupLabelIdentifiers
   /api/marketplace/v3/click-collect/orders/meta/sgtin:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1024,6 +1037,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupLabelIdentifiers
   /api/marketplace/v3/click-collect/orders/meta/uin:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1093,6 +1107,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupLabelIdentifiers
   /api/marketplace/v3/click-collect/orders/meta/imei:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1163,6 +1178,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupLabelIdentifiers
   /api/marketplace/v3/click-collect/orders/meta/gtin:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1232,6 +1248,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupLabelIdentifiers
   /api/marketplace/v3/click-collect/orders/meta/customs-declaration:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -1330,6 +1347,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: inStorePickupLabelIdentifiers
 components:
   securitySchemes:
     HeaderApiKey:
