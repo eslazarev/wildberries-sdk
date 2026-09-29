@@ -1259,6 +1259,9 @@ components:
         - b2bCustomerTin
         - paidWithSocialCertificate
         - warehouseLogisticsCoeff
+        - buyerTaxRegistrationReasonCode
+        - utdUcdNumber
+        - utdUcdDate
         - orderUid
         - srid
       properties:
@@ -1636,6 +1639,19 @@ components:
           type: number
           description: Коэффициент доставки
           example: 0
+        buyerTaxRegistrationReasonCode:
+          type: string
+          description: КПП B2B-покупателя
+          example: '7701123301'
+        utdUcdNumber:
+          type: string
+          description: Номер УПД или УКД
+          example: '12356856523'
+        utdUcdDate:
+          type: string
+          format: date
+          description: Дата УПД или УКД
+          example: '2006-01-02'
         orderUid:
           type: string
           description: |
