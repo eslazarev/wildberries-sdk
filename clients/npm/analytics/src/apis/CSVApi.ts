@@ -184,7 +184,7 @@ export class CSVApi extends runtime.BaseAPI {
      * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads). <br><br> Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async getV2NmReportDownloadsFileDownloadIdRaw(requestParameters: GetV2NmReportDownloadsFileDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
+    async getV2NmReportDownloadsFileDownloadIdRaw(requestParameters: GetV2NmReportDownloadsFileDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<runtime.HttpFile>> {
         const requestOptions = await this.getV2NmReportDownloadsFileDownloadIdRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
@@ -195,7 +195,7 @@ export class CSVApi extends runtime.BaseAPI {
      * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads). <br><br> Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async getV2NmReportDownloadsFileDownloadId(requestParameters: GetV2NmReportDownloadsFileDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
+    async getV2NmReportDownloadsFileDownloadId(requestParameters: GetV2NmReportDownloadsFileDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.HttpFile> {
         const response = await this.getV2NmReportDownloadsFileDownloadIdRaw(requestParameters, initOverrides);
         return await response.value();
     }

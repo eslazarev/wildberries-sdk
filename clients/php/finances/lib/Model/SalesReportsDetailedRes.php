@@ -149,6 +149,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'b2b_customer_tin' => 'string',
         'paid_with_social_certificate' => 'bool',
         'warehouse_logistics_coeff' => 'float',
+        'buyer_tax_registration_reason_code' => 'string',
+        'utd_ucd_number' => 'string',
+        'utd_ucd_date' => '\DateTime',
         'order_uid' => 'string',
         'srid' => 'string'
     ];
@@ -252,6 +255,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'b2b_customer_tin' => null,
         'paid_with_social_certificate' => null,
         'warehouse_logistics_coeff' => null,
+        'buyer_tax_registration_reason_code' => null,
+        'utd_ucd_number' => null,
+        'utd_ucd_date' => 'date',
         'order_uid' => null,
         'srid' => null
     ];
@@ -353,6 +359,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'b2b_customer_tin' => false,
         'paid_with_social_certificate' => false,
         'warehouse_logistics_coeff' => false,
+        'buyer_tax_registration_reason_code' => false,
+        'utd_ucd_number' => false,
+        'utd_ucd_date' => false,
         'order_uid' => false,
         'srid' => false
     ];
@@ -534,6 +543,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'b2b_customer_tin' => 'b2bCustomerTin',
         'paid_with_social_certificate' => 'paidWithSocialCertificate',
         'warehouse_logistics_coeff' => 'warehouseLogisticsCoeff',
+        'buyer_tax_registration_reason_code' => 'buyerTaxRegistrationReasonCode',
+        'utd_ucd_number' => 'utdUcdNumber',
+        'utd_ucd_date' => 'utdUcdDate',
         'order_uid' => 'orderUid',
         'srid' => 'srid'
     ];
@@ -635,6 +647,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'b2b_customer_tin' => 'setB2bCustomerTin',
         'paid_with_social_certificate' => 'setPaidWithSocialCertificate',
         'warehouse_logistics_coeff' => 'setWarehouseLogisticsCoeff',
+        'buyer_tax_registration_reason_code' => 'setBuyerTaxRegistrationReasonCode',
+        'utd_ucd_number' => 'setUtdUcdNumber',
+        'utd_ucd_date' => 'setUtdUcdDate',
         'order_uid' => 'setOrderUid',
         'srid' => 'setSrid'
     ];
@@ -736,6 +751,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'b2b_customer_tin' => 'getB2bCustomerTin',
         'paid_with_social_certificate' => 'getPaidWithSocialCertificate',
         'warehouse_logistics_coeff' => 'getWarehouseLogisticsCoeff',
+        'buyer_tax_registration_reason_code' => 'getBuyerTaxRegistrationReasonCode',
+        'utd_ucd_number' => 'getUtdUcdNumber',
+        'utd_ucd_date' => 'getUtdUcdDate',
         'order_uid' => 'getOrderUid',
         'srid' => 'getSrid'
     ];
@@ -903,6 +921,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('b2b_customer_tin', $data ?? [], null);
         $this->setIfExists('paid_with_social_certificate', $data ?? [], null);
         $this->setIfExists('warehouse_logistics_coeff', $data ?? [], null);
+        $this->setIfExists('buyer_tax_registration_reason_code', $data ?? [], null);
+        $this->setIfExists('utd_ucd_number', $data ?? [], null);
+        $this->setIfExists('utd_ucd_date', $data ?? [], null);
         $this->setIfExists('order_uid', $data ?? [], null);
         $this->setIfExists('srid', $data ?? [], null);
     }
@@ -1203,6 +1224,15 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if ($this->container['warehouse_logistics_coeff'] === null) {
             $invalidProperties[] = "'warehouse_logistics_coeff' can't be null";
+        }
+        if ($this->container['buyer_tax_registration_reason_code'] === null) {
+            $invalidProperties[] = "'buyer_tax_registration_reason_code' can't be null";
+        }
+        if ($this->container['utd_ucd_number'] === null) {
+            $invalidProperties[] = "'utd_ucd_number' can't be null";
+        }
+        if ($this->container['utd_ucd_date'] === null) {
+            $invalidProperties[] = "'utd_ucd_date' can't be null";
         }
         if ($this->container['order_uid'] === null) {
             $invalidProperties[] = "'order_uid' can't be null";
@@ -3688,6 +3718,87 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable warehouse_logistics_coeff cannot be null');
         }
         $this->container['warehouse_logistics_coeff'] = $warehouse_logistics_coeff;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_tax_registration_reason_code
+     *
+     * @return string
+     */
+    public function getBuyerTaxRegistrationReasonCode()
+    {
+        return $this->container['buyer_tax_registration_reason_code'];
+    }
+
+    /**
+     * Sets buyer_tax_registration_reason_code
+     *
+     * @param string $buyer_tax_registration_reason_code КПП B2B-покупателя
+     *
+     * @return self
+     */
+    public function setBuyerTaxRegistrationReasonCode($buyer_tax_registration_reason_code)
+    {
+        if (is_null($buyer_tax_registration_reason_code)) {
+            throw new \InvalidArgumentException('non-nullable buyer_tax_registration_reason_code cannot be null');
+        }
+        $this->container['buyer_tax_registration_reason_code'] = $buyer_tax_registration_reason_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets utd_ucd_number
+     *
+     * @return string
+     */
+    public function getUtdUcdNumber()
+    {
+        return $this->container['utd_ucd_number'];
+    }
+
+    /**
+     * Sets utd_ucd_number
+     *
+     * @param string $utd_ucd_number Номер УПД или УКД
+     *
+     * @return self
+     */
+    public function setUtdUcdNumber($utd_ucd_number)
+    {
+        if (is_null($utd_ucd_number)) {
+            throw new \InvalidArgumentException('non-nullable utd_ucd_number cannot be null');
+        }
+        $this->container['utd_ucd_number'] = $utd_ucd_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets utd_ucd_date
+     *
+     * @return \DateTime
+     */
+    public function getUtdUcdDate()
+    {
+        return $this->container['utd_ucd_date'];
+    }
+
+    /**
+     * Sets utd_ucd_date
+     *
+     * @param \DateTime $utd_ucd_date Дата УПД или УКД
+     *
+     * @return self
+     */
+    public function setUtdUcdDate($utd_ucd_date)
+    {
+        if (is_null($utd_ucd_date)) {
+            throw new \InvalidArgumentException('non-nullable utd_ucd_date cannot be null');
+        }
+        $this->container['utd_ucd_date'] = $utd_ucd_date;
 
         return $this;
     }

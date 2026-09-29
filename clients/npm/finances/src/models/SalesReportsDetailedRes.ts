@@ -387,6 +387,18 @@ export interface SalesReportsDetailedRes {
      */
     warehouseLogisticsCoeff: number;
     /**
+     * КПП B2B-покупателя
+     */
+    buyerTaxRegistrationReasonCode: string;
+    /**
+     * Номер УПД или УКД
+     */
+    utdUcdNumber: string;
+    /**
+     * Дата УПД или УКД
+     */
+    utdUcdDate: Date;
+    /**
      * ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`
      * 
      */
@@ -500,6 +512,9 @@ export function instanceOfSalesReportsDetailedRes(value: object): value is Sales
     if (!('b2bCustomerTin' in value) || value['b2bCustomerTin'] === undefined) return false;
     if (!('paidWithSocialCertificate' in value) || value['paidWithSocialCertificate'] === undefined) return false;
     if (!('warehouseLogisticsCoeff' in value) || value['warehouseLogisticsCoeff'] === undefined) return false;
+    if (!('buyerTaxRegistrationReasonCode' in value) || value['buyerTaxRegistrationReasonCode'] === undefined) return false;
+    if (!('utdUcdNumber' in value) || value['utdUcdNumber'] === undefined) return false;
+    if (!('utdUcdDate' in value) || value['utdUcdDate'] === undefined) return false;
     if (!('orderUid' in value) || value['orderUid'] === undefined) return false;
     if (!('srid' in value) || value['srid'] === undefined) return false;
     return true;
@@ -606,6 +621,9 @@ export function SalesReportsDetailedResFromJSONTyped(json: any, ignoreDiscrimina
         'b2bCustomerTin': json['b2bCustomerTin'],
         'paidWithSocialCertificate': json['paidWithSocialCertificate'],
         'warehouseLogisticsCoeff': json['warehouseLogisticsCoeff'],
+        'buyerTaxRegistrationReasonCode': json['buyerTaxRegistrationReasonCode'],
+        'utdUcdNumber': json['utdUcdNumber'],
+        'utdUcdDate': (json['utdUcdDate'] == null ? json['utdUcdDate'] : parseDate(json['utdUcdDate'])),
         'orderUid': json['orderUid'],
         'srid': json['srid'],
     };
@@ -713,6 +731,9 @@ export function SalesReportsDetailedResToJSONTyped(value?: SalesReportsDetailedR
         'b2bCustomerTin': value['b2bCustomerTin'],
         'paidWithSocialCertificate': value['paidWithSocialCertificate'],
         'warehouseLogisticsCoeff': value['warehouseLogisticsCoeff'],
+        'buyerTaxRegistrationReasonCode': value['buyerTaxRegistrationReasonCode'],
+        'utdUcdNumber': value['utdUcdNumber'],
+        'utdUcdDate': value['utdUcdDate'] == null ? value['utdUcdDate'] : serializeDate(value['utdUcdDate']),
         'orderUid': value['orderUid'],
         'srid': value['srid'],
     };

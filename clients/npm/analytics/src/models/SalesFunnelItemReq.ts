@@ -32,7 +32,9 @@ export interface SalesFunnelItemReq {
      */
     id: string;
     /**
-     * Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB
+     * Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB.
+     * <br> Данные отчёта обновляются 1 раз в 2 часа.
+     * 
      */
     reportType: string;
     /**

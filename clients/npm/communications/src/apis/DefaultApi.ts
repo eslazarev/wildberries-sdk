@@ -1544,7 +1544,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает файл или изображение из сообщения по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос | </div> 
      * Получить файл из сообщения
      */
-    async getV1SellerDownloadIdRaw(requestParameters: GetV1SellerDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
+    async getV1SellerDownloadIdRaw(requestParameters: GetV1SellerDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<runtime.HttpFile>> {
         const requestOptions = await this.getV1SellerDownloadIdRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
@@ -1555,7 +1555,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает файл или изображение из сообщения по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос | </div> 
      * Получить файл из сообщения
      */
-    async getV1SellerDownloadId(requestParameters: GetV1SellerDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
+    async getV1SellerDownloadId(requestParameters: GetV1SellerDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.HttpFile> {
         const response = await this.getV1SellerDownloadIdRaw(requestParameters, initOverrides);
         return await response.value();
     }

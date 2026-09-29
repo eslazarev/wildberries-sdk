@@ -1991,6 +1991,9 @@ components:
         b2bCustomerTin: "010101010101"
         paidWithSocialCertificate: false
         warehouseLogisticsCoeff: 0
+        buyerTaxRegistrationReasonCode: "7701123301"
+        utdUcdNumber: "12356856523"
+        utdUcdDate: 2006-01-02
         orderUid: id375f16c4bec295d9995393af803ff7b
         srid: 0f1c3999172603062979867564654dac5b702849
       properties:
@@ -2378,6 +2381,19 @@ components:
           description: Коэффициент доставки
           example: 0
           type: number
+        buyerTaxRegistrationReasonCode:
+          description: КПП B2B-покупателя
+          example: "7701123301"
+          type: string
+        utdUcdNumber:
+          description: Номер УПД или УКД
+          example: "12356856523"
+          type: string
+        utdUcdDate:
+          description: Дата УПД или УКД
+          example: 2006-01-02
+          format: date
+          type: string
         orderUid:
           description: |
             ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`
@@ -2396,6 +2412,7 @@ components:
       - articleSubstitution
       - b2bCustomerTin
       - brandName
+      - buyerTaxRegistrationReasonCode
       - cashbackAmount
       - cashbackCommissionChange
       - cashbackDiscount
@@ -2472,6 +2489,8 @@ components:
       - techSize
       - title
       - trbxId
+      - utdUcdDate
+      - utdUcdNumber
       - uuidPromocode
       - vendorCode
       - vw

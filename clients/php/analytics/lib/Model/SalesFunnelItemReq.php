@@ -359,7 +359,7 @@ class SalesFunnelItemReq implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets report_type
      *
-     * @param string $report_type Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB
+     * @param string $report_type Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB. <br> Данные отчёта обновляются 1 раз в 2 часа.
      *
      * @return self
      */
