@@ -1,6 +1,14 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.30)
+- Orders FBS: методы настроек автовозврата переведены на дополнительные типы токенов — помимо `personal` теперь поддерживаются `service` и `base-with-secret` (GET/ PATCH настроек продавца, POST/ PATCH настроек товаров, GET списка restricted subcategories)
+- Orders FBS: переименованы `operationId` для методов автовозврата: `getMarketplaceV3FbsSettingsAutoreturns` → `getV3FbsSettingsAutoreturns`, `patchMarketplaceV3FbsSettingsAutoreturns` → `patchV3FbsSettingsAutoreturns`, `postMarketplaceV3FbsSettingsAutoreturnsItems` → `postV3FbsSettingsAutoreturnsItems`, `patchMarketplaceV3FbsSettingsAutoreturnsItems` → `patchV3FbsSettingsAutoreturnsItems`, `getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted` → `getV3FbsSettingsAutoreturnsSubcategoriesRestricted`
+- Orders FBS: обновлены ссылки в описаниях/enum на метод restricted subcategories (замена `...getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted` на `...getV3FbsSettingsAutoreturnsSubcategoriesRestricted`)
+- Вопросы и отзывы: переименованы `operationId` для закрепления отзывов: `getFeedbacksV1Pins` → `getV1Pins`, `postFeedbacksV1Pins` → `postV1Pins`, `deleteFeedbacksV1Pins` → `deleteV1Pins`, `getFeedbacksV1PinsCount` → `getV1PinsCount`, `getFeedbacksV1PinsLimits` → `getV1PinsLimits`; обновлены ссылки в описаниях на новый `operationId`
+- Аналитика: переименован `operationId` отчёта остатков на складах продавца — `postAnalyticsV1StocksReportSellerWarehouses` → `postV1StocksReportSellerWarehouses`
+- Отчёты: переименован `operationId` метода `GET /api/v1/goods-return` — `getAnalyticsV1GoodsReturn` → `getV1GoodsReturn`
+
 ### Changed (2026.09.29)
 - Аналитика: для отчётов по товарам/карточкам и воронке продаж обновление данных изменено с 1 раза в час на 1 раз в 2 часа (в т.ч. для `DETAIL_HISTORY_REPORT` и `GROUPED_HISTORY_REPORT`).
 - Финансы: в составе финансовых сущностей добавлены новые обязательные поля `buyerTaxRegistrationReasonCode` (КПП B2B-покупателя), `utdUcdNumber` (номер УПД/УКД), `utdUcdDate` (дата УПД/УКД, `date`).

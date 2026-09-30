@@ -4160,17 +4160,22 @@ paths:
       x-readonly-method: true
       x-token-types:
         - personal
+        - service
+        - base-with-secret
       x-category: marketplace
-      operationId: getMarketplaceV3FbsSettingsAutoreturns
+      operationId: getV3FbsSettingsAutoreturns
       security:
         - HeaderApiKey: []
       tags:
         - Настройки автовозврата
       summary: Получить настройки автовозврата продавца
       description: |
+
         <div class="description_token">
             Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-                <strong>Персональному</strong> токену
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену, 
+                <strong>Базовому</strong> токену <strong>с секретом</strong>
         </div>
 
         Метод возвращает информацию о настройках автовозврата, установленных продавцом.
@@ -4201,7 +4206,7 @@ paths:
                     nullable: false
                     description: |
                       Тип автовозврата:
-                        - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                        - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
                         - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов
                         - `manual` — используются ручные настройки
                     enum:
@@ -4228,17 +4233,22 @@ paths:
       x-readonly-method: false
       x-token-types:
         - personal
+        - service
+        - base-with-secret
       x-category: marketplace
-      operationId: patchMarketplaceV3FbsSettingsAutoreturns
+      operationId: patchV3FbsSettingsAutoreturns
       security:
         - HeaderApiKey: []
       tags:
         - Настройки автовозврата
       summary: Обновить настройки автовозврата продавца
       description: |
+
         <div class="description_token">
             Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-                <strong>Персональному</strong> токену
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену, 
+                <strong>Базовому</strong> токену <strong>с секретом</strong>
         </div>
 
         Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
@@ -4266,7 +4276,7 @@ paths:
                   example: allToWarehouse
                   description: |
                     Тип автовозврата малогабаритных товаров:
-                      - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                      - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
                       - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов
                       - `manual` — использовать ручные настройки
                   enum:
@@ -4310,17 +4320,22 @@ paths:
       x-readonly-method: true
       x-token-types:
         - personal
+        - service
+        - base-with-secret
       x-category: marketplace
-      operationId: postMarketplaceV3FbsSettingsAutoreturnsItems
+      operationId: postV3FbsSettingsAutoreturnsItems
       security:
         - HeaderApiKey: []
       tags:
         - Настройки автовозврата
       summary: Получить настройки автовозврата товаров
       description: |
+
         <div class="description_token">
             Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-                <strong>Персональному</strong> токену
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену, 
+                <strong>Базовому</strong> токену <strong>с секретом</strong>
         </div>
 
         Метод возвращает настройки автовозврата товаров.
@@ -4400,7 +4415,7 @@ paths:
                               - `auto` — место возврата определяется автоматически
                               - `byWarehouse` — на склад WB
                               - `byPickupPoint` — на пункт выдачи заказов
-                              - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                              - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
                         changeable:
                           type: boolean
                           description: |
@@ -4450,17 +4465,22 @@ paths:
       x-readonly-method: false
       x-token-types:
         - personal
+        - service
+        - base-with-secret
       x-category: marketplace
-      operationId: patchMarketplaceV3FbsSettingsAutoreturnsItems
+      operationId: patchV3FbsSettingsAutoreturnsItems
       security:
         - HeaderApiKey: []
       tags:
         - Настройки автовозврата
       summary: Обновить настройки автовозврата товаров
       description: |
+
         <div class="description_token">
             Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-                <strong>Персональному</strong> токену
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену, 
+                <strong>Базовому</strong> токену <strong>с секретом</strong>
         </div>
 
         Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
@@ -4590,17 +4610,22 @@ paths:
       x-readonly-method: true
       x-token-types:
         - personal
+        - service
+        - base-with-secret
       x-category: marketplace
-      operationId: getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted
+      operationId: getV3FbsSettingsAutoreturnsSubcategoriesRestricted
       security:
         - HeaderApiKey: []
       tags:
         - Настройки автовозврата
       summary: Получить предметы, которые не хранятся на складах WB
       description: |
+
         <div class="description_token">
             Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-                <strong>Персональному</strong> токену
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену, 
+                <strong>Базовому</strong> токену <strong>с секретом</strong>
         </div>
 
         Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.

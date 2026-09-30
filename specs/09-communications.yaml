@@ -2102,7 +2102,7 @@ paths:
     servers:
       - url: https://feedbacks-api.wildberries.ru
     get:
-      operationId: getFeedbacksV1Pins
+      operationId: getV1Pins
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
@@ -2238,7 +2238,7 @@ paths:
           $ref: '#/components/responses/429'
       x-tagKey: pinnedFeedbacks
     post:
-      operationId: postFeedbacksV1Pins
+      operationId: postV1Pins
       x-readonly-method: false
       x-category: questionsandfeedback
       security:
@@ -2246,7 +2246,7 @@ paths:
       summary: Закрепить отзывы
       description: |
         Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br>
-        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
+        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>
         <br>
         Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.
 
@@ -2326,7 +2326,7 @@ paths:
           $ref: '#/components/responses/429'
       x-tagKey: pinnedFeedbacks
     delete:
-      operationId: deleteFeedbacksV1Pins
+      operationId: deleteV1Pins
       x-readonly-method: false
       x-category: questionsandfeedback
       security:
@@ -2334,7 +2334,7 @@ paths:
       summary: Открепить отзывы
       description: |
         Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br>
-        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
+        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -2407,7 +2407,7 @@ paths:
     servers:
       - url: https://feedbacks-api.wildberries.ru
     get:
-      operationId: getFeedbacksV1PinsCount
+      operationId: getV1PinsCount
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
@@ -2525,7 +2525,7 @@ paths:
     servers:
       - url: https://feedbacks-api.wildberries.ru
     get:
-      operationId: getFeedbacksV1PinsLimits
+      operationId: getV1PinsLimits
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
