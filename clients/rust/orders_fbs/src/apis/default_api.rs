@@ -15,20 +15,20 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`get_marketplace_v3_fbs_settings_autoreturns`]
+/// struct for typed errors of method [`get_v3_fbs_settings_autoreturns`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetMarketplaceV3FbsSettingsAutoreturnsError {
+pub enum GetV3FbsSettingsAutoreturnsError {
     Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
     Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted`]
+/// struct for typed errors of method [`get_v3_fbs_settings_autoreturns_subcategories_restricted`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
+pub enum GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
     Status400(models::ApiErrorV3),
     Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
@@ -36,10 +36,10 @@ pub enum GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`patch_marketplace_v3_fbs_settings_autoreturns`]
+/// struct for typed errors of method [`patch_v3_fbs_settings_autoreturns`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum PatchMarketplaceV3FbsSettingsAutoreturnsError {
+pub enum PatchV3FbsSettingsAutoreturnsError {
     Status400(models::ApiErrorV3),
     Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
@@ -47,10 +47,10 @@ pub enum PatchMarketplaceV3FbsSettingsAutoreturnsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`patch_marketplace_v3_fbs_settings_autoreturns_items`]
+/// struct for typed errors of method [`patch_v3_fbs_settings_autoreturns_items`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum PatchMarketplaceV3FbsSettingsAutoreturnsItemsError {
+pub enum PatchV3FbsSettingsAutoreturnsItemsError {
     Status400(models::ApiErrorV3),
     Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
@@ -58,10 +58,10 @@ pub enum PatchMarketplaceV3FbsSettingsAutoreturnsItemsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`post_marketplace_v3_fbs_settings_autoreturns_items`]
+/// struct for typed errors of method [`post_v3_fbs_settings_autoreturns_items`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum PostMarketplaceV3FbsSettingsAutoreturnsItemsError {
+pub enum PostV3FbsSettingsAutoreturnsItemsError {
     Status400(models::ApiErrorV3),
     Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
@@ -70,8 +70,8 @@ pub enum PostMarketplaceV3FbsSettingsAutoreturnsItemsError {
 }
 
 
-/// <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn get_marketplace_v3_fbs_settings_autoreturns(configuration: &configuration::Configuration, ) -> Result<models::GetMarketplaceV3FbsSettingsAutoreturns200Response, Error<GetMarketplaceV3FbsSettingsAutoreturnsError>> {
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену,          <strong>Базовому</strong> токену <strong>с секретом</strong> </div>  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+pub async fn get_v3_fbs_settings_autoreturns(configuration: &configuration::Configuration, ) -> Result<models::GetV3FbsSettingsAutoreturns200Response, Error<GetV3FbsSettingsAutoreturnsError>> {
 
     let uri_str = format!("{}/api/marketplace/v3/fbs/settings/autoreturns", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -103,18 +103,18 @@ pub async fn get_marketplace_v3_fbs_settings_autoreturns(configuration: &configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetMarketplaceV3FbsSettingsAutoreturns200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetMarketplaceV3FbsSettingsAutoreturns200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3FbsSettingsAutoreturns200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3FbsSettingsAutoreturns200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetMarketplaceV3FbsSettingsAutoreturnsError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV3FbsSettingsAutoreturnsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted(configuration: &configuration::Configuration, next: i64, limit: i32) -> Result<models::GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response, Error<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError>> {
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену,          <strong>Базовому</strong> токену <strong>с секретом</strong> </div>  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+pub async fn get_v3_fbs_settings_autoreturns_subcategories_restricted(configuration: &configuration::Configuration, next: i64, limit: i32) -> Result<models::GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response, Error<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_next = next;
     let p_query_limit = limit;
@@ -151,20 +151,20 @@ pub async fn get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricte
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn patch_marketplace_v3_fbs_settings_autoreturns(configuration: &configuration::Configuration, patch_marketplace_v3_fbs_settings_autoreturns_request: Option<models::PatchMarketplaceV3FbsSettingsAutoreturnsRequest>) -> Result<(), Error<PatchMarketplaceV3FbsSettingsAutoreturnsError>> {
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену,          <strong>Базовому</strong> токену <strong>с секретом</strong> </div>  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+pub async fn patch_v3_fbs_settings_autoreturns(configuration: &configuration::Configuration, patch_v3_fbs_settings_autoreturns_request: Option<models::PatchV3FbsSettingsAutoreturnsRequest>) -> Result<(), Error<PatchV3FbsSettingsAutoreturnsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_patch_marketplace_v3_fbs_settings_autoreturns_request = patch_marketplace_v3_fbs_settings_autoreturns_request;
+    let p_body_patch_v3_fbs_settings_autoreturns_request = patch_v3_fbs_settings_autoreturns_request;
 
     let uri_str = format!("{}/api/marketplace/v3/fbs/settings/autoreturns", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -180,7 +180,7 @@ pub async fn patch_marketplace_v3_fbs_settings_autoreturns(configuration: &confi
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_patch_marketplace_v3_fbs_settings_autoreturns_request);
+    req_builder = req_builder.json(&p_body_patch_v3_fbs_settings_autoreturns_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -191,15 +191,15 @@ pub async fn patch_marketplace_v3_fbs_settings_autoreturns(configuration: &confi
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<PatchMarketplaceV3FbsSettingsAutoreturnsError> = serde_json::from_str(&content).ok();
+        let entity: Option<PatchV3FbsSettingsAutoreturnsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn patch_marketplace_v3_fbs_settings_autoreturns_items(configuration: &configuration::Configuration, patch_marketplace_v3_fbs_settings_autoreturns_items_request: Option<models::PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest>) -> Result<models::PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response, Error<PatchMarketplaceV3FbsSettingsAutoreturnsItemsError>> {
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену,          <strong>Базовому</strong> токену <strong>с секретом</strong> </div>  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+pub async fn patch_v3_fbs_settings_autoreturns_items(configuration: &configuration::Configuration, patch_v3_fbs_settings_autoreturns_items_request: Option<models::PatchV3FbsSettingsAutoreturnsItemsRequest>) -> Result<models::PatchV3FbsSettingsAutoreturnsItems200Response, Error<PatchV3FbsSettingsAutoreturnsItemsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_patch_marketplace_v3_fbs_settings_autoreturns_items_request = patch_marketplace_v3_fbs_settings_autoreturns_items_request;
+    let p_body_patch_v3_fbs_settings_autoreturns_items_request = patch_v3_fbs_settings_autoreturns_items_request;
 
     let uri_str = format!("{}/api/marketplace/v3/fbs/settings/autoreturns/items", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -215,7 +215,7 @@ pub async fn patch_marketplace_v3_fbs_settings_autoreturns_items(configuration: 
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_patch_marketplace_v3_fbs_settings_autoreturns_items_request);
+    req_builder = req_builder.json(&p_body_patch_v3_fbs_settings_autoreturns_items_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -232,20 +232,20 @@ pub async fn patch_marketplace_v3_fbs_settings_autoreturns_items(configuration: 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PatchV3FbsSettingsAutoreturnsItems200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PatchV3FbsSettingsAutoreturnsItems200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<PatchMarketplaceV3FbsSettingsAutoreturnsItemsError> = serde_json::from_str(&content).ok();
+        let entity: Option<PatchV3FbsSettingsAutoreturnsItemsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает настройки автовозврата товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn post_marketplace_v3_fbs_settings_autoreturns_items(configuration: &configuration::Configuration, post_marketplace_v3_fbs_settings_autoreturns_items_request: Option<models::PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest>) -> Result<models::PostMarketplaceV3FbsSettingsAutoreturnsItems200Response, Error<PostMarketplaceV3FbsSettingsAutoreturnsItemsError>> {
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену,          <strong>Базовому</strong> токену <strong>с секретом</strong> </div>  Метод возвращает настройки автовозврата товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+pub async fn post_v3_fbs_settings_autoreturns_items(configuration: &configuration::Configuration, post_v3_fbs_settings_autoreturns_items_request: Option<models::PostV3FbsSettingsAutoreturnsItemsRequest>) -> Result<models::PostV3FbsSettingsAutoreturnsItems200Response, Error<PostV3FbsSettingsAutoreturnsItemsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_post_marketplace_v3_fbs_settings_autoreturns_items_request = post_marketplace_v3_fbs_settings_autoreturns_items_request;
+    let p_body_post_v3_fbs_settings_autoreturns_items_request = post_v3_fbs_settings_autoreturns_items_request;
 
     let uri_str = format!("{}/api/marketplace/v3/fbs/settings/autoreturns/items", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -261,7 +261,7 @@ pub async fn post_marketplace_v3_fbs_settings_autoreturns_items(configuration: &
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_post_marketplace_v3_fbs_settings_autoreturns_items_request);
+    req_builder = req_builder.json(&p_body_post_v3_fbs_settings_autoreturns_items_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -278,12 +278,12 @@ pub async fn post_marketplace_v3_fbs_settings_autoreturns_items(configuration: &
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostMarketplaceV3FbsSettingsAutoreturnsItems200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostMarketplaceV3FbsSettingsAutoreturnsItems200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3FbsSettingsAutoreturnsItems200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3FbsSettingsAutoreturnsItems200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<PostMarketplaceV3FbsSettingsAutoreturnsItemsError> = serde_json::from_str(&content).ok();
+        let entity: Option<PostV3FbsSettingsAutoreturnsItemsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

@@ -140,10 +140,10 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.delete_v3_passes_pass_id` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
 - `orders_fbs.DefaultApi.delete_v3_supplies_supply_id` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
 - `orders_fbs.DefaultApi.delete_v3_supplies_supply_id_trbx` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки
-- `orders_fbs.DefaultApi.get_marketplace_v3_fbs_settings_autoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
-- `orders_fbs.DefaultApi.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
 - `orders_fbs.DefaultApi.get_v3_fbs_dictionaries_countries_oksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
 - `orders_fbs.DefaultApi.get_v3_fbs_orders_archive` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
+- `orders_fbs.DefaultApi.get_v3_fbs_settings_autoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.get_v3_fbs_settings_autoreturns_subcategories_restricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
 - `orders_fbs.DefaultApi.get_v3_fbs_shipping_points` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
 - `orders_fbs.DefaultApi.get_v3_fbs_supplies_supply_id_stickers_spot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
 - `orders_fbs.DefaultApi.get_v3_orders` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
@@ -156,14 +156,14 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.get_v3_supplies_supply_id_barcode` — `GET /api/v3/supplies/{supplyId}/barcode` — Получить QR-код поставки
 - `orders_fbs.DefaultApi.get_v3_supplies_supply_id_order_ids` — `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
 - `orders_fbs.DefaultApi.get_v3_supplies_supply_id_trbx` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
-- `orders_fbs.DefaultApi.patch_marketplace_v3_fbs_settings_autoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
-- `orders_fbs.DefaultApi.patch_marketplace_v3_fbs_settings_autoreturns_items` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.patch_v3_fbs_settings_autoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.patch_v3_fbs_settings_autoreturns_items` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
 - `orders_fbs.DefaultApi.patch_v3_fbs_supplies_shipping_method` — `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок
 - `orders_fbs.DefaultApi.patch_v3_fbs_supplies_waybill` — `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок
 - `orders_fbs.DefaultApi.patch_v3_orders_order_id_cancel` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
 - `orders_fbs.DefaultApi.patch_v3_supplies_supply_id_deliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
 - `orders_fbs.DefaultApi.patch_v3_supplies_supply_id_orders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
-- `orders_fbs.DefaultApi.post_marketplace_v3_fbs_settings_autoreturns_items` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.post_v3_fbs_settings_autoreturns_items` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
 - `orders_fbs.DefaultApi.post_v3_fbs_supplies_spot_list` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок
 - `orders_fbs.DefaultApi.post_v3_orders_client` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
 - `orders_fbs.DefaultApi.post_v3_orders_meta` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
@@ -306,10 +306,7 @@ print(feedbacks)
 - `promotion.DefaultApi.put_v0_daily_limits` — `PUT /api/advert/v0/daily-limits` — Настройка дневных лимитов кампаний
 
 ### communications (`communications`)
-- `communications.DefaultApi.delete_feedbacks_v1_pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
-- `communications.DefaultApi.get_feedbacks_v1_pins` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
-- `communications.DefaultApi.get_feedbacks_v1_pins_count` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
-- `communications.DefaultApi.get_feedbacks_v1_pins_limits` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
+- `communications.DefaultApi.delete_v1_pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
 - `communications.DefaultApi.get_v1_claims` — `GET /api/v1/claims` — Заявки покупателей на возврат
 - `communications.DefaultApi.get_v1_feedback` — `GET /api/v1/feedback` — Получить отзыв по ID
 - `communications.DefaultApi.get_v1_feedbacks` — `GET /api/v1/feedbacks` — Список отзывов
@@ -317,6 +314,9 @@ print(feedbacks)
 - `communications.DefaultApi.get_v1_feedbacks_count` — `GET /api/v1/feedbacks/count` — Количество отзывов
 - `communications.DefaultApi.get_v1_feedbacks_count_unanswered` — `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы
 - `communications.DefaultApi.get_v1_new_feedbacks_questions` — `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы
+- `communications.DefaultApi.get_v1_pins` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
+- `communications.DefaultApi.get_v1_pins_count` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
+- `communications.DefaultApi.get_v1_pins_limits` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
 - `communications.DefaultApi.get_v1_question` — `GET /api/v1/question` — Получить вопрос по ID
 - `communications.DefaultApi.get_v1_questions` — `GET /api/v1/questions` — Список вопросов
 - `communications.DefaultApi.get_v1_questions_count` — `GET /api/v1/questions/count` — Количество вопросов
@@ -327,9 +327,9 @@ print(feedbacks)
 - `communications.DefaultApi.patch_v1_claim` — `PATCH /api/v1/claim` — Ответ на заявку покупателя
 - `communications.DefaultApi.patch_v1_feedbacks_answer` — `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв
 - `communications.DefaultApi.patch_v1_questions` — `PATCH /api/v1/questions` — Работа с вопросами
-- `communications.DefaultApi.post_feedbacks_v1_pins` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
 - `communications.DefaultApi.post_v1_feedbacks_answer` — `POST /api/v1/feedbacks/answer` — Ответить на отзыв
 - `communications.DefaultApi.post_v1_feedbacks_order_return` — `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва
+- `communications.DefaultApi.post_v1_pins` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
 - `communications.DefaultApi.post_v1_seller_message` — `POST /api/v1/seller/message` — Отправить сообщение
 
 ### rates (`rates`)
@@ -342,8 +342,8 @@ print(feedbacks)
 ### analytics (`analytics`)
 - `analytics.DefaultApi.get_v2_nm_report_downloads` — `GET /api/v2/nm-report/downloads` — Получить список отчётов
 - `analytics.DefaultApi.get_v2_nm_report_downloads_file_download_id` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
-- `analytics.DefaultApi.post_analytics_v1_stocks_report_seller_warehouses` — `POST /api/analytics/v1/stocks-report/seller-warehouses` — Остатки на складах продавца
 - `analytics.DefaultApi.post_v1_order_feed` — `POST /api/analytics/v1/order-feed` — Получить отчёт
+- `analytics.DefaultApi.post_v1_stocks_report_seller_warehouses` — `POST /api/analytics/v1/stocks-report/seller-warehouses` — Остатки на складах продавца
 - `analytics.DefaultApi.post_v1_stocks_report_wb_warehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
 - `analytics.DefaultApi.post_v2_item_rating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
 - `analytics.DefaultApi.post_v2_nm_report_downloads` — `POST /api/v2/nm-report/downloads` — Создать отчёт
@@ -362,7 +362,6 @@ print(feedbacks)
 - `analytics.DefaultApi.post_v3_sales_funnel_products_history` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
 
 ### reports (`reports`)
-- `reports.DefaultApi.get_analytics_v1_goods_return` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApi.get_v1_acceptance_report` — `GET /api/v1/acceptance_report` — Создать отчёт
 - `reports.DefaultApi.get_v1_acceptance_report_tasks_task_id_download` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.get_v1_acceptance_report_tasks_task_id_status` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
@@ -375,6 +374,7 @@ print(feedbacks)
 - `reports.DefaultApi.get_v1_analytics_goods_return` — `GET /api/v1/analytics/goods-return` — (Deprecated) Получить отчёт
 - `reports.DefaultApi.get_v1_analytics_region_sale` — `GET /api/v1/analytics/region-sale` — Получить отчёт
 - `reports.DefaultApi.get_v1_deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
+- `reports.DefaultApi.get_v1_goods_return` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApi.get_v1_measurement_penalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
 - `reports.DefaultApi.get_v1_paid_storage` — `GET /api/v1/paid_storage` — Создать отчёт
 - `reports.DefaultApi.get_v1_paid_storage_tasks_task_id_download` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт

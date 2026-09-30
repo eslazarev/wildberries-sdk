@@ -25,27 +25,27 @@ import (
 // DefaultApiService DefaultApi service
 type DefaultApiService service
 
-type ApiDeleteFeedbacksV1PinsRequest struct {
+type ApiDeleteV1PinsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	requestBody *[]int32
 }
 
 // Список &#x60;pinId&#x60; — ID операций закрепления отзывов
-func (r ApiDeleteFeedbacksV1PinsRequest) RequestBody(requestBody []int32) ApiDeleteFeedbacksV1PinsRequest {
+func (r ApiDeleteV1PinsRequest) RequestBody(requestBody []int32) ApiDeleteV1PinsRequest {
 	r.requestBody = &requestBody
 	return r
 }
 
-func (r ApiDeleteFeedbacksV1PinsRequest) Execute() (*DeleteFeedbacksV1Pins200Response, *http.Response, error) {
-	return r.ApiService.DeleteFeedbacksV1PinsExecute(r)
+func (r ApiDeleteV1PinsRequest) Execute() (*DeleteV1Pins200Response, *http.Response, error) {
+	return r.ApiService.DeleteV1PinsExecute(r)
 }
 
 /*
-DeleteFeedbacksV1Pins Открепить отзывы
+DeleteV1Pins Открепить отзывы
 
 Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br>
-Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
+Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -61,26 +61,26 @@ DeleteFeedbacksV1Pins Открепить отзывы
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteFeedbacksV1PinsRequest
+ @return ApiDeleteV1PinsRequest
 */
-func (a *DefaultApiService) DeleteFeedbacksV1Pins(ctx context.Context) ApiDeleteFeedbacksV1PinsRequest {
-	return ApiDeleteFeedbacksV1PinsRequest{
+func (a *DefaultApiService) DeleteV1Pins(ctx context.Context) ApiDeleteV1PinsRequest {
+	return ApiDeleteV1PinsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteFeedbacksV1Pins200Response
-func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1PinsRequest) (*DeleteFeedbacksV1Pins200Response, *http.Response, error) {
+//  @return DeleteV1Pins200Response
+func (a *DefaultApiService) DeleteV1PinsExecute(r ApiDeleteV1PinsRequest) (*DeleteV1Pins200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DeleteFeedbacksV1Pins200Response
+		localVarReturnValue  *DeleteV1Pins200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteFeedbacksV1Pins")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteV1Pins")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -162,701 +162,6 @@ func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1P
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v GetV1NewFeedbacksQuestions401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetV1NewFeedbacksQuestions402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostV1FeedbacksAnswer403Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetV1NewFeedbacksQuestions401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetFeedbacksV1PinsRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	state *string
-	pinOn *string
-	imtId *int32
-	nmId *int32
-	feedbackId *int32
-	dateFrom *time.Time
-	dateTo *time.Time
-	next *int32
-	limit *int32
-}
-
-// Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-func (r ApiGetFeedbacksV1PinsRequest) State(state string) ApiGetFeedbacksV1PinsRequest {
-	r.state = &state
-	return r
-}
-
-// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-func (r ApiGetFeedbacksV1PinsRequest) PinOn(pinOn string) ApiGetFeedbacksV1PinsRequest {
-	r.pinOn = &pinOn
-	return r
-}
-
-// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.&lt;br&gt;Един для всех артикулов WB группы объединённых карточек.&lt;br&gt;У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками&lt;br&gt; 
-func (r ApiGetFeedbacksV1PinsRequest) ImtId(imtId int32) ApiGetFeedbacksV1PinsRequest {
-	r.imtId = &imtId
-	return r
-}
-
-// Артикул WB
-func (r ApiGetFeedbacksV1PinsRequest) NmId(nmId int32) ApiGetFeedbacksV1PinsRequest {
-	r.nmId = &nmId
-	return r
-}
-
-// ID отзыва
-func (r ApiGetFeedbacksV1PinsRequest) FeedbackId(feedbackId int32) ApiGetFeedbacksV1PinsRequest {
-	r.feedbackId = &feedbackId
-	return r
-}
-
-// Дата закрепления первого отзыва в списке
-func (r ApiGetFeedbacksV1PinsRequest) DateFrom(dateFrom time.Time) ApiGetFeedbacksV1PinsRequest {
-	r.dateFrom = &dateFrom
-	return r
-}
-
-// Дата закрепления последнего отзыва в списке
-func (r ApiGetFeedbacksV1PinsRequest) DateTo(dateTo time.Time) ApiGetFeedbacksV1PinsRequest {
-	r.dateTo = &dateTo
-	return r
-}
-
-// ID последней операции закрепления (пагинатор)
-func (r ApiGetFeedbacksV1PinsRequest) Next(next int32) ApiGetFeedbacksV1PinsRequest {
-	r.next = &next
-	return r
-}
-
-// Количество отзывов на одной странице (пагинация)
-func (r ApiGetFeedbacksV1PinsRequest) Limit(limit int32) ApiGetFeedbacksV1PinsRequest {
-	r.limit = &limit
-	return r
-}
-
-func (r ApiGetFeedbacksV1PinsRequest) Execute() (*GetFeedbacksV1Pins200Response, *http.Response, error) {
-	return r.ApiService.GetFeedbacksV1PinsExecute(r)
-}
-
-/*
-GetFeedbacksV1Pins Список закреплённых и откреплённых отзывов
-
-Метод предоставляет список закреплённых и откреплённых отзывов.
-<br>
-Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFeedbacksV1PinsRequest
-*/
-func (a *DefaultApiService) GetFeedbacksV1Pins(ctx context.Context) ApiGetFeedbacksV1PinsRequest {
-	return ApiGetFeedbacksV1PinsRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return GetFeedbacksV1Pins200Response
-func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsRequest) (*GetFeedbacksV1Pins200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFeedbacksV1Pins200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetFeedbacksV1Pins")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/feedbacks/v1/pins"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.state != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "state", r.state, "form", "")
-	}
-	if r.pinOn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "pinOn", r.pinOn, "form", "")
-	}
-	if r.imtId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "imtId", r.imtId, "form", "")
-	}
-	if r.nmId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "nmId", r.nmId, "form", "")
-	}
-	if r.feedbackId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "feedbackId", r.feedbackId, "form", "")
-	}
-	if r.dateFrom != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
-	}
-	if r.dateTo != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "dateTo", r.dateTo, "form", "")
-	}
-	if r.next != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "next", r.next, "form", "")
-	}
-	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
-	} else {
-		var defaultValue int32 = 500
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
-		r.limit = &defaultValue
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v RespondResultErr
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v GetV1NewFeedbacksQuestions401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetV1NewFeedbacksQuestions402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostV1FeedbacksAnswer403Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetV1NewFeedbacksQuestions401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetFeedbacksV1PinsCountRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	state *string
-	pinOn *string
-	imtId *int32
-	nmId *int32
-	feedbackId *int32
-	dateFrom *time.Time
-	dateTo *time.Time
-}
-
-// Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-func (r ApiGetFeedbacksV1PinsCountRequest) State(state string) ApiGetFeedbacksV1PinsCountRequest {
-	r.state = &state
-	return r
-}
-
-// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-func (r ApiGetFeedbacksV1PinsCountRequest) PinOn(pinOn string) ApiGetFeedbacksV1PinsCountRequest {
-	r.pinOn = &pinOn
-	return r
-}
-
-// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.&lt;br&gt;Един для всех артикулов WB группы объединённых карточек.&lt;br&gt;У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками&lt;br&gt; 
-func (r ApiGetFeedbacksV1PinsCountRequest) ImtId(imtId int32) ApiGetFeedbacksV1PinsCountRequest {
-	r.imtId = &imtId
-	return r
-}
-
-// Артикул WB
-func (r ApiGetFeedbacksV1PinsCountRequest) NmId(nmId int32) ApiGetFeedbacksV1PinsCountRequest {
-	r.nmId = &nmId
-	return r
-}
-
-// ID отзыва
-func (r ApiGetFeedbacksV1PinsCountRequest) FeedbackId(feedbackId int32) ApiGetFeedbacksV1PinsCountRequest {
-	r.feedbackId = &feedbackId
-	return r
-}
-
-// Дата закрепления первого отзыва в списке
-func (r ApiGetFeedbacksV1PinsCountRequest) DateFrom(dateFrom time.Time) ApiGetFeedbacksV1PinsCountRequest {
-	r.dateFrom = &dateFrom
-	return r
-}
-
-// Дата закрепления последнего отзыва в списке
-func (r ApiGetFeedbacksV1PinsCountRequest) DateTo(dateTo time.Time) ApiGetFeedbacksV1PinsCountRequest {
-	r.dateTo = &dateTo
-	return r
-}
-
-func (r ApiGetFeedbacksV1PinsCountRequest) Execute() (*GetFeedbacksV1PinsCount200Response, *http.Response, error) {
-	return r.ApiService.GetFeedbacksV1PinsCountExecute(r)
-}
-
-/*
-GetFeedbacksV1PinsCount Количество закреплённых и откреплённых отзывов
-
-Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFeedbacksV1PinsCountRequest
-*/
-func (a *DefaultApiService) GetFeedbacksV1PinsCount(ctx context.Context) ApiGetFeedbacksV1PinsCountRequest {
-	return ApiGetFeedbacksV1PinsCountRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return GetFeedbacksV1PinsCount200Response
-func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1PinsCountRequest) (*GetFeedbacksV1PinsCount200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFeedbacksV1PinsCount200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetFeedbacksV1PinsCount")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/feedbacks/v1/pins/count"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.state != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "state", r.state, "form", "")
-	}
-	if r.pinOn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "pinOn", r.pinOn, "form", "")
-	}
-	if r.imtId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "imtId", r.imtId, "form", "")
-	}
-	if r.nmId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "nmId", r.nmId, "form", "")
-	}
-	if r.feedbackId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "feedbackId", r.feedbackId, "form", "")
-	}
-	if r.dateFrom != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
-	}
-	if r.dateTo != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "dateTo", r.dateTo, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v RespondResultErr
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v GetV1NewFeedbacksQuestions401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetV1NewFeedbacksQuestions402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostV1FeedbacksAnswer403Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetV1NewFeedbacksQuestions401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetFeedbacksV1PinsLimitsRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-}
-
-func (r ApiGetFeedbacksV1PinsLimitsRequest) Execute() (*GetFeedbacksV1PinsLimits200Response, *http.Response, error) {
-	return r.ApiService.GetFeedbacksV1PinsLimitsExecute(r)
-}
-
-/*
-GetFeedbacksV1PinsLimits Лимиты закреплённых отзывов
-
-Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFeedbacksV1PinsLimitsRequest
-*/
-func (a *DefaultApiService) GetFeedbacksV1PinsLimits(ctx context.Context) ApiGetFeedbacksV1PinsLimitsRequest {
-	return ApiGetFeedbacksV1PinsLimitsRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return GetFeedbacksV1PinsLimits200Response
-func (a *DefaultApiService) GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1PinsLimitsRequest) (*GetFeedbacksV1PinsLimits200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFeedbacksV1PinsLimits200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetFeedbacksV1PinsLimits")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/feedbacks/v1/pins/limits"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GetV1NewFeedbacksQuestions401Response
@@ -2362,6 +1667,701 @@ func (a *DefaultApiService) GetV1NewFeedbacksQuestionsExecute(r ApiGetV1NewFeedb
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ResponseFeedbackQuestionErr
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1NewFeedbacksQuestions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1PinsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	state *string
+	pinOn *string
+	imtId *int32
+	nmId *int32
+	feedbackId *int32
+	dateFrom *time.Time
+	dateTo *time.Time
+	next *int32
+	limit *int32
+}
+
+// Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
+func (r ApiGetV1PinsRequest) State(state string) ApiGetV1PinsRequest {
+	r.state = &state
+	return r
+}
+
+// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+func (r ApiGetV1PinsRequest) PinOn(pinOn string) ApiGetV1PinsRequest {
+	r.pinOn = &pinOn
+	return r
+}
+
+// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.&lt;br&gt;Един для всех артикулов WB группы объединённых карточек.&lt;br&gt;У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками&lt;br&gt; 
+func (r ApiGetV1PinsRequest) ImtId(imtId int32) ApiGetV1PinsRequest {
+	r.imtId = &imtId
+	return r
+}
+
+// Артикул WB
+func (r ApiGetV1PinsRequest) NmId(nmId int32) ApiGetV1PinsRequest {
+	r.nmId = &nmId
+	return r
+}
+
+// ID отзыва
+func (r ApiGetV1PinsRequest) FeedbackId(feedbackId int32) ApiGetV1PinsRequest {
+	r.feedbackId = &feedbackId
+	return r
+}
+
+// Дата закрепления первого отзыва в списке
+func (r ApiGetV1PinsRequest) DateFrom(dateFrom time.Time) ApiGetV1PinsRequest {
+	r.dateFrom = &dateFrom
+	return r
+}
+
+// Дата закрепления последнего отзыва в списке
+func (r ApiGetV1PinsRequest) DateTo(dateTo time.Time) ApiGetV1PinsRequest {
+	r.dateTo = &dateTo
+	return r
+}
+
+// ID последней операции закрепления (пагинатор)
+func (r ApiGetV1PinsRequest) Next(next int32) ApiGetV1PinsRequest {
+	r.next = &next
+	return r
+}
+
+// Количество отзывов на одной странице (пагинация)
+func (r ApiGetV1PinsRequest) Limit(limit int32) ApiGetV1PinsRequest {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiGetV1PinsRequest) Execute() (*GetV1Pins200Response, *http.Response, error) {
+	return r.ApiService.GetV1PinsExecute(r)
+}
+
+/*
+GetV1Pins Список закреплённых и откреплённых отзывов
+
+Метод предоставляет список закреплённых и откреплённых отзывов.
+<br>
+Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1PinsRequest
+*/
+func (a *DefaultApiService) GetV1Pins(ctx context.Context) ApiGetV1PinsRequest {
+	return ApiGetV1PinsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetV1Pins200Response
+func (a *DefaultApiService) GetV1PinsExecute(r ApiGetV1PinsRequest) (*GetV1Pins200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1Pins200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Pins")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/feedbacks/v1/pins"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.state != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "state", r.state, "form", "")
+	}
+	if r.pinOn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pinOn", r.pinOn, "form", "")
+	}
+	if r.imtId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "imtId", r.imtId, "form", "")
+	}
+	if r.nmId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nmId", r.nmId, "form", "")
+	}
+	if r.feedbackId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "feedbackId", r.feedbackId, "form", "")
+	}
+	if r.dateFrom != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
+	}
+	if r.dateTo != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "dateTo", r.dateTo, "form", "")
+	}
+	if r.next != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "next", r.next, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 500
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
+		r.limit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v RespondResultErr
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1NewFeedbacksQuestions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1NewFeedbacksQuestions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1PinsCountRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	state *string
+	pinOn *string
+	imtId *int32
+	nmId *int32
+	feedbackId *int32
+	dateFrom *time.Time
+	dateTo *time.Time
+}
+
+// Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
+func (r ApiGetV1PinsCountRequest) State(state string) ApiGetV1PinsCountRequest {
+	r.state = &state
+	return r
+}
+
+// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+func (r ApiGetV1PinsCountRequest) PinOn(pinOn string) ApiGetV1PinsCountRequest {
+	r.pinOn = &pinOn
+	return r
+}
+
+// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.&lt;br&gt;Един для всех артикулов WB группы объединённых карточек.&lt;br&gt;У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками&lt;br&gt; 
+func (r ApiGetV1PinsCountRequest) ImtId(imtId int32) ApiGetV1PinsCountRequest {
+	r.imtId = &imtId
+	return r
+}
+
+// Артикул WB
+func (r ApiGetV1PinsCountRequest) NmId(nmId int32) ApiGetV1PinsCountRequest {
+	r.nmId = &nmId
+	return r
+}
+
+// ID отзыва
+func (r ApiGetV1PinsCountRequest) FeedbackId(feedbackId int32) ApiGetV1PinsCountRequest {
+	r.feedbackId = &feedbackId
+	return r
+}
+
+// Дата закрепления первого отзыва в списке
+func (r ApiGetV1PinsCountRequest) DateFrom(dateFrom time.Time) ApiGetV1PinsCountRequest {
+	r.dateFrom = &dateFrom
+	return r
+}
+
+// Дата закрепления последнего отзыва в списке
+func (r ApiGetV1PinsCountRequest) DateTo(dateTo time.Time) ApiGetV1PinsCountRequest {
+	r.dateTo = &dateTo
+	return r
+}
+
+func (r ApiGetV1PinsCountRequest) Execute() (*GetV1PinsCount200Response, *http.Response, error) {
+	return r.ApiService.GetV1PinsCountExecute(r)
+}
+
+/*
+GetV1PinsCount Количество закреплённых и откреплённых отзывов
+
+Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1PinsCountRequest
+*/
+func (a *DefaultApiService) GetV1PinsCount(ctx context.Context) ApiGetV1PinsCountRequest {
+	return ApiGetV1PinsCountRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetV1PinsCount200Response
+func (a *DefaultApiService) GetV1PinsCountExecute(r ApiGetV1PinsCountRequest) (*GetV1PinsCount200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1PinsCount200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1PinsCount")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/feedbacks/v1/pins/count"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.state != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "state", r.state, "form", "")
+	}
+	if r.pinOn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pinOn", r.pinOn, "form", "")
+	}
+	if r.imtId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "imtId", r.imtId, "form", "")
+	}
+	if r.nmId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nmId", r.nmId, "form", "")
+	}
+	if r.feedbackId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "feedbackId", r.feedbackId, "form", "")
+	}
+	if r.dateFrom != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
+	}
+	if r.dateTo != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "dateTo", r.dateTo, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v RespondResultErr
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1NewFeedbacksQuestions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1NewFeedbacksQuestions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1PinsLimitsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+}
+
+func (r ApiGetV1PinsLimitsRequest) Execute() (*GetV1PinsLimits200Response, *http.Response, error) {
+	return r.ApiService.GetV1PinsLimitsExecute(r)
+}
+
+/*
+GetV1PinsLimits Лимиты закреплённых отзывов
+
+Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1PinsLimitsRequest
+*/
+func (a *DefaultApiService) GetV1PinsLimits(ctx context.Context) ApiGetV1PinsLimitsRequest {
+	return ApiGetV1PinsLimitsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetV1PinsLimits200Response
+func (a *DefaultApiService) GetV1PinsLimitsExecute(r ApiGetV1PinsLimitsRequest) (*GetV1PinsLimits200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1PinsLimits200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1PinsLimits")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/feedbacks/v1/pins/limits"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1NewFeedbacksQuestions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PostV1FeedbacksAnswer403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4362,203 +4362,6 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostFeedbacksV1PinsRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	openapiPinReviewItem *[]OpenapiPinReviewItem
-}
-
-func (r ApiPostFeedbacksV1PinsRequest) OpenapiPinReviewItem(openapiPinReviewItem []OpenapiPinReviewItem) ApiPostFeedbacksV1PinsRequest {
-	r.openapiPinReviewItem = &openapiPinReviewItem
-	return r
-}
-
-func (r ApiPostFeedbacksV1PinsRequest) Execute() (*PostFeedbacksV1Pins200Response, *http.Response, error) {
-	return r.ApiService.PostFeedbacksV1PinsExecute(r)
-}
-
-/*
-PostFeedbacksV1Pins Закрепить отзывы
-
-Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br>
-Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
-<br>
-Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostFeedbacksV1PinsRequest
-*/
-func (a *DefaultApiService) PostFeedbacksV1Pins(ctx context.Context) ApiPostFeedbacksV1PinsRequest {
-	return ApiPostFeedbacksV1PinsRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return PostFeedbacksV1Pins200Response
-func (a *DefaultApiService) PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsRequest) (*PostFeedbacksV1Pins200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostFeedbacksV1Pins200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostFeedbacksV1Pins")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/feedbacks/v1/pins"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.openapiPinReviewItem == nil {
-		return localVarReturnValue, nil, reportError("openapiPinReviewItem is required and must be specified")
-	}
-	if len(*r.openapiPinReviewItem) > 500 {
-		return localVarReturnValue, nil, reportError("openapiPinReviewItem must have less than 500 elements")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.openapiPinReviewItem
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v RespondResultErr
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v GetV1NewFeedbacksQuestions401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetV1NewFeedbacksQuestions402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v RespondResultErr
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetV1NewFeedbacksQuestions401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiPostV1FeedbacksAnswerRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
@@ -4910,6 +4713,203 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
 			var v ResponseFeedbackQuestionErr
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1NewFeedbacksQuestions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV1PinsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	openapiPinReviewItem *[]OpenapiPinReviewItem
+}
+
+func (r ApiPostV1PinsRequest) OpenapiPinReviewItem(openapiPinReviewItem []OpenapiPinReviewItem) ApiPostV1PinsRequest {
+	r.openapiPinReviewItem = &openapiPinReviewItem
+	return r
+}
+
+func (r ApiPostV1PinsRequest) Execute() (*PostV1Pins200Response, *http.Response, error) {
+	return r.ApiService.PostV1PinsExecute(r)
+}
+
+/*
+PostV1Pins Закрепить отзывы
+
+Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br>
+Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>
+<br>
+Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1PinsRequest
+*/
+func (a *DefaultApiService) PostV1Pins(ctx context.Context) ApiPostV1PinsRequest {
+	return ApiPostV1PinsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return PostV1Pins200Response
+func (a *DefaultApiService) PostV1PinsExecute(r ApiPostV1PinsRequest) (*PostV1Pins200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV1Pins200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV1Pins")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/feedbacks/v1/pins"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.openapiPinReviewItem == nil {
+		return localVarReturnValue, nil, reportError("openapiPinReviewItem is required and must be specified")
+	}
+	if len(*r.openapiPinReviewItem) > 500 {
+		return localVarReturnValue, nil, reportError("openapiPinReviewItem must have less than 500 elements")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.openapiPinReviewItem
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v RespondResultErr
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1NewFeedbacksQuestions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1NewFeedbacksQuestions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v RespondResultErr
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -3437,7 +3437,7 @@ paths:
     get:
       description: |
         Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
-      operationId: getAnalyticsV1GoodsReturn
+      operationId: getV1GoodsReturn
       parameters:
       - description: Дата начала отчётного периода
         explode: true

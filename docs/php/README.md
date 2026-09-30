@@ -137,11 +137,11 @@ var_dump($response);
 - `items.DefaultApi.putV3WarehousesWarehouseId` — `PUT /api/v3/warehouses/{warehouseId}` — Обновить склад продавца
 
 ### orders_fbs (`orders_fbs`)
-- `orders_fbs.DefaultApi.getMarketplaceV3FbsSettingsAutoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
-- `orders_fbs.DefaultApi.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
-- `orders_fbs.DefaultApi.patchMarketplaceV3FbsSettingsAutoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
-- `orders_fbs.DefaultApi.patchMarketplaceV3FbsSettingsAutoreturnsItems` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
-- `orders_fbs.DefaultApi.postMarketplaceV3FbsSettingsAutoreturnsItems` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.getV3FbsSettingsAutoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.getV3FbsSettingsAutoreturnsSubcategoriesRestricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
+- `orders_fbs.DefaultApi.patchV3FbsSettingsAutoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.patchV3FbsSettingsAutoreturnsItems` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.postV3FbsSettingsAutoreturnsItems` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
 - `orders_fbs.FBSApi.deleteV3OrdersOrderIdMeta` — `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания
 - `orders_fbs.FBSApi.deleteV3PassesPassId` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
 - `orders_fbs.FBSApi.deleteV3SuppliesSupplyId` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
@@ -307,10 +307,7 @@ var_dump($response);
 - `promotion.DefaultApi.putV0DailyLimits` — `PUT /api/advert/v0/daily-limits` — Настройка дневных лимитов кампаний
 
 ### communications (`communications`)
-- `communications.DefaultApi.deleteFeedbacksV1Pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
-- `communications.DefaultApi.getFeedbacksV1Pins` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
-- `communications.DefaultApi.getFeedbacksV1PinsCount` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
-- `communications.DefaultApi.getFeedbacksV1PinsLimits` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
+- `communications.DefaultApi.deleteV1Pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
 - `communications.DefaultApi.getV1Claims` — `GET /api/v1/claims` — Заявки покупателей на возврат
 - `communications.DefaultApi.getV1Feedback` — `GET /api/v1/feedback` — Получить отзыв по ID
 - `communications.DefaultApi.getV1Feedbacks` — `GET /api/v1/feedbacks` — Список отзывов
@@ -318,6 +315,9 @@ var_dump($response);
 - `communications.DefaultApi.getV1FeedbacksCount` — `GET /api/v1/feedbacks/count` — Количество отзывов
 - `communications.DefaultApi.getV1FeedbacksCountUnanswered` — `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы
 - `communications.DefaultApi.getV1NewFeedbacksQuestions` — `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы
+- `communications.DefaultApi.getV1Pins` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
+- `communications.DefaultApi.getV1PinsCount` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
+- `communications.DefaultApi.getV1PinsLimits` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
 - `communications.DefaultApi.getV1Question` — `GET /api/v1/question` — Получить вопрос по ID
 - `communications.DefaultApi.getV1Questions` — `GET /api/v1/questions` — Список вопросов
 - `communications.DefaultApi.getV1QuestionsCount` — `GET /api/v1/questions/count` — Количество вопросов
@@ -328,9 +328,9 @@ var_dump($response);
 - `communications.DefaultApi.patchV1Claim` — `PATCH /api/v1/claim` — Ответ на заявку покупателя
 - `communications.DefaultApi.patchV1FeedbacksAnswer` — `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв
 - `communications.DefaultApi.patchV1Questions` — `PATCH /api/v1/questions` — Работа с вопросами
-- `communications.DefaultApi.postFeedbacksV1Pins` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
 - `communications.DefaultApi.postV1FeedbacksAnswer` — `POST /api/v1/feedbacks/answer` — Ответить на отзыв
 - `communications.DefaultApi.postV1FeedbacksOrderReturn` — `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва
+- `communications.DefaultApi.postV1Pins` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
 - `communications.DefaultApi.postV1SellerMessage` — `POST /api/v1/seller/message` — Отправить сообщение
 
 ### rates (`rates`)
@@ -345,8 +345,8 @@ var_dump($response);
 - `analytics.CSVApi.getV2NmReportDownloadsFileDownloadId` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
 - `analytics.CSVApi.postV2NmReportDownloads` — `POST /api/v2/nm-report/downloads` — Создать отчёт
 - `analytics.CSVApi.postV2NmReportDownloadsRetry` — `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно
-- `analytics.DefaultApi.postAnalyticsV1StocksReportSellerWarehouses` — `POST /api/analytics/v1/stocks-report/seller-warehouses` — Остатки на складах продавца
 - `analytics.DefaultApi.postV1OrderFeed` — `POST /api/analytics/v1/order-feed` — Получить отчёт
+- `analytics.DefaultApi.postV1StocksReportSellerWarehouses` — `POST /api/analytics/v1/stocks-report/seller-warehouses` — Остатки на складах продавца
 - `analytics.DefaultApi.postV1StocksReportWbWarehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
 - `analytics.DefaultApi.postV2ItemRating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
 - `analytics.DefaultApi.postV2SearchReportProductOrders` — `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара
@@ -364,7 +364,6 @@ var_dump($response);
 
 ### reports (`reports`)
 - `reports.CApi.postV1AnalyticsExciseReport` — `POST /api/v1/analytics/excise-report` — Получить отчёт
-- `reports.DefaultApi.getAnalyticsV1GoodsReturn` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApi.getV1AcceptanceReport` — `GET /api/v1/acceptance_report` — Создать отчёт
 - `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdDownload` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdStatus` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
@@ -377,6 +376,7 @@ var_dump($response);
 - `reports.DefaultApi.getV1AnalyticsGoodsReturn` — `GET /api/v1/analytics/goods-return` — Получить отчёт
 - `reports.DefaultApi.getV1AnalyticsRegionSale` — `GET /api/v1/analytics/region-sale` — Получить отчёт
 - `reports.DefaultApi.getV1Deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
+- `reports.DefaultApi.getV1GoodsReturn` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApi.getV1MeasurementPenalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
 - `reports.DefaultApi.getV1PaidStorage` — `GET /api/v1/paid_storage` — Создать отчёт
 - `reports.DefaultApi.getV1PaidStorageTasksTaskIdDownload` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт

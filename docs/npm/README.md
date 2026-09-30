@@ -124,11 +124,11 @@ main().catch(console.error);
 - `items.DefaultApi.putV3WarehousesWarehouseId` — Обновить склад продавца
 
 ### orders_fbs (`orders_fbs`)
-- `orders_fbs.DefaultApi.getMarketplaceV3FbsSettingsAutoreturns` — Получить настройки автовозврата продавца
-- `orders_fbs.DefaultApi.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted` — Получить предметы, которые не хранятся на складах WB
-- `orders_fbs.DefaultApi.patchMarketplaceV3FbsSettingsAutoreturns` — Обновить настройки автовозврата продавца
-- `orders_fbs.DefaultApi.patchMarketplaceV3FbsSettingsAutoreturnsItems` — Обновить настройки автовозврата товаров
-- `orders_fbs.DefaultApi.postMarketplaceV3FbsSettingsAutoreturnsItems` — Получить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.getV3FbsSettingsAutoreturns` — Получить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.getV3FbsSettingsAutoreturnsSubcategoriesRestricted` — Получить предметы, которые не хранятся на складах WB
+- `orders_fbs.DefaultApi.patchV3FbsSettingsAutoreturns` — Обновить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.patchV3FbsSettingsAutoreturnsItems` — Обновить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.postV3FbsSettingsAutoreturnsItems` — Получить настройки автовозврата товаров
 - `orders_fbs.FBSApi.deleteV3OrdersOrderIdMeta` — Удалить идентификаторы маркировки сборочного задания
 - `orders_fbs.FBSApi.deleteV3PassesPassId` — Удалить пропуск
 - `orders_fbs.FBSApi.deleteV3SuppliesSupplyId` — Удалить поставку
@@ -294,10 +294,7 @@ main().catch(console.error);
 - `promotion.DefaultApi.putV0DailyLimits` — Настройка дневных лимитов кампаний
 
 ### communications (`communications`)
-- `communications.DefaultApi.deleteFeedbacksV1Pins` — Открепить отзывы
-- `communications.DefaultApi.getFeedbacksV1Pins` — Список закреплённых и откреплённых отзывов
-- `communications.DefaultApi.getFeedbacksV1PinsCount` — Количество закреплённых и откреплённых отзывов
-- `communications.DefaultApi.getFeedbacksV1PinsLimits` — Лимиты закреплённых отзывов
+- `communications.DefaultApi.deleteV1Pins` — Открепить отзывы
 - `communications.DefaultApi.getV1Claims` — Заявки покупателей на возврат
 - `communications.DefaultApi.getV1Feedback` — Получить отзыв по ID
 - `communications.DefaultApi.getV1Feedbacks` — Список отзывов
@@ -305,6 +302,9 @@ main().catch(console.error);
 - `communications.DefaultApi.getV1FeedbacksCount` — Количество отзывов
 - `communications.DefaultApi.getV1FeedbacksCountUnanswered` — Необработанные отзывы
 - `communications.DefaultApi.getV1NewFeedbacksQuestions` — Непросмотренные отзывы и вопросы
+- `communications.DefaultApi.getV1Pins` — Список закреплённых и откреплённых отзывов
+- `communications.DefaultApi.getV1PinsCount` — Количество закреплённых и откреплённых отзывов
+- `communications.DefaultApi.getV1PinsLimits` — Лимиты закреплённых отзывов
 - `communications.DefaultApi.getV1Question` — Получить вопрос по ID
 - `communications.DefaultApi.getV1Questions` — Список вопросов
 - `communications.DefaultApi.getV1QuestionsCount` — Количество вопросов
@@ -315,9 +315,9 @@ main().catch(console.error);
 - `communications.DefaultApi.patchV1Claim` — Ответ на заявку покупателя
 - `communications.DefaultApi.patchV1FeedbacksAnswer` — Отредактировать ответ на отзыв
 - `communications.DefaultApi.patchV1Questions` — Работа с вопросами
-- `communications.DefaultApi.postFeedbacksV1Pins` — Закрепить отзывы
 - `communications.DefaultApi.postV1FeedbacksAnswer` — Ответить на отзыв
 - `communications.DefaultApi.postV1FeedbacksOrderReturn` — Возврат товара по ID отзыва
+- `communications.DefaultApi.postV1Pins` — Закрепить отзывы
 - `communications.DefaultApi.postV1SellerMessage` — Отправить сообщение
 
 ### rates (`rates`)
@@ -332,8 +332,8 @@ main().catch(console.error);
 - `analytics.CSVApi.getV2NmReportDownloadsFileDownloadId` — Получить отчёт
 - `analytics.CSVApi.postV2NmReportDownloads` — Создать отчёт
 - `analytics.CSVApi.postV2NmReportDownloadsRetry` — Сгенерировать отчёт повторно
-- `analytics.DefaultApi.postAnalyticsV1StocksReportSellerWarehouses` — Остатки на складах продавца
 - `analytics.DefaultApi.postV1OrderFeed` — Получить отчёт
+- `analytics.DefaultApi.postV1StocksReportSellerWarehouses` — Остатки на складах продавца
 - `analytics.DefaultApi.postV1StocksReportWbWarehouses` — Остатки на складах WB
 - `analytics.DefaultApi.postV2ItemRating` — Получить отчёт
 - `analytics.DefaultApi.postV2SearchReportProductOrders` — Заказы и позиции по поисковым запросам товара
@@ -351,7 +351,6 @@ main().catch(console.error);
 
 ### reports (`reports`)
 - `reports.CApi.postV1AnalyticsExciseReport` — Получить отчёт
-- `reports.DefaultApi.getAnalyticsV1GoodsReturn` — Получить отчёт
 - `reports.DefaultApi.getV1AcceptanceReport` — Создать отчёт
 - `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdDownload` — Получить отчёт
 - `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdStatus` — Проверить статус
@@ -364,6 +363,7 @@ main().catch(console.error);
 - `reports.DefaultApi.getV1AnalyticsGoodsReturn` — Получить отчёт
 - `reports.DefaultApi.getV1AnalyticsRegionSale` — Получить отчёт
 - `reports.DefaultApi.getV1Deductions` — Подмены и неверные вложения
+- `reports.DefaultApi.getV1GoodsReturn` — Получить отчёт
 - `reports.DefaultApi.getV1MeasurementPenalties` — Удержания за занижение габаритов упаковки
 - `reports.DefaultApi.getV1PaidStorage` — Создать отчёт
 - `reports.DefaultApi.getV1PaidStorageTasksTaskIdDownload` — Получить отчёт

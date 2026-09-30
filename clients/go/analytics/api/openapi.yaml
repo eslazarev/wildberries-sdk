@@ -1950,7 +1950,7 @@ paths:
         >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек |\
         \ 1 запрос |\n</div>\n"
-      operationId: postAnalyticsV1StocksReportSellerWarehouses
+      operationId: postV1StocksReportSellerWarehouses
       requestBody:
         content:
           application/json:
@@ -1962,7 +1962,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/postAnalyticsV1StocksReportSellerWarehouses_200_response"
+                $ref: "#/components/schemas/postV1StocksReportSellerWarehouses_200_response"
           description: Успешно
         "204":
           description: Нет данных
@@ -9638,7 +9638,7 @@ components:
       required:
       - data
       type: object
-    postAnalyticsV1StocksReportSellerWarehouses_200_response:
+    postV1StocksReportSellerWarehouses_200_response:
       example:
         data:
           items:

@@ -19,30 +19,15 @@ import {
     ChatsResponseToJSON,
 } from '../models/ChatsResponse';
 import {
-    type DeleteFeedbacksV1Pins200Response,
-    DeleteFeedbacksV1Pins200ResponseFromJSON,
-    DeleteFeedbacksV1Pins200ResponseToJSON,
-} from '../models/DeleteFeedbacksV1Pins200Response';
+    type DeleteV1Pins200Response,
+    DeleteV1Pins200ResponseFromJSON,
+    DeleteV1Pins200ResponseToJSON,
+} from '../models/DeleteV1Pins200Response';
 import {
     type EventsResponse,
     EventsResponseFromJSON,
     EventsResponseToJSON,
 } from '../models/EventsResponse';
-import {
-    type GetFeedbacksV1Pins200Response,
-    GetFeedbacksV1Pins200ResponseFromJSON,
-    GetFeedbacksV1Pins200ResponseToJSON,
-} from '../models/GetFeedbacksV1Pins200Response';
-import {
-    type GetFeedbacksV1PinsCount200Response,
-    GetFeedbacksV1PinsCount200ResponseFromJSON,
-    GetFeedbacksV1PinsCount200ResponseToJSON,
-} from '../models/GetFeedbacksV1PinsCount200Response';
-import {
-    type GetFeedbacksV1PinsLimits200Response,
-    GetFeedbacksV1PinsLimits200ResponseFromJSON,
-    GetFeedbacksV1PinsLimits200ResponseToJSON,
-} from '../models/GetFeedbacksV1PinsLimits200Response';
 import {
     type GetV1Claims200Response,
     GetV1Claims200ResponseFromJSON,
@@ -93,6 +78,21 @@ import {
     GetV1NewFeedbacksQuestions402ResponseFromJSON,
     GetV1NewFeedbacksQuestions402ResponseToJSON,
 } from '../models/GetV1NewFeedbacksQuestions402Response';
+import {
+    type GetV1Pins200Response,
+    GetV1Pins200ResponseFromJSON,
+    GetV1Pins200ResponseToJSON,
+} from '../models/GetV1Pins200Response';
+import {
+    type GetV1PinsCount200Response,
+    GetV1PinsCount200ResponseFromJSON,
+    GetV1PinsCount200ResponseToJSON,
+} from '../models/GetV1PinsCount200Response';
+import {
+    type GetV1PinsLimits200Response,
+    GetV1PinsLimits200ResponseFromJSON,
+    GetV1PinsLimits200ResponseToJSON,
+} from '../models/GetV1PinsLimits200Response';
 import {
     type GetV1Question200Response,
     GetV1Question200ResponseFromJSON,
@@ -164,11 +164,6 @@ import {
     PatchV1QuestionsRequestToJSON,
 } from '../models/PatchV1QuestionsRequest';
 import {
-    type PostFeedbacksV1Pins200Response,
-    PostFeedbacksV1Pins200ResponseFromJSON,
-    PostFeedbacksV1Pins200ResponseToJSON,
-} from '../models/PostFeedbacksV1Pins200Response';
-import {
     type PostV1FeedbacksAnswer403Response,
     PostV1FeedbacksAnswer403ResponseFromJSON,
     PostV1FeedbacksAnswer403ResponseToJSON,
@@ -183,6 +178,11 @@ import {
     PostV1FeedbacksOrderReturnRequestFromJSON,
     PostV1FeedbacksOrderReturnRequestToJSON,
 } from '../models/PostV1FeedbacksOrderReturnRequest';
+import {
+    type PostV1Pins200Response,
+    PostV1Pins200ResponseFromJSON,
+    PostV1Pins200ResponseToJSON,
+} from '../models/PostV1Pins200Response';
 import {
     type RespondResultErr,
     RespondResultErrFromJSON,
@@ -204,95 +204,11 @@ import {
     StandardizedFQErrorToJSON,
 } from '../models/StandardizedFQError';
 
-export interface DeleteFeedbacksV1PinsRequest {
+export interface DeleteV1PinsRequest {
     /**
      * 
      */
     requestBody: Array<number>;
-}
-
-export interface GetFeedbacksV1PinsRequest {
-    /**
-     * Закреплён ли отзыв:
-     *   - `pinned` — да
-     *   - `unpinned` — нет
-     * 
-     */
-    state?: GetFeedbacksV1PinsStateEnum;
-    /**
-     * Место закрепления отзыва:
-     *   - `nm` — карточка товара
-     *   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * 
-     */
-    pinOn?: GetFeedbacksV1PinsPinOnEnum;
-    /**
-     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br>
-     * 
-     */
-    imtId?: number;
-    /**
-     * Артикул WB
-     */
-    nmId?: number;
-    /**
-     * ID отзыва
-     */
-    feedbackId?: number;
-    /**
-     * Дата закрепления первого отзыва в списке
-     */
-    dateFrom?: Date;
-    /**
-     * Дата закрепления последнего отзыва в списке
-     */
-    dateTo?: Date;
-    /**
-     * ID последней операции закрепления (пагинатор)
-     */
-    next?: number;
-    /**
-     * Количество отзывов на одной странице (пагинация)
-     */
-    limit?: number;
-}
-
-export interface GetFeedbacksV1PinsCountRequest {
-    /**
-     * Закреплён ли отзыв:
-     *   - `pinned` — да
-     *   - `unpinned` — нет
-     * 
-     */
-    state?: GetFeedbacksV1PinsCountStateEnum;
-    /**
-     * Место закрепления отзыва:
-     *   - `nm` — карточка товара
-     *   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * 
-     */
-    pinOn?: GetFeedbacksV1PinsCountPinOnEnum;
-    /**
-     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br>
-     * 
-     */
-    imtId?: number;
-    /**
-     * Артикул WB
-     */
-    nmId?: number;
-    /**
-     * ID отзыва
-     */
-    feedbackId?: number;
-    /**
-     * Дата закрепления первого отзыва в списке
-     */
-    dateFrom?: Date;
-    /**
-     * Дата закрепления последнего отзыва в списке
-     */
-    dateTo?: Date;
 }
 
 export interface GetV1ClaimsRequest {
@@ -399,6 +315,90 @@ export interface GetV1FeedbacksCountRequest {
     dateTo?: number;
 }
 
+export interface GetV1PinsRequest {
+    /**
+     * Закреплён ли отзыв:
+     *   - `pinned` — да
+     *   - `unpinned` — нет
+     * 
+     */
+    state?: GetV1PinsStateEnum;
+    /**
+     * Место закрепления отзыва:
+     *   - `nm` — карточка товара
+     *   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * 
+     */
+    pinOn?: GetV1PinsPinOnEnum;
+    /**
+     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br>
+     * 
+     */
+    imtId?: number;
+    /**
+     * Артикул WB
+     */
+    nmId?: number;
+    /**
+     * ID отзыва
+     */
+    feedbackId?: number;
+    /**
+     * Дата закрепления первого отзыва в списке
+     */
+    dateFrom?: Date;
+    /**
+     * Дата закрепления последнего отзыва в списке
+     */
+    dateTo?: Date;
+    /**
+     * ID последней операции закрепления (пагинатор)
+     */
+    next?: number;
+    /**
+     * Количество отзывов на одной странице (пагинация)
+     */
+    limit?: number;
+}
+
+export interface GetV1PinsCountRequest {
+    /**
+     * Закреплён ли отзыв:
+     *   - `pinned` — да
+     *   - `unpinned` — нет
+     * 
+     */
+    state?: GetV1PinsCountStateEnum;
+    /**
+     * Место закрепления отзыва:
+     *   - `nm` — карточка товара
+     *   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * 
+     */
+    pinOn?: GetV1PinsCountPinOnEnum;
+    /**
+     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br>
+     * 
+     */
+    imtId?: number;
+    /**
+     * Артикул WB
+     */
+    nmId?: number;
+    /**
+     * ID отзыва
+     */
+    feedbackId?: number;
+    /**
+     * Дата закрепления первого отзыва в списке
+     */
+    dateFrom?: Date;
+    /**
+     * Дата закрепления последнего отзыва в списке
+     */
+    dateTo?: Date;
+}
+
 export interface GetV1QuestionRequest {
     /**
      * ID вопроса
@@ -498,13 +498,6 @@ export interface PatchV1QuestionsOperationRequest {
     patchV1QuestionsRequest?: PatchV1QuestionsRequest;
 }
 
-export interface PostFeedbacksV1PinsRequest {
-    /**
-     * 
-     */
-    openapiPinReviewItem: Array<OpenapiPinReviewItem>;
-}
-
 export interface PostV1FeedbacksAnswerOperationRequest {
     /**
      * 
@@ -517,6 +510,13 @@ export interface PostV1FeedbacksOrderReturnOperationRequest {
      * 
      */
     postV1FeedbacksOrderReturnRequest: PostV1FeedbacksOrderReturnRequest;
+}
+
+export interface PostV1PinsRequest {
+    /**
+     * 
+     */
+    openapiPinReviewItem: Array<OpenapiPinReviewItem>;
 }
 
 export interface PostV1SellerMessageRequest {
@@ -540,13 +540,13 @@ export interface PostV1SellerMessageRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for deleteFeedbacksV1Pins without sending the request
+     * Creates request options for deleteV1Pins without sending the request
      */
-    async deleteFeedbacksV1PinsRequestOpts(requestParameters: DeleteFeedbacksV1PinsRequest): Promise<runtime.RequestOpts> {
+    async deleteV1PinsRequestOpts(requestParameters: DeleteV1PinsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['requestBody'] == null) {
             throw new runtime.RequiredError(
                 'requestBody',
-                'Required parameter "requestBody" was null or undefined when calling deleteFeedbacksV1Pins().'
+                'Required parameter "requestBody" was null or undefined when calling deleteV1Pins().'
             );
         }
 
@@ -573,215 +573,22 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Открепить отзывы
      */
-    async deleteFeedbacksV1PinsRaw(requestParameters: DeleteFeedbacksV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteFeedbacksV1Pins200Response>> {
-        const requestOptions = await this.deleteFeedbacksV1PinsRequestOpts(requestParameters);
+    async deleteV1PinsRaw(requestParameters: DeleteV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteV1Pins200Response>> {
+        const requestOptions = await this.deleteV1PinsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteFeedbacksV1Pins200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteV1Pins200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Открепить отзывы
      */
-    async deleteFeedbacksV1Pins(requestParameters: DeleteFeedbacksV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteFeedbacksV1Pins200Response> {
-        const response = await this.deleteFeedbacksV1PinsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for getFeedbacksV1Pins without sending the request
-     */
-    async getFeedbacksV1PinsRequestOpts(requestParameters: GetFeedbacksV1PinsRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        if (requestParameters['state'] != null) {
-            queryParameters['state'] = requestParameters['state'];
-        }
-
-        if (requestParameters['pinOn'] != null) {
-            queryParameters['pinOn'] = requestParameters['pinOn'];
-        }
-
-        if (requestParameters['imtId'] != null) {
-            queryParameters['imtId'] = requestParameters['imtId'];
-        }
-
-        if (requestParameters['nmId'] != null) {
-            queryParameters['nmId'] = requestParameters['nmId'];
-        }
-
-        if (requestParameters['feedbackId'] != null) {
-            queryParameters['feedbackId'] = requestParameters['feedbackId'];
-        }
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = runtime.serializeDateTime(requestParameters['dateFrom'] as any);
-        }
-
-        if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = runtime.serializeDateTime(requestParameters['dateTo'] as any);
-        }
-
-        if (requestParameters['next'] != null) {
-            queryParameters['next'] = requestParameters['next'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/feedbacks/v1/pins`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Список закреплённых и откреплённых отзывов
-     */
-    async getFeedbacksV1PinsRaw(requestParameters: GetFeedbacksV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFeedbacksV1Pins200Response>> {
-        const requestOptions = await this.getFeedbacksV1PinsRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetFeedbacksV1Pins200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Список закреплённых и откреплённых отзывов
-     */
-    async getFeedbacksV1Pins(requestParameters: GetFeedbacksV1PinsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFeedbacksV1Pins200Response> {
-        const response = await this.getFeedbacksV1PinsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for getFeedbacksV1PinsCount without sending the request
-     */
-    async getFeedbacksV1PinsCountRequestOpts(requestParameters: GetFeedbacksV1PinsCountRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        if (requestParameters['state'] != null) {
-            queryParameters['state'] = requestParameters['state'];
-        }
-
-        if (requestParameters['pinOn'] != null) {
-            queryParameters['pinOn'] = requestParameters['pinOn'];
-        }
-
-        if (requestParameters['imtId'] != null) {
-            queryParameters['imtId'] = requestParameters['imtId'];
-        }
-
-        if (requestParameters['nmId'] != null) {
-            queryParameters['nmId'] = requestParameters['nmId'];
-        }
-
-        if (requestParameters['feedbackId'] != null) {
-            queryParameters['feedbackId'] = requestParameters['feedbackId'];
-        }
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = runtime.serializeDateTime(requestParameters['dateFrom'] as any);
-        }
-
-        if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = runtime.serializeDateTime(requestParameters['dateTo'] as any);
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/feedbacks/v1/pins/count`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Количество закреплённых и откреплённых отзывов
-     */
-    async getFeedbacksV1PinsCountRaw(requestParameters: GetFeedbacksV1PinsCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFeedbacksV1PinsCount200Response>> {
-        const requestOptions = await this.getFeedbacksV1PinsCountRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetFeedbacksV1PinsCount200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Количество закреплённых и откреплённых отзывов
-     */
-    async getFeedbacksV1PinsCount(requestParameters: GetFeedbacksV1PinsCountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFeedbacksV1PinsCount200Response> {
-        const response = await this.getFeedbacksV1PinsCountRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for getFeedbacksV1PinsLimits without sending the request
-     */
-    async getFeedbacksV1PinsLimitsRequestOpts(): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/feedbacks/v1/pins/limits`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Лимиты закреплённых отзывов
-     */
-    async getFeedbacksV1PinsLimitsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFeedbacksV1PinsLimits200Response>> {
-        const requestOptions = await this.getFeedbacksV1PinsLimitsRequestOpts();
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetFeedbacksV1PinsLimits200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Лимиты закреплённых отзывов
-     */
-    async getFeedbacksV1PinsLimits(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFeedbacksV1PinsLimits200Response> {
-        const response = await this.getFeedbacksV1PinsLimitsRaw(initOverrides);
+    async deleteV1Pins(requestParameters: DeleteV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteV1Pins200Response> {
+        const response = await this.deleteV1PinsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1219,6 +1026,199 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getV1NewFeedbacksQuestions(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1NewFeedbacksQuestions200Response> {
         const response = await this.getV1NewFeedbacksQuestionsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1Pins without sending the request
+     */
+    async getV1PinsRequestOpts(requestParameters: GetV1PinsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['state'] != null) {
+            queryParameters['state'] = requestParameters['state'];
+        }
+
+        if (requestParameters['pinOn'] != null) {
+            queryParameters['pinOn'] = requestParameters['pinOn'];
+        }
+
+        if (requestParameters['imtId'] != null) {
+            queryParameters['imtId'] = requestParameters['imtId'];
+        }
+
+        if (requestParameters['nmId'] != null) {
+            queryParameters['nmId'] = requestParameters['nmId'];
+        }
+
+        if (requestParameters['feedbackId'] != null) {
+            queryParameters['feedbackId'] = requestParameters['feedbackId'];
+        }
+
+        if (requestParameters['dateFrom'] != null) {
+            queryParameters['dateFrom'] = runtime.serializeDateTime(requestParameters['dateFrom'] as any);
+        }
+
+        if (requestParameters['dateTo'] != null) {
+            queryParameters['dateTo'] = runtime.serializeDateTime(requestParameters['dateTo'] as any);
+        }
+
+        if (requestParameters['next'] != null) {
+            queryParameters['next'] = requestParameters['next'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/feedbacks/v1/pins`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Список закреплённых и откреплённых отзывов
+     */
+    async getV1PinsRaw(requestParameters: GetV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1Pins200Response>> {
+        const requestOptions = await this.getV1PinsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1Pins200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Список закреплённых и откреплённых отзывов
+     */
+    async getV1Pins(requestParameters: GetV1PinsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Pins200Response> {
+        const response = await this.getV1PinsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1PinsCount without sending the request
+     */
+    async getV1PinsCountRequestOpts(requestParameters: GetV1PinsCountRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['state'] != null) {
+            queryParameters['state'] = requestParameters['state'];
+        }
+
+        if (requestParameters['pinOn'] != null) {
+            queryParameters['pinOn'] = requestParameters['pinOn'];
+        }
+
+        if (requestParameters['imtId'] != null) {
+            queryParameters['imtId'] = requestParameters['imtId'];
+        }
+
+        if (requestParameters['nmId'] != null) {
+            queryParameters['nmId'] = requestParameters['nmId'];
+        }
+
+        if (requestParameters['feedbackId'] != null) {
+            queryParameters['feedbackId'] = requestParameters['feedbackId'];
+        }
+
+        if (requestParameters['dateFrom'] != null) {
+            queryParameters['dateFrom'] = runtime.serializeDateTime(requestParameters['dateFrom'] as any);
+        }
+
+        if (requestParameters['dateTo'] != null) {
+            queryParameters['dateTo'] = runtime.serializeDateTime(requestParameters['dateTo'] as any);
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/feedbacks/v1/pins/count`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Количество закреплённых и откреплённых отзывов
+     */
+    async getV1PinsCountRaw(requestParameters: GetV1PinsCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1PinsCount200Response>> {
+        const requestOptions = await this.getV1PinsCountRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1PinsCount200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Количество закреплённых и откреплённых отзывов
+     */
+    async getV1PinsCount(requestParameters: GetV1PinsCountRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1PinsCount200Response> {
+        const response = await this.getV1PinsCountRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1PinsLimits without sending the request
+     */
+    async getV1PinsLimitsRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/feedbacks/v1/pins/limits`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Лимиты закреплённых отзывов
+     */
+    async getV1PinsLimitsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1PinsLimits200Response>> {
+        const requestOptions = await this.getV1PinsLimitsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1PinsLimits200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Лимиты закреплённых отзывов
+     */
+    async getV1PinsLimits(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1PinsLimits200Response> {
+        const response = await this.getV1PinsLimitsRaw(initOverrides);
         return await response.value();
     }
 
@@ -1751,59 +1751,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for postFeedbacksV1Pins without sending the request
-     */
-    async postFeedbacksV1PinsRequestOpts(requestParameters: PostFeedbacksV1PinsRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['openapiPinReviewItem'] == null) {
-            throw new runtime.RequiredError(
-                'openapiPinReviewItem',
-                'Required parameter "openapiPinReviewItem" was null or undefined when calling postFeedbacksV1Pins().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/feedbacks/v1/pins`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['openapiPinReviewItem']!.map(OpenapiPinReviewItemToJSON),
-        };
-    }
-
-    /**
-     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Закрепить отзывы
-     */
-    async postFeedbacksV1PinsRaw(requestParameters: PostFeedbacksV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostFeedbacksV1Pins200Response>> {
-        const requestOptions = await this.postFeedbacksV1PinsRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostFeedbacksV1Pins200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Закрепить отзывы
-     */
-    async postFeedbacksV1Pins(requestParameters: PostFeedbacksV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostFeedbacksV1Pins200Response> {
-        const response = await this.postFeedbacksV1PinsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Creates request options for postV1FeedbacksAnswer without sending the request
      */
     async postV1FeedbacksAnswerRequestOpts(requestParameters: PostV1FeedbacksAnswerOperationRequest): Promise<runtime.RequestOpts> {
@@ -1902,6 +1849,59 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Creates request options for postV1Pins without sending the request
+     */
+    async postV1PinsRequestOpts(requestParameters: PostV1PinsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['openapiPinReviewItem'] == null) {
+            throw new runtime.RequiredError(
+                'openapiPinReviewItem',
+                'Required parameter "openapiPinReviewItem" was null or undefined when calling postV1Pins().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/feedbacks/v1/pins`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['openapiPinReviewItem']!.map(OpenapiPinReviewItemToJSON),
+        };
+    }
+
+    /**
+     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Закрепить отзывы
+     */
+    async postV1PinsRaw(requestParameters: PostV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1Pins200Response>> {
+        const requestOptions = await this.postV1PinsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV1Pins200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Закрепить отзывы
+     */
+    async postV1Pins(requestParameters: PostV1PinsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1Pins200Response> {
+        const response = await this.postV1PinsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Creates request options for postV1SellerMessage without sending the request
      */
     async postV1SellerMessageRequestOpts(requestParameters: PostV1SellerMessageRequest): Promise<runtime.RequestOpts> {
@@ -1987,38 +1987,6 @@ export class DefaultApi extends runtime.BaseAPI {
 /**
  * @export
  */
-export const GetFeedbacksV1PinsStateEnum = {
-    Pinned: 'pinned',
-    Unpinned: 'unpinned',
-} as const;
-export type GetFeedbacksV1PinsStateEnum = typeof GetFeedbacksV1PinsStateEnum[keyof typeof GetFeedbacksV1PinsStateEnum];
-/**
- * @export
- */
-export const GetFeedbacksV1PinsPinOnEnum = {
-    Nm: 'nm',
-    Imt: 'imt',
-} as const;
-export type GetFeedbacksV1PinsPinOnEnum = typeof GetFeedbacksV1PinsPinOnEnum[keyof typeof GetFeedbacksV1PinsPinOnEnum];
-/**
- * @export
- */
-export const GetFeedbacksV1PinsCountStateEnum = {
-    Pinned: 'pinned',
-    Unpinned: 'unpinned',
-} as const;
-export type GetFeedbacksV1PinsCountStateEnum = typeof GetFeedbacksV1PinsCountStateEnum[keyof typeof GetFeedbacksV1PinsCountStateEnum];
-/**
- * @export
- */
-export const GetFeedbacksV1PinsCountPinOnEnum = {
-    Nm: 'nm',
-    Imt: 'imt',
-} as const;
-export type GetFeedbacksV1PinsCountPinOnEnum = typeof GetFeedbacksV1PinsCountPinOnEnum[keyof typeof GetFeedbacksV1PinsCountPinOnEnum];
-/**
- * @export
- */
 export const GetV1FeedbacksOrderEnum = {
     DateAsc: 'dateAsc',
     DateDesc: 'dateDesc',
@@ -2032,3 +2000,35 @@ export const GetV1FeedbacksArchiveOrderEnum = {
     DateDesc: 'dateDesc',
 } as const;
 export type GetV1FeedbacksArchiveOrderEnum = typeof GetV1FeedbacksArchiveOrderEnum[keyof typeof GetV1FeedbacksArchiveOrderEnum];
+/**
+ * @export
+ */
+export const GetV1PinsStateEnum = {
+    Pinned: 'pinned',
+    Unpinned: 'unpinned',
+} as const;
+export type GetV1PinsStateEnum = typeof GetV1PinsStateEnum[keyof typeof GetV1PinsStateEnum];
+/**
+ * @export
+ */
+export const GetV1PinsPinOnEnum = {
+    Nm: 'nm',
+    Imt: 'imt',
+} as const;
+export type GetV1PinsPinOnEnum = typeof GetV1PinsPinOnEnum[keyof typeof GetV1PinsPinOnEnum];
+/**
+ * @export
+ */
+export const GetV1PinsCountStateEnum = {
+    Pinned: 'pinned',
+    Unpinned: 'unpinned',
+} as const;
+export type GetV1PinsCountStateEnum = typeof GetV1PinsCountStateEnum[keyof typeof GetV1PinsCountStateEnum];
+/**
+ * @export
+ */
+export const GetV1PinsCountPinOnEnum = {
+    Nm: 'nm',
+    Imt: 'imt',
+} as const;
+export type GetV1PinsCountPinOnEnum = typeof GetV1PinsCountPinOnEnum[keyof typeof GetV1PinsCountPinOnEnum];

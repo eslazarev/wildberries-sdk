@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.161"
+__version__ = "0.1.162"
 
 # Define package exports
 __all__ = [
@@ -119,8 +119,8 @@ __all__ = [
     "PositionInfo",
     "PositionInfoAverage",
     "PositionInfoMedian",
-    "PostAnalyticsV1StocksReportSellerWarehouses200Response",
     "PostV1OrderFeed200Response",
+    "PostV1StocksReportSellerWarehouses200Response",
     "PostV1StocksReportWbWarehouses200Response",
     "PostV2ItemRating200Response",
     "PostV2NmReportDownloads429Response",
@@ -331,8 +331,8 @@ from wildberries_sdk.analytics.models.position_cluster import PositionCluster as
 from wildberries_sdk.analytics.models.position_info import PositionInfo as PositionInfo
 from wildberries_sdk.analytics.models.position_info_average import PositionInfoAverage as PositionInfoAverage
 from wildberries_sdk.analytics.models.position_info_median import PositionInfoMedian as PositionInfoMedian
-from wildberries_sdk.analytics.models.post_analytics_v1_stocks_report_seller_warehouses200_response import PostAnalyticsV1StocksReportSellerWarehouses200Response as PostAnalyticsV1StocksReportSellerWarehouses200Response
 from wildberries_sdk.analytics.models.post_v1_order_feed200_response import PostV1OrderFeed200Response as PostV1OrderFeed200Response
+from wildberries_sdk.analytics.models.post_v1_stocks_report_seller_warehouses200_response import PostV1StocksReportSellerWarehouses200Response as PostV1StocksReportSellerWarehouses200Response
 from wildberries_sdk.analytics.models.post_v1_stocks_report_wb_warehouses200_response import PostV1StocksReportWbWarehouses200Response as PostV1StocksReportWbWarehouses200Response
 from wildberries_sdk.analytics.models.post_v2_item_rating200_response import PostV2ItemRating200Response as PostV2ItemRating200Response
 from wildberries_sdk.analytics.models.post_v2_nm_report_downloads429_response import PostV2NmReportDownloads429Response as PostV2NmReportDownloads429Response

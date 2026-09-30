@@ -124,11 +124,11 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `items.DefaultApiService.PutV3WarehousesWarehouseId` — `PUT /api/v3/warehouses/{warehouseId}` — Обновить склад продавца
 
 ### orders_fbs (`orders_fbs`)
-- `orders_fbs.DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
-- `orders_fbs.DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
-- `orders_fbs.DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
-- `orders_fbs.DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturnsItems` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
-- `orders_fbs.DefaultApiService.PostMarketplaceV3FbsSettingsAutoreturnsItems` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
+- `orders_fbs.DefaultApiService.GetV3FbsSettingsAutoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
+- `orders_fbs.DefaultApiService.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
+- `orders_fbs.DefaultApiService.PatchV3FbsSettingsAutoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
+- `orders_fbs.DefaultApiService.PatchV3FbsSettingsAutoreturnsItems` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
+- `orders_fbs.DefaultApiService.PostV3FbsSettingsAutoreturnsItems` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
 - `orders_fbs.FBSAPIService.DeleteV3OrdersOrderIdMeta` — `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания
 - `orders_fbs.FBSAPIService.DeleteV3PassesPassId` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
 - `orders_fbs.FBSAPIService.DeleteV3SuppliesSupplyId` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
@@ -294,10 +294,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.PutV0DailyLimits` — `PUT /api/advert/v0/daily-limits` — Настройка дневных лимитов кампаний
 
 ### communications (`communications`)
-- `communications.DefaultApiService.DeleteFeedbacksV1Pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
-- `communications.DefaultApiService.GetFeedbacksV1Pins` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
-- `communications.DefaultApiService.GetFeedbacksV1PinsCount` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
-- `communications.DefaultApiService.GetFeedbacksV1PinsLimits` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
+- `communications.DefaultApiService.DeleteV1Pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
 - `communications.DefaultApiService.GetV1Claims` — `GET /api/v1/claims` — Заявки покупателей на возврат
 - `communications.DefaultApiService.GetV1Feedback` — `GET /api/v1/feedback` — Получить отзыв по ID
 - `communications.DefaultApiService.GetV1Feedbacks` — `GET /api/v1/feedbacks` — Список отзывов
@@ -305,6 +302,9 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `communications.DefaultApiService.GetV1FeedbacksCount` — `GET /api/v1/feedbacks/count` — Количество отзывов
 - `communications.DefaultApiService.GetV1FeedbacksCountUnanswered` — `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы
 - `communications.DefaultApiService.GetV1NewFeedbacksQuestions` — `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы
+- `communications.DefaultApiService.GetV1Pins` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
+- `communications.DefaultApiService.GetV1PinsCount` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
+- `communications.DefaultApiService.GetV1PinsLimits` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
 - `communications.DefaultApiService.GetV1Question` — `GET /api/v1/question` — Получить вопрос по ID
 - `communications.DefaultApiService.GetV1Questions` — `GET /api/v1/questions` — Список вопросов
 - `communications.DefaultApiService.GetV1QuestionsCount` — `GET /api/v1/questions/count` — Количество вопросов
@@ -315,9 +315,9 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `communications.DefaultApiService.PatchV1Claim` — `PATCH /api/v1/claim` — Ответ на заявку покупателя
 - `communications.DefaultApiService.PatchV1FeedbacksAnswer` — `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв
 - `communications.DefaultApiService.PatchV1Questions` — `PATCH /api/v1/questions` — Работа с вопросами
-- `communications.DefaultApiService.PostFeedbacksV1Pins` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
 - `communications.DefaultApiService.PostV1FeedbacksAnswer` — `POST /api/v1/feedbacks/answer` — Ответить на отзыв
 - `communications.DefaultApiService.PostV1FeedbacksOrderReturn` — `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва
+- `communications.DefaultApiService.PostV1Pins` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
 - `communications.DefaultApiService.PostV1SellerMessage` — `POST /api/v1/seller/message` — Отправить сообщение
 
 ### rates (`rates`)
@@ -328,8 +328,8 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `rates.DefaultApiService.GetV1TariffsReturn` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
-- `analytics.DefaultApiService.PostAnalyticsV1StocksReportSellerWarehouses` — `POST /api/analytics/v1/stocks-report/seller-warehouses` — Остатки на складах продавца
 - `analytics.DefaultApiService.PostV1OrderFeed` — `POST /api/analytics/v1/order-feed` — Получить отчёт
+- `analytics.DefaultApiService.PostV1StocksReportSellerWarehouses` — `POST /api/analytics/v1/stocks-report/seller-warehouses` — Остатки на складах продавца
 - `analytics.DefaultApiService.PostV1StocksReportWbWarehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
 - `analytics.DefaultApiService.PostV2ItemRating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
 - `analytics.DefaultApiService.PostV2SearchReportProductOrders` — `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара
@@ -350,7 +350,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `analytics.CSVAPIService.PostV2NmReportDownloadsRetry` — `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно
 
 ### reports (`reports`)
-- `reports.DefaultApiService.GetAnalyticsV1GoodsReturn` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApiService.GetV1AcceptanceReport` — `GET /api/v1/acceptance_report` — Создать отчёт
 - `reports.DefaultApiService.GetV1AcceptanceReportTasksTaskIdDownload` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApiService.GetV1AcceptanceReportTasksTaskIdStatus` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
@@ -363,6 +362,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `reports.DefaultApiService.GetV1AnalyticsGoodsReturn` — `GET /api/v1/analytics/goods-return` — Получить отчёт
 - `reports.DefaultApiService.GetV1AnalyticsRegionSale` — `GET /api/v1/analytics/region-sale` — Получить отчёт
 - `reports.DefaultApiService.GetV1Deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
+- `reports.DefaultApiService.GetV1GoodsReturn` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApiService.GetV1MeasurementPenalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
 - `reports.DefaultApiService.GetV1PaidStorage` — `GET /api/v1/paid_storage` — Создать отчёт
 - `reports.DefaultApiService.GetV1PaidStorageTasksTaskIdDownload` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт

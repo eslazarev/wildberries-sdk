@@ -2076,7 +2076,7 @@ paths:
     delete:
       description: |
         Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br>
-        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
+        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -2089,7 +2089,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
-      operationId: deleteFeedbacksV1Pins
+      operationId: deleteV1Pins
       requestBody:
         content:
           application/json:
@@ -2109,7 +2109,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/deleteFeedbacksV1Pins_200_response"
+                $ref: "#/components/schemas/deleteV1Pins_200_response"
           description: Успешно
         "400":
           content:
@@ -2206,7 +2206,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
-      operationId: getFeedbacksV1Pins
+      operationId: getV1Pins
       parameters:
       - description: |
           Закреплён ли отзыв:
@@ -2311,7 +2311,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/getFeedbacksV1Pins_200_response"
+                $ref: "#/components/schemas/getV1Pins_200_response"
           description: Успешно
         "400":
           content:
@@ -2394,7 +2394,7 @@ paths:
     post:
       description: |
         Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br>
-        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
+        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>
         <br>
         Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.
 
@@ -2409,7 +2409,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
-      operationId: postFeedbacksV1Pins
+      operationId: postV1Pins
       requestBody:
         content:
           application/json:
@@ -2431,7 +2431,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/postFeedbacksV1Pins_200_response"
+                $ref: "#/components/schemas/postV1Pins_200_response"
           description: Успешно
         "400":
           content:
@@ -2530,7 +2530,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
-      operationId: getFeedbacksV1PinsCount
+      operationId: getV1PinsCount
       parameters:
       - description: |
           Закреплён ли отзыв:
@@ -2615,7 +2615,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/getFeedbacksV1PinsCount_200_response"
+                $ref: "#/components/schemas/getV1PinsCount_200_response"
           description: Успешно
         "400":
           content:
@@ -2713,13 +2713,13 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
-      operationId: getFeedbacksV1PinsLimits
+      operationId: getV1PinsLimits
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/getFeedbacksV1PinsLimits_200_response"
+                $ref: "#/components/schemas/getV1PinsLimits_200_response"
           description: Успешно
         "401":
           content:
@@ -6348,7 +6348,7 @@ components:
           nullable: true
           type: array
       type: object
-    getFeedbacksV1Pins_200_response:
+    getV1Pins_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - properties:
@@ -6384,7 +6384,7 @@ components:
           state: unpinned
           unpinnedCause: sysTariffUnpinned
         next: 200
-    postFeedbacksV1Pins_200_response:
+    postV1Pins_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - $ref: "#/components/schemas/openapi.PinReviewItemResult"
@@ -6412,7 +6412,7 @@ components:
             detail: item not found or does not belong to seller
             requestId: 0414dс48df701618e0а3bfc414fe3136
             origin: pin-open-api
-    deleteFeedbacksV1Pins_200_response:
+    deleteV1Pins_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - properties:
@@ -6432,7 +6432,7 @@ components:
         - 123456
         - 234567
         - 345678
-    getFeedbacksV1PinsCount_200_response:
+    getV1PinsCount_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - properties:
@@ -6442,7 +6442,7 @@ components:
         type: object
       example:
         data: 0
-    getFeedbacksV1PinsLimits_200_response:
+    getV1PinsLimits_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - $ref: "#/components/schemas/openapi.SellerLimitsResponse"

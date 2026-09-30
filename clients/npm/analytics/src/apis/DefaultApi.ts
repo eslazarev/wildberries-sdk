@@ -79,15 +79,15 @@ import {
     OrderFeedRequestToJSON,
 } from '../models/OrderFeedRequest';
 import {
-    type PostAnalyticsV1StocksReportSellerWarehouses200Response,
-    PostAnalyticsV1StocksReportSellerWarehouses200ResponseFromJSON,
-    PostAnalyticsV1StocksReportSellerWarehouses200ResponseToJSON,
-} from '../models/PostAnalyticsV1StocksReportSellerWarehouses200Response';
-import {
     type PostV1OrderFeed200Response,
     PostV1OrderFeed200ResponseFromJSON,
     PostV1OrderFeed200ResponseToJSON,
 } from '../models/PostV1OrderFeed200Response';
+import {
+    type PostV1StocksReportSellerWarehouses200Response,
+    PostV1StocksReportSellerWarehouses200ResponseFromJSON,
+    PostV1StocksReportSellerWarehouses200ResponseToJSON,
+} from '../models/PostV1StocksReportSellerWarehouses200Response';
 import {
     type PostV1StocksReportWbWarehouses200Response,
     PostV1StocksReportWbWarehouses200ResponseFromJSON,
@@ -199,18 +199,18 @@ import {
     TableSizeRequestToJSON,
 } from '../models/TableSizeRequest';
 
-export interface PostAnalyticsV1StocksReportSellerWarehousesRequest {
-    /**
-     * 
-     */
-    inventoryRequest: InventoryRequest;
-}
-
 export interface PostV1OrderFeedRequest {
     /**
      * 
      */
     orderFeedRequest?: OrderFeedRequest;
+}
+
+export interface PostV1StocksReportSellerWarehousesRequest {
+    /**
+     * 
+     */
+    inventoryRequest: InventoryRequest;
 }
 
 export interface PostV1StocksReportWbWarehousesRequest {
@@ -317,66 +317,6 @@ export interface PostV3SalesFunnelProductsHistoryRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for postAnalyticsV1StocksReportSellerWarehouses without sending the request
-     */
-    async postAnalyticsV1StocksReportSellerWarehousesRequestOpts(requestParameters: PostAnalyticsV1StocksReportSellerWarehousesRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['inventoryRequest'] == null) {
-            throw new runtime.RequiredError(
-                'inventoryRequest',
-                'Required parameter "inventoryRequest" was null or undefined when calling postAnalyticsV1StocksReportSellerWarehouses().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/analytics/v1/stocks-report/seller-warehouses`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: InventoryRequestToJSON(requestParameters['inventoryRequest']),
-        };
-    }
-
-    /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие остатки товаров на складах продавца. <br><br> Данные обновляются 1 раз в 30 минут. <br><br> 1 строка ответа — данные об 1 размере товара на 1 складе продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос | </div> 
-     * Остатки на складах продавца
-     */
-    async postAnalyticsV1StocksReportSellerWarehousesRaw(requestParameters: PostAnalyticsV1StocksReportSellerWarehousesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAnalyticsV1StocksReportSellerWarehouses200Response>> {
-        const requestOptions = await this.postAnalyticsV1StocksReportSellerWarehousesRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostAnalyticsV1StocksReportSellerWarehouses200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие остатки товаров на складах продавца. <br><br> Данные обновляются 1 раз в 30 минут. <br><br> 1 строка ответа — данные об 1 размере товара на 1 складе продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос | </div> 
-     * Остатки на складах продавца
-     */
-    async postAnalyticsV1StocksReportSellerWarehouses(requestParameters: PostAnalyticsV1StocksReportSellerWarehousesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAnalyticsV1StocksReportSellerWarehouses200Response | null | undefined > {
-        const response = await this.postAnalyticsV1StocksReportSellerWarehousesRaw(requestParameters, initOverrides);
-        switch (response.raw.status) {
-            case 200:
-                return await response.value();
-            case 204:
-                return null;
-            default:
-                return await response.value();
-        }
-    }
-
-    /**
      * Creates request options for postV1OrderFeed without sending the request
      */
     async postV1OrderFeedRequestOpts(requestParameters: PostV1OrderFeedRequest): Promise<runtime.RequestOpts> {
@@ -420,6 +360,66 @@ export class DefaultApi extends runtime.BaseAPI {
     async postV1OrderFeed(requestParameters: PostV1OrderFeedRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1OrderFeed200Response> {
         const response = await this.postV1OrderFeedRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Creates request options for postV1StocksReportSellerWarehouses without sending the request
+     */
+    async postV1StocksReportSellerWarehousesRequestOpts(requestParameters: PostV1StocksReportSellerWarehousesRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['inventoryRequest'] == null) {
+            throw new runtime.RequiredError(
+                'inventoryRequest',
+                'Required parameter "inventoryRequest" was null or undefined when calling postV1StocksReportSellerWarehouses().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/analytics/v1/stocks-report/seller-warehouses`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: InventoryRequestToJSON(requestParameters['inventoryRequest']),
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие остатки товаров на складах продавца. <br><br> Данные обновляются 1 раз в 30 минут. <br><br> 1 строка ответа — данные об 1 размере товара на 1 складе продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос | </div> 
+     * Остатки на складах продавца
+     */
+    async postV1StocksReportSellerWarehousesRaw(requestParameters: PostV1StocksReportSellerWarehousesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1StocksReportSellerWarehouses200Response>> {
+        const requestOptions = await this.postV1StocksReportSellerWarehousesRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV1StocksReportSellerWarehouses200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие остатки товаров на складах продавца. <br><br> Данные обновляются 1 раз в 30 минут. <br><br> 1 строка ответа — данные об 1 размере товара на 1 складе продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос | </div> 
+     * Остатки на складах продавца
+     */
+    async postV1StocksReportSellerWarehouses(requestParameters: PostV1StocksReportSellerWarehousesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1StocksReportSellerWarehouses200Response | null | undefined > {
+        const response = await this.postV1StocksReportSellerWarehousesRaw(requestParameters, initOverrides);
+        switch (response.raw.status) {
+            case 200:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
     }
 
     /**

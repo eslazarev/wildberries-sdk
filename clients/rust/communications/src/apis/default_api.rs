@@ -17,46 +17,11 @@ use tokio::fs::File as TokioFile;
 use tokio_util::codec::{BytesCodec, FramedRead};
 
 
-/// struct for typed errors of method [`delete_feedbacks_v1_pins`]
+/// struct for typed errors of method [`delete_v1_pins`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteFeedbacksV1PinsError {
+pub enum DeleteV1PinsError {
     Status400(models::RespondResultErr),
-    Status401(models::GetV1NewFeedbacksQuestions401Response),
-    Status402(models::GetV1NewFeedbacksQuestions402Response),
-    Status403(models::PostV1FeedbacksAnswer403Response),
-    Status429(models::GetV1NewFeedbacksQuestions401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_feedbacks_v1_pins`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetFeedbacksV1PinsError {
-    Status400(models::RespondResultErr),
-    Status401(models::GetV1NewFeedbacksQuestions401Response),
-    Status402(models::GetV1NewFeedbacksQuestions402Response),
-    Status403(models::PostV1FeedbacksAnswer403Response),
-    Status429(models::GetV1NewFeedbacksQuestions401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_feedbacks_v1_pins_count`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetFeedbacksV1PinsCountError {
-    Status400(models::RespondResultErr),
-    Status401(models::GetV1NewFeedbacksQuestions401Response),
-    Status402(models::GetV1NewFeedbacksQuestions402Response),
-    Status403(models::PostV1FeedbacksAnswer403Response),
-    Status429(models::GetV1NewFeedbacksQuestions401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_feedbacks_v1_pins_limits`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetFeedbacksV1PinsLimitsError {
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
     Status403(models::PostV1FeedbacksAnswer403Response),
@@ -143,6 +108,41 @@ pub enum GetV1NewFeedbacksQuestionsError {
     Status401(models::GetV1NewFeedbacksQuestions401Response),
     Status402(models::GetV1NewFeedbacksQuestions402Response),
     Status403(models::ResponseFeedbackQuestionErr),
+    Status429(models::GetV1NewFeedbacksQuestions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v1_pins`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV1PinsError {
+    Status400(models::RespondResultErr),
+    Status401(models::GetV1NewFeedbacksQuestions401Response),
+    Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
+    Status429(models::GetV1NewFeedbacksQuestions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v1_pins_count`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV1PinsCountError {
+    Status400(models::RespondResultErr),
+    Status401(models::GetV1NewFeedbacksQuestions401Response),
+    Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
+    Status429(models::GetV1NewFeedbacksQuestions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v1_pins_limits`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV1PinsLimitsError {
+    Status401(models::GetV1NewFeedbacksQuestions401Response),
+    Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::PostV1FeedbacksAnswer403Response),
     Status429(models::GetV1NewFeedbacksQuestions401Response),
     UnknownValue(serde_json::Value),
 }
@@ -267,18 +267,6 @@ pub enum PatchV1QuestionsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`post_feedbacks_v1_pins`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum PostFeedbacksV1PinsError {
-    Status400(models::RespondResultErr),
-    Status401(models::GetV1NewFeedbacksQuestions401Response),
-    Status402(models::GetV1NewFeedbacksQuestions402Response),
-    Status403(models::RespondResultErr),
-    Status429(models::GetV1NewFeedbacksQuestions401Response),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`post_v1_feedbacks_answer`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -304,6 +292,18 @@ pub enum PostV1FeedbacksOrderReturnError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`post_v1_pins`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV1PinsError {
+    Status400(models::RespondResultErr),
+    Status401(models::GetV1NewFeedbacksQuestions401Response),
+    Status402(models::GetV1NewFeedbacksQuestions402Response),
+    Status403(models::RespondResultErr),
+    Status429(models::GetV1NewFeedbacksQuestions401Response),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`post_v1_seller_message`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -317,8 +317,8 @@ pub enum PostV1SellerMessageError {
 }
 
 
-/// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn delete_feedbacks_v1_pins(configuration: &configuration::Configuration, request_body: Vec<i32>) -> Result<models::DeleteFeedbacksV1Pins200Response, Error<DeleteFeedbacksV1PinsError>> {
+/// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+pub async fn delete_v1_pins(configuration: &configuration::Configuration, request_body: Vec<i32>) -> Result<models::DeleteV1Pins200Response, Error<DeleteV1PinsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_request_body = request_body;
 
@@ -353,207 +353,12 @@ pub async fn delete_feedbacks_v1_pins(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteFeedbacksV1Pins200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteFeedbacksV1Pins200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteV1Pins200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteV1Pins200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<DeleteFeedbacksV1PinsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn get_feedbacks_v1_pins(configuration: &configuration::Configuration, state: Option<&str>, pin_on: Option<&str>, imt_id: Option<i32>, nm_id: Option<i32>, feedback_id: Option<i32>, date_from: Option<chrono::DateTime<chrono::FixedOffset>>, date_to: Option<chrono::DateTime<chrono::FixedOffset>>, next: Option<i32>, limit: Option<i32>) -> Result<models::GetFeedbacksV1Pins200Response, Error<GetFeedbacksV1PinsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_state = state;
-    let p_query_pin_on = pin_on;
-    let p_query_imt_id = imt_id;
-    let p_query_nm_id = nm_id;
-    let p_query_feedback_id = feedback_id;
-    let p_query_date_from = date_from;
-    let p_query_date_to = date_to;
-    let p_query_next = next;
-    let p_query_limit = limit;
-
-    let uri_str = format!("{}/api/feedbacks/v1/pins", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = p_query_state {
-        req_builder = req_builder.query(&[("state", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_pin_on {
-        req_builder = req_builder.query(&[("pinOn", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_imt_id {
-        req_builder = req_builder.query(&[("imtId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_nm_id {
-        req_builder = req_builder.query(&[("nmId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_feedback_id {
-        req_builder = req_builder.query(&[("feedbackId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_date_from {
-        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_date_to {
-        req_builder = req_builder.query(&[("dateTo", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_next {
-        req_builder = req_builder.query(&[("next", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetFeedbacksV1Pins200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetFeedbacksV1Pins200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetFeedbacksV1PinsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn get_feedbacks_v1_pins_count(configuration: &configuration::Configuration, state: Option<&str>, pin_on: Option<&str>, imt_id: Option<i32>, nm_id: Option<i32>, feedback_id: Option<i32>, date_from: Option<chrono::DateTime<chrono::FixedOffset>>, date_to: Option<chrono::DateTime<chrono::FixedOffset>>) -> Result<models::GetFeedbacksV1PinsCount200Response, Error<GetFeedbacksV1PinsCountError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_state = state;
-    let p_query_pin_on = pin_on;
-    let p_query_imt_id = imt_id;
-    let p_query_nm_id = nm_id;
-    let p_query_feedback_id = feedback_id;
-    let p_query_date_from = date_from;
-    let p_query_date_to = date_to;
-
-    let uri_str = format!("{}/api/feedbacks/v1/pins/count", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = p_query_state {
-        req_builder = req_builder.query(&[("state", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_pin_on {
-        req_builder = req_builder.query(&[("pinOn", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_imt_id {
-        req_builder = req_builder.query(&[("imtId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_nm_id {
-        req_builder = req_builder.query(&[("nmId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_feedback_id {
-        req_builder = req_builder.query(&[("feedbackId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_date_from {
-        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_date_to {
-        req_builder = req_builder.query(&[("dateTo", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetFeedbacksV1PinsCount200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetFeedbacksV1PinsCount200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetFeedbacksV1PinsCountError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn get_feedbacks_v1_pins_limits(configuration: &configuration::Configuration, ) -> Result<models::GetFeedbacksV1PinsLimits200Response, Error<GetFeedbacksV1PinsLimitsError>> {
-
-    let uri_str = format!("{}/api/feedbacks/v1/pins/limits", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetFeedbacksV1PinsLimits200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetFeedbacksV1PinsLimits200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetFeedbacksV1PinsLimitsError> = serde_json::from_str(&content).ok();
+        let entity: Option<DeleteV1PinsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -924,6 +729,201 @@ pub async fn get_v1_new_feedbacks_questions(configuration: &configuration::Confi
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV1NewFeedbacksQuestionsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+pub async fn get_v1_pins(configuration: &configuration::Configuration, state: Option<&str>, pin_on: Option<&str>, imt_id: Option<i32>, nm_id: Option<i32>, feedback_id: Option<i32>, date_from: Option<chrono::DateTime<chrono::FixedOffset>>, date_to: Option<chrono::DateTime<chrono::FixedOffset>>, next: Option<i32>, limit: Option<i32>) -> Result<models::GetV1Pins200Response, Error<GetV1PinsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_state = state;
+    let p_query_pin_on = pin_on;
+    let p_query_imt_id = imt_id;
+    let p_query_nm_id = nm_id;
+    let p_query_feedback_id = feedback_id;
+    let p_query_date_from = date_from;
+    let p_query_date_to = date_to;
+    let p_query_next = next;
+    let p_query_limit = limit;
+
+    let uri_str = format!("{}/api/feedbacks/v1/pins", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_state {
+        req_builder = req_builder.query(&[("state", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_pin_on {
+        req_builder = req_builder.query(&[("pinOn", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_imt_id {
+        req_builder = req_builder.query(&[("imtId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_nm_id {
+        req_builder = req_builder.query(&[("nmId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_feedback_id {
+        req_builder = req_builder.query(&[("feedbackId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_date_from {
+        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_date_to {
+        req_builder = req_builder.query(&[("dateTo", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_next {
+        req_builder = req_builder.query(&[("next", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV1Pins200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV1Pins200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV1PinsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+pub async fn get_v1_pins_count(configuration: &configuration::Configuration, state: Option<&str>, pin_on: Option<&str>, imt_id: Option<i32>, nm_id: Option<i32>, feedback_id: Option<i32>, date_from: Option<chrono::DateTime<chrono::FixedOffset>>, date_to: Option<chrono::DateTime<chrono::FixedOffset>>) -> Result<models::GetV1PinsCount200Response, Error<GetV1PinsCountError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_state = state;
+    let p_query_pin_on = pin_on;
+    let p_query_imt_id = imt_id;
+    let p_query_nm_id = nm_id;
+    let p_query_feedback_id = feedback_id;
+    let p_query_date_from = date_from;
+    let p_query_date_to = date_to;
+
+    let uri_str = format!("{}/api/feedbacks/v1/pins/count", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_state {
+        req_builder = req_builder.query(&[("state", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_pin_on {
+        req_builder = req_builder.query(&[("pinOn", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_imt_id {
+        req_builder = req_builder.query(&[("imtId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_nm_id {
+        req_builder = req_builder.query(&[("nmId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_feedback_id {
+        req_builder = req_builder.query(&[("feedbackId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_date_from {
+        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_date_to {
+        req_builder = req_builder.query(&[("dateTo", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV1PinsCount200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV1PinsCount200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV1PinsCountError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+pub async fn get_v1_pins_limits(configuration: &configuration::Configuration, ) -> Result<models::GetV1PinsLimits200Response, Error<GetV1PinsLimitsError>> {
+
+    let uri_str = format!("{}/api/feedbacks/v1/pins/limits", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV1PinsLimits200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV1PinsLimits200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV1PinsLimitsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1380,52 +1380,6 @@ pub async fn patch_v1_questions(configuration: &configuration::Configuration, pa
     }
 }
 
-/// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn post_feedbacks_v1_pins(configuration: &configuration::Configuration, openapi_pin_review_item: Vec<models::OpenapiPinReviewItem>) -> Result<models::PostFeedbacksV1Pins200Response, Error<PostFeedbacksV1PinsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_openapi_pin_review_item = openapi_pin_review_item;
-
-    let uri_str = format!("{}/api/feedbacks/v1/pins", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_openapi_pin_review_item);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostFeedbacksV1Pins200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostFeedbacksV1Pins200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<PostFeedbacksV1PinsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
 /// Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  <div class=\"description_important\">   ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn post_v1_feedbacks_answer(configuration: &configuration::Configuration, post_v1_feedbacks_answer_request: Option<models::PostV1FeedbacksAnswerRequest>) -> Result<(), Error<PostV1FeedbacksAnswerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
@@ -1503,6 +1457,52 @@ pub async fn post_v1_feedbacks_order_return(configuration: &configuration::Confi
     } else {
         let content = resp.text().await?;
         let entity: Option<PostV1FeedbacksOrderReturnError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+pub async fn post_v1_pins(configuration: &configuration::Configuration, openapi_pin_review_item: Vec<models::OpenapiPinReviewItem>) -> Result<models::PostV1Pins200Response, Error<PostV1PinsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_openapi_pin_review_item = openapi_pin_review_item;
+
+    let uri_str = format!("{}/api/feedbacks/v1/pins", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_openapi_pin_review_item);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV1Pins200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV1Pins200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV1PinsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

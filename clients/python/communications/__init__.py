@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.161"
+__version__ = "0.1.162"
 
 # Define package exports
 __all__ = [
@@ -30,7 +30,7 @@ __all__ = [
     "ApiException",
     "Chat",
     "ChatsResponse",
-    "DeleteFeedbacksV1Pins200Response",
+    "DeleteV1Pins200Response",
     "DomainReviewPinMethod",
     "DomainReviewPinOn",
     "DomainReviewState",
@@ -41,9 +41,6 @@ __all__ = [
     "EventsResponse",
     "EventsResult",
     "File",
-    "GetFeedbacksV1Pins200Response",
-    "GetFeedbacksV1PinsCount200Response",
-    "GetFeedbacksV1PinsLimits200Response",
     "GetV1Claims200Response",
     "GetV1Claims200ResponseClaimsInner",
     "GetV1Claims400Response",
@@ -64,6 +61,9 @@ __all__ = [
     "GetV1NewFeedbacksQuestions200ResponseData",
     "GetV1NewFeedbacksQuestions401Response",
     "GetV1NewFeedbacksQuestions402Response",
+    "GetV1Pins200Response",
+    "GetV1PinsCount200Response",
+    "GetV1PinsLimits200Response",
     "GetV1Question200Response",
     "GetV1Question200ResponseData",
     "GetV1Question200ResponseDataAnswer",
@@ -100,10 +100,10 @@ __all__ = [
     "PatchV1QuestionsRequestOneOf",
     "PatchV1QuestionsRequestOneOf1",
     "PatchV1QuestionsRequestOneOf1Answer",
-    "PostFeedbacksV1Pins200Response",
     "PostV1FeedbacksAnswer403Response",
     "PostV1FeedbacksAnswerRequest",
     "PostV1FeedbacksOrderReturnRequest",
+    "PostV1Pins200Response",
     "RespondResultErr",
     "RespondSuccessResponse",
     "Response4XX",
@@ -133,7 +133,7 @@ from wildberries_sdk.communications.exceptions import ApiException as ApiExcepti
 # import models into sdk package
 from wildberries_sdk.communications.models.chat import Chat as Chat
 from wildberries_sdk.communications.models.chats_response import ChatsResponse as ChatsResponse
-from wildberries_sdk.communications.models.delete_feedbacks_v1_pins200_response import DeleteFeedbacksV1Pins200Response as DeleteFeedbacksV1Pins200Response
+from wildberries_sdk.communications.models.delete_v1_pins200_response import DeleteV1Pins200Response as DeleteV1Pins200Response
 from wildberries_sdk.communications.models.domain_review_pin_method import DomainReviewPinMethod as DomainReviewPinMethod
 from wildberries_sdk.communications.models.domain_review_pin_on import DomainReviewPinOn as DomainReviewPinOn
 from wildberries_sdk.communications.models.domain_review_state import DomainReviewState as DomainReviewState
@@ -144,9 +144,6 @@ from wildberries_sdk.communications.models.event_type import EventType as EventT
 from wildberries_sdk.communications.models.events_response import EventsResponse as EventsResponse
 from wildberries_sdk.communications.models.events_result import EventsResult as EventsResult
 from wildberries_sdk.communications.models.file import File as File
-from wildberries_sdk.communications.models.get_feedbacks_v1_pins200_response import GetFeedbacksV1Pins200Response as GetFeedbacksV1Pins200Response
-from wildberries_sdk.communications.models.get_feedbacks_v1_pins_count200_response import GetFeedbacksV1PinsCount200Response as GetFeedbacksV1PinsCount200Response
-from wildberries_sdk.communications.models.get_feedbacks_v1_pins_limits200_response import GetFeedbacksV1PinsLimits200Response as GetFeedbacksV1PinsLimits200Response
 from wildberries_sdk.communications.models.get_v1_claims200_response import GetV1Claims200Response as GetV1Claims200Response
 from wildberries_sdk.communications.models.get_v1_claims200_response_claims_inner import GetV1Claims200ResponseClaimsInner as GetV1Claims200ResponseClaimsInner
 from wildberries_sdk.communications.models.get_v1_claims400_response import GetV1Claims400Response as GetV1Claims400Response
@@ -167,6 +164,9 @@ from wildberries_sdk.communications.models.get_v1_new_feedbacks_questions200_res
 from wildberries_sdk.communications.models.get_v1_new_feedbacks_questions200_response_data import GetV1NewFeedbacksQuestions200ResponseData as GetV1NewFeedbacksQuestions200ResponseData
 from wildberries_sdk.communications.models.get_v1_new_feedbacks_questions401_response import GetV1NewFeedbacksQuestions401Response as GetV1NewFeedbacksQuestions401Response
 from wildberries_sdk.communications.models.get_v1_new_feedbacks_questions402_response import GetV1NewFeedbacksQuestions402Response as GetV1NewFeedbacksQuestions402Response
+from wildberries_sdk.communications.models.get_v1_pins200_response import GetV1Pins200Response as GetV1Pins200Response
+from wildberries_sdk.communications.models.get_v1_pins_count200_response import GetV1PinsCount200Response as GetV1PinsCount200Response
+from wildberries_sdk.communications.models.get_v1_pins_limits200_response import GetV1PinsLimits200Response as GetV1PinsLimits200Response
 from wildberries_sdk.communications.models.get_v1_question200_response import GetV1Question200Response as GetV1Question200Response
 from wildberries_sdk.communications.models.get_v1_question200_response_data import GetV1Question200ResponseData as GetV1Question200ResponseData
 from wildberries_sdk.communications.models.get_v1_question200_response_data_answer import GetV1Question200ResponseDataAnswer as GetV1Question200ResponseDataAnswer
@@ -203,10 +203,10 @@ from wildberries_sdk.communications.models.patch_v1_questions_request import Pat
 from wildberries_sdk.communications.models.patch_v1_questions_request_one_of import PatchV1QuestionsRequestOneOf as PatchV1QuestionsRequestOneOf
 from wildberries_sdk.communications.models.patch_v1_questions_request_one_of1 import PatchV1QuestionsRequestOneOf1 as PatchV1QuestionsRequestOneOf1
 from wildberries_sdk.communications.models.patch_v1_questions_request_one_of1_answer import PatchV1QuestionsRequestOneOf1Answer as PatchV1QuestionsRequestOneOf1Answer
-from wildberries_sdk.communications.models.post_feedbacks_v1_pins200_response import PostFeedbacksV1Pins200Response as PostFeedbacksV1Pins200Response
 from wildberries_sdk.communications.models.post_v1_feedbacks_answer403_response import PostV1FeedbacksAnswer403Response as PostV1FeedbacksAnswer403Response
 from wildberries_sdk.communications.models.post_v1_feedbacks_answer_request import PostV1FeedbacksAnswerRequest as PostV1FeedbacksAnswerRequest
 from wildberries_sdk.communications.models.post_v1_feedbacks_order_return_request import PostV1FeedbacksOrderReturnRequest as PostV1FeedbacksOrderReturnRequest
+from wildberries_sdk.communications.models.post_v1_pins200_response import PostV1Pins200Response as PostV1Pins200Response
 from wildberries_sdk.communications.models.respond_result_err import RespondResultErr as RespondResultErr
 from wildberries_sdk.communications.models.respond_success_response import RespondSuccessResponse as RespondSuccessResponse
 from wildberries_sdk.communications.models.response4_xx import Response4XX as Response4XX

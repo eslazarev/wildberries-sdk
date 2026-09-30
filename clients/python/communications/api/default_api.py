@@ -20,11 +20,8 @@ from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr, field
 from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from wildberries_sdk.communications.models.chats_response import ChatsResponse
-from wildberries_sdk.communications.models.delete_feedbacks_v1_pins200_response import DeleteFeedbacksV1Pins200Response
+from wildberries_sdk.communications.models.delete_v1_pins200_response import DeleteV1Pins200Response
 from wildberries_sdk.communications.models.events_response import EventsResponse
-from wildberries_sdk.communications.models.get_feedbacks_v1_pins200_response import GetFeedbacksV1Pins200Response
-from wildberries_sdk.communications.models.get_feedbacks_v1_pins_count200_response import GetFeedbacksV1PinsCount200Response
-from wildberries_sdk.communications.models.get_feedbacks_v1_pins_limits200_response import GetFeedbacksV1PinsLimits200Response
 from wildberries_sdk.communications.models.get_v1_claims200_response import GetV1Claims200Response
 from wildberries_sdk.communications.models.get_v1_feedback200_response import GetV1Feedback200Response
 from wildberries_sdk.communications.models.get_v1_feedbacks200_response import GetV1Feedbacks200Response
@@ -32,6 +29,9 @@ from wildberries_sdk.communications.models.get_v1_feedbacks_archive200_response 
 from wildberries_sdk.communications.models.get_v1_feedbacks_count200_response import GetV1FeedbacksCount200Response
 from wildberries_sdk.communications.models.get_v1_feedbacks_count_unanswered200_response import GetV1FeedbacksCountUnanswered200Response
 from wildberries_sdk.communications.models.get_v1_new_feedbacks_questions200_response import GetV1NewFeedbacksQuestions200Response
+from wildberries_sdk.communications.models.get_v1_pins200_response import GetV1Pins200Response
+from wildberries_sdk.communications.models.get_v1_pins_count200_response import GetV1PinsCount200Response
+from wildberries_sdk.communications.models.get_v1_pins_limits200_response import GetV1PinsLimits200Response
 from wildberries_sdk.communications.models.get_v1_question200_response import GetV1Question200Response
 from wildberries_sdk.communications.models.get_v1_questions200_response import GetV1Questions200Response
 from wildberries_sdk.communications.models.get_v1_questions_count200_response import GetV1QuestionsCount200Response
@@ -42,9 +42,9 @@ from wildberries_sdk.communications.models.patch_v1_claim_request import PatchV1
 from wildberries_sdk.communications.models.patch_v1_feedbacks_answer_request import PatchV1FeedbacksAnswerRequest
 from wildberries_sdk.communications.models.patch_v1_questions200_response import PatchV1Questions200Response
 from wildberries_sdk.communications.models.patch_v1_questions_request import PatchV1QuestionsRequest
-from wildberries_sdk.communications.models.post_feedbacks_v1_pins200_response import PostFeedbacksV1Pins200Response
 from wildberries_sdk.communications.models.post_v1_feedbacks_answer_request import PostV1FeedbacksAnswerRequest
 from wildberries_sdk.communications.models.post_v1_feedbacks_order_return_request import PostV1FeedbacksOrderReturnRequest
+from wildberries_sdk.communications.models.post_v1_pins200_response import PostV1Pins200Response
 
 from wildberries_sdk.communications.api_client import ApiClient, RequestSerialized
 from wildberries_sdk.communications.api_response import ApiResponse
@@ -65,7 +65,7 @@ class DefaultApi:
 
 
     @validate_call
-    def delete_feedbacks_v1_pins(
+    def delete_v1_pins(
         self,
         request_body: Annotated[List[StrictInt], Field(max_length=500, description="Список `pinId` — ID операций закрепления отзывов")],
         _request_timeout: Union[
@@ -80,10 +80,10 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> DeleteFeedbacksV1Pins200Response:
+    ) -> DeleteV1Pins200Response:
         """Открепить отзывы
 
-        Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param request_body: Список `pinId` — ID операций закрепления отзывов (required)
         :type request_body: List[int]
@@ -109,7 +109,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_feedbacks_v1_pins_serialize(
+        _param = self._delete_v1_pins_serialize(
             request_body=request_body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -118,7 +118,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteFeedbacksV1Pins200Response",
+            '200': "DeleteV1Pins200Response",
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
@@ -137,7 +137,7 @@ class DefaultApi:
 
 
     @validate_call
-    def delete_feedbacks_v1_pins_with_http_info(
+    def delete_v1_pins_with_http_info(
         self,
         request_body: Annotated[List[StrictInt], Field(max_length=500, description="Список `pinId` — ID операций закрепления отзывов")],
         _request_timeout: Union[
@@ -152,10 +152,10 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[DeleteFeedbacksV1Pins200Response]:
+    ) -> ApiResponse[DeleteV1Pins200Response]:
         """Открепить отзывы
 
-        Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param request_body: Список `pinId` — ID операций закрепления отзывов (required)
         :type request_body: List[int]
@@ -181,7 +181,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_feedbacks_v1_pins_serialize(
+        _param = self._delete_v1_pins_serialize(
             request_body=request_body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -190,7 +190,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteFeedbacksV1Pins200Response",
+            '200': "DeleteV1Pins200Response",
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
@@ -209,7 +209,7 @@ class DefaultApi:
 
 
     @validate_call
-    def delete_feedbacks_v1_pins_without_preload_content(
+    def delete_v1_pins_without_preload_content(
         self,
         request_body: Annotated[List[StrictInt], Field(max_length=500, description="Список `pinId` — ID операций закрепления отзывов")],
         _request_timeout: Union[
@@ -227,7 +227,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Открепить отзывы
 
-        Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br> Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param request_body: Список `pinId` — ID операций закрепления отзывов (required)
         :type request_body: List[int]
@@ -253,7 +253,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_feedbacks_v1_pins_serialize(
+        _param = self._delete_v1_pins_serialize(
             request_body=request_body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -262,7 +262,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteFeedbacksV1Pins200Response",
+            '200': "DeleteV1Pins200Response",
             '400': "RespondResultErr",
             '401': "GetV1NewFeedbacksQuestions401Response",
             '402': "GetV1NewFeedbacksQuestions402Response",
@@ -276,7 +276,7 @@ class DefaultApi:
         return response_data.response
 
 
-    def _delete_feedbacks_v1_pins_serialize(
+    def _delete_v1_pins_serialize(
         self,
         request_body,
         _request_auth,
@@ -343,1106 +343,6 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method='DELETE',
             resource_path='/api/feedbacks/v1/pins',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_feedbacks_v1_pins(
-        self,
-        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
-        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
-        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
-        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
-        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
-        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
-        next: Annotated[Optional[StrictInt], Field(description="ID последней операции закрепления (пагинатор)")] = None,
-        limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True)]], Field(description="Количество отзывов на одной странице (пагинация)")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetFeedbacksV1Pins200Response:
-        """Список закреплённых и откреплённых отзывов
-
-        Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
-        :type state: str
-        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-        :type pin_on: str
-        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
-        :type imt_id: int
-        :param nm_id: Артикул WB
-        :type nm_id: int
-        :param feedback_id: ID отзыва
-        :type feedback_id: int
-        :param date_from: Дата закрепления первого отзыва в списке
-        :type date_from: datetime
-        :param date_to: Дата закрепления последнего отзыва в списке
-        :type date_to: datetime
-        :param next: ID последней операции закрепления (пагинатор)
-        :type next: int
-        :param limit: Количество отзывов на одной странице (пагинация)
-        :type limit: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_feedbacks_v1_pins_serialize(
-            state=state,
-            pin_on=pin_on,
-            imt_id=imt_id,
-            nm_id=nm_id,
-            feedback_id=feedback_id,
-            date_from=date_from,
-            date_to=date_to,
-            next=next,
-            limit=limit,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedbacksV1Pins200Response",
-            '400': "RespondResultErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def get_feedbacks_v1_pins_with_http_info(
-        self,
-        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
-        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
-        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
-        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
-        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
-        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
-        next: Annotated[Optional[StrictInt], Field(description="ID последней операции закрепления (пагинатор)")] = None,
-        limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True)]], Field(description="Количество отзывов на одной странице (пагинация)")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetFeedbacksV1Pins200Response]:
-        """Список закреплённых и откреплённых отзывов
-
-        Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
-        :type state: str
-        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-        :type pin_on: str
-        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
-        :type imt_id: int
-        :param nm_id: Артикул WB
-        :type nm_id: int
-        :param feedback_id: ID отзыва
-        :type feedback_id: int
-        :param date_from: Дата закрепления первого отзыва в списке
-        :type date_from: datetime
-        :param date_to: Дата закрепления последнего отзыва в списке
-        :type date_to: datetime
-        :param next: ID последней операции закрепления (пагинатор)
-        :type next: int
-        :param limit: Количество отзывов на одной странице (пагинация)
-        :type limit: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_feedbacks_v1_pins_serialize(
-            state=state,
-            pin_on=pin_on,
-            imt_id=imt_id,
-            nm_id=nm_id,
-            feedback_id=feedback_id,
-            date_from=date_from,
-            date_to=date_to,
-            next=next,
-            limit=limit,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedbacksV1Pins200Response",
-            '400': "RespondResultErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_feedbacks_v1_pins_without_preload_content(
-        self,
-        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
-        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
-        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
-        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
-        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
-        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
-        next: Annotated[Optional[StrictInt], Field(description="ID последней операции закрепления (пагинатор)")] = None,
-        limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True)]], Field(description="Количество отзывов на одной странице (пагинация)")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> RESTResponseType:
-        """Список закреплённых и откреплённых отзывов
-
-        Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
-        :type state: str
-        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-        :type pin_on: str
-        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
-        :type imt_id: int
-        :param nm_id: Артикул WB
-        :type nm_id: int
-        :param feedback_id: ID отзыва
-        :type feedback_id: int
-        :param date_from: Дата закрепления первого отзыва в списке
-        :type date_from: datetime
-        :param date_to: Дата закрепления последнего отзыва в списке
-        :type date_to: datetime
-        :param next: ID последней операции закрепления (пагинатор)
-        :type next: int
-        :param limit: Количество отзывов на одной странице (пагинация)
-        :type limit: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_feedbacks_v1_pins_serialize(
-            state=state,
-            pin_on=pin_on,
-            imt_id=imt_id,
-            nm_id=nm_id,
-            feedback_id=feedback_id,
-            date_from=date_from,
-            date_to=date_to,
-            next=next,
-            limit=limit,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedbacksV1Pins200Response",
-            '400': "RespondResultErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_feedbacks_v1_pins_serialize(
-        self,
-        state,
-        pin_on,
-        imt_id,
-        nm_id,
-        feedback_id,
-        date_from,
-        date_to,
-        next,
-        limit,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _hosts = [
-            'https://feedbacks-api.wildberries.ru'
-        ]
-        _host = _hosts[_host_index]
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if state is not None:
-            
-            _query_params.append(('state', state))
-            
-        if pin_on is not None:
-            
-            _query_params.append(('pinOn', pin_on))
-            
-        if imt_id is not None:
-            
-            _query_params.append(('imtId', imt_id))
-            
-        if nm_id is not None:
-            
-            _query_params.append(('nmId', nm_id))
-            
-        if feedback_id is not None:
-            
-            _query_params.append(('feedbackId', feedback_id))
-            
-        if date_from is not None:
-            if isinstance(date_from, datetime):
-                _query_params.append(
-                    (
-                        'dateFrom',
-                        date_from.strftime(
-                            self.api_client.configuration.datetime_format
-                        )
-                    )
-                )
-            else:
-                _query_params.append(('dateFrom', date_from))
-            
-        if date_to is not None:
-            if isinstance(date_to, datetime):
-                _query_params.append(
-                    (
-                        'dateTo',
-                        date_to.strftime(
-                            self.api_client.configuration.datetime_format
-                        )
-                    )
-                )
-            else:
-                _query_params.append(('dateTo', date_to))
-            
-        if next is not None:
-            
-            _query_params.append(('next', next))
-            
-        if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'HeaderApiKey'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/feedbacks/v1/pins',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_feedbacks_v1_pins_count(
-        self,
-        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
-        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
-        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
-        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
-        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
-        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetFeedbacksV1PinsCount200Response:
-        """Количество закреплённых и откреплённых отзывов
-
-        Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
-        :type state: str
-        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-        :type pin_on: str
-        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
-        :type imt_id: int
-        :param nm_id: Артикул WB
-        :type nm_id: int
-        :param feedback_id: ID отзыва
-        :type feedback_id: int
-        :param date_from: Дата закрепления первого отзыва в списке
-        :type date_from: datetime
-        :param date_to: Дата закрепления последнего отзыва в списке
-        :type date_to: datetime
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_feedbacks_v1_pins_count_serialize(
-            state=state,
-            pin_on=pin_on,
-            imt_id=imt_id,
-            nm_id=nm_id,
-            feedback_id=feedback_id,
-            date_from=date_from,
-            date_to=date_to,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedbacksV1PinsCount200Response",
-            '400': "RespondResultErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def get_feedbacks_v1_pins_count_with_http_info(
-        self,
-        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
-        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
-        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
-        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
-        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
-        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetFeedbacksV1PinsCount200Response]:
-        """Количество закреплённых и откреплённых отзывов
-
-        Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
-        :type state: str
-        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-        :type pin_on: str
-        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
-        :type imt_id: int
-        :param nm_id: Артикул WB
-        :type nm_id: int
-        :param feedback_id: ID отзыва
-        :type feedback_id: int
-        :param date_from: Дата закрепления первого отзыва в списке
-        :type date_from: datetime
-        :param date_to: Дата закрепления последнего отзыва в списке
-        :type date_to: datetime
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_feedbacks_v1_pins_count_serialize(
-            state=state,
-            pin_on=pin_on,
-            imt_id=imt_id,
-            nm_id=nm_id,
-            feedback_id=feedback_id,
-            date_from=date_from,
-            date_to=date_to,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedbacksV1PinsCount200Response",
-            '400': "RespondResultErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_feedbacks_v1_pins_count_without_preload_content(
-        self,
-        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
-        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
-        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
-        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
-        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
-        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> RESTResponseType:
-        """Количество закреплённых и откреплённых отзывов
-
-        Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
-        :type state: str
-        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-        :type pin_on: str
-        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
-        :type imt_id: int
-        :param nm_id: Артикул WB
-        :type nm_id: int
-        :param feedback_id: ID отзыва
-        :type feedback_id: int
-        :param date_from: Дата закрепления первого отзыва в списке
-        :type date_from: datetime
-        :param date_to: Дата закрепления последнего отзыва в списке
-        :type date_to: datetime
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_feedbacks_v1_pins_count_serialize(
-            state=state,
-            pin_on=pin_on,
-            imt_id=imt_id,
-            nm_id=nm_id,
-            feedback_id=feedback_id,
-            date_from=date_from,
-            date_to=date_to,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedbacksV1PinsCount200Response",
-            '400': "RespondResultErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_feedbacks_v1_pins_count_serialize(
-        self,
-        state,
-        pin_on,
-        imt_id,
-        nm_id,
-        feedback_id,
-        date_from,
-        date_to,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _hosts = [
-            'https://feedbacks-api.wildberries.ru'
-        ]
-        _host = _hosts[_host_index]
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if state is not None:
-            
-            _query_params.append(('state', state))
-            
-        if pin_on is not None:
-            
-            _query_params.append(('pinOn', pin_on))
-            
-        if imt_id is not None:
-            
-            _query_params.append(('imtId', imt_id))
-            
-        if nm_id is not None:
-            
-            _query_params.append(('nmId', nm_id))
-            
-        if feedback_id is not None:
-            
-            _query_params.append(('feedbackId', feedback_id))
-            
-        if date_from is not None:
-            if isinstance(date_from, datetime):
-                _query_params.append(
-                    (
-                        'dateFrom',
-                        date_from.strftime(
-                            self.api_client.configuration.datetime_format
-                        )
-                    )
-                )
-            else:
-                _query_params.append(('dateFrom', date_from))
-            
-        if date_to is not None:
-            if isinstance(date_to, datetime):
-                _query_params.append(
-                    (
-                        'dateTo',
-                        date_to.strftime(
-                            self.api_client.configuration.datetime_format
-                        )
-                    )
-                )
-            else:
-                _query_params.append(('dateTo', date_to))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'HeaderApiKey'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/feedbacks/v1/pins/count',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_feedbacks_v1_pins_limits(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetFeedbacksV1PinsLimits200Response:
-        """Лимиты закреплённых отзывов
-
-        Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_feedbacks_v1_pins_limits_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedbacksV1PinsLimits200Response",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def get_feedbacks_v1_pins_limits_with_http_info(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetFeedbacksV1PinsLimits200Response]:
-        """Лимиты закреплённых отзывов
-
-        Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_feedbacks_v1_pins_limits_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedbacksV1PinsLimits200Response",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_feedbacks_v1_pins_limits_without_preload_content(
-        self,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> RESTResponseType:
-        """Лимиты закреплённых отзывов
-
-        Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_feedbacks_v1_pins_limits_serialize(
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedbacksV1PinsLimits200Response",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_feedbacks_v1_pins_limits_serialize(
-        self,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _hosts = [
-            'https://feedbacks-api.wildberries.ru'
-        ]
-        _host = _hosts[_host_index]
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'HeaderApiKey'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/feedbacks/v1/pins/limits',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3641,6 +2541,1106 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v1/new-feedbacks-questions',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_v1_pins(
+        self,
+        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
+        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
+        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
+        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
+        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
+        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
+        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
+        next: Annotated[Optional[StrictInt], Field(description="ID последней операции закрепления (пагинатор)")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True)]], Field(description="Количество отзывов на одной странице (пагинация)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> GetV1Pins200Response:
+        """Список закреплённых и откреплённых отзывов
+
+        Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
+        :type state: str
+        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+        :type pin_on: str
+        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
+        :type imt_id: int
+        :param nm_id: Артикул WB
+        :type nm_id: int
+        :param feedback_id: ID отзыва
+        :type feedback_id: int
+        :param date_from: Дата закрепления первого отзыва в списке
+        :type date_from: datetime
+        :param date_to: Дата закрепления последнего отзыва в списке
+        :type date_to: datetime
+        :param next: ID последней операции закрепления (пагинатор)
+        :type next: int
+        :param limit: Количество отзывов на одной странице (пагинация)
+        :type limit: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_pins_serialize(
+            state=state,
+            pin_on=pin_on,
+            imt_id=imt_id,
+            nm_id=nm_id,
+            feedback_id=feedback_id,
+            date_from=date_from,
+            date_to=date_to,
+            next=next,
+            limit=limit,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1Pins200Response",
+            '400': "RespondResultErr",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v1_pins_with_http_info(
+        self,
+        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
+        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
+        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
+        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
+        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
+        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
+        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
+        next: Annotated[Optional[StrictInt], Field(description="ID последней операции закрепления (пагинатор)")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True)]], Field(description="Количество отзывов на одной странице (пагинация)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[GetV1Pins200Response]:
+        """Список закреплённых и откреплённых отзывов
+
+        Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
+        :type state: str
+        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+        :type pin_on: str
+        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
+        :type imt_id: int
+        :param nm_id: Артикул WB
+        :type nm_id: int
+        :param feedback_id: ID отзыва
+        :type feedback_id: int
+        :param date_from: Дата закрепления первого отзыва в списке
+        :type date_from: datetime
+        :param date_to: Дата закрепления последнего отзыва в списке
+        :type date_to: datetime
+        :param next: ID последней операции закрепления (пагинатор)
+        :type next: int
+        :param limit: Количество отзывов на одной странице (пагинация)
+        :type limit: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_pins_serialize(
+            state=state,
+            pin_on=pin_on,
+            imt_id=imt_id,
+            nm_id=nm_id,
+            feedback_id=feedback_id,
+            date_from=date_from,
+            date_to=date_to,
+            next=next,
+            limit=limit,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1Pins200Response",
+            '400': "RespondResultErr",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v1_pins_without_preload_content(
+        self,
+        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
+        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
+        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
+        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
+        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
+        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
+        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
+        next: Annotated[Optional[StrictInt], Field(description="ID последней операции закрепления (пагинатор)")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True)]], Field(description="Количество отзывов на одной странице (пагинация)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Список закреплённых и откреплённых отзывов
+
+        Метод предоставляет список закреплённых и откреплённых отзывов. <br> Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
+        :type state: str
+        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+        :type pin_on: str
+        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
+        :type imt_id: int
+        :param nm_id: Артикул WB
+        :type nm_id: int
+        :param feedback_id: ID отзыва
+        :type feedback_id: int
+        :param date_from: Дата закрепления первого отзыва в списке
+        :type date_from: datetime
+        :param date_to: Дата закрепления последнего отзыва в списке
+        :type date_to: datetime
+        :param next: ID последней операции закрепления (пагинатор)
+        :type next: int
+        :param limit: Количество отзывов на одной странице (пагинация)
+        :type limit: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_pins_serialize(
+            state=state,
+            pin_on=pin_on,
+            imt_id=imt_id,
+            nm_id=nm_id,
+            feedback_id=feedback_id,
+            date_from=date_from,
+            date_to=date_to,
+            next=next,
+            limit=limit,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1Pins200Response",
+            '400': "RespondResultErr",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v1_pins_serialize(
+        self,
+        state,
+        pin_on,
+        imt_id,
+        nm_id,
+        feedback_id,
+        date_from,
+        date_to,
+        next,
+        limit,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://feedbacks-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if state is not None:
+            
+            _query_params.append(('state', state))
+            
+        if pin_on is not None:
+            
+            _query_params.append(('pinOn', pin_on))
+            
+        if imt_id is not None:
+            
+            _query_params.append(('imtId', imt_id))
+            
+        if nm_id is not None:
+            
+            _query_params.append(('nmId', nm_id))
+            
+        if feedback_id is not None:
+            
+            _query_params.append(('feedbackId', feedback_id))
+            
+        if date_from is not None:
+            if isinstance(date_from, datetime):
+                _query_params.append(
+                    (
+                        'dateFrom',
+                        date_from.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('dateFrom', date_from))
+            
+        if date_to is not None:
+            if isinstance(date_to, datetime):
+                _query_params.append(
+                    (
+                        'dateTo',
+                        date_to.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('dateTo', date_to))
+            
+        if next is not None:
+            
+            _query_params.append(('next', next))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/problem+json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/feedbacks/v1/pins',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_v1_pins_count(
+        self,
+        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
+        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
+        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
+        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
+        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
+        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
+        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> GetV1PinsCount200Response:
+        """Количество закреплённых и откреплённых отзывов
+
+        Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
+        :type state: str
+        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+        :type pin_on: str
+        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
+        :type imt_id: int
+        :param nm_id: Артикул WB
+        :type nm_id: int
+        :param feedback_id: ID отзыва
+        :type feedback_id: int
+        :param date_from: Дата закрепления первого отзыва в списке
+        :type date_from: datetime
+        :param date_to: Дата закрепления последнего отзыва в списке
+        :type date_to: datetime
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_pins_count_serialize(
+            state=state,
+            pin_on=pin_on,
+            imt_id=imt_id,
+            nm_id=nm_id,
+            feedback_id=feedback_id,
+            date_from=date_from,
+            date_to=date_to,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1PinsCount200Response",
+            '400': "RespondResultErr",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v1_pins_count_with_http_info(
+        self,
+        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
+        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
+        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
+        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
+        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
+        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
+        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[GetV1PinsCount200Response]:
+        """Количество закреплённых и откреплённых отзывов
+
+        Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
+        :type state: str
+        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+        :type pin_on: str
+        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
+        :type imt_id: int
+        :param nm_id: Артикул WB
+        :type nm_id: int
+        :param feedback_id: ID отзыва
+        :type feedback_id: int
+        :param date_from: Дата закрепления первого отзыва в списке
+        :type date_from: datetime
+        :param date_to: Дата закрепления последнего отзыва в списке
+        :type date_to: datetime
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_pins_count_serialize(
+            state=state,
+            pin_on=pin_on,
+            imt_id=imt_id,
+            nm_id=nm_id,
+            feedback_id=feedback_id,
+            date_from=date_from,
+            date_to=date_to,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1PinsCount200Response",
+            '400': "RespondResultErr",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v1_pins_count_without_preload_content(
+        self,
+        state: Annotated[Optional[StrictStr], Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")] = None,
+        pin_on: Annotated[Optional[StrictStr], Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ")] = None,
+        imt_id: Annotated[Optional[StrictInt], Field(description="ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> ")] = None,
+        nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
+        feedback_id: Annotated[Optional[StrictInt], Field(description="ID отзыва")] = None,
+        date_from: Annotated[Optional[datetime], Field(description="Дата закрепления первого отзыва в списке")] = None,
+        date_to: Annotated[Optional[datetime], Field(description="Дата закрепления последнего отзыва в списке")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Количество закреплённых и откреплённых отзывов
+
+        Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param state: Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет 
+        :type state: str
+        :param pin_on: Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+        :type pin_on: str
+        :param imt_id: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br> 
+        :type imt_id: int
+        :param nm_id: Артикул WB
+        :type nm_id: int
+        :param feedback_id: ID отзыва
+        :type feedback_id: int
+        :param date_from: Дата закрепления первого отзыва в списке
+        :type date_from: datetime
+        :param date_to: Дата закрепления последнего отзыва в списке
+        :type date_to: datetime
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_pins_count_serialize(
+            state=state,
+            pin_on=pin_on,
+            imt_id=imt_id,
+            nm_id=nm_id,
+            feedback_id=feedback_id,
+            date_from=date_from,
+            date_to=date_to,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1PinsCount200Response",
+            '400': "RespondResultErr",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v1_pins_count_serialize(
+        self,
+        state,
+        pin_on,
+        imt_id,
+        nm_id,
+        feedback_id,
+        date_from,
+        date_to,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://feedbacks-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if state is not None:
+            
+            _query_params.append(('state', state))
+            
+        if pin_on is not None:
+            
+            _query_params.append(('pinOn', pin_on))
+            
+        if imt_id is not None:
+            
+            _query_params.append(('imtId', imt_id))
+            
+        if nm_id is not None:
+            
+            _query_params.append(('nmId', nm_id))
+            
+        if feedback_id is not None:
+            
+            _query_params.append(('feedbackId', feedback_id))
+            
+        if date_from is not None:
+            if isinstance(date_from, datetime):
+                _query_params.append(
+                    (
+                        'dateFrom',
+                        date_from.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('dateFrom', date_from))
+            
+        if date_to is not None:
+            if isinstance(date_to, datetime):
+                _query_params.append(
+                    (
+                        'dateTo',
+                        date_to.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('dateTo', date_to))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/problem+json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/feedbacks/v1/pins/count',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_v1_pins_limits(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> GetV1PinsLimits200Response:
+        """Лимиты закреплённых отзывов
+
+        Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_pins_limits_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1PinsLimits200Response",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v1_pins_limits_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[GetV1PinsLimits200Response]:
+        """Лимиты закреплённых отзывов
+
+        Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_pins_limits_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1PinsLimits200Response",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v1_pins_limits_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Лимиты закреплённых отзывов
+
+        Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_pins_limits_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1PinsLimits200Response",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "PostV1FeedbacksAnswer403Response",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v1_pins_limits_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://feedbacks-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/problem+json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/feedbacks/v1/pins/limits',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6621,300 +6621,6 @@ class DefaultApi:
 
 
     @validate_call
-    def post_feedbacks_v1_pins(
-        self,
-        openapi_pin_review_item: Annotated[List[OpenapiPinReviewItem], Field(max_length=500)],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> PostFeedbacksV1Pins200Response:
-        """Закрепить отзывы
-
-        Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param openapi_pin_review_item: (required)
-        :type openapi_pin_review_item: List[OpenapiPinReviewItem]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_feedbacks_v1_pins_serialize(
-            openapi_pin_review_item=openapi_pin_review_item,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostFeedbacksV1Pins200Response",
-            '400': "RespondResultErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "RespondResultErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def post_feedbacks_v1_pins_with_http_info(
-        self,
-        openapi_pin_review_item: Annotated[List[OpenapiPinReviewItem], Field(max_length=500)],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[PostFeedbacksV1Pins200Response]:
-        """Закрепить отзывы
-
-        Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param openapi_pin_review_item: (required)
-        :type openapi_pin_review_item: List[OpenapiPinReviewItem]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_feedbacks_v1_pins_serialize(
-            openapi_pin_review_item=openapi_pin_review_item,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostFeedbacksV1Pins200Response",
-            '400': "RespondResultErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "RespondResultErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def post_feedbacks_v1_pins_without_preload_content(
-        self,
-        openapi_pin_review_item: Annotated[List[OpenapiPinReviewItem], Field(max_length=500)],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> RESTResponseType:
-        """Закрепить отзывы
-
-        Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-
-        :param openapi_pin_review_item: (required)
-        :type openapi_pin_review_item: List[OpenapiPinReviewItem]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_feedbacks_v1_pins_serialize(
-            openapi_pin_review_item=openapi_pin_review_item,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostFeedbacksV1Pins200Response",
-            '400': "RespondResultErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "RespondResultErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_feedbacks_v1_pins_serialize(
-        self,
-        openapi_pin_review_item,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _hosts = [
-            'https://feedbacks-api.wildberries.ru'
-        ]
-        _host = _hosts[_host_index]
-
-        _collection_formats: Dict[str, str] = {
-            'OpenapiPinReviewItem': '',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if openapi_pin_review_item is not None:
-            _body_params = openapi_pin_review_item
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'HeaderApiKey'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/feedbacks/v1/pins',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def post_v1_feedbacks_answer(
         self,
         post_v1_feedbacks_answer_request: Optional[PostV1FeedbacksAnswerRequest] = None,
@@ -7490,6 +7196,300 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/api/v1/feedbacks/order/return',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def post_v1_pins(
+        self,
+        openapi_pin_review_item: Annotated[List[OpenapiPinReviewItem], Field(max_length=500)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> PostV1Pins200Response:
+        """Закрепить отзывы
+
+        Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param openapi_pin_review_item: (required)
+        :type openapi_pin_review_item: List[OpenapiPinReviewItem]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_v1_pins_serialize(
+            openapi_pin_review_item=openapi_pin_review_item,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PostV1Pins200Response",
+            '400': "RespondResultErr",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "RespondResultErr",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def post_v1_pins_with_http_info(
+        self,
+        openapi_pin_review_item: Annotated[List[OpenapiPinReviewItem], Field(max_length=500)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[PostV1Pins200Response]:
+        """Закрепить отзывы
+
+        Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param openapi_pin_review_item: (required)
+        :type openapi_pin_review_item: List[OpenapiPinReviewItem]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_v1_pins_serialize(
+            openapi_pin_review_item=openapi_pin_review_item,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PostV1Pins200Response",
+            '400': "RespondResultErr",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "RespondResultErr",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def post_v1_pins_without_preload_content(
+        self,
+        openapi_pin_review_item: Annotated[List[OpenapiPinReviewItem], Field(max_length=500)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Закрепить отзывы
+
+        Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br> Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br> <br> Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+
+        :param openapi_pin_review_item: (required)
+        :type openapi_pin_review_item: List[OpenapiPinReviewItem]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_v1_pins_serialize(
+            openapi_pin_review_item=openapi_pin_review_item,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PostV1Pins200Response",
+            '400': "RespondResultErr",
+            '401': "GetV1NewFeedbacksQuestions401Response",
+            '402': "GetV1NewFeedbacksQuestions402Response",
+            '403': "RespondResultErr",
+            '429': "GetV1NewFeedbacksQuestions401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _post_v1_pins_serialize(
+        self,
+        openapi_pin_review_item,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://feedbacks-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+            'OpenapiPinReviewItem': '',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if openapi_pin_review_item is not None:
+            _body_params = openapi_pin_review_item
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/problem+json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/feedbacks/v1/pins',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
