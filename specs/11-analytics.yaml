@@ -1410,7 +1410,7 @@ paths:
       tags:
         - История остатков
       summary: Остатки на складах продавца
-      operationId: postAnalyticsV1StocksReportSellerWarehouses
+      operationId: postV1StocksReportSellerWarehouses
       description: |
 
         <div class="description_token">

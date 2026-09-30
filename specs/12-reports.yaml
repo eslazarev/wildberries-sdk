@@ -2225,7 +2225,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
-      operationId: getAnalyticsV1GoodsReturn
+      operationId: getV1GoodsReturn
       x-readonly-method: true
       x-category: contentanalytics
       security:
