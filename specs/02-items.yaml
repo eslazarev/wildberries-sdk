@@ -1045,9 +1045,9 @@ paths:
       x-category: content
       security:
         - HeaderApiKey: []
-      summary: ТНВЭД-код
+      summary: Код ТН ВЭД предмета
       description: |
-        Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.
+        Метод возвращает список кодов ТН ВЭД по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
@@ -1084,7 +1084,7 @@ paths:
             example: 105
         - name: search
           in: query
-          description: Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`
+          description: Поиск по коду ТН ВЭД. Работает только в паре с `subjectID`
           schema:
             type: integer
             example: 6106903000
@@ -1116,7 +1116,7 @@ paths:
                       properties:
                         tnved:
                           type: string
-                          description: ТНВЭД-код
+                          description: Код ТН ВЭД
                         isKiz:
                           type: boolean
                           description: |
@@ -1146,6 +1146,389 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
+  /api/content/v2/directory/tnved/all:
+    servers:
+      - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+    get:
+      tags:
+        - Категории, предметы и характеристики
+      x-readonly-method: true
+      x-category: content
+      operationId: getV2DirectoryTnvedAll
+      security:
+        - HeaderApiKey: []
+      summary: Список кодов ТН ВЭД
+      description: |
+        Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре `search`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+        Исключение — методы:
+
+        <ul>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+        </ul>
+
+        <hr>
+
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+
+        </div>
+      parameters:
+        - name: search
+          in: query
+          description: Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов
+          schema:
+            type: integer
+            example: 6106
+        - name: locale
+          in: query
+          description: |
+            Язык полей ответа:
+              - `ru` — русский
+              - `en` — английский
+          schema:
+            type: string
+            enum:
+              - ru
+              - en
+            example: ru
+            default: ru
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - error
+                  - errorText
+                  - additionalErrors
+                properties:
+                  data:
+                    description: Данные
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - tnved
+                        - description
+                      properties:
+                        tnved:
+                          type: string
+                          description: Код ТН ВЭД
+                          example: '6106903001'
+                        description:
+                          type: string
+                          description: Текстовое описание товаров, которые входят в группу
+                          example: Бумага для офисной техники прочая
+                  error:
+                    type: boolean
+                    description: Флаг наличия ошибки
+                    example: false
+                  errorText:
+                    type: string
+                    description: Текст ошибки
+                    example: ''
+                  additionalErrors:
+                    nullable: true
+                    type: string
+                    example: null
+                    description: Дополнительные ошибки
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responseBodyContentError400'
+              example:
+                data: null
+                error: true
+                errorText: Bad request
+                additionalErrors: {}
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
+  /api/content/v2/directory/okpd:
+    servers:
+      - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+    get:
+      tags:
+        - Категории, предметы и характеристики
+      x-readonly-method: true
+      x-category: content
+      operationId: getV2DirectoryOkpd
+      security:
+        - HeaderApiKey: []
+      summary: Код ОКПД2 предмета
+      description: |
+        Метод возвращает список кодов ОКПД2 по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+        Исключение — методы:
+
+        <ul>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+        </ul>
+
+        </div>
+      parameters:
+        - name: subjectId
+          in: query
+          required: true
+          description: ID предмета
+          schema:
+            type: integer
+            example: 105
+        - name: search
+          in: query
+          description: Поиск по фрагменту кода ОКПД2. Работает только в паре с `subjectId`. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту
+          schema:
+            type: string
+            example: '61.06'
+        - name: locale
+          in: query
+          description: |
+            Язык полей ответа:
+              - `ru` — русский
+          schema:
+            type: string
+            enum:
+              - ru
+            example: ru
+            default: ru
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - error
+                  - errorText
+                  - additionalErrors
+                properties:
+                  data:
+                    description: Данные
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - okpd2
+                        - description
+                      properties:
+                        okpd2:
+                          type: string
+                          description: Код ОКПД2
+                          example: 61.06.90.300
+                        description:
+                          type: string
+                          description: Текстовое описание товаров, которые входят в группу
+                          example: Бумага для офисной техники прочая
+                  error:
+                    type: boolean
+                    description: Флаг наличия ошибки
+                    example: false
+                  errorText:
+                    type: string
+                    description: Текст ошибки
+                    example: ''
+                  additionalErrors:
+                    nullable: true
+                    type: string
+                    example: null
+                    description: Дополнительные ошибки
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responseBodyContentError400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
+  /api/content/v2/directory/okpd/all:
+    servers:
+      - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+    get:
+      tags:
+        - Категории, предметы и характеристики
+      x-readonly-method: true
+      x-category: content
+      operationId: getV2DirectoryOkpdAll
+      security:
+        - HeaderApiKey: []
+      summary: Список кодов ОКПД2
+      description: |
+        Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре `search`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+        Исключение — методы:
+
+        <ul>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+        </ul>
+
+        </div>
+      parameters:
+        - name: search
+          in: query
+          description: Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту
+          schema:
+            type: number
+            example: 61.06
+        - name: locale
+          in: query
+          description: |
+            Язык полей ответа:
+              - `ru` — русский
+          schema:
+            type: string
+            enum:
+              - ru
+            example: ru
+            default: ru
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - error
+                  - errorText
+                  - additionalErrors
+                properties:
+                  data:
+                    description: Данные
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - okpd2
+                        - description
+                      properties:
+                        okpd2:
+                          type: string
+                          description: Код ОКПД2
+                          example: 61.06.90.300
+                        description:
+                          type: string
+                          description: Текстовое описание товаров, которые входят в группу
+                          example: Бумага для офисной техники прочая
+                  error:
+                    type: boolean
+                    description: Флаг наличия ошибки
+                    example: false
+                  errorText:
+                    type: string
+                    description: Текст ошибки
+                    example: ''
+                  additionalErrors:
+                    nullable: true
+                    type: string
+                    example: null
+                    description: Дополнительные ошибки
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responseBodyContentError400'
+              example:
+                data: null
+                error: true
+                errorText: Bad request
+                additionalErrors: {}
         '401':
           $ref: '#/components/responses/401'
         '403':
