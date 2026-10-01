@@ -93,8 +93,11 @@ var_dump($response);
 - `items.DefaultApi.getV2DirectoryColors` — `GET /content/v2/directory/colors` — Цвет
 - `items.DefaultApi.getV2DirectoryCountries` — `GET /content/v2/directory/countries` — Страна производства
 - `items.DefaultApi.getV2DirectoryKinds` — `GET /content/v2/directory/kinds` — Пол
+- `items.DefaultApi.getV2DirectoryOkpd` — `GET /api/content/v2/directory/okpd` — Код ОКПД2 предмета
+- `items.DefaultApi.getV2DirectoryOkpdAll` — `GET /api/content/v2/directory/okpd/all` — Список кодов ОКПД2
 - `items.DefaultApi.getV2DirectorySeasons` — `GET /content/v2/directory/seasons` — Сезон
-- `items.DefaultApi.getV2DirectoryTnved` — `GET /content/v2/directory/tnved` — ТНВЭД-код
+- `items.DefaultApi.getV2DirectoryTnved` — `GET /content/v2/directory/tnved` — Код ТН ВЭД предмета
+- `items.DefaultApi.getV2DirectoryTnvedAll` — `GET /api/content/v2/directory/tnved/all` — Список кодов ТН ВЭД
 - `items.DefaultApi.getV2DirectoryVat` — `GET /content/v2/directory/vat` — Ставка НДС
 - `items.DefaultApi.getV2HistoryGoodsTask` — `GET /api/v2/history/goods/task` — Детализация обработанной загрузки
 - `items.DefaultApi.getV2HistoryTasks` — `GET /api/v2/history/tasks` — Состояние обработанной загрузки

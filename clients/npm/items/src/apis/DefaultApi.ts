@@ -69,6 +69,11 @@ import {
     GetV2DirectoryKinds200ResponseToJSON,
 } from '../models/GetV2DirectoryKinds200Response';
 import {
+    type GetV2DirectoryOkpd200Response,
+    GetV2DirectoryOkpd200ResponseFromJSON,
+    GetV2DirectoryOkpd200ResponseToJSON,
+} from '../models/GetV2DirectoryOkpd200Response';
+import {
     type GetV2DirectorySeasons200Response,
     GetV2DirectorySeasons200ResponseFromJSON,
     GetV2DirectorySeasons200ResponseToJSON,
@@ -78,6 +83,11 @@ import {
     GetV2DirectoryTnved200ResponseFromJSON,
     GetV2DirectoryTnved200ResponseToJSON,
 } from '../models/GetV2DirectoryTnved200Response';
+import {
+    type GetV2DirectoryTnvedAll200Response,
+    GetV2DirectoryTnvedAll200ResponseFromJSON,
+    GetV2DirectoryTnvedAll200ResponseToJSON,
+} from '../models/GetV2DirectoryTnvedAll200Response';
 import {
     type GetV2DirectoryVat200Response,
     GetV2DirectoryVat200ResponseFromJSON,
@@ -516,6 +526,36 @@ export interface GetV2DirectoryKindsRequest {
     locale?: string;
 }
 
+export interface GetV2DirectoryOkpdRequest {
+    /**
+     * ID предмета
+     */
+    subjectId: number;
+    /**
+     * Поиск по фрагменту кода ОКПД2. Работает только в паре с `subjectId`. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту
+     */
+    search?: string;
+    /**
+     * Язык полей ответа:
+     *   - `ru` — русский
+     * 
+     */
+    locale?: GetV2DirectoryOkpdLocaleEnum;
+}
+
+export interface GetV2DirectoryOkpdAllRequest {
+    /**
+     * Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту
+     */
+    search?: number;
+    /**
+     * Язык полей ответа:
+     *   - `ru` — русский
+     * 
+     */
+    locale?: GetV2DirectoryOkpdAllLocaleEnum;
+}
+
 export interface GetV2DirectorySeasonsRequest {
     /**
      * Язык полей ответа `subjectName` и `name`:
@@ -535,7 +575,7 @@ export interface GetV2DirectoryTnvedRequest {
      */
     subjectID: number;
     /**
-     * Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`
+     * Поиск по коду ТН ВЭД. Работает только в паре с `subjectID`
      */
     search?: number;
     /**
@@ -548,6 +588,20 @@ export interface GetV2DirectoryTnvedRequest {
      * 
      */
     locale?: string;
+}
+
+export interface GetV2DirectoryTnvedAllRequest {
+    /**
+     * Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов
+     */
+    search?: number;
+    /**
+     * Язык полей ответа:
+     *   - `ru` — русский
+     *   - `en` — английский
+     * 
+     */
+    locale?: GetV2DirectoryTnvedAllLocaleEnum;
 }
 
 export interface GetV2DirectoryVatRequest {
@@ -1474,6 +1528,119 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Creates request options for getV2DirectoryOkpd without sending the request
+     */
+    async getV2DirectoryOkpdRequestOpts(requestParameters: GetV2DirectoryOkpdRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['subjectId'] == null) {
+            throw new runtime.RequiredError(
+                'subjectId',
+                'Required parameter "subjectId" was null or undefined when calling getV2DirectoryOkpd().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['subjectId'] != null) {
+            queryParameters['subjectId'] = requestParameters['subjectId'];
+        }
+
+        if (requestParameters['search'] != null) {
+            queryParameters['search'] = requestParameters['search'];
+        }
+
+        if (requestParameters['locale'] != null) {
+            queryParameters['locale'] = requestParameters['locale'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/content/v2/directory/okpd`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает список кодов ОКПД2 по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  </div> 
+     * Код ОКПД2 предмета
+     */
+    async getV2DirectoryOkpdRaw(requestParameters: GetV2DirectoryOkpdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectoryOkpd200Response>> {
+        const requestOptions = await this.getV2DirectoryOkpdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2DirectoryOkpd200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает список кодов ОКПД2 по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  </div> 
+     * Код ОКПД2 предмета
+     */
+    async getV2DirectoryOkpd(requestParameters: GetV2DirectoryOkpdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectoryOkpd200Response> {
+        const response = await this.getV2DirectoryOkpdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV2DirectoryOkpdAll without sending the request
+     */
+    async getV2DirectoryOkpdAllRequestOpts(requestParameters: GetV2DirectoryOkpdAllRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['search'] != null) {
+            queryParameters['search'] = requestParameters['search'];
+        }
+
+        if (requestParameters['locale'] != null) {
+            queryParameters['locale'] = requestParameters['locale'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/content/v2/directory/okpd/all`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре `search`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  </div> 
+     * Список кодов ОКПД2
+     */
+    async getV2DirectoryOkpdAllRaw(requestParameters: GetV2DirectoryOkpdAllRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectoryOkpd200Response>> {
+        const requestOptions = await this.getV2DirectoryOkpdAllRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2DirectoryOkpd200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре `search`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  </div> 
+     * Список кодов ОКПД2
+     */
+    async getV2DirectoryOkpdAll(requestParameters: GetV2DirectoryOkpdAllRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectoryOkpd200Response> {
+        const response = await this.getV2DirectoryOkpdAllRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Creates request options for getV2DirectorySeasons without sending the request
      */
     async getV2DirectorySeasonsRequestOpts(requestParameters: GetV2DirectorySeasonsRequest): Promise<runtime.RequestOpts> {
@@ -1563,8 +1730,8 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * ТНВЭД-код
+     * Метод возвращает список кодов ТН ВЭД по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Код ТН ВЭД предмета
      */
     async getV2DirectoryTnvedRaw(requestParameters: GetV2DirectoryTnvedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectoryTnved200Response>> {
         const requestOptions = await this.getV2DirectoryTnvedRequestOpts(requestParameters);
@@ -1574,11 +1741,62 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
-     * ТНВЭД-код
+     * Метод возвращает список кодов ТН ВЭД по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Код ТН ВЭД предмета
      */
     async getV2DirectoryTnved(requestParameters: GetV2DirectoryTnvedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectoryTnved200Response> {
         const response = await this.getV2DirectoryTnvedRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV2DirectoryTnvedAll without sending the request
+     */
+    async getV2DirectoryTnvedAllRequestOpts(requestParameters: GetV2DirectoryTnvedAllRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['search'] != null) {
+            queryParameters['search'] = requestParameters['search'];
+        }
+
+        if (requestParameters['locale'] != null) {
+            queryParameters['locale'] = requestParameters['locale'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/content/v2/directory/tnved/all`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре `search`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Список кодов ТН ВЭД
+     */
+    async getV2DirectoryTnvedAllRaw(requestParameters: GetV2DirectoryTnvedAllRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV2DirectoryTnvedAll200Response>> {
+        const requestOptions = await this.getV2DirectoryTnvedAllRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV2DirectoryTnvedAll200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре `search`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+     * Список кодов ТН ВЭД
+     */
+    async getV2DirectoryTnvedAll(requestParameters: GetV2DirectoryTnvedAllRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV2DirectoryTnvedAll200Response> {
+        const response = await this.getV2DirectoryTnvedAllRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -3759,6 +3977,28 @@ export class DefaultApi extends runtime.BaseAPI {
 
 }
 
+/**
+ * @export
+ */
+export const GetV2DirectoryOkpdLocaleEnum = {
+    Ru: 'ru',
+} as const;
+export type GetV2DirectoryOkpdLocaleEnum = typeof GetV2DirectoryOkpdLocaleEnum[keyof typeof GetV2DirectoryOkpdLocaleEnum];
+/**
+ * @export
+ */
+export const GetV2DirectoryOkpdAllLocaleEnum = {
+    Ru: 'ru',
+} as const;
+export type GetV2DirectoryOkpdAllLocaleEnum = typeof GetV2DirectoryOkpdAllLocaleEnum[keyof typeof GetV2DirectoryOkpdAllLocaleEnum];
+/**
+ * @export
+ */
+export const GetV2DirectoryTnvedAllLocaleEnum = {
+    Ru: 'ru',
+    En: 'en',
+} as const;
+export type GetV2DirectoryTnvedAllLocaleEnum = typeof GetV2DirectoryTnvedAllLocaleEnum[keyof typeof GetV2DirectoryTnvedAllLocaleEnum];
 /**
  * @export
  */

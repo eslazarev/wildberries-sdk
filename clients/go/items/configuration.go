@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.162/go",
+		UserAgent:        "OpenAPI-Generator/0.1.163/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -194,6 +194,18 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
+			"DefaultApiService.GetV2DirectoryOkpd": {
+				{
+					URL: "https://content-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"DefaultApiService.GetV2DirectoryOkpdAll": {
+				{
+					URL: "https://content-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
 			"DefaultApiService.GetV2DirectorySeasons": {
 				{
 					URL: "https://content-api.wildberries.ru",
@@ -212,6 +224,12 @@ func NewConfiguration() *Configuration {
 				{
 					URL: "https://content-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV2DirectoryTnvedAll": {
+				{
+					URL: "https://content-api.wildberries.ru",
+					Description: "**Prod** ",
 				},
 			},
 			"DefaultApiService.GetV2DirectoryVat": {

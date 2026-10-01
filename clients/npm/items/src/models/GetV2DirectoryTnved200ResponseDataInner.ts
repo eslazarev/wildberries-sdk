@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface GetV2DirectoryTnved200ResponseDataInner {
     /**
-     * ТНВЭД-код
+     * Код ТН ВЭД
      */
     tnved?: string;
     /**

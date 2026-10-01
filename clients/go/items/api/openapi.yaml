@@ -1048,7 +1048,7 @@ paths:
   /content/v2/directory/tnved:
     get:
       description: |
-        Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.
+        Метод возвращает список кодов ТН ВЭД по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
@@ -1084,7 +1084,7 @@ paths:
           example: 105
           type: integer
         style: form
-      - description: Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`
+      - description: Поиск по коду ТН ВЭД. Работает только в паре с `subjectID`
         explode: true
         in: query
         name: search
@@ -1173,7 +1173,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: ТНВЭД-код
+      summary: Код ТН ВЭД предмета
       tags:
       - "Категории, предметы и характеристики"
       x-readonly-method: true
@@ -1186,6 +1186,385 @@ paths:
     - description: |
         **Sandbox**
       url: https://content-api-sandbox.wildberries.ru
+  /api/content/v2/directory/tnved/all:
+    get:
+      description: |
+        Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре `search`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+        Исключение — методы:
+
+        <ul>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+        </ul>
+
+        <hr>
+
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+
+        </div>
+      operationId: getV2DirectoryTnvedAll
+      parameters:
+      - description: Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов
+        explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          example: 6106
+          type: integer
+        style: form
+      - description: |
+          Язык полей ответа:
+            - `ru` — русский
+            - `en` — английский
+        explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          default: ru
+          enum:
+          - ru
+          - en
+          example: ru
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getV2DirectoryTnvedAll_200_response"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              example:
+                data: null
+                error: true
+                errorText: Bad request
+                additionalErrors: {}
+              schema:
+                $ref: "#/components/schemas/responseBodyContentError400"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV2ObjectParentAll_401_response"
+          description: Не авторизован
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/responseBodyContentError403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
+          description: Доступ запрещён
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV2ObjectParentAll_401_response"
+          description: Слишком много запросов
+      security:
+      - HeaderApiKey: []
+      summary: Список кодов ТН ВЭД
+      tags:
+      - "Категории, предметы и характеристики"
+      x-readonly-method: true
+      x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
+    servers:
+    - description: |
+        **Prod**
+      url: https://content-api.wildberries.ru
+  /api/content/v2/directory/okpd:
+    get:
+      description: |
+        Метод возвращает список кодов ОКПД2 по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+        Исключение — методы:
+
+        <ul>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+        </ul>
+
+        </div>
+      operationId: getV2DirectoryOkpd
+      parameters:
+      - description: ID предмета
+        explode: true
+        in: query
+        name: subjectId
+        required: true
+        schema:
+          example: 105
+          type: integer
+        style: form
+      - description: "Поиск по фрагменту кода ОКПД2. Работает только в паре с `subjectId`.\
+          \ Укажите первые цифры кода через точку, чтобы найти код по этому фрагме\
+          нту"
+        explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          example: "61.06"
+          type: string
+        style: form
+      - description: |
+          Язык полей ответа:
+            - `ru` — русский
+        explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          default: ru
+          enum:
+          - ru
+          example: ru
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getV2DirectoryOkpd_200_response"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/responseBodyContentError400"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV2ObjectParentAll_401_response"
+          description: Не авторизован
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/responseBodyContentError403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
+          description: Доступ запрещён
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV2ObjectParentAll_401_response"
+          description: Слишком много запросов
+      security:
+      - HeaderApiKey: []
+      summary: Код ОКПД2 предмета
+      tags:
+      - "Категории, предметы и характеристики"
+      x-readonly-method: true
+      x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
+    servers:
+    - description: |
+        **Prod**
+      url: https://content-api.wildberries.ru
+  /api/content/v2/directory/okpd/all:
+    get:
+      description: |
+        Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре `search`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+        Исключение — методы:
+
+        <ul>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+        </ul>
+
+        </div>
+      operationId: getV2DirectoryOkpdAll
+      parameters:
+      - description: "Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода чер\
+          ез точку, чтобы найти код по этому фрагменту"
+        explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          example: 61.06
+          type: number
+        style: form
+      - description: |
+          Язык полей ответа:
+            - `ru` — русский
+        explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          default: ru
+          enum:
+          - ru
+          example: ru
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getV2DirectoryOkpd_200_response"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              example:
+                data: null
+                error: true
+                errorText: Bad request
+                additionalErrors: {}
+              schema:
+                $ref: "#/components/schemas/responseBodyContentError400"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV2ObjectParentAll_401_response"
+          description: Не авторизован
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/responseBodyContentError403"
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  $ref: "#/components/examples/Response403TokenCategory"
+              schema:
+                $ref: "#/components/schemas/Response4XX"
+          description: Доступ запрещён
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV2ObjectParentAll_401_response"
+          description: Слишком много запросов
+      security:
+      - HeaderApiKey: []
+      summary: Список кодов ОКПД2
+      tags:
+      - "Категории, предметы и характеристики"
+      x-readonly-method: true
+      x-category: content
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
+    servers:
+    - description: |
+        **Prod**
+      url: https://content-api.wildberries.ru
   /api/content/v1/brands:
     get:
       description: |
@@ -10405,7 +10784,7 @@ components:
         isKiz: true
       properties:
         tnved:
-          description: ТНВЭД-код
+          description: Код ТН ВЭД
           type: string
         isKiz:
           description: |
@@ -10440,6 +10819,110 @@ components:
           description: Дополнительные ошибки
           nullable: true
           type: string
+      type: object
+    getV2DirectoryTnvedAll_200_response_data_inner:
+      example:
+        tnved: "6106903001"
+        description: Бумага для офисной техники прочая
+      properties:
+        tnved:
+          description: Код ТН ВЭД
+          example: "6106903001"
+          type: string
+        description:
+          description: "Текстовое описание товаров, которые входят в группу"
+          example: Бумага для офисной техники прочая
+          type: string
+      required:
+      - description
+      - tnved
+      type: object
+    getV2DirectoryTnvedAll_200_response:
+      example:
+        data:
+        - tnved: "6106903001"
+          description: Бумага для офисной техники прочая
+        - tnved: "6106903001"
+          description: Бумага для офисной техники прочая
+        error: false
+        errorText: ""
+        additionalErrors: additionalErrors
+      properties:
+        data:
+          description: Данные
+          items:
+            $ref: "#/components/schemas/getV2DirectoryTnvedAll_200_response_data_inner"
+          type: array
+        error:
+          description: Флаг наличия ошибки
+          example: false
+          type: boolean
+        errorText:
+          description: Текст ошибки
+          example: ""
+          type: string
+        additionalErrors:
+          description: Дополнительные ошибки
+          nullable: true
+          type: string
+          example: null
+      required:
+      - additionalErrors
+      - data
+      - error
+      - errorText
+      type: object
+    getV2DirectoryOkpd_200_response_data_inner:
+      example:
+        okpd2: 61.06.90.300
+        description: Бумага для офисной техники прочая
+      properties:
+        okpd2:
+          description: Код ОКПД2
+          example: 61.06.90.300
+          type: string
+        description:
+          description: "Текстовое описание товаров, которые входят в группу"
+          example: Бумага для офисной техники прочая
+          type: string
+      required:
+      - description
+      - okpd2
+      type: object
+    getV2DirectoryOkpd_200_response:
+      example:
+        data:
+        - okpd2: 61.06.90.300
+          description: Бумага для офисной техники прочая
+        - okpd2: 61.06.90.300
+          description: Бумага для офисной техники прочая
+        error: false
+        errorText: ""
+        additionalErrors: additionalErrors
+      properties:
+        data:
+          description: Данные
+          items:
+            $ref: "#/components/schemas/getV2DirectoryOkpd_200_response_data_inner"
+          type: array
+        error:
+          description: Флаг наличия ошибки
+          example: false
+          type: boolean
+        errorText:
+          description: Текст ошибки
+          example: ""
+          type: string
+        additionalErrors:
+          description: Дополнительные ошибки
+          nullable: true
+          type: string
+          example: null
+      required:
+      - additionalErrors
+      - data
+      - error
+      - errorText
       type: object
     getV2Tags_200_response_data:
       example:

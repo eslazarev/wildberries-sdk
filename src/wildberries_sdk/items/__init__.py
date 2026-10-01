@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.162"
+__version__ = "0.1.163"
 
 # Define package exports
 __all__ = [
@@ -50,9 +50,13 @@ __all__ = [
     "GetV2DirectoryCountries200Response",
     "GetV2DirectoryCountries200ResponseDataInner",
     "GetV2DirectoryKinds200Response",
+    "GetV2DirectoryOkpd200Response",
+    "GetV2DirectoryOkpd200ResponseDataInner",
     "GetV2DirectorySeasons200Response",
     "GetV2DirectoryTnved200Response",
     "GetV2DirectoryTnved200ResponseDataInner",
+    "GetV2DirectoryTnvedAll200Response",
+    "GetV2DirectoryTnvedAll200ResponseDataInner",
     "GetV2DirectoryVat200Response",
     "GetV2HistoryGoodsTask200Response",
     "GetV2HistoryGoodsTask200ResponseData",
@@ -241,9 +245,13 @@ from wildberries_sdk.items.models.get_v2_directory_colors200_response_data_inner
 from wildberries_sdk.items.models.get_v2_directory_countries200_response import GetV2DirectoryCountries200Response as GetV2DirectoryCountries200Response
 from wildberries_sdk.items.models.get_v2_directory_countries200_response_data_inner import GetV2DirectoryCountries200ResponseDataInner as GetV2DirectoryCountries200ResponseDataInner
 from wildberries_sdk.items.models.get_v2_directory_kinds200_response import GetV2DirectoryKinds200Response as GetV2DirectoryKinds200Response
+from wildberries_sdk.items.models.get_v2_directory_okpd200_response import GetV2DirectoryOkpd200Response as GetV2DirectoryOkpd200Response
+from wildberries_sdk.items.models.get_v2_directory_okpd200_response_data_inner import GetV2DirectoryOkpd200ResponseDataInner as GetV2DirectoryOkpd200ResponseDataInner
 from wildberries_sdk.items.models.get_v2_directory_seasons200_response import GetV2DirectorySeasons200Response as GetV2DirectorySeasons200Response
 from wildberries_sdk.items.models.get_v2_directory_tnved200_response import GetV2DirectoryTnved200Response as GetV2DirectoryTnved200Response
 from wildberries_sdk.items.models.get_v2_directory_tnved200_response_data_inner import GetV2DirectoryTnved200ResponseDataInner as GetV2DirectoryTnved200ResponseDataInner
+from wildberries_sdk.items.models.get_v2_directory_tnved_all200_response import GetV2DirectoryTnvedAll200Response as GetV2DirectoryTnvedAll200Response
+from wildberries_sdk.items.models.get_v2_directory_tnved_all200_response_data_inner import GetV2DirectoryTnvedAll200ResponseDataInner as GetV2DirectoryTnvedAll200ResponseDataInner
 from wildberries_sdk.items.models.get_v2_directory_vat200_response import GetV2DirectoryVat200Response as GetV2DirectoryVat200Response
 from wildberries_sdk.items.models.get_v2_history_goods_task200_response import GetV2HistoryGoodsTask200Response as GetV2HistoryGoodsTask200Response
 from wildberries_sdk.items.models.get_v2_history_goods_task200_response_data import GetV2HistoryGoodsTask200ResponseData as GetV2HistoryGoodsTask200ResponseData

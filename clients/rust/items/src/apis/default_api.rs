@@ -132,6 +132,28 @@ pub enum GetV2DirectoryKindsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_v2_directory_okpd`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2DirectoryOkpdError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_directory_okpd_all`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2DirectoryOkpdAllError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_v2_directory_seasons`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -147,6 +169,17 @@ pub enum GetV2DirectorySeasonsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetV2DirectoryTnvedError {
+    Status400(models::ResponseBodyContentError400),
+    Status401(models::GetV2ObjectParentAll401Response),
+    Status403(models::ResponseBodyContentError403),
+    Status429(models::GetV2ObjectParentAll401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_directory_tnved_all`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2DirectoryTnvedAllError {
     Status400(models::ResponseBodyContentError400),
     Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::ResponseBodyContentError403),
@@ -1089,6 +1122,112 @@ pub async fn get_v2_directory_kinds(configuration: &configuration::Configuration
     }
 }
 
+/// Метод возвращает список кодов ОКПД2 по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  </div> 
+pub async fn get_v2_directory_okpd(configuration: &configuration::Configuration, subject_id: i32, search: Option<&str>, locale: Option<&str>) -> Result<models::GetV2DirectoryOkpd200Response, Error<GetV2DirectoryOkpdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_subject_id = subject_id;
+    let p_query_search = search;
+    let p_query_locale = locale;
+
+    let uri_str = format!("{}/api/content/v2/directory/okpd", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("subjectId", &p_query_subject_id.to_string())]);
+    if let Some(ref param_value) = p_query_search {
+        req_builder = req_builder.query(&[("search", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_locale {
+        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2DirectoryOkpd200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2DirectoryOkpd200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV2DirectoryOkpdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре `search`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  </div> 
+pub async fn get_v2_directory_okpd_all(configuration: &configuration::Configuration, search: Option<f64>, locale: Option<&str>) -> Result<models::GetV2DirectoryOkpd200Response, Error<GetV2DirectoryOkpdAllError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_search = search;
+    let p_query_locale = locale;
+
+    let uri_str = format!("{}/api/content/v2/directory/okpd/all", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_search {
+        req_builder = req_builder.query(&[("search", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_locale {
+        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2DirectoryOkpd200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2DirectoryOkpd200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV2DirectoryOkpdAllError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 /// Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.   </div> 
 pub async fn get_v2_directory_seasons(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::GetV2DirectorySeasons200Response, Error<GetV2DirectorySeasonsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
@@ -1137,7 +1276,7 @@ pub async fn get_v2_directory_seasons(configuration: &configuration::Configurati
     }
 }
 
-/// Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+/// Метод возвращает список кодов ТН ВЭД по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
 pub async fn get_v2_directory_tnved(configuration: &configuration::Configuration, subject_id: i32, search: Option<i32>, locale: Option<&str>) -> Result<models::GetV2DirectoryTnved200Response, Error<GetV2DirectoryTnvedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_subject_id = subject_id;
@@ -1187,6 +1326,58 @@ pub async fn get_v2_directory_tnved(configuration: &configuration::Configuration
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV2DirectoryTnvedError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре `search`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">создания карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul>  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.  </div> 
+pub async fn get_v2_directory_tnved_all(configuration: &configuration::Configuration, search: Option<i32>, locale: Option<&str>) -> Result<models::GetV2DirectoryTnvedAll200Response, Error<GetV2DirectoryTnvedAllError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_search = search;
+    let p_query_locale = locale;
+
+    let uri_str = format!("{}/api/content/v2/directory/tnved/all", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_search {
+        req_builder = req_builder.query(&[("search", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_locale {
+        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV2DirectoryTnvedAll200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV2DirectoryTnvedAll200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV2DirectoryTnvedAllError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

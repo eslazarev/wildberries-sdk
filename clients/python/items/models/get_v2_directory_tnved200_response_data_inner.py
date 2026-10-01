@@ -27,7 +27,7 @@ class GetV2DirectoryTnved200ResponseDataInner(BaseModel):
     """
     GetV2DirectoryTnved200ResponseDataInner
     """ # noqa: E501
-    tnved: Optional[StrictStr] = Field(default=None, description="ТНВЭД-код")
+    tnved: Optional[StrictStr] = Field(default=None, description="Код ТН ВЭД")
     is_kiz: Optional[StrictBool] = Field(default=None, description="- `true` — код маркировки [Честного знака](https://честныйзнак.рф/) требуется - `false` — код маркировки [Честного знака](https://честныйзнак.рф/) не требуется ", alias="isKiz")
     __properties: ClassVar[List[str]] = ["tnved", "isKiz"]
 

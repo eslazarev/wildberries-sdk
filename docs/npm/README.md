@@ -80,8 +80,11 @@ main().catch(console.error);
 - `items.DefaultApi.getV2DirectoryColors` — Цвет
 - `items.DefaultApi.getV2DirectoryCountries` — Страна производства
 - `items.DefaultApi.getV2DirectoryKinds` — Пол
+- `items.DefaultApi.getV2DirectoryOkpd` — Код ОКПД2 предмета
+- `items.DefaultApi.getV2DirectoryOkpdAll` — Список кодов ОКПД2
 - `items.DefaultApi.getV2DirectorySeasons` — Сезон
-- `items.DefaultApi.getV2DirectoryTnved` — ТНВЭД-код
+- `items.DefaultApi.getV2DirectoryTnved` — Код ТН ВЭД предмета
+- `items.DefaultApi.getV2DirectoryTnvedAll` — Список кодов ТН ВЭД
 - `items.DefaultApi.getV2DirectoryVat` — Ставка НДС
 - `items.DefaultApi.getV2HistoryGoodsTask` — Детализация обработанной загрузки
 - `items.DefaultApi.getV2HistoryTasks` — Состояние обработанной загрузки

@@ -1940,6 +1940,419 @@ func (a *DefaultApiService) GetV2DirectoryKindsExecute(r ApiGetV2DirectoryKindsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetV2DirectoryOkpdRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	subjectId *int32
+	search *string
+	locale *string
+}
+
+// ID предмета
+func (r ApiGetV2DirectoryOkpdRequest) SubjectId(subjectId int32) ApiGetV2DirectoryOkpdRequest {
+	r.subjectId = &subjectId
+	return r
+}
+
+// Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту
+func (r ApiGetV2DirectoryOkpdRequest) Search(search string) ApiGetV2DirectoryOkpdRequest {
+	r.search = &search
+	return r
+}
+
+// Язык полей ответа:   - &#x60;ru&#x60; — русский 
+func (r ApiGetV2DirectoryOkpdRequest) Locale(locale string) ApiGetV2DirectoryOkpdRequest {
+	r.locale = &locale
+	return r
+}
+
+func (r ApiGetV2DirectoryOkpdRequest) Execute() (*GetV2DirectoryOkpd200Response, *http.Response, error) {
+	return r.ApiService.GetV2DirectoryOkpdExecute(r)
+}
+
+/*
+GetV2DirectoryOkpd Код ОКПД2 предмета
+
+Метод возвращает список кодов ОКПД2 по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+Исключение — методы:
+
+<ul>
+    <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+    <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+    <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+    <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+    <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+    <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+</ul>
+
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryOkpdRequest
+*/
+func (a *DefaultApiService) GetV2DirectoryOkpd(ctx context.Context) ApiGetV2DirectoryOkpdRequest {
+	return ApiGetV2DirectoryOkpdRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetV2DirectoryOkpd200Response
+func (a *DefaultApiService) GetV2DirectoryOkpdExecute(r ApiGetV2DirectoryOkpdRequest) (*GetV2DirectoryOkpd200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryOkpd200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV2DirectoryOkpd")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/content/v2/directory/okpd"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.subjectId == nil {
+		return localVarReturnValue, nil, reportError("subjectId is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "subjectId", r.subjectId, "form", "")
+	if r.search != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "form", "")
+	}
+	if r.locale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
+	} else {
+		var defaultValue string = "ru"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", defaultValue, "form", "")
+		r.locale = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ResponseBodyContentError400
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV2ObjectParentAll401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ResponseBodyContentError403
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV2ObjectParentAll401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV2DirectoryOkpdAllRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	search *float32
+	locale *string
+}
+
+// Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту
+func (r ApiGetV2DirectoryOkpdAllRequest) Search(search float32) ApiGetV2DirectoryOkpdAllRequest {
+	r.search = &search
+	return r
+}
+
+// Язык полей ответа:   - &#x60;ru&#x60; — русский 
+func (r ApiGetV2DirectoryOkpdAllRequest) Locale(locale string) ApiGetV2DirectoryOkpdAllRequest {
+	r.locale = &locale
+	return r
+}
+
+func (r ApiGetV2DirectoryOkpdAllRequest) Execute() (*GetV2DirectoryOkpd200Response, *http.Response, error) {
+	return r.ApiService.GetV2DirectoryOkpdAllExecute(r)
+}
+
+/*
+GetV2DirectoryOkpdAll Список кодов ОКПД2
+
+Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре `search`.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+Исключение — методы:
+
+<ul>
+    <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+    <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+    <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+    <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+    <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+    <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+</ul>
+
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryOkpdAllRequest
+*/
+func (a *DefaultApiService) GetV2DirectoryOkpdAll(ctx context.Context) ApiGetV2DirectoryOkpdAllRequest {
+	return ApiGetV2DirectoryOkpdAllRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetV2DirectoryOkpd200Response
+func (a *DefaultApiService) GetV2DirectoryOkpdAllExecute(r ApiGetV2DirectoryOkpdAllRequest) (*GetV2DirectoryOkpd200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryOkpd200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV2DirectoryOkpdAll")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/content/v2/directory/okpd/all"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.search != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "form", "")
+	}
+	if r.locale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
+	} else {
+		var defaultValue string = "ru"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", defaultValue, "form", "")
+		r.locale = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ResponseBodyContentError400
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV2ObjectParentAll401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ResponseBodyContentError403
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV2ObjectParentAll401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetV2DirectorySeasonsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
@@ -2139,7 +2552,7 @@ func (r ApiGetV2DirectoryTnvedRequest) SubjectID(subjectID int32) ApiGetV2Direct
 	return r
 }
 
-// Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60;
+// Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60;
 func (r ApiGetV2DirectoryTnvedRequest) Search(search int32) ApiGetV2DirectoryTnvedRequest {
 	r.search = &search
 	return r
@@ -2156,9 +2569,9 @@ func (r ApiGetV2DirectoryTnvedRequest) Execute() (*GetV2DirectoryTnved200Respons
 }
 
 /*
-GetV2DirectoryTnved ТНВЭД-код
+GetV2DirectoryTnved Код ТН ВЭД предмета
 
-Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.
+Метод возвращает список кодов ТН ВЭД по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
@@ -2225,6 +2638,211 @@ func (a *DefaultApiService) GetV2DirectoryTnvedExecute(r ApiGetV2DirectoryTnvedR
 	}
 	if r.locale != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ResponseBodyContentError400
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV2ObjectParentAll401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ResponseBodyContentError403
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV2ObjectParentAll401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV2DirectoryTnvedAllRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	search *int32
+	locale *string
+}
+
+// Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов
+func (r ApiGetV2DirectoryTnvedAllRequest) Search(search int32) ApiGetV2DirectoryTnvedAllRequest {
+	r.search = &search
+	return r
+}
+
+// Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский 
+func (r ApiGetV2DirectoryTnvedAllRequest) Locale(locale string) ApiGetV2DirectoryTnvedAllRequest {
+	r.locale = &locale
+	return r
+}
+
+func (r ApiGetV2DirectoryTnvedAllRequest) Execute() (*GetV2DirectoryTnvedAll200Response, *http.Response, error) {
+	return r.ApiService.GetV2DirectoryTnvedAllExecute(r)
+}
+
+/*
+GetV2DirectoryTnvedAll Список кодов ТН ВЭД
+
+Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре `search`.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+Исключение — методы:
+
+<ul>
+    <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+    <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+    <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+    <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+    <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+    <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+</ul>
+
+<hr>
+
+В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV2DirectoryTnvedAllRequest
+*/
+func (a *DefaultApiService) GetV2DirectoryTnvedAll(ctx context.Context) ApiGetV2DirectoryTnvedAllRequest {
+	return ApiGetV2DirectoryTnvedAllRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetV2DirectoryTnvedAll200Response
+func (a *DefaultApiService) GetV2DirectoryTnvedAllExecute(r ApiGetV2DirectoryTnvedAllRequest) (*GetV2DirectoryTnvedAll200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV2DirectoryTnvedAll200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV2DirectoryTnvedAll")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/content/v2/directory/tnved/all"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.search != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "form", "")
+	}
+	if r.locale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
+	} else {
+		var defaultValue string = "ru"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", defaultValue, "form", "")
+		r.locale = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

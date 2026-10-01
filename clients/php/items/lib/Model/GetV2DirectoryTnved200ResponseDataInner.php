@@ -309,7 +309,7 @@ class GetV2DirectoryTnved200ResponseDataInner implements ModelInterface, ArrayAc
     /**
      * Sets tnved
      *
-     * @param string|null $tnved ТНВЭД-код
+     * @param string|null $tnved Код ТН ВЭД
      *
      * @return self
      */

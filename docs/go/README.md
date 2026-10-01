@@ -80,8 +80,11 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `items.DefaultApiService.GetV2DirectoryColors` — `GET /content/v2/directory/colors` — Цвет
 - `items.DefaultApiService.GetV2DirectoryCountries` — `GET /content/v2/directory/countries` — Страна производства
 - `items.DefaultApiService.GetV2DirectoryKinds` — `GET /content/v2/directory/kinds` — Пол
+- `items.DefaultApiService.GetV2DirectoryOkpd` — `GET /api/content/v2/directory/okpd` — Код ОКПД2 предмета
+- `items.DefaultApiService.GetV2DirectoryOkpdAll` — `GET /api/content/v2/directory/okpd/all` — Список кодов ОКПД2
 - `items.DefaultApiService.GetV2DirectorySeasons` — `GET /content/v2/directory/seasons` — Сезон
-- `items.DefaultApiService.GetV2DirectoryTnved` — `GET /content/v2/directory/tnved` — ТНВЭД-код
+- `items.DefaultApiService.GetV2DirectoryTnved` — `GET /content/v2/directory/tnved` — Код ТН ВЭД предмета
+- `items.DefaultApiService.GetV2DirectoryTnvedAll` — `GET /api/content/v2/directory/tnved/all` — Список кодов ТН ВЭД
 - `items.DefaultApiService.GetV2DirectoryVat` — `GET /content/v2/directory/vat` — Ставка НДС
 - `items.DefaultApiService.GetV2HistoryGoodsTask` — `GET /api/v2/history/goods/task` — Детализация обработанной загрузки
 - `items.DefaultApiService.GetV2HistoryTasks` — `GET /api/v2/history/tasks` — Состояние обработанной загрузки

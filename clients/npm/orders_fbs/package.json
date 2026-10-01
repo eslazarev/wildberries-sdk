@@ -1,6 +1,6 @@
 {
   "name": "wildberries-sdk-orders-fbs",
-  "version": "0.1.162",
+  "version": "0.1.163",
   "description": "OpenAPI client for wildberries-sdk-orders-fbs",
   "author": "OpenAPI-Generator",
   "repository": {

@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV2DirectoryTnved200ResponseDataInner {
-    /// ТНВЭД-код
+    /// Код ТН ВЭД
     #[serde(rename = "tnved", skip_serializing_if = "Option::is_none")]
     pub tnved: Option<String>,
     /// - `true` — код маркировки [Честного знака](https://честныйзнак.рф/) требуется - `false` — код маркировки [Честного знака](https://честныйзнак.рф/) не требуется 

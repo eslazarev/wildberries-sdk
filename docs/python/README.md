@@ -92,8 +92,11 @@ print(feedbacks)
 - `items.DefaultApi.get_v2_directory_colors` — `GET /content/v2/directory/colors` — Цвет
 - `items.DefaultApi.get_v2_directory_countries` — `GET /content/v2/directory/countries` — Страна производства
 - `items.DefaultApi.get_v2_directory_kinds` — `GET /content/v2/directory/kinds` — Пол
+- `items.DefaultApi.get_v2_directory_okpd` — `GET /api/content/v2/directory/okpd` — Код ОКПД2 предмета
+- `items.DefaultApi.get_v2_directory_okpd_all` — `GET /api/content/v2/directory/okpd/all` — Список кодов ОКПД2
 - `items.DefaultApi.get_v2_directory_seasons` — `GET /content/v2/directory/seasons` — Сезон
-- `items.DefaultApi.get_v2_directory_tnved` — `GET /content/v2/directory/tnved` — ТНВЭД-код
+- `items.DefaultApi.get_v2_directory_tnved` — `GET /content/v2/directory/tnved` — Код ТН ВЭД предмета
+- `items.DefaultApi.get_v2_directory_tnved_all` — `GET /api/content/v2/directory/tnved/all` — Список кодов ТН ВЭД
 - `items.DefaultApi.get_v2_directory_vat` — `GET /content/v2/directory/vat` — Ставка НДС
 - `items.DefaultApi.get_v2_history_goods_task` — `GET /api/v2/history/goods/task` — Детализация обработанной загрузки
 - `items.DefaultApi.get_v2_history_tasks` — `GET /api/v2/history/tasks` — Состояние обработанной загрузки
