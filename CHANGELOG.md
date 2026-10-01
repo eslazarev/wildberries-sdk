@@ -1,6 +1,13 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.10.01)
+- Контент / Категории, предметы и характеристики: уточнены формулировки в методе получения ТН ВЭД по предмету — summary «Код ТН ВЭД предмета», описание и поле ответа `tnved` теперь описаны как «Код ТН ВЭД»; параметр `search` переименован в описании на «поиск по коду ТН ВЭД» (без изменения схемы).
+- Контент / Категории, предметы и характеристики: добавлен GET `/api/content/v2/directory/tnved/all` — справочник всех кодов ТН ВЭД с фильтром `search` (первые цифры, до 10 символов) и `locale` (`ru|en`); ответ `data[]: { tnved, description }`; лимит категории Контент: 100 запросов/мин, интервал 600 мс, всплеск 5.
+- Контент / Категории, предметы и характеристики: добавлен GET `/api/content/v2/directory/okpd` — получение кодов ОКПД2 по `subjectId` (обязательный) и `search` (строка, фрагмент вида `61.06`), `locale=ru`; ответ `data[]: { okpd2, description }`; лимит категории Контент: 100 запросов/мин, интервал 600 мс, всплеск 5.
+- Контент / Категории, предметы и характеристики: добавлен GET `/api/content/v2/directory/okpd/all` — справочник всех кодов ОКПД2 с фильтром `search` (в спецификации указан тип `number`, пример `61.06`) и `locale=ru`; ответ `data[]: { okpd2, description }`; лимит категории Контент: 100 запросов/мин, интервал 600 мс, всплеск 5.
+- Аналитика: в описании CSV для отчёта `SEARCH_QUERIES_PREMIUM_REPORT_TEXT` помечены к отключению (12 октября) поля: `OpenCardPercentile`, `AddToCartPercentile`, `OpenToCartPercentile`, `OrdersPercentile`, `CartToOrderPercentile` (изменение документации/декларация депрекации полей).
+
 ### Changed (2026.09.30)
 - Orders FBS: методы настроек автовозврата переведены на дополнительные типы токенов — помимо `personal` теперь поддерживаются `service` и `base-with-secret` (GET/ PATCH настроек продавца, POST/ PATCH настроек товаров, GET списка restricted subcategories)
 - Orders FBS: переименованы `operationId` для методов автовозврата: `getMarketplaceV3FbsSettingsAutoreturns` → `getV3FbsSettingsAutoreturns`, `patchMarketplaceV3FbsSettingsAutoreturns` → `patchV3FbsSettingsAutoreturns`, `postMarketplaceV3FbsSettingsAutoreturnsItems` → `postV3FbsSettingsAutoreturnsItems`, `patchMarketplaceV3FbsSettingsAutoreturnsItems` → `patchV3FbsSettingsAutoreturnsItems`, `getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted` → `getV3FbsSettingsAutoreturnsSubcategoriesRestricted`
