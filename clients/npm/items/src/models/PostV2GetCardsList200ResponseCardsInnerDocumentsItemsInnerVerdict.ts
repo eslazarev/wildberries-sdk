@@ -14,7 +14,7 @@
 
 import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
- * Результат проверки документа. Возвращается, когда проверка завершена
+ * Результат проверки документа. Возвращается, когда проверка документа завершена
  * @export
  * @interface PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInnerVerdict
  */

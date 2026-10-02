@@ -11,19 +11,19 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// PostV2CardsUploadRequestInnerVariantsInnerDocuments : Документы
+/// PostV2CardsUploadRequestInnerVariantsInnerDocuments : Разрешительные документы карточки товара
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV2CardsUploadRequestInnerVariantsInnerDocuments {
-    /// Список документов
+    /// Список разрешительных документов и их данные. Тип документа `type` обязателен для каждого документа 
     #[serde(rename = "items", skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<models::DocumentsRequest>>,
-    /// Исключить ли документы из проверки:   - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения   - `false` — нет, проверять документы при проверке карточки товара 
+    /// Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку 
     #[serde(rename = "excludeDocuments", skip_serializing_if = "Option::is_none")]
     pub exclude_documents: Option<bool>,
 }
 
 impl PostV2CardsUploadRequestInnerVariantsInnerDocuments {
-    /// Документы
+    /// Разрешительные документы карточки товара
     pub fn new() -> PostV2CardsUploadRequestInnerVariantsInnerDocuments {
         PostV2CardsUploadRequestInnerVariantsInnerDocuments {
             items: None,

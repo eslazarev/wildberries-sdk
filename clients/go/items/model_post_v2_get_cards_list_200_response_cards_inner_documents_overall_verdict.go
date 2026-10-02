@@ -18,13 +18,13 @@ import (
 // checks if the PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict{}
 
-// PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict Результат проверки карточки товара. Возвращается, когда проверка завершена
+// PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict Общий результат проверки всей карточки товара. Возвращается, когда проверка завершена. <br> Результаты проверок отдельных документов и общий результат карточки могут различаться. Например, карточка может пройти проверку, если обязательный документ прошёл проверку, а дополнительный документ не прошёл 
 type PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict struct {
 	// - `true` — карточка товара проверена - `false` — карточка товара не проверена 
 	IsFullyChecked *bool `json:"isFullyChecked,omitempty"`
 	// Результат проверки карточки товара:   - `1` — проверка пройдена   - `2` — проверка не пройдена 
 	Status *int32 `json:"status,omitempty"`
-	// Ошибка при проверке, возвращается для `status: 2`. <br> Возможные значения:   - `tnved_missing` — Не указан код ТН ВЭД   - `supplier_inn_missing` — Не указан ИНН   - `supplier_not_registered` — Поставщик не найден в реестре   - `supplier_inactive` — Ошибка в статусе поставщика, проверьте его в реестре   - `product_group_not_registered` — Добавлена неверная товарная группа в системе маркировки   - `kiz_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака   - `kiz_certificate_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка 
+	// Ошибка при проверке, возвращается для `status: 2`. <br> Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая.<br> Возможные значения:   - `tnved_missing` — Не указан код ТН ВЭД   - `supplier_inn_missing` — Не указан ИНН   - `supplier_not_registered` — Поставщик не найден в реестре   - `supplier_inactive` — Ошибка в статусе поставщика, проверьте его в реестре   - `product_group_not_registered` — Добавлена неверная товарная группа в системе маркировки   - `kiz_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака   - `kiz_certificate_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка 
 	Reason NullableString `json:"reason,omitempty"`
 	// Дата и время проверки карточки товара
 	CreatedAt *time.Time `json:"createdAt,omitempty"`

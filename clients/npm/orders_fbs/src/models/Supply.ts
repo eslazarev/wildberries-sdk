@@ -99,12 +99,12 @@ export interface Supply {
     /**
      * Способ доставки до пункта отгрузки:
      *   - `selfShipping` — доставка силами продавца
-     *   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid`
+     *   - `transportCompany` — доставка через транспортную компанию
      * 
      */
     shippingType?: SupplyShippingTypeEnum | null;
     /**
-     * ID ЭТрН — электронной транспортной накладной. Обязателен при `"shippingType":"transportCompany"`
+     * ID ЭТрН — электронной транспортной накладной
      */
     waybillUuid?: string | null;
     /**

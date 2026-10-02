@@ -162,7 +162,6 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.patch_v3_fbs_settings_autoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
 - `orders_fbs.DefaultApi.patch_v3_fbs_settings_autoreturns_items` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
 - `orders_fbs.DefaultApi.patch_v3_fbs_supplies_shipping_method` — `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок
-- `orders_fbs.DefaultApi.patch_v3_fbs_supplies_waybill` — `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок
 - `orders_fbs.DefaultApi.patch_v3_orders_order_id_cancel` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
 - `orders_fbs.DefaultApi.patch_v3_supplies_supply_id_deliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
 - `orders_fbs.DefaultApi.patch_v3_supplies_supply_id_orders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке

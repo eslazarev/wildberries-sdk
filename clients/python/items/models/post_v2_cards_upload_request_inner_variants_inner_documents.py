@@ -26,10 +26,10 @@ from pydantic_core import to_jsonable_python
 
 class PostV2CardsUploadRequestInnerVariantsInnerDocuments(BaseModel):
     """
-    Документы
+    Разрешительные документы карточки товара
     """ # noqa: E501
-    items: Optional[List[DocumentsRequest]] = Field(default=None, description="Список документов")
-    exclude_documents: Optional[StrictBool] = Field(default=False, description="Исключить ли документы из проверки:   - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения   - `false` — нет, проверять документы при проверке карточки товара ", alias="excludeDocuments")
+    items: Optional[List[DocumentsRequest]] = Field(default=None, description="Список разрешительных документов и их данные. Тип документа `type` обязателен для каждого документа ")
+    exclude_documents: Optional[StrictBool] = Field(default=False, description="Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку ", alias="excludeDocuments")
     __properties: ClassVar[List[str]] = ["items", "excludeDocuments"]
 
     model_config = ConfigDict(

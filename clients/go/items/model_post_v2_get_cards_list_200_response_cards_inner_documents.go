@@ -17,12 +17,12 @@ import (
 // checks if the PostV2GetCardsList200ResponseCardsInnerDocuments type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PostV2GetCardsList200ResponseCardsInnerDocuments{}
 
-// PostV2GetCardsList200ResponseCardsInnerDocuments Документы
+// PostV2GetCardsList200ResponseCardsInnerDocuments Документы, прикреплённые к карточке товара.<br> Результаты проверки каждого документа указаны в `items`. <br> Результат проверки всей карточки товара указан в `overallVerdict` 
 type PostV2GetCardsList200ResponseCardsInnerDocuments struct {
-	// Список документов
+	// Список документов и результаты проверки каждого документа
 	Items []PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInner `json:"items,omitempty"`
 	OverallVerdict *PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict `json:"overallVerdict,omitempty"`
-	// Исключены ли документы из проверки карточки товара:   - `true` — да, документы не проверяются при проверке карточки   - `false` — нет, документы проверяются при проверке карточки 
+	// Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку 
 	ExcludeDocuments *bool `json:"excludeDocuments,omitempty"`
 }
 

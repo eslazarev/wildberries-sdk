@@ -85,6 +85,7 @@ export * from './PostV2CardsUpdateRequestInnerSizesInner';
 export * from './PostV2CardsUploadAddRequest';
 export * from './PostV2CardsUploadAddRequestCardsToAddInner';
 export * from './PostV2CardsUploadAddRequestCardsToAddInnerDimensions';
+export * from './PostV2CardsUploadAddRequestCardsToAddInnerDocuments';
 export * from './PostV2CardsUploadAddRequestCardsToAddInnerSizesInner';
 export * from './PostV2CardsUploadRequestInner';
 export * from './PostV2CardsUploadRequestInnerVariantsInner';

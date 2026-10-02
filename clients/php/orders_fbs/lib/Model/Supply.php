@@ -940,7 +940,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shipping_type
      *
-     * @param string|null $shipping_type Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid`
+     * @param string|null $shipping_type Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию
      *
      * @return self
      */
@@ -984,7 +984,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets waybill_uuid
      *
-     * @param string|null $waybill_uuid ID ЭТрН — электронной транспортной накладной. Обязателен при `\"shippingType\":\"transportCompany\"`
+     * @param string|null $waybill_uuid ID ЭТрН — электронной транспортной накладной
      *
      * @return self
      */

@@ -35,7 +35,7 @@ use \Wildberries\Sdk\Items\ObjectSerializer;
  * PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict Class Doc Comment
  *
  * @category Class
- * @description Результат проверки карточки товара. Возвращается, когда проверка завершена
+ * @description Общий результат проверки всей карточки товара. Возвращается, когда проверка завершена. &lt;br&gt; Результаты проверок отдельных документов и общий результат карточки могут различаться. Например, карточка может пройти проверку, если обязательный документ прошёл проверку, а дополнительный документ не прошёл
  * @package  Wildberries\Sdk\Items
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -378,7 +378,7 @@ class PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict implements 
     /**
      * Sets reason
      *
-     * @param string|null $reason Ошибка при проверке, возвращается для `status: 2`. <br> Возможные значения:   - `tnved_missing` — Не указан код ТН ВЭД   - `supplier_inn_missing` — Не указан ИНН   - `supplier_not_registered` — Поставщик не найден в реестре   - `supplier_inactive` — Ошибка в статусе поставщика, проверьте его в реестре   - `product_group_not_registered` — Добавлена неверная товарная группа в системе маркировки   - `kiz_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака   - `kiz_certificate_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка
+     * @param string|null $reason Ошибка при проверке, возвращается для `status: 2`. <br> Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая.<br> Возможные значения:   - `tnved_missing` — Не указан код ТН ВЭД   - `supplier_inn_missing` — Не указан ИНН   - `supplier_not_registered` — Поставщик не найден в реестре   - `supplier_inactive` — Ошибка в статусе поставщика, проверьте его в реестре   - `product_group_not_registered` — Добавлена неверная товарная группа в системе маркировки   - `kiz_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака   - `kiz_certificate_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка
      *
      * @return self
      */

@@ -26,11 +26,11 @@ from pydantic_core import to_jsonable_python
 
 class PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict(BaseModel):
     """
-    Результат проверки карточки товара. Возвращается, когда проверка завершена
+    Общий результат проверки всей карточки товара. Возвращается, когда проверка завершена. <br> Результаты проверок отдельных документов и общий результат карточки могут различаться. Например, карточка может пройти проверку, если обязательный документ прошёл проверку, а дополнительный документ не прошёл 
     """ # noqa: E501
     is_fully_checked: Optional[StrictBool] = Field(default=None, description="- `true` — карточка товара проверена - `false` — карточка товара не проверена ", alias="isFullyChecked")
     status: Optional[StrictInt] = Field(default=None, description="Результат проверки карточки товара:   - `1` — проверка пройдена   - `2` — проверка не пройдена ")
-    reason: Optional[StrictStr] = Field(default=None, description="Ошибка при проверке, возвращается для `status: 2`. <br> Возможные значения:   - `tnved_missing` — Не указан код ТН ВЭД   - `supplier_inn_missing` — Не указан ИНН   - `supplier_not_registered` — Поставщик не найден в реестре   - `supplier_inactive` — Ошибка в статусе поставщика, проверьте его в реестре   - `product_group_not_registered` — Добавлена неверная товарная группа в системе маркировки   - `kiz_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака   - `kiz_certificate_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка ")
+    reason: Optional[StrictStr] = Field(default=None, description="Ошибка при проверке, возвращается для `status: 2`. <br> Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая.<br> Возможные значения:   - `tnved_missing` — Не указан код ТН ВЭД   - `supplier_inn_missing` — Не указан ИНН   - `supplier_not_registered` — Поставщик не найден в реестре   - `supplier_inactive` — Ошибка в статусе поставщика, проверьте его в реестре   - `product_group_not_registered` — Добавлена неверная товарная группа в системе маркировки   - `kiz_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака   - `kiz_certificate_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка ")
     created_at: Optional[datetime] = Field(default=None, description="Дата и время проверки карточки товара", alias="createdAt")
     __properties: ClassVar[List[str]] = ["isFullyChecked", "status", "reason", "createdAt"]
 

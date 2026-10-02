@@ -25,7 +25,7 @@ type PostV2CardsUploadAddRequestCardsToAddInner struct {
 	Brand *string `json:"brand,omitempty"`
 	// Артикул продавца
 	VendorCode string `json:"vendorCode"`
-	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` 
+	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` 
 	KizMarked *bool `json:"kizMarked,omitempty"`
 	Wholesale *PostV2CardsUploadRequestInnerVariantsInnerWholesale `json:"wholesale,omitempty"`
 	// Наименование товара
@@ -37,7 +37,7 @@ type PostV2CardsUploadAddRequestCardsToAddInner struct {
 	Sizes []PostV2CardsUploadAddRequestCardsToAddInnerSizesInner `json:"sizes,omitempty"`
 	// Характеристики товара. <br> Можно получить методом [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) 
 	Characteristics []PostV2CardsUpdateRequestInnerCharacteristicsInner `json:"characteristics,omitempty"`
-	Documents *PostV2CardsUploadRequestInnerVariantsInnerDocuments `json:"documents,omitempty"`
+	Documents *PostV2CardsUploadAddRequestCardsToAddInnerDocuments `json:"documents,omitempty"`
 }
 
 type _PostV2CardsUploadAddRequestCardsToAddInner PostV2CardsUploadAddRequestCardsToAddInner
@@ -345,9 +345,9 @@ func (o *PostV2CardsUploadAddRequestCardsToAddInner) SetCharacteristics(v []Post
 }
 
 // GetDocuments returns the Documents field value if set, zero value otherwise.
-func (o *PostV2CardsUploadAddRequestCardsToAddInner) GetDocuments() PostV2CardsUploadRequestInnerVariantsInnerDocuments {
+func (o *PostV2CardsUploadAddRequestCardsToAddInner) GetDocuments() PostV2CardsUploadAddRequestCardsToAddInnerDocuments {
 	if o == nil || IsNil(o.Documents) {
-		var ret PostV2CardsUploadRequestInnerVariantsInnerDocuments
+		var ret PostV2CardsUploadAddRequestCardsToAddInnerDocuments
 		return ret
 	}
 	return *o.Documents
@@ -355,7 +355,7 @@ func (o *PostV2CardsUploadAddRequestCardsToAddInner) GetDocuments() PostV2CardsU
 
 // GetDocumentsOk returns a tuple with the Documents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsUploadAddRequestCardsToAddInner) GetDocumentsOk() (*PostV2CardsUploadRequestInnerVariantsInnerDocuments, bool) {
+func (o *PostV2CardsUploadAddRequestCardsToAddInner) GetDocumentsOk() (*PostV2CardsUploadAddRequestCardsToAddInnerDocuments, bool) {
 	if o == nil || IsNil(o.Documents) {
 		return nil, false
 	}
@@ -371,8 +371,8 @@ func (o *PostV2CardsUploadAddRequestCardsToAddInner) HasDocuments() bool {
 	return false
 }
 
-// SetDocuments gets a reference to the given PostV2CardsUploadRequestInnerVariantsInnerDocuments and assigns it to the Documents field.
-func (o *PostV2CardsUploadAddRequestCardsToAddInner) SetDocuments(v PostV2CardsUploadRequestInnerVariantsInnerDocuments) {
+// SetDocuments gets a reference to the given PostV2CardsUploadAddRequestCardsToAddInnerDocuments and assigns it to the Documents field.
+func (o *PostV2CardsUploadAddRequestCardsToAddInner) SetDocuments(v PostV2CardsUploadAddRequestCardsToAddInnerDocuments) {
 	o.Documents = &v
 }
 

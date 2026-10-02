@@ -20,13 +20,6 @@ import {
     PostV2CardsUpdateRequestInnerCharacteristicsInnerToJSON,
     PostV2CardsUpdateRequestInnerCharacteristicsInnerToJSONTyped,
 } from './PostV2CardsUpdateRequestInnerCharacteristicsInner';
-import type { PostV2CardsUploadRequestInnerVariantsInnerDocuments } from './PostV2CardsUploadRequestInnerVariantsInnerDocuments';
-import {
-    PostV2CardsUploadRequestInnerVariantsInnerDocumentsFromJSON,
-    PostV2CardsUploadRequestInnerVariantsInnerDocumentsFromJSONTyped,
-    PostV2CardsUploadRequestInnerVariantsInnerDocumentsToJSON,
-    PostV2CardsUploadRequestInnerVariantsInnerDocumentsToJSONTyped,
-} from './PostV2CardsUploadRequestInnerVariantsInnerDocuments';
 import type { PostV2CardsUploadAddRequestCardsToAddInnerSizesInner } from './PostV2CardsUploadAddRequestCardsToAddInnerSizesInner';
 import {
     PostV2CardsUploadAddRequestCardsToAddInnerSizesInnerFromJSON,
@@ -48,6 +41,13 @@ import {
     PostV2CardsUploadRequestInnerVariantsInnerWholesaleToJSON,
     PostV2CardsUploadRequestInnerVariantsInnerWholesaleToJSONTyped,
 } from './PostV2CardsUploadRequestInnerVariantsInnerWholesale';
+import type { PostV2CardsUploadAddRequestCardsToAddInnerDocuments } from './PostV2CardsUploadAddRequestCardsToAddInnerDocuments';
+import {
+    PostV2CardsUploadAddRequestCardsToAddInnerDocumentsFromJSON,
+    PostV2CardsUploadAddRequestCardsToAddInnerDocumentsFromJSONTyped,
+    PostV2CardsUploadAddRequestCardsToAddInnerDocumentsToJSON,
+    PostV2CardsUploadAddRequestCardsToAddInnerDocumentsToJSONTyped,
+} from './PostV2CardsUploadAddRequestCardsToAddInnerDocuments';
 
 /**
  * 
@@ -65,8 +65,8 @@ export interface PostV2CardsUploadAddRequestCardsToAddInner {
     vendorCode: string;
     /**
      * Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):
-     *   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.
-     *   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.
+     *   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки
+     *   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар
      * 
      * Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz`
      * 
@@ -108,7 +108,7 @@ export interface PostV2CardsUploadAddRequestCardsToAddInner {
     /**
      * 
      */
-    documents?: PostV2CardsUploadRequestInnerVariantsInnerDocuments;
+    documents?: PostV2CardsUploadAddRequestCardsToAddInnerDocuments;
 }
 
 /**
@@ -138,7 +138,7 @@ export function PostV2CardsUploadAddRequestCardsToAddInnerFromJSONTyped(json: an
         'dimensions': json['dimensions'] == null ? undefined : PostV2CardsUploadAddRequestCardsToAddInnerDimensionsFromJSON(json['dimensions']),
         'sizes': json['sizes'] == null ? undefined : ((json['sizes'] as Array<any>).map(PostV2CardsUploadAddRequestCardsToAddInnerSizesInnerFromJSON)),
         'characteristics': json['characteristics'] == null ? undefined : ((json['characteristics'] as Array<any>).map(PostV2CardsUpdateRequestInnerCharacteristicsInnerFromJSON)),
-        'documents': json['documents'] == null ? undefined : PostV2CardsUploadRequestInnerVariantsInnerDocumentsFromJSON(json['documents']),
+        'documents': json['documents'] == null ? undefined : PostV2CardsUploadAddRequestCardsToAddInnerDocumentsFromJSON(json['documents']),
     };
 }
 
@@ -162,7 +162,7 @@ export function PostV2CardsUploadAddRequestCardsToAddInnerToJSONTyped(value?: Po
         'dimensions': PostV2CardsUploadAddRequestCardsToAddInnerDimensionsToJSON(value['dimensions']),
         'sizes': value['sizes'] == null ? undefined : ((value['sizes'] as Array<any>).map(PostV2CardsUploadAddRequestCardsToAddInnerSizesInnerToJSON)),
         'characteristics': value['characteristics'] == null ? undefined : ((value['characteristics'] as Array<any>).map(PostV2CardsUpdateRequestInnerCharacteristicsInnerToJSON)),
-        'documents': PostV2CardsUploadRequestInnerVariantsInnerDocumentsToJSON(value['documents']),
+        'documents': PostV2CardsUploadAddRequestCardsToAddInnerDocumentsToJSON(value['documents']),
     };
 }
 

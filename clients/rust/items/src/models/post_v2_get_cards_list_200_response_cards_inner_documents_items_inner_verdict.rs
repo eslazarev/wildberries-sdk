@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInnerVerdict : Результат проверки документа. Возвращается, когда проверка завершена
+/// PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInnerVerdict : Результат проверки документа. Возвращается, когда проверка документа завершена
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInnerVerdict {
     /// - `true` — документ проверен - `false` — документ не проверен 
@@ -32,7 +32,7 @@ pub struct PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInnerVerdict {
 }
 
 impl PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInnerVerdict {
-    /// Результат проверки документа. Возвращается, когда проверка завершена
+    /// Результат проверки документа. Возвращается, когда проверка документа завершена
     pub fn new() -> PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInnerVerdict {
         PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInnerVerdict {
             verified: None,

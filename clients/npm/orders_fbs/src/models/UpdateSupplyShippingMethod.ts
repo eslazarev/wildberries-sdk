@@ -30,7 +30,7 @@ export interface UpdateSupplyShippingMethod {
     /**
      * Способ доставки до пункта отгрузки:
      *   - `selfShipping` — доставка силами продавца
-     *   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле `waybillUuid`
+     *   - `transportCompany` — доставка через транспортную компанию
      * 
      */
     shippingType: UpdateSupplyShippingMethodShippingTypeEnum;

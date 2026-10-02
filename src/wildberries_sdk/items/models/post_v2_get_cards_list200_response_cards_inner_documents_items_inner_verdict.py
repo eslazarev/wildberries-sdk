@@ -26,7 +26,7 @@ from pydantic_core import to_jsonable_python
 
 class PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInnerVerdict(BaseModel):
     """
-    Результат проверки документа. Возвращается, когда проверка завершена
+    Результат проверки документа. Возвращается, когда проверка документа завершена
     """ # noqa: E501
     verified: Optional[StrictBool] = Field(default=None, description="- `true` — документ проверен - `false` — документ не проверен ")
     status: Optional[StrictInt] = Field(default=None, description="Результат проверки документа:   - `1` — проверка пройдена   - `2` — проверка не пройдена ")

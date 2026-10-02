@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.163"
+__version__ = "0.1.164"
 
 # Define package exports
 __all__ = [
@@ -113,6 +113,7 @@ __all__ = [
     "PostV2CardsUploadAddRequest",
     "PostV2CardsUploadAddRequestCardsToAddInner",
     "PostV2CardsUploadAddRequestCardsToAddInnerDimensions",
+    "PostV2CardsUploadAddRequestCardsToAddInnerDocuments",
     "PostV2CardsUploadAddRequestCardsToAddInnerSizesInner",
     "PostV2CardsUploadRequestInner",
     "PostV2CardsUploadRequestInnerVariantsInner",
@@ -308,6 +309,7 @@ from wildberries_sdk.items.models.post_v2_cards_update_request_inner_sizes_inner
 from wildberries_sdk.items.models.post_v2_cards_upload_add_request import PostV2CardsUploadAddRequest as PostV2CardsUploadAddRequest
 from wildberries_sdk.items.models.post_v2_cards_upload_add_request_cards_to_add_inner import PostV2CardsUploadAddRequestCardsToAddInner as PostV2CardsUploadAddRequestCardsToAddInner
 from wildberries_sdk.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_dimensions import PostV2CardsUploadAddRequestCardsToAddInnerDimensions as PostV2CardsUploadAddRequestCardsToAddInnerDimensions
+from wildberries_sdk.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_documents import PostV2CardsUploadAddRequestCardsToAddInnerDocuments as PostV2CardsUploadAddRequestCardsToAddInnerDocuments
 from wildberries_sdk.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_sizes_inner import PostV2CardsUploadAddRequestCardsToAddInnerSizesInner as PostV2CardsUploadAddRequestCardsToAddInnerSizesInner
 from wildberries_sdk.items.models.post_v2_cards_upload_request_inner import PostV2CardsUploadRequestInner as PostV2CardsUploadRequestInner
 from wildberries_sdk.items.models.post_v2_cards_upload_request_inner_variants_inner import PostV2CardsUploadRequestInnerVariantsInner as PostV2CardsUploadRequestInnerVariantsInner

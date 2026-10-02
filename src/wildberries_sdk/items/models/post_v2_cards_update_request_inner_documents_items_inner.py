@@ -28,7 +28,7 @@ class PostV2CardsUpdateRequestInnerDocumentsItemsInner(BaseModel):
     """
     PostV2CardsUpdateRequestInnerDocumentsItemsInner
     """ # noqa: E501
-    type: Optional[StrictInt] = Field(default=None, description="Тип документа:   - `1` — Сертификат соответствия   - `2` — Декларация о соответствии   - `3` — Свидетельство о государственной регистрации (СГР)   - `4` — Регистрационное удостоверение (РУ) на медицинские изделия   - `5` — Регистрационное удостоверение Республики Беларусь   - `7` — Данные о регистрации пестицида   - `8` — Данные о регистрации агрохимиката   - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты ")
+    type: Optional[StrictInt] = Field(default=None, description="Тип документа. <br> Типы документов, которые вы можете добавить для товара, указаны в [характеристиках предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) — поле `charcID`. <br> Возможные типы документов:   - `1` — Сертификат соответствия. Можно указать для `charcID`: 15001136, 15001137, 15001138   - `2` — Декларация о соответствии. Можно указать для `charcID`: 15001135, 15001137, 15001138   - `3` — Свидетельство о государственной регистрации (СГР). Можно указать для `charcID`: 62945173, 15000785, 15004302   - `4` — Регистрационное удостоверение (РУ) на медицинские изделия. Можно указать для `charcID`: 15001574, 15002355, 15002356, 15002357   - `5` — Регистрационное удостоверение Республики Беларусь. Можно указать для `charcID`: 15003071, 15003939   - `7` — Данные о регистрации пестицида. Можно указать для `charcID`: 15003924, 15003925   - `8` — Данные о регистрации агрохимиката. Можно указать для `charcID`: 15003920, 15003921   - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты. Можно указать для `charcID`: 1897013, 15004284 ")
     number: Optional[StrictStr] = Field(default=None, description="Номер документа")
     product_number: Optional[StrictStr] = Field(default=None, description="Дополнительный номер документа", alias="productNumber")
     trade_name: Optional[StrictStr] = Field(default=None, description="Торговое наименование", alias="tradeName")
@@ -36,7 +36,7 @@ class PostV2CardsUpdateRequestInnerDocumentsItemsInner(BaseModel):
     start_date: Optional[datetime] = Field(default=None, description="Дата и время начала срока действия документа", alias="startDate")
     end_date: Optional[datetime] = Field(default=None, description="Дата и время окончания срока действия документа", alias="endDate")
     is_endless: Optional[StrictBool] = Field(default=None, description="Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия ", alias="isEndless")
-    id: Optional[StrictStr] = Field(default=None, description="ID документа")
+    id: Optional[StrictStr] = Field(default=None, description="ID документа, прикреплённого к карточке. <br> Укажите `id`, чтобы внести изменения в прикреплённый ранее документ. ID документа указан в [списке карточек товаров](/item-management#tag/listings/operation/postV2GetCardsList). <br> Чтобы добавить новый документ, указывать `id` не нужно. ")
     __properties: ClassVar[List[str]] = ["type", "number", "productNumber", "tradeName", "applicant", "startDate", "endDate", "isEndless", "id"]
 
     model_config = ConfigDict(

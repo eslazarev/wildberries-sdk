@@ -413,7 +413,7 @@ class UpdateSupplyShippingMethod implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets shipping_type
      *
-     * @param string $shipping_type Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле `waybillUuid`
+     * @param string $shipping_type Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию
      *
      * @return self
      */

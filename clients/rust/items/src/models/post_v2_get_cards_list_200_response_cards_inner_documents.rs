@@ -11,21 +11,21 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// PostV2GetCardsList200ResponseCardsInnerDocuments : Документы
+/// PostV2GetCardsList200ResponseCardsInnerDocuments : Документы, прикреплённые к карточке товара.<br> Результаты проверки каждого документа указаны в `items`. <br> Результат проверки всей карточки товара указан в `overallVerdict` 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV2GetCardsList200ResponseCardsInnerDocuments {
-    /// Список документов
+    /// Список документов и результаты проверки каждого документа
     #[serde(rename = "items", skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<models::PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInner>>,
     #[serde(rename = "overallVerdict", skip_serializing_if = "Option::is_none")]
     pub overall_verdict: Option<Box<models::PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict>>,
-    /// Исключены ли документы из проверки карточки товара:   - `true` — да, документы не проверяются при проверке карточки   - `false` — нет, документы проверяются при проверке карточки 
+    /// Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку 
     #[serde(rename = "excludeDocuments", skip_serializing_if = "Option::is_none")]
     pub exclude_documents: Option<bool>,
 }
 
 impl PostV2GetCardsList200ResponseCardsInnerDocuments {
-    /// Документы
+    /// Документы, прикреплённые к карточке товара.<br> Результаты проверки каждого документа указаны в `items`. <br> Результат проверки всей карточки товара указан в `overallVerdict` 
     pub fn new() -> PostV2GetCardsList200ResponseCardsInnerDocuments {
         PostV2GetCardsList200ResponseCardsInnerDocuments {
             items: None,

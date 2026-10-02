@@ -25,7 +25,7 @@ type UpdateSupplyShippingMethod struct {
 	ShippingDt string `json:"shippingDt"`
 	// ID пункта отгрузки. Можно получить с помощью [отдельного метода](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
 	ShippingPointId int32 `json:"shippingPointId"`
-	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле `waybillUuid` 
+	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию 
 	ShippingType string `json:"shippingType"`
 	// ID поставки
 	SupplyId string `json:"supplyId"`

@@ -151,7 +151,6 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.getV3SuppliesSupplyIdOrderIds` — Получить ID сборочных заданий поставки
 - `orders_fbs.FBSApi.getV3SuppliesSupplyIdTrbx` — Получить список грузомест поставки
 - `orders_fbs.FBSApi.patchV3FbsSuppliesShippingMethod` — Установить параметры отгрузки поставок
-- `orders_fbs.FBSApi.patchV3FbsSuppliesWaybill` — Установить ID ЭТрН поставок
 - `orders_fbs.FBSApi.patchV3OrdersOrderIdCancel` — Отменить сборочное задание
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdDeliver` — Передать поставку в доставку
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdOrders` — Добавить сборочные задания к поставке

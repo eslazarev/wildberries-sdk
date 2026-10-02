@@ -17,11 +17,11 @@ import (
 // checks if the PostV2CardsUpdateRequestInnerDocuments type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PostV2CardsUpdateRequestInnerDocuments{}
 
-// PostV2CardsUpdateRequestInnerDocuments Документы
+// PostV2CardsUpdateRequestInnerDocuments Разрешительные документы карточки товара
 type PostV2CardsUpdateRequestInnerDocuments struct {
-	// Список документов
+	// Список разрешительных документов и их данные
 	Items []PostV2CardsUpdateRequestInnerDocumentsItemsInner `json:"items,omitempty"`
-	// Исключить ли документы из проверки:   - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения   - `false` — нет, проверять документы при проверке карточки товара 
+	// Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку 
 	ExcludeDocuments *bool `json:"excludeDocuments,omitempty"`
 }
 

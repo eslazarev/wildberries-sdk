@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.163"
+__version__ = "0.1.164"
 
 # Define package exports
 __all__ = [
@@ -115,14 +115,9 @@ __all__ = [
     "TrbxStickers",
     "UpdateSuppliesShippingMethodRequest",
     "UpdateSuppliesShippingMethodResponse",
-    "UpdateSuppliesWaybill",
-    "UpdateSuppliesWaybillResponse",
     "UpdateSupplyShippingMethod",
-    "UpdateSupplyWaybill",
     "UpdatedSuppliesShippingMethod",
     "UpdatedSuppliesShippingMethodError",
-    "UpdatedSuppliesWaybill",
-    "UpdatedSuppliesWaybillError",
     "V3APIError",
     "V3ArchiveOrder",
     "V3ArchiveOrderCrossBorder",
@@ -239,14 +234,9 @@ from wildberries_sdk.orders_fbs.models.supply_trbx import SupplyTrbx as SupplyTr
 from wildberries_sdk.orders_fbs.models.trbx_stickers import TrbxStickers as TrbxStickers
 from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_request import UpdateSuppliesShippingMethodRequest as UpdateSuppliesShippingMethodRequest
 from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_response import UpdateSuppliesShippingMethodResponse as UpdateSuppliesShippingMethodResponse
-from wildberries_sdk.orders_fbs.models.update_supplies_waybill import UpdateSuppliesWaybill as UpdateSuppliesWaybill
-from wildberries_sdk.orders_fbs.models.update_supplies_waybill_response import UpdateSuppliesWaybillResponse as UpdateSuppliesWaybillResponse
 from wildberries_sdk.orders_fbs.models.update_supply_shipping_method import UpdateSupplyShippingMethod as UpdateSupplyShippingMethod
-from wildberries_sdk.orders_fbs.models.update_supply_waybill import UpdateSupplyWaybill as UpdateSupplyWaybill
 from wildberries_sdk.orders_fbs.models.updated_supplies_shipping_method import UpdatedSuppliesShippingMethod as UpdatedSuppliesShippingMethod
 from wildberries_sdk.orders_fbs.models.updated_supplies_shipping_method_error import UpdatedSuppliesShippingMethodError as UpdatedSuppliesShippingMethodError
-from wildberries_sdk.orders_fbs.models.updated_supplies_waybill import UpdatedSuppliesWaybill as UpdatedSuppliesWaybill
-from wildberries_sdk.orders_fbs.models.updated_supplies_waybill_error import UpdatedSuppliesWaybillError as UpdatedSuppliesWaybillError
 from wildberries_sdk.orders_fbs.models.v3_api_error import V3APIError as V3APIError
 from wildberries_sdk.orders_fbs.models.v3_archive_order import V3ArchiveOrder as V3ArchiveOrder
 from wildberries_sdk.orders_fbs.models.v3_archive_order_cross_border import V3ArchiveOrderCrossBorder as V3ArchiveOrderCrossBorder

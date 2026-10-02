@@ -50,9 +50,9 @@ type Supply struct {
 	ShippingDt NullableString `json:"shippingDt,omitempty"`
 	// ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
 	ShippingPointId NullableInt32 `json:"shippingPointId,omitempty"`
-	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid` 
+	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию 
 	ShippingType NullableString `json:"shippingType,omitempty"`
-	// ID ЭТрН — электронной транспортной накладной. Обязателен при `\"shippingType\":\"transportCompany\"`
+	// ID ЭТрН — электронной транспортной накладной
 	WaybillUuid NullableString `json:"waybillUuid,omitempty"`
 	// Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет 
 	SpotAvailable bool `json:"spotAvailable"`

@@ -29,13 +29,16 @@ import {
 } from './PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInner';
 
 /**
- * Документы
+ * Документы, прикреплённые к карточке товара.<br>
+ * Результаты проверки каждого документа указаны в `items`. <br>
+ * Результат проверки всей карточки товара указан в `overallVerdict`
+ * 
  * @export
  * @interface PostV2GetCardsList200ResponseCardsInnerDocuments
  */
 export interface PostV2GetCardsList200ResponseCardsInnerDocuments {
     /**
-     * Список документов
+     * Список документов и результаты проверки каждого документа
      */
     items?: Array<PostV2GetCardsList200ResponseCardsInnerDocumentsItemsInner>;
     /**
@@ -43,9 +46,11 @@ export interface PostV2GetCardsList200ResponseCardsInnerDocuments {
      */
     overallVerdict?: PostV2GetCardsList200ResponseCardsInnerDocumentsOverallVerdict;
     /**
-     * Исключены ли документы из проверки карточки товара:
-     *   - `true` — да, документы не проверяются при проверке карточки
-     *   - `false` — нет, документы проверяются при проверке карточки
+     * Подтверждение продавца, что для товара не требуются разрешительные документы:
+     *   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения
+     *   - `false` —  продавец не подтверждает, что документы не требуются
+     * 
+     * Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку
      * 
      */
     excludeDocuments?: boolean;
