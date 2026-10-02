@@ -3051,7 +3051,9 @@ paths:
           - по населённым пунктам России
           - по типам товаров, которые принимает пункт отгрузки
 
-        Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+        Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).<br><br>
+
+        Доступно только для продавцов из РФ.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
@@ -3124,15 +3126,13 @@ paths:
       description: |
         Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>
 
-        Для доставки транспортной компанией `"shippingType":"transportCompany"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).<br><br>
 
-        <div class="description_important">
-          Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>"shippingType":"transportCompany"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href="/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill">добавьте ID ЭТрН</a> заново.
-        </div>
 
         Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>
 
-        В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
+        В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.<br><br>
+
+        Доступно только для продавцов из РФ.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
@@ -3203,81 +3203,6 @@ paths:
   /api/marketplace/v3/fbs/supplies/waybill:
     servers:
       - url: https://marketplace-api.wildberries.ru
-    patch:
-      operationId: patchV3FbsSuppliesWaybill
-      x-readonly-method: false
-      x-category: marketplace
-      security:
-        - HeaderApiKey: []
-      tags:
-        - Поставки FBS
-      summary: Установить ID ЭТрН поставок
-      description: |
-        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.<br><br>
-
-        ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>
-
-
-
-        В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-
-        </div>
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              allOf:
-                - $ref: '#/components/schemas/UpdateSuppliesWaybill'
-                - description: Данные ЭТрН
-      responses:
-        '200':
-          description: Успешно
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UpdateSuppliesWaybillResponse'
-              examples:
-                UpdatedSuppliesWaybill:
-                  $ref: '#/components/examples/UpdatedSuppliesWaybill'
-        '400':
-          description: Неправильный запрос
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              examples:
-                IncorrectParameter:
-                  $ref: '#/components/examples/IncorrectParameter'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          description: Доступ запрещён
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              examples:
-                AccessDenied:
-                  $ref: '#/components/examples/AccessDenied'
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Response4XX'
-              examples:
-                Response403TokenCategory:
-                  $ref: '#/components/examples/Response403TokenCategory'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/supplies/waybill/status:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -4887,35 +4812,6 @@ components:
         requestId: a0b5907c-2978-4db6-9a59-00666e8b8d54
         status: 403
         title: AccessDenied
-    UpdatedSuppliesWaybill:
-      value:
-        results:
-          - supplyId: WB-GI-100
-            success: true
-          - supplyId: ax12
-            error:
-              code: 400
-              detail: IncorrectRequestBody
-          - supplyId: WB-GI-99999999
-            error:
-              code: 404
-              detail: NotFound
-          - supplyId: WB-GI-300
-            error:
-              code: 409
-              detail: SupplyShippingRequired
-          - supplyId: WB-GI-400
-            error:
-              code: 409
-              detail: UnsuitableShippingType
-          - supplyId: WB-GI-500
-            error:
-              code: 409
-              detail: WaybillUUIDIsProcessing
-          - supplyId: WB-GI-600
-            error:
-              code: 409
-              detail: SupplyAlreadyScanned
     UpdatedSuppliesShippingMethod:
       value:
         results:
@@ -5932,7 +5828,7 @@ components:
           description: |
             Способ доставки до пункта отгрузки:
               - `selfShipping` — доставка силами продавца
-              - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid`
+              - `transportCompany` — доставка через транспортную компанию
           type: string
           example: selfShipping
           enum:
@@ -5940,7 +5836,7 @@ components:
             - transportCompany
         waybillUuid:
           nullable: true
-          description: ID ЭТрН — электронной транспортной накладной. Обязателен при `"shippingType":"transportCompany"`
+          description: ID ЭТрН — электронной транспортной накладной
           type: string
           example: 550e8400-e29b-41d4-a716-384579387429
         spotAvailable:
@@ -6472,17 +6368,6 @@ components:
           maxItems: 100
           items:
             $ref: '#/components/schemas/UpdateSupplyShippingMethod'
-    UpdateSuppliesWaybill:
-      type: object
-      required:
-        - data
-      properties:
-        data:
-          type: array
-          minItems: 1
-          maxItems: 100
-          items:
-            $ref: '#/components/schemas/UpdateSupplyWaybill'
     UpdateSuppliesShippingMethodResponse:
       type: object
       required:
@@ -6492,30 +6377,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UpdatedSuppliesShippingMethod'
-    UpdateSuppliesWaybillResponse:
-      type: object
-      required:
-        - results
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/UpdatedSuppliesWaybill'
-    UpdateSupplyWaybill:
-      type: object
-      required:
-        - supplyId
-        - waybillUuid
-      properties:
-        supplyId:
-          example: WB-GI-100
-          type: string
-          description: ID поставки
-        waybillUuid:
-          type: string
-          description: ID ЭТрН
-          format: uuid
-          example: 550e8400-e29b-41d4-a716-445676543567
     UpdateSupplyShippingMethod:
       type: object
       required:
@@ -6536,7 +6397,7 @@ components:
           description: |
             Способ доставки до пункта отгрузки:
               - `selfShipping` — доставка силами продавца
-              - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле `waybillUuid`
+              - `transportCompany` — доставка через транспортную компанию
           type: string
           example: selfShipping
           enum:
@@ -6565,41 +6426,6 @@ components:
               - `404 NotFound` — поставка не найдена
               - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки
               - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
-          type: object
-          required:
-            - code
-            - detail
-          properties:
-            code:
-              type: integer
-              description: Код ошибки
-            detail:
-              type: string
-              description: |
-                Дополнительная информация об ошибке
-        success:
-          type: boolean
-          description: Успешна ли обработка запроса для данной поставки. Может быть только `true`
-        supplyId:
-          type: string
-          description: ID поставки
-    UpdatedSuppliesWaybill:
-      description: Результат обработки запроса для одной поставки
-      type: object
-      required:
-        - supplyId
-      properties:
-        error:
-          description: |
-            Ошибка обработки запроса для поставки. Возможные варианты ошибок:
-              - `400 IncorrectRequestBody`:
-                - некорректный ID поставки
-                - склад назначения находится не в РФ
-              - `404 NotFound` — поставка не найдена
-              - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки
-              - `409 SupplyShippingRequired` — не указан пункт отгрузки поставки
-              - `409 UnsuitableShippingType` — не указан способ доставки либо способ доставки не `transportCompany`
-              - `409 WaybillUUIDIsProcessing` — ЭТрН находится в обработке
           type: object
           required:
             - code
