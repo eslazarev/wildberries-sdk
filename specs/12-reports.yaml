@@ -2254,7 +2254,6 @@ paths:
           description: Дата окончания отчётного периода
         - name: status
           in: query
-          required: true
           schema:
             type: string
             example: active
@@ -2267,7 +2266,6 @@ paths:
               - `active` — активный
         - name: limit
           in: query
-          required: true
           schema:
             type: integer
             maximum: 1000
@@ -2277,7 +2275,6 @@ paths:
           description: Количество возвратов в ответе
         - name: offset
           in: query
-          required: true
           schema:
             type: integer
             format: date
