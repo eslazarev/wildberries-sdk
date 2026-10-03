@@ -59,6 +59,7 @@ class PostV2CardsUploadRequestInnerVariantsInner implements ModelInterface, Arra
     protected static $openAPITypes = [
         'brand' => 'string',
         'title' => 'string',
+        'gtin' => 'string',
         'description' => 'string',
         'vendor_code' => 'string',
         'kiz_marked' => 'bool',
@@ -79,6 +80,7 @@ class PostV2CardsUploadRequestInnerVariantsInner implements ModelInterface, Arra
     protected static $openAPIFormats = [
         'brand' => null,
         'title' => null,
+        'gtin' => null,
         'description' => null,
         'vendor_code' => null,
         'kiz_marked' => null,
@@ -97,6 +99,7 @@ class PostV2CardsUploadRequestInnerVariantsInner implements ModelInterface, Arra
     protected static array $openAPINullables = [
         'brand' => false,
         'title' => false,
+        'gtin' => false,
         'description' => false,
         'vendor_code' => false,
         'kiz_marked' => false,
@@ -195,6 +198,7 @@ class PostV2CardsUploadRequestInnerVariantsInner implements ModelInterface, Arra
     protected static $attributeMap = [
         'brand' => 'brand',
         'title' => 'title',
+        'gtin' => 'gtin',
         'description' => 'description',
         'vendor_code' => 'vendorCode',
         'kiz_marked' => 'kizMarked',
@@ -213,6 +217,7 @@ class PostV2CardsUploadRequestInnerVariantsInner implements ModelInterface, Arra
     protected static $setters = [
         'brand' => 'setBrand',
         'title' => 'setTitle',
+        'gtin' => 'setGtin',
         'description' => 'setDescription',
         'vendor_code' => 'setVendorCode',
         'kiz_marked' => 'setKizMarked',
@@ -231,6 +236,7 @@ class PostV2CardsUploadRequestInnerVariantsInner implements ModelInterface, Arra
     protected static $getters = [
         'brand' => 'getBrand',
         'title' => 'getTitle',
+        'gtin' => 'getGtin',
         'description' => 'getDescription',
         'vendor_code' => 'getVendorCode',
         'kiz_marked' => 'getKizMarked',
@@ -300,6 +306,7 @@ class PostV2CardsUploadRequestInnerVariantsInner implements ModelInterface, Arra
     {
         $this->setIfExists('brand', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('gtin', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('vendor_code', $data ?? [], null);
         $this->setIfExists('kiz_marked', $data ?? [], false);
@@ -417,6 +424,33 @@ class PostV2CardsUploadRequestInnerVariantsInner implements ModelInterface, Arra
         }
 
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets gtin
+     *
+     * @return string|null
+     */
+    public function getGtin()
+    {
+        return $this->container['gtin'];
+    }
+
+    /**
+     * Sets gtin
+     *
+     * @param string|null $gtin Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров. <br><br> Только для продавцов из РФ
+     *
+     * @return self
+     */
+    public function setGtin($gtin)
+    {
+        if (is_null($gtin)) {
+            throw new \InvalidArgumentException('non-nullable gtin cannot be null');
+        }
+        $this->container['gtin'] = $gtin;
 
         return $this;
     }

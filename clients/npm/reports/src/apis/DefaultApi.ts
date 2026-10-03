@@ -345,15 +345,15 @@ export interface GetV1GoodsReturnRequest {
      *   - `active` — активный
      * 
      */
-    status: GetV1GoodsReturnStatusEnum;
+    status?: GetV1GoodsReturnStatusEnum;
     /**
      * Количество возвратов в ответе
      */
-    limit: number;
+    limit?: number;
     /**
      * Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
      */
-    offset: number;
+    offset?: number;
 }
 
 export interface GetV1MeasurementPenaltiesRequest {
@@ -1353,27 +1353,6 @@ export class DefaultApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'dateTo',
                 'Required parameter "dateTo" was null or undefined when calling getV1GoodsReturn().'
-            );
-        }
-
-        if (requestParameters['status'] == null) {
-            throw new runtime.RequiredError(
-                'status',
-                'Required parameter "status" was null or undefined when calling getV1GoodsReturn().'
-            );
-        }
-
-        if (requestParameters['limit'] == null) {
-            throw new runtime.RequiredError(
-                'limit',
-                'Required parameter "limit" was null or undefined when calling getV1GoodsReturn().'
-            );
-        }
-
-        if (requestParameters['offset'] == null) {
-            throw new runtime.RequiredError(
-                'offset',
-                'Required parameter "offset" was null or undefined when calling getV1GoodsReturn().'
             );
         }
 

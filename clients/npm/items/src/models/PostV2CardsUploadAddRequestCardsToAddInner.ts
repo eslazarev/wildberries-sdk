@@ -81,6 +81,10 @@ export interface PostV2CardsUploadAddRequestCardsToAddInner {
      */
     title?: string;
     /**
+     * Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров. <br><br> Только для продавцов из РФ
+     */
+    gtin?: string;
+    /**
      * Описание товара.<br>
      * Максимальное количество символов зависит от категории товара<br>
      * Стандарт — 2000, минимум — 1000, максимум — 5000<br>
@@ -134,6 +138,7 @@ export function PostV2CardsUploadAddRequestCardsToAddInnerFromJSONTyped(json: an
         'kizMarked': json['kizMarked'] == null ? undefined : json['kizMarked'],
         'wholesale': json['wholesale'] == null ? undefined : PostV2CardsUploadRequestInnerVariantsInnerWholesaleFromJSON(json['wholesale']),
         'title': json['title'] == null ? undefined : json['title'],
+        'gtin': json['gtin'] == null ? undefined : json['gtin'],
         'description': json['description'] == null ? undefined : json['description'],
         'dimensions': json['dimensions'] == null ? undefined : PostV2CardsUploadAddRequestCardsToAddInnerDimensionsFromJSON(json['dimensions']),
         'sizes': json['sizes'] == null ? undefined : ((json['sizes'] as Array<any>).map(PostV2CardsUploadAddRequestCardsToAddInnerSizesInnerFromJSON)),
@@ -158,6 +163,7 @@ export function PostV2CardsUploadAddRequestCardsToAddInnerToJSONTyped(value?: Po
         'kizMarked': value['kizMarked'],
         'wholesale': PostV2CardsUploadRequestInnerVariantsInnerWholesaleToJSON(value['wholesale']),
         'title': value['title'],
+        'gtin': value['gtin'],
         'description': value['description'],
         'dimensions': PostV2CardsUploadAddRequestCardsToAddInnerDimensionsToJSON(value['dimensions']),
         'sizes': value['sizes'] == null ? undefined : ((value['sizes'] as Array<any>).map(PostV2CardsUploadAddRequestCardsToAddInnerSizesInnerToJSON)),

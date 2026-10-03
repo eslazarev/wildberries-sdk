@@ -35,6 +35,7 @@ class PostV2CardsUploadRequestInnerVariantsInner(BaseModel):
     """ # noqa: E501
     brand: Optional[StrictStr] = Field(default=None, description="Бренд")
     title: Optional[Annotated[str, Field(strict=True, max_length=60)]] = Field(default=None, description="Наименование товара")
+    gtin: Optional[StrictStr] = Field(default=None, description="Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров. <br><br> Только для продавцов из РФ")
     description: Optional[StrictStr] = Field(default=None, description="Описание товара.<br> Максимальное количество символов зависит от категории товара<br> Стандарт — 2000, минимум — 1000, максимум — 5000<br> Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов ")
     vendor_code: Annotated[str, Field(strict=True, max_length=72)] = Field(description="Артикул продавца", alias="vendorCode")
     kiz_marked: Optional[StrictBool] = Field(default=False, description="Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` ", alias="kizMarked")
@@ -43,7 +44,7 @@ class PostV2CardsUploadRequestInnerVariantsInner(BaseModel):
     sizes: Optional[List[PostV2CardsUploadRequestInnerVariantsInnerSizesInner]] = Field(default=None, description="Массив размеров.<br> Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом ")
     characteristics: Optional[List[PostV2CardsUpdateRequestInnerCharacteristicsInner]] = Field(default=None, description="Характеристики товара. <br> Можно получить методом [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) ")
     documents: Optional[PostV2CardsUploadRequestInnerVariantsInnerDocuments] = None
-    __properties: ClassVar[List[str]] = ["brand", "title", "description", "vendorCode", "kizMarked", "wholesale", "dimensions", "sizes", "characteristics", "documents"]
+    __properties: ClassVar[List[str]] = ["brand", "title", "gtin", "description", "vendorCode", "kizMarked", "wholesale", "dimensions", "sizes", "characteristics", "documents"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -119,6 +120,7 @@ class PostV2CardsUploadRequestInnerVariantsInner(BaseModel):
         _obj = cls.model_validate({
             "brand": obj.get("brand"),
             "title": obj.get("title"),
+            "gtin": obj.get("gtin"),
             "description": obj.get("description"),
             "vendorCode": obj.get("vendorCode"),
             "kizMarked": obj.get("kizMarked") if obj.get("kizMarked") is not None else False,

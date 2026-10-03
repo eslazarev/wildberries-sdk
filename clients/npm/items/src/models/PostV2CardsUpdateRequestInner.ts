@@ -74,6 +74,10 @@ export interface PostV2CardsUpdateRequestInner {
      */
     title?: string;
     /**
+     * Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров. <br><br> Только для продавцов из РФ
+     */
+    gtin?: string;
+    /**
      * Описание товара.<br>
      * Максимальное количество символов зависит от категории товара<br>
      * Стандарт — 2000, минимум — 1000, максимум — 5000<br>
@@ -129,6 +133,7 @@ export function PostV2CardsUpdateRequestInnerFromJSONTyped(json: any, ignoreDisc
         'kizMarked': json['kizMarked'] == null ? undefined : json['kizMarked'],
         'brand': json['brand'] == null ? undefined : json['brand'],
         'title': json['title'] == null ? undefined : json['title'],
+        'gtin': json['gtin'] == null ? undefined : json['gtin'],
         'description': json['description'] == null ? undefined : json['description'],
         'dimensions': json['dimensions'] == null ? undefined : PostV2CardsUpdateRequestInnerDimensionsFromJSON(json['dimensions']),
         'documents': json['documents'] == null ? undefined : PostV2CardsUpdateRequestInnerDocumentsFromJSON(json['documents']),
@@ -153,6 +158,7 @@ export function PostV2CardsUpdateRequestInnerToJSONTyped(value?: PostV2CardsUpda
         'kizMarked': value['kizMarked'],
         'brand': value['brand'],
         'title': value['title'],
+        'gtin': value['gtin'],
         'description': value['description'],
         'dimensions': PostV2CardsUpdateRequestInnerDimensionsToJSON(value['dimensions']),
         'documents': PostV2CardsUpdateRequestInnerDocumentsToJSON(value['documents']),

@@ -31,6 +31,8 @@ type PostV2CardsUpdateRequestInner struct {
 	Brand *string `json:"brand,omitempty"`
 	// Наименование товара
 	Title *string `json:"title,omitempty"`
+	// Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров. <br><br> Только для продавцов из РФ
+	Gtin *string `json:"gtin,omitempty"`
 	// Описание товара.<br> Максимальное количество символов зависит от категории товара<br> Стандарт — 2000, минимум — 1000, максимум — 5000<br> Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов 
 	Description *string `json:"description,omitempty"`
 	Dimensions *PostV2CardsUpdateRequestInnerDimensions `json:"dimensions,omitempty"`
@@ -211,6 +213,38 @@ func (o *PostV2CardsUpdateRequestInner) SetTitle(v string) {
 	o.Title = &v
 }
 
+// GetGtin returns the Gtin field value if set, zero value otherwise.
+func (o *PostV2CardsUpdateRequestInner) GetGtin() string {
+	if o == nil || IsNil(o.Gtin) {
+		var ret string
+		return ret
+	}
+	return *o.Gtin
+}
+
+// GetGtinOk returns a tuple with the Gtin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostV2CardsUpdateRequestInner) GetGtinOk() (*string, bool) {
+	if o == nil || IsNil(o.Gtin) {
+		return nil, false
+	}
+	return o.Gtin, true
+}
+
+// HasGtin returns a boolean if a field has been set.
+func (o *PostV2CardsUpdateRequestInner) HasGtin() bool {
+	if o != nil && !IsNil(o.Gtin) {
+		return true
+	}
+
+	return false
+}
+
+// SetGtin gets a reference to the given string and assigns it to the Gtin field.
+func (o *PostV2CardsUpdateRequestInner) SetGtin(v string) {
+	o.Gtin = &v
+}
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *PostV2CardsUpdateRequestInner) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
@@ -383,6 +417,9 @@ func (o PostV2CardsUpdateRequestInner) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.Gtin) {
+		toSerialize["gtin"] = o.Gtin
 	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description

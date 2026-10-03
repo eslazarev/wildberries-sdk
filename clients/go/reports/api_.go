@@ -2577,27 +2577,18 @@ func (a *DefaultApiService) GetV1GoodsReturnExecute(r ApiGetV1GoodsReturnRequest
 	if r.dateTo == nil {
 		return localVarReturnValue, nil, reportError("dateTo is required and must be specified")
 	}
-	if r.status == nil {
-		return localVarReturnValue, nil, reportError("status is required and must be specified")
-	}
-	if r.limit == nil {
-		return localVarReturnValue, nil, reportError("limit is required and must be specified")
-	}
-	if *r.limit < 0 {
-		return localVarReturnValue, nil, reportError("limit must be greater than 0")
-	}
-	if *r.limit > 1000 {
-		return localVarReturnValue, nil, reportError("limit must be less than 1000")
-	}
-	if r.offset == nil {
-		return localVarReturnValue, nil, reportError("offset is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "dateTo", r.dateTo, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
+	if r.status != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	}
+	if r.offset != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

@@ -3759,9 +3759,9 @@ class DefaultApi:
         self,
         date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
         date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
-        status: Annotated[StrictStr, Field(description="Статус возврата:   - `archive` — архивный   - `active` — активный ")],
-        limit: Annotated[int, Field(le=1000, strict=True, ge=0, description="Количество возвратов в ответе")],
-        offset: Annotated[StrictInt, Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента")],
+        status: Annotated[Optional[StrictStr], Field(description="Статус возврата:   - `archive` — архивный   - `active` — активный ")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=0)]], Field(description="Количество возвратов в ответе")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3783,11 +3783,11 @@ class DefaultApi:
         :type date_from: date
         :param date_to: Дата окончания отчётного периода (required)
         :type date_to: date
-        :param status: Статус возврата:   - `archive` — архивный   - `active` — активный  (required)
+        :param status: Статус возврата:   - `archive` — архивный   - `active` — активный 
         :type status: str
-        :param limit: Количество возвратов в ответе (required)
+        :param limit: Количество возвратов в ответе
         :type limit: int
-        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
         :type offset: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3846,9 +3846,9 @@ class DefaultApi:
         self,
         date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
         date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
-        status: Annotated[StrictStr, Field(description="Статус возврата:   - `archive` — архивный   - `active` — активный ")],
-        limit: Annotated[int, Field(le=1000, strict=True, ge=0, description="Количество возвратов в ответе")],
-        offset: Annotated[StrictInt, Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента")],
+        status: Annotated[Optional[StrictStr], Field(description="Статус возврата:   - `archive` — архивный   - `active` — активный ")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=0)]], Field(description="Количество возвратов в ответе")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3870,11 +3870,11 @@ class DefaultApi:
         :type date_from: date
         :param date_to: Дата окончания отчётного периода (required)
         :type date_to: date
-        :param status: Статус возврата:   - `archive` — архивный   - `active` — активный  (required)
+        :param status: Статус возврата:   - `archive` — архивный   - `active` — активный 
         :type status: str
-        :param limit: Количество возвратов в ответе (required)
+        :param limit: Количество возвратов в ответе
         :type limit: int
-        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
         :type offset: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3933,9 +3933,9 @@ class DefaultApi:
         self,
         date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
         date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
-        status: Annotated[StrictStr, Field(description="Статус возврата:   - `archive` — архивный   - `active` — активный ")],
-        limit: Annotated[int, Field(le=1000, strict=True, ge=0, description="Количество возвратов в ответе")],
-        offset: Annotated[StrictInt, Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента")],
+        status: Annotated[Optional[StrictStr], Field(description="Статус возврата:   - `archive` — архивный   - `active` — активный ")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=0)]], Field(description="Количество возвратов в ответе")] = None,
+        offset: Annotated[Optional[StrictInt], Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3957,11 +3957,11 @@ class DefaultApi:
         :type date_from: date
         :param date_to: Дата окончания отчётного периода (required)
         :type date_to: date
-        :param status: Статус возврата:   - `archive` — архивный   - `active` — активный  (required)
+        :param status: Статус возврата:   - `archive` — архивный   - `active` — активный 
         :type status: str
-        :param limit: Количество возвратов в ответе (required)
+        :param limit: Количество возвратов в ответе
         :type limit: int
-        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
         :type offset: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

@@ -5347,9 +5347,9 @@ class DefaultApi
      *
      * @param  \DateTime $date_from Дата начала отчётного периода (required)
      * @param  \DateTime $date_to Дата окончания отчётного периода (required)
-     * @param  string $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (required)
-     * @param  int $limit Количество возвратов в ответе (required)
-     * @param  int $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+     * @param  string|null $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (optional)
+     * @param  int|null $limit Количество возвратов в ответе (optional)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1GoodsReturn'] to see the possible values for this operation
@@ -5358,7 +5358,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Reports\Model\GoodsReturn200Response|\Wildberries\Sdk\Reports\Model\Model4XXResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
      */
-    public function getV1GoodsReturn($date_from, $date_to, $status, $limit, $offset, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
+    public function getV1GoodsReturn($date_from, $date_to, $status = null, $limit = null, $offset = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
     {
         list($response) = $this->getV1GoodsReturnWithHttpInfo($date_from, $date_to, $status, $limit, $offset, $hostIndex, $variables, $contentType);
         return $response;
@@ -5375,9 +5375,9 @@ class DefaultApi
      *
      * @param  \DateTime $date_from Дата начала отчётного периода (required)
      * @param  \DateTime $date_to Дата окончания отчётного периода (required)
-     * @param  string $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (required)
-     * @param  int $limit Количество возвратов в ответе (required)
-     * @param  int $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+     * @param  string|null $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (optional)
+     * @param  int|null $limit Количество возвратов в ответе (optional)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1GoodsReturn'] to see the possible values for this operation
@@ -5386,7 +5386,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Reports\Model\GoodsReturn200Response|\Wildberries\Sdk\Reports\Model\Model4XXResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getV1GoodsReturnWithHttpInfo($date_from, $date_to, $status, $limit, $offset, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
+    public function getV1GoodsReturnWithHttpInfo($date_from, $date_to, $status = null, $limit = null, $offset = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
     {
         $request = $this->getV1GoodsReturnRequest($date_from, $date_to, $status, $limit, $offset, $hostIndex, $variables, $contentType);
 
@@ -5512,9 +5512,9 @@ class DefaultApi
      *
      * @param  \DateTime $date_from Дата начала отчётного периода (required)
      * @param  \DateTime $date_to Дата окончания отчётного периода (required)
-     * @param  string $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (required)
-     * @param  int $limit Количество возвратов в ответе (required)
-     * @param  int $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+     * @param  string|null $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (optional)
+     * @param  int|null $limit Количество возвратов в ответе (optional)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1GoodsReturn'] to see the possible values for this operation
@@ -5522,7 +5522,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getV1GoodsReturnAsync($date_from, $date_to, $status, $limit, $offset, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
+    public function getV1GoodsReturnAsync($date_from, $date_to, $status = null, $limit = null, $offset = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
     {
         return $this->getV1GoodsReturnAsyncWithHttpInfo($date_from, $date_to, $status, $limit, $offset, $hostIndex, $variables, $contentType)
             ->then(
@@ -5543,9 +5543,9 @@ class DefaultApi
      *
      * @param  \DateTime $date_from Дата начала отчётного периода (required)
      * @param  \DateTime $date_to Дата окончания отчётного периода (required)
-     * @param  string $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (required)
-     * @param  int $limit Количество возвратов в ответе (required)
-     * @param  int $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+     * @param  string|null $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (optional)
+     * @param  int|null $limit Количество возвратов в ответе (optional)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1GoodsReturn'] to see the possible values for this operation
@@ -5553,7 +5553,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getV1GoodsReturnAsyncWithHttpInfo($date_from, $date_to, $status, $limit, $offset, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
+    public function getV1GoodsReturnAsyncWithHttpInfo($date_from, $date_to, $status = null, $limit = null, $offset = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
     {
         $returnType = '\Wildberries\Sdk\Reports\Model\GoodsReturn200Response';
         $request = $this->getV1GoodsReturnRequest($date_from, $date_to, $status, $limit, $offset, $hostIndex, $variables, $contentType);
@@ -5603,9 +5603,9 @@ class DefaultApi
      *
      * @param  \DateTime $date_from Дата начала отчётного периода (required)
      * @param  \DateTime $date_to Дата окончания отчётного периода (required)
-     * @param  string $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (required)
-     * @param  int $limit Количество возвратов в ответе (required)
-     * @param  int $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (required)
+     * @param  string|null $status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный (optional)
+     * @param  int|null $limit Количество возвратов в ответе (optional)
+     * @param  int|null $offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1GoodsReturn'] to see the possible values for this operation
@@ -5613,7 +5613,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getV1GoodsReturnRequest($date_from, $date_to, $status, $limit, $offset, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
+    public function getV1GoodsReturnRequest($date_from, $date_to, $status = null, $limit = null, $offset = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1GoodsReturn'][0])
     {
 
         // verify the required parameter 'date_from' is set
@@ -5630,32 +5630,14 @@ class DefaultApi
             );
         }
 
-        // verify the required parameter 'status' is set
-        if ($status === null || (is_array($status) && count($status) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $status when calling getV1GoodsReturn'
-            );
-        }
 
-        // verify the required parameter 'limit' is set
-        if ($limit === null || (is_array($limit) && count($limit) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $limit when calling getV1GoodsReturn'
-            );
-        }
-        if ($limit > 1000) {
+        if ($limit !== null && $limit > 1000) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV1GoodsReturn, must be smaller than or equal to 1000.');
         }
-        if ($limit < 0) {
+        if ($limit !== null && $limit < 0) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV1GoodsReturn, must be bigger than or equal to 0.');
         }
         
-        // verify the required parameter 'offset' is set
-        if ($offset === null || (is_array($offset) && count($offset) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $offset when calling getV1GoodsReturn'
-            );
-        }
 
 
         $resourcePath = '/api/analytics/v1/item-returns';
@@ -5690,7 +5672,7 @@ class DefaultApi
             'string', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -5699,7 +5681,7 @@ class DefaultApi
             'integer', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -5708,7 +5690,7 @@ class DefaultApi
             'integer', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
 
 

@@ -885,7 +885,7 @@ pub async fn get_v1_deductions(configuration: &configuration::Configuration, dat
 }
 
 /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
-pub async fn get_v1_goods_return(configuration: &configuration::Configuration, date_from: chrono::NaiveDate, date_to: chrono::NaiveDate, status: &str, limit: i32, offset: i32) -> Result<models::GoodsReturn200Response, Error<GetV1GoodsReturnError>> {
+pub async fn get_v1_goods_return(configuration: &configuration::Configuration, date_from: chrono::NaiveDate, date_to: chrono::NaiveDate, status: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::GoodsReturn200Response, Error<GetV1GoodsReturnError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_date_from = date_from;
     let p_query_date_to = date_to;
@@ -898,9 +898,15 @@ pub async fn get_v1_goods_return(configuration: &configuration::Configuration, d
 
     req_builder = req_builder.query(&[("dateFrom", &p_query_date_from.to_string())]);
     req_builder = req_builder.query(&[("dateTo", &p_query_date_to.to_string())]);
-    req_builder = req_builder.query(&[("status", &p_query_status.to_string())]);
-    req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
-    req_builder = req_builder.query(&[("offset", &p_query_offset.to_string())]);
+    if let Some(ref param_value) = p_query_status {
+        req_builder = req_builder.query(&[("status", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

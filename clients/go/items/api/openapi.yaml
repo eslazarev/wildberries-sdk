@@ -2382,6 +2382,7 @@ paths:
                   kizMarked: true
                   brand: Тест
                   title: Тест-система
+                  gtin: "04607009520001"
                   description: Тестовое описание
                   needKiz: false
                   photos:
@@ -3931,6 +3932,7 @@ paths:
                   enabled: true
                   quantum: 243
                 title: Наименование товара
+                gtin: "04607009520001"
                 description: Описание товара
                 brand: Бренд
                 dimensions:
@@ -7612,6 +7614,7 @@ components:
             enabled: true
             quantum: 211
           title: Наименование товара
+          gtin: "04607009520001"
           description: Описание товара
           brand: Бренд
           dimensions:
@@ -7656,6 +7659,7 @@ components:
             enabled: true
             quantum: 211
           title: Наименование товара 1
+          gtin: "04607009520001"
           description: Описание товара 1
           brand: Бренд
           dimensions:
@@ -7729,6 +7733,7 @@ components:
             enabled: true
             quantum: 211
           title: Наименование товара 1
+          gtin: "04607009520001"
           description: Описание товара 1
           brand: Бренд
           dimensions:
@@ -7803,6 +7808,7 @@ components:
         kizMarked: true
         brand: ""
         title: Свитер женский оверсайз с горлом
+        gtin: "04607009520001"
         description: "12345"
         dimensions:
           length: 35
@@ -11531,6 +11537,7 @@ components:
         vendorCode: vendorCode
         brand: brand
         title: title
+        gtin: gtin
         description: description
         needKiz: true
         kizMarked: false
@@ -11654,6 +11661,10 @@ components:
         title:
           description: Наименование товара
           type: string
+        gtin:
+          description: Дополнительный GTIN. Поле вернётся только при заполненном дополнительном
+            GTIN. <br><br> Только для продавцов из РФ
+          type: string
         description:
           description: Описание товара
           type: string
@@ -11739,6 +11750,7 @@ components:
           vendorCode: vendorCode
           brand: brand
           title: title
+          gtin: gtin
           description: description
           needKiz: true
           kizMarked: false
@@ -11840,6 +11852,7 @@ components:
           vendorCode: vendorCode
           brand: brand
           title: title
+          gtin: gtin
           description: description
           needKiz: true
           kizMarked: false
@@ -12061,6 +12074,12 @@ components:
         title:
           description: Наименование товара
           maxLength: 60
+          type: string
+        gtin:
+          description: "Дополнительный GTIN. Укажите этот параметр, если тот же GTIN\
+            \ вы ранее указывали в одной из карточек товара в параметре `skus`. Не\
+            льзя указывать один и тот же GTIN в `skus` для разных карточек или раз\
+            меров товаров. <br><br> Только для продавцов из РФ"
           type: string
         description:
           description: |
@@ -12630,6 +12649,12 @@ components:
           description: Наименование товара
           maxLength: 60
           type: string
+        gtin:
+          description: "Дополнительный GTIN. Укажите этот параметр, если тот же GTIN\
+            \ вы ранее указывали в одной из карточек товара в параметре `skus`. Не\
+            льзя указывать один и тот же GTIN в `skus` для разных карточек или раз\
+            меров товаров. <br><br> Только для продавцов из РФ"
+          type: string
         description:
           description: |
             Описание товара.<br>
@@ -12772,6 +12797,12 @@ components:
         title:
           description: Наименование товара
           maxLength: 60
+          type: string
+        gtin:
+          description: "Дополнительный GTIN. Укажите этот параметр, если тот же GTIN\
+            \ вы ранее указывали в одной из карточек товара в параметре `skus`. Не\
+            льзя указывать один и тот же GTIN в `skus` для разных карточек или раз\
+            меров товаров. <br><br> Только для продавцов из РФ"
           type: string
         description:
           description: |

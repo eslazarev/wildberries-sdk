@@ -42,6 +42,7 @@ class PostV2GetCardsList200ResponseCardsInner(BaseModel):
     vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
     brand: Optional[StrictStr] = Field(default=None, description="Бренд")
     title: Optional[StrictStr] = Field(default=None, description="Наименование товара")
+    gtin: Optional[StrictStr] = Field(default=None, description="Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN. <br><br> Только для продавцов из РФ")
     description: Optional[StrictStr] = Field(default=None, description="Описание товара")
     need_kiz: Optional[StrictBool] = Field(default=None, description="Требуется ли код маркировки [Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не требуется   - `true` — требуется ", alias="needKiz")
     kiz_marked: Optional[StrictBool] = Field(default=False, description="Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - `true` — да   - `false` — нет  Является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, указано в поле `needKiz` ", alias="kizMarked")
@@ -55,7 +56,7 @@ class PostV2GetCardsList200ResponseCardsInner(BaseModel):
     tags: Optional[List[PostV2GetCardsList200ResponseCardsInnerTagsInner]] = Field(default=None, description="Ярлыки")
     created_at: Optional[StrictStr] = Field(default=None, description="Дата и время создания", alias="createdAt")
     updated_at: Optional[StrictStr] = Field(default=None, description="Дата и время изменения", alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["nmID", "imtID", "nmUUID", "subjectID", "subjectName", "vendorCode", "brand", "title", "description", "needKiz", "kizMarked", "photos", "video", "wholesale", "dimensions", "documents", "characteristics", "sizes", "tags", "createdAt", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["nmID", "imtID", "nmUUID", "subjectID", "subjectName", "vendorCode", "brand", "title", "gtin", "description", "needKiz", "kizMarked", "photos", "video", "wholesale", "dimensions", "documents", "characteristics", "sizes", "tags", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -149,6 +150,7 @@ class PostV2GetCardsList200ResponseCardsInner(BaseModel):
             "vendorCode": obj.get("vendorCode"),
             "brand": obj.get("brand"),
             "title": obj.get("title"),
+            "gtin": obj.get("gtin"),
             "description": obj.get("description"),
             "needKiz": obj.get("needKiz"),
             "kizMarked": obj.get("kizMarked") if obj.get("kizMarked") is not None else False,

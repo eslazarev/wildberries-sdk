@@ -37,6 +37,9 @@ pub struct PostV2GetCardsList200ResponseCardsInner {
     /// Наименование товара
     #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
+    /// Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN. <br><br> Только для продавцов из РФ
+    #[serde(rename = "gtin", skip_serializing_if = "Option::is_none")]
+    pub gtin: Option<String>,
     /// Описание товара
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
@@ -86,6 +89,7 @@ impl PostV2GetCardsList200ResponseCardsInner {
             vendor_code: None,
             brand: None,
             title: None,
+            gtin: None,
             description: None,
             need_kiz: None,
             kiz_marked: None,

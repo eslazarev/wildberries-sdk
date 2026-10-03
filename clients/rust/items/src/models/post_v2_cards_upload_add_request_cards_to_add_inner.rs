@@ -27,6 +27,9 @@ pub struct PostV2CardsUploadAddRequestCardsToAddInner {
     /// Наименование товара
     #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
+    /// Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров. <br><br> Только для продавцов из РФ
+    #[serde(rename = "gtin", skip_serializing_if = "Option::is_none")]
+    pub gtin: Option<String>,
     /// Описание товара.<br> Максимальное количество символов зависит от категории товара<br> Стандарт — 2000, минимум — 1000, максимум — 5000<br> Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов 
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
@@ -50,6 +53,7 @@ impl PostV2CardsUploadAddRequestCardsToAddInner {
             kiz_marked: None,
             wholesale: None,
             title: None,
+            gtin: None,
             description: None,
             dimensions: None,
             sizes: None,

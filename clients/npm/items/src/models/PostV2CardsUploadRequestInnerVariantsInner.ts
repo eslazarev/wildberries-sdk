@@ -64,6 +64,10 @@ export interface PostV2CardsUploadRequestInnerVariantsInner {
      */
     title?: string;
     /**
+     * Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров. <br><br> Только для продавцов из РФ
+     */
+    gtin?: string;
+    /**
      * Описание товара.<br>
      * Максимальное количество символов зависит от категории товара<br>
      * Стандарт — 2000, минимум — 1000, максимум — 5000<br>
@@ -131,6 +135,7 @@ export function PostV2CardsUploadRequestInnerVariantsInnerFromJSONTyped(json: an
         
         'brand': json['brand'] == null ? undefined : json['brand'],
         'title': json['title'] == null ? undefined : json['title'],
+        'gtin': json['gtin'] == null ? undefined : json['gtin'],
         'description': json['description'] == null ? undefined : json['description'],
         'vendorCode': json['vendorCode'],
         'kizMarked': json['kizMarked'] == null ? undefined : json['kizMarked'],
@@ -155,6 +160,7 @@ export function PostV2CardsUploadRequestInnerVariantsInnerToJSONTyped(value?: Po
         
         'brand': value['brand'],
         'title': value['title'],
+        'gtin': value['gtin'],
         'description': value['description'],
         'vendorCode': value['vendorCode'],
         'kizMarked': value['kizMarked'],

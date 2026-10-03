@@ -102,6 +102,10 @@ export interface PostV2GetCardsList200ResponseCardsInner {
      */
     title?: string;
     /**
+     * Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN. <br><br> Только для продавцов из РФ
+     */
+    gtin?: string;
+    /**
      * Описание товара
      */
     description?: string;
@@ -188,6 +192,7 @@ export function PostV2GetCardsList200ResponseCardsInnerFromJSONTyped(json: any, 
         'vendorCode': json['vendorCode'] == null ? undefined : json['vendorCode'],
         'brand': json['brand'] == null ? undefined : json['brand'],
         'title': json['title'] == null ? undefined : json['title'],
+        'gtin': json['gtin'] == null ? undefined : json['gtin'],
         'description': json['description'] == null ? undefined : json['description'],
         'needKiz': json['needKiz'] == null ? undefined : json['needKiz'],
         'kizMarked': json['kizMarked'] == null ? undefined : json['kizMarked'],
@@ -223,6 +228,7 @@ export function PostV2GetCardsList200ResponseCardsInnerToJSONTyped(value?: PostV
         'vendorCode': value['vendorCode'],
         'brand': value['brand'],
         'title': value['title'],
+        'gtin': value['gtin'],
         'description': value['description'],
         'needKiz': value['needKiz'],
         'kizMarked': value['kizMarked'],
