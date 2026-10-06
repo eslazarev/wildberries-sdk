@@ -33,7 +33,7 @@ import {
  * Дополнительные ошибки
  * @export
  */
-export type ResponseItemListAdditionalErrors = ResponseItemListAdditionalErrorsOneOf | ResponseItemListAdditionalErrorsOneOf1 | string;
+export type ResponseItemListAdditionalErrors = ResponseItemListAdditionalErrorsOneOf | ResponseItemListAdditionalErrorsOneOf1 | null | string;
 
 export function ResponseItemListAdditionalErrorsFromJSON(json: any): ResponseItemListAdditionalErrors {
     return ResponseItemListAdditionalErrorsFromJSONTyped(json, false);

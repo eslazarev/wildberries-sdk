@@ -17,7 +17,7 @@ pub struct SearchReportTextReq {
     #[serde(rename = "id")]
     pub id: uuid::Uuid,
     /// Тип отчёта `SEARCH_QUERIES_PREMIUM_REPORT_TEXT` — Отчёт по текстам поисковых запросов
-    #[serde(rename = "reportType")]
+    #[serde(rename = "reportType", default, skip_serializing_if = "String::is_empty")]
     pub report_type: String,
     /// Название отчёта. Если не указано, сформируется автоматически
     #[serde(rename = "userReportName", skip_serializing_if = "Option::is_none")]

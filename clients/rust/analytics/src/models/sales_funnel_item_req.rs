@@ -17,7 +17,7 @@ pub struct SalesFunnelItemReq {
     #[serde(rename = "id")]
     pub id: uuid::Uuid,
     /// Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB. <br> Данные отчёта обновляются 1 раз в 2 часа. 
-    #[serde(rename = "reportType")]
+    #[serde(rename = "reportType", default, skip_serializing_if = "String::is_empty")]
     pub report_type: String,
     /// Название отчёта. Если не указано, сформируется автоматически
     #[serde(rename = "userReportName", skip_serializing_if = "Option::is_none")]

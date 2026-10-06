@@ -2594,10 +2594,9 @@ paths:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/region-sale:
     get:
+      deprecated: true
       description: |
-        Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>
-
-        Можно получить отчёт максимум за 31 день.
+        Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:

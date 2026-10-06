@@ -2056,9 +2056,7 @@ func (r ApiGetV1AnalyticsRegionSaleRequest) Execute() (*GetV1AnalyticsRegionSale
 /*
 GetV1AnalyticsRegionSale Получить отчёт
 
-Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>
-
-Можно получить отчёт максимум за 31 день.
+Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2075,6 +2073,8 @@ GetV1AnalyticsRegionSale Получить отчёт
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV1AnalyticsRegionSaleRequest
+
+Deprecated
 */
 func (a *DefaultApiService) GetV1AnalyticsRegionSale(ctx context.Context) ApiGetV1AnalyticsRegionSaleRequest {
 	return ApiGetV1AnalyticsRegionSaleRequest{
@@ -2085,6 +2085,7 @@ func (a *DefaultApiService) GetV1AnalyticsRegionSale(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return GetV1AnalyticsRegionSale200Response
+// Deprecated
 func (a *DefaultApiService) GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsRegionSaleRequest) (*GetV1AnalyticsRegionSale200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet

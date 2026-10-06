@@ -3088,9 +3088,9 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> GetV1AnalyticsRegionSale200Response:
-        """Получить отчёт
+        """(Deprecated) Получить отчёт
 
-        Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+        Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
         :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
         :type date_from: str
@@ -3117,6 +3117,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v1/analytics/region-sale is deprecated.", DeprecationWarning)
 
         _param = self._get_v1_analytics_region_sale_serialize(
             date_from=date_from,
@@ -3164,9 +3165,9 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiResponse[GetV1AnalyticsRegionSale200Response]:
-        """Получить отчёт
+        """(Deprecated) Получить отчёт
 
-        Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+        Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
         :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
         :type date_from: str
@@ -3193,6 +3194,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v1/analytics/region-sale is deprecated.", DeprecationWarning)
 
         _param = self._get_v1_analytics_region_sale_serialize(
             date_from=date_from,
@@ -3240,9 +3242,9 @@ class DefaultApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> RESTResponseType:
-        """Получить отчёт
+        """(Deprecated) Получить отчёт
 
-        Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+        Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
         :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
         :type date_from: str
@@ -3269,6 +3271,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /api/v1/analytics/region-sale is deprecated.", DeprecationWarning)
 
         _param = self._get_v1_analytics_region_sale_serialize(
             date_from=date_from,

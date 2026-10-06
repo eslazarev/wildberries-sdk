@@ -1194,6 +1194,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      * Creates request options for getV1AnalyticsRegionSale without sending the request
+     * @deprecated
      */
     async getV1AnalyticsRegionSaleRequestOpts(requestParameters: GetV1AnalyticsRegionSaleRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['dateFrom'] == null) {
@@ -1238,8 +1239,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
+     * @deprecated
      */
     async getV1AnalyticsRegionSaleRaw(requestParameters: GetV1AnalyticsRegionSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsRegionSale200Response>> {
         const requestOptions = await this.getV1AnalyticsRegionSaleRequestOpts(requestParameters);
@@ -1249,8 +1251,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
+     * @deprecated
      */
     async getV1AnalyticsRegionSale(requestParameters: GetV1AnalyticsRegionSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsRegionSale200Response> {
         const response = await this.getV1AnalyticsRegionSaleRaw(requestParameters, initOverrides);

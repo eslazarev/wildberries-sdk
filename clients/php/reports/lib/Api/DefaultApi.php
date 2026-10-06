@@ -4439,6 +4439,7 @@ class DefaultApi
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsRegionSale200Response|\Wildberries\Sdk\Reports\Model\Model4XXResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response
+     * @deprecated
      */
     public function getV1AnalyticsRegionSale($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsRegionSale'][0])
     {
@@ -4464,6 +4465,7 @@ class DefaultApi
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Reports\Model\GetV1AnalyticsRegionSale200Response|\Wildberries\Sdk\Reports\Model\Model4XXResponse|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders402Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders403Response|\Wildberries\Sdk\Reports\Model\GetV1SupplierOrders401Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getV1AnalyticsRegionSaleWithHttpInfo($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsRegionSale'][0])
     {
@@ -4625,6 +4627,7 @@ class DefaultApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getV1AnalyticsRegionSaleAsync($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsRegionSale'][0])
     {
@@ -4653,6 +4656,7 @@ class DefaultApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getV1AnalyticsRegionSaleAsyncWithHttpInfo($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsRegionSale'][0])
     {
@@ -4710,6 +4714,7 @@ class DefaultApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getV1AnalyticsRegionSaleRequest($date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1AnalyticsRegionSale'][0])
     {
