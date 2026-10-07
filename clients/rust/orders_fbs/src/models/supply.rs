@@ -33,7 +33,7 @@ pub struct Supply {
     /// Дата закрытия поставки (RFC3339)
     #[serde(rename = "closedAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub closed_at: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
-    /// Дата сканирования поставки или первого заказа (RFC3339)
+    /// Дата сканирования поставки (RFC3339).<br>Если `\"scanDt\":null`, поставка не сканировалась
     #[serde(rename = "scanDt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub scan_dt: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     /// Наименование поставки
@@ -95,7 +95,6 @@ impl Supply {
 #[repr(i64)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum CargoType {
-    Variant0 = 0,
     Variant1 = 1,
     Variant2 = 2,
     Variant3 = 3,
@@ -104,7 +103,6 @@ pub enum CargoType {
 impl std::fmt::Display for CargoType {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", match self {
-            Self::Variant0 => "0",
             Self::Variant1 => "1",
             Self::Variant2 => "2",
             Self::Variant3 => "3",
@@ -114,7 +112,7 @@ impl std::fmt::Display for CargoType {
 
 impl Default for CargoType {
     fn default() -> CargoType {
-        Self::Variant0
+        Self::Variant1
     }
 }
 /// Тип поставки:   - `0` — внутренняя поставка   - `1` — трансграничная поставка   - `null` — значение отсутствует 

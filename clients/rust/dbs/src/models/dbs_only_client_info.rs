@@ -16,18 +16,24 @@ pub struct DbsOnlyClientInfo {
     /// Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер еще не назначен <br> 
     #[serde(rename = "replacementPhone", skip_serializing_if = "Option::is_none")]
     pub replacement_phone: Option<String>,
+    /// Резервный подменный номер телефона для связи с покупателем. <br> Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен 
+    #[serde(rename = "phone", skip_serializing_if = "Option::is_none")]
+    pub phone: Option<String>,
     /// Имя покупателя
     #[serde(rename = "firstName", skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     /// Полное имя, используется для оформления документов. Например, документы на автомобиль
     #[serde(rename = "fullName", skip_serializing_if = "Option::is_none")]
     pub full_name: Option<String>,
+    /// Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан 
+    #[serde(rename = "additionalPhones", skip_serializing_if = "Option::is_none")]
+    pub additional_phones: Option<Vec<String>>,
+    /// Дополнительные подменные номера телефонов для связи с покупателем.<br> Пустое значение означает, что номер не указан 
+    #[serde(rename = "replacementAdditionalPhones", skip_serializing_if = "Option::is_none")]
+    pub replacement_additional_phones: Option<Vec<String>>,
     /// ID сборочного задания
     #[serde(rename = "orderID", skip_serializing_if = "Option::is_none")]
     pub order_id: Option<i32>,
-    /// Резервный подменный номер телефона для связи с покупателем. <br> Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен 
-    #[serde(rename = "phone", skip_serializing_if = "Option::is_none")]
-    pub phone: Option<String>,
     /// Добавочный код. <br> Пустое значение `\"\"` указывает, что код ещё не назначен 
     #[serde(rename = "phoneCode", skip_serializing_if = "Option::is_none")]
     pub phone_code: Option<i32>,
@@ -40,10 +46,12 @@ impl DbsOnlyClientInfo {
     pub fn new() -> DbsOnlyClientInfo {
         DbsOnlyClientInfo {
             replacement_phone: None,
+            phone: None,
             first_name: None,
             full_name: None,
+            additional_phones: None,
+            replacement_additional_phones: None,
             order_id: None,
-            phone: None,
             phone_code: None,
             additional_phone_codes: None,
         }

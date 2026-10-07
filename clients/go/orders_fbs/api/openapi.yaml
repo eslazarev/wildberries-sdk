@@ -5396,6 +5396,15 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response4XX"
           description: Доступ запрещён
+        "406":
+          content:
+            application/json:
+              examples:
+                NotAcceptable:
+                  $ref: "#/components/examples/NotAcceptable"
+              schema:
+                $ref: "#/components/schemas/ApiErrorV3"
+          description: Неприменимо для данного аккаунта
         "429":
           content:
             application/json:
@@ -6003,6 +6012,11 @@ components:
       value:
         code: AccessDenied
         message: ""
+    NotAcceptable:
+      description: "Неприменимо для данного аккаунта — отсутствуют [склады FBS](./item-management#tag/sellerWarehouses)"
+      value:
+        title: NotAcceptable
+        detail: Not acceptable
     Response403TokenCategory:
       description: Неверная категория токена
       value:
@@ -6506,12 +6520,15 @@ components:
       - title
       type: object
     ApiErrorV3:
+      example:
+        title: title
+        detail: detail
       properties:
-        detail:
-          description: Детали ошибки
-          type: string
         title:
           description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
           type: string
       required:
       - detail
@@ -6824,7 +6841,8 @@ components:
           nullable: true
           type: string
         scanDt:
-          description: Дата сканирования поставки или первого заказа (RFC3339)
+          description: "Дата сканирования поставки (RFC3339).<br>Если `\"scanDt\"\
+            :null`, поставка не сканировалась"
           example: 2022-05-04T07:56:29Z
           format: date-time
           nullable: true
@@ -6841,7 +6859,6 @@ components:
               - `2` — сверхгабаритный товар (СГТ)
               - `3` — крупногабаритный товар (КГТ+)
           enum:
-          - 0
           - 1
           - 2
           - 3

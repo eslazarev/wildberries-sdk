@@ -27,9 +27,9 @@ class ApiErrorV3(BaseModel):
     """
     ApiErrorV3
     """ # noqa: E501
-    detail: StrictStr = Field(description="Детали ошибки")
     title: StrictStr = Field(description="Заголовок ошибки")
-    __properties: ClassVar[List[str]] = ["detail", "title"]
+    detail: StrictStr = Field(description="Детали ошибки")
+    __properties: ClassVar[List[str]] = ["title", "detail"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -82,8 +82,8 @@ class ApiErrorV3(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "detail": obj.get("detail"),
-            "title": obj.get("title")
+            "title": obj.get("title"),
+            "detail": obj.get("detail")
         })
         return _obj
 

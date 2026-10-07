@@ -54,7 +54,7 @@ export interface Supply {
      */
     closedAt?: Date | null;
     /**
-     * Дата сканирования поставки или первого заказа (RFC3339)
+     * Дата сканирования поставки (RFC3339).<br>Если `"scanDt":null`, поставка не сканировалась
      */
     scanDt?: Date | null;
     /**
@@ -121,7 +121,6 @@ export interface Supply {
  * @export
  */
 export const SupplyCargoTypeEnum = {
-    NUMBER_0: 0,
     NUMBER_1: 1,
     NUMBER_2: 2,
     NUMBER_3: 3,

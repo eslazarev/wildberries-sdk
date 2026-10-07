@@ -21,10 +21,10 @@ var _ MappedNullable = &ApiErrorV3{}
 
 // ApiErrorV3 struct for ApiErrorV3
 type ApiErrorV3 struct {
-	// Детали ошибки
-	Detail string `json:"detail"`
 	// Заголовок ошибки
 	Title string `json:"title"`
+	// Детали ошибки
+	Detail string `json:"detail"`
 }
 
 type _ApiErrorV3 ApiErrorV3
@@ -33,10 +33,10 @@ type _ApiErrorV3 ApiErrorV3
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiErrorV3(detail string, title string) *ApiErrorV3 {
+func NewApiErrorV3(title string, detail string) *ApiErrorV3 {
 	this := ApiErrorV3{}
-	this.Detail = detail
 	this.Title = title
+	this.Detail = detail
 	return &this
 }
 
@@ -46,30 +46,6 @@ func NewApiErrorV3(detail string, title string) *ApiErrorV3 {
 func NewApiErrorV3WithDefaults() *ApiErrorV3 {
 	this := ApiErrorV3{}
 	return &this
-}
-
-// GetDetail returns the Detail field value
-func (o *ApiErrorV3) GetDetail() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Detail
-}
-
-// GetDetailOk returns a tuple with the Detail field value
-// and a boolean to check if the value has been set.
-func (o *ApiErrorV3) GetDetailOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Detail, true
-}
-
-// SetDetail sets field value
-func (o *ApiErrorV3) SetDetail(v string) {
-	o.Detail = v
 }
 
 // GetTitle returns the Title field value
@@ -96,6 +72,30 @@ func (o *ApiErrorV3) SetTitle(v string) {
 	o.Title = v
 }
 
+// GetDetail returns the Detail field value
+func (o *ApiErrorV3) GetDetail() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Detail
+}
+
+// GetDetailOk returns a tuple with the Detail field value
+// and a boolean to check if the value has been set.
+func (o *ApiErrorV3) GetDetailOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Detail, true
+}
+
+// SetDetail sets field value
+func (o *ApiErrorV3) SetDetail(v string) {
+	o.Detail = v
+}
+
 func (o ApiErrorV3) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -106,8 +106,8 @@ func (o ApiErrorV3) MarshalJSON() ([]byte, error) {
 
 func (o ApiErrorV3) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["detail"] = o.Detail
 	toSerialize["title"] = o.Title
+	toSerialize["detail"] = o.Detail
 	return toSerialize, nil
 }
 
@@ -116,8 +116,8 @@ func (o *ApiErrorV3) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"detail",
 		"title",
+		"detail",
 	}
 
 	allProperties := make(map[string]interface{})

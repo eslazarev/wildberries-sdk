@@ -20,21 +20,21 @@ import { mapValues } from '../runtime';
  */
 export interface ApiErrorV3 {
     /**
-     * Детали ошибки
-     */
-    detail: string;
-    /**
      * Заголовок ошибки
      */
     title: string;
+    /**
+     * Детали ошибки
+     */
+    detail: string;
 }
 
 /**
  * Check if a given object implements the ApiErrorV3 interface.
  */
 export function instanceOfApiErrorV3(value: object): value is ApiErrorV3 {
-    if (!('detail' in value) || value['detail'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
+    if (!('detail' in value) || value['detail'] === undefined) return false;
     return true;
 }
 
@@ -48,8 +48,8 @@ export function ApiErrorV3FromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'detail': json['detail'],
         'title': json['title'],
+        'detail': json['detail'],
     };
 }
 
@@ -64,8 +64,8 @@ export function ApiErrorV3ToJSONTyped(value?: ApiErrorV3 | null, ignoreDiscrimin
 
     return {
         
-        'detail': value['detail'],
         'title': value['title'],
+        'detail': value['detail'],
     };
 }
 

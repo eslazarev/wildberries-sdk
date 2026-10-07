@@ -34,7 +34,7 @@ class Supply(BaseModel):
     done: Optional[StrictBool] = Field(default=None, description="Флаг закрытия поставки:   - `true` — закрыта   - `false` — открыта ")
     created_at: Optional[datetime] = Field(default=None, description="Дата создания поставки (RFC3339)", alias="createdAt", json_schema_extra={"examples": ["2022-05-04T07:56:29Z"]})
     closed_at: Optional[datetime] = Field(default=None, description="Дата закрытия поставки (RFC3339)", alias="closedAt", json_schema_extra={"examples": ["2022-05-04T07:56:29Z"]})
-    scan_dt: Optional[datetime] = Field(default=None, description="Дата сканирования поставки или первого заказа (RFC3339)", alias="scanDt", json_schema_extra={"examples": ["2022-05-04T07:56:29Z"]})
+    scan_dt: Optional[datetime] = Field(default=None, description="Дата сканирования поставки (RFC3339).<br>Если `\"scanDt\":null`, поставка не сканировалась", alias="scanDt", json_schema_extra={"examples": ["2022-05-04T07:56:29Z"]})
     name: Optional[StrictStr] = Field(default=None, description="Наименование поставки", json_schema_extra={"examples": ["Тестовая поставка"]})
     cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
     cross_border_type: Optional[StrictInt] = Field(default=None, description="Тип поставки:   - `0` — внутренняя поставка   - `1` — трансграничная поставка   - `null` — значение отсутствует ", alias="crossBorderType", json_schema_extra={"examples": [1]})
@@ -53,8 +53,8 @@ class Supply(BaseModel):
         if value is None:
             return value
 
-        if value not in set([0, 1, 2, 3]):
-            raise ValueError("must be one of enum values (0, 1, 2, 3)")
+        if value not in set([1, 2, 3]):
+            raise ValueError("must be one of enum values (1, 2, 3)")
         return value
 
     @field_validator('cross_border_type')

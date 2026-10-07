@@ -34,7 +34,7 @@ type Supply struct {
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	// Дата закрытия поставки (RFC3339)
 	ClosedAt NullableTime `json:"closedAt,omitempty"`
-	// Дата сканирования поставки или первого заказа (RFC3339)
+	// Дата сканирования поставки (RFC3339).<br>Если `\"scanDt\":null`, поставка не сканировалась
 	ScanDt NullableTime `json:"scanDt,omitempty"`
 	// Наименование поставки
 	Name *string `json:"name,omitempty"`

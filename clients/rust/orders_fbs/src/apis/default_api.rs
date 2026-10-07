@@ -21,6 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum GetV3FbsSettingsAutoreturnsError {
     Status401(models::GetV3PassesOffices401Response),
     Status403(models::Response4Xx),
+    Status406(models::ApiErrorV3),
     Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }

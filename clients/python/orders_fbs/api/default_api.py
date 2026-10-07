@@ -1918,6 +1918,7 @@ class DefaultApi:
             '200': "GetV3FbsSettingsAutoreturns200Response",
             '401': "GetV3PassesOffices401Response",
             '403': "Response4XX",
+            '406': "ApiErrorV3",
             '429': "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -1984,6 +1985,7 @@ class DefaultApi:
             '200': "GetV3FbsSettingsAutoreturns200Response",
             '401': "GetV3PassesOffices401Response",
             '403': "Response4XX",
+            '406': "ApiErrorV3",
             '429': "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
@@ -2050,6 +2052,7 @@ class DefaultApi:
             '200': "GetV3FbsSettingsAutoreturns200Response",
             '401': "GetV3PassesOffices401Response",
             '403': "Response4XX",
+            '406': "ApiErrorV3",
             '429': "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(

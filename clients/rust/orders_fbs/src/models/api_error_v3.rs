@@ -13,19 +13,19 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiErrorV3 {
-    /// Детали ошибки
-    #[serde(rename = "detail")]
-    pub detail: String,
     /// Заголовок ошибки
     #[serde(rename = "title")]
     pub title: String,
+    /// Детали ошибки
+    #[serde(rename = "detail")]
+    pub detail: String,
 }
 
 impl ApiErrorV3 {
-    pub fn new(detail: String, title: String) -> ApiErrorV3 {
+    pub fn new(title: String, detail: String) -> ApiErrorV3 {
         ApiErrorV3 {
-            detail,
             title,
+            detail,
         }
     }
 }

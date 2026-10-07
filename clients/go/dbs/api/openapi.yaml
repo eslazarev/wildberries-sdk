@@ -3277,10 +3277,16 @@ components:
     DbsOnlyClientInfo:
       example:
         replacementPhone: "79871234567"
+        phone: "+79871234567"
         firstName: firstName
         fullName: Иван Иван Иванович
+        additionalPhones:
+        - "79871234567"
+        - "79871234567"
+        replacementAdditionalPhones:
+        - "79871234567"
+        - "79871234567"
         orderID: 134567
-        phone: "+79871234567"
         phoneCode: 1234567
         additionalPhoneCodes:
         - "12345"
@@ -3293,6 +3299,15 @@ components:
           example: "79871234567"
           nullable: false
           type: string
+        phone:
+          description: |
+            Резервный подменный номер телефона для связи с покупателем. <br>
+            Используйте, если недоступен основной номер из `replacementPhone`.
+            Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br>
+            Пустое значение `""` указывает, что номер ещё не назначен
+          example: "+79871234567"
+          nullable: false
+          type: string
         firstName:
           description: Имя покупателя
           nullable: false
@@ -3303,19 +3318,29 @@ components:
           example: Иван Иван Иванович
           nullable: false
           type: string
+        additionalPhones:
+          description: |
+            Дополнительные номера телефонов для связи с покупателем. <br>
+            Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br>
+            Пустое значение означает, что номер не указан
+          items:
+            example: "79871234567"
+            type: string
+          nullable: false
+          type: array
+        replacementAdditionalPhones:
+          description: |
+            Дополнительные подменные номера телефонов для связи с покупателем.<br>
+            Пустое значение означает, что номер не указан
+          items:
+            example: "79871234567"
+            type: string
+          nullable: false
+          type: array
         orderID:
           description: ID сборочного задания
           example: 134567
           type: integer
-        phone:
-          description: |
-            Резервный подменный номер телефона для связи с покупателем. <br>
-            Используйте, если недоступен основной номер из `replacementPhone`.
-            Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br>
-            Пустое значение `""` указывает, что номер ещё не назначен
-          example: "+79871234567"
-          nullable: false
-          type: string
         phoneCode:
           description: |
             Добавочный код. <br>
@@ -3340,19 +3365,31 @@ components:
       example:
         orders:
         - replacementPhone: "79871234567"
+          phone: "+79871234567"
           firstName: firstName
           fullName: Иван Иван Иванович
+          additionalPhones:
+          - "79871234567"
+          - "79871234567"
+          replacementAdditionalPhones:
+          - "79871234567"
+          - "79871234567"
           orderID: 134567
-          phone: "+79871234567"
           phoneCode: 1234567
           additionalPhoneCodes:
           - "12345"
           - "65498"
         - replacementPhone: "79871234567"
+          phone: "+79871234567"
           firstName: firstName
           fullName: Иван Иван Иванович
+          additionalPhones:
+          - "79871234567"
+          - "79871234567"
+          replacementAdditionalPhones:
+          - "79871234567"
+          - "79871234567"
           orderID: 134567
-          phone: "+79871234567"
           phoneCode: 1234567
           additionalPhoneCodes:
           - "12345"

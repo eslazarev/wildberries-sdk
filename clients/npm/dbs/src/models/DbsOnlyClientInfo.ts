@@ -26,6 +26,14 @@ export interface DbsOnlyClientInfo {
      */
     replacementPhone?: string;
     /**
+     * Резервный подменный номер телефона для связи с покупателем. <br>
+     * Используйте, если недоступен основной номер из `replacementPhone`.
+     * Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br>
+     * Пустое значение `""` указывает, что номер ещё не назначен
+     * 
+     */
+    phone?: string;
+    /**
      * Имя покупателя
      */
     firstName?: string;
@@ -34,17 +42,22 @@ export interface DbsOnlyClientInfo {
      */
     fullName?: string;
     /**
+     * Дополнительные номера телефонов для связи с покупателем. <br>
+     * Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br>
+     * Пустое значение означает, что номер не указан
+     * 
+     */
+    additionalPhones?: Array<string>;
+    /**
+     * Дополнительные подменные номера телефонов для связи с покупателем.<br>
+     * Пустое значение означает, что номер не указан
+     * 
+     */
+    replacementAdditionalPhones?: Array<string>;
+    /**
      * ID сборочного задания
      */
     orderID?: number;
-    /**
-     * Резервный подменный номер телефона для связи с покупателем. <br>
-     * Используйте, если недоступен основной номер из `replacementPhone`.
-     * Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br>
-     * Пустое значение `""` указывает, что номер ещё не назначен
-     * 
-     */
-    phone?: string;
     /**
      * Добавочный код. <br>
      * Пустое значение `""` указывает, что код ещё не назначен
@@ -78,10 +91,12 @@ export function DbsOnlyClientInfoFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'replacementPhone': json['replacementPhone'] == null ? undefined : json['replacementPhone'],
+        'phone': json['phone'] == null ? undefined : json['phone'],
         'firstName': json['firstName'] == null ? undefined : json['firstName'],
         'fullName': json['fullName'] == null ? undefined : json['fullName'],
+        'additionalPhones': json['additionalPhones'] == null ? undefined : json['additionalPhones'],
+        'replacementAdditionalPhones': json['replacementAdditionalPhones'] == null ? undefined : json['replacementAdditionalPhones'],
         'orderID': json['orderID'] == null ? undefined : json['orderID'],
-        'phone': json['phone'] == null ? undefined : json['phone'],
         'phoneCode': json['phoneCode'] == null ? undefined : json['phoneCode'],
         'additionalPhoneCodes': json['additionalPhoneCodes'] == null ? undefined : json['additionalPhoneCodes'],
     };
@@ -99,10 +114,12 @@ export function DbsOnlyClientInfoToJSONTyped(value?: DbsOnlyClientInfo | null, i
     return {
         
         'replacementPhone': value['replacementPhone'],
+        'phone': value['phone'],
         'firstName': value['firstName'],
         'fullName': value['fullName'],
+        'additionalPhones': value['additionalPhones'],
+        'replacementAdditionalPhones': value['replacementAdditionalPhones'],
         'orderID': value['orderID'],
-        'phone': value['phone'],
         'phoneCode': value['phoneCode'],
         'additionalPhoneCodes': value['additionalPhoneCodes'],
     };
