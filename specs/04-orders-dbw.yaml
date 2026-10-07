@@ -1940,12 +1940,11 @@ components:
           type: array
           items:
             type: string
+            example: '79871234567'
           description: |
             Дополнительные номера телефонов для связи с покупателем. <br>
             Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br>
             Пустое значение означает, что номер не указан
-          example:
-            - '1234554321'
         additionalPhoneCodes:
           nullable: false
           type: array

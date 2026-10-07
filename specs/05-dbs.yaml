@@ -2685,19 +2685,6 @@ components:
             Пустое значение `""` указывает, что номер еще не назначен <br>
           example: '79871234567'
           nullable: false
-        firstName:
-          type: string
-          description: Имя покупателя
-          nullable: false
-        fullName:
-          type: string
-          description: Полное имя, используется для оформления документов. Например, документы на автомобиль
-          example: Иван Иван Иванович
-          nullable: false
-        orderID:
-          type: integer
-          description: ID сборочного задания
-          example: 134567
         phone:
           type: string
           description: |
@@ -2707,6 +2694,38 @@ components:
             Пустое значение `""` указывает, что номер ещё не назначен
           example: '+79871234567'
           nullable: false
+        firstName:
+          type: string
+          description: Имя покупателя
+          nullable: false
+        fullName:
+          type: string
+          description: Полное имя, используется для оформления документов. Например, документы на автомобиль
+          example: Иван Иван Иванович
+          nullable: false
+        additionalPhones:
+          nullable: false
+          type: array
+          items:
+            type: string
+            example: '79871234567'
+          description: |
+            Дополнительные номера телефонов для связи с покупателем. <br>
+            Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br>
+            Пустое значение означает, что номер не указан
+        replacementAdditionalPhones:
+          nullable: false
+          type: array
+          items:
+            type: string
+            example: '79871234567'
+          description: |
+            Дополнительные подменные номера телефонов для связи с покупателем.<br>
+            Пустое значение означает, что номер не указан
+        orderID:
+          type: integer
+          description: ID сборочного задания
+          example: 134567
         phoneCode:
           type: integer
           description: |
