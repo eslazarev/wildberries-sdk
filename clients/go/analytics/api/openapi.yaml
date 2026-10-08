@@ -561,7 +561,9 @@ paths:
 
         Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
 
-        Если не удалось [получить отчёт](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.
+        Если не удалось [получить отчёт](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.<br><br>
+
+        Данные отчётов обновляются 1 раз в 2 часа.
 
         <div class="description_important">
           Отчёты по <a href="https://seller.wildberries.ru/content-analytics/history-remains">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href="https://seller.wildberries.ru/monetization/jam">Джем</a>
@@ -1316,7 +1318,7 @@ paths:
 
         Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
 
-        Данные отчёта обновляются 1 раз в час.
+        Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1420,7 +1422,7 @@ paths:
 
         Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
 
-        Данные отчёта обновляются 1 раз в час.
+        Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1528,7 +1530,7 @@ paths:
 
         Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
 
-        Данные отчёта обновляются 1 раз в час.
+        Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1633,7 +1635,7 @@ paths:
 
         Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
 
-        Данные отчёта обновляются 1 раз в час.
+        Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1736,7 +1738,7 @@ paths:
 
         Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.<br><br>
 
-        Данные отчёта обновляются 1 раз в час.
+        Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_important">
           Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса
@@ -4824,8 +4826,7 @@ components:
           type: string
         reportType:
           description: |
-            Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB.
-            <br> Данные отчёта обновляются 1 раз в 2 часа.
+            Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB
           type: string
         userReportName:
           description: "Название отчёта. Если не указано, сформируется автоматичес\
@@ -4846,9 +4847,7 @@ components:
           type: string
         reportType:
           description: |
-            Тип отчёта `GROUPED_HISTORY_REPORT` — Воронка продаж. По предметам, брендам и ярлыкам.
-            <br>
-            Данные отчёта обновляются 1 раз в 2 часа.
+            Тип отчёта `GROUPED_HISTORY_REPORT` — Воронка продаж. По предметам, брендам и ярлыкам
           type: string
         userReportName:
           description: "Название отчёта. Если не указано, сформируется автоматичес\
@@ -4932,7 +4931,7 @@ components:
           type: string
         reportType:
           description: Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике
-            остатков. <br> Данные отчёта обновляются 1 раз в 2 часа
+            остатков
           type: string
         userReportName:
           description: "Название отчёта. Если не указано, сформируется автоматичес\
@@ -4954,8 +4953,7 @@ components:
           format: uuid
           type: string
         reportType:
-          description: Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков.
-            <br> Данные отчёта обновляются 1 раз в 2 часа
+          description: Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков
           type: string
         userReportName:
           description: "Название отчёта. Если не указано, сформируется автоматичес\

@@ -23,7 +23,7 @@ var _ MappedNullable = &SalesFunnelGroupReq{}
 type SalesFunnelGroupReq struct {
 	// ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
 	Id string `json:"id"`
-	// Тип отчёта `GROUPED_HISTORY_REPORT` — Воронка продаж. По предметам, брендам и ярлыкам. <br> Данные отчёта обновляются 1 раз в 2 часа. 
+	// Тип отчёта `GROUPED_HISTORY_REPORT` — Воронка продаж. По предметам, брендам и ярлыкам 
 	ReportType string `json:"reportType"`
 	// Название отчёта. Если не указано, сформируется автоматически
 	UserReportName *string `json:"userReportName,omitempty"`

@@ -30,7 +30,7 @@ class SalesFunnelItemReq(BaseModel):
     SalesFunnelItemReq
     """ # noqa: E501
     id: UUID = Field(description="ID отчёта в UUID-формате. Генерируется продавцом самостоятельно")
-    report_type: StrictStr = Field(description="Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB. <br> Данные отчёта обновляются 1 раз в 2 часа. ", alias="reportType")
+    report_type: StrictStr = Field(description="Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB ", alias="reportType")
     user_report_name: Optional[StrictStr] = Field(default=None, description="Название отчёта. Если не указано, сформируется автоматически", alias="userReportName")
     params: SalesFunnelItemReqParams
     __properties: ClassVar[List[str]] = ["id", "reportType", "userReportName", "params"]

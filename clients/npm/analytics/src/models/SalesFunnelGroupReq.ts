@@ -32,9 +32,7 @@ export interface SalesFunnelGroupReq {
      */
     id: string;
     /**
-     * Тип отчёта `GROUPED_HISTORY_REPORT` — Воронка продаж. По предметам, брендам и ярлыкам.
-     * <br>
-     * Данные отчёта обновляются 1 раз в 2 часа.
+     * Тип отчёта `GROUPED_HISTORY_REPORT` — Воронка продаж. По предметам, брендам и ярлыкам
      * 
      */
     reportType: string;
