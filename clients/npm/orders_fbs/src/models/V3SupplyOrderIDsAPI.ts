@@ -22,7 +22,7 @@ export interface V3SupplyOrderIDsAPI {
     /**
      * ID сборочных заданий
      */
-    orderIds?: Array<number>;
+    orderIds?: Array<number> | null;
 }
 
 /**
@@ -42,7 +42,7 @@ export function V3SupplyOrderIDsAPIFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'orderIds': json['orderIds'] == null ? undefined : json['orderIds'],
+        'orderIds': json['orderIds'] === undefined ? undefined : json['orderIds'] === null ? null : json['orderIds'],
     };
 }
 

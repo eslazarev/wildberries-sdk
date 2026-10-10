@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V3SupplyOrderIdsApi {
     /// ID сборочных заданий
-    #[serde(rename = "orderIds", skip_serializing_if = "Option::is_none")]
-    pub order_ids: Option<Vec<i32>>,
+    #[serde(rename = "orderIds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub order_ids: Option<Option<Vec<i32>>>,
 }
 
 impl V3SupplyOrderIdsApi {

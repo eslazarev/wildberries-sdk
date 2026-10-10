@@ -77,7 +77,7 @@ class V3SupplyOrderIDsAPI implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'order_ids' => false
+        'order_ids' => true
     ];
 
     /**
@@ -309,7 +309,14 @@ class V3SupplyOrderIDsAPI implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setOrderIds($order_ids)
     {
         if (is_null($order_ids)) {
-            throw new \InvalidArgumentException('non-nullable order_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['order_ids'] = $order_ids;
 

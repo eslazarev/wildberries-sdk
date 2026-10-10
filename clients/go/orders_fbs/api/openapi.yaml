@@ -3459,6 +3459,8 @@ paths:
               examples:
                 FailedToAddSupplyOrder:
                   $ref: "#/components/examples/FailedToAddSupplyOrder"
+                SupplyIsProcessing:
+                  $ref: "#/components/examples/SupplyIsProcessing"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Ошибка добавления сборочного задания к поставке
@@ -3590,6 +3592,8 @@ paths:
               examples:
                 SupplyHasOrders:
                   $ref: "#/components/examples/SupplyHasOrders"
+                SupplyIsProcessing:
+                  $ref: "#/components/examples/SupplyIsProcessing"
               schema:
                 $ref: "#/components/schemas/Error"
           description: За поставкой закреплены сборочные задания
@@ -5861,6 +5865,12 @@ components:
         code: SupplyHasOrders
         message: "Не удалось обработать поставку. Убедитесь, что за ней не осталос\
           ь закреплённых сборочных заданий."
+    SupplyIsProcessing:
+      description: "Поставка участвует в другом процессе, например, в неё добавляю\
+        тся сборочные задания. Повторите запрос позже"
+      value:
+        code: SupplyIsProcessing
+        message: The supply is currently being processed. Please try again later
     SupplyHasZeroOrders:
       value:
         code: SupplyHasZeroOrders
@@ -6444,6 +6454,7 @@ components:
           - 598349
           items:
             type: integer
+          nullable: true
           type: array
       type: object
     PassOffice:

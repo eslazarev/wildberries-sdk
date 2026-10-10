@@ -40,9 +40,9 @@ func NewV3SupplyOrderIDsAPIWithDefaults() *V3SupplyOrderIDsAPI {
 	return &this
 }
 
-// GetOrderIds returns the OrderIds field value if set, zero value otherwise.
+// GetOrderIds returns the OrderIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *V3SupplyOrderIDsAPI) GetOrderIds() []int32 {
-	if o == nil || IsNil(o.OrderIds) {
+	if o == nil {
 		var ret []int32
 		return ret
 	}
@@ -51,6 +51,7 @@ func (o *V3SupplyOrderIDsAPI) GetOrderIds() []int32 {
 
 // GetOrderIdsOk returns a tuple with the OrderIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V3SupplyOrderIDsAPI) GetOrderIdsOk() ([]int32, bool) {
 	if o == nil || IsNil(o.OrderIds) {
 		return nil, false
@@ -82,7 +83,7 @@ func (o V3SupplyOrderIDsAPI) MarshalJSON() ([]byte, error) {
 
 func (o V3SupplyOrderIDsAPI) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OrderIds) {
+	if o.OrderIds != nil {
 		toSerialize["orderIds"] = o.OrderIds
 	}
 	return toSerialize, nil
