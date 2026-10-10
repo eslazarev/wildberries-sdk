@@ -2803,6 +2803,8 @@ paths:
               examples:
                 FailedToAddSupplyOrder:
                   $ref: '#/components/examples/FailedToAddSupplyOrder'
+                SupplyIsProcessing:
+                  $ref: '#/components/examples/SupplyIsProcessing'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
@@ -2952,6 +2954,8 @@ paths:
               examples:
                 SupplyHasOrders:
                   $ref: '#/components/examples/SupplyHasOrders'
+                SupplyIsProcessing:
+                  $ref: '#/components/examples/SupplyIsProcessing'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
@@ -4740,6 +4744,11 @@ components:
       value:
         code: SupplyHasOrders
         message: Не удалось обработать поставку. Убедитесь, что за ней не осталось закреплённых сборочных заданий.
+    SupplyIsProcessing:
+      description: Поставка участвует в другом процессе, например, в неё добавляются сборочные задания. Повторите запрос позже
+      value:
+        code: SupplyIsProcessing
+        message: The supply is currently being processed. Please try again later
     SupplyHasZeroOrders:
       value:
         code: SupplyHasZeroOrders
@@ -5358,6 +5367,7 @@ components:
       properties:
         orderIds:
           type: array
+          nullable: true
           description: ID сборочных заданий
           items:
             type: integer

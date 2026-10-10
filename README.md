@@ -54,10 +54,16 @@ SDK выпускается с security-first процессом:
 
 Случаются часто — несколько раз в неделю.
 
-[//]: # (<img src=".github/images/wildberries-api-changes.png" alt="wildberries-api-changes" width="200">)
+### Частота релизов
 
+[на сайте документации](https://eslazarev.github.io/wildberries-sdk/releases/).
 
-[//]: # (#### За месяц 14 изменений в спецификациях. )
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/images/release-cadence-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset=".github/images/release-cadence-light.svg">
+  <img src=".github/images/release-cadence-light.svg" alt="Календарь релизов за последний год">
+</picture>
+
 
 
 ## В данный момент представлены **все доступные** спецификации:

@@ -11,6 +11,7 @@ def build_summary(by_module: Dict[str, List[Operation]]) -> str:
     lines = [
         "* [Wildberries SDK](index.md)",
         "* [Начало работы](getting-started.md)",
+        "* [Частота релизов](releases.md)",
         "* Справочник API",
     ]
     for module in by_module:
