@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history and tags: the release cadence chart is built from them.
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -90,6 +93,21 @@ jobs:
           PACKAGE_VERSION: ${{ steps.bump.outputs.version }}
           PUSH_TAGS: "1"
         run: bash scripts/tag-go-modules.sh
+
+      # Runs after tagging so the release just cut is already in the chart.
+      - name: Update release cadence chart
+        if: steps.commit.outputs.did_commit == 'true'
+        run: |
+          python3 scripts/generate-release-chart.py
+          git add data/releases.json .github/images/release-cadence-*.svg
+          if git diff --cached --quiet; then
+            echo "Release chart unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update release cadence chart"
+          git push
 
       - name: Set up Go
         if: steps.commit.outputs.did_commit == 'true'

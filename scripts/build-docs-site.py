@@ -14,6 +14,8 @@ from collections import OrderedDict
 from docsgen.extract import class_maps, python_anchor
 from docsgen.naming import to_camel, to_pascal
 from docsgen.nav import build_summary
+from docsgen.release_render import render_page as render_release_page
+from docsgen.releases import load_stats
 from docsgen.render import operation_slug, render_module_index, render_operation
 from docsgen.specs import load_operations
 
@@ -22,6 +24,7 @@ SPECS_DIR = os.path.join(ROOT, "specs")
 CLIENTS_DIR = os.path.join(ROOT, "clients")
 DOCS_DIR = os.path.join(ROOT, "website", "docs")
 REFERENCE_DIR = os.path.join(DOCS_DIR, "reference")
+RELEASES_DATA = os.path.join(ROOT, "data", "releases.json")
 
 
 def resolve_names(snake, cmaps):
@@ -83,12 +86,17 @@ def main():
         with open(os.path.join(module_dir, "index.md"), "w", encoding="utf-8") as fh:
             fh.write(index)
 
+    stats = load_stats(RELEASES_DATA, ROOT)
+    with open(os.path.join(DOCS_DIR, "releases.md"), "w", encoding="utf-8") as fh:
+        fh.write(render_release_page(stats))
+
     with open(os.path.join(DOCS_DIR, "SUMMARY.md"), "w", encoding="utf-8") as fh:
         fh.write(build_summary(by_module))
 
     total = sum(len(v) for v in by_module.values())
     print(f"Generated {total} operations across {len(by_module)} modules "
           f"({no_example} without any client example).")
+    print(f"Release chart: {stats.total} releases in the rolling window.")
 
 
 if __name__ == "__main__":
