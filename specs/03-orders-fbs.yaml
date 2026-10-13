@@ -2712,18 +2712,13 @@ paths:
           - из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment)
 
         <div class="description_important">
-          В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания <a href ="./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId">из поля</a> <code>cargoType</code>.
-          <br>
-          После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.
-         </div>
-
-        <div class="description_important">
-        В поставку нельзя добавить сборочные задания, поступившие на разные склады.
-        </div>
-        <div class="description_important">
-        В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок.
-        После этого поставка приобретает тип первого добавленного сборочного задания из поля <code>crossBorderType</code>.
-        Далее в неё можно добавить только сборочные задания такого же типа.
+          В пустую поставку можно добавить любые сборочные задания, поступившие на один и тот же склад.<br>
+          Поставка приобретает признаки первого добавленного в неё сборочного задания из <a href="/docs/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId">полей</a>:
+            <li><code>crossBorderType</code> — трансграничная или внутренняя поставка</li>
+            <li><code>cargoType</code> — габаритный тип</li>
+            <li><code>isB2b</code> — B2B-продажа</li>
+          </ul>
+          После этого в поставку можно добавить сборочные задания только с такими же признаками <code>crossBorderType</code>, <code>cargoType</code>, <code>isB2b</code>, как у поставки.
         </div>
 
         <div class="description_limit">

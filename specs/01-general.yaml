@@ -52,6 +52,65 @@ paths:
   /ping:
     servers:
       - url: https://common-api.wildberries.ru
+        description: |
+          **Тарифы, Новости, Информация о продавце**
+      - url: https://content-api.wildberries.ru
+        description: |
+          **Контент**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Песочница Контент**
+      - url: https://seller-analytics-api.wildberries.ru
+        description: |
+          **Аналитика**
+      - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Цены и скидки**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Песочница Цены и скидки**
+      - url: https://marketplace-api.wildberries.ru
+        description: |
+          **Маркетплейс**
+      - url: https://marketplace-api-sandbox.wildberries.ru
+        description: |
+          **Песочница Маркетплейс**
+      - url: https://statistics-api.wildberries.ru
+        description: |
+          **Статистика**
+      - url: https://statistics-api-sandbox.wildberries.ru
+        description: |
+          **Песочница Статистика**
+      - url: https://advert-api.wildberries.ru
+        description: |
+          **Продвижение**
+      - url: https://advert-api-sandbox.wildberries.ru
+        description: |
+          **Песочница Продвижение**
+      - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Вопросы и отзывы**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Песочница Вопросы и отзывы**
+      - url: https://buyer-chat-api.wildberries.ru
+        description: |
+          **Чат с покупателями**
+      - url: https://supplies-api.wildberries.ru
+        description: |
+          **Поставки**
+      - url: https://returns-api.wildberries.ru
+        description: |
+          **Возвраты покупателями**
+      - url: https://documents-api.wildberries.ru
+        description: |
+          **Документы**
+      - url: https://finance-api.wildberries.ru
+        description: |
+          **Финансы**
+      - url: https://user-management-api.wildberries.ru
+        description: |
+          **Управление пользователями продавца**
     get:
       operationId: getPing
       x-readonly-method: true
@@ -71,24 +130,7 @@ paths:
           Метод не предназначен для проверки доступности сервисов WB
         </div>
 
-        У каждого сервиса есть свой вариант метода в зависимости от домена:
-
-        | Категория | URL запроса |
-        |---------------|-----------------------|
-        | Контент | `https://content-api.wildberries.ru/ping`<br>`https://content-api-sandbox.wildberries.ru/ping` |
-        | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` |
-        | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping`<br>`https://discounts-prices-api-sandbox.wildberries.ru/ping` |
-        | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` |
-        | Статистика | `https://statistics-api.wildberries.ru/ping`<br>`https://statistics-api-sandbox.wildberries.ru/ping` |
-        | Продвижение | `https://advert-api.wildberries.ru/ping`<br>`https://advert-api-sandbox.wildberries.ru/ping` |
-        | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping`<br>`https://feedbacks-api-sandbox.wildberries.ru/ping` |
-        | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` |
-        | Поставки | `https://supplies-api.wildberries.ru/ping` |
-        | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` |
-        | Документы | `https://documents-api.wildberries.ru/ping` |
-        | Финансы | `https://finance-api.wildberries.ru/ping` |
-        | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` |
-        | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
+        У каждого сервиса есть свой вариант метода в зависимости от домена.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
