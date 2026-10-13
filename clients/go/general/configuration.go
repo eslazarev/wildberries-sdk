@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.169/go",
+		UserAgent:        "OpenAPI-Generator/0.1.170/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -155,7 +155,83 @@ func NewConfiguration() *Configuration {
 			"WBAPIAPIService.GetPing": {
 				{
 					URL: "https://common-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Тарифы, Новости, Информация о продавце** ",
+				},
+				{
+					URL: "https://content-api.wildberries.ru",
+					Description: "**Контент** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Песочница Контент** ",
+				},
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "**Аналитика** ",
+				},
+				{
+					URL: "https://discounts-prices-api.wildberries.ru",
+					Description: "**Цены и скидки** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Песочница Цены и скидки** ",
+				},
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Маркетплейс** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Песочница Маркетплейс** ",
+				},
+				{
+					URL: "https://statistics-api.wildberries.ru",
+					Description: "**Статистика** ",
+				},
+				{
+					URL: "https://statistics-api-sandbox.wildberries.ru",
+					Description: "**Песочница Статистика** ",
+				},
+				{
+					URL: "https://advert-api.wildberries.ru",
+					Description: "**Продвижение** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Песочница Продвижение** ",
+				},
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Вопросы и отзывы** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Песочница Вопросы и отзывы** ",
+				},
+				{
+					URL: "https://buyer-chat-api.wildberries.ru",
+					Description: "**Чат с покупателями** ",
+				},
+				{
+					URL: "https://supplies-api.wildberries.ru",
+					Description: "**Поставки** ",
+				},
+				{
+					URL: "https://returns-api.wildberries.ru",
+					Description: "**Возвраты покупателями** ",
+				},
+				{
+					URL: "https://documents-api.wildberries.ru",
+					Description: "**Документы** ",
+				},
+				{
+					URL: "https://finance-api.wildberries.ru",
+					Description: "**Финансы** ",
+				},
+				{
+					URL: "https://user-management-api.wildberries.ru",
+					Description: "**Управление пользователями продавца** ",
 				},
 			},
 		},

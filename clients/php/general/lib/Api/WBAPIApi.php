@@ -133,6 +133,25 @@ class WBAPIApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://common-api.wildberries.ru
+     * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
+     * URL: https://seller-analytics-api.wildberries.ru
+     * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
+     * URL: https://advert-api.wildberries.ru
+     * URL: https://advert-api-sandbox.wildberries.ru
+     * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
+     * URL: https://buyer-chat-api.wildberries.ru
+     * URL: https://supplies-api.wildberries.ru
+     * URL: https://returns-api.wildberries.ru
+     * URL: https://documents-api.wildberries.ru
+     * URL: https://finance-api.wildberries.ru
+     * URL: https://user-management-api.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -156,6 +175,25 @@ class WBAPIApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://common-api.wildberries.ru
+     * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
+     * URL: https://seller-analytics-api.wildberries.ru
+     * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
+     * URL: https://advert-api.wildberries.ru
+     * URL: https://advert-api-sandbox.wildberries.ru
+     * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
+     * URL: https://buyer-chat-api.wildberries.ru
+     * URL: https://supplies-api.wildberries.ru
+     * URL: https://returns-api.wildberries.ru
+     * URL: https://documents-api.wildberries.ru
+     * URL: https://finance-api.wildberries.ru
+     * URL: https://user-management-api.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -288,6 +326,25 @@ class WBAPIApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://common-api.wildberries.ru
+     * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
+     * URL: https://seller-analytics-api.wildberries.ru
+     * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
+     * URL: https://advert-api.wildberries.ru
+     * URL: https://advert-api-sandbox.wildberries.ru
+     * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
+     * URL: https://buyer-chat-api.wildberries.ru
+     * URL: https://supplies-api.wildberries.ru
+     * URL: https://returns-api.wildberries.ru
+     * URL: https://documents-api.wildberries.ru
+     * URL: https://finance-api.wildberries.ru
+     * URL: https://user-management-api.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -314,6 +371,25 @@ class WBAPIApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://common-api.wildberries.ru
+     * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
+     * URL: https://seller-analytics-api.wildberries.ru
+     * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
+     * URL: https://advert-api.wildberries.ru
+     * URL: https://advert-api-sandbox.wildberries.ru
+     * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
+     * URL: https://buyer-chat-api.wildberries.ru
+     * URL: https://supplies-api.wildberries.ru
+     * URL: https://returns-api.wildberries.ru
+     * URL: https://documents-api.wildberries.ru
+     * URL: https://finance-api.wildberries.ru
+     * URL: https://user-management-api.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -369,6 +445,25 @@ class WBAPIApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://common-api.wildberries.ru
+     * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
+     * URL: https://seller-analytics-api.wildberries.ru
+     * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
+     * URL: https://advert-api.wildberries.ru
+     * URL: https://advert-api-sandbox.wildberries.ru
+     * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
+     * URL: https://buyer-chat-api.wildberries.ru
+     * URL: https://supplies-api.wildberries.ru
+     * URL: https://returns-api.wildberries.ru
+     * URL: https://documents-api.wildberries.ru
+     * URL: https://finance-api.wildberries.ru
+     * URL: https://user-management-api.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -476,7 +571,83 @@ class WBAPIApi
         return [
             [
                 "url" => "https://common-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Тарифы, Новости, Информация о продавце**",
+            ],
+            [
+                "url" => "https://content-api.wildberries.ru",
+                "description" => "**Контент**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Песочница Контент**",
+            ],
+            [
+                "url" => "https://seller-analytics-api.wildberries.ru",
+                "description" => "**Аналитика**",
+            ],
+            [
+                "url" => "https://discounts-prices-api.wildberries.ru",
+                "description" => "**Цены и скидки**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Песочница Цены и скидки**",
+            ],
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Маркетплейс**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Песочница Маркетплейс**",
+            ],
+            [
+                "url" => "https://statistics-api.wildberries.ru",
+                "description" => "**Статистика**",
+            ],
+            [
+                "url" => "https://statistics-api-sandbox.wildberries.ru",
+                "description" => "**Песочница Статистика**",
+            ],
+            [
+                "url" => "https://advert-api.wildberries.ru",
+                "description" => "**Продвижение**",
+            ],
+            [
+                "url" => "https://advert-api-sandbox.wildberries.ru",
+                "description" => "**Песочница Продвижение**",
+            ],
+            [
+                "url" => "https://feedbacks-api.wildberries.ru",
+                "description" => "**Вопросы и отзывы**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Песочница Вопросы и отзывы**",
+            ],
+            [
+                "url" => "https://buyer-chat-api.wildberries.ru",
+                "description" => "**Чат с покупателями**",
+            ],
+            [
+                "url" => "https://supplies-api.wildberries.ru",
+                "description" => "**Поставки**",
+            ],
+            [
+                "url" => "https://returns-api.wildberries.ru",
+                "description" => "**Возвраты покупателями**",
+            ],
+            [
+                "url" => "https://documents-api.wildberries.ru",
+                "description" => "**Документы**",
+            ],
+            [
+                "url" => "https://finance-api.wildberries.ru",
+                "description" => "**Финансы**",
+            ],
+            [
+                "url" => "https://user-management-api.wildberries.ru",
+                "description" => "**Управление пользователями продавца**",
             ]
         ];
     }
