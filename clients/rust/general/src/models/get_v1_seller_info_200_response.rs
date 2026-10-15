@@ -25,6 +25,9 @@ pub struct GetV1SellerInfo200Response {
     /// Торговое наименование продавца
     #[serde(rename = "tradeMark", skip_serializing_if = "Option::is_none")]
     pub trade_mark: Option<String>,
+    /// Страна регистрации профиля продавца
+    #[serde(rename = "country", skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
 }
 
 impl GetV1SellerInfo200Response {
@@ -34,6 +37,7 @@ impl GetV1SellerInfo200Response {
             sid: None,
             tin: None,
             trade_mark: None,
+            country: None,
         }
     }
 }

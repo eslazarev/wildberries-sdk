@@ -23,7 +23,7 @@ type GetV1Upd200ResponseInner struct {
 	UpdNum *int32 `json:"updNum,omitempty"`
 	// Время списания
 	UpdTime NullableString `json:"updTime,omitempty"`
-	// Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Выставленная сумма в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	UpdSum *int32 `json:"updSum,omitempty"`
 	// ID кампании
 	AdvertId *int32 `json:"advertId,omitempty"`

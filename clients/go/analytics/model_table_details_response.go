@@ -22,7 +22,7 @@ var _ MappedNullable = &TableDetailsResponse{}
 // TableDetailsResponse struct for TableDetailsResponse
 type TableDetailsResponse struct {
 	// Список товаров в группе по фильтру 
-	Products []TableItemItem `json:"products"`
+	Products []TableItem `json:"products"`
 	// Валюта отчёта
 	Currency string `json:"currency"`
 }
@@ -33,7 +33,7 @@ type _TableDetailsResponse TableDetailsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableDetailsResponse(products []TableItemItem, currency string) *TableDetailsResponse {
+func NewTableDetailsResponse(products []TableItem, currency string) *TableDetailsResponse {
 	this := TableDetailsResponse{}
 	this.Products = products
 	this.Currency = currency
@@ -49,9 +49,9 @@ func NewTableDetailsResponseWithDefaults() *TableDetailsResponse {
 }
 
 // GetProducts returns the Products field value
-func (o *TableDetailsResponse) GetProducts() []TableItemItem {
+func (o *TableDetailsResponse) GetProducts() []TableItem {
 	if o == nil {
-		var ret []TableItemItem
+		var ret []TableItem
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *TableDetailsResponse) GetProducts() []TableItemItem {
 
 // GetProductsOk returns a tuple with the Products field value
 // and a boolean to check if the value has been set.
-func (o *TableDetailsResponse) GetProductsOk() ([]TableItemItem, bool) {
+func (o *TableDetailsResponse) GetProductsOk() ([]TableItem, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *TableDetailsResponse) GetProductsOk() ([]TableItemItem, bool) {
 }
 
 // SetProducts sets field value
-func (o *TableDetailsResponse) SetProducts(v []TableItemItem) {
+func (o *TableDetailsResponse) SetProducts(v []TableItem) {
 	o.Products = v
 }
 

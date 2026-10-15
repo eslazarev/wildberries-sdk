@@ -34,12 +34,12 @@ pub struct TableGroupItemSt {
     pub metrics: Box<models::TableCommonMetrics>,
     /// Товары группы
     #[serde(rename = "items")]
-    pub items: Vec<models::TableItemItemSt>,
+    pub items: Vec<models::TableItemSt>,
 }
 
 impl TableGroupItemSt {
     /// Данные по группе
-    pub fn new(subject_id: i32, subject_name: String, brand_name: String, tag_id: i64, tag_name: String, metrics: models::TableCommonMetrics, items: Vec<models::TableItemItemSt>) -> TableGroupItemSt {
+    pub fn new(subject_id: i32, subject_name: String, brand_name: String, tag_id: i64, tag_name: String, metrics: models::TableCommonMetrics, items: Vec<models::TableItemSt>) -> TableGroupItemSt {
         TableGroupItemSt {
             subject_id,
             subject_name,

@@ -19,7 +19,7 @@ var _ MappedNullable = &V0BidRecommendationBaseBid{}
 
 // V0BidRecommendationBaseBid struct for V0BidRecommendationBaseBid
 type V0BidRecommendationBaseBid struct {
-	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
 	BidKopecks *int32 `json:"bidKopecks,omitempty"`
 }
 

@@ -41,7 +41,7 @@ paths:
         Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -180,7 +180,7 @@ paths:
         Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -276,7 +276,7 @@ paths:
         Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -361,7 +361,7 @@ paths:
         Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -534,7 +534,7 @@ paths:
         Метод возвращает детали поставки по ID.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -669,7 +669,7 @@ paths:
         Метод возвращает информацию о товарах в поставке.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -821,7 +821,7 @@ paths:
         Метод возвращает информацию об упаковке поставки.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -935,7 +935,7 @@ paths:
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает список ч\
         ерновиков поставок.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
         \ 10 запросов |\n</div>\n"
       operationId: getV1Drafts
@@ -1081,7 +1081,7 @@ paths:
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод создаёт пустой черн\
         овик поставки.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
         \ 10 запросов |\n</div>\n"
       operationId: postV1Drafts
@@ -1157,7 +1157,7 @@ paths:
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод удаляет черновик по\
         ставки по его ID.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
         \ 10 запросов |\n</div>\n"
       operationId: deleteV1DraftsDraftId
@@ -1266,7 +1266,7 @@ paths:
         >\n  Баркоды не валидируются. Если в запросе вы передали некорректные барк\
         оды, вы не получите ошибку. При этом корректные баркоды будут удалены из ч\
         ерновика.\n  </div>\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
         \ 10 запросов |\n</div>\n"
       operationId: deleteV1DraftsDraftIdItems
@@ -1384,7 +1384,7 @@ paths:
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает список т\
         оваров черновика.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
         \ 10 запросов |\n</div>\n"
       operationId: getV1DraftsDraftIdItems
@@ -1506,7 +1506,7 @@ paths:
         :[]}</code>\n  - если хотя бы один баркод не прошел валидацию, ни один тов\
         ар в черновик не добавится. В ответе вернётся список невалидных баркодов\n\
         \n</div>\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 30 запросов | 2 сек |\
         \ 10 запросов |\n</div>\n"
       operationId: postV1DraftsDraftIdItems
@@ -1642,7 +1642,7 @@ paths:
         \  - `\"discrepancyLabel\": \"shortage\"`\n2. Некоторые баркоды не соответ\
         ствуют заявленным:\n  - `\"discrepancyType\": \"shortage\"`\n  - `\"discrepancyLabel\"\
         : \"re-sorting\"`\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1 запрос | 1 мин | 1\
         \ запрос |\n</div>\n"
       operationId: getV1SuppliesSupplyIdDiscrepanciesQuantity

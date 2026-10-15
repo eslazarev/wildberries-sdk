@@ -19,10 +19,10 @@ pub struct V0DailyLimitAdvert {
     /// - `true` — дневной лимит включен - `false` — дневной лимит отключен 
     #[serde(rename = "enabled")]
     pub enabled: bool,
-    /// Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "dailyLimit")]
     pub daily_limit: i64,
-    /// Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "spentToday")]
     pub spent_today: i64,
     /// Код валюты
@@ -34,7 +34,7 @@ pub struct V0DailyLimitAdvert {
     /// Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно 
     #[serde(rename = "valid")]
     pub valid: bool,
-    /// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+    /// Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
     #[serde(rename = "requiredLimit")]
     pub required_limit: i64,
 }

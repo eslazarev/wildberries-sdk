@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface PostV1BudgetDepositRequest {
     /**
-     * Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Общая сумма пополнения бюджета в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     sum?: number;
     /**

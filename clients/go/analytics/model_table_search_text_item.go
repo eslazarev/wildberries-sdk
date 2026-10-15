@@ -39,7 +39,7 @@ type TableSearchTextItem struct {
 	Rating float32 `json:"rating"`
 	// Рейтинг по отзывам
 	FeedbackRating float32 `json:"feedbackRating"`
-	Price TableItemItemAllOfPrice `json:"price"`
+	Price TableItemAllOfPrice `json:"price"`
 	Frequency TableSearchTextItemAllOfFrequency `json:"frequency"`
 	// Количество обращений с поисковым запросом за неделю
 	WeekFrequency int32 `json:"weekFrequency"`
@@ -59,7 +59,7 @@ type _TableSearchTextItem TableSearchTextItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableSearchTextItem(text string, nmId int32, subjectName string, brandName string, vendorCode string, name string, isCardRated bool, rating float32, feedbackRating float32, price TableItemItemAllOfPrice, frequency TableSearchTextItemAllOfFrequency, weekFrequency int32, medianPosition TableSearchTextItemAllOfMedianPosition, avgPosition TableGroupItemMetricsAvgPosition, openCard TableSearchTextItemAllOfOpenCard, addToCart TableSearchTextItemAllOfAddToCart, openToCart TableSearchTextItemAllOfOpenToCart, orders TableSearchTextItemAllOfOrders, cartToOrder TableSearchTextItemAllOfCartToOrder, visibility TableSearchTextItemAllOfVisibility) *TableSearchTextItem {
+func NewTableSearchTextItem(text string, nmId int32, subjectName string, brandName string, vendorCode string, name string, isCardRated bool, rating float32, feedbackRating float32, price TableItemAllOfPrice, frequency TableSearchTextItemAllOfFrequency, weekFrequency int32, medianPosition TableSearchTextItemAllOfMedianPosition, avgPosition TableGroupItemMetricsAvgPosition, openCard TableSearchTextItemAllOfOpenCard, addToCart TableSearchTextItemAllOfAddToCart, openToCart TableSearchTextItemAllOfOpenToCart, orders TableSearchTextItemAllOfOrders, cartToOrder TableSearchTextItemAllOfCartToOrder, visibility TableSearchTextItemAllOfVisibility) *TableSearchTextItem {
 	this := TableSearchTextItem{}
 	this.Text = text
 	this.NmId = nmId
@@ -309,9 +309,9 @@ func (o *TableSearchTextItem) SetFeedbackRating(v float32) {
 }
 
 // GetPrice returns the Price field value
-func (o *TableSearchTextItem) GetPrice() TableItemItemAllOfPrice {
+func (o *TableSearchTextItem) GetPrice() TableItemAllOfPrice {
 	if o == nil {
-		var ret TableItemItemAllOfPrice
+		var ret TableItemAllOfPrice
 		return ret
 	}
 
@@ -320,7 +320,7 @@ func (o *TableSearchTextItem) GetPrice() TableItemItemAllOfPrice {
 
 // GetPriceOk returns a tuple with the Price field value
 // and a boolean to check if the value has been set.
-func (o *TableSearchTextItem) GetPriceOk() (*TableItemItemAllOfPrice, bool) {
+func (o *TableSearchTextItem) GetPriceOk() (*TableItemAllOfPrice, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -328,7 +328,7 @@ func (o *TableSearchTextItem) GetPriceOk() (*TableItemItemAllOfPrice, bool) {
 }
 
 // SetPrice sets field value
-func (o *TableSearchTextItem) SetPrice(v TableItemItemAllOfPrice) {
+func (o *TableSearchTextItem) SetPrice(v TableItemAllOfPrice) {
 	o.Price = v
 }
 

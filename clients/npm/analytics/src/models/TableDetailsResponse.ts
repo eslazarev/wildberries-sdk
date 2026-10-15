@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TableItemItem } from './TableItemItem';
+import type { TableItem } from './TableItem';
 import {
-    TableItemItemFromJSON,
-    TableItemItemFromJSONTyped,
-    TableItemItemToJSON,
-    TableItemItemToJSONTyped,
-} from './TableItemItem';
+    TableItemFromJSON,
+    TableItemFromJSONTyped,
+    TableItemToJSON,
+    TableItemToJSONTyped,
+} from './TableItem';
 
 /**
  * 
@@ -31,7 +31,7 @@ export interface TableDetailsResponse {
      * Список товаров в группе по фильтру
      * 
      */
-    products: Array<TableItemItem>;
+    products: Array<TableItem>;
     /**
      * Валюта отчёта
      */
@@ -57,7 +57,7 @@ export function TableDetailsResponseFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'products': ((json['products'] as Array<any>).map(TableItemItemFromJSON)),
+        'products': ((json['products'] as Array<any>).map(TableItemFromJSON)),
         'currency': json['currency'],
     };
 }
@@ -73,7 +73,7 @@ export function TableDetailsResponseToJSONTyped(value?: TableDetailsResponse | n
 
     return {
         
-        'products': ((value['products'] as Array<any>).map(TableItemItemToJSON)),
+        'products': ((value['products'] as Array<any>).map(TableItemToJSON)),
         'currency': value['currency'],
     };
 }

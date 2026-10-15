@@ -31,9 +31,9 @@ type V0GetNormQueryStatsItemStat struct {
 	Orders *int32 `json:"orders,omitempty"`
 	// Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
 	Ctr NullableFloat64 `json:"ctr,omitempty"`
-	// Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Стоимость одного клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc *float64 `json:"cpc,omitempty"`
-	// Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
+	// Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
 	Cpm NullableFloat64 `json:"cpm,omitempty"`
 	// Средняя позиция товара на страницах поисковой выдачи
 	AvgPos *float64 `json:"avg_pos,omitempty"`
@@ -41,7 +41,7 @@ type V0GetNormQueryStatsItemStat struct {
 	Shks *int32 `json:"shks,omitempty"`
 	// Затраты на продвижение товаров в конкретном поисковом кластере кампании 
 	Spend *float64 `json:"spend,omitempty"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 }
 

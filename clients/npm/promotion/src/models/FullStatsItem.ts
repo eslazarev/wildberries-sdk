@@ -55,7 +55,7 @@ export interface FullStatsItem {
      */
     clicks: number;
     /**
-     * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     cpc: number;
     /**
@@ -79,11 +79,11 @@ export interface FullStatsItem {
      */
     shks: number;
     /**
-     * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     sum: number;
     /**
-     * Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Сумма заказов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     sumPrice: number;
     /**
@@ -91,7 +91,7 @@ export interface FullStatsItem {
      */
     views: number;
     /**
-     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currency: string;
 }

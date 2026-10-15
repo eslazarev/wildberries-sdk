@@ -20,23 +20,26 @@ import { mapValues } from '../runtime';
  */
 export interface StocksWarehouseErrorInnerDataInner {
     /**
-     * Баркод
+     * Не используется
      */
-    sku?: string;
+    sku: string;
     /**
-     * ID размера товара
+     * ID размера
      */
-    chrtId?: number;
+    chrtId: number;
     /**
      * Остаток
      */
-    amount?: number;
+    amount: number;
 }
 
 /**
  * Check if a given object implements the StocksWarehouseErrorInnerDataInner interface.
  */
 export function instanceOfStocksWarehouseErrorInnerDataInner(value: object): value is StocksWarehouseErrorInnerDataInner {
+    if (!('sku' in value) || value['sku'] === undefined) return false;
+    if (!('chrtId' in value) || value['chrtId'] === undefined) return false;
+    if (!('amount' in value) || value['amount'] === undefined) return false;
     return true;
 }
 
@@ -50,9 +53,9 @@ export function StocksWarehouseErrorInnerDataInnerFromJSONTyped(json: any, ignor
     }
     return {
         
-        'sku': json['sku'] == null ? undefined : json['sku'],
-        'chrtId': json['chrtId'] == null ? undefined : json['chrtId'],
-        'amount': json['amount'] == null ? undefined : json['amount'],
+        'sku': json['sku'],
+        'chrtId': json['chrtId'],
+        'amount': json['amount'],
     };
 }
 

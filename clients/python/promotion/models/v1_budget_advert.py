@@ -28,8 +28,8 @@ class V1BudgetAdvert(BaseModel):
     V1BudgetAdvert
     """ # noqa: E501
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId", json_schema_extra={"examples": [1234567]})
-    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", json_schema_extra={"examples": ["RUB"]})
-    total: StrictInt = Field(description="Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", json_schema_extra={"examples": [3000]})
+    currency: StrictStr = Field(description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)", json_schema_extra={"examples": ["RUB"]})
+    total: StrictInt = Field(description="Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)", json_schema_extra={"examples": [3000]})
     __properties: ClassVar[List[str]] = ["advertId", "currency", "total"]
 
     model_config = ConfigDict(

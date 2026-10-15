@@ -59,6 +59,7 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
     protected static $openAPITypes = [
         'id' => 'int',
         'is_cancellable' => 'bool',
+        'is_transferable' => 'bool',
         'supplier_status' => 'string',
         'wb_status' => 'string'
     ];
@@ -73,6 +74,7 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
     protected static $openAPIFormats = [
         'id' => 'int64',
         'is_cancellable' => null,
+        'is_transferable' => null,
         'supplier_status' => null,
         'wb_status' => null
     ];
@@ -85,6 +87,7 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
     protected static array $openAPINullables = [
         'id' => false,
         'is_cancellable' => false,
+        'is_transferable' => false,
         'supplier_status' => false,
         'wb_status' => false
     ];
@@ -177,6 +180,7 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
     protected static $attributeMap = [
         'id' => 'id',
         'is_cancellable' => 'isCancellable',
+        'is_transferable' => 'isTransferable',
         'supplier_status' => 'supplierStatus',
         'wb_status' => 'wbStatus'
     ];
@@ -189,6 +193,7 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
     protected static $setters = [
         'id' => 'setId',
         'is_cancellable' => 'setIsCancellable',
+        'is_transferable' => 'setIsTransferable',
         'supplier_status' => 'setSupplierStatus',
         'wb_status' => 'setWbStatus'
     ];
@@ -201,6 +206,7 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
     protected static $getters = [
         'id' => 'getId',
         'is_cancellable' => 'getIsCancellable',
+        'is_transferable' => 'getIsTransferable',
         'supplier_status' => 'getSupplierStatus',
         'wb_status' => 'getWbStatus'
     ];
@@ -316,6 +322,7 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('is_cancellable', $data ?? [], null);
+        $this->setIfExists('is_transferable', $data ?? [], null);
         $this->setIfExists('supplier_status', $data ?? [], null);
         $this->setIfExists('wb_status', $data ?? [], null);
     }
@@ -430,6 +437,33 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
             throw new \InvalidArgumentException('non-nullable is_cancellable cannot be null');
         }
         $this->container['is_cancellable'] = $is_cancellable;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_transferable
+     *
+     * @return bool|null
+     */
+    public function getIsTransferable()
+    {
+        return $this->container['is_transferable'];
+    }
+
+    /**
+     * Sets is_transferable
+     *
+     * @param bool|null $is_transferable Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку: - `false` — нет - `true` — да  Сборочное задание можно перенести из доставки на сборку, если выполняются все условия:   - сборочное задание находится в статусе `complete` — в доставке   - поставка, в которую нужно перенести сборочное задание, не [передана в доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)   - сборочное задание ранее не переносили
+     *
+     * @return self
+     */
+    public function setIsTransferable($is_transferable)
+    {
+        if (is_null($is_transferable)) {
+            throw new \InvalidArgumentException('non-nullable is_transferable cannot be null');
+        }
+        $this->container['is_transferable'] = $is_transferable;
 
         return $this;
     }

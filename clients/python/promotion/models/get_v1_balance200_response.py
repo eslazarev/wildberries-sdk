@@ -28,10 +28,10 @@ class GetV1Balance200Response(BaseModel):
     """
     GetV1Balance200Response
     """ # noqa: E501
-    balance: Optional[StrictInt] = Field(default=None, description="Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    net: Optional[StrictInt] = Field(default=None, description="Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    bonus: Optional[StrictInt] = Field(default=None, description="Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    balance: Optional[StrictInt] = Field(default=None, description="Счёт в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    net: Optional[StrictInt] = Field(default=None, description="Баланс в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    bonus: Optional[StrictInt] = Field(default=None, description="Бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
     cashbacks: Optional[List[GetV1Balance200ResponseCashbacksInner]] = Field(default=None, description="Промо-бонусы")
     __properties: ClassVar[List[str]] = ["balance", "net", "currency", "bonus", "cashbacks"]
 

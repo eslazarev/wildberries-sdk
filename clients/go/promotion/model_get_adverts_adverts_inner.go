@@ -23,7 +23,7 @@ var _ MappedNullable = &GetAdvertsAdvertsInner{}
 type GetAdvertsAdvertsInner struct {
 	// Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка 
 	BidType string `json:"bid_type"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 	// ID кампании
 	Id int64 `json:"id"`

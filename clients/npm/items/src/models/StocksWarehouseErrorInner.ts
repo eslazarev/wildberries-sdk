@@ -30,21 +30,23 @@ export interface StocksWarehouseErrorInner {
     /**
      * Дополнительная информация об ошибке
      */
-    data?: Array<StocksWarehouseErrorInnerDataInner> | null;
+    data?: Array<StocksWarehouseErrorInnerDataInner>;
     /**
      * Код ошибки
      */
-    code?: string;
+    code: string;
     /**
-     * Описание ошибки
+     * Детали ошибки
      */
-    message?: string;
+    message: string;
 }
 
 /**
  * Check if a given object implements the StocksWarehouseErrorInner interface.
  */
 export function instanceOfStocksWarehouseErrorInner(value: object): value is StocksWarehouseErrorInner {
+    if (!('code' in value) || value['code'] === undefined) return false;
+    if (!('message' in value) || value['message'] === undefined) return false;
     return true;
 }
 
@@ -58,9 +60,9 @@ export function StocksWarehouseErrorInnerFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : ((json['data'] as Array<any>).map(StocksWarehouseErrorInnerDataInnerFromJSON)),
-        'code': json['code'] == null ? undefined : json['code'],
-        'message': json['message'] == null ? undefined : json['message'],
+        'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(StocksWarehouseErrorInnerDataInnerFromJSON)),
+        'code': json['code'],
+        'message': json['message'],
     };
 }
 

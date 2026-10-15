@@ -151,6 +151,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `orders_fbs.FBSAPIService.GetV3SuppliesSupplyIdOrderIds` — `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
 - `orders_fbs.FBSAPIService.GetV3SuppliesSupplyIdTrbx` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
 - `orders_fbs.FBSAPIService.PatchV3FbsSuppliesShippingMethod` — `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок
+- `orders_fbs.FBSAPIService.PatchV3FbsSuppliesSupplyIdOrdersTransfer` — `PATCH /api/marketplace/v3/fbs/supplies/{supplyId}/orders/transfer` — Перевести сборочные задания из доставки на сборку
 - `orders_fbs.FBSAPIService.PatchV3OrdersOrderIdCancel` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
 - `orders_fbs.FBSAPIService.PatchV3SuppliesSupplyIdDeliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
 - `orders_fbs.FBSAPIService.PatchV3SuppliesSupplyIdOrders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
@@ -286,7 +287,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.PostV1BidsMin` — `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
 - `promotion.DefaultApiService.PostV1BudgetDeposit` — `POST /adv/v1/budget/deposit` — Пополнение бюджета кампании
 - `promotion.DefaultApiService.PostV1CalendarPromotionsUpload` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
-- `promotion.DefaultApiService.PostV1NormqueryBids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
+- `promotion.DefaultApiService.PostV1NormqueryBids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте профиля продавца
 - `promotion.DefaultApiService.PostV1NormqueryStats` — `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
 - `promotion.DefaultApiService.PostV1Stats` — `POST /adv/v1/stats` — Статистика медиакампаний
 - `promotion.DefaultApiService.PostV2Budget` — `POST /api/advert/v2/budget` — Остатки бюджетов кампаний

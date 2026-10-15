@@ -27,7 +27,7 @@ type DaysV3InnerAppsInnerNmsInner struct {
 	Canceled int32 `json:"canceled"`
 	// Количество кликов
 	Clicks int32 `json:"clicks"`
-	// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc float32 `json:"cpc"`
 	// CR (conversion rate) — отношение количества заказов к общему количеству кликов
 	Cr float32 `json:"cr"`
@@ -41,9 +41,9 @@ type DaysV3InnerAppsInnerNmsInner struct {
 	Orders int32 `json:"orders"`
 	// Количество заказанных товаров, шт.
 	Shks int32 `json:"shks"`
-	// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Sum float32 `json:"sum"`
-	// Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Заказов на сумму в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	SumPrice float32 `json:"sum_price"`
 	// Количество просмотров
 	Views int32 `json:"views"`

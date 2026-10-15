@@ -55,13 +55,13 @@ import {
     TableSearchTextItemAllOfVisibilityToJSON,
     TableSearchTextItemAllOfVisibilityToJSONTyped,
 } from './TableSearchTextItemAllOfVisibility';
-import type { TableItemItemAllOfPrice } from './TableItemItemAllOfPrice';
+import type { TableItemAllOfPrice } from './TableItemAllOfPrice';
 import {
-    TableItemItemAllOfPriceFromJSON,
-    TableItemItemAllOfPriceFromJSONTyped,
-    TableItemItemAllOfPriceToJSON,
-    TableItemItemAllOfPriceToJSONTyped,
-} from './TableItemItemAllOfPrice';
+    TableItemAllOfPriceFromJSON,
+    TableItemAllOfPriceFromJSONTyped,
+    TableItemAllOfPriceToJSON,
+    TableItemAllOfPriceToJSONTyped,
+} from './TableItemAllOfPrice';
 import type { TableSearchTextItemAllOfMedianPosition } from './TableSearchTextItemAllOfMedianPosition';
 import {
     TableSearchTextItemAllOfMedianPositionFromJSON,
@@ -129,7 +129,7 @@ export interface TableSearchTextItem {
     /**
      * 
      */
-    price: TableItemItemAllOfPrice;
+    price: TableItemAllOfPrice;
     /**
      * 
      */
@@ -218,7 +218,7 @@ export function TableSearchTextItemFromJSONTyped(json: any, ignoreDiscriminator:
         'isCardRated': json['isCardRated'],
         'rating': json['rating'],
         'feedbackRating': json['feedbackRating'],
-        'price': TableItemItemAllOfPriceFromJSON(json['price']),
+        'price': TableItemAllOfPriceFromJSON(json['price']),
         'frequency': TableSearchTextItemAllOfFrequencyFromJSON(json['frequency']),
         'weekFrequency': json['weekFrequency'],
         'medianPosition': TableSearchTextItemAllOfMedianPositionFromJSON(json['medianPosition']),
@@ -252,7 +252,7 @@ export function TableSearchTextItemToJSONTyped(value?: TableSearchTextItem | nul
         'isCardRated': value['isCardRated'],
         'rating': value['rating'],
         'feedbackRating': value['feedbackRating'],
-        'price': TableItemItemAllOfPriceToJSON(value['price']),
+        'price': TableItemAllOfPriceToJSON(value['price']),
         'frequency': TableSearchTextItemAllOfFrequencyToJSON(value['frequency']),
         'weekFrequency': value['weekFrequency'],
         'medianPosition': TableSearchTextItemAllOfMedianPositionToJSON(value['medianPosition']),

@@ -14,22 +14,22 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StocksWarehouseErrorInner {
     /// Дополнительная информация об ошибке
-    #[serde(rename = "data", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub data: Option<Option<Vec<models::StocksWarehouseErrorInnerDataInner>>>,
+    #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
+    pub data: Option<Vec<models::StocksWarehouseErrorInnerDataInner>>,
     /// Код ошибки
-    #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
-    pub code: Option<String>,
-    /// Описание ошибки
-    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<String>,
+    #[serde(rename = "code")]
+    pub code: String,
+    /// Детали ошибки
+    #[serde(rename = "message")]
+    pub message: String,
 }
 
 impl StocksWarehouseErrorInner {
-    pub fn new() -> StocksWarehouseErrorInner {
+    pub fn new(code: String, message: String) -> StocksWarehouseErrorInner {
         StocksWarehouseErrorInner {
             data: None,
-            code: None,
-            message: None,
+            code,
+            message,
         }
     }
 }

@@ -28,19 +28,19 @@ import {
  */
 export interface GetV1Balance200Response {
     /**
-     * Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Счёт в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     balance?: number;
     /**
-     * Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Баланс в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     net?: number;
     /**
-     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currency?: string;
     /**
-     * Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     bonus?: number;
     /**

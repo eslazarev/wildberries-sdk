@@ -54,7 +54,7 @@ type TableSizeResponseSizesInnerMetrics struct {
 	LostBuyoutsCount float32 `json:"lostBuyoutsCount"`
 	// Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
 	LostBuyoutsSum float32 `json:"lostBuyoutsSum"`
-	CurrentPrice TableItemItemStMetricsAllOfCurrentPrice `json:"currentPrice"`
+	CurrentPrice TableItemStMetricsAllOfCurrentPrice `json:"currentPrice"`
 }
 
 type _TableSizeResponseSizesInnerMetrics TableSizeResponseSizesInnerMetrics
@@ -63,7 +63,7 @@ type _TableSizeResponseSizesInnerMetrics TableSizeResponseSizesInnerMetrics
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableSizeResponseSizesInnerMetrics(ordersCount int32, ordersSum int32, avgOrders float32, avgOrdersByMonth []FloatGraphByPeriodItem, buyoutCount int32, buyoutSum int32, buyoutPercent int32, stockCount int32, stockSum int32, saleRate TableCommonMetricsSaleRate, avgStockTurnover TableCommonMetricsAvgStockTurnover, toClientCount int32, fromClientCount int32, officeMissingTime TableCommonMetricsOfficeMissingTime, lostOrdersCount float32, lostOrdersSum float32, lostBuyoutsCount float32, lostBuyoutsSum float32, currentPrice TableItemItemStMetricsAllOfCurrentPrice) *TableSizeResponseSizesInnerMetrics {
+func NewTableSizeResponseSizesInnerMetrics(ordersCount int32, ordersSum int32, avgOrders float32, avgOrdersByMonth []FloatGraphByPeriodItem, buyoutCount int32, buyoutSum int32, buyoutPercent int32, stockCount int32, stockSum int32, saleRate TableCommonMetricsSaleRate, avgStockTurnover TableCommonMetricsAvgStockTurnover, toClientCount int32, fromClientCount int32, officeMissingTime TableCommonMetricsOfficeMissingTime, lostOrdersCount float32, lostOrdersSum float32, lostBuyoutsCount float32, lostBuyoutsSum float32, currentPrice TableItemStMetricsAllOfCurrentPrice) *TableSizeResponseSizesInnerMetrics {
 	this := TableSizeResponseSizesInnerMetrics{}
 	this.OrdersCount = ordersCount
 	this.OrdersSum = ordersSum
@@ -528,9 +528,9 @@ func (o *TableSizeResponseSizesInnerMetrics) SetLostBuyoutsSum(v float32) {
 }
 
 // GetCurrentPrice returns the CurrentPrice field value
-func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPrice() TableItemItemStMetricsAllOfCurrentPrice {
+func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPrice() TableItemStMetricsAllOfCurrentPrice {
 	if o == nil {
-		var ret TableItemItemStMetricsAllOfCurrentPrice
+		var ret TableItemStMetricsAllOfCurrentPrice
 		return ret
 	}
 
@@ -539,7 +539,7 @@ func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPrice() TableItemItemStMe
 
 // GetCurrentPriceOk returns a tuple with the CurrentPrice field value
 // and a boolean to check if the value has been set.
-func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPriceOk() (*TableItemItemStMetricsAllOfCurrentPrice, bool) {
+func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPriceOk() (*TableItemStMetricsAllOfCurrentPrice, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -547,7 +547,7 @@ func (o *TableSizeResponseSizesInnerMetrics) GetCurrentPriceOk() (*TableItemItem
 }
 
 // SetCurrentPrice sets field value
-func (o *TableSizeResponseSizesInnerMetrics) SetCurrentPrice(v TableItemItemStMetricsAllOfCurrentPrice) {
+func (o *TableSizeResponseSizesInnerMetrics) SetCurrentPrice(v TableItemStMetricsAllOfCurrentPrice) {
 	o.CurrentPrice = v
 }
 

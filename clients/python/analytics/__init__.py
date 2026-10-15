@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.170"
+__version__ = "0.1.171"
 
 # Define package exports
 __all__ = [
@@ -186,14 +186,14 @@ __all__ = [
     "TableGroupRequestSt",
     "TableGroupResponse",
     "TableGroupResponseSt",
+    "TableItem",
+    "TableItemAllOfPrice",
     "TableItemFloat",
-    "TableItemItem",
-    "TableItemItemAllOfPrice",
-    "TableItemItemSt",
-    "TableItemItemStMetrics",
-    "TableItemItemStMetricsAllOfCurrentPrice",
     "TableItemRequest",
     "TableItemResponse",
+    "TableItemSt",
+    "TableItemStMetrics",
+    "TableItemStMetricsAllOfCurrentPrice",
     "TableOfficeItem",
     "TableOrderBy",
     "TableSearchTextItem",
@@ -398,14 +398,14 @@ from wildberries_sdk.analytics.models.table_group_request import TableGroupReque
 from wildberries_sdk.analytics.models.table_group_request_st import TableGroupRequestSt as TableGroupRequestSt
 from wildberries_sdk.analytics.models.table_group_response import TableGroupResponse as TableGroupResponse
 from wildberries_sdk.analytics.models.table_group_response_st import TableGroupResponseSt as TableGroupResponseSt
+from wildberries_sdk.analytics.models.table_item import TableItem as TableItem
+from wildberries_sdk.analytics.models.table_item_all_of_price import TableItemAllOfPrice as TableItemAllOfPrice
 from wildberries_sdk.analytics.models.table_item_float import TableItemFloat as TableItemFloat
-from wildberries_sdk.analytics.models.table_item_item import TableItemItem as TableItemItem
-from wildberries_sdk.analytics.models.table_item_item_all_of_price import TableItemItemAllOfPrice as TableItemItemAllOfPrice
-from wildberries_sdk.analytics.models.table_item_item_st import TableItemItemSt as TableItemItemSt
-from wildberries_sdk.analytics.models.table_item_item_st_metrics import TableItemItemStMetrics as TableItemItemStMetrics
-from wildberries_sdk.analytics.models.table_item_item_st_metrics_all_of_current_price import TableItemItemStMetricsAllOfCurrentPrice as TableItemItemStMetricsAllOfCurrentPrice
 from wildberries_sdk.analytics.models.table_item_request import TableItemRequest as TableItemRequest
 from wildberries_sdk.analytics.models.table_item_response import TableItemResponse as TableItemResponse
+from wildberries_sdk.analytics.models.table_item_st import TableItemSt as TableItemSt
+from wildberries_sdk.analytics.models.table_item_st_metrics import TableItemStMetrics as TableItemStMetrics
+from wildberries_sdk.analytics.models.table_item_st_metrics_all_of_current_price import TableItemStMetricsAllOfCurrentPrice as TableItemStMetricsAllOfCurrentPrice
 from wildberries_sdk.analytics.models.table_office_item import TableOfficeItem as TableOfficeItem
 from wildberries_sdk.analytics.models.table_order_by import TableOrderBy as TableOrderBy
 from wildberries_sdk.analytics.models.table_search_text_item import TableSearchTextItem as TableSearchTextItem

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,9 +27,9 @@ class StocksWarehouseErrorInnerDataInner(BaseModel):
     """
     StocksWarehouseErrorInnerDataInner
     """ # noqa: E501
-    sku: Optional[StrictStr] = Field(default=None, description="Баркод")
-    chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера товара", alias="chrtId")
-    amount: Optional[StrictInt] = Field(default=None, description="Остаток")
+    sku: StrictStr = Field(description="Не используется")
+    chrt_id: StrictInt = Field(description="ID размера", alias="chrtId")
+    amount: StrictInt = Field(description="Остаток")
     __properties: ClassVar[List[str]] = ["sku", "chrtId", "amount"]
 
     model_config = ConfigDict(

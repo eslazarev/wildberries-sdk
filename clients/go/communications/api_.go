@@ -48,7 +48,7 @@ DeleteV1Pins Открепить отзывы
 Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -271,7 +271,7 @@ GetV1Claims Заявки покупателей на возврат
 Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -482,7 +482,7 @@ GetV1Feedback Получить отзыв по ID
 Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -721,7 +721,7 @@ GetV1Feedbacks Список отзывов
   - настроить пагинацию и количество отзывов в ответе
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -958,7 +958,7 @@ GetV1FeedbacksArchive Список архивных отзывов
   - в отзыве нет текста и фото
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1187,7 +1187,7 @@ GetV1FeedbacksCount Количество отзывов
   - отзыв содержит только оценку (без текста и фото)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1378,7 +1378,7 @@ GetV1FeedbacksCountUnanswered Необработанные отзывы
   - количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1547,7 +1547,7 @@ GetV1NewFeedbacksQuestions Непросмотренные отзывы и воп
 Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1781,7 +1781,7 @@ GetV1Pins Список закреплённых и откреплённых от
 Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2041,7 +2041,7 @@ GetV1PinsCount Количество закреплённых и откреплё
 Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2242,7 +2242,7 @@ GetV1PinsLimits Лимиты закреплённых отзывов
 Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2418,7 +2418,7 @@ GetV1Question Получить вопрос по ID
 Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2658,7 +2658,7 @@ GetV1Questions Список вопросов
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2883,7 +2883,7 @@ GetV1QuestionsCount Количество вопросов
 Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3076,7 +3076,7 @@ GetV1QuestionsCountUnanswered Неотвеченные вопросы
 Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3245,7 +3245,7 @@ GetV1SellerChats Список чатов
 Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3415,7 +3415,7 @@ GetV1SellerDownloadId Получить файл из сообщения
 Метод возвращает файл или изображение из сообщения по его ID.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3620,7 +3620,7 @@ GetV1SellerEvents События чатов
   2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3810,7 +3810,7 @@ PatchV1Claim Ответ на заявку покупателя
 Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3996,7 +3996,7 @@ PatchV1FeedbacksAnswer Отредактировать ответ на отзыв
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4173,7 +4173,7 @@ PatchV1Questions Работа с вопросами
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4387,7 +4387,7 @@ PostV1FeedbacksAnswer Ответить на отзыв
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4566,7 +4566,7 @@ PostV1FeedbacksOrderReturn Возврат товара по ID отзыва
 Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4771,7 +4771,7 @@ PostV1Pins Закрепить отзывы
 Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4980,7 +4980,7 @@ PostV1SellerMessage Отправить сообщение
 Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |

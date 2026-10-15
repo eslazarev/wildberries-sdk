@@ -81,7 +81,7 @@ class StocksWarehouseErrorInner implements ModelInterface, ArrayAccess, \JsonSer
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'data' => true,
+        'data' => false,
         'code' => false,
         'message' => false
     ];
@@ -288,6 +288,12 @@ class StocksWarehouseErrorInner implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -323,14 +329,7 @@ class StocksWarehouseErrorInner implements ModelInterface, ArrayAccess, \JsonSer
     public function setData($data)
     {
         if (is_null($data)) {
-            array_push($this->openAPINullablesSetToNull, 'data');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
         $this->container['data'] = $data;
 
@@ -340,7 +339,7 @@ class StocksWarehouseErrorInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets code
      *
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -350,7 +349,7 @@ class StocksWarehouseErrorInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets code
      *
-     * @param string|null $code Код ошибки
+     * @param string $code Код ошибки
      *
      * @return self
      */
@@ -367,7 +366,7 @@ class StocksWarehouseErrorInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets message
      *
-     * @return string|null
+     * @return string
      */
     public function getMessage()
     {
@@ -377,7 +376,7 @@ class StocksWarehouseErrorInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets message
      *
-     * @param string|null $message Описание ошибки
+     * @param string $message Детали ошибки
      *
      * @return self
      */

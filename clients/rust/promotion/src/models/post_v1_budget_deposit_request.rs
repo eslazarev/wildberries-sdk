@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV1BudgetDepositRequest {
-    /// Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Общая сумма пополнения бюджета в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "sum", skip_serializing_if = "Option::is_none")]
     pub sum: Option<i32>,
     /// Сумма пополнения бюджета промо-бонусами. <br> Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. <br> Списать промо-бонусы можно только для источников пополнения:   - `0` — счёт   - `1` — баланс 

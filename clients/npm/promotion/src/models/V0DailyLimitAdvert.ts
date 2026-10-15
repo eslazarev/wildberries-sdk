@@ -30,11 +30,11 @@ export interface V0DailyLimitAdvert {
      */
     enabled: boolean;
     /**
-     * Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     dailyLimit: number;
     /**
-     * Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     spentToday: number;
     /**
@@ -57,7 +57,7 @@ export interface V0DailyLimitAdvert {
      */
     valid: boolean;
     /**
-     * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      * 
      */
     requiredLimit: number;

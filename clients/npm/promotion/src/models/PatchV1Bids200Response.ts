@@ -32,7 +32,7 @@ export interface PatchV1Bids200Response {
      */
     bids: Array<PatchV1Bids200ResponseBidsInner>;
     /**
-     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currency: string;
 }

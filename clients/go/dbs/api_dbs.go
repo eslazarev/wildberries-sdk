@@ -67,7 +67,7 @@ GetV3DbsOrders Получить информацию о завершенных �
 Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -272,7 +272,7 @@ GetV3DbsOrdersNew Получить список новых сборочных з
 Метод возвращает список всех новых [сборочных заданий](/openapi/dbs#tag/dbsAssemblyOrders), которые есть у продавца на момент запроса.
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -450,7 +450,7 @@ PostV3DbsGroupsInfo Получить информацию о платной до
 Метод возвращает информацию о платной доставке сборочных заданий, которые поступили на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`).
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -647,7 +647,7 @@ PostV3DbsOrdersB2bInfo Информация о покупателе B2B
   - Наименование организации
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -837,7 +837,7 @@ PostV3DbsOrdersClient Информация о покупателе
 Метод возвращает информацию о покупателе по ID сборочных заданий.
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -1043,7 +1043,7 @@ PostV3DbsOrdersDeliveryDate Получить дату и время достав
 <br>
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -1239,7 +1239,7 @@ PostV3DbsOrdersFinalPrice Получить цены продавца и сумм
   - суммы к оплате покупателем с учетом всех скидок и кэшбека
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -1419,7 +1419,7 @@ PostV3DbsOrdersMetaCustomsDeclaration Закрепить номера ДТ за 
   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -1642,7 +1642,7 @@ PostV3DbsOrdersMetaDelete Удалить идентификаторы марки
   - `customsDeclaration` — [номер ДТ](/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -1855,7 +1855,7 @@ PostV3DbsOrdersMetaDetails Получить идентификаторы мар�
   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -2046,7 +2046,7 @@ PostV3DbsOrdersMetaGtin Закрепить GTIN за сборочными зад
 Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.<br>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -2253,7 +2253,7 @@ PostV3DbsOrdersMetaImei Закрепить IMEI за сборочными зад
 Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.<br>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -2461,7 +2461,7 @@ PostV3DbsOrdersMetaSgtin Закрепить коды маркировки Чес
 Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2661,7 +2661,7 @@ PostV3DbsOrdersMetaUin Закрепить УИН за сборочными за�
 Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -2867,7 +2867,7 @@ PostV3DbsOrdersStatusCancel Отменить сборочные задания
 Отменить сборочные задания в статусе `deliver` невозможно.
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -3061,7 +3061,7 @@ PostV3DbsOrdersStatusConfirm Перевести сборочные задани�
 Метод переводит [сборочные задания](/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -3255,7 +3255,7 @@ PostV3DbsOrdersStatusDeliver Перевести сборочные задани�
 Метод переводит [сборочные задания](/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -3476,7 +3476,7 @@ PostV3DbsOrdersStatusInfo Получить статусы сборочных з�
 - `canceled_by_missed_call` — отмена по причине недозвона
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -3681,7 +3681,7 @@ PostV3DbsOrdersStatusReceive Сообщить о получении заказо
 Метод переводит [сборочные задания](/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `receive` — получено покупателем.
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -3872,7 +3872,7 @@ PostV3DbsOrdersStatusReject Сообщить об отказе от заказо
 Метод переводит [сборочные задания](/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `reject` — отказ покупателя при получении.
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -4096,7 +4096,7 @@ PostV3DbsOrdersStickers Получить стикеры для сборочны�
 Получить стикеры можно только в размере 580x400 px в формате PDF.
 
 <div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий DBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |

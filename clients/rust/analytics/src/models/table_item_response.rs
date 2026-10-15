@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct TableItemResponse {
     /// Множество данных по товарам
     #[serde(rename = "items")]
-    pub items: Vec<models::TableItemItemSt>,
+    pub items: Vec<models::TableItemSt>,
     /// Валюта отчёта
     #[serde(rename = "currency")]
     pub currency: String,
 }
 
 impl TableItemResponse {
-    pub fn new(items: Vec<models::TableItemItemSt>, currency: String) -> TableItemResponse {
+    pub fn new(items: Vec<models::TableItemSt>, currency: String) -> TableItemResponse {
         TableItemResponse {
             items,
             currency,

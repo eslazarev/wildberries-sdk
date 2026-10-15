@@ -288,6 +288,15 @@ class StocksWarehouseErrorInnerDataInner implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
+        if ($this->container['sku'] === null) {
+            $invalidProperties[] = "'sku' can't be null";
+        }
+        if ($this->container['chrt_id'] === null) {
+            $invalidProperties[] = "'chrt_id' can't be null";
+        }
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -306,7 +315,7 @@ class StocksWarehouseErrorInnerDataInner implements ModelInterface, ArrayAccess,
     /**
      * Gets sku
      *
-     * @return string|null
+     * @return string
      */
     public function getSku()
     {
@@ -316,7 +325,7 @@ class StocksWarehouseErrorInnerDataInner implements ModelInterface, ArrayAccess,
     /**
      * Sets sku
      *
-     * @param string|null $sku Баркод
+     * @param string $sku Не используется
      *
      * @return self
      */
@@ -333,7 +342,7 @@ class StocksWarehouseErrorInnerDataInner implements ModelInterface, ArrayAccess,
     /**
      * Gets chrt_id
      *
-     * @return int|null
+     * @return int
      */
     public function getChrtId()
     {
@@ -343,7 +352,7 @@ class StocksWarehouseErrorInnerDataInner implements ModelInterface, ArrayAccess,
     /**
      * Sets chrt_id
      *
-     * @param int|null $chrt_id ID размера товара
+     * @param int $chrt_id ID размера
      *
      * @return self
      */
@@ -360,7 +369,7 @@ class StocksWarehouseErrorInnerDataInner implements ModelInterface, ArrayAccess,
     /**
      * Gets amount
      *
-     * @return int|null
+     * @return int
      */
     public function getAmount()
     {
@@ -370,7 +379,7 @@ class StocksWarehouseErrorInnerDataInner implements ModelInterface, ArrayAccess,
     /**
      * Sets amount
      *
-     * @param int|null $amount Остаток
+     * @param int $amount Остаток
      *
      * @return self
      */

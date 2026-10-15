@@ -578,7 +578,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cpc
      *
-     * @param float $cpc Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param float $cpc Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -740,7 +740,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sum
      *
-     * @param float $sum Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param float $sum Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -767,7 +767,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sum_price
      *
-     * @param float $sum_price Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param float $sum_price Сумма заказов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -821,7 +821,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets currency
      *
-     * @param string $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param string $currency Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

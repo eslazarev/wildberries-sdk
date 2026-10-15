@@ -32,15 +32,15 @@ export interface V0GetNormQueryBidsItem {
      */
     normQuery: string;
     /**
-     * Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+     * Текущая ставка в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
      */
     bid: number;
     /**
-     * Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+     * Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
      */
     bidKopecks: number;
     /**
-     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currency: string;
 }

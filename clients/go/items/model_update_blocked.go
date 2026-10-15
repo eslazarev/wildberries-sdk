@@ -12,6 +12,8 @@ package items
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UpdateBlocked type satisfies the MappedNullable interface at compile time
@@ -20,19 +22,21 @@ var _ MappedNullable = &UpdateBlocked{}
 // UpdateBlocked struct for UpdateBlocked
 type UpdateBlocked struct {
 	// Код ошибки
-	Code *string `json:"code,omitempty"`
-	// Описание ошибки
-	Message *string `json:"message,omitempty"`
-	// Дополнительные данные ошибки
-	Data map[string]interface{} `json:"data,omitempty"`
+	Code string `json:"code"`
+	// Детали ошибки
+	Message string `json:"message"`
 }
+
+type _UpdateBlocked UpdateBlocked
 
 // NewUpdateBlocked instantiates a new UpdateBlocked object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateBlocked() *UpdateBlocked {
+func NewUpdateBlocked(code string, message string) *UpdateBlocked {
 	this := UpdateBlocked{}
+	this.Code = code
+	this.Message = message
 	return &this
 }
 
@@ -44,101 +48,52 @@ func NewUpdateBlockedWithDefaults() *UpdateBlocked {
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
+// GetCode returns the Code field value
 func (o *UpdateBlocked) GetCode() string {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Code
+
+	return o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
 func (o *UpdateBlocked) GetCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Code, true
+	return &o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *UpdateBlocked) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given string and assigns it to the Code field.
+// SetCode sets field value
 func (o *UpdateBlocked) SetCode(v string) {
-	o.Code = &v
+	o.Code = v
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise.
+// GetMessage returns the Message field value
 func (o *UpdateBlocked) GetMessage() string {
-	if o == nil || IsNil(o.Message) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Message
+
+	return o.Message
 }
 
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
 func (o *UpdateBlocked) GetMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.Message) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Message, true
+	return &o.Message, true
 }
 
-// HasMessage returns a boolean if a field has been set.
-func (o *UpdateBlocked) HasMessage() bool {
-	if o != nil && !IsNil(o.Message) {
-		return true
-	}
-
-	return false
-}
-
-// SetMessage gets a reference to the given string and assigns it to the Message field.
+// SetMessage sets field value
 func (o *UpdateBlocked) SetMessage(v string) {
-	o.Message = &v
-}
-
-// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UpdateBlocked) GetData() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.Data
-}
-
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpdateBlocked) GetDataOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Data) {
-		return map[string]interface{}{}, false
-	}
-	return o.Data, true
-}
-
-// HasData returns a boolean if a field has been set.
-func (o *UpdateBlocked) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
-		return true
-	}
-
-	return false
-}
-
-// SetData gets a reference to the given map[string]interface{} and assigns it to the Data field.
-func (o *UpdateBlocked) SetData(v map[string]interface{}) {
-	o.Data = v
+	o.Message = v
 }
 
 func (o UpdateBlocked) MarshalJSON() ([]byte, error) {
@@ -151,16 +106,47 @@ func (o UpdateBlocked) MarshalJSON() ([]byte, error) {
 
 func (o UpdateBlocked) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
-	if !IsNil(o.Message) {
-		toSerialize["message"] = o.Message
-	}
-	if o.Data != nil {
-		toSerialize["data"] = o.Data
-	}
+	toSerialize["code"] = o.Code
+	toSerialize["message"] = o.Message
 	return toSerialize, nil
+}
+
+func (o *UpdateBlocked) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"code",
+		"message",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUpdateBlocked := _UpdateBlocked{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUpdateBlocked)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateBlocked(varUpdateBlocked)
+
+	return err
 }
 
 type NullableUpdateBlocked struct {

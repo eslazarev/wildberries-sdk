@@ -13,23 +13,23 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StocksWarehouseErrorInnerDataInner {
-    /// Баркод
-    #[serde(rename = "sku", skip_serializing_if = "Option::is_none")]
-    pub sku: Option<String>,
-    /// ID размера товара
-    #[serde(rename = "chrtId", skip_serializing_if = "Option::is_none")]
-    pub chrt_id: Option<u64>,
+    /// Не используется
+    #[serde(rename = "sku")]
+    pub sku: String,
+    /// ID размера
+    #[serde(rename = "chrtId")]
+    pub chrt_id: u64,
     /// Остаток
-    #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<i32>,
+    #[serde(rename = "amount")]
+    pub amount: i32,
 }
 
 impl StocksWarehouseErrorInnerDataInner {
-    pub fn new() -> StocksWarehouseErrorInnerDataInner {
+    pub fn new(sku: String, chrt_id: u64, amount: i32) -> StocksWarehouseErrorInnerDataInner {
         StocksWarehouseErrorInnerDataInner {
-            sku: None,
-            chrt_id: None,
-            amount: None,
+            sku,
+            chrt_id,
+            amount,
         }
     }
 }

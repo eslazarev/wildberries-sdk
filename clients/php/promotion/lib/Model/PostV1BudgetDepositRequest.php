@@ -330,7 +330,7 @@ class PostV1BudgetDepositRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets sum
      *
-     * @param int|null $sum Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param int|null $sum Общая сумма пополнения бюджета в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

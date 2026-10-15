@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
 from wildberries_sdk.analytics.models.table_group_item_metrics_avg_position import TableGroupItemMetricsAvgPosition
-from wildberries_sdk.analytics.models.table_item_item_all_of_price import TableItemItemAllOfPrice
+from wildberries_sdk.analytics.models.table_item_all_of_price import TableItemAllOfPrice
 from wildberries_sdk.analytics.models.table_search_text_item_all_of_add_to_cart import TableSearchTextItemAllOfAddToCart
 from wildberries_sdk.analytics.models.table_search_text_item_all_of_cart_to_order import TableSearchTextItemAllOfCartToOrder
 from wildberries_sdk.analytics.models.table_search_text_item_all_of_frequency import TableSearchTextItemAllOfFrequency
@@ -46,7 +46,7 @@ class TableSearchTextItem(BaseModel):
     is_card_rated: StrictBool = Field(description="Есть ли рейтинг у карточки товара", alias="isCardRated", json_schema_extra={"examples": [True]})
     rating: Union[StrictFloat, StrictInt] = Field(description="Рейтинг карточки товара", json_schema_extra={"examples": [6]})
     feedback_rating: Union[StrictFloat, StrictInt] = Field(description="Рейтинг по отзывам", alias="feedbackRating", json_schema_extra={"examples": [1]})
-    price: TableItemItemAllOfPrice
+    price: TableItemAllOfPrice
     frequency: TableSearchTextItemAllOfFrequency
     week_frequency: StrictInt = Field(description="Количество обращений с поисковым запросом за неделю", alias="weekFrequency", json_schema_extra={"examples": [140]})
     median_position: TableSearchTextItemAllOfMedianPosition = Field(alias="medianPosition")
@@ -149,7 +149,7 @@ class TableSearchTextItem(BaseModel):
             "isCardRated": obj.get("isCardRated"),
             "rating": obj.get("rating"),
             "feedbackRating": obj.get("feedbackRating"),
-            "price": TableItemItemAllOfPrice.from_dict(obj["price"]) if obj.get("price") is not None else None,
+            "price": TableItemAllOfPrice.from_dict(obj["price"]) if obj.get("price") is not None else None,
             "frequency": TableSearchTextItemAllOfFrequency.from_dict(obj["frequency"]) if obj.get("frequency") is not None else None,
             "weekFrequency": obj.get("weekFrequency"),
             "medianPosition": TableSearchTextItemAllOfMedianPosition.from_dict(obj["medianPosition"]) if obj.get("medianPosition") is not None else None,

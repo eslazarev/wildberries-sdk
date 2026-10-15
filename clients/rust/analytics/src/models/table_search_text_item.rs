@@ -41,7 +41,7 @@ pub struct TableSearchTextItem {
     #[serde(rename = "feedbackRating")]
     pub feedback_rating: f64,
     #[serde(rename = "price")]
-    pub price: Box<models::TableItemItemAllOfPrice>,
+    pub price: Box<models::TableItemAllOfPrice>,
     #[serde(rename = "frequency")]
     pub frequency: Box<models::TableSearchTextItemAllOfFrequency>,
     /// Количество обращений с поисковым запросом за неделю
@@ -66,7 +66,7 @@ pub struct TableSearchTextItem {
 }
 
 impl TableSearchTextItem {
-    pub fn new(text: String, nm_id: u64, subject_name: String, brand_name: String, vendor_code: String, name: String, is_card_rated: bool, rating: f64, feedback_rating: f64, price: models::TableItemItemAllOfPrice, frequency: models::TableSearchTextItemAllOfFrequency, week_frequency: u64, median_position: models::TableSearchTextItemAllOfMedianPosition, avg_position: models::TableGroupItemMetricsAvgPosition, open_card: models::TableSearchTextItemAllOfOpenCard, add_to_cart: models::TableSearchTextItemAllOfAddToCart, open_to_cart: models::TableSearchTextItemAllOfOpenToCart, orders: models::TableSearchTextItemAllOfOrders, cart_to_order: models::TableSearchTextItemAllOfCartToOrder, visibility: models::TableSearchTextItemAllOfVisibility) -> TableSearchTextItem {
+    pub fn new(text: String, nm_id: u64, subject_name: String, brand_name: String, vendor_code: String, name: String, is_card_rated: bool, rating: f64, feedback_rating: f64, price: models::TableItemAllOfPrice, frequency: models::TableSearchTextItemAllOfFrequency, week_frequency: u64, median_position: models::TableSearchTextItemAllOfMedianPosition, avg_position: models::TableGroupItemMetricsAvgPosition, open_card: models::TableSearchTextItemAllOfOpenCard, add_to_cart: models::TableSearchTextItemAllOfAddToCart, open_to_cart: models::TableSearchTextItemAllOfOpenToCart, orders: models::TableSearchTextItemAllOfOrders, cart_to_order: models::TableSearchTextItemAllOfCartToOrder, visibility: models::TableSearchTextItemAllOfVisibility) -> TableSearchTextItem {
         TableSearchTextItem {
             text,
             nm_id,

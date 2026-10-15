@@ -47,7 +47,7 @@ GetV2NmReportDownloads Получить список отчётов
 Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -230,7 +230,7 @@ GetV2NmReportDownloadsFileDownloadId Получить отчёт
 Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -445,7 +445,7 @@ PostV2NmReportDownloads Создать отчёт
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -633,7 +633,7 @@ PostV2NmReportDownloadsRetry Сгенерировать отчёт повтор�
 Метод создает повторное [задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |

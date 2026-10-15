@@ -22,21 +22,19 @@ export interface ModelError {
     /**
      * Код ошибки
      */
-    code?: string;
+    code: string;
     /**
-     * Описание ошибки
+     * Детали ошибки
      */
-    message?: string;
-    /**
-     * Дополнительные данные ошибки
-     */
-    data?: object | null;
+    message: string;
 }
 
 /**
  * Check if a given object implements the ModelError interface.
  */
 export function instanceOfModelError(value: object): value is ModelError {
+    if (!('code' in value) || value['code'] === undefined) return false;
+    if (!('message' in value) || value['message'] === undefined) return false;
     return true;
 }
 
@@ -50,9 +48,8 @@ export function ModelErrorFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'code': json['code'] == null ? undefined : json['code'],
-        'message': json['message'] == null ? undefined : json['message'],
-        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : json['data'],
+        'code': json['code'],
+        'message': json['message'],
     };
 }
 
@@ -69,7 +66,6 @@ export function ModelErrorToJSONTyped(value?: ModelError | null, ignoreDiscrimin
         
         'code': value['code'],
         'message': value['message'],
-        'data': value['data'],
     };
 }
 

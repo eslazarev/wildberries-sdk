@@ -29,12 +29,12 @@ class V0DailyLimitAdvert(BaseModel):
     """ # noqa: E501
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId", json_schema_extra={"examples": [12346]})
     enabled: StrictBool = Field(description="- `true` — дневной лимит включен - `false` — дневной лимит отключен ", json_schema_extra={"examples": [True]})
-    daily_limit: StrictInt = Field(description="Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="dailyLimit", json_schema_extra={"examples": [100000]})
-    spent_today: StrictInt = Field(description="Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="spentToday", json_schema_extra={"examples": [35000]})
+    daily_limit: StrictInt = Field(description="Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="dailyLimit", json_schema_extra={"examples": [100000]})
+    spent_today: StrictInt = Field(description="Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="spentToday", json_schema_extra={"examples": [35000]})
     currency: StrictStr = Field(description="Код валюты", json_schema_extra={"examples": ["RUB"]})
     carry_over_enabled: StrictBool = Field(description="Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - `true` — перенос остатка включен   - `false` — перенос остатка отключен ", alias="carryOverEnabled", json_schema_extra={"examples": [True]})
     valid: StrictBool = Field(description="Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно ", json_schema_extra={"examples": [True]})
-    required_limit: StrictInt = Field(description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ", alias="requiredLimit", json_schema_extra={"examples": [3001]})
+    required_limit: StrictInt = Field(description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) ", alias="requiredLimit", json_schema_extra={"examples": [3001]})
     __properties: ClassVar[List[str]] = ["advertId", "enabled", "dailyLimit", "spentToday", "currency", "carryOverEnabled", "valid", "requiredLimit"]
 
     model_config = ConfigDict(

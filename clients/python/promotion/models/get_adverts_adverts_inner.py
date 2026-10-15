@@ -32,7 +32,7 @@ class GetAdvertsAdvertsInner(BaseModel):
     GetAdvertsAdvertsInner
     """ # noqa: E501
     bid_type: StrictStr = Field(description="Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка ")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
     id: StrictInt = Field(description="ID кампании")
     nm_settings: Optional[List[AdvertNMsSettings]] = Field(description="Настройки товаров")
     settings: AdvertSettings

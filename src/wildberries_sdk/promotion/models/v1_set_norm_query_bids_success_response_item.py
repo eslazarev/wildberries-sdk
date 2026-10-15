@@ -30,7 +30,7 @@ class V1SetNormQueryBidsSuccessResponseItem(BaseModel):
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     norm_query: StrictStr = Field(description="Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары", alias="normQuery")
-    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    currency: StrictStr = Field(description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
     __properties: ClassVar[List[str]] = ["advertId", "nmId", "normQuery", "currency"]
 
     model_config = ConfigDict(

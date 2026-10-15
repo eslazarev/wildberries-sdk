@@ -12,6 +12,8 @@ package items
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PutV3StocksWarehouseIdRequestStocksInner type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &PutV3StocksWarehouseIdRequestStocksInner{}
 // PutV3StocksWarehouseIdRequestStocksInner struct for PutV3StocksWarehouseIdRequestStocksInner
 type PutV3StocksWarehouseIdRequestStocksInner struct {
 	// ID размера товара
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId int32 `json:"chrtId"`
 	// Остаток
-	Amount *int32 `json:"amount,omitempty"`
+	Amount int32 `json:"amount"`
 }
+
+type _PutV3StocksWarehouseIdRequestStocksInner PutV3StocksWarehouseIdRequestStocksInner
 
 // NewPutV3StocksWarehouseIdRequestStocksInner instantiates a new PutV3StocksWarehouseIdRequestStocksInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPutV3StocksWarehouseIdRequestStocksInner() *PutV3StocksWarehouseIdRequestStocksInner {
+func NewPutV3StocksWarehouseIdRequestStocksInner(chrtId int32, amount int32) *PutV3StocksWarehouseIdRequestStocksInner {
 	this := PutV3StocksWarehouseIdRequestStocksInner{}
+	this.ChrtId = chrtId
+	this.Amount = amount
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewPutV3StocksWarehouseIdRequestStocksInnerWithDefaults() *PutV3StocksWareh
 	return &this
 }
 
-// GetChrtId returns the ChrtId field value if set, zero value otherwise.
+// GetChrtId returns the ChrtId field value
 func (o *PutV3StocksWarehouseIdRequestStocksInner) GetChrtId() int32 {
-	if o == nil || IsNil(o.ChrtId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ChrtId
+
+	return o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
+// GetChrtIdOk returns a tuple with the ChrtId field value
 // and a boolean to check if the value has been set.
 func (o *PutV3StocksWarehouseIdRequestStocksInner) GetChrtIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.ChrtId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ChrtId, true
+	return &o.ChrtId, true
 }
 
-// HasChrtId returns a boolean if a field has been set.
-func (o *PutV3StocksWarehouseIdRequestStocksInner) HasChrtId() bool {
-	if o != nil && !IsNil(o.ChrtId) {
-		return true
-	}
-
-	return false
-}
-
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
+// SetChrtId sets field value
 func (o *PutV3StocksWarehouseIdRequestStocksInner) SetChrtId(v int32) {
-	o.ChrtId = &v
+	o.ChrtId = v
 }
 
-// GetAmount returns the Amount field value if set, zero value otherwise.
+// GetAmount returns the Amount field value
 func (o *PutV3StocksWarehouseIdRequestStocksInner) GetAmount() int32 {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Amount
+
+	return o.Amount
 }
 
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
+// GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *PutV3StocksWarehouseIdRequestStocksInner) GetAmountOk() (*int32, bool) {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Amount, true
+	return &o.Amount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *PutV3StocksWarehouseIdRequestStocksInner) HasAmount() bool {
-	if o != nil && !IsNil(o.Amount) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmount gets a reference to the given int32 and assigns it to the Amount field.
+// SetAmount sets field value
 func (o *PutV3StocksWarehouseIdRequestStocksInner) SetAmount(v int32) {
-	o.Amount = &v
+	o.Amount = v
 }
 
 func (o PutV3StocksWarehouseIdRequestStocksInner) MarshalJSON() ([]byte, error) {
@@ -116,13 +106,47 @@ func (o PutV3StocksWarehouseIdRequestStocksInner) MarshalJSON() ([]byte, error) 
 
 func (o PutV3StocksWarehouseIdRequestStocksInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ChrtId) {
-		toSerialize["chrtId"] = o.ChrtId
-	}
-	if !IsNil(o.Amount) {
-		toSerialize["amount"] = o.Amount
-	}
+	toSerialize["chrtId"] = o.ChrtId
+	toSerialize["amount"] = o.Amount
 	return toSerialize, nil
+}
+
+func (o *PutV3StocksWarehouseIdRequestStocksInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"chrtId",
+		"amount",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPutV3StocksWarehouseIdRequestStocksInner := _PutV3StocksWarehouseIdRequestStocksInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPutV3StocksWarehouseIdRequestStocksInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PutV3StocksWarehouseIdRequestStocksInner(varPutV3StocksWarehouseIdRequestStocksInner)
+
+	return err
 }
 
 type NullablePutV3StocksWarehouseIdRequestStocksInner struct {

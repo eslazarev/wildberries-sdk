@@ -20,29 +20,29 @@ import { mapValues } from '../runtime';
  */
 export interface V2GetConfigResponse {
     /**
-     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currency: string;
     /**
-     * Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currencyCode: number;
     /**
-     * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
+     * Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
      */
     cpmStep: number;
     /**
-     * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
+     * Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
      */
     cpcStep: number;
     /**
-     * Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+     * Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
      *  Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум
      * 
      */
     minTopUp: number;
     /**
-     * Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      * 
      */
     minDailyLimit: number;

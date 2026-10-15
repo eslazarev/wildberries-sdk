@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1Balance200ResponseCashbacksInner {
-    /// Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "sum", skip_serializing_if = "Option::is_none")]
     pub sum: Option<i32>,
     /// Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз

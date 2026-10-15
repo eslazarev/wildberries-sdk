@@ -29,7 +29,7 @@ class PatchV1Bids200Response(BaseModel):
     PatchV1Bids200Response
     """ # noqa: E501
     bids: List[PatchV1Bids200ResponseBidsInner] = Field(description="Результат отработки запроса")
-    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    currency: StrictStr = Field(description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
     __properties: ClassVar[List[str]] = ["bids", "currency"]
 
     model_config = ConfigDict(

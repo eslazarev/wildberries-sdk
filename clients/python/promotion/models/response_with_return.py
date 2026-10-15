@@ -28,7 +28,7 @@ class ResponseWithReturn(BaseModel):
     ResponseWithReturn
     """ # noqa: E501
     total: Optional[StrictInt] = Field(default=None, description="Размер обновлённого бюджета")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
     __properties: ClassVar[List[str]] = ["total", "currency"]
 
     model_config = ConfigDict(

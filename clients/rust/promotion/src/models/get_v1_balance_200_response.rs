@@ -13,16 +13,16 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1Balance200Response {
-    /// Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Счёт в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "balance", skip_serializing_if = "Option::is_none")]
     pub balance: Option<i32>,
-    /// Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Баланс в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "net", skip_serializing_if = "Option::is_none")]
     pub net: Option<i32>,
-    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
     pub currency: Option<String>,
-    /// Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "bonus", skip_serializing_if = "Option::is_none")]
     pub bonus: Option<i32>,
     /// Промо-бонусы

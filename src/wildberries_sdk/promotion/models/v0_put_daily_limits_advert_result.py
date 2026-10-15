@@ -29,7 +29,7 @@ class V0PutDailyLimitsAdvertResult(BaseModel):
     """ # noqa: E501
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId", json_schema_extra={"examples": [1234]})
     below_min_limit: StrictBool = Field(description="Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок `requiredLimit`:   - `true` — да   - `false` — нет ", alias="belowMinLimit", json_schema_extra={"examples": [False]})
-    required_limit: StrictInt = Field(description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки ", alias="requiredLimit", json_schema_extra={"examples": [3001]})
+    required_limit: StrictInt = Field(description="Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки ", alias="requiredLimit", json_schema_extra={"examples": [3001]})
     __properties: ClassVar[List[str]] = ["advertId", "belowMinLimit", "requiredLimit"]
 
     model_config = ConfigDict(

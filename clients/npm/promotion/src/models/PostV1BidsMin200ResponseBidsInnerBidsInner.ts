@@ -28,7 +28,7 @@ import {
  */
 export interface PostV1BidsMin200ResponseBidsInnerBidsInner {
     /**
-     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currency: string;
     /**
@@ -36,7 +36,7 @@ export interface PostV1BidsMin200ResponseBidsInnerBidsInner {
      */
     type: PlacementType;
     /**
-     * Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      * 
      */
     value: number;

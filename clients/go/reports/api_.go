@@ -55,7 +55,7 @@ GetV1AcceptanceReport Создать отчёт
 Можно получить отчёт максимум за 31 день.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -244,7 +244,7 @@ GetV1AcceptanceReportTasksTaskIdDownload Получить отчёт
 Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -439,7 +439,7 @@ GetV1AcceptanceReportTasksTaskIdStatus Проверить статус
 Метод возвращает статус [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -633,7 +633,7 @@ GetV1AnalyticsAntifraudDetails Самовыкупы
 Данные доступны с августа 2023.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -830,7 +830,7 @@ GetV1AnalyticsBannedProducsBlocked Получить отчёт
 Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1048,7 +1048,7 @@ GetV1AnalyticsBrandShare Получить отчёт
 Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1248,7 +1248,7 @@ GetV1AnalyticsBrandShareBrands Бренды продавца
 - Есть в наличии, вне зависимости от склада хранения
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1447,7 +1447,7 @@ GetV1AnalyticsBrandShareParentSubjects Родительские категори
 Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1664,7 +1664,7 @@ GetV1AnalyticsGoodsLabeling Маркировка товара
 Можно получить данные максимум за 31 день. Данные доступны с марта 2024.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2059,7 +2059,7 @@ GetV1AnalyticsRegionSale Получить отчёт
 Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2292,7 +2292,7 @@ GetV1Deductions Подмены и неверные вложения
 Метод возвращает отчёт об удержаниях за [подмены и неверные вложения](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/retentions)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2733,7 +2733,7 @@ GetV1MeasurementPenalties Удержания за занижение габар�
 Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2950,7 +2950,7 @@ GetV1PaidStorage Создать отчёт
 Можно получить отчёт максимум за 8 дней.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3139,7 +3139,7 @@ GetV1PaidStorageTasksTaskIdDownload Получить отчёт
 Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3334,7 +3334,7 @@ GetV1PaidStorageTasksTaskIdStatus Проверить статус
 Метод возвращает статус [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3515,7 +3515,7 @@ func (r ApiGetV1SupplierOrdersRequest) DateFrom(dateFrom string) ApiGetV1Supplie
 	return r
 }
 
-// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
+// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
 func (r ApiGetV1SupplierOrdersRequest) Flag(flag int32) ApiGetV1SupplierOrdersRequest {
 	r.flag = &flag
 	return r
@@ -3546,7 +3546,7 @@ GetV1SupplierOrders Заказы
 В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3735,7 +3735,7 @@ func (r ApiGetV1SupplierSalesRequest) DateFrom(dateFrom string) ApiGetV1Supplier
 	return r
 }
 
-// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
+// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
 func (r ApiGetV1SupplierSalesRequest) Flag(flag int32) ApiGetV1SupplierSalesRequest {
 	r.flag = &flag
 	return r
@@ -3770,7 +3770,7 @@ GetV1SupplierSales Продажи
 В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3989,7 +3989,7 @@ GetV1WarehouseMeasurements Замеры склада
 Метод возвращает отчёт о [замерах склада](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/warehouse-measurements)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4255,7 +4255,7 @@ GetV1WarehouseRemains Создать отчёт
 Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4499,7 +4499,7 @@ GetV1WarehouseRemainsTasksTaskIdDownload Получить отчёт
 Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4694,7 +4694,7 @@ GetV1WarehouseRemainsTasksTaskIdStatus Проверить статус
 Метод возвращает статус [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |

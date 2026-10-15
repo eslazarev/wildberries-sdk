@@ -73,7 +73,7 @@ class DefaultApi:
     ) -> None:
         """Удалить черновик
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет черновик поставки по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет черновик поставки по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: UUID
@@ -145,7 +145,7 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Удалить черновик
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет черновик поставки по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет черновик поставки по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: UUID
@@ -217,7 +217,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Удалить черновик
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет черновик поставки по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет черновик поставки по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: UUID
@@ -354,7 +354,7 @@ class DefaultApi:
     ) -> ModelsDraftDeleteItemsErrorResponse:
         """Удалить товары из черновика
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет товары из черновика поставки по списку баркодов.    <div class=\"description_important\">   Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.   </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет товары из черновика поставки по списку баркодов.    <div class=\"description_important\">   Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.   </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -430,7 +430,7 @@ class DefaultApi:
     ) -> ApiResponse[ModelsDraftDeleteItemsErrorResponse]:
         """Удалить товары из черновика
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет товары из черновика поставки по списку баркодов.    <div class=\"description_important\">   Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.   </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет товары из черновика поставки по списку баркодов.    <div class=\"description_important\">   Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.   </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -506,7 +506,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Удалить товары из черновика
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет товары из черновика поставки по списку баркодов.    <div class=\"description_important\">   Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.   </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод удаляет товары из черновика поставки по списку баркодов.    <div class=\"description_important\">   Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.   </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -664,7 +664,7 @@ class DefaultApi:
     ) -> ModelsListDraftsResponse:
         """Список черновиков
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список черновиков поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список черновиков поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param limit: Количество черновиков в ответе
         :type limit: int
@@ -747,7 +747,7 @@ class DefaultApi:
     ) -> ApiResponse[ModelsListDraftsResponse]:
         """Список черновиков
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список черновиков поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список черновиков поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param limit: Количество черновиков в ответе
         :type limit: int
@@ -830,7 +830,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список черновиков
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список черновиков поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список черновиков поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param limit: Количество черновиков в ответе
         :type limit: int
@@ -991,7 +991,7 @@ class DefaultApi:
     ) -> ModelsListDraftItemsResponse:
         """Список товаров в черновике
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список товаров черновика.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список товаров черновика.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -1063,7 +1063,7 @@ class DefaultApi:
     ) -> ApiResponse[ModelsListDraftItemsResponse]:
         """Список товаров в черновике
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список товаров черновика.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список товаров черновика.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -1135,7 +1135,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список товаров в черновике
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список товаров черновика.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список товаров черновика.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -1272,7 +1272,7 @@ class DefaultApi:
     ) -> ModelsSupplyDetails:
         """Детали поставки
 
-        Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1349,7 +1349,7 @@ class DefaultApi:
     ) -> ApiResponse[ModelsSupplyDetails]:
         """Детали поставки
 
-        Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1426,7 +1426,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Детали поставки
 
-        Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1574,7 +1574,7 @@ class DefaultApi:
     ) -> List[ModelsGoodInSupply]:
         """Товары поставки
 
-        Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1658,7 +1658,7 @@ class DefaultApi:
     ) -> ApiResponse[List[ModelsGoodInSupply]]:
         """Товары поставки
 
-        Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1742,7 +1742,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Товары поставки
 
-        Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param id: ID поставки или заказа (required)
         :type id: int
@@ -1903,7 +1903,7 @@ class DefaultApi:
     ) -> List[ModelsBox]:
         """Упаковка поставки
 
-        Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param id: ID поставки (required)
         :type id: int
@@ -1975,7 +1975,7 @@ class DefaultApi:
     ) -> ApiResponse[List[ModelsBox]]:
         """Упаковка поставки
 
-        Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param id: ID поставки (required)
         :type id: int
@@ -2047,7 +2047,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Упаковка поставки
 
-        Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param id: ID поставки (required)
         :type id: int
@@ -2183,7 +2183,7 @@ class DefaultApi:
     ) -> List[ModelsItemDiscrepancyResponse]:
         """Расхождения в поставке
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке. <br> Для поставок принятых не позднее года назад. <br><br> **Типы расхождений:** <br><br> Расхождение в большую сторону:<br><br> 1. Избыток товара с заявленным баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"re-sorting\"`  Расхождение в меньшую сторону:<br><br> 1. Не хватает товара:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"re-sorting\"`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке. <br> Для поставок принятых не позднее года назад. <br><br> **Типы расхождений:** <br><br> Расхождение в большую сторону:<br><br> 1. Избыток товара с заявленным баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"re-sorting\"`  Расхождение в меньшую сторону:<br><br> 1. Не хватает товара:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"re-sorting\"`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param supply_id: ID поставки (required)
         :type supply_id: int
@@ -2255,7 +2255,7 @@ class DefaultApi:
     ) -> ApiResponse[List[ModelsItemDiscrepancyResponse]]:
         """Расхождения в поставке
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке. <br> Для поставок принятых не позднее года назад. <br><br> **Типы расхождений:** <br><br> Расхождение в большую сторону:<br><br> 1. Избыток товара с заявленным баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"re-sorting\"`  Расхождение в меньшую сторону:<br><br> 1. Не хватает товара:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"re-sorting\"`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке. <br> Для поставок принятых не позднее года назад. <br><br> **Типы расхождений:** <br><br> Расхождение в большую сторону:<br><br> 1. Избыток товара с заявленным баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"re-sorting\"`  Расхождение в меньшую сторону:<br><br> 1. Не хватает товара:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"re-sorting\"`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param supply_id: ID поставки (required)
         :type supply_id: int
@@ -2327,7 +2327,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Расхождения в поставке
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке. <br> Для поставок принятых не позднее года назад. <br><br> **Типы расхождений:** <br><br> Расхождение в большую сторону:<br><br> 1. Избыток товара с заявленным баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"re-sorting\"`  Расхождение в меньшую сторону:<br><br> 1. Не хватает товара:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"re-sorting\"`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке. <br> Для поставок принятых не позднее года назад. <br><br> **Типы расхождений:** <br><br> Расхождение в большую сторону:<br><br> 1. Избыток товара с заявленным баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом:   - `\"discrepancyType\": \"surplus\"`   - `\"discrepancyLabel\": \"re-sorting\"`  Расхождение в меньшую сторону:<br><br> 1. Не хватает товара:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным:   - `\"discrepancyType\": \"shortage\"`   - `\"discrepancyLabel\": \"re-sorting\"`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param supply_id: ID поставки (required)
         :type supply_id: int
@@ -2462,7 +2462,7 @@ class DefaultApi:
     ) -> List[ModelsTransitTariff]:
         """Транзитные направления
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2528,7 +2528,7 @@ class DefaultApi:
     ) -> ApiResponse[List[ModelsTransitTariff]]:
         """Транзитные направления
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2594,7 +2594,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Транзитные направления
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2721,7 +2721,7 @@ class DefaultApi:
     ) -> List[ModelsWarehousesResultItems]:
         """Список складов
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2788,7 +2788,7 @@ class DefaultApi:
     ) -> ApiResponse[List[ModelsWarehousesResultItems]]:
         """Список складов
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2855,7 +2855,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список складов
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2986,7 +2986,7 @@ class DefaultApi:
     ) -> ModelsOptionsResultModel:
         """Опции приёмки
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
 
         :param models_good: (required)
         :type models_good: List[ModelsGood]
@@ -3063,7 +3063,7 @@ class DefaultApi:
     ) -> ApiResponse[ModelsOptionsResultModel]:
         """Опции приёмки
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
 
         :param models_good: (required)
         :type models_good: List[ModelsGood]
@@ -3140,7 +3140,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Опции приёмки
 
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
 
         :param models_good: (required)
         :type models_good: List[ModelsGood]
@@ -3299,7 +3299,7 @@ class DefaultApi:
     ) -> ModelsDraftCreateResponse:
         """Создать черновик
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод создаёт пустой черновик поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод создаёт пустой черновик поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3365,7 +3365,7 @@ class DefaultApi:
     ) -> ApiResponse[ModelsDraftCreateResponse]:
         """Создать черновик
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод создаёт пустой черновик поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод создаёт пустой черновик поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3431,7 +3431,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Создать черновик
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод создаёт пустой черновик поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод создаёт пустой черновик поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3560,7 +3560,7 @@ class DefaultApi:
     ) -> ModelsDraftAddItemsErrorResponse:
         """Добавить товары в черновик
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод добавляет товары в черновик поставки.  <div class=\"description_important\">   Метод работает по принципу атомарности:   - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\":[]}</code>   - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод добавляет товары в черновик поставки.  <div class=\"description_important\">   Метод работает по принципу атомарности:   - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\":[]}</code>   - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -3636,7 +3636,7 @@ class DefaultApi:
     ) -> ApiResponse[ModelsDraftAddItemsErrorResponse]:
         """Добавить товары в черновик
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод добавляет товары в черновик поставки.  <div class=\"description_important\">   Метод работает по принципу атомарности:   - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\":[]}</code>   - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод добавляет товары в черновик поставки.  <div class=\"description_important\">   Метод работает по принципу атомарности:   - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\":[]}</code>   - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -3712,7 +3712,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Добавить товары в черновик
 
-         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод добавляет товары в черновик поставки.  <div class=\"description_important\">   Метод работает по принципу атомарности:   - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\":[]}</code>   - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
+         <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод добавляет товары в черновик поставки.  <div class=\"description_important\">   Метод работает по принципу атомарности:   - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся <code>{\"results\":[]}</code>   - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов | </div> 
 
         :param draft_id: ID черновика (required)
         :type draft_id: str
@@ -3869,7 +3869,7 @@ class DefaultApi:
     ) -> List[ModelsSupply]:
         """Список поставок
 
-        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param models_supplies_filters_request: (required)
         :type models_supplies_filters_request: ModelsSuppliesFiltersRequest
@@ -3949,7 +3949,7 @@ class DefaultApi:
     ) -> ApiResponse[List[ModelsSupply]]:
         """Список поставок
 
-        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param models_supplies_filters_request: (required)
         :type models_supplies_filters_request: ModelsSuppliesFiltersRequest
@@ -4029,7 +4029,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список поставок
 
-        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
         :param models_supplies_filters_request: (required)
         :type models_supplies_filters_request: ModelsSuppliesFiltersRequest

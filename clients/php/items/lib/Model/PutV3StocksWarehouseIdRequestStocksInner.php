@@ -281,7 +281,13 @@ class PutV3StocksWarehouseIdRequestStocksInner implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['amount']) && ($this->container['amount'] > 100000)) {
+        if ($this->container['chrt_id'] === null) {
+            $invalidProperties[] = "'chrt_id' can't be null";
+        }
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if (($this->container['amount'] > 100000)) {
             $invalidProperties[] = "invalid value for 'amount', must be smaller than or equal to 100000.";
         }
 
@@ -303,7 +309,7 @@ class PutV3StocksWarehouseIdRequestStocksInner implements ModelInterface, ArrayA
     /**
      * Gets chrt_id
      *
-     * @return int|null
+     * @return int
      */
     public function getChrtId()
     {
@@ -313,7 +319,7 @@ class PutV3StocksWarehouseIdRequestStocksInner implements ModelInterface, ArrayA
     /**
      * Sets chrt_id
      *
-     * @param int|null $chrt_id ID размера товара
+     * @param int $chrt_id ID размера товара
      *
      * @return self
      */
@@ -330,7 +336,7 @@ class PutV3StocksWarehouseIdRequestStocksInner implements ModelInterface, ArrayA
     /**
      * Gets amount
      *
-     * @return int|null
+     * @return int
      */
     public function getAmount()
     {
@@ -340,7 +346,7 @@ class PutV3StocksWarehouseIdRequestStocksInner implements ModelInterface, ArrayA
     /**
      * Sets amount
      *
-     * @param int|null $amount Остаток
+     * @param int $amount Остаток
      *
      * @return self
      */

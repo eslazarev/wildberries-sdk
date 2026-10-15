@@ -164,6 +164,7 @@ var_dump($response);
 - `orders_fbs.FBSApi.getV3SuppliesSupplyIdOrderIds` — `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
 - `orders_fbs.FBSApi.getV3SuppliesSupplyIdTrbx` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
 - `orders_fbs.FBSApi.patchV3FbsSuppliesShippingMethod` — `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок
+- `orders_fbs.FBSApi.patchV3FbsSuppliesSupplyIdOrdersTransfer` — `PATCH /api/marketplace/v3/fbs/supplies/{supplyId}/orders/transfer` — Перевести сборочные задания из доставки на сборку
 - `orders_fbs.FBSApi.patchV3OrdersOrderIdCancel` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdDeliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdOrders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
@@ -299,7 +300,7 @@ var_dump($response);
 - `promotion.DefaultApi.postV1BidsMin` — `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
 - `promotion.DefaultApi.postV1BudgetDeposit` — `POST /adv/v1/budget/deposit` — Пополнение бюджета кампании
 - `promotion.DefaultApi.postV1CalendarPromotionsUpload` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
-- `promotion.DefaultApi.postV1NormqueryBids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
+- `promotion.DefaultApi.postV1NormqueryBids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте профиля продавца
 - `promotion.DefaultApi.postV1NormqueryStats` — `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
 - `promotion.DefaultApi.postV1Stats` — `POST /adv/v1/stats` — Статистика медиакампаний
 - `promotion.DefaultApi.postV2Budget` — `POST /api/advert/v2/budget` — Остатки бюджетов кампаний

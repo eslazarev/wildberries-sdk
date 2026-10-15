@@ -49,7 +49,7 @@ DeleteV1User Удалить пользователя
 Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -217,7 +217,7 @@ GetV1Rating Получить рейтинг продавца
 Метод возвращает пользовательский рейтинг продавца и количество отзывов.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -386,7 +386,7 @@ GetV1SellerInfo Получить информацию о продавце
 Метод позволяет получать наименование продавца и ID его профиля.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -564,7 +564,7 @@ GetV1Subscriptions Получить информацию о подписке Д�
     - дата окончания последнего оплаченного периода `till`
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -748,7 +748,7 @@ GetV1TariffConstructorOptions Получить информацию об опц�
 Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -967,7 +967,7 @@ GetV1Users Получить список активных или приглаш�
 Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -1172,7 +1172,7 @@ PostV1Invite Создать приглашение для нового поль�
   - при одинаковых значениях `"disabled": false` доступ будет выдан
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -1355,7 +1355,7 @@ PutV1UsersAccess Изменить права доступа пользовате
 Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |

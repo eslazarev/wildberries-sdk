@@ -31,7 +31,8 @@ class GetV1SellerInfo200Response(BaseModel):
     sid: Optional[StrictStr] = Field(default=None, description="Уникальный ID продавца на Wildberries, [находящийся в публичном поле токена](./api-information#tag/authorization/Kak-ustroen-token)")
     tin: Optional[StrictStr] = Field(default=None, description="ИНН")
     trade_mark: Optional[StrictStr] = Field(default=None, description="Торговое наименование продавца", alias="tradeMark")
-    __properties: ClassVar[List[str]] = ["name", "sid", "tin", "tradeMark"]
+    country: Optional[StrictStr] = Field(default=None, description="Страна регистрации профиля продавца")
+    __properties: ClassVar[List[str]] = ["name", "sid", "tin", "tradeMark", "country"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,7 +88,8 @@ class GetV1SellerInfo200Response(BaseModel):
             "name": obj.get("name"),
             "sid": obj.get("sid"),
             "tin": obj.get("tin"),
-            "tradeMark": obj.get("tradeMark")
+            "tradeMark": obj.get("tradeMark"),
+            "country": obj.get("country")
         })
         return _obj
 

@@ -151,6 +151,7 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.getV3SuppliesSupplyIdOrderIds` — Получить ID сборочных заданий поставки
 - `orders_fbs.FBSApi.getV3SuppliesSupplyIdTrbx` — Получить список грузомест поставки
 - `orders_fbs.FBSApi.patchV3FbsSuppliesShippingMethod` — Установить параметры отгрузки поставок
+- `orders_fbs.FBSApi.patchV3FbsSuppliesSupplyIdOrdersTransfer` — Перевести сборочные задания из доставки на сборку
 - `orders_fbs.FBSApi.patchV3OrdersOrderIdCancel` — Отменить сборочное задание
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdDeliver` — Передать поставку в доставку
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdOrders` — Добавить сборочные задания к поставке
@@ -286,7 +287,7 @@ main().catch(console.error);
 - `promotion.DefaultApi.postV1BidsMin` — Минимальные ставки для карточек товаров
 - `promotion.DefaultApi.postV1BudgetDeposit` — Пополнение бюджета кампании
 - `promotion.DefaultApi.postV1CalendarPromotionsUpload` — Добавить товар в акцию
-- `promotion.DefaultApi.postV1NormqueryBids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
+- `promotion.DefaultApi.postV1NormqueryBids` — Установить ставки для поисковых кластеров в валюте профиля продавца
 - `promotion.DefaultApi.postV1NormqueryStats` — Статистика по поисковым кластерам с детализацией по дням
 - `promotion.DefaultApi.postV1Stats` — Статистика медиакампаний
 - `promotion.DefaultApi.postV2Budget` — Остатки бюджетов кампаний

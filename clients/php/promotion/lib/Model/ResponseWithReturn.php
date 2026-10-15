@@ -336,7 +336,7 @@ class ResponseWithReturn implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets currency
      *
-     * @param string|null $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param string|null $currency Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

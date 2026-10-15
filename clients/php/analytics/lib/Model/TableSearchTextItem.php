@@ -66,7 +66,7 @@ class TableSearchTextItem implements ModelInterface, ArrayAccess, \JsonSerializa
         'is_card_rated' => 'bool',
         'rating' => 'float',
         'feedback_rating' => 'float',
-        'price' => '\Wildberries\Sdk\Analytics\Model\TableItemItemAllOfPrice',
+        'price' => '\Wildberries\Sdk\Analytics\Model\TableItemAllOfPrice',
         'frequency' => '\Wildberries\Sdk\Analytics\Model\TableSearchTextItemAllOfFrequency',
         'week_frequency' => 'int',
         'median_position' => '\Wildberries\Sdk\Analytics\Model\TableSearchTextItemAllOfMedianPosition',
@@ -728,7 +728,7 @@ class TableSearchTextItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets price
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfPrice
+     * @return \Wildberries\Sdk\Analytics\Model\TableItemAllOfPrice
      */
     public function getPrice()
     {
@@ -738,7 +738,7 @@ class TableSearchTextItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets price
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfPrice $price price
+     * @param \Wildberries\Sdk\Analytics\Model\TableItemAllOfPrice $price price
      *
      * @return self
      */

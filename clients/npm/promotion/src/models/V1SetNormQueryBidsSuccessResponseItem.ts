@@ -32,7 +32,7 @@ export interface V1SetNormQueryBidsSuccessResponseItem {
      */
     normQuery: string;
     /**
-     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currency: string;
 }

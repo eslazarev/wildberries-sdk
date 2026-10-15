@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,10 +27,9 @@ class UpdateBlocked(BaseModel):
     """
     UpdateBlocked
     """ # noqa: E501
-    code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
-    message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
-    data: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные данные ошибки")
-    __properties: ClassVar[List[str]] = ["code", "message", "data"]
+    code: StrictStr = Field(description="Код ошибки")
+    message: StrictStr = Field(description="Детали ошибки")
+    __properties: ClassVar[List[str]] = ["code", "message"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -71,11 +70,6 @@ class UpdateBlocked(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if data (nullable) is None
-        # and model_fields_set contains the field
-        if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
-
         return _dict
 
     @classmethod
@@ -89,8 +83,7 @@ class UpdateBlocked(BaseModel):
 
         _obj = cls.model_validate({
             "code": obj.get("code"),
-            "message": obj.get("message"),
-            "data": obj.get("data")
+            "message": obj.get("message")
         })
         return _obj
 

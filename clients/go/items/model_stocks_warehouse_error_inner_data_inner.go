@@ -12,6 +12,8 @@ package items
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the StocksWarehouseErrorInnerDataInner type satisfies the MappedNullable interface at compile time
@@ -19,20 +21,25 @@ var _ MappedNullable = &StocksWarehouseErrorInnerDataInner{}
 
 // StocksWarehouseErrorInnerDataInner struct for StocksWarehouseErrorInnerDataInner
 type StocksWarehouseErrorInnerDataInner struct {
-	// Баркод
-	Sku *string `json:"sku,omitempty"`
-	// ID размера товара
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	// Не используется
+	Sku string `json:"sku"`
+	// ID размера
+	ChrtId int32 `json:"chrtId"`
 	// Остаток
-	Amount *int32 `json:"amount,omitempty"`
+	Amount int32 `json:"amount"`
 }
+
+type _StocksWarehouseErrorInnerDataInner StocksWarehouseErrorInnerDataInner
 
 // NewStocksWarehouseErrorInnerDataInner instantiates a new StocksWarehouseErrorInnerDataInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStocksWarehouseErrorInnerDataInner() *StocksWarehouseErrorInnerDataInner {
+func NewStocksWarehouseErrorInnerDataInner(sku string, chrtId int32, amount int32) *StocksWarehouseErrorInnerDataInner {
 	this := StocksWarehouseErrorInnerDataInner{}
+	this.Sku = sku
+	this.ChrtId = chrtId
+	this.Amount = amount
 	return &this
 }
 
@@ -44,100 +51,76 @@ func NewStocksWarehouseErrorInnerDataInnerWithDefaults() *StocksWarehouseErrorIn
 	return &this
 }
 
-// GetSku returns the Sku field value if set, zero value otherwise.
+// GetSku returns the Sku field value
 func (o *StocksWarehouseErrorInnerDataInner) GetSku() string {
-	if o == nil || IsNil(o.Sku) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Sku
+
+	return o.Sku
 }
 
-// GetSkuOk returns a tuple with the Sku field value if set, nil otherwise
+// GetSkuOk returns a tuple with the Sku field value
 // and a boolean to check if the value has been set.
 func (o *StocksWarehouseErrorInnerDataInner) GetSkuOk() (*string, bool) {
-	if o == nil || IsNil(o.Sku) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sku, true
+	return &o.Sku, true
 }
 
-// HasSku returns a boolean if a field has been set.
-func (o *StocksWarehouseErrorInnerDataInner) HasSku() bool {
-	if o != nil && !IsNil(o.Sku) {
-		return true
-	}
-
-	return false
-}
-
-// SetSku gets a reference to the given string and assigns it to the Sku field.
+// SetSku sets field value
 func (o *StocksWarehouseErrorInnerDataInner) SetSku(v string) {
-	o.Sku = &v
+	o.Sku = v
 }
 
-// GetChrtId returns the ChrtId field value if set, zero value otherwise.
+// GetChrtId returns the ChrtId field value
 func (o *StocksWarehouseErrorInnerDataInner) GetChrtId() int32 {
-	if o == nil || IsNil(o.ChrtId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ChrtId
+
+	return o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
+// GetChrtIdOk returns a tuple with the ChrtId field value
 // and a boolean to check if the value has been set.
 func (o *StocksWarehouseErrorInnerDataInner) GetChrtIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.ChrtId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ChrtId, true
+	return &o.ChrtId, true
 }
 
-// HasChrtId returns a boolean if a field has been set.
-func (o *StocksWarehouseErrorInnerDataInner) HasChrtId() bool {
-	if o != nil && !IsNil(o.ChrtId) {
-		return true
-	}
-
-	return false
-}
-
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
+// SetChrtId sets field value
 func (o *StocksWarehouseErrorInnerDataInner) SetChrtId(v int32) {
-	o.ChrtId = &v
+	o.ChrtId = v
 }
 
-// GetAmount returns the Amount field value if set, zero value otherwise.
+// GetAmount returns the Amount field value
 func (o *StocksWarehouseErrorInnerDataInner) GetAmount() int32 {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Amount
+
+	return o.Amount
 }
 
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
+// GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *StocksWarehouseErrorInnerDataInner) GetAmountOk() (*int32, bool) {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Amount, true
+	return &o.Amount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *StocksWarehouseErrorInnerDataInner) HasAmount() bool {
-	if o != nil && !IsNil(o.Amount) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmount gets a reference to the given int32 and assigns it to the Amount field.
+// SetAmount sets field value
 func (o *StocksWarehouseErrorInnerDataInner) SetAmount(v int32) {
-	o.Amount = &v
+	o.Amount = v
 }
 
 func (o StocksWarehouseErrorInnerDataInner) MarshalJSON() ([]byte, error) {
@@ -150,16 +133,49 @@ func (o StocksWarehouseErrorInnerDataInner) MarshalJSON() ([]byte, error) {
 
 func (o StocksWarehouseErrorInnerDataInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Sku) {
-		toSerialize["sku"] = o.Sku
-	}
-	if !IsNil(o.ChrtId) {
-		toSerialize["chrtId"] = o.ChrtId
-	}
-	if !IsNil(o.Amount) {
-		toSerialize["amount"] = o.Amount
-	}
+	toSerialize["sku"] = o.Sku
+	toSerialize["chrtId"] = o.ChrtId
+	toSerialize["amount"] = o.Amount
 	return toSerialize, nil
+}
+
+func (o *StocksWarehouseErrorInnerDataInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sku",
+		"chrtId",
+		"amount",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varStocksWarehouseErrorInnerDataInner := _StocksWarehouseErrorInnerDataInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varStocksWarehouseErrorInnerDataInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = StocksWarehouseErrorInnerDataInner(varStocksWarehouseErrorInnerDataInner)
+
+	return err
 }
 
 type NullableStocksWarehouseErrorInnerDataInner struct {

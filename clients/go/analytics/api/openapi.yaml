@@ -79,7 +79,7 @@ paths:
         Можно использовать пагинацию.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -199,12 +199,14 @@ paths:
         Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br>
         Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/documents-and-accounting#tag/financialReports).
 
+
         <div class="description_important">
           Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/sellerAnalyticsCsv">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
         </div>
 
+
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -329,12 +331,14 @@ paths:
 
         Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.
 
+
         <div class="description_important">
           Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/sellerAnalyticsCsv">Аналитика продавца CSV</a> — тип <code>GROUPED_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
         </div>
 
+
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -442,7 +446,7 @@ paths:
         Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -570,7 +574,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -853,7 +857,7 @@ paths:
         Метод создает повторное [задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -954,7 +958,7 @@ paths:
         Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1321,7 +1325,7 @@ paths:
         Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1425,7 +1429,7 @@ paths:
         Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1533,7 +1537,7 @@ paths:
         Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1638,7 +1642,7 @@ paths:
         Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1745,7 +1749,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1845,7 +1849,7 @@ paths:
         статки товаров на складах WB.\n<br><br>\nДанные обновляются 1 раз в 30 мин\
         ут.\n<br><br>\n1 строка ответа — данные об 1 размере товара на 1 складе WB.\n\
         \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек |\
         \ 1 запрос |\n</div>\n"
       operationId: postV1StocksReportWbWarehouses
@@ -1945,7 +1949,7 @@ paths:
         \ остатки товаров на складах продавца.\n<br><br>\nДанные обновляются 1 раз\
         \ в 30 минут.\n<br><br>\n1 строка ответа — данные об 1 размере товара на 1\
         \ складе продавца.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек |\
         \ 1 запрос |\n</div>\n"
       operationId: postV1StocksReportSellerWarehouses
@@ -2036,7 +2040,7 @@ paths:
         Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2137,7 +2141,7 @@ paths:
         Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2244,7 +2248,7 @@ paths:
         Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2345,7 +2349,7 @@ paths:
         Данные отчёта обновляются 1 раз в 2 часа.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2443,7 +2447,7 @@ paths:
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод формирует набор дан\
         ных об оценках товаров.\n<br><br>\nДанные отчёта обновляются 1 раз в час.\n\
         \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        >Лимит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек |\
         \ 3 запроса |\n</div>\n"
       operationId: postV2ItemRating
@@ -2541,7 +2545,7 @@ paths:
         Можно использовать пагинацию.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3474,13 +3478,13 @@ components:
         items:
           description: Массив товаров группы
           items:
-            $ref: "#/components/schemas/TableItemItem"
+            $ref: "#/components/schemas/TableItem"
           type: array
       required:
       - items
       - metrics
       type: object
-    TableItemItem:
+    TableItem:
       allOf:
       - properties:
           nmId:
@@ -3533,7 +3537,7 @@ components:
             format: float64
             type: number
           price:
-            $ref: "#/components/schemas/TableItemItem_allOf_price"
+            $ref: "#/components/schemas/TableItem_allOf_price"
           avgPosition:
             $ref: "#/components/schemas/TableGroupItem_metrics_avgPosition"
           openCard:
@@ -4101,7 +4105,7 @@ components:
           description: |
             Список товаров в группе по фильтру
           items:
-            $ref: "#/components/schemas/TableItemItem"
+            $ref: "#/components/schemas/TableItem"
           type: array
         currency:
           description: Валюта отчёта
@@ -4338,7 +4342,7 @@ components:
             format: float64
             type: number
           price:
-            $ref: "#/components/schemas/TableItemItem_allOf_price"
+            $ref: "#/components/schemas/TableItem_allOf_price"
           frequency:
             $ref: "#/components/schemas/TableSearchTextItem_allOf_frequency"
           weekFrequency:
@@ -5668,7 +5672,7 @@ components:
         items:
           description: Товары группы
           items:
-            $ref: "#/components/schemas/TableItemItemSt"
+            $ref: "#/components/schemas/TableItemSt"
           type: array
       required:
       - brandName
@@ -5822,7 +5826,7 @@ components:
       - start
       - value
       type: object
-    TableItemItemSt:
+    TableItemSt:
       description: Данные по товару
       example:
         nmID: 123456789
@@ -5904,7 +5908,7 @@ components:
           example: true
           type: boolean
         metrics:
-          $ref: "#/components/schemas/TableItemItemSt_metrics"
+          $ref: "#/components/schemas/TableItemSt_metrics"
       required:
       - brandName
       - hasSizes
@@ -6115,7 +6119,7 @@ components:
         items:
           description: Множество данных по товарам
           items:
-            $ref: "#/components/schemas/TableItemItemSt"
+            $ref: "#/components/schemas/TableItemSt"
           type: array
         currency:
           description: Валюта отчёта
@@ -10555,7 +10559,7 @@ components:
       - orders
       - visibility
       type: object
-    TableItemItem_allOf_price:
+    TableItem_allOf_price:
       description: Цена
       example:
         minPrice: 150
@@ -11265,7 +11269,7 @@ components:
       - days
       - hours
       type: object
-    TableItemItemSt_metrics_allOf_currentPrice:
+    TableItemSt_metrics_allOf_currentPrice:
       description: Текущая цена
       example:
         minPrice: 50
@@ -11287,12 +11291,12 @@ components:
       - maxPrice
       - minPrice
       type: object
-    TableItemItemSt_metrics:
+    TableItemSt_metrics:
       allOf:
       - $ref: "#/components/schemas/TableCommonMetrics"
       - properties:
           currentPrice:
-            $ref: "#/components/schemas/TableItemItemSt_metrics_allOf_currentPrice"
+            $ref: "#/components/schemas/TableItemSt_metrics_allOf_currentPrice"
           availability:
             description: |
               Доступность товара:
@@ -11356,7 +11360,7 @@ components:
       - $ref: "#/components/schemas/TableCommonMetrics"
       - properties:
           currentPrice:
-            $ref: "#/components/schemas/TableItemItemSt_metrics_allOf_currentPrice"
+            $ref: "#/components/schemas/TableItemSt_metrics_allOf_currentPrice"
         required:
         - currentPrice
         type: object

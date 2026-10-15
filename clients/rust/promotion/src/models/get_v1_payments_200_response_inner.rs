@@ -31,7 +31,7 @@ pub struct GetV1Payments200ResponseInner {
     /// Статус операции при оплате картой: - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно 
     #[serde(rename = "cardStatus", skip_serializing_if = "Option::is_none")]
     pub card_status: Option<String>,
-    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
     pub currency: Option<String>,
 }

@@ -56,7 +56,7 @@ export interface GetV1Payments200ResponseInner {
      */
     cardStatus?: string;
     /**
-     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currency?: string;
 }

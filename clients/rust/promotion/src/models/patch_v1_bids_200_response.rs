@@ -16,7 +16,7 @@ pub struct PatchV1Bids200Response {
     /// Результат отработки запроса
     #[serde(rename = "bids")]
     pub bids: Vec<models::PatchV1Bids200ResponseBidsInner>,
-    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "currency")]
     pub currency: String,
 }

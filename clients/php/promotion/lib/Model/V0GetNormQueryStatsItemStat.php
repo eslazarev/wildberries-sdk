@@ -555,7 +555,7 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets cpc
      *
-     * @param float|null $cpc Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param float|null $cpc Стоимость одного клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -582,7 +582,7 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets cpm
      *
-     * @param float|null $cpm Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
+     * @param float|null $cpm Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      *
      * @return self
      */
@@ -697,7 +697,7 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets currency
      *
-     * @param string|null $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param string|null $currency Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

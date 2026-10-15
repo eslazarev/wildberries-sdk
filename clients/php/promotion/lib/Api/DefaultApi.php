@@ -13396,7 +13396,7 @@ class DefaultApi
     /**
      * Operation postV1NormqueryBids
      *
-     * Установить ставки для поисковых кластеров в валюте аккаунта продавца
+     * Установить ставки для поисковых кластеров в валюте профиля продавца
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -13420,7 +13420,7 @@ class DefaultApi
     /**
      * Operation postV1NormqueryBidsWithHttpInfo
      *
-     * Установить ставки для поисковых кластеров в валюте аккаунта продавца
+     * Установить ставки для поисковых кластеров в валюте профиля продавца
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -13567,7 +13567,7 @@ class DefaultApi
     /**
      * Operation postV1NormqueryBidsAsync
      *
-     * Установить ставки для поисковых кластеров в валюте аккаунта продавца
+     * Установить ставки для поисковых кластеров в валюте профиля продавца
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -13594,7 +13594,7 @@ class DefaultApi
     /**
      * Operation postV1NormqueryBidsAsyncWithHttpInfo
      *
-     * Установить ставки для поисковых кластеров в валюте аккаунта продавца
+     * Установить ставки для поисковых кластеров в валюте профиля продавца
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.

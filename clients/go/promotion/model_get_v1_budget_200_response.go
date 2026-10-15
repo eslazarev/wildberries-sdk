@@ -23,9 +23,9 @@ type GetV1Budget200Response struct {
 	Cash *int32 `json:"cash,omitempty"`
 	// Поле не используется. Значение всегда 0.
 	Netting *int32 `json:"netting,omitempty"`
-	// Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Total *int32 `json:"total,omitempty"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 }
 

@@ -29,8 +29,8 @@ class StocksWarehouseErrorInner(BaseModel):
     StocksWarehouseErrorInner
     """ # noqa: E501
     data: Optional[List[StocksWarehouseErrorInnerDataInner]] = Field(default=None, description="Дополнительная информация об ошибке")
-    code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
-    message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
+    code: StrictStr = Field(description="Код ошибки")
+    message: StrictStr = Field(description="Детали ошибки")
     __properties: ClassVar[List[str]] = ["data", "code", "message"]
 
     model_config = ConfigDict(
@@ -78,11 +78,6 @@ class StocksWarehouseErrorInner(BaseModel):
             for _item_data in self.data:
                 _items.append(_item_data.to_dict() if _item_data is not None else None)
             _dict['data'] = _items
-        # set to None if data (nullable) is None
-        # and model_fields_set contains the field
-        if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
-
         return _dict
 
     @classmethod

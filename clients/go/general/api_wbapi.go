@@ -46,7 +46,7 @@ GetPing Проверка подключения
 У каждого сервиса есть свой вариант метода в зависимости от домена.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |

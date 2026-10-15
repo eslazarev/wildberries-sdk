@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.170"
+__version__ = "0.1.171"
 
 # Define package exports
 __all__ = [
@@ -68,6 +68,7 @@ __all__ = [
     "PatchV3FbsSettingsAutoreturnsItems200ResponseResultsInnerErrorInner",
     "PatchV3FbsSettingsAutoreturnsItemsRequest",
     "PatchV3FbsSettingsAutoreturnsRequest",
+    "PatchV3FbsSuppliesSupplyIdOrdersTransferRequest",
     "PatchV3SuppliesSupplyIdOrdersRequest",
     "PostV3FbsSettingsAutoreturnsItems200Response",
     "PostV3FbsSettingsAutoreturnsItems200ResponseResultsInner",
@@ -130,6 +131,9 @@ __all__ = [
     "V3OrderMetaAPI",
     "V3OrdersMetaAPI",
     "V3SupplyOrderIDsAPI",
+    "V3TransferOrderToAssembly",
+    "V3TransferOrderToAssemblyError",
+    "V3TransferOrdersToAssemblyResponse",
 ]
 
 # import apis into sdk package
@@ -187,6 +191,7 @@ from wildberries_sdk.orders_fbs.models.patch_v3_fbs_settings_autoreturns_items20
 from wildberries_sdk.orders_fbs.models.patch_v3_fbs_settings_autoreturns_items200_response_results_inner_error_inner import PatchV3FbsSettingsAutoreturnsItems200ResponseResultsInnerErrorInner as PatchV3FbsSettingsAutoreturnsItems200ResponseResultsInnerErrorInner
 from wildberries_sdk.orders_fbs.models.patch_v3_fbs_settings_autoreturns_items_request import PatchV3FbsSettingsAutoreturnsItemsRequest as PatchV3FbsSettingsAutoreturnsItemsRequest
 from wildberries_sdk.orders_fbs.models.patch_v3_fbs_settings_autoreturns_request import PatchV3FbsSettingsAutoreturnsRequest as PatchV3FbsSettingsAutoreturnsRequest
+from wildberries_sdk.orders_fbs.models.patch_v3_fbs_supplies_supply_id_orders_transfer_request import PatchV3FbsSuppliesSupplyIdOrdersTransferRequest as PatchV3FbsSuppliesSupplyIdOrdersTransferRequest
 from wildberries_sdk.orders_fbs.models.patch_v3_supplies_supply_id_orders_request import PatchV3SuppliesSupplyIdOrdersRequest as PatchV3SuppliesSupplyIdOrdersRequest
 from wildberries_sdk.orders_fbs.models.post_v3_fbs_settings_autoreturns_items200_response import PostV3FbsSettingsAutoreturnsItems200Response as PostV3FbsSettingsAutoreturnsItems200Response
 from wildberries_sdk.orders_fbs.models.post_v3_fbs_settings_autoreturns_items200_response_results_inner import PostV3FbsSettingsAutoreturnsItems200ResponseResultsInner as PostV3FbsSettingsAutoreturnsItems200ResponseResultsInner
@@ -249,4 +254,7 @@ from wildberries_sdk.orders_fbs.models.v3_get_meta_multi_request import V3GetMet
 from wildberries_sdk.orders_fbs.models.v3_order_meta_api import V3OrderMetaAPI as V3OrderMetaAPI
 from wildberries_sdk.orders_fbs.models.v3_orders_meta_api import V3OrdersMetaAPI as V3OrdersMetaAPI
 from wildberries_sdk.orders_fbs.models.v3_supply_order_ids_api import V3SupplyOrderIDsAPI as V3SupplyOrderIDsAPI
+from wildberries_sdk.orders_fbs.models.v3_transfer_order_to_assembly import V3TransferOrderToAssembly as V3TransferOrderToAssembly
+from wildberries_sdk.orders_fbs.models.v3_transfer_order_to_assembly_error import V3TransferOrderToAssemblyError as V3TransferOrderToAssemblyError
+from wildberries_sdk.orders_fbs.models.v3_transfer_orders_to_assembly_response import V3TransferOrdersToAssemblyResponse as V3TransferOrdersToAssemblyResponse
 

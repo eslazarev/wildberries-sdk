@@ -35,6 +35,10 @@ export interface GetV1SellerInfo200Response {
      * Торговое наименование продавца
      */
     tradeMark?: string;
+    /**
+     * Страна регистрации профиля продавца
+     */
+    country?: string;
 }
 
 /**
@@ -58,6 +62,7 @@ export function GetV1SellerInfo200ResponseFromJSONTyped(json: any, ignoreDiscrim
         'sid': json['sid'] == null ? undefined : json['sid'],
         'tin': json['tin'] == null ? undefined : json['tin'],
         'tradeMark': json['tradeMark'] == null ? undefined : json['tradeMark'],
+        'country': json['country'] == null ? undefined : json['country'],
     };
 }
 
@@ -76,6 +81,7 @@ export function GetV1SellerInfo200ResponseToJSONTyped(value?: GetV1SellerInfo200
         'sid': value['sid'],
         'tin': value['tin'],
         'tradeMark': value['tradeMark'],
+        'country': value['country'],
     };
 }
 

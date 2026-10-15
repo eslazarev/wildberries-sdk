@@ -68,7 +68,7 @@ GetV3DbwOrders Получить информацию о завершенных �
 Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -273,7 +273,7 @@ GetV3DbwOrdersNew Получить список новых сборочных з
 Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders), которые есть у продавца на момент запроса.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -446,7 +446,7 @@ PatchV3DbwOrdersOrderIdCancel Отменить сборочное задание
 Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) и переводит в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `cancel` — отменено продавцом.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -648,7 +648,7 @@ PatchV3DbwOrdersOrderIdConfirm Перевести на сборку
 Метод переводит [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -851,7 +851,7 @@ PostV3DbwOrdersClient Информация о покупателе
 Метод возвращает информацию о покупателях по ID сборочных заданий.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -1045,7 +1045,7 @@ PostV3DbwOrdersCourier Информация о курьере
 Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания. <br> Для сборочных заданий в статусах `confirm`, `complete`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -1240,7 +1240,7 @@ PostV3DbwOrdersDeliveryDate Получить дату и время достав
 <br>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -1442,7 +1442,7 @@ PostV3DbwOrdersMetaDelete Удалить идентификаторы марки
 Можно передать только один ключ.
 
   <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -1643,7 +1643,7 @@ PostV3DbwOrdersMetaDetails Получить идентификаторы мар�
   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -1840,7 +1840,7 @@ PostV3DbwOrdersMetaSgtin Закрепить коды маркировки Чес
 Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -2063,7 +2063,7 @@ PostV3DbwOrdersStatus Получить статусы сборочных зад�
 - `postponed_delivery` — курьерская доставка отложена
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -2258,7 +2258,7 @@ PostV3DbwOrdersStatusDeliver Перевести сборочные задани�
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -2487,7 +2487,7 @@ PostV3DbwOrdersStickers Получить стикеры сборочных за�
   - 400x300 px при `width=40&height=30` в запросе
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -2693,7 +2693,7 @@ PutV3DbwOrdersOrderIdMetaGtin Закрепить GTIN за сборочным з
 <br><br>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -2899,7 +2899,7 @@ PutV3DbwOrdersOrderIdMetaImei Закрепить IMEI за сборочным з
 Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `imei`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -3104,7 +3104,7 @@ PutV3DbwOrdersOrderIdMetaUin Закрепить УИН за сборочным �
 Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `uin`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |

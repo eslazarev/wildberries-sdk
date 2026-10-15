@@ -19,7 +19,7 @@ var _ MappedNullable = &PostV1BudgetDepositRequest{}
 
 // PostV1BudgetDepositRequest struct for PostV1BudgetDepositRequest
 type PostV1BudgetDepositRequest struct {
-	// Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Общая сумма пополнения бюджета в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Sum *int32 `json:"sum,omitempty"`
 	// Сумма пополнения бюджета промо-бонусами. <br> Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. <br> Списать промо-бонусы можно только для источников пополнения:   - `0` — счёт   - `1` — баланс 
 	CashbackSum *int32 `json:"cashback_sum,omitempty"`

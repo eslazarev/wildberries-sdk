@@ -21,17 +21,17 @@ var _ MappedNullable = &V2GetConfigResponse{}
 
 // V2GetConfigResponse struct for V2GetConfigResponse
 type V2GetConfigResponse struct {
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency string `json:"currency"`
-	// Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	CurrencyCode int32 `json:"currencyCode"`
-	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
+	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
 	CpmStep int64 `json:"cpmStep"`
-	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
+	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
 	CpcStep int64 `json:"cpcStep"`
-	// Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум 
+	// Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум 
 	MinTopUp int64 `json:"minTopUp"`
-	// Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+	// Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
 	MinDailyLimit int64 `json:"minDailyLimit"`
 }
 

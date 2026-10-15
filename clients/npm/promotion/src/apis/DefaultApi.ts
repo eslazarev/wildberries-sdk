@@ -773,7 +773,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Удалить ставки поисковых кластеров
      */
     async deleteV0NormqueryBidsRaw(requestParameters: DeleteV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -784,7 +784,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Удалить ставки поисковых кластеров
      */
     async deleteV0NormqueryBids(requestParameters: DeleteV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -837,7 +837,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | </div> 
+     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | </div> 
      * Рекомендуемые ставки для карточек товаров и поисковых кластеров
      */
     async getV0BidsRecommendationsRaw(requestParameters: GetV0BidsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV0BidsRecommendations200Response>> {
@@ -848,7 +848,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | </div> 
+     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | </div> 
      * Рекомендуемые ставки для карточек товаров и поисковых кластеров
      */
     async getV0BidsRecommendations(requestParameters: GetV0BidsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV0BidsRecommendations200Response> {
@@ -891,7 +891,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
      * Получить настройки дневных лимитов кампаний
      */
     async getV0DailyLimitsRaw(requestParameters: GetV0DailyLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetDailyLimitsResponse>> {
@@ -902,7 +902,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
      * Получить настройки дневных лимитов кампаний
      */
     async getV0DailyLimits(requestParameters: GetV0DailyLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetDailyLimitsResponse> {
@@ -945,7 +945,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Удаление кампании
      */
     async getV0DeleteRaw(requestParameters: GetV0DeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -956,7 +956,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Удаление кампании
      */
     async getV0Delete(requestParameters: GetV0DeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -998,7 +998,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Пауза кампании
      */
     async getV0PauseRaw(requestParameters: GetV0PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -1009,7 +1009,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Пауза кампании
      */
     async getV0Pause(requestParameters: GetV0PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -1051,7 +1051,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Запуск кампании
      */
     async getV0StartRaw(requestParameters: GetV0StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -1062,7 +1062,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Запуск кампании
      */
     async getV0Start(requestParameters: GetV0StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -1104,7 +1104,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Завершение кампании
      */
     async getV0StopRaw(requestParameters: GetV0StopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -1115,7 +1115,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Завершение кампании
      */
     async getV0Stop(requestParameters: GetV0StopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -1157,7 +1157,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Информация о медиакампании
      */
     async getV1AdvertRaw(requestParameters: GetV1AdvertRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1Advert200Response>> {
@@ -1168,7 +1168,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Информация о медиакампании
      */
     async getV1Advert(requestParameters: GetV1AdvertRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Advert200Response | null | undefined > {
@@ -1231,7 +1231,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Список медиакампаний
      */
     async getV1AdvertsRaw(requestParameters: GetV1AdvertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1Adverts200ResponseInner>>> {
@@ -1242,7 +1242,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Список медиакампаний
      */
     async getV1Adverts(requestParameters: GetV1AdvertsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1Adverts200ResponseInner> | null | undefined > {
@@ -1281,7 +1281,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о:   - счёте кабинета Продвижения WB. Его пополняет продавец.   - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.   - бонусных начислениях WB.  Чтобы получить информацию о бюджетах кампаний, используйте метод [Бюджеты кампаний](/openapi/promotion#tag/finances/operation/postV2Budget).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о:   - счёте кабинета Продвижения WB. Его пополняет продавец.   - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.   - бонусных начислениях WB.  Чтобы получить информацию о бюджетах кампаний, используйте метод [Бюджеты кампаний](/openapi/promotion#tag/finances/operation/postV2Budget).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Баланс
      */
     async getV1BalanceRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1Balance200Response>> {
@@ -1292,7 +1292,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о:   - счёте кабинета Продвижения WB. Его пополняет продавец.   - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.   - бонусных начислениях WB.  Чтобы получить информацию о бюджетах кампаний, используйте метод [Бюджеты кампаний](/openapi/promotion#tag/finances/operation/postV2Budget).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о:   - счёте кабинета Продвижения WB. Его пополняет продавец.   - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.   - бонусных начислениях WB.  Чтобы получить информацию о бюджетах кампаний, используйте метод [Бюджеты кампаний](/openapi/promotion#tag/finances/operation/postV2Budget).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Баланс
      */
     async getV1Balance(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Balance200Response> {
@@ -1336,7 +1336,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Бюджет кампании
      * @deprecated
      */
@@ -1348,7 +1348,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Бюджет кампании
      * @deprecated
      */
@@ -1422,7 +1422,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Список акций
      */
     async getV1CalendarPromotionsRaw(requestParameters: GetV1CalendarPromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1CalendarPromotions200Response>> {
@@ -1433,7 +1433,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Список акций
      */
     async getV1CalendarPromotions(requestParameters: GetV1CalendarPromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1CalendarPromotions200Response> {
@@ -1476,7 +1476,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Детальная информация об акциях
      */
     async getV1CalendarPromotionsDetailsRaw(requestParameters: GetV1CalendarPromotionsDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1CalendarPromotionsDetails200Response>> {
@@ -1487,7 +1487,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Детальная информация об акциях
      */
     async getV1CalendarPromotionsDetails(requestParameters: GetV1CalendarPromotionsDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1CalendarPromotionsDetails200Response> {
@@ -1549,7 +1549,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
+     * Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
      * Список товаров для участия в акции
      */
     async getV1CalendarPromotionsNomenclaturesRaw(requestParameters: GetV1CalendarPromotionsNomenclaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1CalendarPromotionsNomenclatures200Response>> {
@@ -1560,7 +1560,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
+     * Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
      * Список товаров для участия в акции
      */
     async getV1CalendarPromotionsNomenclatures(requestParameters: GetV1CalendarPromotionsNomenclaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1CalendarPromotionsNomenclatures200Response> {
@@ -1592,7 +1592,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
      * Конфигурационные значения продвижения
      */
     async getV1ConfigRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V2GetConfigResponse>> {
@@ -1603,7 +1603,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
      * Конфигурационные значения продвижения
      */
     async getV1Config(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V2GetConfigResponse> {
@@ -1635,7 +1635,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает количество [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает количество [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Количество медиакампаний
      */
     async getV1CountRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1Count200Response>> {
@@ -1646,7 +1646,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает количество [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает количество [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Количество медиакампаний
      */
     async getV1Count(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Count200Response> {
@@ -1686,7 +1686,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получение истории пополнений счёта
      */
     async getV1PaymentsRaw(requestParameters: GetV1PaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1Payments200ResponseInner>>> {
@@ -1697,7 +1697,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получение истории пополнений счёта
      */
     async getV1Payments(requestParameters: GetV1PaymentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1Payments200ResponseInner> | null | undefined > {
@@ -1736,7 +1736,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Списки кампаний
      */
     async getV1PromotionCountRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1PromotionCount200Response>> {
@@ -1747,7 +1747,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Списки кампаний
      */
     async getV1PromotionCount(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1PromotionCount200Response> {
@@ -1783,7 +1783,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Предметы для кампаний
      */
     async getV1SupplierSubjectsRaw(requestParameters: GetV1SupplierSubjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1SupplierSubjects200ResponseInner>>> {
@@ -1794,7 +1794,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Предметы для кампаний
      */
     async getV1SupplierSubjects(requestParameters: GetV1SupplierSubjectsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1SupplierSubjects200ResponseInner>> {
@@ -1848,7 +1848,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует список фактических затрат на рекламные кампании за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод формирует список фактических затрат на рекламные кампании за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получение истории затрат
      */
     async getV1UpdRaw(requestParameters: GetV1UpdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1Upd200ResponseInner>>> {
@@ -1859,7 +1859,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует список фактических затрат на рекламные кампании за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод формирует список фактических затрат на рекламные кампании за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получение истории затрат
      */
     async getV1Upd(requestParameters: GetV1UpdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1Upd200ResponseInner>> {
@@ -1903,7 +1903,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Информация о кампаниях
      */
     async getV2AdvertsRaw(requestParameters: GetV2AdvertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAdverts>> {
@@ -1914,7 +1914,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Информация о кампаниях
      */
     async getV2Adverts(requestParameters: GetV2AdvertsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAdverts> {
@@ -1979,7 +1979,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику для кампаний независимо от типа. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`. <br><br> В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод формирует статистику для кампаний независимо от типа. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`. <br><br> В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Статистика кампаний
      */
     async getV3FullstatsRaw(requestParameters: GetV3FullstatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FullStatsItem>>> {
@@ -1990,7 +1990,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику для кампаний независимо от типа. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`. <br><br> В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод формирует статистику для кампаний независимо от типа. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`. <br><br> В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Статистика кампаний
      */
     async getV3Fullstats(requestParameters: GetV3FullstatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FullStatsItem>> {
@@ -2032,7 +2032,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод добавляет и удаляет карточки товаров в кампаниях. <br><br> Для кампаний в статусах `4`, `9` и `11`. <br><br> Для добавляемых товаров устанавливается текущая минимальная ставка.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод добавляет и удаляет карточки товаров в кампаниях. <br><br> Для кампаний в статусах `4`, `9` и `11`. <br><br> Для добавляемых товаров устанавливается текущая минимальная ставка.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Изменение списка карточек товаров в кампаниях
      */
     async patchV0AuctionNmsRaw(requestParameters: PatchV0AuctionNmsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PatchV0AuctionNms200Response>> {
@@ -2043,7 +2043,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод добавляет и удаляет карточки товаров в кампаниях. <br><br> Для кампаний в статусах `4`, `9` и `11`. <br><br> Для добавляемых товаров устанавливается текущая минимальная ставка.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод добавляет и удаляет карточки товаров в кампаниях. <br><br> Для кампаний в статусах `4`, `9` и `11`. <br><br> Для добавляемых товаров устанавливается текущая минимальная ставка.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Изменение списка карточек товаров в кампаниях
      */
     async patchV0AuctionNms(requestParameters: PatchV0AuctionNmsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PatchV0AuctionNms200Response> {
@@ -2085,7 +2085,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод меняет ставки карточек товаров по артикулам WB в кампаниях:   - с единой ставкой   - с ручной ставкой   - с моделью оплаты `cpc` — за клики  Для кампаний в статусах `4`, `9` и `11`. <br><br> В запросе укажите место размещения в параметре `placement`:   - `combined` — в поиске и рекомендациях для кампаний с единой ставкой   - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод меняет ставки карточек товаров по артикулам WB в кампаниях:   - с единой ставкой   - с ручной ставкой   - с моделью оплаты `cpc` — за клики  Для кампаний в статусах `4`, `9` и `11`. <br><br> В запросе укажите место размещения в параметре `placement`:   - `combined` — в поиске и рекомендациях для кампаний с единой ставкой   - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Изменение ставок в кампаниях
      */
     async patchV1BidsRaw(requestParameters: PatchV1BidsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PatchV1Bids200Response>> {
@@ -2096,7 +2096,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод меняет ставки карточек товаров по артикулам WB в кампаниях:   - с единой ставкой   - с ручной ставкой   - с моделью оплаты `cpc` — за клики  Для кампаний в статусах `4`, `9` и `11`. <br><br> В запросе укажите место размещения в параметре `placement`:   - `combined` — в поиске и рекомендациях для кампаний с единой ставкой   - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод меняет ставки карточек товаров по артикулам WB в кампаниях:   - с единой ставкой   - с ручной ставкой   - с моделью оплаты `cpc` — за клики  Для кампаний в статусах `4`, `9` и `11`. <br><br> В запросе укажите место размещения в параметре `placement`:   - `combined` — в поиске и рекомендациях для кампаний с единой ставкой   - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Изменение ставок в кампаниях
      */
     async patchV1Bids(requestParameters: PatchV1BidsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PatchV1Bids200Response> {
@@ -2138,7 +2138,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Установить ставки для поисковых кластеров
      */
     async postV0NormqueryBidsRaw(requestParameters: PostV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -2149,7 +2149,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Установить ставки для поисковых кластеров
      */
     async postV0NormqueryBids(requestParameters: PostV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -2190,7 +2190,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список поисковых кластеров со ставками по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает список поисковых кластеров со ставками по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Список ставок поисковых кластеров
      */
     async postV0NormqueryGetBidsRaw(requestParameters: PostV0NormqueryGetBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryBidsResponse>> {
@@ -2201,7 +2201,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список поисковых кластеров со ставками по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает список поисковых кластеров со ставками по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Список ставок поисковых кластеров
      */
     async postV0NormqueryGetBids(requestParameters: PostV0NormqueryGetBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryBidsResponse> {
@@ -2243,7 +2243,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Список минус-фраз кампаний
      */
     async postV0NormqueryGetMinusRaw(requestParameters: PostV0NormqueryGetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryMinusResponse>> {
@@ -2254,7 +2254,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Список минус-фраз кампаний
      */
     async postV0NormqueryGetMinus(requestParameters: PostV0NormqueryGetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryMinusResponse> {
@@ -2296,7 +2296,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Списки активных и неактивных поисковых кластеров
      */
     async postV0NormqueryListRaw(requestParameters: PostV0NormqueryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryListResponse>> {
@@ -2307,7 +2307,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Списки активных и неактивных поисковых кластеров
      */
     async postV0NormqueryList(requestParameters: PostV0NormqueryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryListResponse> {
@@ -2349,7 +2349,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.  <div class=\"description_important\">   Отправка пустого массива удаляет все минус-фразы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.  <div class=\"description_important\">   Отправка пустого массива удаляет все минус-фразы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Установка и удаление минус-фраз
      */
     async postV0NormquerySetMinusRaw(requestParameters: PostV0NormquerySetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -2360,7 +2360,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.  <div class=\"description_important\">   Отправка пустого массива удаляет все минус-фразы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.  <div class=\"description_important\">   Отправка пустого массива удаляет все минус-фразы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Установка и удаление минус-фраз
      */
     async postV0NormquerySetMinus(requestParameters: PostV0NormquerySetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -2401,7 +2401,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику по поисковым кластерам за указанный период.<br> Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод формирует статистику по поисковым кластерам за указанный период.<br> Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Статистика поисковых кластеров
      */
     async postV0NormqueryStatsRaw(requestParameters: PostV0NormqueryStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryStatsResponse>> {
@@ -2412,7 +2412,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику по поисковым кластерам за указанный период.<br> Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод формирует статистику по поисковым кластерам за указанный период.<br> Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Статистика поисковых кластеров
      */
     async postV0NormqueryStats(requestParameters: PostV0NormqueryStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryStatsResponse> {
@@ -2447,7 +2447,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Переименование кампании
      */
     async postV0RenameRaw(requestParameters: PostV0RenameOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -2458,7 +2458,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Переименование кампании
      */
     async postV0Rename(requestParameters: PostV0RenameOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -2499,7 +2499,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Минимальные ставки для карточек товаров
      */
     async postV1BidsMinRaw(requestParameters: PostV1BidsMinOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1BidsMin200Response>> {
@@ -2510,7 +2510,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Минимальные ставки для карточек товаров
      */
     async postV1BidsMin(requestParameters: PostV1BidsMinOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1BidsMin200Response> {
@@ -2563,7 +2563,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/postV2Budget) кампании. <br> Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/postV2Budget) кампании. <br> Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Пополнение бюджета кампании
      */
     async postV1BudgetDepositRaw(requestParameters: PostV1BudgetDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseWithReturn>> {
@@ -2574,7 +2574,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/postV2Budget) кампании. <br> Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/postV2Budget) кампании. <br> Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Пополнение бюджета кампании
      */
     async postV1BudgetDeposit(requestParameters: PostV1BudgetDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseWithReturn> {
@@ -2616,7 +2616,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).<br> Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).<br> Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Добавить товар в акцию
      */
     async postV1CalendarPromotionsUploadRaw(requestParameters: PostV1CalendarPromotionsUploadOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1CalendarPromotionsUpload200Response>> {
@@ -2627,7 +2627,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).<br> Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).<br> Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Добавить товар в акцию
      */
     async postV1CalendarPromotionsUpload(requestParameters: PostV1CalendarPromotionsUploadOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1CalendarPromotionsUpload200Response> {
@@ -2669,8 +2669,8 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает ставки на поисковые кластеры в валюте [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | </div> 
-     * Установить ставки для поисковых кластеров в валюте аккаунта продавца
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает ставки на поисковые кластеры в валюте [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | </div> 
+     * Установить ставки для поисковых кластеров в валюте профиля продавца
      */
     async postV1NormqueryBidsRaw(requestParameters: PostV1NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1SetNormQueryBidsResponse>> {
         const requestOptions = await this.postV1NormqueryBidsRequestOpts(requestParameters);
@@ -2680,8 +2680,8 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает ставки на поисковые кластеры в валюте [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | </div> 
-     * Установить ставки для поисковых кластеров в валюте аккаунта продавца
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает ставки на поисковые кластеры в валюте [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | </div> 
+     * Установить ставки для поисковых кластеров в валюте профиля продавца
      */
     async postV1NormqueryBids(requestParameters: PostV1NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1SetNormQueryBidsResponse> {
         const response = await this.postV1NormqueryBidsRaw(requestParameters, initOverrides);
@@ -2722,7 +2722,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Статистика по поисковым кластерам с детализацией по дням
      */
     async postV1NormqueryStatsRaw(requestParameters: PostV1NormqueryStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1GetNormQueryStatsResponse>> {
@@ -2733,7 +2733,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Статистика по поисковым кластерам с детализацией по дням
      */
     async postV1NormqueryStats(requestParameters: PostV1NormqueryStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1GetNormQueryStatsResponse> {
@@ -2775,7 +2775,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Статистика медиакампаний
      */
     async postV1StatsRaw(requestParameters: PostV1StatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PostV1Stats200ResponseInner>>> {
@@ -2786,7 +2786,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Статистика медиакампаний
      */
     async postV1Stats(requestParameters: PostV1StatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PostV1Stats200ResponseInner>> {
@@ -2828,7 +2828,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):   - `4` — готова к запуску   - `9` — активна   - `11` — на паузе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):   - `4` — готова к запуску   - `9` — активна   - `11` — на паузе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Остатки бюджетов кампаний
      */
     async postV2BudgetRaw(requestParameters: PostV2BudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V2BudgetResponse>> {
@@ -2839,7 +2839,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):   - `4` — готова к запуску   - `9` — активна   - `11` — на паузе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):   - `4` — готова к запуску   - `9` — активна   - `11` — на паузе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Остатки бюджетов кампаний
      */
     async postV2Budget(requestParameters: PostV2BudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V2BudgetResponse> {
@@ -2874,7 +2874,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод создаёт кампанию:   - с ручной ставкой для продвижения товаров в поиске и/или рекомендациях   - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод создаёт кампанию:   - с ручной ставкой для продвижения товаров в поиске и/или рекомендациях   - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Создать кампанию
      */
     async postV2SeacatSaveAdRaw(requestParameters: PostV2SeacatSaveAdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<number>> {
@@ -2889,7 +2889,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод создаёт кампанию:   - с ручной ставкой для продвижения товаров в поиске и/или рекомендациях   - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод создаёт кампанию:   - с ручной ставкой для продвижения товаров в поиске и/или рекомендациях   - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Создать кампанию
      */
     async postV2SeacatSaveAd(requestParameters: PostV2SeacatSaveAdOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number> {
@@ -2924,7 +2924,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Карточки товаров для кампаний
      */
     async postV2SupplierNmsRaw(requestParameters: PostV2SupplierNmsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PostV2SupplierNms200ResponseInner>>> {
@@ -2935,7 +2935,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Карточки товаров для кампаний
      */
     async postV2SupplierNms(requestParameters: PostV2SupplierNmsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PostV2SupplierNms200ResponseInner>> {
@@ -2977,7 +2977,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`. <br><br> Для кампаний в статусах `4`, `9` и `11`.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`. <br><br> Для кампаний в статусах `4`, `9` и `11`.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Изменение мест размещения в кампаниях с ручной ставкой
      */
     async putV0AuctionPlacementsRaw(requestParameters: PutV0AuctionPlacementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -2988,7 +2988,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`. <br><br> Для кампаний в статусах `4`, `9` и `11`.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`. <br><br> Для кампаний в статусах `4`, `9` и `11`.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Изменение мест размещения в кампаниях с ручной ставкой
      */
     async putV0AuctionPlacements(requestParameters: PutV0AuctionPlacementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -3029,7 +3029,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод включает, выключает и обновляет дневной лимит кампаний.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод включает, выключает и обновляет дневной лимит кампаний.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
      * Настройка дневных лимитов кампаний
      */
     async putV0DailyLimitsRaw(requestParameters: PutV0DailyLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0PutDailyLimitsResponse>> {
@@ -3040,7 +3040,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод включает, выключает и обновляет дневной лимит кампаний.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод включает, выключает и обновляет дневной лимит кампаний.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
      * Настройка дневных лимитов кампаний
      */
     async putV0DailyLimits(requestParameters: PutV0DailyLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0PutDailyLimitsResponse> {

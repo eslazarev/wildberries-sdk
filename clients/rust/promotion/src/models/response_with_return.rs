@@ -16,7 +16,7 @@ pub struct ResponseWithReturn {
     /// Размер обновлённого бюджета
     #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
     pub total: Option<i32>,
-    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
     pub currency: Option<String>,
 }

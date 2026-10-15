@@ -56,7 +56,7 @@ PostV1OrderFeed Получить отчёт
 Можно использовать пагинацию.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -244,7 +244,7 @@ PostV1StocksReportSellerWarehouses Остатки на складах прода
 1 строка ответа — данные об 1 размере товара на 1 складе продавца.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -432,7 +432,7 @@ PostV1StocksReportWbWarehouses Остатки на складах WB
 1 строка ответа — данные об 1 размере товара на 1 складе WB.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -628,7 +628,7 @@ PostV2ItemRating Получить отчёт
 Данные отчёта обновляются 1 раз в час.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -814,7 +814,7 @@ PostV2SearchReportProductOrders Заказы и позиции по поиско
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1013,7 +1013,7 @@ PostV2SearchReportProductSearchTexts Поисковые запросы по то
 Данные отчёта обновляются 1 раз в 2 часа.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1219,7 +1219,7 @@ PostV2SearchReportReport Основная страница
 Данные отчёта обновляются 1 раз в 2 часа.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1421,7 +1421,7 @@ PostV2SearchReportTableDetails Пагинация по товарам в гру�
 Данные отчёта обновляются 1 раз в 2 часа.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1619,7 +1619,7 @@ PostV2SearchReportTableGroups Пагинация по группам
 Данные отчёта обновляются 1 раз в 2 часа.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1814,7 +1814,7 @@ PostV2StocksReportOffices Данные по складам
 Данные отчёта обновляются 1 раз в 2 часа.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2009,7 +2009,7 @@ PostV2StocksReportProductsGroups Данные по группам
 Данные отчёта обновляются 1 раз в 2 часа.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2204,7 +2204,7 @@ PostV2StocksReportProductsProducts Данные по товарам
 Данные отчёта обновляются 1 раз в 2 часа.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2405,7 +2405,7 @@ PostV2StocksReportProductsSizes Данные по размерам
 Данные отчёта обновляются 1 раз в 2 часа.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2613,12 +2613,14 @@ PostV3SalesFunnelGroupedHistory Статистика групп карточек
 
 Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.
 
+
 <div class="description_important">
   Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/sellerAnalyticsCsv">Аналитика продавца CSV</a> — тип <code>GROUPED_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
 </div>
 
+
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2833,7 +2835,7 @@ PostV3SalesFunnelProducts Статистика карточек товаров �
 Можно использовать пагинацию.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3036,12 +3038,14 @@ PostV3SalesFunnelProductsHistory Статистика карточек това�
 Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br>
 Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/documents-and-accounting#tag/financialReports).
 
+
 <div class="description_important">
   Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/sellerAnalyticsCsv">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
 </div>
 
+
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |

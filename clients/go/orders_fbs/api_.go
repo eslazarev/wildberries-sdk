@@ -45,7 +45,7 @@ GetV3FbsSettingsAutoreturns Получить настройки автовозв
 Метод возвращает информацию о настройках автовозврата, установленных продавцом.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -235,7 +235,7 @@ GetV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить предме
 Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -431,7 +431,7 @@ PatchV3FbsSettingsAutoreturns Обновить настройки автовоз
 Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -604,7 +604,7 @@ PatchV3FbsSettingsAutoreturnsItems Обновить настройки авто�
 Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -788,7 +788,7 @@ PostV3FbsSettingsAutoreturnsItems Получить настройки автов
 Метод возвращает настройки автовозврата товаров.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |

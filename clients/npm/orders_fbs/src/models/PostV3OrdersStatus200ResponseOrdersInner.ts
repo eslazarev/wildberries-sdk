@@ -31,6 +31,18 @@ export interface PostV3OrdersStatus200ResponseOrdersInner {
      */
     isCancellable?: boolean;
     /**
+     * Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку:
+     * - `false` — нет
+     * - `true` — да
+     * 
+     * Сборочное задание можно перенести из доставки на сборку, если выполняются все условия:
+     *   - сборочное задание находится в статусе `complete` — в доставке
+     *   - поставка, в которую нужно перенести сборочное задание, не [передана в доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)
+     *   - сборочное задание ранее не переносили
+     * 
+     */
+    isTransferable?: boolean;
+    /**
      * Статус сборочного задания, установленный продавцом
      */
     supplierStatus?: PostV3OrdersStatus200ResponseOrdersInnerSupplierStatusEnum;
@@ -90,6 +102,7 @@ export function PostV3OrdersStatus200ResponseOrdersInnerFromJSONTyped(json: any,
         
         'id': json['id'] == null ? undefined : json['id'],
         'isCancellable': json['isCancellable'] == null ? undefined : json['isCancellable'],
+        'isTransferable': json['isTransferable'] == null ? undefined : json['isTransferable'],
         'supplierStatus': json['supplierStatus'] == null ? undefined : json['supplierStatus'],
         'wbStatus': json['wbStatus'] == null ? undefined : json['wbStatus'],
     };
@@ -108,6 +121,7 @@ export function PostV3OrdersStatus200ResponseOrdersInnerToJSONTyped(value?: Post
         
         'id': value['id'],
         'isCancellable': value['isCancellable'],
+        'isTransferable': value['isTransferable'],
         'supplierStatus': value['supplierStatus'],
         'wbStatus': value['wbStatus'],
     };

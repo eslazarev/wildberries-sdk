@@ -21,10 +21,10 @@ var _ MappedNullable = &PostV1BidsMin200ResponseBidsInnerBidsInner{}
 
 // PostV1BidsMin200ResponseBidsInnerBidsInner struct for PostV1BidsMin200ResponseBidsInnerBidsInner
 type PostV1BidsMin200ResponseBidsInnerBidsInner struct {
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency string `json:"currency"`
 	Type PlacementType `json:"type"`
-	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) 
 	Value int32 `json:"value"`
 }
 

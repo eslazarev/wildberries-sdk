@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface GetV1Balance200ResponseCashbacksInner {
     /**
-     * Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     sum?: number;
     /**

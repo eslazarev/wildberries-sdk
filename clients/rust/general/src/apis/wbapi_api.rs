@@ -26,7 +26,7 @@ pub enum GetPingError {
 }
 
 
-/// Метод проверяет:   1. Успешно ли запрос доходит до WB API   2. Валидность токена авторизации и URL запроса   3. Совпадают ли категория токена и сервис  <div class=\"description_important\">   Метод не предназначен для проверки доступности сервисов WB </div>  У каждого сервиса есть свой вариант метода в зависимости от домена.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов | </div>  Лимит действует отдельно для каждого варианта метода в зависимости от домена 
+/// Метод проверяет:   1. Успешно ли запрос доходит до WB API   2. Валидность токена авторизации и URL запроса   3. Совпадают ли категория токена и сервис  <div class=\"description_important\">   Метод не предназначен для проверки доступности сервисов WB </div>  У каждого сервиса есть свой вариант метода в зависимости от домена.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 30 сек | 3 запроса | 10 сек | 99 запросов | </div>  Лимит действует отдельно для каждого варианта метода в зависимости от домена 
 pub async fn get_ping(configuration: &configuration::Configuration, ) -> Result<models::GetPing200Response, Error<GetPingError>> {
 
     let uri_str = format!("{}/ping", configuration.base_path);

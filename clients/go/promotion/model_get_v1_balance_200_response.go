@@ -19,13 +19,13 @@ var _ MappedNullable = &GetV1Balance200Response{}
 
 // GetV1Balance200Response struct for GetV1Balance200Response
 type GetV1Balance200Response struct {
-	// Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Счёт в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Balance *int32 `json:"balance,omitempty"`
-	// Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Баланс в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Net *int32 `json:"net,omitempty"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
-	// Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Bonus *int32 `json:"bonus,omitempty"`
 	// Промо-бонусы
 	Cashbacks []GetV1Balance200ResponseCashbacksInner `json:"cashbacks,omitempty"`

@@ -22,13 +22,13 @@ pub struct V0GetNormQueryBidsItem {
     /// Поисковый кластер
     #[serde(rename = "norm_query")]
     pub norm_query: String,
-    /// Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+    /// Текущая ставка в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
     #[serde(rename = "bid")]
     pub bid: i32,
-    /// Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+    /// Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
     #[serde(rename = "bid_kopecks")]
     pub bid_kopecks: i32,
-    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "currency")]
     pub currency: String,
 }

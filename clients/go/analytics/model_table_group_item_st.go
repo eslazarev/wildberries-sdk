@@ -34,7 +34,7 @@ type TableGroupItemSt struct {
 	// Метрики группы
 	Metrics TableCommonMetrics `json:"metrics"`
 	// Товары группы
-	Items []TableItemItemSt `json:"items"`
+	Items []TableItemSt `json:"items"`
 }
 
 type _TableGroupItemSt TableGroupItemSt
@@ -43,7 +43,7 @@ type _TableGroupItemSt TableGroupItemSt
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableGroupItemSt(subjectID int32, subjectName string, brandName string, tagID int64, tagName string, metrics TableCommonMetrics, items []TableItemItemSt) *TableGroupItemSt {
+func NewTableGroupItemSt(subjectID int32, subjectName string, brandName string, tagID int64, tagName string, metrics TableCommonMetrics, items []TableItemSt) *TableGroupItemSt {
 	this := TableGroupItemSt{}
 	this.SubjectID = subjectID
 	this.SubjectName = subjectName
@@ -208,9 +208,9 @@ func (o *TableGroupItemSt) SetMetrics(v TableCommonMetrics) {
 }
 
 // GetItems returns the Items field value
-func (o *TableGroupItemSt) GetItems() []TableItemItemSt {
+func (o *TableGroupItemSt) GetItems() []TableItemSt {
 	if o == nil {
-		var ret []TableItemItemSt
+		var ret []TableItemSt
 		return ret
 	}
 
@@ -219,7 +219,7 @@ func (o *TableGroupItemSt) GetItems() []TableItemItemSt {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *TableGroupItemSt) GetItemsOk() ([]TableItemItemSt, bool) {
+func (o *TableGroupItemSt) GetItemsOk() ([]TableItemSt, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -227,7 +227,7 @@ func (o *TableGroupItemSt) GetItemsOk() ([]TableItemItemSt, bool) {
 }
 
 // SetItems sets field value
-func (o *TableGroupItemSt) SetItems(v []TableItemItemSt) {
+func (o *TableGroupItemSt) SetItems(v []TableItemSt) {
 	o.Items = v
 }
 

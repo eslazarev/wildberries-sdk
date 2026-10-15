@@ -58,8 +58,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'code' => 'string',
-        'message' => 'string',
-        'data' => 'object'
+        'message' => 'string'
     ];
 
     /**
@@ -71,8 +70,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'code' => null,
-        'message' => null,
-        'data' => null
+        'message' => null
     ];
 
     /**
@@ -82,8 +80,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'code' => false,
-        'message' => false,
-        'data' => true
+        'message' => false
     ];
 
     /**
@@ -173,8 +170,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'code' => 'code',
-        'message' => 'message',
-        'data' => 'data'
+        'message' => 'message'
     ];
 
     /**
@@ -184,8 +180,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'code' => 'setCode',
-        'message' => 'setMessage',
-        'data' => 'setData'
+        'message' => 'setMessage'
     ];
 
     /**
@@ -195,8 +190,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'code' => 'getCode',
-        'message' => 'getMessage',
-        'data' => 'getData'
+        'message' => 'getMessage'
     ];
 
     /**
@@ -258,7 +252,6 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -288,6 +281,12 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -306,7 +305,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets code
      *
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -316,7 +315,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets code
      *
-     * @param string|null $code Код ошибки
+     * @param string $code Код ошибки
      *
      * @return self
      */
@@ -333,7 +332,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets message
      *
-     * @return string|null
+     * @return string
      */
     public function getMessage()
     {
@@ -343,7 +342,7 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message
      *
-     * @param string|null $message Описание ошибки
+     * @param string $message Детали ошибки
      *
      * @return self
      */
@@ -353,40 +352,6 @@ class UpdateBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
         $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return object|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param object|null $data Дополнительные данные ошибки
-     *
-     * @return self
-     */
-    public function setData($data)
-    {
-        if (is_null($data)) {
-            array_push($this->openAPINullablesSetToNull, 'data');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['data'] = $data;
 
         return $this;
     }

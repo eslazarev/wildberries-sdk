@@ -23,7 +23,7 @@ var _ MappedNullable = &PatchV1Bids200Response{}
 type PatchV1Bids200Response struct {
 	// Результат отработки запроса
 	Bids []PatchV1Bids200ResponseBidsInner `json:"bids"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency string `json:"currency"`
 }
 

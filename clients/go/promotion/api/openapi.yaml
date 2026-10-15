@@ -66,7 +66,7 @@ paths:
         Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -166,7 +166,7 @@ paths:
         Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.
 
          <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -356,10 +356,10 @@ paths:
   /api/advert/v1/bids/min:
     post:
       description: |
-        Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
+        Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -487,7 +487,7 @@ paths:
           - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -598,7 +598,7 @@ paths:
         Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -712,7 +712,7 @@ paths:
         Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -825,7 +825,7 @@ paths:
         После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -926,7 +926,7 @@ paths:
         Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1042,7 +1042,7 @@ paths:
         Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1157,7 +1157,7 @@ paths:
         Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1272,7 +1272,7 @@ paths:
           - `11` — пауза
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1387,7 +1387,7 @@ paths:
         Для кампаний в статусах `4`, `9` и `11`.
 
          <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1508,7 +1508,7 @@ paths:
           - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1628,7 +1628,7 @@ paths:
         Чтобы получить информацию о бюджетах кампаний, используйте метод [Бюджеты кампаний](/openapi/promotion#tag/finances/operation/postV2Budget).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1737,7 +1737,7 @@ paths:
           - `11` — на паузе
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1842,7 +1842,7 @@ paths:
 
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1954,7 +1954,7 @@ paths:
         Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1998,7 +1998,7 @@ paths:
                 MinimumDepositAmountError:
                   description: |
                     Сумма пополнения меньше допустимой.
-                    Пополните счёт на сумму не менее указанной в сообщении об ошибке. Сумма указана в базовых единицах валюты аккаунта продавца
+                    Пополните счёт на сумму не менее указанной в сообщении об ошибке. Сумма указана в базовых единицах валюты профиля продавца
                   value:
                     error: "Invalid Params: minimum deposit amount is 1000"
               schema:
@@ -2073,7 +2073,7 @@ paths:
         Метод формирует список фактических затрат на рекламные кампании за заданный период.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2211,7 +2211,7 @@ paths:
         Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2353,7 +2353,7 @@ paths:
         Для добавляемых товаров устанавливается текущая минимальная ставка.
 
          <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2473,7 +2473,7 @@ paths:
         Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.
 
          <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2593,7 +2593,7 @@ paths:
         Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2911,7 +2911,7 @@ paths:
           - артикулам WB
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3027,13 +3027,13 @@ paths:
       x-tagKey: searchClusters
   /api/advert/v1/config:
     get:
-      description: "Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)\
+      description: "Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)\
         \ и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)\n\
         \n\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\n<div class=\"description_limit\"\
         >\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Л\
-        имит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал\
+        имит запросов</a> на один профиль продавца:\n\n| Период | Лимит | Интервал\
         \ | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1 запрос | 1 мин | 10\
         \ запросов |\n</div>\n"
       operationId: getV1Config
@@ -3109,10 +3109,10 @@ paths:
       description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод устанавливает ставк\
-        и на поисковые кластеры в валюте [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).\n\
+        и на поисковые кластеры в валюте [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).\n\
         Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm`\
         \ — за показы.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n\n| Тип | Период | Лимит\
+        >Лимит запросов</a> на один профиль продавца:\n\n\n| Тип | Период | Лимит\
         \ | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный\
         \ | 1 сек | 2 запроса | 500 мс | 4 запроса |\n| Сервисный | 1 сек | 2 запр\
         оса | 500 мс | 4 запроса |\n</div>\n"
@@ -3184,7 +3184,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
-      summary: Установить ставки для поисковых кластеров в валюте аккаунта продавца
+      summary: Установить ставки для поисковых кластеров в валюте профиля продавца
       tags:
       - Поисковые кластеры
       x-readonly-method: false
@@ -3204,7 +3204,7 @@ paths:
           - моделью оплаты `cpm` — за показы
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3303,7 +3303,7 @@ paths:
           - моделью оплаты `cpm` — за показы
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3403,7 +3403,7 @@ paths:
           - артикулам WB
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3513,7 +3513,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3610,7 +3610,7 @@ paths:
         Метод возвращает количество [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3698,7 +3698,7 @@ paths:
         Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3874,7 +3874,7 @@ paths:
         Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3987,7 +3987,7 @@ paths:
         В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4458,7 +4458,7 @@ paths:
         Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4581,7 +4581,7 @@ paths:
         Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4735,7 +4735,7 @@ paths:
         Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4855,7 +4855,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -5013,7 +5013,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Календарь акций</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -5119,7 +5119,7 @@ paths:
         Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -5241,7 +5241,7 @@ paths:
         Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -5391,7 +5391,7 @@ paths:
         \ настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1)\
         \ — максимальных сумм, которые кампании могут потратить на продвижение в т\
         ечение суток.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
-        >Лимит запросов</a> на один аккаунт продавца:\n\n\n| Тип | Период | Лимит\
+        >Лимит запросов</a> на один профиль продавца:\n\n\n| Тип | Период | Лимит\
         \ | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный\
         \ | 1 мин | 5 запросов | 12 сек | 5 запросов |\n| Сервисный | 1 мин | 5 за\
         просов | 12 сек | 5 запросов |\n</div>\n"
@@ -5484,7 +5484,7 @@ paths:
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод включает, выключает\
         \ и обновляет дневной лимит кампаний.\n\n<div class=\"description_limit\"\
         >\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Л\
-        имит запросов</a> на один аккаунт продавца:\n\n\n| Тип | Период | Лимит |\
+        имит запросов</a> на один профиль продавца:\n\n\n| Тип | Период | Лимит |\
         \ Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный |\
         \ 1 мин | 5 запросов | 12 сек | 5 запросов |\n| Сервисный | 1 мин | 5 запр\
         осов | 12 сек | 5 запросов |\n</div>\n"
@@ -6258,13 +6258,13 @@ components:
           type: boolean
         dailyLimit:
           description: "Размер дневного лимита в разменных единицах — 0,01 от базо\
-            вой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            вой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           example: 100000
           format: int64
           type: integer
         spentToday:
           description: "Потрачено сегодня в разменных единицах — 0,01 от базовой в\
-            алюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            алюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           example: 35000
           format: int64
           type: integer
@@ -6290,7 +6290,7 @@ components:
           type: boolean
         requiredLimit:
           description: |
-            Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+            Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
           example: 3001
           format: int64
           type: integer
@@ -6373,7 +6373,7 @@ components:
           type: boolean
         requiredLimit:
           description: |
-            Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+            Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
             С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки
           example: 3001
           format: int64
@@ -6430,13 +6430,13 @@ components:
           example: 1234567
           type: integer
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           example: RUB
           format: ISO 4217
           type: string
         total:
-          description: "Бюджет кампании в базовых единицах валюты [аккаунта продав\
-            ца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Бюджет кампании в базовых единицах валюты [профиля продавц\
+            а](https://cmp.wildberries.ru/campaigns/finances)"
           example: 3000
           type: integer
       required:
@@ -6481,7 +6481,7 @@ components:
           type: string
         bidMinorUnits:
           description: |
-            Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+            Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
             Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
           type: integer
       required:
@@ -6540,7 +6540,7 @@ components:
             , по которым покупатели находят товары"
           type: string
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
       required:
@@ -6618,33 +6618,33 @@ components:
         minDailyLimit: 5
       properties:
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
         currencyCode:
-          description: "Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         cpmStep:
-          description: "Шаг ставки в разменных единицах — 0,01 от базовой валюты [а\
-            ккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-к\
+          description: "Шаг ставки в разменных единицах — 0,01 от базовой валюты [п\
+            рофиля продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-к\
             ампаний"
           format: int64
           type: integer
         cpcStep:
-          description: "Шаг ставки в разменных единицах — 0,01 от базовой валюты [а\
-            ккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для к\
-            ампаний CPC"
+          description: "Шаг ставки в разменных единицах — 0,01 от базовой валюты [п\
+            рофиля продавца](https://cmp.wildberries.ru/campaigns/finances) для ка\
+            мпаний CPC"
           format: int64
           type: integer
         minTopUp:
           description: |
-            Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+            Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
              Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум
           format: int64
           type: integer
         minDailyLimit:
           description: |
-            Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+            Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
           format: int64
           type: integer
       required:
@@ -6758,7 +6758,7 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)."
+            й валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)."
           type: integer
       type: object
     V0BidRecommendationBase:
@@ -6786,7 +6786,7 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).\
+            й валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).\
             \ Если `0`, для данного предмета топ-ставка не используется"
           type: integer
       type: object
@@ -6799,7 +6799,7 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            й валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
       type: object
     V0BidRecommendationBaseBidLeadersBid:
@@ -6810,7 +6810,7 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            й валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
       type: object
     V0BidRecommendationNormQuery:
@@ -6845,11 +6845,11 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)."
+            й валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)."
           type: integer
         bidKopecksMin:
           description: "Минимальная ставка в разменных единицах — 0,01 от базовой\
-            \ валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)."
+            \ валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)."
           type: integer
       type: object
     V0BidRecommendationReachMedium:
@@ -6861,11 +6861,11 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            й валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         bidKopecksMin:
           description: "Минимальная ставка в разменных единицах — 0,01 от базовой\
-            \ валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            \ валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
       type: object
     V0BidRecommendationReachMin:
@@ -6877,11 +6877,11 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            й валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         bidKopecksMin:
           description: "Минимальная ставка в разменных единицах — 0,01 от базовой\
-            \ валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            \ валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
       type: object
     V0GetNormQueryListRequest:
@@ -7238,13 +7238,13 @@ components:
           nullable: true
           type: number
         cpc:
-          description: "Средняя стоимость клика в базовых единицах валюты [аккаунт\
-            а продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Средняя стоимость клика в базовых единицах валюты [профиля\
+            \ продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: float
           type: number
         cpm:
           description: |
-            Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+            Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
 
             Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
           format: float
@@ -7404,13 +7404,13 @@ components:
           nullable: true
           type: number
         cpc:
-          description: "Стоимость одного клика в базовых единицах валюты [аккаунта\
+          description: "Стоимость одного клика в базовых единицах валюты [профиля\
             \ продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: double
           type: number
         cpm:
           description: |
-            Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+            Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
 
             Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
           format: double
@@ -7429,7 +7429,7 @@ components:
           format: double
           type: number
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
       type: object
@@ -7516,8 +7516,8 @@ components:
           description: Поисковый кластер
           type: string
         bid:
-          description: "Ставка за тысячу показов в базовых единицах валюты [аккаун\
-            та продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Ставка за тысячу показов в базовых единицах валюты [профил\
+            я продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
       required:
       - advert_id
@@ -7688,16 +7688,16 @@ components:
           description: Поисковый кластер
           type: string
         bid:
-          description: "Текущая ставка в базовых единицах валюты [аккаунта продавц\
-            а](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов"
+          description: "Текущая ставка в базовых единицах валюты [профиля продавца\
+            ](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов"
           type: integer
         bid_kopecks:
           description: "Текущая ставка в разменных единицах — 0,01 от базовой валю\
-            ты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)\
-            \ за тысячу показов"
+            ты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) з\
+            а тысячу показов"
           type: integer
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
       required:
@@ -7851,7 +7851,7 @@ components:
           description: Размер обновлённого бюджета
           type: integer
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
       type: object
@@ -8024,7 +8024,7 @@ components:
       type: object
     AdvertBidsKopecks:
       description: |
-        Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
       example:
         search: 6
         recommendations: 1
@@ -8626,8 +8626,8 @@ components:
           description: Количество кликов
           type: integer
         cpc:
-          description: "Средняя стоимость клика в базовых единицах валюты [аккаунт\
-            а продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Средняя стоимость клика в базовых единицах валюты [профиля\
+            \ продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: double
           type: number
         cr:
@@ -8651,11 +8651,11 @@ components:
           description: "Количество заказанных товаров, шт."
           type: integer
         sum:
-          description: "Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: double
           type: number
         sum_price:
-          description: "Сумма заказов в базовых единицах валюты [аккаунта продавца\
+          description: "Сумма заказов в базовых единицах валюты [профиля продавца\
             ](https://cmp.wildberries.ru/campaigns/finances)"
           format: double
           type: number
@@ -8663,7 +8663,7 @@ components:
           description: Количество просмотров
           type: integer
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
       required:
@@ -8941,14 +8941,14 @@ components:
         value: 0
       properties:
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
         type:
           $ref: "#/components/schemas/PlacementType"
         value:
           description: |
-            Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+            Минимальная ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
           type: integer
       required:
       - currency
@@ -9156,8 +9156,8 @@ components:
           format: int64
           type: integer
         bid_kopecks:
-          description: "Ставка в разменных единицах — 0,01 от базовой валюты [акка\
-            унта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Ставка в разменных единицах — 0,01 от базовой валюты [проф\
+            иля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: int64
           type: integer
         placement:
@@ -9214,8 +9214,8 @@ components:
           format: int64
           type: integer
         bid_kopecks:
-          description: "Ставка в разменных единицах — 0,01 от базовой валюты [акка\
-            унта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Ставка в разменных единицах — 0,01 от базовой валюты [проф\
+            иля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: int64
           type: integer
         placement:
@@ -9280,7 +9280,7 @@ components:
             $ref: "#/components/schemas/patchV1Bids_200_response_bids_inner"
           type: array
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
       required:
@@ -9294,8 +9294,7 @@ components:
         expiration_date: expiration_date
       properties:
         sum:
-          description: "Промо-бонусы в базовых единицах валюты [аккаунта продавца\
-            ](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Промо-бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         percent:
           description: "Процент от суммы пополнения бюджета кампании, который можн\
@@ -9321,17 +9320,17 @@ components:
           expiration_date: expiration_date
       properties:
         balance:
-          description: "Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Счёт в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         net:
-          description: "Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Баланс в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
         bonus:
-          description: "Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Бонусы в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         cashbacks:
           description: Промо-бонусы
@@ -9353,19 +9352,19 @@ components:
           description: Поле не используется. Значение всегда 0.
           type: integer
         total:
-          description: "Бюджет кампании в базовых единицах валюты [аккаунта продав\
-            ца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Бюджет кампании в базовых единицах валюты [профиля продавц\
+            а](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
       type: object
     postV1BudgetDeposit_request:
       properties:
         sum:
-          description: "Общая сумма пополнения бюджета в базовых единицах валюты [а\
-            ккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Общая сумма пополнения бюджета в базовых единицах валюты [п\
+            рофиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           example: 5000
           type: integer
         cashback_sum:
@@ -9432,8 +9431,8 @@ components:
           nullable: true
           type: string
         updSum:
-          description: "Выставленная сумма в базовых единицах валюты [аккаунта про\
-            давца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Выставленная сумма в базовых единицах валюты [профиля прод\
+            авца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         advertId:
           description: ID кампании
@@ -9505,7 +9504,7 @@ components:
             - `unknown` — неизвестно
           type: string
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
       type: object
@@ -10564,7 +10563,7 @@ components:
               - `manual` — ручная ставка
           type: string
         currency:
-          description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: ISO 4217
           type: string
         id:
@@ -10778,8 +10777,8 @@ components:
           description: Количество кликов
           type: integer
         cpc:
-          description: "Средняя стоимость клика в базовых единицах валюты [аккаунт\
-            а продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Средняя стоимость клика в базовых единицах валюты [профиля\
+            \ продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         cr:
           description: CR (conversion rate) — отношение количества заказов к общему
@@ -10802,11 +10801,11 @@ components:
           description: "Количество заказанных товаров, шт."
           type: integer
         sum:
-          description: "Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         sum_price:
-          description: "Заказов на сумму в базовых единицах валюты [аккаунта прода\
-            вца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Заказов на сумму в базовых единицах валюты [профиля продав\
+            ца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         views:
           description: Количество просмотров
@@ -10849,8 +10848,8 @@ components:
           description: Количество кликов
           type: integer
         cpc:
-          description: "Средняя стоимость клика в базовых единицах валюты [аккаунт\
-            а продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Средняя стоимость клика в базовых единицах валюты [профиля\
+            \ продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         cr:
           description: CR (conversion rate) — отношение количества заказов к общему
@@ -10872,11 +10871,11 @@ components:
           description: "Количество заказанных товаров, шт."
           type: integer
         sum:
-          description: "Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         sum_price:
-          description: "Заказов на сумму в базовых единицах валюты [аккаунта прода\
-            вца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Заказов на сумму в базовых единицах валюты [профиля продав\
+            ца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         views:
           description: Количество просмотров
@@ -10917,8 +10916,8 @@ components:
           description: Количество кликов
           type: integer
         cpc:
-          description: "Средняя стоимость клика в базовых единицах валюты [аккаунт\
-            а продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Средняя стоимость клика в базовых единицах валюты [профиля\
+            \ продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         cr:
           description: CR (conversion rate) — отношение количества заказов к общему
@@ -10935,11 +10934,11 @@ components:
           description: "Количество заказанных товаров, шт."
           type: integer
         sum:
-          description: "Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         sum_price:
-          description: "Заказов на сумму в базовых единицах валюты [аккаунта прода\
-            вца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Заказов на сумму в базовых единицах валюты [профиля продав\
+            ца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         views:
           description: Количество просмотров

@@ -378,7 +378,7 @@ class PatchV1BidsRequestBidsInnerNmBidsInner implements ModelInterface, ArrayAcc
     /**
      * Sets bid_kopecks
      *
-     * @param int $bid_kopecks Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param int $bid_kopecks Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

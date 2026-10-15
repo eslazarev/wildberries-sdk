@@ -28,7 +28,7 @@ export interface GetV1Upd200ResponseInner {
      */
     updTime?: string | null;
     /**
-     * Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Выставленная сумма в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     updSum?: number;
     /**

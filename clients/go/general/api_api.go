@@ -52,7 +52,7 @@ GetV2News Получение новостей портала продавцов
 один из параметров `from` или `fromID`. <br> За один запрос можно получить не более 100 новостей.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |

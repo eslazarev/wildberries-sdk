@@ -24,7 +24,7 @@ export interface PatchV1Bids200ResponseBidsInnerNmBidsInner {
      */
     nmId: number;
     /**
-     * Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     bidKopecks: number;
     /**

@@ -57,7 +57,7 @@ class TableItemResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $openAPITypes = [
-        'items' => '\Wildberries\Sdk\Analytics\Model\TableItemItemSt[]',
+        'items' => '\Wildberries\Sdk\Analytics\Model\TableItemSt[]',
         'currency' => 'string'
     ];
 
@@ -305,7 +305,7 @@ class TableItemResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets items
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemSt[]
+     * @return \Wildberries\Sdk\Analytics\Model\TableItemSt[]
      */
     public function getItems()
     {
@@ -315,7 +315,7 @@ class TableItemResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets items
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemSt[] $items Множество данных по товарам
+     * @param \Wildberries\Sdk\Analytics\Model\TableItemSt[] $items Множество данных по товарам
      *
      * @return self
      */

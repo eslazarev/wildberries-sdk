@@ -379,7 +379,7 @@ class V0PutDailyLimitsAdvertResult implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets required_limit
      *
-     * @param int $required_limit Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки
+     * @param int $required_limit Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки
      *
      * @return self
      */

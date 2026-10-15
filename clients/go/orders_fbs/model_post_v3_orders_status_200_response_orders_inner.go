@@ -23,6 +23,8 @@ type PostV3OrdersStatus200ResponseOrdersInner struct {
 	Id *int64 `json:"id,omitempty"`
 	// Доступна ли [отмена](./orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel) сборочного задания: - `false` — недоступна - `true` — доступна 
 	IsCancellable *bool `json:"isCancellable,omitempty"`
+	// Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку: - `false` — нет - `true` — да  Сборочное задание можно перенести из доставки на сборку, если выполняются все условия:   - сборочное задание находится в статусе `complete` — в доставке   - поставка, в которую нужно перенести сборочное задание, не [передана в доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)   - сборочное задание ранее не переносили 
+	IsTransferable *bool `json:"isTransferable,omitempty"`
 	// Статус сборочного задания, установленный продавцом
 	SupplierStatus *string `json:"supplierStatus,omitempty"`
 	// Статус сборочного задания в системе Wildberries
@@ -110,6 +112,38 @@ func (o *PostV3OrdersStatus200ResponseOrdersInner) SetIsCancellable(v bool) {
 	o.IsCancellable = &v
 }
 
+// GetIsTransferable returns the IsTransferable field value if set, zero value otherwise.
+func (o *PostV3OrdersStatus200ResponseOrdersInner) GetIsTransferable() bool {
+	if o == nil || IsNil(o.IsTransferable) {
+		var ret bool
+		return ret
+	}
+	return *o.IsTransferable
+}
+
+// GetIsTransferableOk returns a tuple with the IsTransferable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostV3OrdersStatus200ResponseOrdersInner) GetIsTransferableOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsTransferable) {
+		return nil, false
+	}
+	return o.IsTransferable, true
+}
+
+// HasIsTransferable returns a boolean if a field has been set.
+func (o *PostV3OrdersStatus200ResponseOrdersInner) HasIsTransferable() bool {
+	if o != nil && !IsNil(o.IsTransferable) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsTransferable gets a reference to the given bool and assigns it to the IsTransferable field.
+func (o *PostV3OrdersStatus200ResponseOrdersInner) SetIsTransferable(v bool) {
+	o.IsTransferable = &v
+}
+
 // GetSupplierStatus returns the SupplierStatus field value if set, zero value otherwise.
 func (o *PostV3OrdersStatus200ResponseOrdersInner) GetSupplierStatus() string {
 	if o == nil || IsNil(o.SupplierStatus) {
@@ -189,6 +223,9 @@ func (o PostV3OrdersStatus200ResponseOrdersInner) ToMap() (map[string]interface{
 	}
 	if !IsNil(o.IsCancellable) {
 		toSerialize["isCancellable"] = o.IsCancellable
+	}
+	if !IsNil(o.IsTransferable) {
+		toSerialize["isTransferable"] = o.IsTransferable
 	}
 	if !IsNil(o.SupplierStatus) {
 		toSerialize["supplierStatus"] = o.SupplierStatus

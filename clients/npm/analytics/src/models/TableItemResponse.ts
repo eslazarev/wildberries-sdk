@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TableItemItemSt } from './TableItemItemSt';
+import type { TableItemSt } from './TableItemSt';
 import {
-    TableItemItemStFromJSON,
-    TableItemItemStFromJSONTyped,
-    TableItemItemStToJSON,
-    TableItemItemStToJSONTyped,
-} from './TableItemItemSt';
+    TableItemStFromJSON,
+    TableItemStFromJSONTyped,
+    TableItemStToJSON,
+    TableItemStToJSONTyped,
+} from './TableItemSt';
 
 /**
  * 
@@ -30,7 +30,7 @@ export interface TableItemResponse {
     /**
      * Множество данных по товарам
      */
-    items: Array<TableItemItemSt>;
+    items: Array<TableItemSt>;
     /**
      * Валюта отчёта
      */
@@ -56,7 +56,7 @@ export function TableItemResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'items': ((json['items'] as Array<any>).map(TableItemItemStFromJSON)),
+        'items': ((json['items'] as Array<any>).map(TableItemStFromJSON)),
         'currency': json['currency'],
     };
 }
@@ -72,7 +72,7 @@ export function TableItemResponseToJSONTyped(value?: TableItemResponse | null, i
 
     return {
         
-        'items': ((value['items'] as Array<any>).map(TableItemItemStToJSON)),
+        'items': ((value['items'] as Array<any>).map(TableItemStToJSON)),
         'currency': value['currency'],
     };
 }

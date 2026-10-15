@@ -20,13 +20,6 @@ import {
     TableCommonMetricsSaleRateToJSON,
     TableCommonMetricsSaleRateToJSONTyped,
 } from './TableCommonMetricsSaleRate';
-import type { TableItemItemStMetricsAllOfCurrentPrice } from './TableItemItemStMetricsAllOfCurrentPrice';
-import {
-    TableItemItemStMetricsAllOfCurrentPriceFromJSON,
-    TableItemItemStMetricsAllOfCurrentPriceFromJSONTyped,
-    TableItemItemStMetricsAllOfCurrentPriceToJSON,
-    TableItemItemStMetricsAllOfCurrentPriceToJSONTyped,
-} from './TableItemItemStMetricsAllOfCurrentPrice';
 import type { TableCommonMetricsAvgStockTurnover } from './TableCommonMetricsAvgStockTurnover';
 import {
     TableCommonMetricsAvgStockTurnoverFromJSON,
@@ -48,6 +41,13 @@ import {
     FloatGraphByPeriodItemToJSON,
     FloatGraphByPeriodItemToJSONTyped,
 } from './FloatGraphByPeriodItem';
+import type { TableItemStMetricsAllOfCurrentPrice } from './TableItemStMetricsAllOfCurrentPrice';
+import {
+    TableItemStMetricsAllOfCurrentPriceFromJSON,
+    TableItemStMetricsAllOfCurrentPriceFromJSONTyped,
+    TableItemStMetricsAllOfCurrentPriceToJSON,
+    TableItemStMetricsAllOfCurrentPriceToJSONTyped,
+} from './TableItemStMetricsAllOfCurrentPrice';
 
 /**
  * Метрики размера
@@ -142,7 +142,7 @@ export interface TableSizeResponseSizesInnerMetrics {
     /**
      * 
      */
-    currentPrice: TableItemItemStMetricsAllOfCurrentPrice;
+    currentPrice: TableItemStMetricsAllOfCurrentPrice;
 }
 
 /**
@@ -199,7 +199,7 @@ export function TableSizeResponseSizesInnerMetricsFromJSONTyped(json: any, ignor
         'lostOrdersSum': json['lostOrdersSum'],
         'lostBuyoutsCount': json['lostBuyoutsCount'],
         'lostBuyoutsSum': json['lostBuyoutsSum'],
-        'currentPrice': TableItemItemStMetricsAllOfCurrentPriceFromJSON(json['currentPrice']),
+        'currentPrice': TableItemStMetricsAllOfCurrentPriceFromJSON(json['currentPrice']),
     };
 }
 
@@ -232,7 +232,7 @@ export function TableSizeResponseSizesInnerMetricsToJSONTyped(value?: TableSizeR
         'lostOrdersSum': value['lostOrdersSum'],
         'lostBuyoutsCount': value['lostBuyoutsCount'],
         'lostBuyoutsSum': value['lostBuyoutsSum'],
-        'currentPrice': TableItemItemStMetricsAllOfCurrentPriceToJSON(value['currentPrice']),
+        'currentPrice': TableItemStMetricsAllOfCurrentPriceToJSON(value['currentPrice']),
     };
 }
 

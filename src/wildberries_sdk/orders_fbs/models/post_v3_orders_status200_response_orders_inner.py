@@ -29,9 +29,10 @@ class PostV3OrdersStatus200ResponseOrdersInner(BaseModel):
     """ # noqa: E501
     id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", json_schema_extra={"examples": [5632423]})
     is_cancellable: Optional[StrictBool] = Field(default=None, description="Доступна ли [отмена](./orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel) сборочного задания: - `false` — недоступна - `true` — доступна ", alias="isCancellable", json_schema_extra={"examples": [False]})
+    is_transferable: Optional[StrictBool] = Field(default=None, description="Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку: - `false` — нет - `true` — да  Сборочное задание можно перенести из доставки на сборку, если выполняются все условия:   - сборочное задание находится в статусе `complete` — в доставке   - поставка, в которую нужно перенести сборочное задание, не [передана в доставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver)   - сборочное задание ранее не переносили ", alias="isTransferable", json_schema_extra={"examples": [False]})
     supplier_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания, установленный продавцом", alias="supplierStatus", json_schema_extra={"examples": ["new"]})
     wb_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания в системе Wildberries", alias="wbStatus")
-    __properties: ClassVar[List[str]] = ["id", "isCancellable", "supplierStatus", "wbStatus"]
+    __properties: ClassVar[List[str]] = ["id", "isCancellable", "isTransferable", "supplierStatus", "wbStatus"]
 
     @field_validator('supplier_status')
     def supplier_status_validate_enum(cls, value):
@@ -106,6 +107,7 @@ class PostV3OrdersStatus200ResponseOrdersInner(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "isCancellable": obj.get("isCancellable"),
+            "isTransferable": obj.get("isTransferable"),
             "supplierStatus": obj.get("supplierStatus"),
             "wbStatus": obj.get("wbStatus")
         })

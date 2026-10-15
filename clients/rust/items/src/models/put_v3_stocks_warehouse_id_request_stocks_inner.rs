@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PutV3StocksWarehouseIdRequestStocksInner {
     /// ID размера товара
-    #[serde(rename = "chrtId", skip_serializing_if = "Option::is_none")]
-    pub chrt_id: Option<u64>,
+    #[serde(rename = "chrtId")]
+    pub chrt_id: u64,
     /// Остаток
-    #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<i32>,
+    #[serde(rename = "amount")]
+    pub amount: i32,
 }
 
 impl PutV3StocksWarehouseIdRequestStocksInner {
-    pub fn new() -> PutV3StocksWarehouseIdRequestStocksInner {
+    pub fn new(chrt_id: u64, amount: i32) -> PutV3StocksWarehouseIdRequestStocksInner {
         PutV3StocksWarehouseIdRequestStocksInner {
-            chrt_id: None,
-            amount: None,
+            chrt_id,
+            amount,
         }
     }
 }

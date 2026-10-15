@@ -31,7 +31,7 @@ type FullStatsItem struct {
 	Canceled int32 `json:"canceled"`
 	// Количество кликов
 	Clicks int32 `json:"clicks"`
-	// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc float64 `json:"cpc"`
 	// CR (conversion rate) — отношение количества заказов к общему количеству кликов
 	Cr float64 `json:"cr"`
@@ -43,13 +43,13 @@ type FullStatsItem struct {
 	Orders int32 `json:"orders"`
 	// Количество заказанных товаров, шт.
 	Shks int32 `json:"shks"`
-	// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Sum float64 `json:"sum"`
-	// Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Сумма заказов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	SumPrice float64 `json:"sum_price"`
 	// Количество просмотров
 	Views int32 `json:"views"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency string `json:"currency"`
 }
 

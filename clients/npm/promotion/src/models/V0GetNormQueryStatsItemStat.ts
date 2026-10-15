@@ -50,11 +50,11 @@ export interface V0GetNormQueryStatsItemStat {
      */
     ctr?: number | null;
     /**
-     * Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Стоимость одного клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     cpc?: number;
     /**
-     * Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+     * Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
      * 
      * Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      * 
@@ -74,7 +74,7 @@ export interface V0GetNormQueryStatsItemStat {
      */
     spend?: number;
     /**
-     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     currency?: string;
 }

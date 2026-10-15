@@ -59,7 +59,7 @@ PostV1AnalyticsExciseReport Получить отчёт
 Данный отчёт можно сохранить в [формате таблиц](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |

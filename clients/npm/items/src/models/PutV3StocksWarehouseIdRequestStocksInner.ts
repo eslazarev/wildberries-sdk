@@ -22,17 +22,19 @@ export interface PutV3StocksWarehouseIdRequestStocksInner {
     /**
      * ID размера товара
      */
-    chrtId?: number;
+    chrtId: number;
     /**
      * Остаток
      */
-    amount?: number;
+    amount: number;
 }
 
 /**
  * Check if a given object implements the PutV3StocksWarehouseIdRequestStocksInner interface.
  */
 export function instanceOfPutV3StocksWarehouseIdRequestStocksInner(value: object): value is PutV3StocksWarehouseIdRequestStocksInner {
+    if (!('chrtId' in value) || value['chrtId'] === undefined) return false;
+    if (!('amount' in value) || value['amount'] === undefined) return false;
     return true;
 }
 
@@ -46,8 +48,8 @@ export function PutV3StocksWarehouseIdRequestStocksInnerFromJSONTyped(json: any,
     }
     return {
         
-        'chrtId': json['chrtId'] == null ? undefined : json['chrtId'],
-        'amount': json['amount'] == null ? undefined : json['amount'],
+        'chrtId': json['chrtId'],
+        'amount': json['amount'],
     };
 }
 

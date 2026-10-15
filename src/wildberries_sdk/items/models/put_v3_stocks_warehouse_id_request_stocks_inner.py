@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,8 @@ class PutV3StocksWarehouseIdRequestStocksInner(BaseModel):
     """
     PutV3StocksWarehouseIdRequestStocksInner
     """ # noqa: E501
-    chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера товара", alias="chrtId", json_schema_extra={"examples": [12345678]})
-    amount: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(default=None, description="Остаток", json_schema_extra={"examples": [10]})
+    chrt_id: StrictInt = Field(description="ID размера товара", alias="chrtId", json_schema_extra={"examples": [12345678]})
+    amount: Annotated[int, Field(le=100000, strict=True)] = Field(description="Остаток", json_schema_extra={"examples": [11]})
     __properties: ClassVar[List[str]] = ["chrtId", "amount"]
 
     model_config = ConfigDict(

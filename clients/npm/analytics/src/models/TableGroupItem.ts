@@ -20,13 +20,13 @@ import {
     TableGroupItemMetricsToJSON,
     TableGroupItemMetricsToJSONTyped,
 } from './TableGroupItemMetrics';
-import type { TableItemItem } from './TableItemItem';
+import type { TableItem } from './TableItem';
 import {
-    TableItemItemFromJSON,
-    TableItemItemFromJSONTyped,
-    TableItemItemToJSON,
-    TableItemItemToJSONTyped,
-} from './TableItemItem';
+    TableItemFromJSON,
+    TableItemFromJSONTyped,
+    TableItemToJSON,
+    TableItemToJSONTyped,
+} from './TableItem';
 
 /**
  * К группе товаров относятся все карточки, подходящие хотя бы по одному из параметров:
@@ -65,7 +65,7 @@ export interface TableGroupItem {
     /**
      * Массив товаров группы
      */
-    items: Array<TableItemItem>;
+    items: Array<TableItem>;
 }
 
 /**
@@ -93,7 +93,7 @@ export function TableGroupItemFromJSONTyped(json: any, ignoreDiscriminator: bool
         'tagName': json['tagName'] == null ? undefined : json['tagName'],
         'tagId': json['tagId'] == null ? undefined : json['tagId'],
         'metrics': TableGroupItemMetricsFromJSON(json['metrics']),
-        'items': ((json['items'] as Array<any>).map(TableItemItemFromJSON)),
+        'items': ((json['items'] as Array<any>).map(TableItemFromJSON)),
     };
 }
 
@@ -114,7 +114,7 @@ export function TableGroupItemToJSONTyped(value?: TableGroupItem | null, ignoreD
         'tagName': value['tagName'],
         'tagId': value['tagId'],
         'metrics': TableGroupItemMetricsToJSON(value['metrics']),
-        'items': ((value['items'] as Array<any>).map(TableItemItemToJSON)),
+        'items': ((value['items'] as Array<any>).map(TableItemToJSON)),
     };
 }
 

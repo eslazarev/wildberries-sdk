@@ -40,7 +40,7 @@ DeleteV2TagId Удаление ярлыка
 Метод удаляет ярлык из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>Ярлыков</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -239,7 +239,7 @@ DeleteV3StocksWarehouseId Удалить остатки товаров
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -442,7 +442,7 @@ DeleteV3WarehousesWarehouseId Удалить склад продавца
 Метод удаляет [склад продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>складов продавца</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -631,7 +631,7 @@ GetV1Brands Бренды
 Метод возвращает список брендов по ID предмета.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -843,7 +843,7 @@ GetV2BufferGoodsTask Детализация необработанной заг�
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1042,7 +1042,7 @@ GetV2BufferTasks Состояние необработанной загрузк�
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1226,7 +1226,7 @@ GetV2CardsLimits Лимиты карточек товаров
 Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов:
 
 <ul>
     <li><a href="/openapi/item-management#tag/listingItems/operation/getV2CardsLimits">получения лимитов карточек товаров</a></li>
@@ -1401,7 +1401,7 @@ GetV2DirectoryColors Цвет
 Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>Характеристик</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1586,7 +1586,7 @@ GetV2DirectoryCountries Страна производства
 Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -1777,7 +1777,7 @@ GetV2DirectoryKinds Пол
 Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>Характеристик</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1976,7 +1976,7 @@ GetV2DirectoryOkpd Код ОКПД2 предмета
 Метод возвращает список кодов ОКПД2 по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -2181,7 +2181,7 @@ GetV2DirectoryOkpdAll Список кодов ОКПД2
 Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре `search`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -2375,7 +2375,7 @@ GetV2DirectorySeasons Сезон
 Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>Характеристик</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2574,7 +2574,7 @@ GetV2DirectoryTnved Код ТН ВЭД предмета
 Метод возвращает список кодов ТН ВЭД по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -2779,7 +2779,7 @@ GetV2DirectoryTnvedAll Список кодов ТН ВЭД
 Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре `search`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -2977,7 +2977,7 @@ GetV2DirectoryVat Ставка НДС
 Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>Характеристик</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3180,7 +3180,7 @@ GetV2HistoryGoodsTask Детализация обработанной загру
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3379,7 +3379,7 @@ GetV2HistoryTasks Состояние обработанной загрузки
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3585,7 +3585,7 @@ GetV2ListGoodsFilter Получить товары с ценами
   - о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3808,7 +3808,7 @@ GetV2ListGoodsSizeNm Получить размеры товара с ценам�
 Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4042,7 +4042,7 @@ GetV2ObjectAll Список предметов
 Метод возвращает список названий [родительских категорий предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -4247,7 +4247,7 @@ GetV2ObjectCharcsSubjectId Характеристики предмета
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -4441,7 +4441,7 @@ GetV2ObjectParentAll Родительские категории товаров
 Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -4647,7 +4647,7 @@ GetV2QuarantineGoods Получить товары в карантине
 В [песочнице](/sandbox) товары автоматически удаляются из карантина через 3 дня.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4853,7 +4853,7 @@ GetV2Tags Список ярлыков
 Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>Ярлыков</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -5030,7 +5030,7 @@ GetV3DbwWarehousesWarehouseIdContacts Список контактов
 Только для складов с типом доставки `3` — Деливери WB ([DBW](/openapi/orders-dbw)).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -5216,7 +5216,7 @@ GetV3Offices Получить список складов WB
 Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>складов продавца</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -5377,7 +5377,7 @@ GetV3Warehouses Получить список складов продавца
 Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>складов продавца</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -5546,7 +5546,7 @@ PatchV2TagId Изменение ярлыка
 <br>Новые данные можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>Ярлыков</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -5752,7 +5752,7 @@ PostV1RecommendationsList Список рекомендаций в карточ�
 Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -5932,7 +5932,7 @@ PostV1RecommendationsSet Установить рекомендации для т
 Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -6120,7 +6120,7 @@ PostV1UploadTaskB2bWholesale Установить оптовые скидки д
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -6299,7 +6299,7 @@ PostV2Barcodes Генерация баркодов
 Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -6500,7 +6500,7 @@ PostV2CardsDeleteTrash Перенос карточек товаров в кор�
 Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -6721,7 +6721,7 @@ PostV2CardsErrorList Список несозданных карточек тов
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов:
 
 <ul>
     <li><a href="/openapi/item-management#tag/listingItems/operation/getV2CardsLimits">получения лимитов карточек товаров</a></li>
@@ -6922,7 +6922,7 @@ PostV2CardsMoveNm Объединение и разъединение карто�
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -7137,7 +7137,7 @@ PostV2CardsRecover Восстановление карточек товаров 
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -7367,7 +7367,7 @@ PostV2CardsUpdate Редактирование карточек товаров
 
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -7585,7 +7585,7 @@ PostV2CardsUpload Создание карточек товаров
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -7799,7 +7799,7 @@ PostV2CardsUploadAdd Создание карточек товаров с при�
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -8045,7 +8045,7 @@ PostV2GetCardsList Список карточек товаров
 Чтобы получить новые результаты проверки, используйте выгрузку с пагинацией с сортировкой по возрастанию.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -8265,7 +8265,7 @@ PostV2GetCardsTrash Список карточек товаров в корзин
   3. Сохраните поля `"cursor":{"trashedAt":"***","nmID":***}` из последнего ответа текущей выгрузки.
 
   <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -8477,7 +8477,7 @@ PostV2ListGoodsFilter Получить товары с ценами по арт�
   - о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -8674,7 +8674,7 @@ PostV2Tag Создание ярлыка
 <br>Созданный ярлык можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>Ярлыков</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -8871,7 +8871,7 @@ PostV2TagNomenclatureLink Управление ярлыками в карточ�
 При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>Ярлыков</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -9073,7 +9073,7 @@ PostV2UploadTask Установить цены и скидки
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -9295,7 +9295,7 @@ PostV2UploadTaskClubDiscount Установить скидки WB Клуба
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -9521,7 +9521,7 @@ PostV2UploadTaskSize Установить цены для размеров
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -9765,7 +9765,7 @@ PostV3MediaFile Загрузить медиафайл
   * форматы — MOV, MP4
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>Медиафайлов</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -10002,7 +10002,7 @@ PostV3MediaSave Загрузить медиафайлы по ссылкам
 Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>Медиафайлов</strong>:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -10221,7 +10221,7 @@ PostV3StocksWarehouseId Получить остатки товаров
 Метод возвращает данные об остатках товаров на [складах продавца](/openapi/item-management#tag/sellerWarehouses).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href="/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId">удаления остатков</a>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href="/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId">удаления остатков</a>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -10429,7 +10429,7 @@ PostV3Warehouses Создать склад продавца
 Метод создаёт склад продавца для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>складов продавца</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -10654,7 +10654,7 @@ PutV3DbwWarehousesWarehouseIdContacts Обновить список контак
 К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для следующих методов DBW:
 <ul>
     <li>получение и обновление списка контактов</li>
     <li>получение и удаление идентификаторов маркировки</li>
@@ -10845,7 +10845,7 @@ PutV3StocksWarehouseId Обновить остатки товаров
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href="/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId">удаления остатков</a>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href="/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId">удаления остатков</a>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -11062,7 +11062,7 @@ PutV3WarehousesWarehouseId Обновить склад продавца
 Метод обновляет данные [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов <strong>складов продавца</strong>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |

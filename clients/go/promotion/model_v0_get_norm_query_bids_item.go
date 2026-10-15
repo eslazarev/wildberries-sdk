@@ -27,11 +27,11 @@ type V0GetNormQueryBidsItem struct {
 	NmId int32 `json:"nm_id"`
 	// Поисковый кластер
 	NormQuery string `json:"norm_query"`
-	// Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+	// Текущая ставка в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
 	Bid int32 `json:"bid"`
-	// Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+	// Текущая ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
 	BidKopecks int32 `json:"bid_kopecks"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency string `json:"currency"`
 }
 

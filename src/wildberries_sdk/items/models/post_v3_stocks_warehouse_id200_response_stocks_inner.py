@@ -28,7 +28,7 @@ class PostV3StocksWarehouseId200ResponseStocksInner(BaseModel):
     PostV3StocksWarehouseId200ResponseStocksInner
     """ # noqa: E501
     chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера товара", alias="chrtId", json_schema_extra={"examples": [12345678]})
-    amount: Optional[StrictInt] = Field(default=None, description="Остаток", json_schema_extra={"examples": [10]})
+    amount: Optional[StrictInt] = Field(default=None, description="Остаток", json_schema_extra={"examples": [11]})
     __properties: ClassVar[List[str]] = ["chrtId", "amount"]
 
     model_config = ConfigDict(

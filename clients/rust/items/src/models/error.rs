@@ -14,22 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Error {
     /// Код ошибки
-    #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
-    pub code: Option<String>,
-    /// Описание ошибки
-    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<String>,
-    /// Дополнительные данные ошибки
-    #[serde(rename = "data", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub data: Option<Option<serde_json::Value>>,
+    #[serde(rename = "code")]
+    pub code: String,
+    /// Детали ошибки
+    #[serde(rename = "message")]
+    pub message: String,
 }
 
 impl Error {
-    pub fn new() -> Error {
+    pub fn new(code: String, message: String) -> Error {
         Error {
-            code: None,
-            message: None,
-            data: None,
+            code,
+            message,
         }
     }
 }

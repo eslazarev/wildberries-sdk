@@ -22,7 +22,7 @@ pub struct V1SetNormQueryBidsSuccessResponseItem {
     /// Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
     #[serde(rename = "normQuery")]
     pub norm_query: String,
-    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "currency")]
     pub currency: String,
 }

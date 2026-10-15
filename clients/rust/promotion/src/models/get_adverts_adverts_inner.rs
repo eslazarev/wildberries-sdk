@@ -18,7 +18,7 @@ pub struct GetAdvertsAdvertsInner {
     /// Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка 
     #[serde(rename = "bid_type")]
     pub bid_type: String,
-    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
     pub currency: Option<String>,
     /// ID кампании

@@ -50,11 +50,11 @@ export interface V1GetNormQueryStatsResponseItemStat {
      */
     ctr?: number | null;
     /**
-     * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
      */
     cpc?: number;
     /**
-     * Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+     * Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
      * 
      * Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      * 

@@ -19,10 +19,10 @@ pub struct GetV1Budget200Response {
     /// Поле не используется. Значение всегда 0.
     #[serde(rename = "netting", skip_serializing_if = "Option::is_none")]
     pub netting: Option<i32>,
-    /// Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
     pub total: Option<i32>,
-    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
     pub currency: Option<String>,
 }

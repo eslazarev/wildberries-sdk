@@ -22,21 +22,19 @@ export interface UpdateBlocked {
     /**
      * Код ошибки
      */
-    code?: string;
+    code: string;
     /**
-     * Описание ошибки
+     * Детали ошибки
      */
-    message?: string;
-    /**
-     * Дополнительные данные ошибки
-     */
-    data?: object | null;
+    message: string;
 }
 
 /**
  * Check if a given object implements the UpdateBlocked interface.
  */
 export function instanceOfUpdateBlocked(value: object): value is UpdateBlocked {
+    if (!('code' in value) || value['code'] === undefined) return false;
+    if (!('message' in value) || value['message'] === undefined) return false;
     return true;
 }
 
@@ -50,9 +48,8 @@ export function UpdateBlockedFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'code': json['code'] == null ? undefined : json['code'],
-        'message': json['message'] == null ? undefined : json['message'],
-        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : json['data'],
+        'code': json['code'],
+        'message': json['message'],
     };
 }
 
@@ -69,7 +66,6 @@ export function UpdateBlockedToJSONTyped(value?: UpdateBlocked | null, ignoreDis
         
         'code': value['code'],
         'message': value['message'],
-        'data': value['data'],
     };
 }
 

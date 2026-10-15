@@ -21,7 +21,7 @@ var _ MappedNullable = &ResponseWithReturn{}
 type ResponseWithReturn struct {
 	// Размер обновлённого бюджета
 	Total *int32 `json:"total,omitempty"`
-	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 }
 
