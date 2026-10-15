@@ -68,7 +68,7 @@ paths:
         Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -161,7 +161,7 @@ paths:
         Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -248,7 +248,7 @@ paths:
         Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -371,7 +371,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -606,7 +606,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -777,7 +777,7 @@ paths:
         Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -958,7 +958,7 @@ paths:
           - количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1048,7 +1048,7 @@ paths:
           - отзыв содержит только оценку (без текста и фото)
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1170,7 +1170,7 @@ paths:
           - настроить пагинацию и количество отзывов в ответе
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1377,7 +1377,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1452,7 +1452,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1514,7 +1514,7 @@ paths:
         Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1613,7 +1613,7 @@ paths:
         Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1937,7 +1937,7 @@ paths:
           - в отзыве нет текста и фото
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2114,7 +2114,7 @@ paths:
         Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2251,7 +2251,7 @@ paths:
         Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2337,7 +2337,7 @@ paths:
         Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).<br>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2417,7 +2417,7 @@ paths:
         Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2535,7 +2535,7 @@ paths:
         Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2579,7 +2579,7 @@ paths:
         Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2625,7 +2625,7 @@ paths:
           2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2781,7 +2781,7 @@ paths:
         Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2917,7 +2917,7 @@ paths:
         Метод возвращает файл или изображение из сообщения по его ID.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3055,7 +3055,7 @@ paths:
         Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3101,7 +3101,7 @@ paths:
         Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
