@@ -51,7 +51,7 @@ paths:
         Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -120,7 +120,7 @@ paths:
         Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -179,7 +179,7 @@ paths:
       summary: Тарифы для коробов
       tags:
         - Тарифы на остаток
-      description: "Для остатков товаров, которые поставляются на\_склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:\n  - доставку со склада или пункта приёма до покупателя\n  - доставку от покупателя до пункта приёма\n  - хранение на\_складе WB\n\n<div class=\"description_important\">\n  Тарифы для коробов совпадают с тарифами для <strong>Суперсейфа</strong>\n</div>\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n</div>\n"
+      description: "Для остатков товаров, которые поставляются на\_склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:\n  - доставку со склада или пункта приёма до покупателя\n  - доставку от покупателя до пункта приёма\n  - хранение на\_складе WB\n\n<div class=\"description_important\">\n  Тарифы для коробов совпадают с тарифами для <strong>Суперсейфа</strong>\n</div>\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n</div>\n"
       parameters:
         - $ref: '#/components/parameters/Date'
       responses:
@@ -217,7 +217,7 @@ paths:
       summary: Тарифы для монопаллет
       tags:
         - Тарифы на остаток
-      description: "Для товаров, которые поставляются на\_склад WB на\_монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):\n  - доставки со склада до покупателя\n  - доставки от покупателя до склада\n  - хранения на\_складе WB\n\n<div class=\"description_important\">\n  Тарифы для монопаллет совпадают с тарифами для <strong>Поштучных паллет</strong>\n</div>\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n</div>\n"
+      description: "Для товаров, которые поставляются на\_склад WB на\_монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):\n  - доставки со склада до покупателя\n  - доставки от покупателя до склада\n  - хранения на\_складе WB\n\n<div class=\"description_important\">\n  Тарифы для монопаллет совпадают с тарифами для <strong>Поштучных паллет</strong>\n</div>\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n</div>\n"
       parameters:
         - $ref: '#/components/parameters/Date'
       responses:
@@ -255,7 +255,7 @@ paths:
       summary: "Тарифы на\_возврат"
       tags:
         - Стоимость возврата продавцу
-      description: "Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):\n  - на\_перевозку товаров со склада WB или из пункта приёма до продавца\n  - на\_обратную перевозку возвратов, которые не забрал продавец\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n</div>\n"
+      description: "Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):\n  - на\_перевозку товаров со склада WB или из пункта приёма до продавца\n  - на\_обратную перевозку возвратов, которые не забрал продавец\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |\n| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |\n</div>\n"
       parameters:
         - $ref: '#/components/parameters/Date'
       responses:
