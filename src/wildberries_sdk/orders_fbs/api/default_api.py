@@ -11223,7 +11223,7 @@ class DefaultApi:
     def post_v3_supplies_supply_id_trbx_stickers(
         self,
         supply_id: Annotated[StrictStr, Field(description="ID поставки")],
-        type: Annotated[StrictStr, Field(description="Тип стикера")],
+        type: Annotated[StrictStr, Field(description="Формат стикера")],
         post_v3_supplies_supply_id_trbx_stickers_request: Optional[PostV3SuppliesSupplyIdTrbxStickersRequest] = None,
         _request_timeout: Union[
             None,
@@ -11244,7 +11244,7 @@ class DefaultApi:
 
         :param supply_id: ID поставки (required)
         :type supply_id: str
-        :param type: Тип стикера (required)
+        :param type: Формат стикера (required)
         :type type: str
         :param post_v3_supplies_supply_id_trbx_stickers_request:
         :type post_v3_supplies_supply_id_trbx_stickers_request: PostV3SuppliesSupplyIdTrbxStickersRequest
@@ -11304,7 +11304,7 @@ class DefaultApi:
     def post_v3_supplies_supply_id_trbx_stickers_with_http_info(
         self,
         supply_id: Annotated[StrictStr, Field(description="ID поставки")],
-        type: Annotated[StrictStr, Field(description="Тип стикера")],
+        type: Annotated[StrictStr, Field(description="Формат стикера")],
         post_v3_supplies_supply_id_trbx_stickers_request: Optional[PostV3SuppliesSupplyIdTrbxStickersRequest] = None,
         _request_timeout: Union[
             None,
@@ -11325,7 +11325,7 @@ class DefaultApi:
 
         :param supply_id: ID поставки (required)
         :type supply_id: str
-        :param type: Тип стикера (required)
+        :param type: Формат стикера (required)
         :type type: str
         :param post_v3_supplies_supply_id_trbx_stickers_request:
         :type post_v3_supplies_supply_id_trbx_stickers_request: PostV3SuppliesSupplyIdTrbxStickersRequest
@@ -11385,7 +11385,7 @@ class DefaultApi:
     def post_v3_supplies_supply_id_trbx_stickers_without_preload_content(
         self,
         supply_id: Annotated[StrictStr, Field(description="ID поставки")],
-        type: Annotated[StrictStr, Field(description="Тип стикера")],
+        type: Annotated[StrictStr, Field(description="Формат стикера")],
         post_v3_supplies_supply_id_trbx_stickers_request: Optional[PostV3SuppliesSupplyIdTrbxStickersRequest] = None,
         _request_timeout: Union[
             None,
@@ -11406,7 +11406,7 @@ class DefaultApi:
 
         :param supply_id: ID поставки (required)
         :type supply_id: str
-        :param type: Тип стикера (required)
+        :param type: Формат стикера (required)
         :type type: str
         :param post_v3_supplies_supply_id_trbx_stickers_request:
         :type post_v3_supplies_supply_id_trbx_stickers_request: PostV3SuppliesSupplyIdTrbxStickersRequest

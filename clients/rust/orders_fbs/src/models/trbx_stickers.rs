@@ -11,18 +11,14 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-use serde_with::serde_as;
-
-#[serde_as]
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TrbxStickers {
     /// Закодированное значение стикера
     #[serde(rename = "barcode", skip_serializing_if = "Option::is_none")]
     pub barcode: Option<String>,
-    /// Полное представление стикера в заданном формате (кодировка base64)
-    #[serde_as(as = "Option<serde_with::base64::Base64>")]
+    /// Полное представление стикера в заданном формате
     #[serde(rename = "file", skip_serializing_if = "Option::is_none")]
-    pub file: Option<Vec<u8>>,
+    pub file: Option<String>,
 }
 
 impl TrbxStickers {

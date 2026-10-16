@@ -274,10 +274,6 @@ class PostV3SuppliesSupplyIdTrbxStickers200Response implements ModelInterface, A
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['stickers']) && (count($this->container['stickers']) < 1)) {
-            $invalidProperties[] = "invalid value for 'stickers', number of items must be greater than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -314,10 +310,6 @@ class PostV3SuppliesSupplyIdTrbxStickers200Response implements ModelInterface, A
     {
         if (is_null($stickers)) {
             throw new \InvalidArgumentException('non-nullable stickers cannot be null');
-        }
-
-        if ((count($stickers) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $stickers when calling PostV3SuppliesSupplyIdTrbxStickers200Response., number of items must be greater than or equal to 1.');
         }
         $this->container['stickers'] = $stickers;
 

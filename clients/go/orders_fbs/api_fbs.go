@@ -6646,7 +6646,7 @@ type ApiPostV3SuppliesSupplyIdTrbxStickersRequest struct {
 	postV3SuppliesSupplyIdTrbxStickersRequest *PostV3SuppliesSupplyIdTrbxStickersRequest
 }
 
-// Тип стикера
+// Формат стикера
 func (r ApiPostV3SuppliesSupplyIdTrbxStickersRequest) Type_(type_ string) ApiPostV3SuppliesSupplyIdTrbxStickersRequest {
 	r.type_ = &type_
 	return r

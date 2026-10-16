@@ -13625,7 +13625,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
-     * @param  string $type Тип стикера (required)
+     * @param  string $type Формат стикера (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SuppliesSupplyIdTrbxStickersRequest|null $post_v3_supplies_supply_id_trbx_stickers_request post_v3_supplies_supply_id_trbx_stickers_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -13652,7 +13652,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
-     * @param  string $type Тип стикера (required)
+     * @param  string $type Формат стикера (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SuppliesSupplyIdTrbxStickersRequest|null $post_v3_supplies_supply_id_trbx_stickers_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -13830,7 +13830,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
-     * @param  string $type Тип стикера (required)
+     * @param  string $type Формат стикера (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SuppliesSupplyIdTrbxStickersRequest|null $post_v3_supplies_supply_id_trbx_stickers_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -13860,7 +13860,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
-     * @param  string $type Тип стикера (required)
+     * @param  string $type Формат стикера (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SuppliesSupplyIdTrbxStickersRequest|null $post_v3_supplies_supply_id_trbx_stickers_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -13919,7 +13919,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
-     * @param  string $type Тип стикера (required)
+     * @param  string $type Формат стикера (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SuppliesSupplyIdTrbxStickersRequest|null $post_v3_supplies_supply_id_trbx_stickers_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.

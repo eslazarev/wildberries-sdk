@@ -55,8 +55,9 @@ class Order(BaseModel):
     cross_border_type: Optional[StrictInt] = Field(default=None, description="Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка ", alias="crossBorderType", json_schema_extra={"examples": [1]})
     comment: Optional[Annotated[str, Field(strict=True, max_length=300)]] = Field(default=None, description="Комментарий покупателя", json_schema_extra={"examples": ["Упакуйте в плёнку, пожалуйста"]})
     is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder", json_schema_extra={"examples": [False]})
+    track_number: Optional[StrictStr] = Field(default=None, description="Трек-номер для трансграничной поставки ", alias="trackNumber", json_schema_extra={"examples": ["NRU56565656"]})
     options: Optional[OrderOptions] = None
-    __properties: ClassVar[List[str]] = ["address", "scanPrice", "deliveryType", "supplyId", "orderUid", "article", "colorCode", "rid", "createdAt", "offices", "skus", "id", "warehouseId", "officeId", "nmId", "chrtId", "price", "convertedPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "crossBorderType", "comment", "isZeroOrder", "options"]
+    __properties: ClassVar[List[str]] = ["address", "scanPrice", "deliveryType", "supplyId", "orderUid", "article", "colorCode", "rid", "createdAt", "offices", "skus", "id", "warehouseId", "officeId", "nmId", "chrtId", "price", "convertedPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "crossBorderType", "comment", "isZeroOrder", "trackNumber", "options"]
 
     @field_validator('delivery_type')
     def delivery_type_validate_enum(cls, value):
@@ -184,6 +185,7 @@ class Order(BaseModel):
             "crossBorderType": obj.get("crossBorderType"),
             "comment": obj.get("comment"),
             "isZeroOrder": obj.get("isZeroOrder"),
+            "trackNumber": obj.get("trackNumber"),
             "options": OrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
         })
         return _obj

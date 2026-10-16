@@ -67,6 +67,8 @@ type Order struct {
 	Comment *string `json:"comment,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
+	// Трек-номер для трансграничной поставки 
+	TrackNumber *string `json:"trackNumber,omitempty"`
 	Options *OrderOptions `json:"options,omitempty"`
 }
 
@@ -876,6 +878,38 @@ func (o *Order) SetIsZeroOrder(v bool) {
 	o.IsZeroOrder = &v
 }
 
+// GetTrackNumber returns the TrackNumber field value if set, zero value otherwise.
+func (o *Order) GetTrackNumber() string {
+	if o == nil || IsNil(o.TrackNumber) {
+		var ret string
+		return ret
+	}
+	return *o.TrackNumber
+}
+
+// GetTrackNumberOk returns a tuple with the TrackNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Order) GetTrackNumberOk() (*string, bool) {
+	if o == nil || IsNil(o.TrackNumber) {
+		return nil, false
+	}
+	return o.TrackNumber, true
+}
+
+// HasTrackNumber returns a boolean if a field has been set.
+func (o *Order) HasTrackNumber() bool {
+	if o != nil && !IsNil(o.TrackNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetTrackNumber gets a reference to the given string and assigns it to the TrackNumber field.
+func (o *Order) SetTrackNumber(v string) {
+	o.TrackNumber = &v
+}
+
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *Order) GetOptions() OrderOptions {
 	if o == nil || IsNil(o.Options) {
@@ -989,6 +1023,9 @@ func (o Order) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsZeroOrder) {
 		toSerialize["isZeroOrder"] = o.IsZeroOrder
+	}
+	if !IsNil(o.TrackNumber) {
+		toSerialize["trackNumber"] = o.TrackNumber
 	}
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options

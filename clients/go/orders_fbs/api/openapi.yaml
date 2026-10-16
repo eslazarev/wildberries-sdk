@@ -4913,17 +4913,13 @@ paths:
           example: WB-GI-1234567
           type: string
         style: simple
-      - description: Тип стикера
+      - description: Формат стикера
+        example: png
         explode: true
         in: query
         name: type
         required: true
         schema:
-          enum:
-          - svg
-          - zplv
-          - zplh
-          - png
           type: string
         style: form
       requestBody:
@@ -6776,6 +6772,7 @@ components:
         crossBorderType: 1
         comment: "Упакуйте в плёнку, пожалуйста"
         isZeroOrder: false
+        trackNumber: NRU56565656
         options:
           isB2B: true
       properties:
@@ -6943,6 +6940,11 @@ components:
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           example: false
           type: boolean
+        trackNumber:
+          description: |
+            Трек-номер для трансграничной поставки
+          example: NRU56565656
+          type: string
         options:
           $ref: "#/components/schemas/Order_options"
       type: object
@@ -7374,19 +7376,15 @@ components:
     TrbxStickers:
       example:
         barcode: $WBMP:1:123:1234567
-        file: U3dhZ2dlciByb2Nrcw==
+        file: ^XA\n^CI28\n^CF0\n^LS0
       properties:
         barcode:
           description: Закодированное значение стикера
           example: $WBMP:1:123:1234567
-          minLength: 1
           type: string
         file:
-          description: Полное представление стикера в заданном формате (кодировка
-            base64)
-          example: U3dhZ2dlciByb2Nrcw==
-          format: byte
-          minLength: 1
+          description: Полное представление стикера в заданном формате
+          example: ^XA\n^CI28\n^CF0\n^LS0
           type: string
       type: object
     MetaDetails:
@@ -8215,6 +8213,7 @@ components:
           crossBorderType: 1
           comment: "Упакуйте в плёнку, пожалуйста"
           isZeroOrder: false
+          trackNumber: NRU56565656
           options:
             isB2B: true
         - address:
@@ -8249,6 +8248,7 @@ components:
           crossBorderType: 1
           comment: "Упакуйте в плёнку, пожалуйста"
           isZeroOrder: false
+          trackNumber: NRU56565656
           options:
             isB2B: true
       nullable: false
@@ -8960,15 +8960,13 @@ components:
       example:
         stickers:
         - barcode: $WBMP:1:123:1234567
-          file: U3dhZ2dlciByb2Nrcw==
+          file: ^XA\n^CI28\n^CF0\n^LS0
         - barcode: $WBMP:1:123:1234567
-          file: U3dhZ2dlciByb2Nrcw==
-      nullable: false
+          file: ^XA\n^CI28\n^CF0\n^LS0
       properties:
         stickers:
           items:
             $ref: "#/components/schemas/TrbxStickers"
-          minItems: 1
           type: array
       type: object
     putV3FbsSuppliesSupplyIdSpot_request:

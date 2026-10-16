@@ -155,6 +155,11 @@ export interface Order {
      */
     isZeroOrder?: boolean;
     /**
+     * Трек-номер для трансграничной поставки
+     * 
+     */
+    trackNumber?: string;
+    /**
      * 
      */
     options?: OrderOptions;
@@ -230,6 +235,7 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
         'crossBorderType': json['crossBorderType'] == null ? undefined : json['crossBorderType'],
         'comment': json['comment'] == null ? undefined : json['comment'],
         'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
+        'trackNumber': json['trackNumber'] == null ? undefined : json['trackNumber'],
         'options': json['options'] == null ? undefined : OrderOptionsFromJSON(json['options']),
     };
 }
@@ -269,6 +275,7 @@ export function OrderToJSONTyped(value?: Order | null, ignoreDiscriminator: bool
         'crossBorderType': value['crossBorderType'],
         'comment': value['comment'],
         'isZeroOrder': value['isZeroOrder'],
+        'trackNumber': value['trackNumber'],
         'options': OrderOptionsToJSON(value['options']),
     };
 }

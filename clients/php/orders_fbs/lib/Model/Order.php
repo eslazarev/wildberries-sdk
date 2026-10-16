@@ -81,6 +81,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'cross_border_type' => 'int',
         'comment' => 'string',
         'is_zero_order' => 'bool',
+        'track_number' => 'string',
         'options' => '\Wildberries\Sdk\OrdersFbs\Model\OrderOptions'
     ];
 
@@ -116,6 +117,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'cross_border_type' => 'int32',
         'comment' => null,
         'is_zero_order' => null,
+        'track_number' => null,
         'options' => null
     ];
 
@@ -149,6 +151,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'cross_border_type' => false,
         'comment' => false,
         'is_zero_order' => false,
+        'track_number' => false,
         'options' => false
     ];
 
@@ -262,6 +265,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'cross_border_type' => 'crossBorderType',
         'comment' => 'comment',
         'is_zero_order' => 'isZeroOrder',
+        'track_number' => 'trackNumber',
         'options' => 'options'
     ];
 
@@ -295,6 +299,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'cross_border_type' => 'setCrossBorderType',
         'comment' => 'setComment',
         'is_zero_order' => 'setIsZeroOrder',
+        'track_number' => 'setTrackNumber',
         'options' => 'setOptions'
     ];
 
@@ -328,6 +333,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'cross_border_type' => 'getCrossBorderType',
         'comment' => 'getComment',
         'is_zero_order' => 'getIsZeroOrder',
+        'track_number' => 'getTrackNumber',
         'options' => 'getOptions'
     ];
 
@@ -457,6 +463,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('cross_border_type', $data ?? [], null);
         $this->setIfExists('comment', $data ?? [], null);
         $this->setIfExists('is_zero_order', $data ?? [], null);
+        $this->setIfExists('track_number', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
     }
 
@@ -1232,6 +1239,33 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_zero_order cannot be null');
         }
         $this->container['is_zero_order'] = $is_zero_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets track_number
+     *
+     * @return string|null
+     */
+    public function getTrackNumber()
+    {
+        return $this->container['track_number'];
+    }
+
+    /**
+     * Sets track_number
+     *
+     * @param string|null $track_number Трек-номер для трансграничной поставки
+     *
+     * @return self
+     */
+    public function setTrackNumber($track_number)
+    {
+        if (is_null($track_number)) {
+            throw new \InvalidArgumentException('non-nullable track_number cannot be null');
+        }
+        $this->container['track_number'] = $track_number;
 
         return $this;
     }

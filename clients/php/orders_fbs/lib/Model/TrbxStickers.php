@@ -70,7 +70,7 @@ class TrbxStickers implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'barcode' => null,
-        'file' => 'byte'
+        'file' => null
     ];
 
     /**
@@ -281,10 +281,6 @@ class TrbxStickers implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['barcode']) && (mb_strlen($this->container['barcode']) < 1)) {
-            $invalidProperties[] = "invalid value for 'barcode', the character length must be bigger than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -322,11 +318,6 @@ class TrbxStickers implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($barcode)) {
             throw new \InvalidArgumentException('non-nullable barcode cannot be null');
         }
-
-        if ((mb_strlen($barcode) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $barcode when calling TrbxStickers., must be bigger than or equal to 1.');
-        }
-
         $this->container['barcode'] = $barcode;
 
         return $this;
@@ -345,7 +336,7 @@ class TrbxStickers implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets file
      *
-     * @param string|null $file Полное представление стикера в заданном формате (кодировка base64)
+     * @param string|null $file Полное представление стикера в заданном формате
      *
      * @return self
      */
@@ -354,7 +345,6 @@ class TrbxStickers implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($file)) {
             throw new \InvalidArgumentException('non-nullable file cannot be null');
         }
-
         $this->container['file'] = $file;
 
         return $this;

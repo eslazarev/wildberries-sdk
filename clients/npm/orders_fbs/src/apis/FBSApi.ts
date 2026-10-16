@@ -584,9 +584,9 @@ export interface PostV3SuppliesSupplyIdTrbxStickersOperationRequest {
      */
     supplyId: string;
     /**
-     * Тип стикера
+     * Формат стикера
      */
-    type: PostV3SuppliesSupplyIdTrbxStickersOperationTypeEnum;
+    type: string;
     /**
      * 
      */
@@ -3084,13 +3084,3 @@ export const PostV3OrdersStickersOperationHeightEnum = {
     NUMBER_30: 30,
 } as const;
 export type PostV3OrdersStickersOperationHeightEnum = typeof PostV3OrdersStickersOperationHeightEnum[keyof typeof PostV3OrdersStickersOperationHeightEnum];
-/**
- * @export
- */
-export const PostV3SuppliesSupplyIdTrbxStickersOperationTypeEnum = {
-    Svg: 'svg',
-    Zplv: 'zplv',
-    Zplh: 'zplh',
-    Png: 'png',
-} as const;
-export type PostV3SuppliesSupplyIdTrbxStickersOperationTypeEnum = typeof PostV3SuppliesSupplyIdTrbxStickersOperationTypeEnum[keyof typeof PostV3SuppliesSupplyIdTrbxStickersOperationTypeEnum];
