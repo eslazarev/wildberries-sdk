@@ -67,6 +67,16 @@ var_dump($response);
 - `Wildberries\Sdk\Finances`
 - `Wildberries\Sdk\Wbd`
 
+## Частота релизов
+
+[на сайте документации](https://eslazarev.github.io/wildberries-sdk/releases/)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eslazarev/wildberries-sdk/main/.github/images/release-cadence-ru-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eslazarev/wildberries-sdk/main/.github/images/release-cadence-ru-light.svg">
+  <img src="https://raw.githubusercontent.com/eslazarev/wildberries-sdk/main/.github/images/release-cadence-ru-light.svg" alt="Календарь релизов за последний год">
+</picture>
+
 <!-- PHP_METHODS_LIST_START -->
 ## Методы API
 

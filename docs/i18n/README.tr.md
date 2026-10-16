@@ -50,6 +50,16 @@ Bugün mevcut olan tüm Wildberries API komutları, spesifikasyon modüllerine g
 
 Bu neden önemli — spesifikasyon değişiklik geçmişine bakın: [CHANGELOG.md](../../CHANGELOG.md). Genellikle haftada birkaç kez değişir.
 
+### Sürüm sıklığı
+
+[dokümantasyon sitesinde](https://eslazarev.github.io/wildberries-sdk/releases/)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-tr-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-tr-light.svg">
+  <img src="../../.github/images/release-cadence-tr-light.svg" alt="Son bir yılın sürüm takvimi">
+</picture>
+
 ## Yayınlanan tüm Wildberries spesifikasyonları kapsanır
 
 - Genel — [`specs/01-general.yaml`](../../specs/01-general.yaml)

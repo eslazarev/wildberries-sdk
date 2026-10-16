@@ -56,12 +56,12 @@ SDK выпускается с security-first процессом:
 
 ### Частота релизов
 
-[на сайте документации](https://eslazarev.github.io/wildberries-sdk/releases/).
+[на сайте документации](https://eslazarev.github.io/wildberries-sdk/releases/)
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset=".github/images/release-cadence-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset=".github/images/release-cadence-light.svg">
-  <img src=".github/images/release-cadence-light.svg" alt="Календарь релизов за последний год">
+  <source media="(prefers-color-scheme: dark)" srcset=".github/images/release-cadence-ru-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset=".github/images/release-cadence-ru-light.svg">
+  <img src=".github/images/release-cadence-ru-light.svg" alt="Календарь релизов за последний год">
 </picture>
 
 

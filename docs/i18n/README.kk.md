@@ -50,6 +50,16 @@
 
 Бұл неліктен маңызды — спецификация өзгерістерінің тарихын қараңыз: [CHANGELOG.md](../../CHANGELOG.md). Әдетте аптасына бірнеше рет өзгереді.
 
+### Релиз жиілігі
+
+[құжаттама сайтында](https://eslazarev.github.io/wildberries-sdk/releases/)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-kk-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-kk-light.svg">
+  <img src="../../.github/images/release-cadence-kk-light.svg" alt="Соңғы жылдағы релиздер күнтізбесі">
+</picture>
+
 ## Жарияланған Wildberries спецификацияларының барлығы қамтылған
 
 - Жалпы — [`specs/01-general.yaml`](../../specs/01-general.yaml)

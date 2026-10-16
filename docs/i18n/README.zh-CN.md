@@ -50,6 +50,16 @@
 
 为什么这点重要 — 看规范变更历史:[CHANGELOG.md](../../CHANGELOG.md)。一周通常会有多次变更。
 
+### 发布频率
+
+[在文档网站上](https://eslazarev.github.io/wildberries-sdk/releases/)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-zh-CN-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-zh-CN-light.svg">
+  <img src="../../.github/images/release-cadence-zh-CN-light.svg" alt="过去一年的发布日历">
+</picture>
+
 ## 目前覆盖的全部 Wildberries 规范
 
 - 通用 — [`specs/01-general.yaml`](../../specs/01-general.yaml)

@@ -2,6 +2,8 @@ import re
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
+import pytest
+
 from docsgen.releases import Release, build_stats
 from docsgen.release_render import (
     calendar_columns,
@@ -9,6 +11,8 @@ from docsgen.release_render import (
     month_labels,
     render_page,
     render_svg,
+    tooltip_anchor,
+    LOCALES,
 )
 
 UTC = timezone.utc
@@ -212,3 +216,107 @@ def test_every_release_cell_opens_and_closes_on_one_line():
     for line in render_page(stats).splitlines():
         if "wb-rc-on" in line and "data-date" in line:
             assert line.rstrip().endswith("></div>")
+
+
+# --- tooltip never clipped by the scroll box -------------------------------
+
+def _cells(page):
+    return [line for line in page.splitlines() if "wb-rc-on" in line and "data-date" in line]
+
+
+def test_tooltip_anchor_flips_at_both_edges():
+    assert tooltip_anchor(0, 53) == "left"
+    assert tooltip_anchor(26, 53) == "center"
+    assert tooltip_anchor(52, 53) == "right"
+
+
+def test_first_column_cell_anchors_its_tooltip_left():
+    # A centred tooltip on the first column spills past the scroll box.
+    stats = _stats([_r("v1", 2025, 10, 9)], today=datetime(2026, 10, 8, tzinfo=UTC))
+    first = calendar_columns(stats)[0]
+    assert any(day and day in stats.by_day for day in first)
+    assert "wb-rc-tip-l" in _cells(render_page(stats))[0]
+
+
+def test_last_column_cell_anchors_its_tooltip_right():
+    stats = _stats([_r("v1", 2026, 10, 8)], today=datetime(2026, 10, 8, tzinfo=UTC))
+    assert "wb-rc-tip-r" in _cells(render_page(stats))[-1]
+
+
+def test_middle_cell_keeps_the_centred_tooltip():
+    stats = _stats([_r("v1", 2026, 4, 1)], today=datetime(2026, 10, 8, tzinfo=UTC))
+    cell = _cells(render_page(stats))[0]
+    assert "wb-rc-tip-l" not in cell and "wb-rc-tip-r" not in cell
+
+
+def test_scroll_box_reserves_room_for_the_tallest_tooltip():
+    one = render_page(_stats([_r("v1", 2026, 6, 1)]))
+    two = render_page(_stats([_r("v1", 2026, 6, 1, 6), _r("v2", 2026, 6, 1, 18)]))
+    pattern = r'wb-rc-scroll" style="--wb-rc-tip-space:(\d+)px"'
+    space = lambda page: int(re.search(pattern, page).group(1))
+    assert space(two) > space(one)
+    # Reserved as padding and taken back as margin, so nothing shifts down.
+    assert "padding-top:var(--wb-rc-tip-space)" in one
+    assert "margin-top:calc(-1 * var(--wb-rc-tip-space))" in one
+
+
+# --- languages -------------------------------------------------------------
+
+def test_every_locale_is_complete():
+    for lang, loc in LOCALES.items():
+        assert len(loc.months) == 12, lang
+        assert len(loc.weekdays) == 7, lang
+        assert len(loc.kpis) == 4, lang
+        assert loc.bars_title, lang
+
+
+def test_svg_month_labels_follow_the_language():
+    stats = _stats([_r("v1", 2026, 6, 1)])
+    for lang, label in [("ru", "июн"), ("en", "Jun"), ("zh-CN", "6月"),
+                        ("tr", "Haz"), ("kk", "мау"), ("uz", "iyn")]:
+        assert f">{label}<" in render_svg(stats, lang=lang), lang
+
+
+def test_svg_weekday_labels_follow_the_language():
+    svg = render_svg(_stats([_r("v1", 2026, 6, 1)]), lang="en")
+    assert ">Mon<" in svg and ">Fri<" in svg
+    assert ">пн<" not in svg
+
+
+def test_svg_kpi_and_bars_titles_follow_the_language():
+    svg = render_svg(_stats([_r("v1", 2026, 6, 1)]), lang="tr")
+    assert "Medyan aral" in svg
+    assert "Haftan" in svg
+
+
+def test_svg_rejects_an_unknown_language():
+    with pytest.raises(KeyError):
+        render_svg(_stats([]), lang="de")
+
+
+def test_format_days_in_english():
+    assert format_days(1, "en") == "1 day"
+    assert format_days(5, "en") == "5 days"
+    assert format_days(1.1, "en") == "1.1 days"
+
+
+def test_format_days_uses_a_comma_only_where_the_language_does():
+    assert format_days(1.1, "tr") == "1,1 gün"
+    assert format_days(1.1, "zh-CN") == "1.1 天"
+    assert format_days(1.1, "kk") == "1,1 күн"
+
+
+def test_format_days_handles_none_in_every_language():
+    for lang in LOCALES:
+        assert format_days(None, lang) == "—", lang
+
+
+def test_svg_differs_between_languages():
+    stats = _stats([_r("v1", 2026, 6, 1)])
+    assert render_svg(stats, lang="en") != render_svg(stats, lang="ru")
+
+
+def test_page_stays_russian():
+    # The docs site is Russian only; the languages are a README concern.
+    page = render_page(_stats([_r("v1", 2026, 6, 1)]))
+    assert "Релизов за год" in page
