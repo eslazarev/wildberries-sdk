@@ -3820,14 +3820,10 @@ paths:
         - name: type
           in: query
           required: true
-          description: Тип стикера
+          example: png
+          description: Формат стикера
           schema:
             type: string
-            enum:
-              - svg
-              - zplv
-              - zplh
-              - png
       requestBody:
         content:
           application/json:
@@ -3849,11 +3845,9 @@ paths:
             application/json:
               schema:
                 type: object
-                nullable: false
                 properties:
                   stickers:
                     type: array
-                    minItems: 1
                     items:
                       $ref: '#/components/schemas/TrbxStickers'
         '400':
@@ -5880,6 +5874,11 @@ components:
               - `false` — заказ сделан на товар с ненулевым остатком
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           example: false
+        trackNumber:
+          type: string
+          description: |
+            Трек-номер для трансграничной поставки
+          example: NRU56565656
         options:
           type: object
           description: Опции заказа
@@ -6271,15 +6270,12 @@ components:
       properties:
         barcode:
           type: string
-          minLength: 1
           description: Закодированное значение стикера
           example: $WBMP:1:123:1234567
         file:
           type: string
-          format: byte
-          minLength: 1
-          description: Полное представление стикера в заданном формате (кодировка base64)
-          example: U3dhZ2dlciByb2Nrcw==
+          description: Полное представление стикера в заданном формате
+          example: ^XA\n^CI28\n^CF0\n^LS0
     MetaDetails:
       type: array
       description: Детали маркировки

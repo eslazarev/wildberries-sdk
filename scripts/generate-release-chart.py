@@ -3,9 +3,11 @@
 
 Reads the repository's ``v*`` tags and writes:
 
-  data/releases.json                        consumed by the docs site build
-  .github/images/release-cadence-dark.svg   embedded in README.md
-  .github/images/release-cadence-light.svg
+  data/releases.json                              consumed by the docs site build
+  .github/images/release-cadence-<lang>-<theme>.svg   embedded in the READMEs
+
+One picture per README language and per colour scheme, so a translated README
+shows a chart in its own language.
 
 Run from anywhere:  python scripts/generate-release-chart.py
 """
@@ -17,7 +19,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from docsgen.release_render import render_svg  # noqa: E402
+from docsgen.release_render import LOCALES, render_svg  # noqa: E402
 from docsgen.releases import build_stats, read_tags  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,13 +42,16 @@ def main() -> int:
         fh.write("\n")
 
     os.makedirs(IMAGES_DIR, exist_ok=True)
-    for theme in ("dark", "light"):
-        target = os.path.join(IMAGES_DIR, f"release-cadence-{theme}.svg")
-        with open(target, "w", encoding="utf-8") as fh:
-            fh.write(render_svg(stats, theme=theme))
+    written = 0
+    for lang in LOCALES:
+        for theme in ("dark", "light"):
+            target = os.path.join(IMAGES_DIR, f"release-cadence-{lang}-{theme}.svg")
+            with open(target, "w", encoding="utf-8") as fh:
+                fh.write(render_svg(stats, theme=theme, lang=lang))
+            written += 1
 
     print(f"Release chart: {stats.total} releases in the window, "
-          f"{stats.window_start} to {stats.window_end}.")
+          f"{stats.window_start} to {stats.window_end}, {written} images.")
     return 0
 
 

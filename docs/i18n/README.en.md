@@ -50,6 +50,16 @@ All Wildberries API operations available today are supported, grouped by spec mo
 
 Why this matters: see the spec change history in [CHANGELOG.md](../../CHANGELOG.md). Changes happen often — multiple times per week.
 
+### Release cadence
+
+[on the documentation site](https://eslazarev.github.io/wildberries-sdk/releases/)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-en-light.svg">
+  <img src="../../.github/images/release-cadence-en-light.svg" alt="Release calendar for the last year">
+</picture>
+
 ## All currently published Wildberries specs are covered
 
 - General — [`specs/01-general.yaml`](../../specs/01-general.yaml)

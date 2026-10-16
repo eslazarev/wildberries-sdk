@@ -50,6 +50,16 @@ Wildberries API ning bugun mavjud boʻlgan barcha buyruqlari spetsifikatsiya mod
 
 Bu nima uchun muhim — spetsifikatsiya oʻzgarishlari tarixini koʻring: [CHANGELOG.md](../../CHANGELOG.md). Odatda haftada bir necha marta oʻzgaradi.
 
+### Relizlar chastotasi
+
+[hujjatlar saytida](https://eslazarev.github.io/wildberries-sdk/releases/)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-uz-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-uz-light.svg">
+  <img src="../../.github/images/release-cadence-uz-light.svg" alt="Soʻnggi bir yildagi relizlar kalendari">
+</picture>
+
 ## Eʼlon qilingan barcha Wildberries spetsifikatsiyalari qamrab olingan
 
 - Umumiy — [`specs/01-general.yaml`](../../specs/01-general.yaml)
