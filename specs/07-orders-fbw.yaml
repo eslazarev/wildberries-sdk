@@ -51,7 +51,7 @@ paths:
         - Информация для формирования поставок
       summary: Опции приёмки
       description: |
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+        Метод ]временно отключён](/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -136,7 +136,7 @@ paths:
         - Информация для формирования поставок
       summary: Список складов
       description: |
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+        Метод ]временно отключён](/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -183,7 +183,7 @@ paths:
         - Информация для формирования поставок
       summary: Транзитные направления
       description: |
-        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+        Метод ]временно отключён](/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:

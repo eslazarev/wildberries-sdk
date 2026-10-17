@@ -1548,9 +1548,7 @@ paths:
         - HeaderApiKey: []
       summary: Бюджет кампании
       description: |
-        Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).
-
-
+        Метод будет отключен [16 ноября](/release-notes?id=582).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -4690,7 +4688,7 @@ components:
           minimum: 1000
           description: |
             Сумма дневного лимита. Параметр обязателен при `"enabled": true`.
-            Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]()
+            Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
           example: 1000
         carryOverEnabled:
           type: boolean
