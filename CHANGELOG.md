@@ -1,6 +1,15 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.10.17)
+- Orders FBS: исправлена ссылка в описании поля `canTransferFromDeliveryToAssembly` — операция перевода сборочного задания из доставки на сборку теперь указывает на `patchV3FbsSuppliesSupplyIdOrdersTransfer` (вместо `patchV3PortalSuppliesSupplyOrdersTransfer`).
+- Orders DBS: уточнены описания полей `finalPrice`/`convertedFinalPrice` — ссылка на метод расчёта заменена на «получение цен продавца и сумм к оплате» (`postV3DbsOrdersFinalPrice`), логика использования `finalPrice`/`convertedFinalPrice` при `"data": null` без изменений.
+- Orders FBW: обновлены ссылки в описаниях методов «Опции приёмки», «Список складов», «Транзитные направления» (временно отключены) — переход с внешних URL на относительные `/release-notes?id=570` (изменение документации).
+- Promotion: в описании метода «Бюджет кампании» обновлена ссылка на заметку об отключении (16 ноября) на относительную `/release-notes?id=582`; в схеме `dailyLimit` добавлена корректная ссылка на `GET /api/advert/v1/config` (`./promotion#tag/campaignManagement/operation/getV1Config`) для поля `minDailyLimit`.
+- Rates: обновлена ссылка в описании метода «Тарифы на поставку» (временно отключён) на относительную `/release-notes?id=570` (изменение документации).
+- Analytics: массово обновлены ссылки на release notes `id=570` в описаниях CSV-отчётов и полей (регион/склад/локализация и пр.) на относительные `/release-notes?id=570` (изменение документации; замечены некорректные маркдауны вида `]На данный момент]`).
+- Reports: обновлены ссылки на release notes `id=570` в описаниях полей (`logWarehouseCoef`, `officeId`, `warehouse`, `palletPlaceCode`) на относительные `/release-notes?id=570` (изменение документации).
+
 ### Changed (2026.10.16)
 - Orders FBS: изменён query-параметр `type` для получения стикера — описание уточнено с «Тип стикера» на «Формат стикера», добавлен `example: png`, удалено ограничение `enum` (ранее: `svg`, `zplv`, `zplh`, `png`)
 - Orders FBS: в ответе эндпоинта со стикерами у массива `stickers` убрано ограничение `minItems: 1`, у корневого объекта ответа удалён `nullable: false`

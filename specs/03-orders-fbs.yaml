@@ -769,7 +769,7 @@ paths:
                           type: boolean
                           nullable: false
                           description: |
-                            Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3PortalSuppliesSupplyOrdersTransfer) из доставки на сборку:
+                            Можно ли [перевести сборочное задание](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer) из доставки на сборку:
                             - `false` — нет
                             - `true` — да
 
