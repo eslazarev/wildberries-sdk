@@ -105,7 +105,7 @@ export interface Statistic {
      */
     timeToReady: StatisticTimeToReady;
     /**
-     * Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
+     * Локальные заказы в рамках одного региона. ]На данный момент](/release-notes?id=570) может быть только `100`
      */
     localizationPercent: number;
     /**

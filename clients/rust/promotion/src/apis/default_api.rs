@@ -910,7 +910,7 @@ pub async fn get_v1_balance(configuration: &configuration::Configuration, ) -> R
     }
 }
 
-/// Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+/// Метод будет отключен [16 ноября](/release-notes?id=582).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
 #[deprecated]
 pub async fn get_v1_budget(configuration: &configuration::Configuration, id: i32) -> Result<models::GetV1Budget200Response, Error<GetV1BudgetError>> {
     // add a prefix to parameters to efficiently prevent name collisions

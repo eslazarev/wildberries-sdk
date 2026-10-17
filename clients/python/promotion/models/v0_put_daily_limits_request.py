@@ -30,7 +30,7 @@ class V0PutDailyLimitsRequest(BaseModel):
     """ # noqa: E501
     advert_ids: Annotated[List[Annotated[int, Field(strict=True, ge=1)]], Field(min_length=1, max_length=100)] = Field(description="ID кампаний", alias="advertIds", json_schema_extra={"examples": [[987654321, 123456789]]})
     enabled: StrictBool = Field(description="Включить лимит:   - `true` — да   - `false` — нет ", json_schema_extra={"examples": [True]})
-    daily_limit: Optional[Annotated[int, Field(strict=True, ge=1000)]] = Field(default=None, description="Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]() ", alias="dailyLimit", json_schema_extra={"examples": [1000]})
+    daily_limit: Optional[Annotated[int, Field(strict=True, ge=1000)]] = Field(default=None, description="Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) ", alias="dailyLimit", json_schema_extra={"examples": [1000]})
     carry_over_enabled: Optional[StrictBool] = Field(default=None, description="Переносить неиспользованный остаток лимита на следующий день:   - `true` — да   - `false` — нет  Параметр обязателен при `\"enabled\": true` ", alias="carryOverEnabled", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["advertIds", "enabled", "dailyLimit", "carryOverEnabled"]
 

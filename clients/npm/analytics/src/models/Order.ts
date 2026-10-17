@@ -59,11 +59,11 @@ export interface Order {
      */
     cancelType?: OrderCancelTypeEnum;
     /**
-     * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
+     * Название склада. ]На данный момент](/release-notes?id=570) для складов WB может быть только `Склад WB`
      */
     warehouseName: string;
     /**
-     * Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`
+     * Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный момент](/release-notes?id=570) для складов WB может быть только `""`
      */
     warehouseRegion: string;
     /**

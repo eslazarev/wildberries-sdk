@@ -129,7 +129,7 @@ export interface OrderNewDBS {
      * <br>
      * Предоставляется в информационных целях.
      * <br><br>
-     * Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода
+     * Используйте значение поля `finalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода
      * 
      */
     finalPrice?: number;
@@ -138,7 +138,7 @@ export interface OrderNewDBS {
      * <br>
      * Предоставляется в информационных целях.
      * <br><br>
-     * Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
+     * Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
      * 
      */
     convertedFinalPrice?: number;

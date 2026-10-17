@@ -70,10 +70,10 @@ pub struct OrderDbs {
     /// Код валюты страны продавца
     #[serde(rename = "convertedCurrencyCode", skip_serializing_if = "Option::is_none")]
     pub converted_currency_code: Option<i32>,
-    /// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода 
+    /// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода 
     #[serde(rename = "convertedFinalPrice", skip_serializing_if = "Option::is_none")]
     pub converted_final_price: Option<i32>,
-    /// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода 
+    /// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода 
     #[serde(rename = "finalPrice", skip_serializing_if = "Option::is_none")]
     pub final_price: Option<i32>,
     /// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 

@@ -25,7 +25,7 @@ type V0PutDailyLimitsRequest struct {
 	AdvertIds []int64 `json:"advertIds"`
 	// Включить лимит:   - `true` — да   - `false` — нет 
 	Enabled bool `json:"enabled"`
-	// Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]() 
+	// Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) 
 	DailyLimit *int64 `json:"dailyLimit,omitempty"`
 	// Переносить неиспользованный остаток лимита на следующий день:   - `true` — да   - `false` — нет  Параметр обязателен при `\"enabled\": true` 
 	CarryOverEnabled *bool `json:"carryOverEnabled,omitempty"`

@@ -1878,9 +1878,7 @@ func (r ApiGetV1BudgetRequest) Execute() (*GetV1Budget200Response, *http.Respons
 /*
 GetV1Budget Бюджет кампании
 
-Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).
-
-
+Метод будет отключен [16 ноября](/release-notes?id=582).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:

@@ -6140,15 +6140,15 @@ components:
           description: "Дата, за которую был расчёт или перерасчёт"
           type: string
         logWarehouseCoef:
-          description: "Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+          description: "Коэффициент логистики и хранения. ]На данный момент](/release-notes?id=570)\
             \ может быть только `0`"
           type: number
         officeId:
-          description: "ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
-            \ может быть только `0`"
+          description: "ID склада. ]На данный момент](/release-notes?id=570) может\
+            \ быть только `0`"
           type: integer
         warehouse:
-          description: "Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+          description: "Название склада. ]На данный момент](/release-notes?id=570)\
             \ может быть только `Склад WB РФ`"
           type: string
         warehouseCoef:
@@ -6193,7 +6193,7 @@ components:
             ю за расчётные сутки"
           type: integer
         palletPlaceCode:
-          description: "Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+          description: "Код паллетоместа. ]На данный момент](/release-notes?id=570)\
             \ может быть только `0`"
           type: integer
         palletCount:

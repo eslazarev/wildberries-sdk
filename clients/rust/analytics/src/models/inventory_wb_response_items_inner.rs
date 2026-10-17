@@ -19,13 +19,13 @@ pub struct InventoryWbResponseItemsInner {
     /// ID размера
     #[serde(rename = "chrtId")]
     pub chrt_id: u64,
-    /// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
+    /// ID склада. ]На данный момент](/release-notes?id=570) может быть только `-999999`
     #[serde(rename = "warehouseId")]
     pub warehouse_id: i64,
-    /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+    /// Название склада. ]На данный момент](/release-notes?id=570) может быть только `Склад WB`
     #[serde(rename = "warehouseName")]
     pub warehouse_name: String,
-    /// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+    /// Регион отгрузки. ]На данный момент](/release-notes?id=570) может быть только `Склад WB`
     #[serde(rename = "regionName")]
     pub region_name: String,
     /// Количество товара на складе, доступное клиентам для добавления в корзину

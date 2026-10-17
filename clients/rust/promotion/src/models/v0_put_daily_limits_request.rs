@@ -19,7 +19,7 @@ pub struct V0PutDailyLimitsRequest {
     /// Включить лимит:   - `true` — да   - `false` — нет 
     #[serde(rename = "enabled")]
     pub enabled: bool,
-    /// Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]() 
+    /// Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config) 
     #[serde(rename = "dailyLimit", skip_serializing_if = "Option::is_none")]
     pub daily_limit: Option<i64>,
     /// Переносить неиспользованный остаток лимита на следующий день:   - `true` — да   - `false` — нет  Параметр обязателен при `\"enabled\": true` 
