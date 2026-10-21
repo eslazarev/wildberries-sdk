@@ -128,7 +128,7 @@ paths:
               - `2019-06-20T23:59:59`
               - `2019-06-20T00:00:00.12345`
               - `2017-03-25T00:00:00`
-        - $ref: '#/components/parameters/flag'
+        - $ref: '#/components/parameters/FlagOrders'
       responses:
         '200':
           description: Успешно
@@ -254,7 +254,7 @@ paths:
               - `2019-06-20T23:59:59`
               - `2019-06-20T00:00:00.12345`
               - `2017-03-25T00:00:00`
-        - $ref: '#/components/parameters/flag'
+        - $ref: '#/components/parameters/FlagSales'
       responses:
         '200':
           description: Успешно
@@ -2988,13 +2988,13 @@ components:
             description: Дата, за которую был расчёт или перерасчёт
           logWarehouseCoef:
             type: number
-            description: Коэффициент логистики и хранения. ]На данный момент](/release-notes?id=570) может быть только `0`
+            description: Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`
           officeId:
             type: integer
-            description: ID склада. ]На данный момент](/release-notes?id=570) может быть только `0`
+            description: ID склада. [На данный момент](/release-notes?id=570) может быть только `0`
           warehouse:
             type: string
-            description: Название склада. ]На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
+            description: Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
           warehouseCoef:
             type: number
             description: Коэффициент хранения
@@ -3037,7 +3037,7 @@ components:
             description: Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
           palletPlaceCode:
             type: integer
-            description: Код паллетоместа. ]На данный момент](/release-notes?id=570) может быть только `0`
+            description: Код паллетоместа. [На данный момент](/release-notes?id=570) может быть только `0`
           palletCount:
             type: number
             description: Количество паллет
@@ -3152,38 +3152,33 @@ components:
           format: date-time
           description: Дата и время запроса
   parameters:
-    flag:
+    FlagOrders:
       in: query
       name: flag
       schema:
         type: integer
         default: 0
       required: false
-      description: |
-        Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
-        у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному
-        значению параметра `dateFrom`.
-        При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
-        <br>
-        Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
-        равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
-        При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
-        сделанных в указанную дату, переданную в параметре `dateFrom`.
+      description: Чтобы получить заказы с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить заказы с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату `dateFrom`
+    FlagSales:
+      in: query
+      name: flag
+      schema:
+        type: integer
+        default: 0
+      required: false
+      description: Чтобы получить продажи с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить продажи с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату `dateFrom`
     Date:
       in: query
       name: date
-      description: |
-        Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.
-        <br/>
-        Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр
+      description: Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.<br>Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр
       schema:
         type: string
       example: '2023-12-01'
     DateFrom:
       in: query
       name: dateFrom
-      description: |
-        Начало отчётного периода, `ГГГГ-ММ-ДД`
+      description: Начало отчётного периода, `ГГГГ-ММ-ДД`
       schema:
         type: string
       example: '2025-02-28'
@@ -3191,8 +3186,7 @@ components:
     DateTo:
       in: query
       name: dateTo
-      description: |
-        Конец отчётного периода, `ГГГГ-ММ-ДД`
+      description: Конец отчётного периода, `ГГГГ-ММ-ДД`
       schema:
         type: string
       example: '2025-03-21'
@@ -3200,8 +3194,7 @@ components:
     DateFromGoodsLabeling:
       in: query
       name: dateFrom
-      description: |
-        Начало отчётного периода, `ГГГГ-ММ-ДД`
+      description: Начало отчётного периода, `ГГГГ-ММ-ДД`
       schema:
         type: string
         format: date
@@ -3210,8 +3203,7 @@ components:
     DateToGoodsLabeling:
       in: query
       name: dateTo
-      description: |
-        Конец отчётного периода, `ГГГГ-ММ-ДД`
+      description: Конец отчётного периода, `ГГГГ-ММ-ДД`
       schema:
         type: string
         format: date
@@ -3803,7 +3795,7 @@ components:
                       items:
                         type: string
                     shkID:
-                      description: Штрихкод товара в WB
+                      description: Штрихкод
                       type: integer
                     sku:
                       description: Баркод из карточки товара

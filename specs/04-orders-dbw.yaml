@@ -426,12 +426,18 @@ paths:
             application/json:
               schema:
                 type: object
+                required:
+                  - orders
                 properties:
                   orders:
                     type: array
                     nullable: false
                     items:
                       type: object
+                      required:
+                        - supplierStatus
+                        - wbStatus
+                        - id
                       properties:
                         id:
                           type: integer
@@ -1736,6 +1742,7 @@ components:
       type: object
       required:
         - results
+        - requestId
       example:
         requestId: 03615778-eb9e-4f55-b4Of-fd3ac0fad2сc
         results:
@@ -1833,6 +1840,7 @@ components:
       type: object
       required:
         - results
+        - requestId
       properties:
         requestId:
           type: string
@@ -1909,6 +1917,15 @@ components:
           example:
             - 123456789
     ClientInfo:
+      required:
+        - replacementPhone
+        - phone
+        - firstName
+        - fullName
+        - additionalPhones
+        - additionalPhoneCodes
+        - orderId
+        - phoneCode
       properties:
         replacementPhone:
           type: string
@@ -1970,6 +1987,8 @@ components:
           nullable: false
       type: object
     ClientInfoResp:
+      required:
+        - orders
       properties:
         orders:
           description: Информация о покупателях
@@ -1979,6 +1998,9 @@ components:
       type: object
     OrderCourierInfo:
       type: object
+      required:
+        - courierInfo
+        - orderID
       properties:
         courierInfo:
           type: object
@@ -1991,6 +2013,8 @@ components:
           example: 2876979713
     OrderCourierInfoResp:
       type: object
+      required:
+        - orders
       properties:
         orders:
           type: array
@@ -1998,6 +2022,10 @@ components:
             $ref: '#/components/schemas/OrderCourierInfo'
     CourierContactsResponse:
       type: object
+      required:
+        - phone
+        - carNumber
+        - fullName
       properties:
         carNumber:
           type: string
@@ -2025,6 +2053,10 @@ components:
           example: '2025-09-06T11:00:00Z'
     CourierInfo:
       type: object
+      required:
+        - contacts
+        - updatedAt
+        - mustBeAssigned
       properties:
         contacts:
           type: object
@@ -2050,6 +2082,7 @@ components:
       type: object
       required:
         - requestId
+        - orders
       properties:
         requestId:
           type: string
@@ -2062,6 +2095,8 @@ components:
             type: object
             required:
               - isError
+              - metaDetails
+              - orderId
             properties:
               orderId:
                 type: integer
@@ -2091,6 +2126,10 @@ components:
                 description: Идентификаторы маркировки и статусы их валидации
                 items:
                   type: object
+                  required:
+                    - key
+                    - value
+                    - decision
                   properties:
                     key:
                       type: string
@@ -2213,6 +2252,29 @@ components:
       example: 13833711
     OrderNewDBW:
       type: object
+      required:
+        - salePrice
+        - requiredMeta
+        - comment
+        - options
+        - address
+        - orderUid
+        - groupId
+        - article
+        - colorCode
+        - rid
+        - createdAt
+        - skus
+        - id
+        - warehouseId
+        - nmId
+        - chrtId
+        - price
+        - convertedPrice
+        - currencyCode
+        - convertedCurrencyCode
+        - cargoType
+        - isZeroOrder
       properties:
         address:
           type: object
@@ -2378,6 +2440,27 @@ components:
           example: false
     Order:
       type: object
+      required:
+        - options
+        - address
+        - comment
+        - orderUid
+        - groupId
+        - article
+        - colorCode
+        - rid
+        - createdAt
+        - skus
+        - id
+        - warehouseId
+        - nmId
+        - chrtId
+        - price
+        - convertedPrice
+        - currencyCode
+        - convertedCurrencyCode
+        - cargoType
+        - isZeroOrder
       properties:
         address:
           type: object
@@ -2529,11 +2612,21 @@ components:
           example: false
     DeliveryDatesInfoResp:
       type: object
+      required:
+        - orders
       properties:
         orders:
           type: array
           items:
             type: object
+            required:
+              - dTimeFrom
+              - dTimeTo
+              - dTimeFromOld
+              - dTimeToOld
+              - dDateOld
+              - dDate
+              - id
             properties:
               dTimeFrom:
                 type: string
