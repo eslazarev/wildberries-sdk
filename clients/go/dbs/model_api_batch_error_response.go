@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiBatchErrorResponse type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &ApiBatchErrorResponse{}
 // ApiBatchErrorResponse struct for ApiBatchErrorResponse
 type ApiBatchErrorResponse struct {
 	// Код ошибки:   - `404`   - `409`   - `400` 
-	Code *int32 `json:"code,omitempty"`
+	Code int32 `json:"code"`
 	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара 
-	Detail *string `json:"detail,omitempty"`
+	Detail string `json:"detail"`
 }
+
+type _ApiBatchErrorResponse ApiBatchErrorResponse
 
 // NewApiBatchErrorResponse instantiates a new ApiBatchErrorResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiBatchErrorResponse() *ApiBatchErrorResponse {
+func NewApiBatchErrorResponse(code int32, detail string) *ApiBatchErrorResponse {
 	this := ApiBatchErrorResponse{}
+	this.Code = code
+	this.Detail = detail
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewApiBatchErrorResponseWithDefaults() *ApiBatchErrorResponse {
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
+// GetCode returns the Code field value
 func (o *ApiBatchErrorResponse) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Code
+
+	return o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
 func (o *ApiBatchErrorResponse) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Code, true
+	return &o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ApiBatchErrorResponse) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
+// SetCode sets field value
 func (o *ApiBatchErrorResponse) SetCode(v int32) {
-	o.Code = &v
+	o.Code = v
 }
 
-// GetDetail returns the Detail field value if set, zero value otherwise.
+// GetDetail returns the Detail field value
 func (o *ApiBatchErrorResponse) GetDetail() string {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Detail
+
+	return o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
+// GetDetailOk returns a tuple with the Detail field value
 // and a boolean to check if the value has been set.
 func (o *ApiBatchErrorResponse) GetDetailOk() (*string, bool) {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Detail, true
+	return &o.Detail, true
 }
 
-// HasDetail returns a boolean if a field has been set.
-func (o *ApiBatchErrorResponse) HasDetail() bool {
-	if o != nil && !IsNil(o.Detail) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetail gets a reference to the given string and assigns it to the Detail field.
+// SetDetail sets field value
 func (o *ApiBatchErrorResponse) SetDetail(v string) {
-	o.Detail = &v
+	o.Detail = v
 }
 
 func (o ApiBatchErrorResponse) MarshalJSON() ([]byte, error) {
@@ -116,13 +106,47 @@ func (o ApiBatchErrorResponse) MarshalJSON() ([]byte, error) {
 
 func (o ApiBatchErrorResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
-	if !IsNil(o.Detail) {
-		toSerialize["detail"] = o.Detail
-	}
+	toSerialize["code"] = o.Code
+	toSerialize["detail"] = o.Detail
 	return toSerialize, nil
+}
+
+func (o *ApiBatchErrorResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"code",
+		"detail",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiBatchErrorResponse := _ApiBatchErrorResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiBatchErrorResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiBatchErrorResponse(varApiBatchErrorResponse)
+
+	return err
 }
 
 type NullableApiBatchErrorResponse struct {

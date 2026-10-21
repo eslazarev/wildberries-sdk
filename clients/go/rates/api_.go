@@ -41,7 +41,7 @@ func (r ApiGetV1AcceptanceCoefficientsRequest) Execute() ([]ModelsAcceptanceCoef
 /*
 GetV1AcceptanceCoefficients Тарифы на поставку
 
-Метод ]временно отключён](/release-notes?id=570)
+Метод [временно отключён](/release-notes?id=570)
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:

@@ -284,6 +284,9 @@ class ApiOrdersMetaDetailsResponse implements ModelInterface, ArrayAccess, \Json
         if ($this->container['request_id'] === null) {
             $invalidProperties[] = "'request_id' can't be null";
         }
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -329,7 +332,7 @@ class ApiOrdersMetaDetailsResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\Dbs\Model\ApiOrdersMetaDetailsResponseOrdersInner[]|null
+     * @return \Wildberries\Sdk\Dbs\Model\ApiOrdersMetaDetailsResponseOrdersInner[]
      */
     public function getOrders()
     {
@@ -339,7 +342,7 @@ class ApiOrdersMetaDetailsResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\Dbs\Model\ApiOrdersMetaDetailsResponseOrdersInner[]|null $orders Идентификаторы маркировки сборочных заданий и статусы их валидации
+     * @param \Wildberries\Sdk\Dbs\Model\ApiOrdersMetaDetailsResponseOrdersInner[] $orders Идентификаторы маркировки сборочных заданий и статусы их валидации
      *
      * @return self
      */

@@ -13,6 +13,8 @@ package dbs
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderDBS type satisfies the MappedNullable interface at compile time
@@ -20,62 +22,89 @@ var _ MappedNullable = &OrderDBS{}
 
 // OrderDBS struct for OrderDBS
 type OrderDBS struct {
-	Address NullableOrderDBSAddress `json:"address,omitempty"`
+	Address NullableOrderDBSAddress `json:"address"`
 	// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца 
-	DeliveryType *string `json:"deliveryType,omitempty"`
-	Options *OrderNewDBSOptions `json:"options,omitempty"`
+	DeliveryType string `json:"deliveryType"`
+	Options OrderDBSOptions `json:"options"`
 	// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`
-	OrderUid *string `json:"orderUid,omitempty"`
+	OrderUid string `json:"orderUid"`
 	// ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
-	GroupId *string `json:"groupId,omitempty"`
+	GroupId string `json:"groupId"`
 	// Артикул продавца
-	Article *string `json:"article,omitempty"`
+	Article string `json:"article"`
 	// Код цвета (только для колеруемых товаров)
-	ColorCode *string `json:"colorCode,omitempty"`
+	ColorCode string `json:"colorCode"`
 	// Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed) 
-	Rid interface{} `json:"rid,omitempty"`
+	Rid interface{} `json:"rid"`
 	// Дата создания сборочного задания
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	CreatedAt time.Time `json:"createdAt"`
 	// Массив баркодов товара
-	Skus []string `json:"skus,omitempty"`
+	Skus []string `json:"skus"`
 	// ID сборочного задания
-	Id *int64 `json:"id,omitempty"`
+	Id int64 `json:"id"`
 	// ID склада продавца, на который поступило сборочное задание
-	WarehouseId *int32 `json:"warehouseId,omitempty"`
+	WarehouseId int32 `json:"warehouseId"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId int32 `json:"nmId"`
 	// ID размера товара в системе WB
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId int32 `json:"chrtId"`
 	// Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ
-	ScanPrice NullableInt32 `json:"scanPrice,omitempty"`
+	ScanPrice NullableInt32 `json:"scanPrice"`
 	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-	Price *int32 `json:"price,omitempty"`
+	Price int32 `json:"price"`
 	// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
-	ConvertedPrice *int32 `json:"convertedPrice,omitempty"`
+	ConvertedPrice int32 `json:"convertedPrice"`
 	// Код валюты продажи
-	CurrencyCode *int32 `json:"currencyCode,omitempty"`
+	CurrencyCode int32 `json:"currencyCode"`
 	// Код валюты страны продавца
-	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
+	ConvertedCurrencyCode int32 `json:"convertedCurrencyCode"`
 	// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода 
-	ConvertedFinalPrice *int32 `json:"convertedFinalPrice,omitempty"`
+	ConvertedFinalPrice int32 `json:"convertedFinalPrice"`
 	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода 
-	FinalPrice *int32 `json:"finalPrice,omitempty"`
+	FinalPrice int32 `json:"finalPrice"`
 	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
-	CargoType *int32 `json:"cargoType,omitempty"`
+	CargoType int32 `json:"cargoType"`
 	// Комментарий покупателя
-	Comment *string `json:"comment,omitempty"`
+	Comment string `json:"comment"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
-	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
+	IsZeroOrder bool `json:"isZeroOrder"`
 	// ID стикера. Отображается только для заказов в ПВЗ
-	WbStickerId *int32 `json:"wbStickerId,omitempty"`
+	WbStickerId int32 `json:"wbStickerId"`
 }
+
+type _OrderDBS OrderDBS
 
 // NewOrderDBS instantiates a new OrderDBS object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderDBS() *OrderDBS {
+func NewOrderDBS(address NullableOrderDBSAddress, deliveryType string, options OrderDBSOptions, orderUid string, groupId string, article string, colorCode string, rid interface{}, createdAt time.Time, skus []string, id int64, warehouseId int32, nmId int32, chrtId int32, scanPrice NullableInt32, price int32, convertedPrice int32, currencyCode int32, convertedCurrencyCode int32, convertedFinalPrice int32, finalPrice int32, cargoType int32, comment string, isZeroOrder bool, wbStickerId int32) *OrderDBS {
 	this := OrderDBS{}
+	this.Address = address
+	this.DeliveryType = deliveryType
+	this.Options = options
+	this.OrderUid = orderUid
+	this.GroupId = groupId
+	this.Article = article
+	this.ColorCode = colorCode
+	this.Rid = rid
+	this.CreatedAt = createdAt
+	this.Skus = skus
+	this.Id = id
+	this.WarehouseId = warehouseId
+	this.NmId = nmId
+	this.ChrtId = chrtId
+	this.ScanPrice = scanPrice
+	this.Price = price
+	this.ConvertedPrice = convertedPrice
+	this.CurrencyCode = currencyCode
+	this.ConvertedCurrencyCode = convertedCurrencyCode
+	this.ConvertedFinalPrice = convertedFinalPrice
+	this.FinalPrice = finalPrice
+	this.CargoType = cargoType
+	this.Comment = comment
+	this.IsZeroOrder = isZeroOrder
+	this.WbStickerId = wbStickerId
 	return &this
 }
 
@@ -87,16 +116,18 @@ func NewOrderDBSWithDefaults() *OrderDBS {
 	return &this
 }
 
-// GetAddress returns the Address field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAddress returns the Address field value
+// If the value is explicit nil, the zero value for OrderDBSAddress will be returned
 func (o *OrderDBS) GetAddress() OrderDBSAddress {
-	if o == nil || IsNil(o.Address.Get()) {
+	if o == nil || o.Address.Get() == nil {
 		var ret OrderDBSAddress
 		return ret
 	}
+
 	return *o.Address.Get()
 }
 
-// GetAddressOk returns a tuple with the Address field value if set, nil otherwise
+// GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrderDBS) GetAddressOk() (*OrderDBSAddress, bool) {
@@ -106,231 +137,167 @@ func (o *OrderDBS) GetAddressOk() (*OrderDBSAddress, bool) {
 	return o.Address.Get(), o.Address.IsSet()
 }
 
-// HasAddress returns a boolean if a field has been set.
-func (o *OrderDBS) HasAddress() bool {
-	if o != nil && o.Address.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAddress gets a reference to the given NullableOrderDBSAddress and assigns it to the Address field.
+// SetAddress sets field value
 func (o *OrderDBS) SetAddress(v OrderDBSAddress) {
 	o.Address.Set(&v)
 }
-// SetAddressNil sets the value for Address to be an explicit nil
-func (o *OrderDBS) SetAddressNil() {
-	o.Address.Set(nil)
-}
 
-// UnsetAddress ensures that no value is present for Address, not even an explicit nil
-func (o *OrderDBS) UnsetAddress() {
-	o.Address.Unset()
-}
-
-// GetDeliveryType returns the DeliveryType field value if set, zero value otherwise.
+// GetDeliveryType returns the DeliveryType field value
 func (o *OrderDBS) GetDeliveryType() string {
-	if o == nil || IsNil(o.DeliveryType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DeliveryType
+
+	return o.DeliveryType
 }
 
-// GetDeliveryTypeOk returns a tuple with the DeliveryType field value if set, nil otherwise
+// GetDeliveryTypeOk returns a tuple with the DeliveryType field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetDeliveryTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.DeliveryType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeliveryType, true
+	return &o.DeliveryType, true
 }
 
-// HasDeliveryType returns a boolean if a field has been set.
-func (o *OrderDBS) HasDeliveryType() bool {
-	if o != nil && !IsNil(o.DeliveryType) {
-		return true
-	}
-
-	return false
-}
-
-// SetDeliveryType gets a reference to the given string and assigns it to the DeliveryType field.
+// SetDeliveryType sets field value
 func (o *OrderDBS) SetDeliveryType(v string) {
-	o.DeliveryType = &v
+	o.DeliveryType = v
 }
 
-// GetOptions returns the Options field value if set, zero value otherwise.
-func (o *OrderDBS) GetOptions() OrderNewDBSOptions {
-	if o == nil || IsNil(o.Options) {
-		var ret OrderNewDBSOptions
+// GetOptions returns the Options field value
+func (o *OrderDBS) GetOptions() OrderDBSOptions {
+	if o == nil {
+		var ret OrderDBSOptions
 		return ret
 	}
-	return *o.Options
+
+	return o.Options
 }
 
-// GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
+// GetOptionsOk returns a tuple with the Options field value
 // and a boolean to check if the value has been set.
-func (o *OrderDBS) GetOptionsOk() (*OrderNewDBSOptions, bool) {
-	if o == nil || IsNil(o.Options) {
+func (o *OrderDBS) GetOptionsOk() (*OrderDBSOptions, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Options, true
+	return &o.Options, true
 }
 
-// HasOptions returns a boolean if a field has been set.
-func (o *OrderDBS) HasOptions() bool {
-	if o != nil && !IsNil(o.Options) {
-		return true
-	}
-
-	return false
+// SetOptions sets field value
+func (o *OrderDBS) SetOptions(v OrderDBSOptions) {
+	o.Options = v
 }
 
-// SetOptions gets a reference to the given OrderNewDBSOptions and assigns it to the Options field.
-func (o *OrderDBS) SetOptions(v OrderNewDBSOptions) {
-	o.Options = &v
-}
-
-// GetOrderUid returns the OrderUid field value if set, zero value otherwise.
+// GetOrderUid returns the OrderUid field value
 func (o *OrderDBS) GetOrderUid() string {
-	if o == nil || IsNil(o.OrderUid) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OrderUid
+
+	return o.OrderUid
 }
 
-// GetOrderUidOk returns a tuple with the OrderUid field value if set, nil otherwise
+// GetOrderUidOk returns a tuple with the OrderUid field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetOrderUidOk() (*string, bool) {
-	if o == nil || IsNil(o.OrderUid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderUid, true
+	return &o.OrderUid, true
 }
 
-// HasOrderUid returns a boolean if a field has been set.
-func (o *OrderDBS) HasOrderUid() bool {
-	if o != nil && !IsNil(o.OrderUid) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderUid gets a reference to the given string and assigns it to the OrderUid field.
+// SetOrderUid sets field value
 func (o *OrderDBS) SetOrderUid(v string) {
-	o.OrderUid = &v
+	o.OrderUid = v
 }
 
-// GetGroupId returns the GroupId field value if set, zero value otherwise.
+// GetGroupId returns the GroupId field value
 func (o *OrderDBS) GetGroupId() string {
-	if o == nil || IsNil(o.GroupId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.GroupId
+
+	return o.GroupId
 }
 
-// GetGroupIdOk returns a tuple with the GroupId field value if set, nil otherwise
+// GetGroupIdOk returns a tuple with the GroupId field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetGroupIdOk() (*string, bool) {
-	if o == nil || IsNil(o.GroupId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GroupId, true
+	return &o.GroupId, true
 }
 
-// HasGroupId returns a boolean if a field has been set.
-func (o *OrderDBS) HasGroupId() bool {
-	if o != nil && !IsNil(o.GroupId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGroupId gets a reference to the given string and assigns it to the GroupId field.
+// SetGroupId sets field value
 func (o *OrderDBS) SetGroupId(v string) {
-	o.GroupId = &v
+	o.GroupId = v
 }
 
-// GetArticle returns the Article field value if set, zero value otherwise.
+// GetArticle returns the Article field value
 func (o *OrderDBS) GetArticle() string {
-	if o == nil || IsNil(o.Article) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Article
+
+	return o.Article
 }
 
-// GetArticleOk returns a tuple with the Article field value if set, nil otherwise
+// GetArticleOk returns a tuple with the Article field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetArticleOk() (*string, bool) {
-	if o == nil || IsNil(o.Article) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Article, true
+	return &o.Article, true
 }
 
-// HasArticle returns a boolean if a field has been set.
-func (o *OrderDBS) HasArticle() bool {
-	if o != nil && !IsNil(o.Article) {
-		return true
-	}
-
-	return false
-}
-
-// SetArticle gets a reference to the given string and assigns it to the Article field.
+// SetArticle sets field value
 func (o *OrderDBS) SetArticle(v string) {
-	o.Article = &v
+	o.Article = v
 }
 
-// GetColorCode returns the ColorCode field value if set, zero value otherwise.
+// GetColorCode returns the ColorCode field value
 func (o *OrderDBS) GetColorCode() string {
-	if o == nil || IsNil(o.ColorCode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ColorCode
+
+	return o.ColorCode
 }
 
-// GetColorCodeOk returns a tuple with the ColorCode field value if set, nil otherwise
+// GetColorCodeOk returns a tuple with the ColorCode field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetColorCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.ColorCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ColorCode, true
+	return &o.ColorCode, true
 }
 
-// HasColorCode returns a boolean if a field has been set.
-func (o *OrderDBS) HasColorCode() bool {
-	if o != nil && !IsNil(o.ColorCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetColorCode gets a reference to the given string and assigns it to the ColorCode field.
+// SetColorCode sets field value
 func (o *OrderDBS) SetColorCode(v string) {
-	o.ColorCode = &v
+	o.ColorCode = v
 }
 
-// GetRid returns the Rid field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRid returns the Rid field value
+// If the value is explicit nil, the zero value for interface{} will be returned
 func (o *OrderDBS) GetRid() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
+
 	return o.Rid
 }
 
-// GetRidOk returns a tuple with the Rid field value if set, nil otherwise
+// GetRidOk returns a tuple with the Rid field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrderDBS) GetRidOk() (*interface{}, bool) {
@@ -340,222 +307,167 @@ func (o *OrderDBS) GetRidOk() (*interface{}, bool) {
 	return &o.Rid, true
 }
 
-// HasRid returns a boolean if a field has been set.
-func (o *OrderDBS) HasRid() bool {
-	if o != nil && !IsNil(o.Rid) {
-		return true
-	}
-
-	return false
-}
-
-// SetRid gets a reference to the given interface{} and assigns it to the Rid field.
+// SetRid sets field value
 func (o *OrderDBS) SetRid(v interface{}) {
 	o.Rid = v
 }
 
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+// GetCreatedAt returns the CreatedAt field value
 func (o *OrderDBS) GetCreatedAt() time.Time {
-	if o == nil || IsNil(o.CreatedAt) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedAt
+
+	return o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedAt, true
+	return &o.CreatedAt, true
 }
 
-// HasCreatedAt returns a boolean if a field has been set.
-func (o *OrderDBS) HasCreatedAt() bool {
-	if o != nil && !IsNil(o.CreatedAt) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
+// SetCreatedAt sets field value
 func (o *OrderDBS) SetCreatedAt(v time.Time) {
-	o.CreatedAt = &v
+	o.CreatedAt = v
 }
 
-// GetSkus returns the Skus field value if set, zero value otherwise.
+// GetSkus returns the Skus field value
 func (o *OrderDBS) GetSkus() []string {
-	if o == nil || IsNil(o.Skus) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.Skus
 }
 
-// GetSkusOk returns a tuple with the Skus field value if set, nil otherwise
+// GetSkusOk returns a tuple with the Skus field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetSkusOk() ([]string, bool) {
-	if o == nil || IsNil(o.Skus) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Skus, true
 }
 
-// HasSkus returns a boolean if a field has been set.
-func (o *OrderDBS) HasSkus() bool {
-	if o != nil && !IsNil(o.Skus) {
-		return true
-	}
-
-	return false
-}
-
-// SetSkus gets a reference to the given []string and assigns it to the Skus field.
+// SetSkus sets field value
 func (o *OrderDBS) SetSkus(v []string) {
 	o.Skus = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *OrderDBS) GetId() int64 {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *OrderDBS) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given int64 and assigns it to the Id field.
+// SetId sets field value
 func (o *OrderDBS) SetId(v int64) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetWarehouseId returns the WarehouseId field value if set, zero value otherwise.
+// GetWarehouseId returns the WarehouseId field value
 func (o *OrderDBS) GetWarehouseId() int32 {
-	if o == nil || IsNil(o.WarehouseId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.WarehouseId
+
+	return o.WarehouseId
 }
 
-// GetWarehouseIdOk returns a tuple with the WarehouseId field value if set, nil otherwise
+// GetWarehouseIdOk returns a tuple with the WarehouseId field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetWarehouseIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.WarehouseId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WarehouseId, true
+	return &o.WarehouseId, true
 }
 
-// HasWarehouseId returns a boolean if a field has been set.
-func (o *OrderDBS) HasWarehouseId() bool {
-	if o != nil && !IsNil(o.WarehouseId) {
-		return true
-	}
-
-	return false
-}
-
-// SetWarehouseId gets a reference to the given int32 and assigns it to the WarehouseId field.
+// SetWarehouseId sets field value
 func (o *OrderDBS) SetWarehouseId(v int32) {
-	o.WarehouseId = &v
+	o.WarehouseId = v
 }
 
-// GetNmId returns the NmId field value if set, zero value otherwise.
+// GetNmId returns the NmId field value
 func (o *OrderDBS) GetNmId() int32 {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NmId
+
+	return o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
+// GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetNmIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmId, true
+	return &o.NmId, true
 }
 
-// HasNmId returns a boolean if a field has been set.
-func (o *OrderDBS) HasNmId() bool {
-	if o != nil && !IsNil(o.NmId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
+// SetNmId sets field value
 func (o *OrderDBS) SetNmId(v int32) {
-	o.NmId = &v
+	o.NmId = v
 }
 
-// GetChrtId returns the ChrtId field value if set, zero value otherwise.
+// GetChrtId returns the ChrtId field value
 func (o *OrderDBS) GetChrtId() int32 {
-	if o == nil || IsNil(o.ChrtId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ChrtId
+
+	return o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
+// GetChrtIdOk returns a tuple with the ChrtId field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetChrtIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.ChrtId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ChrtId, true
+	return &o.ChrtId, true
 }
 
-// HasChrtId returns a boolean if a field has been set.
-func (o *OrderDBS) HasChrtId() bool {
-	if o != nil && !IsNil(o.ChrtId) {
-		return true
-	}
-
-	return false
-}
-
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
+// SetChrtId sets field value
 func (o *OrderDBS) SetChrtId(v int32) {
-	o.ChrtId = &v
+	o.ChrtId = v
 }
 
-// GetScanPrice returns the ScanPrice field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetScanPrice returns the ScanPrice field value
+// If the value is explicit nil, the zero value for int32 will be returned
 func (o *OrderDBS) GetScanPrice() int32 {
-	if o == nil || IsNil(o.ScanPrice.Get()) {
+	if o == nil || o.ScanPrice.Get() == nil {
 		var ret int32
 		return ret
 	}
+
 	return *o.ScanPrice.Get()
 }
 
-// GetScanPriceOk returns a tuple with the ScanPrice field value if set, nil otherwise
+// GetScanPriceOk returns a tuple with the ScanPrice field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrderDBS) GetScanPriceOk() (*int32, bool) {
@@ -565,347 +477,249 @@ func (o *OrderDBS) GetScanPriceOk() (*int32, bool) {
 	return o.ScanPrice.Get(), o.ScanPrice.IsSet()
 }
 
-// HasScanPrice returns a boolean if a field has been set.
-func (o *OrderDBS) HasScanPrice() bool {
-	if o != nil && o.ScanPrice.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetScanPrice gets a reference to the given NullableInt32 and assigns it to the ScanPrice field.
+// SetScanPrice sets field value
 func (o *OrderDBS) SetScanPrice(v int32) {
 	o.ScanPrice.Set(&v)
 }
-// SetScanPriceNil sets the value for ScanPrice to be an explicit nil
-func (o *OrderDBS) SetScanPriceNil() {
-	o.ScanPrice.Set(nil)
-}
 
-// UnsetScanPrice ensures that no value is present for ScanPrice, not even an explicit nil
-func (o *OrderDBS) UnsetScanPrice() {
-	o.ScanPrice.Unset()
-}
-
-// GetPrice returns the Price field value if set, zero value otherwise.
+// GetPrice returns the Price field value
 func (o *OrderDBS) GetPrice() int32 {
-	if o == nil || IsNil(o.Price) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Price
+
+	return o.Price
 }
 
-// GetPriceOk returns a tuple with the Price field value if set, nil otherwise
+// GetPriceOk returns a tuple with the Price field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetPriceOk() (*int32, bool) {
-	if o == nil || IsNil(o.Price) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Price, true
+	return &o.Price, true
 }
 
-// HasPrice returns a boolean if a field has been set.
-func (o *OrderDBS) HasPrice() bool {
-	if o != nil && !IsNil(o.Price) {
-		return true
-	}
-
-	return false
-}
-
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
+// SetPrice sets field value
 func (o *OrderDBS) SetPrice(v int32) {
-	o.Price = &v
+	o.Price = v
 }
 
-// GetConvertedPrice returns the ConvertedPrice field value if set, zero value otherwise.
+// GetConvertedPrice returns the ConvertedPrice field value
 func (o *OrderDBS) GetConvertedPrice() int32 {
-	if o == nil || IsNil(o.ConvertedPrice) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ConvertedPrice
+
+	return o.ConvertedPrice
 }
 
-// GetConvertedPriceOk returns a tuple with the ConvertedPrice field value if set, nil otherwise
+// GetConvertedPriceOk returns a tuple with the ConvertedPrice field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetConvertedPriceOk() (*int32, bool) {
-	if o == nil || IsNil(o.ConvertedPrice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConvertedPrice, true
+	return &o.ConvertedPrice, true
 }
 
-// HasConvertedPrice returns a boolean if a field has been set.
-func (o *OrderDBS) HasConvertedPrice() bool {
-	if o != nil && !IsNil(o.ConvertedPrice) {
-		return true
-	}
-
-	return false
-}
-
-// SetConvertedPrice gets a reference to the given int32 and assigns it to the ConvertedPrice field.
+// SetConvertedPrice sets field value
 func (o *OrderDBS) SetConvertedPrice(v int32) {
-	o.ConvertedPrice = &v
+	o.ConvertedPrice = v
 }
 
-// GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise.
+// GetCurrencyCode returns the CurrencyCode field value
 func (o *OrderDBS) GetCurrencyCode() int32 {
-	if o == nil || IsNil(o.CurrencyCode) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.CurrencyCode
+
+	return o.CurrencyCode
 }
 
-// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value if set, nil otherwise
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetCurrencyCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.CurrencyCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CurrencyCode, true
+	return &o.CurrencyCode, true
 }
 
-// HasCurrencyCode returns a boolean if a field has been set.
-func (o *OrderDBS) HasCurrencyCode() bool {
-	if o != nil && !IsNil(o.CurrencyCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetCurrencyCode gets a reference to the given int32 and assigns it to the CurrencyCode field.
+// SetCurrencyCode sets field value
 func (o *OrderDBS) SetCurrencyCode(v int32) {
-	o.CurrencyCode = &v
+	o.CurrencyCode = v
 }
 
-// GetConvertedCurrencyCode returns the ConvertedCurrencyCode field value if set, zero value otherwise.
+// GetConvertedCurrencyCode returns the ConvertedCurrencyCode field value
 func (o *OrderDBS) GetConvertedCurrencyCode() int32 {
-	if o == nil || IsNil(o.ConvertedCurrencyCode) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ConvertedCurrencyCode
+
+	return o.ConvertedCurrencyCode
 }
 
-// GetConvertedCurrencyCodeOk returns a tuple with the ConvertedCurrencyCode field value if set, nil otherwise
+// GetConvertedCurrencyCodeOk returns a tuple with the ConvertedCurrencyCode field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetConvertedCurrencyCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.ConvertedCurrencyCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConvertedCurrencyCode, true
+	return &o.ConvertedCurrencyCode, true
 }
 
-// HasConvertedCurrencyCode returns a boolean if a field has been set.
-func (o *OrderDBS) HasConvertedCurrencyCode() bool {
-	if o != nil && !IsNil(o.ConvertedCurrencyCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetConvertedCurrencyCode gets a reference to the given int32 and assigns it to the ConvertedCurrencyCode field.
+// SetConvertedCurrencyCode sets field value
 func (o *OrderDBS) SetConvertedCurrencyCode(v int32) {
-	o.ConvertedCurrencyCode = &v
+	o.ConvertedCurrencyCode = v
 }
 
-// GetConvertedFinalPrice returns the ConvertedFinalPrice field value if set, zero value otherwise.
+// GetConvertedFinalPrice returns the ConvertedFinalPrice field value
 func (o *OrderDBS) GetConvertedFinalPrice() int32 {
-	if o == nil || IsNil(o.ConvertedFinalPrice) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ConvertedFinalPrice
+
+	return o.ConvertedFinalPrice
 }
 
-// GetConvertedFinalPriceOk returns a tuple with the ConvertedFinalPrice field value if set, nil otherwise
+// GetConvertedFinalPriceOk returns a tuple with the ConvertedFinalPrice field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetConvertedFinalPriceOk() (*int32, bool) {
-	if o == nil || IsNil(o.ConvertedFinalPrice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConvertedFinalPrice, true
+	return &o.ConvertedFinalPrice, true
 }
 
-// HasConvertedFinalPrice returns a boolean if a field has been set.
-func (o *OrderDBS) HasConvertedFinalPrice() bool {
-	if o != nil && !IsNil(o.ConvertedFinalPrice) {
-		return true
-	}
-
-	return false
-}
-
-// SetConvertedFinalPrice gets a reference to the given int32 and assigns it to the ConvertedFinalPrice field.
+// SetConvertedFinalPrice sets field value
 func (o *OrderDBS) SetConvertedFinalPrice(v int32) {
-	o.ConvertedFinalPrice = &v
+	o.ConvertedFinalPrice = v
 }
 
-// GetFinalPrice returns the FinalPrice field value if set, zero value otherwise.
+// GetFinalPrice returns the FinalPrice field value
 func (o *OrderDBS) GetFinalPrice() int32 {
-	if o == nil || IsNil(o.FinalPrice) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FinalPrice
+
+	return o.FinalPrice
 }
 
-// GetFinalPriceOk returns a tuple with the FinalPrice field value if set, nil otherwise
+// GetFinalPriceOk returns a tuple with the FinalPrice field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetFinalPriceOk() (*int32, bool) {
-	if o == nil || IsNil(o.FinalPrice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FinalPrice, true
+	return &o.FinalPrice, true
 }
 
-// HasFinalPrice returns a boolean if a field has been set.
-func (o *OrderDBS) HasFinalPrice() bool {
-	if o != nil && !IsNil(o.FinalPrice) {
-		return true
-	}
-
-	return false
-}
-
-// SetFinalPrice gets a reference to the given int32 and assigns it to the FinalPrice field.
+// SetFinalPrice sets field value
 func (o *OrderDBS) SetFinalPrice(v int32) {
-	o.FinalPrice = &v
+	o.FinalPrice = v
 }
 
-// GetCargoType returns the CargoType field value if set, zero value otherwise.
+// GetCargoType returns the CargoType field value
 func (o *OrderDBS) GetCargoType() int32 {
-	if o == nil || IsNil(o.CargoType) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.CargoType
+
+	return o.CargoType
 }
 
-// GetCargoTypeOk returns a tuple with the CargoType field value if set, nil otherwise
+// GetCargoTypeOk returns a tuple with the CargoType field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetCargoTypeOk() (*int32, bool) {
-	if o == nil || IsNil(o.CargoType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CargoType, true
+	return &o.CargoType, true
 }
 
-// HasCargoType returns a boolean if a field has been set.
-func (o *OrderDBS) HasCargoType() bool {
-	if o != nil && !IsNil(o.CargoType) {
-		return true
-	}
-
-	return false
-}
-
-// SetCargoType gets a reference to the given int32 and assigns it to the CargoType field.
+// SetCargoType sets field value
 func (o *OrderDBS) SetCargoType(v int32) {
-	o.CargoType = &v
+	o.CargoType = v
 }
 
-// GetComment returns the Comment field value if set, zero value otherwise.
+// GetComment returns the Comment field value
 func (o *OrderDBS) GetComment() string {
-	if o == nil || IsNil(o.Comment) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Comment
+
+	return o.Comment
 }
 
-// GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
+// GetCommentOk returns a tuple with the Comment field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetCommentOk() (*string, bool) {
-	if o == nil || IsNil(o.Comment) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Comment, true
+	return &o.Comment, true
 }
 
-// HasComment returns a boolean if a field has been set.
-func (o *OrderDBS) HasComment() bool {
-	if o != nil && !IsNil(o.Comment) {
-		return true
-	}
-
-	return false
-}
-
-// SetComment gets a reference to the given string and assigns it to the Comment field.
+// SetComment sets field value
 func (o *OrderDBS) SetComment(v string) {
-	o.Comment = &v
+	o.Comment = v
 }
 
-// GetIsZeroOrder returns the IsZeroOrder field value if set, zero value otherwise.
+// GetIsZeroOrder returns the IsZeroOrder field value
 func (o *OrderDBS) GetIsZeroOrder() bool {
-	if o == nil || IsNil(o.IsZeroOrder) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsZeroOrder
+
+	return o.IsZeroOrder
 }
 
-// GetIsZeroOrderOk returns a tuple with the IsZeroOrder field value if set, nil otherwise
+// GetIsZeroOrderOk returns a tuple with the IsZeroOrder field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetIsZeroOrderOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsZeroOrder) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsZeroOrder, true
+	return &o.IsZeroOrder, true
 }
 
-// HasIsZeroOrder returns a boolean if a field has been set.
-func (o *OrderDBS) HasIsZeroOrder() bool {
-	if o != nil && !IsNil(o.IsZeroOrder) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsZeroOrder gets a reference to the given bool and assigns it to the IsZeroOrder field.
+// SetIsZeroOrder sets field value
 func (o *OrderDBS) SetIsZeroOrder(v bool) {
-	o.IsZeroOrder = &v
+	o.IsZeroOrder = v
 }
 
-// GetWbStickerId returns the WbStickerId field value if set, zero value otherwise.
+// GetWbStickerId returns the WbStickerId field value
 func (o *OrderDBS) GetWbStickerId() int32 {
-	if o == nil || IsNil(o.WbStickerId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.WbStickerId
+
+	return o.WbStickerId
 }
 
-// GetWbStickerIdOk returns a tuple with the WbStickerId field value if set, nil otherwise
+// GetWbStickerIdOk returns a tuple with the WbStickerId field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBS) GetWbStickerIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.WbStickerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WbStickerId, true
+	return &o.WbStickerId, true
 }
 
-// HasWbStickerId returns a boolean if a field has been set.
-func (o *OrderDBS) HasWbStickerId() bool {
-	if o != nil && !IsNil(o.WbStickerId) {
-		return true
-	}
-
-	return false
-}
-
-// SetWbStickerId gets a reference to the given int32 and assigns it to the WbStickerId field.
+// SetWbStickerId sets field value
 func (o *OrderDBS) SetWbStickerId(v int32) {
-	o.WbStickerId = &v
+	o.WbStickerId = v
 }
 
 func (o OrderDBS) MarshalJSON() ([]byte, error) {
@@ -918,82 +732,95 @@ func (o OrderDBS) MarshalJSON() ([]byte, error) {
 
 func (o OrderDBS) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Address.IsSet() {
-		toSerialize["address"] = o.Address.Get()
-	}
-	if !IsNil(o.DeliveryType) {
-		toSerialize["deliveryType"] = o.DeliveryType
-	}
-	if !IsNil(o.Options) {
-		toSerialize["options"] = o.Options
-	}
-	if !IsNil(o.OrderUid) {
-		toSerialize["orderUid"] = o.OrderUid
-	}
-	if !IsNil(o.GroupId) {
-		toSerialize["groupId"] = o.GroupId
-	}
-	if !IsNil(o.Article) {
-		toSerialize["article"] = o.Article
-	}
-	if !IsNil(o.ColorCode) {
-		toSerialize["colorCode"] = o.ColorCode
-	}
+	toSerialize["address"] = o.Address.Get()
+	toSerialize["deliveryType"] = o.DeliveryType
+	toSerialize["options"] = o.Options
+	toSerialize["orderUid"] = o.OrderUid
+	toSerialize["groupId"] = o.GroupId
+	toSerialize["article"] = o.Article
+	toSerialize["colorCode"] = o.ColorCode
 	if o.Rid != nil {
 		toSerialize["rid"] = o.Rid
 	}
-	if !IsNil(o.CreatedAt) {
-		toSerialize["createdAt"] = o.CreatedAt
-	}
-	if !IsNil(o.Skus) {
-		toSerialize["skus"] = o.Skus
-	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.WarehouseId) {
-		toSerialize["warehouseId"] = o.WarehouseId
-	}
-	if !IsNil(o.NmId) {
-		toSerialize["nmId"] = o.NmId
-	}
-	if !IsNil(o.ChrtId) {
-		toSerialize["chrtId"] = o.ChrtId
-	}
-	if o.ScanPrice.IsSet() {
-		toSerialize["scanPrice"] = o.ScanPrice.Get()
-	}
-	if !IsNil(o.Price) {
-		toSerialize["price"] = o.Price
-	}
-	if !IsNil(o.ConvertedPrice) {
-		toSerialize["convertedPrice"] = o.ConvertedPrice
-	}
-	if !IsNil(o.CurrencyCode) {
-		toSerialize["currencyCode"] = o.CurrencyCode
-	}
-	if !IsNil(o.ConvertedCurrencyCode) {
-		toSerialize["convertedCurrencyCode"] = o.ConvertedCurrencyCode
-	}
-	if !IsNil(o.ConvertedFinalPrice) {
-		toSerialize["convertedFinalPrice"] = o.ConvertedFinalPrice
-	}
-	if !IsNil(o.FinalPrice) {
-		toSerialize["finalPrice"] = o.FinalPrice
-	}
-	if !IsNil(o.CargoType) {
-		toSerialize["cargoType"] = o.CargoType
-	}
-	if !IsNil(o.Comment) {
-		toSerialize["comment"] = o.Comment
-	}
-	if !IsNil(o.IsZeroOrder) {
-		toSerialize["isZeroOrder"] = o.IsZeroOrder
-	}
-	if !IsNil(o.WbStickerId) {
-		toSerialize["wbStickerId"] = o.WbStickerId
-	}
+	toSerialize["createdAt"] = o.CreatedAt
+	toSerialize["skus"] = o.Skus
+	toSerialize["id"] = o.Id
+	toSerialize["warehouseId"] = o.WarehouseId
+	toSerialize["nmId"] = o.NmId
+	toSerialize["chrtId"] = o.ChrtId
+	toSerialize["scanPrice"] = o.ScanPrice.Get()
+	toSerialize["price"] = o.Price
+	toSerialize["convertedPrice"] = o.ConvertedPrice
+	toSerialize["currencyCode"] = o.CurrencyCode
+	toSerialize["convertedCurrencyCode"] = o.ConvertedCurrencyCode
+	toSerialize["convertedFinalPrice"] = o.ConvertedFinalPrice
+	toSerialize["finalPrice"] = o.FinalPrice
+	toSerialize["cargoType"] = o.CargoType
+	toSerialize["comment"] = o.Comment
+	toSerialize["isZeroOrder"] = o.IsZeroOrder
+	toSerialize["wbStickerId"] = o.WbStickerId
 	return toSerialize, nil
+}
+
+func (o *OrderDBS) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"address",
+		"deliveryType",
+		"options",
+		"orderUid",
+		"groupId",
+		"article",
+		"colorCode",
+		"rid",
+		"createdAt",
+		"skus",
+		"id",
+		"warehouseId",
+		"nmId",
+		"chrtId",
+		"scanPrice",
+		"price",
+		"convertedPrice",
+		"currencyCode",
+		"convertedCurrencyCode",
+		"convertedFinalPrice",
+		"finalPrice",
+		"cargoType",
+		"comment",
+		"isZeroOrder",
+		"wbStickerId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderDBS := _OrderDBS{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDBS)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderDBS(varOrderDBS)
+
+	return err
 }
 
 type NullableOrderDBS struct {

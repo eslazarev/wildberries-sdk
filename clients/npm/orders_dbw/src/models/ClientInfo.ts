@@ -24,53 +24,61 @@ export interface ClientInfo {
      * Пустое значение `""` указывает, что номер ещё не назначен
      * 
      */
-    replacementPhone?: string;
+    replacementPhone: string;
     /**
      * Номер телефона для связи с покупателем:
      *   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`
      *   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду
      * 
      */
-    phone?: string;
+    phone: string;
     /**
      * Имя покупателя
      */
-    firstName?: string;
+    firstName: string;
     /**
      * Полное имя покупателя, используется для оформления документов
      */
-    fullName?: string;
+    fullName: string;
     /**
      * Дополнительные номера телефонов для связи с покупателем. <br>
      * Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br>
      * Пустое значение означает, что номер не указан
      * 
      */
-    additionalPhones?: Array<string>;
+    additionalPhones: Array<string>;
     /**
      * Дополнительные добавочные коды. <br>
      * Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br>
      * Пустое значение указывает, коды ещё не назначены
      * 
      */
-    additionalPhoneCodes?: Array<number>;
+    additionalPhoneCodes: Array<number>;
     /**
      * ID сборочного задания
      */
-    orderId?: number;
+    orderId: number;
     /**
      * Добавочный код. <br>
      * Используйте, чтобы связаться с покупателем по номеру из `phone`.<br>
      * Если код не указан, вы можете связаться с покупателем без кода
      * 
      */
-    phoneCode?: number;
+    phoneCode: number;
 }
 
 /**
  * Check if a given object implements the ClientInfo interface.
  */
 export function instanceOfClientInfo(value: object): value is ClientInfo {
+    if (!('replacementPhone' in value) || value['replacementPhone'] === undefined) return false;
+    if (!('phone' in value) || value['phone'] === undefined) return false;
+    if (!('firstName' in value) || value['firstName'] === undefined) return false;
+    if (!('fullName' in value) || value['fullName'] === undefined) return false;
+    if (!('additionalPhones' in value) || value['additionalPhones'] === undefined) return false;
+    if (!('additionalPhoneCodes' in value) || value['additionalPhoneCodes'] === undefined) return false;
+    if (!('orderId' in value) || value['orderId'] === undefined) return false;
+    if (!('phoneCode' in value) || value['phoneCode'] === undefined) return false;
     return true;
 }
 
@@ -84,14 +92,14 @@ export function ClientInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'replacementPhone': json['replacementPhone'] == null ? undefined : json['replacementPhone'],
-        'phone': json['phone'] == null ? undefined : json['phone'],
-        'firstName': json['firstName'] == null ? undefined : json['firstName'],
-        'fullName': json['fullName'] == null ? undefined : json['fullName'],
-        'additionalPhones': json['additionalPhones'] == null ? undefined : json['additionalPhones'],
-        'additionalPhoneCodes': json['additionalPhoneCodes'] == null ? undefined : json['additionalPhoneCodes'],
-        'orderId': json['orderId'] == null ? undefined : json['orderId'],
-        'phoneCode': json['phoneCode'] == null ? undefined : json['phoneCode'],
+        'replacementPhone': json['replacementPhone'],
+        'phone': json['phone'],
+        'firstName': json['firstName'],
+        'fullName': json['fullName'],
+        'additionalPhones': json['additionalPhones'],
+        'additionalPhoneCodes': json['additionalPhoneCodes'],
+        'orderId': json['orderId'],
+        'phoneCode': json['phoneCode'],
     };
 }
 

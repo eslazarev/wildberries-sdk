@@ -30,13 +30,14 @@ export interface ClientInfoResp {
     /**
      * Информация о покупателях
      */
-    orders?: Array<ClientInfo>;
+    orders: Array<ClientInfo>;
 }
 
 /**
  * Check if a given object implements the ClientInfoResp interface.
  */
 export function instanceOfClientInfoResp(value: object): value is ClientInfoResp {
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function ClientInfoRespFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(ClientInfoFromJSON)),
+        'orders': ((json['orders'] as Array<any>).map(ClientInfoFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function ClientInfoRespToJSONTyped(value?: ClientInfoResp | null, ignoreD
 
     return {
         
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(ClientInfoToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(ClientInfoToJSON)),
     };
 }
 

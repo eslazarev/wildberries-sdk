@@ -281,6 +281,12 @@ class PostV3DbsOrdersStatusReceive200Response implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
+        if ($this->container['request_id'] === null) {
+            $invalidProperties[] = "'request_id' can't be null";
+        }
+        if ($this->container['results'] === null) {
+            $invalidProperties[] = "'results' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -299,7 +305,7 @@ class PostV3DbsOrdersStatusReceive200Response implements ModelInterface, ArrayAc
     /**
      * Gets request_id
      *
-     * @return string|null
+     * @return string
      */
     public function getRequestId()
     {
@@ -309,7 +315,7 @@ class PostV3DbsOrdersStatusReceive200Response implements ModelInterface, ArrayAc
     /**
      * Sets request_id
      *
-     * @param string|null $request_id Уникальный ID запроса
+     * @param string $request_id Уникальный ID запроса
      *
      * @return self
      */
@@ -326,7 +332,7 @@ class PostV3DbsOrdersStatusReceive200Response implements ModelInterface, ArrayAc
     /**
      * Gets results
      *
-     * @return \Wildberries\Sdk\Dbs\Model\PostV3DbsOrdersStatusReceive200ResponseResultsInner[]|null
+     * @return \Wildberries\Sdk\Dbs\Model\PostV3DbsOrdersStatusReceive200ResponseResultsInner[]
      */
     public function getResults()
     {
@@ -336,7 +342,7 @@ class PostV3DbsOrdersStatusReceive200Response implements ModelInterface, ArrayAc
     /**
      * Sets results
      *
-     * @param \Wildberries\Sdk\Dbs\Model\PostV3DbsOrdersStatusReceive200ResponseResultsInner[]|null $results results
+     * @param \Wildberries\Sdk\Dbs\Model\PostV3DbsOrdersStatusReceive200ResponseResultsInner[] $results results
      *
      * @return self
      */

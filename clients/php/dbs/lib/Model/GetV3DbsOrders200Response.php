@@ -281,6 +281,12 @@ class GetV3DbsOrders200Response implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
+        if ($this->container['next'] === null) {
+            $invalidProperties[] = "'next' can't be null";
+        }
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -299,7 +305,7 @@ class GetV3DbsOrders200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets next
      *
-     * @return int|null
+     * @return int
      */
     public function getNext()
     {
@@ -309,7 +315,7 @@ class GetV3DbsOrders200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets next
      *
-     * @param int|null $next Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
+     * @param int $next Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
      *
      * @return self
      */
@@ -326,7 +332,7 @@ class GetV3DbsOrders200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\Dbs\Model\OrderDBS[]|null
+     * @return \Wildberries\Sdk\Dbs\Model\OrderDBS[]
      */
     public function getOrders()
     {
@@ -336,7 +342,7 @@ class GetV3DbsOrders200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\Dbs\Model\OrderDBS[]|null $orders orders
+     * @param \Wildberries\Sdk\Dbs\Model\OrderDBS[] $orders orders
      *
      * @return self
      */

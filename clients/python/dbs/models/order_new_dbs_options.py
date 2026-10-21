@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,7 +27,7 @@ class OrderNewDBSOptions(BaseModel):
     """
     Опции заказа
     """ # noqa: E501
-    is_b2b: Optional[StrictBool] = Field(default=None, description="Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа ", alias="isB2b")
+    is_b2b: StrictBool = Field(description="Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа ", alias="isB2b")
     __properties: ClassVar[List[str]] = ["isB2b"]
 
     model_config = ConfigDict(

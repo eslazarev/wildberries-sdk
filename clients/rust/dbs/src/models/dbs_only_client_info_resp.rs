@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DbsOnlyClientInfoResp {
     /// Информация о покупателе
-    #[serde(rename = "orders", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub orders: Option<Option<Vec<models::DbsOnlyClientInfo>>>,
+    #[serde(rename = "orders", deserialize_with = "Option::deserialize")]
+    pub orders: Option<Vec<models::DbsOnlyClientInfo>>,
 }
 
 impl DbsOnlyClientInfoResp {
-    pub fn new() -> DbsOnlyClientInfoResp {
+    pub fn new(orders: Option<Vec<models::DbsOnlyClientInfo>>) -> DbsOnlyClientInfoResp {
         DbsOnlyClientInfoResp {
-            orders: None,
+            orders,
         }
     }
 }

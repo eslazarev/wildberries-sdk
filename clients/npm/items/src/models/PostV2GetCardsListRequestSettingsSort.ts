@@ -14,15 +14,15 @@
 
 import { mapValues } from '../runtime';
 /**
- * Параметр сортировки
+ * Сортировка по дате и времени изменения карточек товаров `updatedAt`
  * @export
  * @interface PostV2GetCardsListRequestSettingsSort
  */
 export interface PostV2GetCardsListRequestSettingsSort {
     /**
-     * Сортировать по полю `updatedAt`:
+     * Порядок сортировки:
      *   - `false` — по убыванию
-     *   -  `true` — по возрастанию
+     *   - `true` — по возрастанию
      * 
      */
     ascending?: boolean;

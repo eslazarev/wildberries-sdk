@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.orders_dbw.models.api_status_set_response import ApiStatusSetResponse
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class ApiStatusSetResponses(BaseModel):
     """
     ApiStatusSetResponses
     """ # noqa: E501
-    request_id: Optional[StrictStr] = Field(default=None, description="Уникальный ID запроса, содержащего ошибки.", alias="requestId")
+    request_id: StrictStr = Field(description="Уникальный ID запроса, содержащего ошибки.", alias="requestId")
     results: List[ApiStatusSetResponse]
     __properties: ClassVar[List[str]] = ["requestId", "results"]
 

@@ -30,17 +30,19 @@ export interface PostV3DbsOrdersStatusReceive200Response {
     /**
      * Уникальный ID запроса
      */
-    requestId?: string;
+    requestId: string;
     /**
      * 
      */
-    results?: Array<PostV3DbsOrdersStatusReceive200ResponseResultsInner>;
+    results: Array<PostV3DbsOrdersStatusReceive200ResponseResultsInner>;
 }
 
 /**
  * Check if a given object implements the PostV3DbsOrdersStatusReceive200Response interface.
  */
 export function instanceOfPostV3DbsOrdersStatusReceive200Response(value: object): value is PostV3DbsOrdersStatusReceive200Response {
+    if (!('requestId' in value) || value['requestId'] === undefined) return false;
+    if (!('results' in value) || value['results'] === undefined) return false;
     return true;
 }
 
@@ -54,8 +56,8 @@ export function PostV3DbsOrdersStatusReceive200ResponseFromJSONTyped(json: any, 
     }
     return {
         
-        'requestId': json['requestId'] == null ? undefined : json['requestId'],
-        'results': json['results'] == null ? undefined : ((json['results'] as Array<any>).map(PostV3DbsOrdersStatusReceive200ResponseResultsInnerFromJSON)),
+        'requestId': json['requestId'],
+        'results': ((json['results'] as Array<any>).map(PostV3DbsOrdersStatusReceive200ResponseResultsInnerFromJSON)),
     };
 }
 
@@ -71,7 +73,7 @@ export function PostV3DbsOrdersStatusReceive200ResponseToJSONTyped(value?: PostV
     return {
         
         'requestId': value['requestId'],
-        'results': value['results'] == null ? undefined : ((value['results'] as Array<any>).map(PostV3DbsOrdersStatusReceive200ResponseResultsInnerToJSON)),
+        'results': ((value['results'] as Array<any>).map(PostV3DbsOrdersStatusReceive200ResponseResultsInnerToJSON)),
     };
 }
 

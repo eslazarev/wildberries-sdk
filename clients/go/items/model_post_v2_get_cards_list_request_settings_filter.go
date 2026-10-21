@@ -19,7 +19,7 @@ var _ MappedNullable = &PostV2GetCardsListRequestSettingsFilter{}
 
 // PostV2GetCardsListRequestSettingsFilter Параметры фильтрации
 type PostV2GetCardsListRequestSettingsFilter struct {
-	// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](/release-notes?id=531) 
+	// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото 
 	WithPhoto *int32 `json:"withPhoto,omitempty"`
 	// Поиск по артикулу продавца, артикулу WB, баркоду
 	TextSearch *string `json:"textSearch,omitempty"`

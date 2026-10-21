@@ -3945,7 +3945,7 @@ components:
       type: object
     responseFeedbackQuestionErr:
       example:
-        data: "{}"
+        data: {}
         error: true
         errorText: errorText
         additionalErrors:
@@ -5239,7 +5239,7 @@ components:
       - $ref: "#/components/schemas/patchV1Questions_request_oneOf_1"
     patchV1Questions_200_response:
       example:
-        data: "{}"
+        data: {}
         error: true
         errorText: errorText
         additionalErrors:
@@ -6448,8 +6448,8 @@ components:
       - $ref: "#/components/schemas/openapi.SellerLimitsResponse"
       example:
         data:
-          subscription: "{}"
-          tariff: "{}"
+          subscription: {}
+          tariff: {}
     getV1SellerEvents_400_response:
       example:
         status: 5.637376656633329
@@ -7121,8 +7121,8 @@ components:
       type: object
     openapi_SellerLimitsResponse_data:
       example:
-        subscription: "{}"
-        tariff: "{}"
+        subscription: {}
+        tariff: {}
       properties:
         subscription:
           allOf:

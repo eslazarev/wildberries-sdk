@@ -17,19 +17,19 @@ pub struct PostV3DbsOrdersStatusReceive200ResponseResultsInner {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<models::PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner>>,
     /// Есть ли ошибки
-    #[serde(rename = "isError", skip_serializing_if = "Option::is_none")]
-    pub is_error: Option<bool>,
+    #[serde(rename = "isError")]
+    pub is_error: bool,
     /// ID сборочного задания с успешно обновлёнными данными
-    #[serde(rename = "orderId", skip_serializing_if = "Option::is_none")]
-    pub order_id: Option<i32>,
+    #[serde(rename = "orderId")]
+    pub order_id: i32,
 }
 
 impl PostV3DbsOrdersStatusReceive200ResponseResultsInner {
-    pub fn new() -> PostV3DbsOrdersStatusReceive200ResponseResultsInner {
+    pub fn new(is_error: bool, order_id: i32) -> PostV3DbsOrdersStatusReceive200ResponseResultsInner {
         PostV3DbsOrdersStatusReceive200ResponseResultsInner {
             errors: None,
-            is_error: None,
-            order_id: None,
+            is_error,
+            order_id,
         }
     }
 }

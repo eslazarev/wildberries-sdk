@@ -66,7 +66,8 @@ class ShippingPoint implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_types' => 'int[]',
         'latitude' => 'float',
         'longitude' => 'float',
-        'fulfillment' => 'bool'
+        'fulfillment' => 'bool',
+        'available' => 'bool'
     ];
 
     /**
@@ -85,7 +86,8 @@ class ShippingPoint implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_types' => null,
         'latitude' => null,
         'longitude' => null,
-        'fulfillment' => null
+        'fulfillment' => null,
+        'available' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class ShippingPoint implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_types' => false,
         'latitude' => false,
         'longitude' => false,
-        'fulfillment' => false
+        'fulfillment' => false,
+        'available' => false
     ];
 
     /**
@@ -199,7 +202,8 @@ class ShippingPoint implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_types' => 'cargoTypes',
         'latitude' => 'latitude',
         'longitude' => 'longitude',
-        'fulfillment' => 'fulfillment'
+        'fulfillment' => 'fulfillment',
+        'available' => 'available'
     ];
 
     /**
@@ -216,7 +220,8 @@ class ShippingPoint implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_types' => 'setCargoTypes',
         'latitude' => 'setLatitude',
         'longitude' => 'setLongitude',
-        'fulfillment' => 'setFulfillment'
+        'fulfillment' => 'setFulfillment',
+        'available' => 'setAvailable'
     ];
 
     /**
@@ -233,7 +238,8 @@ class ShippingPoint implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_types' => 'getCargoTypes',
         'latitude' => 'getLatitude',
         'longitude' => 'getLongitude',
-        'fulfillment' => 'getFulfillment'
+        'fulfillment' => 'getFulfillment',
+        'available' => 'getAvailable'
     ];
 
     /**
@@ -336,6 +342,7 @@ class ShippingPoint implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('latitude', $data ?? [], null);
         $this->setIfExists('longitude', $data ?? [], null);
         $this->setIfExists('fulfillment', $data ?? [], null);
+        $this->setIfExists('available', $data ?? [], null);
     }
 
     /**
@@ -400,6 +407,9 @@ class ShippingPoint implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['fulfillment'] === null) {
             $invalidProperties[] = "'fulfillment' can't be null";
+        }
+        if ($this->container['available'] === null) {
+            $invalidProperties[] = "'available' can't be null";
         }
         return $invalidProperties;
     }
@@ -674,6 +684,33 @@ class ShippingPoint implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable fulfillment cannot be null');
         }
         $this->container['fulfillment'] = $fulfillment;
+
+        return $this;
+    }
+
+    /**
+     * Gets available
+     *
+     * @return bool
+     */
+    public function getAvailable()
+    {
+        return $this->container['available'];
+    }
+
+    /**
+     * Sets available
+     *
+     * @param bool $available Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки
+     *
+     * @return self
+     */
+    public function setAvailable($available)
+    {
+        if (is_null($available)) {
+            throw new \InvalidArgumentException('non-nullable available cannot be null');
+        }
+        $this->container['available'] = $available;
 
         return $this;
     }

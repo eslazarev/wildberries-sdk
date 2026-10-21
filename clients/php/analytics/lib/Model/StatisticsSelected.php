@@ -843,7 +843,7 @@ class StatisticsSelected implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets localization_percent
      *
-     * @param int $localization_percent Локальные заказы в рамках одного региона. ]На данный момент](/release-notes?id=570) может быть только `100`
+     * @param int $localization_percent Локальные заказы в рамках одного региона. [На данный момент](/release-notes?id=570) может быть только `100`
      *
      * @return self
      */

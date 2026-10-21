@@ -16,7 +16,7 @@ use serde_repr::{Serialize_repr,Deserialize_repr};
 /// PostV2GetCardsListRequestSettingsFilter : Параметры фильтрации
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV2GetCardsListRequestSettingsFilter {
-    /// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](/release-notes?id=531) 
+    /// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото 
     #[serde(rename = "withPhoto", skip_serializing_if = "Option::is_none")]
     pub with_photo: Option<WithPhoto>,
     /// Поиск по артикулу продавца, артикулу WB, баркоду
@@ -53,7 +53,7 @@ impl PostV2GetCardsListRequestSettingsFilter {
         }
     }
 }
-/// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](/release-notes?id=531) 
+/// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото 
 #[repr(i64)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum WithPhoto {

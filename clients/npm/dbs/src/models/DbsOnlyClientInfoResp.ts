@@ -30,13 +30,14 @@ export interface DbsOnlyClientInfoResp {
     /**
      * Информация о покупателе
      */
-    orders?: Array<DbsOnlyClientInfo> | null;
+    orders: Array<DbsOnlyClientInfo> | null;
 }
 
 /**
  * Check if a given object implements the DbsOnlyClientInfoResp interface.
  */
 export function instanceOfDbsOnlyClientInfoResp(value: object): value is DbsOnlyClientInfoResp {
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function DbsOnlyClientInfoRespFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'orders': json['orders'] === undefined ? undefined : json['orders'] === null ? null : ((json['orders'] as Array<any>).map(DbsOnlyClientInfoFromJSON)),
+        'orders': (json['orders'] == null ? null : (json['orders'] as Array<any>).map(DbsOnlyClientInfoFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function DbsOnlyClientInfoRespToJSONTyped(value?: DbsOnlyClientInfoResp |
 
     return {
         
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(DbsOnlyClientInfoToJSON)),
+        'orders': (value['orders'] == null ? null : (value['orders'] as Array<any>).map(DbsOnlyClientInfoToJSON)),
     };
 }
 

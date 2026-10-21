@@ -27,15 +27,15 @@ class DeliveryDatesInfoRespOrdersInner(BaseModel):
     """
     DeliveryDatesInfoRespOrdersInner
     """ # noqa: E501
-    d_time_from: Optional[StrictStr] = Field(default=None, description="Актуальное время доставки \"с\"", alias="dTimeFrom", json_schema_extra={"examples": ["11:11"]})
-    d_time_to: Optional[StrictStr] = Field(default=None, description="Актуальное время доставки \"по\"", alias="dTimeTo", json_schema_extra={"examples": ["22:22"]})
-    d_time_from_old: Optional[StrictStr] = Field(default=None, description="Прежнее время доставки \"с\". Доступно первые сутки после изменения", alias="dTimeFromOld", json_schema_extra={"examples": ["12:30"]})
-    d_time_to_old: Optional[StrictStr] = Field(default=None, description="Прежнее время доставки \"по\". Доступно первые сутки после изменения", alias="dTimeToOld", json_schema_extra={"examples": ["22:30"]})
-    d_date_old: Optional[StrictStr] = Field(default=None, description="Прежняя дата доставки. Доступна первые сутки после изменения", alias="dDateOld", json_schema_extra={"examples": ["2025-01-28"]})
-    d_date: Optional[StrictStr] = Field(default=None, description="Актуальная дата доставки, указанная покупателем", alias="dDate", json_schema_extra={"examples": ["2026-01-26"]})
+    d_time_from: Optional[StrictStr] = Field(description="Актуальное время доставки \"с\"", alias="dTimeFrom", json_schema_extra={"examples": ["11:11"]})
+    d_time_to: Optional[StrictStr] = Field(description="Актуальное время доставки \"по\"", alias="dTimeTo", json_schema_extra={"examples": ["22:22"]})
+    d_time_from_old: Optional[StrictStr] = Field(description="Прежнее время доставки \"с\". Доступно первые сутки после изменения", alias="dTimeFromOld", json_schema_extra={"examples": ["12:30"]})
+    d_time_to_old: Optional[StrictStr] = Field(description="Прежнее время доставки \"по\". Доступно первые сутки после изменения", alias="dTimeToOld", json_schema_extra={"examples": ["22:30"]})
+    d_date_old: Optional[StrictStr] = Field(description="Прежняя дата доставки. Доступна первые сутки после изменения", alias="dDateOld", json_schema_extra={"examples": ["2025-01-28"]})
+    d_date: StrictStr = Field(description="Актуальная дата доставки, указанная покупателем", alias="dDate", json_schema_extra={"examples": ["2026-01-26"]})
     d_date_from: Optional[StrictStr] = Field(default=None, description="Не используется", alias="dDateFrom", json_schema_extra={"examples": [""]})
     d_date_to: Optional[StrictStr] = Field(default=None, description="Не используется", alias="dDateTo", json_schema_extra={"examples": [""]})
-    id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", json_schema_extra={"examples": [1234567890]})
+    id: StrictInt = Field(description="ID сборочного задания", json_schema_extra={"examples": [1234567890]})
     __properties: ClassVar[List[str]] = ["dTimeFrom", "dTimeTo", "dTimeFromOld", "dTimeToOld", "dDateOld", "dDate", "dDateFrom", "dDateTo", "id"]
 
     model_config = ConfigDict(

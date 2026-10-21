@@ -26,11 +26,11 @@ export interface PostV2GetCardsTrashRequestSettingsCursor {
     /**
      * Дата и время помещения в корзину
      */
-    trashedAt?: string;
+    trashedAt?: string | null;
     /**
      * Артикул WB, с которого надо запрашивать следующий список карточек товаров
      */
-    nmID?: number;
+    nmID?: number | null;
 }
 
 /**
@@ -51,8 +51,8 @@ export function PostV2GetCardsTrashRequestSettingsCursorFromJSONTyped(json: any,
     return {
         
         'limit': json['limit'] == null ? undefined : json['limit'],
-        'trashedAt': json['trashedAt'] == null ? undefined : json['trashedAt'],
-        'nmID': json['nmID'] == null ? undefined : json['nmID'],
+        'trashedAt': json['trashedAt'] === undefined ? undefined : json['trashedAt'] === null ? null : json['trashedAt'],
+        'nmID': json['nmID'] === undefined ? undefined : json['nmID'] === null ? null : json['nmID'],
     };
 }
 

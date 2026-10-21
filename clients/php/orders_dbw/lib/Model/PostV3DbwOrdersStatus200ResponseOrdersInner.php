@@ -288,6 +288,15 @@ class PostV3DbwOrdersStatus200ResponseOrdersInner implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['supplier_status'] === null) {
+            $invalidProperties[] = "'supplier_status' can't be null";
+        }
+        if ($this->container['wb_status'] === null) {
+            $invalidProperties[] = "'wb_status' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -306,7 +315,7 @@ class PostV3DbwOrdersStatus200ResponseOrdersInner implements ModelInterface, Arr
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -316,7 +325,7 @@ class PostV3DbwOrdersStatus200ResponseOrdersInner implements ModelInterface, Arr
     /**
      * Sets id
      *
-     * @param int|null $id ID сборочного задания
+     * @param int $id ID сборочного задания
      *
      * @return self
      */
@@ -333,7 +342,7 @@ class PostV3DbwOrdersStatus200ResponseOrdersInner implements ModelInterface, Arr
     /**
      * Gets supplier_status
      *
-     * @return string|null
+     * @return string
      */
     public function getSupplierStatus()
     {
@@ -343,7 +352,7 @@ class PostV3DbwOrdersStatus200ResponseOrdersInner implements ModelInterface, Arr
     /**
      * Sets supplier_status
      *
-     * @param string|null $supplier_status Статус сборочного задания, установленный продавцом
+     * @param string $supplier_status Статус сборочного задания, установленный продавцом
      *
      * @return self
      */
@@ -360,7 +369,7 @@ class PostV3DbwOrdersStatus200ResponseOrdersInner implements ModelInterface, Arr
     /**
      * Gets wb_status
      *
-     * @return string|null
+     * @return string
      */
     public function getWbStatus()
     {
@@ -370,7 +379,7 @@ class PostV3DbwOrdersStatus200ResponseOrdersInner implements ModelInterface, Arr
     /**
      * Sets wb_status
      *
-     * @param string|null $wb_status Статус сборочного задания в системе Wildberries
+     * @param string $wb_status Статус сборочного задания в системе Wildberries
      *
      * @return self
      */

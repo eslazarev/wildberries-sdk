@@ -30,13 +30,14 @@ export interface ApiOrderStatusesV2 {
     /**
      * Информация о статусах
      */
-    orders?: Array<ApiOrderStatusV2>;
+    orders: Array<ApiOrderStatusV2>;
 }
 
 /**
  * Check if a given object implements the ApiOrderStatusesV2 interface.
  */
 export function instanceOfApiOrderStatusesV2(value: object): value is ApiOrderStatusesV2 {
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function ApiOrderStatusesV2FromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(ApiOrderStatusV2FromJSON)),
+        'orders': ((json['orders'] as Array<any>).map(ApiOrderStatusV2FromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function ApiOrderStatusesV2ToJSONTyped(value?: ApiOrderStatusesV2 | null,
 
     return {
         
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(ApiOrderStatusV2ToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(ApiOrderStatusV2ToJSON)),
     };
 }
 

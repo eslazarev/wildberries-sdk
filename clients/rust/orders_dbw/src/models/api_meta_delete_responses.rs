@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiMetaDeleteResponses {
     /// Уникальный ID запроса. Отображается для ответов с ошибками
-    #[serde(rename = "requestId", skip_serializing_if = "Option::is_none")]
-    pub request_id: Option<String>,
+    #[serde(rename = "requestId")]
+    pub request_id: String,
     #[serde(rename = "results")]
     pub results: Vec<models::ApiMetaDeleteResponsesResultsInner>,
 }
 
 impl ApiMetaDeleteResponses {
-    pub fn new(results: Vec<models::ApiMetaDeleteResponsesResultsInner>) -> ApiMetaDeleteResponses {
+    pub fn new(request_id: String, results: Vec<models::ApiMetaDeleteResponsesResultsInner>) -> ApiMetaDeleteResponses {
         ApiMetaDeleteResponses {
-            request_id: None,
+            request_id,
             results,
         }
     }

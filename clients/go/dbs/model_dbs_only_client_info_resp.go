@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the DbsOnlyClientInfoResp type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &DbsOnlyClientInfoResp{}
 // DbsOnlyClientInfoResp struct for DbsOnlyClientInfoResp
 type DbsOnlyClientInfoResp struct {
 	// Информация о покупателе
-	Orders []DbsOnlyClientInfo `json:"orders,omitempty"`
+	Orders []DbsOnlyClientInfo `json:"orders"`
 }
+
+type _DbsOnlyClientInfoResp DbsOnlyClientInfoResp
 
 // NewDbsOnlyClientInfoResp instantiates a new DbsOnlyClientInfoResp object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDbsOnlyClientInfoResp() *DbsOnlyClientInfoResp {
+func NewDbsOnlyClientInfoResp(orders []DbsOnlyClientInfo) *DbsOnlyClientInfoResp {
 	this := DbsOnlyClientInfoResp{}
+	this.Orders = orders
 	return &this
 }
 
@@ -40,16 +45,18 @@ func NewDbsOnlyClientInfoRespWithDefaults() *DbsOnlyClientInfoResp {
 	return &this
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOrders returns the Orders field value
+// If the value is explicit nil, the zero value for []DbsOnlyClientInfo will be returned
 func (o *DbsOnlyClientInfoResp) GetOrders() []DbsOnlyClientInfo {
 	if o == nil {
 		var ret []DbsOnlyClientInfo
 		return ret
 	}
+
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
+// GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DbsOnlyClientInfoResp) GetOrdersOk() ([]DbsOnlyClientInfo, bool) {
@@ -59,16 +66,7 @@ func (o *DbsOnlyClientInfoResp) GetOrdersOk() ([]DbsOnlyClientInfo, bool) {
 	return o.Orders, true
 }
 
-// HasOrders returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfoResp) HasOrders() bool {
-	if o != nil && !IsNil(o.Orders) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrders gets a reference to the given []DbsOnlyClientInfo and assigns it to the Orders field.
+// SetOrders sets field value
 func (o *DbsOnlyClientInfoResp) SetOrders(v []DbsOnlyClientInfo) {
 	o.Orders = v
 }
@@ -87,6 +85,43 @@ func (o DbsOnlyClientInfoResp) ToMap() (map[string]interface{}, error) {
 		toSerialize["orders"] = o.Orders
 	}
 	return toSerialize, nil
+}
+
+func (o *DbsOnlyClientInfoResp) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"orders",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDbsOnlyClientInfoResp := _DbsOnlyClientInfoResp{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varDbsOnlyClientInfoResp)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DbsOnlyClientInfoResp(varDbsOnlyClientInfoResp)
+
+	return err
 }
 
 type NullableDbsOnlyClientInfoResp struct {

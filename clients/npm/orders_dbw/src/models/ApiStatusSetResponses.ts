@@ -30,7 +30,7 @@ export interface ApiStatusSetResponses {
     /**
      * Уникальный ID запроса, содержащего ошибки.
      */
-    requestId?: string;
+    requestId: string;
     /**
      * 
      */
@@ -41,6 +41,7 @@ export interface ApiStatusSetResponses {
  * Check if a given object implements the ApiStatusSetResponses interface.
  */
 export function instanceOfApiStatusSetResponses(value: object): value is ApiStatusSetResponses {
+    if (!('requestId' in value) || value['requestId'] === undefined) return false;
     if (!('results' in value) || value['results'] === undefined) return false;
     return true;
 }
@@ -55,7 +56,7 @@ export function ApiStatusSetResponsesFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'requestId': json['requestId'] == null ? undefined : json['requestId'],
+        'requestId': json['requestId'],
         'results': ((json['results'] as Array<any>).map(ApiStatusSetResponseFromJSON)),
     };
 }

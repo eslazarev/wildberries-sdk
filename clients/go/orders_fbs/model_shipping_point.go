@@ -39,6 +39,8 @@ type ShippingPoint struct {
 	Longitude float32 `json:"longitude"`
 	// Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна 
 	Fulfillment bool `json:"fulfillment"`
+	// Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки 
+	Available bool `json:"available"`
 }
 
 type _ShippingPoint ShippingPoint
@@ -47,7 +49,7 @@ type _ShippingPoint ShippingPoint
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewShippingPoint(id int64, name string, address string, city string, officeType string, cargoTypes []int32, latitude float32, longitude float32, fulfillment bool) *ShippingPoint {
+func NewShippingPoint(id int64, name string, address string, city string, officeType string, cargoTypes []int32, latitude float32, longitude float32, fulfillment bool, available bool) *ShippingPoint {
 	this := ShippingPoint{}
 	this.Id = id
 	this.Name = name
@@ -58,6 +60,7 @@ func NewShippingPoint(id int64, name string, address string, city string, office
 	this.Latitude = latitude
 	this.Longitude = longitude
 	this.Fulfillment = fulfillment
+	this.Available = available
 	return &this
 }
 
@@ -285,6 +288,30 @@ func (o *ShippingPoint) SetFulfillment(v bool) {
 	o.Fulfillment = v
 }
 
+// GetAvailable returns the Available field value
+func (o *ShippingPoint) GetAvailable() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Available
+}
+
+// GetAvailableOk returns a tuple with the Available field value
+// and a boolean to check if the value has been set.
+func (o *ShippingPoint) GetAvailableOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Available, true
+}
+
+// SetAvailable sets field value
+func (o *ShippingPoint) SetAvailable(v bool) {
+	o.Available = v
+}
+
 func (o ShippingPoint) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -304,6 +331,7 @@ func (o ShippingPoint) ToMap() (map[string]interface{}, error) {
 	toSerialize["latitude"] = o.Latitude
 	toSerialize["longitude"] = o.Longitude
 	toSerialize["fulfillment"] = o.Fulfillment
+	toSerialize["available"] = o.Available
 	return toSerialize, nil
 }
 
@@ -321,6 +349,7 @@ func (o *ShippingPoint) UnmarshalJSON(data []byte) (err error) {
 		"latitude",
 		"longitude",
 		"fulfillment",
+		"available",
 	}
 
 	allProperties := make(map[string]interface{})

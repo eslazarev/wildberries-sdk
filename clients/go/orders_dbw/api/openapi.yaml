@@ -2128,6 +2128,7 @@ components:
             $ref: "#/components/schemas/api.StatusSetResponse"
           type: array
       required:
+      - requestId
       - results
       type: object
     api.StatusSetResponse:
@@ -2185,6 +2186,7 @@ components:
             $ref: "#/components/schemas/api_MetaDeleteResponses_results_inner"
           type: array
       required:
+      - requestId
       - results
       type: object
     api.OrdersRequestV2:
@@ -2297,6 +2299,15 @@ components:
           example: 0
           nullable: false
           type: integer
+      required:
+      - additionalPhoneCodes
+      - additionalPhones
+      - firstName
+      - fullName
+      - orderId
+      - phone
+      - phoneCode
+      - replacementPhone
       type: object
     ClientInfoResp:
       example:
@@ -2329,10 +2340,12 @@ components:
           items:
             $ref: "#/components/schemas/ClientInfo"
           type: array
+      required:
+      - orders
       type: object
     OrderCourierInfo:
       example:
-        courierInfo: "{}"
+        courierInfo: {}
         orderID: 2876979713
       properties:
         courierInfo:
@@ -2344,19 +2357,24 @@ components:
           description: ID сборочного задания
           example: 2876979713
           type: integer
+      required:
+      - courierInfo
+      - orderID
       type: object
     OrderCourierInfoResp:
       example:
         orders:
-        - courierInfo: "{}"
+        - courierInfo: {}
           orderID: 2876979713
-        - courierInfo: "{}"
+        - courierInfo: {}
           orderID: 2876979713
       properties:
         orders:
           items:
             $ref: "#/components/schemas/OrderCourierInfo"
           type: array
+      required:
+      - orders
       type: object
     CourierContactsResponse:
       properties:
@@ -2384,6 +2402,10 @@ components:
           format: date-time
           nullable: true
           type: string
+      required:
+      - carNumber
+      - fullName
+      - phone
       type: object
     CourierInfo:
       properties:
@@ -2408,6 +2430,10 @@ components:
           format: date-time
           nullable: true
           type: string
+      required:
+      - contacts
+      - mustBeAssigned
+      - updatedAt
       type: object
     api.OrdersMetaDetailsResponse:
       example:
@@ -2444,6 +2470,7 @@ components:
             $ref: "#/components/schemas/api_OrdersMetaDetailsResponse_orders_inner"
           type: array
       required:
+      - orders
       - requestId
       type: object
     api.BatchError:
@@ -2475,7 +2502,7 @@ components:
       example:
         code: code
         message: message
-        data: "{}"
+        data: {}
       nullable: false
       properties:
         code:
@@ -2702,6 +2729,29 @@ components:
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           example: false
           type: boolean
+      required:
+      - address
+      - article
+      - cargoType
+      - chrtId
+      - colorCode
+      - comment
+      - convertedCurrencyCode
+      - convertedPrice
+      - createdAt
+      - currencyCode
+      - groupId
+      - id
+      - isZeroOrder
+      - nmId
+      - options
+      - orderUid
+      - price
+      - requiredMeta
+      - rid
+      - salePrice
+      - skus
+      - warehouseId
       type: object
     Order:
       example:
@@ -2861,6 +2911,27 @@ components:
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           example: false
           type: boolean
+      required:
+      - address
+      - article
+      - cargoType
+      - chrtId
+      - colorCode
+      - comment
+      - convertedCurrencyCode
+      - convertedPrice
+      - createdAt
+      - currencyCode
+      - groupId
+      - id
+      - isZeroOrder
+      - nmId
+      - options
+      - orderUid
+      - price
+      - rid
+      - skus
+      - warehouseId
       type: object
     DeliveryDatesInfoResp:
       example:
@@ -2884,6 +2955,8 @@ components:
           items:
             $ref: "#/components/schemas/DeliveryDatesInfoResp_orders_inner"
           type: array
+      required:
+      - orders
       type: object
     Response4XX:
       properties:
@@ -3103,7 +3176,7 @@ components:
       example:
         code: code
         message: message
-        data: "{}"
+        data: {}
         detail: detail
         origin: dbs-public-api
         requestId: f1787bd2d1fdс35d6f537316514у4a05
@@ -3143,6 +3216,10 @@ components:
           description: Статус сборочного задания в системе Wildberries
           nullable: false
           type: string
+      required:
+      - id
+      - supplierStatus
+      - wbStatus
       type: object
     postV3DbwOrdersStatus_200_response:
       example:
@@ -3159,6 +3236,8 @@ components:
             $ref: "#/components/schemas/postV3DbwOrdersStatus_200_response_orders_inner"
           nullable: false
           type: array
+      required:
+      - orders
       type: object
     postV3DbwOrdersStickers_request:
       properties:
@@ -3396,6 +3475,10 @@ components:
               - `filled` — Валидация пройдена
           example: sgtinIntroduced
           type: string
+      required:
+      - decision
+      - key
+      - value
       type: object
     api_OrdersMetaDetailsResponse_orders_inner:
       example:
@@ -3431,6 +3514,8 @@ components:
           type: array
       required:
       - isError
+      - metaDetails
+      - orderId
       type: object
     OrderNewDBW_address:
       description: Адрес покупателя для доставки
@@ -3515,6 +3600,14 @@ components:
           description: ID сборочного задания
           example: 1234567890
           type: integer
+      required:
+      - dDate
+      - dDateOld
+      - dTimeFrom
+      - dTimeFromOld
+      - dTimeTo
+      - dTimeToOld
+      - id
       type: object
   securitySchemes:
     HeaderApiKey:

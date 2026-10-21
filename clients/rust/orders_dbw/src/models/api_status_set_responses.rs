@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiStatusSetResponses {
     /// Уникальный ID запроса, содержащего ошибки.
-    #[serde(rename = "requestId", skip_serializing_if = "Option::is_none")]
-    pub request_id: Option<String>,
+    #[serde(rename = "requestId")]
+    pub request_id: String,
     #[serde(rename = "results")]
     pub results: Vec<models::ApiStatusSetResponse>,
 }
 
 impl ApiStatusSetResponses {
-    pub fn new(results: Vec<models::ApiStatusSetResponse>) -> ApiStatusSetResponses {
+    pub fn new(request_id: String, results: Vec<models::ApiStatusSetResponse>) -> ApiStatusSetResponses {
         ApiStatusSetResponses {
-            request_id: None,
+            request_id,
             results,
         }
     }

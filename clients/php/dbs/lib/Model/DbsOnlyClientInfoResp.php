@@ -274,6 +274,9 @@ class DbsOnlyClientInfoResp implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['orders'] === null && !$this->isNullableSetToNull('orders')) {
+            $invalidProperties[] = "'orders' is required";
+        }
         return $invalidProperties;
     }
 

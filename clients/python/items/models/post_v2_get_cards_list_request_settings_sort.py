@@ -25,9 +25,9 @@ from pydantic_core import to_jsonable_python
 
 class PostV2GetCardsListRequestSettingsSort(BaseModel):
     """
-    Параметр сортировки
+    Сортировка по дате и времени изменения карточек товаров `updatedAt`
     """ # noqa: E501
-    ascending: Optional[StrictBool] = Field(default=False, description="Сортировать по полю `updatedAt`:   - `false` — по убыванию   -  `true` — по возрастанию ")
+    ascending: Optional[StrictBool] = Field(default=False, description="Порядок сортировки:   - `false` — по убыванию   - `true` — по возрастанию ")
     __properties: ClassVar[List[str]] = ["ascending"]
 
     model_config = ConfigDict(

@@ -30,13 +30,13 @@ type ApiPostV1AnalyticsExciseReportRequest struct {
 	exciseReportRequest *ExciseReportRequest
 }
 
-// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiPostV1AnalyticsExciseReportRequest) DateFrom(dateFrom string) ApiPostV1AnalyticsExciseReportRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
-// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiPostV1AnalyticsExciseReportRequest) DateTo(dateTo string) ApiPostV1AnalyticsExciseReportRequest {
 	r.dateTo = &dateTo
 	return r

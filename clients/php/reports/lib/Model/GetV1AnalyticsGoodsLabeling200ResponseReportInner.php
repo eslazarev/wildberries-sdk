@@ -479,7 +479,7 @@ class GetV1AnalyticsGoodsLabeling200ResponseReportInner implements ModelInterfac
     /**
      * Sets shk_id
      *
-     * @param int|null $shk_id Штрихкод товара в WB
+     * @param int|null $shk_id Штрихкод
      *
      * @return self
      */

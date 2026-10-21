@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.dbs.models.api_orders_meta_details_response_orders_inner import ApiOrdersMetaDetailsResponseOrdersInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class ApiOrdersMetaDetailsResponse(BaseModel):
     ApiOrdersMetaDetailsResponse
     """ # noqa: E501
     request_id: StrictStr = Field(description="Уникальный ID запроса", alias="requestId", json_schema_extra={"examples": ["f1787bd2d1fdс35d6f537316514у4a05"]})
-    orders: Optional[List[ApiOrdersMetaDetailsResponseOrdersInner]] = Field(default=None, description="Идентификаторы маркировки сборочных заданий и статусы их валидации")
+    orders: List[ApiOrdersMetaDetailsResponseOrdersInner] = Field(description="Идентификаторы маркировки сборочных заданий и статусы их валидации")
     __properties: ClassVar[List[str]] = ["requestId", "orders"]
 
     model_config = ConfigDict(

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.173"
+__version__ = "0.1.174"
 
 # Define package exports
 __all__ = [
@@ -70,6 +70,7 @@ __all__ = [
     "GetV2ObjectAll403Response",
     "GetV2ObjectCharcsSubjectId200Response",
     "GetV2ObjectCharcsSubjectId200ResponseDataInner",
+    "GetV2ObjectCharcsSubjectId400Response",
     "GetV2ObjectParentAll200Response",
     "GetV2ObjectParentAll200ResponseDataInner",
     "GetV2ObjectParentAll401Response",
@@ -266,6 +267,7 @@ from wildberries_sdk.items.models.get_v2_object_all200_response_data_inner impor
 from wildberries_sdk.items.models.get_v2_object_all403_response import GetV2ObjectAll403Response as GetV2ObjectAll403Response
 from wildberries_sdk.items.models.get_v2_object_charcs_subject_id200_response import GetV2ObjectCharcsSubjectId200Response as GetV2ObjectCharcsSubjectId200Response
 from wildberries_sdk.items.models.get_v2_object_charcs_subject_id200_response_data_inner import GetV2ObjectCharcsSubjectId200ResponseDataInner as GetV2ObjectCharcsSubjectId200ResponseDataInner
+from wildberries_sdk.items.models.get_v2_object_charcs_subject_id400_response import GetV2ObjectCharcsSubjectId400Response as GetV2ObjectCharcsSubjectId400Response
 from wildberries_sdk.items.models.get_v2_object_parent_all200_response import GetV2ObjectParentAll200Response as GetV2ObjectParentAll200Response
 from wildberries_sdk.items.models.get_v2_object_parent_all200_response_data_inner import GetV2ObjectParentAll200ResponseDataInner as GetV2ObjectParentAll200ResponseDataInner
 from wildberries_sdk.items.models.get_v2_object_parent_all401_response import GetV2ObjectParentAll401Response as GetV2ObjectParentAll401Response

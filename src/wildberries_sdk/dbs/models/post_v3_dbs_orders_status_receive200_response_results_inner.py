@@ -29,8 +29,8 @@ class PostV3DbsOrdersStatusReceive200ResponseResultsInner(BaseModel):
     PostV3DbsOrdersStatusReceive200ResponseResultsInner
     """ # noqa: E501
     errors: Optional[List[PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner]] = Field(default=None, description="Детали ошибки")
-    is_error: Optional[StrictBool] = Field(default=None, description="Есть ли ошибки", alias="isError", json_schema_extra={"examples": [True]})
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания с успешно обновлёнными данными", alias="orderId", json_schema_extra={"examples": [123456]})
+    is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError", json_schema_extra={"examples": [True]})
+    order_id: StrictInt = Field(description="ID сборочного задания с успешно обновлёнными данными", alias="orderId", json_schema_extra={"examples": [123456]})
     __properties: ClassVar[List[str]] = ["errors", "isError", "orderId"]
 
     model_config = ConfigDict(

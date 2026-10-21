@@ -47,12 +47,10 @@ import {
 export interface PostV1AnalyticsExciseReportRequest {
     /**
      * Начало отчётного периода, `ГГГГ-ММ-ДД`
-     * 
      */
     dateFrom: string;
     /**
      * Конец отчётного периода, `ГГГГ-ММ-ДД`
-     * 
      */
     dateTo: string;
     /**

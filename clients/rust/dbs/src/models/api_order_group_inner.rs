@@ -14,30 +14,30 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrderGroupInner {
     /// ID группы сборочных заданий
-    #[serde(rename = "groupID", skip_serializing_if = "Option::is_none")]
-    pub group_id: Option<uuid::Uuid>,
+    #[serde(rename = "groupID")]
+    pub group_id: uuid::Uuid,
     /// Стоимость платной доставки в валюте продажи, умноженная на 100
-    #[serde(rename = "deliveryCost", skip_serializing_if = "Option::is_none")]
-    pub delivery_cost: Option<i32>,
+    #[serde(rename = "deliveryCost")]
+    pub delivery_cost: i32,
     /// Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.
-    #[serde(rename = "convertedDeliveryCost", skip_serializing_if = "Option::is_none")]
-    pub converted_delivery_cost: Option<i32>,
+    #[serde(rename = "convertedDeliveryCost")]
+    pub converted_delivery_cost: i32,
     /// Код валюты продажи
-    #[serde(rename = "currencyCode", skip_serializing_if = "Option::is_none")]
-    pub currency_code: Option<i32>,
+    #[serde(rename = "currencyCode")]
+    pub currency_code: i32,
     /// Код валюты страны продавца
-    #[serde(rename = "convertedCurrencyCode", skip_serializing_if = "Option::is_none")]
-    pub converted_currency_code: Option<i32>,
+    #[serde(rename = "convertedCurrencyCode")]
+    pub converted_currency_code: i32,
 }
 
 impl ApiOrderGroupInner {
-    pub fn new() -> ApiOrderGroupInner {
+    pub fn new(group_id: uuid::Uuid, delivery_cost: i32, converted_delivery_cost: i32, currency_code: i32, converted_currency_code: i32) -> ApiOrderGroupInner {
         ApiOrderGroupInner {
-            group_id: None,
-            delivery_cost: None,
-            converted_delivery_cost: None,
-            currency_code: None,
-            converted_currency_code: None,
+            group_id,
+            delivery_cost,
+            converted_delivery_cost,
+            currency_code,
+            converted_currency_code,
         }
     }
 }

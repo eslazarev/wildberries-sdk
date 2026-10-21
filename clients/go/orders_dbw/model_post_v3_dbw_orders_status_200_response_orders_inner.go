@@ -12,6 +12,8 @@ package orders_dbw
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PostV3DbwOrdersStatus200ResponseOrdersInner type satisfies the MappedNullable interface at compile time
@@ -20,19 +22,24 @@ var _ MappedNullable = &PostV3DbwOrdersStatus200ResponseOrdersInner{}
 // PostV3DbwOrdersStatus200ResponseOrdersInner struct for PostV3DbwOrdersStatus200ResponseOrdersInner
 type PostV3DbwOrdersStatus200ResponseOrdersInner struct {
 	// ID сборочного задания
-	Id *int64 `json:"id,omitempty"`
+	Id int64 `json:"id"`
 	// Статус сборочного задания, установленный продавцом
-	SupplierStatus *string `json:"supplierStatus,omitempty"`
+	SupplierStatus string `json:"supplierStatus"`
 	// Статус сборочного задания в системе Wildberries
-	WbStatus *string `json:"wbStatus,omitempty"`
+	WbStatus string `json:"wbStatus"`
 }
+
+type _PostV3DbwOrdersStatus200ResponseOrdersInner PostV3DbwOrdersStatus200ResponseOrdersInner
 
 // NewPostV3DbwOrdersStatus200ResponseOrdersInner instantiates a new PostV3DbwOrdersStatus200ResponseOrdersInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3DbwOrdersStatus200ResponseOrdersInner() *PostV3DbwOrdersStatus200ResponseOrdersInner {
+func NewPostV3DbwOrdersStatus200ResponseOrdersInner(id int64, supplierStatus string, wbStatus string) *PostV3DbwOrdersStatus200ResponseOrdersInner {
 	this := PostV3DbwOrdersStatus200ResponseOrdersInner{}
+	this.Id = id
+	this.SupplierStatus = supplierStatus
+	this.WbStatus = wbStatus
 	return &this
 }
 
@@ -44,100 +51,76 @@ func NewPostV3DbwOrdersStatus200ResponseOrdersInnerWithDefaults() *PostV3DbwOrde
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) GetId() int64 {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) GetIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given int64 and assigns it to the Id field.
+// SetId sets field value
 func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) SetId(v int64) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetSupplierStatus returns the SupplierStatus field value if set, zero value otherwise.
+// GetSupplierStatus returns the SupplierStatus field value
 func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) GetSupplierStatus() string {
-	if o == nil || IsNil(o.SupplierStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SupplierStatus
+
+	return o.SupplierStatus
 }
 
-// GetSupplierStatusOk returns a tuple with the SupplierStatus field value if set, nil otherwise
+// GetSupplierStatusOk returns a tuple with the SupplierStatus field value
 // and a boolean to check if the value has been set.
 func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) GetSupplierStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.SupplierStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SupplierStatus, true
+	return &o.SupplierStatus, true
 }
 
-// HasSupplierStatus returns a boolean if a field has been set.
-func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) HasSupplierStatus() bool {
-	if o != nil && !IsNil(o.SupplierStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetSupplierStatus gets a reference to the given string and assigns it to the SupplierStatus field.
+// SetSupplierStatus sets field value
 func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) SetSupplierStatus(v string) {
-	o.SupplierStatus = &v
+	o.SupplierStatus = v
 }
 
-// GetWbStatus returns the WbStatus field value if set, zero value otherwise.
+// GetWbStatus returns the WbStatus field value
 func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) GetWbStatus() string {
-	if o == nil || IsNil(o.WbStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WbStatus
+
+	return o.WbStatus
 }
 
-// GetWbStatusOk returns a tuple with the WbStatus field value if set, nil otherwise
+// GetWbStatusOk returns a tuple with the WbStatus field value
 // and a boolean to check if the value has been set.
 func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) GetWbStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.WbStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WbStatus, true
+	return &o.WbStatus, true
 }
 
-// HasWbStatus returns a boolean if a field has been set.
-func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) HasWbStatus() bool {
-	if o != nil && !IsNil(o.WbStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetWbStatus gets a reference to the given string and assigns it to the WbStatus field.
+// SetWbStatus sets field value
 func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) SetWbStatus(v string) {
-	o.WbStatus = &v
+	o.WbStatus = v
 }
 
 func (o PostV3DbwOrdersStatus200ResponseOrdersInner) MarshalJSON() ([]byte, error) {
@@ -150,16 +133,49 @@ func (o PostV3DbwOrdersStatus200ResponseOrdersInner) MarshalJSON() ([]byte, erro
 
 func (o PostV3DbwOrdersStatus200ResponseOrdersInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.SupplierStatus) {
-		toSerialize["supplierStatus"] = o.SupplierStatus
-	}
-	if !IsNil(o.WbStatus) {
-		toSerialize["wbStatus"] = o.WbStatus
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["supplierStatus"] = o.SupplierStatus
+	toSerialize["wbStatus"] = o.WbStatus
 	return toSerialize, nil
+}
+
+func (o *PostV3DbwOrdersStatus200ResponseOrdersInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"supplierStatus",
+		"wbStatus",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPostV3DbwOrdersStatus200ResponseOrdersInner := _PostV3DbwOrdersStatus200ResponseOrdersInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPostV3DbwOrdersStatus200ResponseOrdersInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostV3DbwOrdersStatus200ResponseOrdersInner(varPostV3DbwOrdersStatus200ResponseOrdersInner)
+
+	return err
 }
 
 type NullablePostV3DbwOrdersStatus200ResponseOrdersInner struct {

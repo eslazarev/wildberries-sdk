@@ -30,7 +30,7 @@ export interface ApiMetaDeleteResponses {
     /**
      * Уникальный ID запроса. Отображается для ответов с ошибками
      */
-    requestId?: string;
+    requestId: string;
     /**
      * 
      */
@@ -41,6 +41,7 @@ export interface ApiMetaDeleteResponses {
  * Check if a given object implements the ApiMetaDeleteResponses interface.
  */
 export function instanceOfApiMetaDeleteResponses(value: object): value is ApiMetaDeleteResponses {
+    if (!('requestId' in value) || value['requestId'] === undefined) return false;
     if (!('results' in value) || value['results'] === undefined) return false;
     return true;
 }
@@ -55,7 +56,7 @@ export function ApiMetaDeleteResponsesFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'requestId': json['requestId'] == null ? undefined : json['requestId'],
+        'requestId': json['requestId'],
         'results': ((json['results'] as Array<any>).map(ApiMetaDeleteResponsesResultsInnerFromJSON)),
     };
 }

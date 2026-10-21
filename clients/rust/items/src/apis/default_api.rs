@@ -258,7 +258,7 @@ pub enum GetV2ObjectAllError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetV2ObjectCharcsSubjectIdError {
-    Status400(models::ResponseBodyContentError400),
+    Status400(models::GetV2ObjectCharcsSubjectId400Response),
     Status401(models::GetV2ObjectParentAll401Response),
     Status403(models::ResponseBodyContentError403),
     Status429(models::GetV2ObjectParentAll401Response),
@@ -3149,7 +3149,7 @@ pub async fn post_v3_warehouses(configuration: &configuration::Configuration, po
     }
 }
 
-/// Метод обновляет список контактов [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  <div class=\"description_important\">   Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять. </div>  Только для складов с типом доставки `3` — Деливери WB (DBW). <br><br> К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод обновляет список контактов [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).  <div class=\"description_important\">   Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять </div>  Только для складов с типом доставки `3` — Деливери WB ([DBW](/openapi/orders-dbw)). <br><br> К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn put_v3_dbw_warehouses_warehouse_id_contacts(configuration: &configuration::Configuration, warehouse_id: i64, store_contact_request_body: models::StoreContactRequestBody) -> Result<(), Error<PutV3DbwWarehousesWarehouseIdContactsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_warehouse_id = warehouse_id;

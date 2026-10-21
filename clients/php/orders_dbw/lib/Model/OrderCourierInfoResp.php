@@ -274,6 +274,9 @@ class OrderCourierInfoResp implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class OrderCourierInfoResp implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\OrdersDbw\Model\OrderCourierInfo[]|null
+     * @return \Wildberries\Sdk\OrdersDbw\Model\OrderCourierInfo[]
      */
     public function getOrders()
     {
@@ -302,7 +305,7 @@ class OrderCourierInfoResp implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\OrdersDbw\Model\OrderCourierInfo[]|null $orders orders
+     * @param \Wildberries\Sdk\OrdersDbw\Model\OrderCourierInfo[] $orders orders
      *
      * @return self
      */

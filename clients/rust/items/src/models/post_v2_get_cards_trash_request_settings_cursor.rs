@@ -18,11 +18,11 @@ pub struct PostV2GetCardsTrashRequestSettingsCursor {
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
     pub limit: Option<i32>,
     /// Дата и время помещения в корзину
-    #[serde(rename = "trashedAt", skip_serializing_if = "Option::is_none")]
-    pub trashed_at: Option<String>,
+    #[serde(rename = "trashedAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub trashed_at: Option<Option<String>>,
     /// Артикул WB, с которого надо запрашивать следующий список карточек товаров
-    #[serde(rename = "nmID", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
+    #[serde(rename = "nmID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub nm_id: Option<Option<i32>>,
 }
 
 impl PostV2GetCardsTrashRequestSettingsCursor {

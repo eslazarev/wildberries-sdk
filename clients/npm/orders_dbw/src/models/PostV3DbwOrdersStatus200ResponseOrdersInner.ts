@@ -22,21 +22,24 @@ export interface PostV3DbwOrdersStatus200ResponseOrdersInner {
     /**
      * ID сборочного задания
      */
-    id?: number;
+    id: number;
     /**
      * Статус сборочного задания, установленный продавцом
      */
-    supplierStatus?: string;
+    supplierStatus: string;
     /**
      * Статус сборочного задания в системе Wildberries
      */
-    wbStatus?: string;
+    wbStatus: string;
 }
 
 /**
  * Check if a given object implements the PostV3DbwOrdersStatus200ResponseOrdersInner interface.
  */
 export function instanceOfPostV3DbwOrdersStatus200ResponseOrdersInner(value: object): value is PostV3DbwOrdersStatus200ResponseOrdersInner {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('supplierStatus' in value) || value['supplierStatus'] === undefined) return false;
+    if (!('wbStatus' in value) || value['wbStatus'] === undefined) return false;
     return true;
 }
 
@@ -50,9 +53,9 @@ export function PostV3DbwOrdersStatus200ResponseOrdersInnerFromJSONTyped(json: a
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
-        'supplierStatus': json['supplierStatus'] == null ? undefined : json['supplierStatus'],
-        'wbStatus': json['wbStatus'] == null ? undefined : json['wbStatus'],
+        'id': json['id'],
+        'supplierStatus': json['supplierStatus'],
+        'wbStatus': json['wbStatus'],
     };
 }
 

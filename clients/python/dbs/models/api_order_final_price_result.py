@@ -32,7 +32,7 @@ class ApiOrderFinalPriceResult(BaseModel):
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
     data: Optional[ApiOrderFinalPriceResultData] = None
     errors: Optional[List[ApiBatchErrorFinalPriceResponse]] = Field(default=None, description="Детали ошибки")
-    is_error: Optional[StrictBool] = Field(default=None, description="Есть ли ошибки", alias="isError")
+    is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError")
     __properties: ClassVar[List[str]] = ["orderId", "data", "errors", "isError"]
 
     model_config = ConfigDict(

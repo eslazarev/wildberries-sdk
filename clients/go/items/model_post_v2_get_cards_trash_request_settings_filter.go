@@ -20,7 +20,7 @@ var _ MappedNullable = &PostV2GetCardsTrashRequestSettingsFilter{}
 // PostV2GetCardsTrashRequestSettingsFilter Параметры фильтрации
 type PostV2GetCardsTrashRequestSettingsFilter struct {
 	// Поиск по артикулу продавца, артикулу WB, баркоду
-	TextSearch *string `json:"textSearch,omitempty"`
+	TextSearch NullableString `json:"textSearch,omitempty"`
 }
 
 // NewPostV2GetCardsTrashRequestSettingsFilter instantiates a new PostV2GetCardsTrashRequestSettingsFilter object
@@ -40,36 +40,46 @@ func NewPostV2GetCardsTrashRequestSettingsFilterWithDefaults() *PostV2GetCardsTr
 	return &this
 }
 
-// GetTextSearch returns the TextSearch field value if set, zero value otherwise.
+// GetTextSearch returns the TextSearch field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostV2GetCardsTrashRequestSettingsFilter) GetTextSearch() string {
-	if o == nil || IsNil(o.TextSearch) {
+	if o == nil || IsNil(o.TextSearch.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TextSearch
+	return *o.TextSearch.Get()
 }
 
 // GetTextSearchOk returns a tuple with the TextSearch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostV2GetCardsTrashRequestSettingsFilter) GetTextSearchOk() (*string, bool) {
-	if o == nil || IsNil(o.TextSearch) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TextSearch, true
+	return o.TextSearch.Get(), o.TextSearch.IsSet()
 }
 
 // HasTextSearch returns a boolean if a field has been set.
 func (o *PostV2GetCardsTrashRequestSettingsFilter) HasTextSearch() bool {
-	if o != nil && !IsNil(o.TextSearch) {
+	if o != nil && o.TextSearch.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTextSearch gets a reference to the given string and assigns it to the TextSearch field.
+// SetTextSearch gets a reference to the given NullableString and assigns it to the TextSearch field.
 func (o *PostV2GetCardsTrashRequestSettingsFilter) SetTextSearch(v string) {
-	o.TextSearch = &v
+	o.TextSearch.Set(&v)
+}
+// SetTextSearchNil sets the value for TextSearch to be an explicit nil
+func (o *PostV2GetCardsTrashRequestSettingsFilter) SetTextSearchNil() {
+	o.TextSearch.Set(nil)
+}
+
+// UnsetTextSearch ensures that no value is present for TextSearch, not even an explicit nil
+func (o *PostV2GetCardsTrashRequestSettingsFilter) UnsetTextSearch() {
+	o.TextSearch.Unset()
 }
 
 func (o PostV2GetCardsTrashRequestSettingsFilter) MarshalJSON() ([]byte, error) {
@@ -82,8 +92,8 @@ func (o PostV2GetCardsTrashRequestSettingsFilter) MarshalJSON() ([]byte, error) 
 
 func (o PostV2GetCardsTrashRequestSettingsFilter) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TextSearch) {
-		toSerialize["textSearch"] = o.TextSearch
+	if o.TextSearch.IsSet() {
+		toSerialize["textSearch"] = o.TextSearch.Get()
 	}
 	return toSerialize, nil
 }

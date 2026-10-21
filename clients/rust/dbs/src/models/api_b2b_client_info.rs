@@ -15,23 +15,23 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiB2bClientInfo {
     /// Индивидуальный номер налогоплательщика (ИНН)
-    #[serde(rename = "inn", skip_serializing_if = "Option::is_none")]
-    pub inn: Option<String>,
+    #[serde(rename = "inn")]
+    pub inn: String,
     /// Код причины постановки на учёт (КПП)
-    #[serde(rename = "kpp", skip_serializing_if = "Option::is_none")]
-    pub kpp: Option<String>,
+    #[serde(rename = "kpp")]
+    pub kpp: String,
     /// Наименование организации
-    #[serde(rename = "orgName", skip_serializing_if = "Option::is_none")]
-    pub org_name: Option<String>,
+    #[serde(rename = "orgName")]
+    pub org_name: String,
 }
 
 impl ApiB2bClientInfo {
     /// Данные покупателя B2B
-    pub fn new() -> ApiB2bClientInfo {
+    pub fn new(inn: String, kpp: String, org_name: String) -> ApiB2bClientInfo {
         ApiB2bClientInfo {
-            inn: None,
-            kpp: None,
-            org_name: None,
+            inn,
+            kpp,
+            org_name,
         }
     }
 }

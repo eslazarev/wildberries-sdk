@@ -17,19 +17,19 @@ pub struct ApiStatusSetResponse {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<models::ApiBatchErrorResponse>>,
     /// Есть ли ошибки
-    #[serde(rename = "isError", skip_serializing_if = "Option::is_none")]
-    pub is_error: Option<bool>,
+    #[serde(rename = "isError")]
+    pub is_error: bool,
     /// ID сборочного задания с успешно обновлёнными данными
-    #[serde(rename = "orderId", skip_serializing_if = "Option::is_none")]
-    pub order_id: Option<i32>,
+    #[serde(rename = "orderId")]
+    pub order_id: i32,
 }
 
 impl ApiStatusSetResponse {
-    pub fn new() -> ApiStatusSetResponse {
+    pub fn new(is_error: bool, order_id: i32) -> ApiStatusSetResponse {
         ApiStatusSetResponse {
             errors: None,
-            is_error: None,
-            order_id: None,
+            is_error,
+            order_id,
         }
     }
 }

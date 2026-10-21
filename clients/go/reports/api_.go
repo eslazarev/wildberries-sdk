@@ -31,13 +31,13 @@ type ApiGetV1AcceptanceReportRequest struct {
 	dateTo *string
 }
 
-// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AcceptanceReportRequest) DateFrom(dateFrom string) ApiGetV1AcceptanceReportRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
-// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AcceptanceReportRequest) DateTo(dateTo string) ApiGetV1AcceptanceReportRequest {
 	r.dateTo = &dateTo
 	return r
@@ -613,7 +613,7 @@ type ApiGetV1AnalyticsAntifraudDetailsRequest struct {
 	date *string
 }
 
-// Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. &lt;br/&gt; Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр 
+// Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;.&lt;br&gt;Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр
 func (r ApiGetV1AnalyticsAntifraudDetailsRequest) Date(date string) ApiGetV1AnalyticsAntifraudDetailsRequest {
 	r.date = &date
 	return r
@@ -1024,13 +1024,13 @@ func (r ApiGetV1AnalyticsBrandShareRequest) Brand(brand string) ApiGetV1Analytic
 	return r
 }
 
-// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AnalyticsBrandShareRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsBrandShareRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
-// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AnalyticsBrandShareRequest) DateTo(dateTo string) ApiGetV1AnalyticsBrandShareRequest {
 	r.dateTo = &dateTo
 	return r
@@ -1417,13 +1417,13 @@ func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) Brand(brand string) Ap
 	return r
 }
 
-// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsBrandShareParentSubjectsRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
-// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) DateTo(dateTo string) ApiGetV1AnalyticsBrandShareParentSubjectsRequest {
 	r.dateTo = &dateTo
 	return r
@@ -1638,13 +1638,13 @@ type ApiGetV1AnalyticsGoodsLabelingRequest struct {
 	dateTo *string
 }
 
-// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AnalyticsGoodsLabelingRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsGoodsLabelingRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
-// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AnalyticsGoodsLabelingRequest) DateTo(dateTo string) ApiGetV1AnalyticsGoodsLabelingRequest {
 	r.dateTo = &dateTo
 	return r
@@ -2037,13 +2037,13 @@ type ApiGetV1AnalyticsRegionSaleRequest struct {
 	dateTo *string
 }
 
-// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AnalyticsRegionSaleRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsRegionSaleRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
-// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiGetV1AnalyticsRegionSaleRequest) DateTo(dateTo string) ApiGetV1AnalyticsRegionSaleRequest {
 	r.dateTo = &dateTo
 	return r
@@ -3515,7 +3515,7 @@ func (r ApiGetV1SupplierOrdersRequest) DateFrom(dateFrom string) ApiGetV1Supplie
 	return r
 }
 
-// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
+// Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60;
 func (r ApiGetV1SupplierOrdersRequest) Flag(flag int32) ApiGetV1SupplierOrdersRequest {
 	r.flag = &flag
 	return r
@@ -3735,7 +3735,7 @@ func (r ApiGetV1SupplierSalesRequest) DateFrom(dateFrom string) ApiGetV1Supplier
 	return r
 }
 
-// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
+// Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60;
 func (r ApiGetV1SupplierSalesRequest) Flag(flag int32) ApiGetV1SupplierSalesRequest {
 	r.flag = &flag
 	return r

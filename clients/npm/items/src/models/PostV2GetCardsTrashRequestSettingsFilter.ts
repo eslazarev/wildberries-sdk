@@ -22,7 +22,7 @@ export interface PostV2GetCardsTrashRequestSettingsFilter {
     /**
      * Поиск по артикулу продавца, артикулу WB, баркоду
      */
-    textSearch?: string;
+    textSearch?: string | null;
 }
 
 /**
@@ -42,7 +42,7 @@ export function PostV2GetCardsTrashRequestSettingsFilterFromJSONTyped(json: any,
     }
     return {
         
-        'textSearch': json['textSearch'] == null ? undefined : json['textSearch'],
+        'textSearch': json['textSearch'] === undefined ? undefined : json['textSearch'] === null ? null : json['textSearch'],
     };
 }
 

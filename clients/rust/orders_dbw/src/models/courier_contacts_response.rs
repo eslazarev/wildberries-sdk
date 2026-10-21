@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CourierContactsResponse {
     /// Номер автомобиля
-    #[serde(rename = "carNumber", skip_serializing_if = "Option::is_none")]
-    pub car_number: Option<String>,
+    #[serde(rename = "carNumber")]
+    pub car_number: String,
     /// ФИО курьера
-    #[serde(rename = "fullName", skip_serializing_if = "Option::is_none")]
-    pub full_name: Option<String>,
+    #[serde(rename = "fullName")]
+    pub full_name: String,
     /// Номер телефона
-    #[serde(rename = "phone", skip_serializing_if = "Option::is_none")]
-    pub phone: Option<String>,
+    #[serde(rename = "phone")]
+    pub phone: String,
     /// Дата и время, с которого прибудет курьер
     #[serde(rename = "pTimeFrom", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub p_time_from: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
@@ -31,11 +31,11 @@ pub struct CourierContactsResponse {
 }
 
 impl CourierContactsResponse {
-    pub fn new() -> CourierContactsResponse {
+    pub fn new(car_number: String, full_name: String, phone: String) -> CourierContactsResponse {
         CourierContactsResponse {
-            car_number: None,
-            full_name: None,
-            phone: None,
+            car_number,
+            full_name,
+            phone,
             p_time_from: None,
             p_time_to: None,
         }

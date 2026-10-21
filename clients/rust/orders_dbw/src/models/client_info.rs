@@ -14,42 +14,42 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClientInfo {
     /// Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен 
-    #[serde(rename = "replacementPhone", skip_serializing_if = "Option::is_none")]
-    pub replacement_phone: Option<String>,
+    #[serde(rename = "replacementPhone")]
+    pub replacement_phone: String,
     /// Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду 
-    #[serde(rename = "phone", skip_serializing_if = "Option::is_none")]
-    pub phone: Option<String>,
+    #[serde(rename = "phone")]
+    pub phone: String,
     /// Имя покупателя
-    #[serde(rename = "firstName", skip_serializing_if = "Option::is_none")]
-    pub first_name: Option<String>,
+    #[serde(rename = "firstName")]
+    pub first_name: String,
     /// Полное имя покупателя, используется для оформления документов
-    #[serde(rename = "fullName", skip_serializing_if = "Option::is_none")]
-    pub full_name: Option<String>,
+    #[serde(rename = "fullName")]
+    pub full_name: String,
     /// Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан 
-    #[serde(rename = "additionalPhones", skip_serializing_if = "Option::is_none")]
-    pub additional_phones: Option<Vec<String>>,
+    #[serde(rename = "additionalPhones")]
+    pub additional_phones: Vec<String>,
     /// Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение указывает, коды ещё не назначены 
-    #[serde(rename = "additionalPhoneCodes", skip_serializing_if = "Option::is_none")]
-    pub additional_phone_codes: Option<Vec<i32>>,
+    #[serde(rename = "additionalPhoneCodes")]
+    pub additional_phone_codes: Vec<i32>,
     /// ID сборочного задания
-    #[serde(rename = "orderId", skip_serializing_if = "Option::is_none")]
-    pub order_id: Option<i32>,
+    #[serde(rename = "orderId")]
+    pub order_id: i32,
     /// Добавочный код. <br> Используйте, чтобы связаться с покупателем по номеру из `phone`.<br> Если код не указан, вы можете связаться с покупателем без кода 
-    #[serde(rename = "phoneCode", skip_serializing_if = "Option::is_none")]
-    pub phone_code: Option<i32>,
+    #[serde(rename = "phoneCode")]
+    pub phone_code: i32,
 }
 
 impl ClientInfo {
-    pub fn new() -> ClientInfo {
+    pub fn new(replacement_phone: String, phone: String, first_name: String, full_name: String, additional_phones: Vec<String>, additional_phone_codes: Vec<i32>, order_id: i32, phone_code: i32) -> ClientInfo {
         ClientInfo {
-            replacement_phone: None,
-            phone: None,
-            first_name: None,
-            full_name: None,
-            additional_phones: None,
-            additional_phone_codes: None,
-            order_id: None,
-            phone_code: None,
+            replacement_phone,
+            phone,
+            first_name,
+            full_name,
+            additional_phones,
+            additional_phone_codes,
+            order_id,
+            phone_code,
         }
     }
 }

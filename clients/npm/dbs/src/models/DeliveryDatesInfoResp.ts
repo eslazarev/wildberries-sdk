@@ -30,13 +30,14 @@ export interface DeliveryDatesInfoResp {
     /**
      * 
      */
-    orders?: Array<DeliveryDatesInfoRespOrdersInner>;
+    orders: Array<DeliveryDatesInfoRespOrdersInner>;
 }
 
 /**
  * Check if a given object implements the DeliveryDatesInfoResp interface.
  */
 export function instanceOfDeliveryDatesInfoResp(value: object): value is DeliveryDatesInfoResp {
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function DeliveryDatesInfoRespFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(DeliveryDatesInfoRespOrdersInnerFromJSON)),
+        'orders': ((json['orders'] as Array<any>).map(DeliveryDatesInfoRespOrdersInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function DeliveryDatesInfoRespToJSONTyped(value?: DeliveryDatesInfoResp |
 
     return {
         
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(DeliveryDatesInfoRespOrdersInnerToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(DeliveryDatesInfoRespOrdersInnerToJSON)),
     };
 }
 

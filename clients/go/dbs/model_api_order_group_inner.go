@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiOrderGroupInner type satisfies the MappedNullable interface at compile time
@@ -20,23 +22,30 @@ var _ MappedNullable = &ApiOrderGroupInner{}
 // ApiOrderGroupInner struct for ApiOrderGroupInner
 type ApiOrderGroupInner struct {
 	// ID группы сборочных заданий
-	GroupID *string `json:"groupID,omitempty"`
+	GroupID string `json:"groupID"`
 	// Стоимость платной доставки в валюте продажи, умноженная на 100
-	DeliveryCost *int32 `json:"deliveryCost,omitempty"`
+	DeliveryCost int32 `json:"deliveryCost"`
 	// Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.
-	ConvertedDeliveryCost *int32 `json:"convertedDeliveryCost,omitempty"`
+	ConvertedDeliveryCost int32 `json:"convertedDeliveryCost"`
 	// Код валюты продажи
-	CurrencyCode *int32 `json:"currencyCode,omitempty"`
+	CurrencyCode int32 `json:"currencyCode"`
 	// Код валюты страны продавца
-	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
+	ConvertedCurrencyCode int32 `json:"convertedCurrencyCode"`
 }
+
+type _ApiOrderGroupInner ApiOrderGroupInner
 
 // NewApiOrderGroupInner instantiates a new ApiOrderGroupInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrderGroupInner() *ApiOrderGroupInner {
+func NewApiOrderGroupInner(groupID string, deliveryCost int32, convertedDeliveryCost int32, currencyCode int32, convertedCurrencyCode int32) *ApiOrderGroupInner {
 	this := ApiOrderGroupInner{}
+	this.GroupID = groupID
+	this.DeliveryCost = deliveryCost
+	this.ConvertedDeliveryCost = convertedDeliveryCost
+	this.CurrencyCode = currencyCode
+	this.ConvertedCurrencyCode = convertedCurrencyCode
 	return &this
 }
 
@@ -48,164 +57,124 @@ func NewApiOrderGroupInnerWithDefaults() *ApiOrderGroupInner {
 	return &this
 }
 
-// GetGroupID returns the GroupID field value if set, zero value otherwise.
+// GetGroupID returns the GroupID field value
 func (o *ApiOrderGroupInner) GetGroupID() string {
-	if o == nil || IsNil(o.GroupID) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.GroupID
+
+	return o.GroupID
 }
 
-// GetGroupIDOk returns a tuple with the GroupID field value if set, nil otherwise
+// GetGroupIDOk returns a tuple with the GroupID field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderGroupInner) GetGroupIDOk() (*string, bool) {
-	if o == nil || IsNil(o.GroupID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GroupID, true
+	return &o.GroupID, true
 }
 
-// HasGroupID returns a boolean if a field has been set.
-func (o *ApiOrderGroupInner) HasGroupID() bool {
-	if o != nil && !IsNil(o.GroupID) {
-		return true
-	}
-
-	return false
-}
-
-// SetGroupID gets a reference to the given string and assigns it to the GroupID field.
+// SetGroupID sets field value
 func (o *ApiOrderGroupInner) SetGroupID(v string) {
-	o.GroupID = &v
+	o.GroupID = v
 }
 
-// GetDeliveryCost returns the DeliveryCost field value if set, zero value otherwise.
+// GetDeliveryCost returns the DeliveryCost field value
 func (o *ApiOrderGroupInner) GetDeliveryCost() int32 {
-	if o == nil || IsNil(o.DeliveryCost) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.DeliveryCost
+
+	return o.DeliveryCost
 }
 
-// GetDeliveryCostOk returns a tuple with the DeliveryCost field value if set, nil otherwise
+// GetDeliveryCostOk returns a tuple with the DeliveryCost field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderGroupInner) GetDeliveryCostOk() (*int32, bool) {
-	if o == nil || IsNil(o.DeliveryCost) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeliveryCost, true
+	return &o.DeliveryCost, true
 }
 
-// HasDeliveryCost returns a boolean if a field has been set.
-func (o *ApiOrderGroupInner) HasDeliveryCost() bool {
-	if o != nil && !IsNil(o.DeliveryCost) {
-		return true
-	}
-
-	return false
-}
-
-// SetDeliveryCost gets a reference to the given int32 and assigns it to the DeliveryCost field.
+// SetDeliveryCost sets field value
 func (o *ApiOrderGroupInner) SetDeliveryCost(v int32) {
-	o.DeliveryCost = &v
+	o.DeliveryCost = v
 }
 
-// GetConvertedDeliveryCost returns the ConvertedDeliveryCost field value if set, zero value otherwise.
+// GetConvertedDeliveryCost returns the ConvertedDeliveryCost field value
 func (o *ApiOrderGroupInner) GetConvertedDeliveryCost() int32 {
-	if o == nil || IsNil(o.ConvertedDeliveryCost) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ConvertedDeliveryCost
+
+	return o.ConvertedDeliveryCost
 }
 
-// GetConvertedDeliveryCostOk returns a tuple with the ConvertedDeliveryCost field value if set, nil otherwise
+// GetConvertedDeliveryCostOk returns a tuple with the ConvertedDeliveryCost field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderGroupInner) GetConvertedDeliveryCostOk() (*int32, bool) {
-	if o == nil || IsNil(o.ConvertedDeliveryCost) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConvertedDeliveryCost, true
+	return &o.ConvertedDeliveryCost, true
 }
 
-// HasConvertedDeliveryCost returns a boolean if a field has been set.
-func (o *ApiOrderGroupInner) HasConvertedDeliveryCost() bool {
-	if o != nil && !IsNil(o.ConvertedDeliveryCost) {
-		return true
-	}
-
-	return false
-}
-
-// SetConvertedDeliveryCost gets a reference to the given int32 and assigns it to the ConvertedDeliveryCost field.
+// SetConvertedDeliveryCost sets field value
 func (o *ApiOrderGroupInner) SetConvertedDeliveryCost(v int32) {
-	o.ConvertedDeliveryCost = &v
+	o.ConvertedDeliveryCost = v
 }
 
-// GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise.
+// GetCurrencyCode returns the CurrencyCode field value
 func (o *ApiOrderGroupInner) GetCurrencyCode() int32 {
-	if o == nil || IsNil(o.CurrencyCode) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.CurrencyCode
+
+	return o.CurrencyCode
 }
 
-// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value if set, nil otherwise
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderGroupInner) GetCurrencyCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.CurrencyCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CurrencyCode, true
+	return &o.CurrencyCode, true
 }
 
-// HasCurrencyCode returns a boolean if a field has been set.
-func (o *ApiOrderGroupInner) HasCurrencyCode() bool {
-	if o != nil && !IsNil(o.CurrencyCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetCurrencyCode gets a reference to the given int32 and assigns it to the CurrencyCode field.
+// SetCurrencyCode sets field value
 func (o *ApiOrderGroupInner) SetCurrencyCode(v int32) {
-	o.CurrencyCode = &v
+	o.CurrencyCode = v
 }
 
-// GetConvertedCurrencyCode returns the ConvertedCurrencyCode field value if set, zero value otherwise.
+// GetConvertedCurrencyCode returns the ConvertedCurrencyCode field value
 func (o *ApiOrderGroupInner) GetConvertedCurrencyCode() int32 {
-	if o == nil || IsNil(o.ConvertedCurrencyCode) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ConvertedCurrencyCode
+
+	return o.ConvertedCurrencyCode
 }
 
-// GetConvertedCurrencyCodeOk returns a tuple with the ConvertedCurrencyCode field value if set, nil otherwise
+// GetConvertedCurrencyCodeOk returns a tuple with the ConvertedCurrencyCode field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderGroupInner) GetConvertedCurrencyCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.ConvertedCurrencyCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConvertedCurrencyCode, true
+	return &o.ConvertedCurrencyCode, true
 }
 
-// HasConvertedCurrencyCode returns a boolean if a field has been set.
-func (o *ApiOrderGroupInner) HasConvertedCurrencyCode() bool {
-	if o != nil && !IsNil(o.ConvertedCurrencyCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetConvertedCurrencyCode gets a reference to the given int32 and assigns it to the ConvertedCurrencyCode field.
+// SetConvertedCurrencyCode sets field value
 func (o *ApiOrderGroupInner) SetConvertedCurrencyCode(v int32) {
-	o.ConvertedCurrencyCode = &v
+	o.ConvertedCurrencyCode = v
 }
 
 func (o ApiOrderGroupInner) MarshalJSON() ([]byte, error) {
@@ -218,22 +187,53 @@ func (o ApiOrderGroupInner) MarshalJSON() ([]byte, error) {
 
 func (o ApiOrderGroupInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.GroupID) {
-		toSerialize["groupID"] = o.GroupID
-	}
-	if !IsNil(o.DeliveryCost) {
-		toSerialize["deliveryCost"] = o.DeliveryCost
-	}
-	if !IsNil(o.ConvertedDeliveryCost) {
-		toSerialize["convertedDeliveryCost"] = o.ConvertedDeliveryCost
-	}
-	if !IsNil(o.CurrencyCode) {
-		toSerialize["currencyCode"] = o.CurrencyCode
-	}
-	if !IsNil(o.ConvertedCurrencyCode) {
-		toSerialize["convertedCurrencyCode"] = o.ConvertedCurrencyCode
-	}
+	toSerialize["groupID"] = o.GroupID
+	toSerialize["deliveryCost"] = o.DeliveryCost
+	toSerialize["convertedDeliveryCost"] = o.ConvertedDeliveryCost
+	toSerialize["currencyCode"] = o.CurrencyCode
+	toSerialize["convertedCurrencyCode"] = o.ConvertedCurrencyCode
 	return toSerialize, nil
+}
+
+func (o *ApiOrderGroupInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"groupID",
+		"deliveryCost",
+		"convertedDeliveryCost",
+		"currencyCode",
+		"convertedCurrencyCode",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiOrderGroupInner := _ApiOrderGroupInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiOrderGroupInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiOrderGroupInner(varApiOrderGroupInner)
+
+	return err
 }
 
 type NullableApiOrderGroupInner struct {

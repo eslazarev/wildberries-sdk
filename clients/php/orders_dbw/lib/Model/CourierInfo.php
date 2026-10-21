@@ -288,6 +288,15 @@ class CourierInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['contacts'] === null && !$this->isNullableSetToNull('contacts')) {
+            $invalidProperties[] = "'contacts' is required";
+        }
+        if ($this->container['must_be_assigned'] === null) {
+            $invalidProperties[] = "'must_be_assigned' can't be null";
+        }
+        if ($this->container['updated_at'] === null && !$this->isNullableSetToNull('updated_at')) {
+            $invalidProperties[] = "'updated_at' is required";
+        }
         return $invalidProperties;
     }
 
@@ -340,7 +349,7 @@ class CourierInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets must_be_assigned
      *
-     * @return bool|null
+     * @return bool
      */
     public function getMustBeAssigned()
     {
@@ -350,7 +359,7 @@ class CourierInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets must_be_assigned
      *
-     * @param bool|null $must_be_assigned Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2)
+     * @param bool $must_be_assigned Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2)
      *
      * @return self
      */

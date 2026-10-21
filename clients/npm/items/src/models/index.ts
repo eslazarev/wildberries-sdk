@@ -41,6 +41,7 @@ export * from './GetV2ObjectAll200ResponseDataInner';
 export * from './GetV2ObjectAll403Response';
 export * from './GetV2ObjectCharcsSubjectId200Response';
 export * from './GetV2ObjectCharcsSubjectId200ResponseDataInner';
+export * from './GetV2ObjectCharcsSubjectId400Response';
 export * from './GetV2ObjectParentAll200Response';
 export * from './GetV2ObjectParentAll200ResponseDataInner';
 export * from './GetV2ObjectParentAll401Response';

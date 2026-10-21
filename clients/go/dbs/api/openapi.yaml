@@ -2781,6 +2781,7 @@ components:
           nullable: false
           type: boolean
       required:
+      - isError
       - orderId
       type: object
     api.OrderGroupsRequest:
@@ -2802,7 +2803,7 @@ components:
       example:
         code: code
         message: message
-        data: "{}"
+        data: {}
       nullable: false
       properties:
         code:
@@ -3072,6 +3073,33 @@ components:
           example: 123456
           nullable: false
           type: integer
+      required:
+      - address
+      - article
+      - cargoType
+      - chrtId
+      - colorCode
+      - comment
+      - convertedCurrencyCode
+      - convertedFinalPrice
+      - convertedPrice
+      - createdAt
+      - currencyCode
+      - deliveryType
+      - finalPrice
+      - groupId
+      - id
+      - isZeroOrder
+      - nmId
+      - options
+      - orderUid
+      - price
+      - requiredMeta
+      - rid
+      - salePrice
+      - skus
+      - warehouseId
+      - wbStickerId
       type: object
     OrderDBS:
       example:
@@ -3119,7 +3147,7 @@ components:
           nullable: false
           type: string
         options:
-          $ref: "#/components/schemas/OrderNewDBS_options"
+          $ref: "#/components/schemas/OrderDBS_options"
         orderUid:
           description: ID транзакции для группировки сборочных заданий. Сборочные
             задания в одной корзине покупателя будут иметь одинаковый `orderUID`
@@ -3273,6 +3301,32 @@ components:
           example: 123456
           nullable: false
           type: integer
+      required:
+      - address
+      - article
+      - cargoType
+      - chrtId
+      - colorCode
+      - comment
+      - convertedCurrencyCode
+      - convertedFinalPrice
+      - convertedPrice
+      - createdAt
+      - currencyCode
+      - deliveryType
+      - finalPrice
+      - groupId
+      - id
+      - isZeroOrder
+      - nmId
+      - options
+      - orderUid
+      - price
+      - rid
+      - scanPrice
+      - skus
+      - warehouseId
+      - wbStickerId
       type: object
     DbsOnlyClientInfo:
       example:
@@ -3360,6 +3414,16 @@ components:
             type: string
           nullable: false
           type: array
+      required:
+      - additionalPhoneCodes
+      - additionalPhones
+      - firstName
+      - fullName
+      - orderID
+      - phone
+      - phoneCode
+      - replacementAdditionalPhones
+      - replacementPhone
       type: object
     DbsOnlyClientInfoResp:
       example:
@@ -3401,6 +3465,8 @@ components:
             $ref: "#/components/schemas/DbsOnlyClientInfo"
           nullable: true
           type: array
+      required:
+      - orders
       type: object
     DeliveryDatesInfoResp:
       example:
@@ -3428,6 +3494,8 @@ components:
           items:
             $ref: "#/components/schemas/DeliveryDatesInfoResp_orders_inner"
           type: array
+      required:
+      - orders
       type: object
     api.OrdersMetaDeleteRequest:
       properties:
@@ -3598,6 +3666,9 @@ components:
           items:
             $ref: "#/components/schemas/api.StatusSetResponse"
           type: array
+      required:
+      - requestId
+      - results
       type: object
     api.StatusSetResponse:
       properties:
@@ -3614,6 +3685,9 @@ components:
           description: ID сборочного задания с успешно обновлёнными данными
           example: 123456
           type: integer
+      required:
+      - isError
+      - orderId
       type: object
     api.StatusSetDeliverResponses:
       example:
@@ -3644,6 +3718,9 @@ components:
           items:
             $ref: "#/components/schemas/api.StatusSetDeliverResponse"
           type: array
+      required:
+      - requestId
+      - results
       type: object
     api.StatusSetDeliverResponse:
       properties:
@@ -3660,6 +3737,9 @@ components:
           description: ID сборочного задания с успешно обновлёнными данными
           example: 123456
           type: integer
+      required:
+      - isError
+      - orderId
       type: object
     api.OrdersMetaDetailsResponse:
       example:
@@ -3696,6 +3776,7 @@ components:
             $ref: "#/components/schemas/api_OrdersMetaDetailsResponse_orders_inner"
           type: array
       required:
+      - orders
       - requestId
       type: object
     api.OrderStatusesV2:
@@ -3717,6 +3798,8 @@ components:
           items:
             $ref: "#/components/schemas/api.OrderStatusV2"
           type: array
+      required:
+      - orders
       type: object
     api.OrderStatusV2:
       properties:
@@ -3737,6 +3820,11 @@ components:
           description: Статус сборочного задания в системе Wildberries
           example: waiting
           type: string
+      required:
+      - errors
+      - orderId
+      - supplierStatus
+      - wbStatus
       type: object
     api.OrdersCodeRequest:
       properties:
@@ -3850,6 +3938,9 @@ components:
             - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
           example: NotFound
           type: string
+      required:
+      - code
+      - detail
       type: object
     api.Error:
       example:
@@ -3900,6 +3991,7 @@ components:
           type: array
       required:
       - requestId
+      - results
       type: object
     api.B2bClientInfoResponse:
       properties:
@@ -3934,6 +4026,10 @@ components:
         orgName:
           description: Наименование организации
           type: string
+      required:
+      - inn
+      - kpp
+      - orgName
       type: object
     Response4XX:
       properties:
@@ -4034,14 +4130,14 @@ components:
           cargoType: 0
           isZeroOrder: false
           wbStickerId: 123456
-      nullable: false
       properties:
         orders:
           description: Список новых сборочных заданий
           items:
             $ref: "#/components/schemas/OrderNewDBS"
-          nullable: false
           type: array
+      required:
+      - orders
       type: object
     getV3DbsOrdersNew_401_response:
       properties:
@@ -4149,7 +4245,6 @@ components:
           comment: "Упакуйте в пленку, пожалуйста"
           isZeroOrder: false
           wbStickerId: 123456
-      nullable: false
       properties:
         next:
           description: "Параметр пагинации. Содержит значение, которое необходимо\
@@ -4163,6 +4258,9 @@ components:
             $ref: "#/components/schemas/OrderDBS"
           nullable: false
           type: array
+      required:
+      - next
+      - orders
       type: object
     postV3DbsOrdersStickers_request:
       properties:
@@ -4269,6 +4367,9 @@ components:
           description: ID сборочного задания с успешно обновлёнными данными
           example: 123456
           type: integer
+      required:
+      - isError
+      - orderId
       type: object
     postV3DbsOrdersStatusReceive_200_response:
       example:
@@ -4290,6 +4391,9 @@ components:
           items:
             $ref: "#/components/schemas/postV3DbsOrdersStatusReceive_200_response_results_inner"
           type: array
+      required:
+      - requestId
+      - results
       type: object
     postV3DbsOrdersMetaCustomsDeclaration_request_orders_inner:
       properties:
@@ -4406,6 +4510,12 @@ components:
           description: Код валюты страны продавца
           example: 643
           type: integer
+      required:
+      - convertedCurrencyCode
+      - convertedDeliveryCost
+      - currencyCode
+      - deliveryCost
+      - groupID
       type: object
     OrderNewDBS_options:
       description: Опции заказа
@@ -4418,6 +4528,8 @@ components:
               - `false` — не B2B-продажа
               - `true` — B2B-продажа
           type: boolean
+      required:
+      - isB2b
       type: object
     OrderNewDBS_address:
       description: |
@@ -4474,6 +4586,22 @@ components:
           format: float64
           nullable: false
           type: number
+      required:
+      - fullAddress
+      - latitude
+      - longitude
+      type: object
+    OrderDBS_options:
+      description: Опции заказа
+      example:
+        isB2b: true
+      properties:
+        isB2b:
+          description: |
+            Признак B2B-продажи:
+              - `false` — не B2B-продажа
+              - `true` — B2B-продажа
+          type: boolean
       type: object
     DeliveryDatesInfoResp_orders_inner:
       example:
@@ -4531,6 +4659,14 @@ components:
           description: ID сборочного задания
           example: 1234567890
           type: integer
+      required:
+      - dDate
+      - dDateOld
+      - dTimeFrom
+      - dTimeFromOld
+      - dTimeTo
+      - dTimeToOld
+      - id
       type: object
     api_OrdersMetaDetailsResponse_orders_inner_errors_inner:
       properties:
@@ -4607,6 +4743,10 @@ components:
               - `filled` — Валидация пройдена
           example: sgtinIntroduced
           type: string
+      required:
+      - decision
+      - key
+      - value
       type: object
     api_OrdersMetaDetailsResponse_orders_inner:
       example:
@@ -4642,6 +4782,8 @@ components:
           type: array
       required:
       - isError
+      - metaDetails
+      - orderId
       type: object
     api_BatchErrorDeliverResponse_metaDetails_inner:
       properties:

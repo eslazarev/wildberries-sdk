@@ -16,9 +16,9 @@ import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime }
 /**
  * 
  * @export
- * @interface GetV3FbsShippingPoints403Response
+ * @interface GetV3FbsSuppliesSupplyIdShippingPoints403Response
  */
-export interface GetV3FbsShippingPoints403Response {
+export interface GetV3FbsSuppliesSupplyIdShippingPoints403Response {
     /**
      * Заголовок ошибки
      */
@@ -54,17 +54,17 @@ export interface GetV3FbsShippingPoints403Response {
 }
 
 /**
- * Check if a given object implements the GetV3FbsShippingPoints403Response interface.
+ * Check if a given object implements the GetV3FbsSuppliesSupplyIdShippingPoints403Response interface.
  */
-export function instanceOfGetV3FbsShippingPoints403Response(value: object): value is GetV3FbsShippingPoints403Response {
+export function instanceOfGetV3FbsSuppliesSupplyIdShippingPoints403Response(value: object): value is GetV3FbsSuppliesSupplyIdShippingPoints403Response {
     return true;
 }
 
-export function GetV3FbsShippingPoints403ResponseFromJSON(json: any): GetV3FbsShippingPoints403Response {
-    return GetV3FbsShippingPoints403ResponseFromJSONTyped(json, false);
+export function GetV3FbsSuppliesSupplyIdShippingPoints403ResponseFromJSON(json: any): GetV3FbsSuppliesSupplyIdShippingPoints403Response {
+    return GetV3FbsSuppliesSupplyIdShippingPoints403ResponseFromJSONTyped(json, false);
 }
 
-export function GetV3FbsShippingPoints403ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetV3FbsShippingPoints403Response {
+export function GetV3FbsSuppliesSupplyIdShippingPoints403ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetV3FbsSuppliesSupplyIdShippingPoints403Response {
     if (json == null) {
         return json;
     }
@@ -81,11 +81,11 @@ export function GetV3FbsShippingPoints403ResponseFromJSONTyped(json: any, ignore
     };
 }
 
-export function GetV3FbsShippingPoints403ResponseToJSON(json: any): GetV3FbsShippingPoints403Response {
-    return GetV3FbsShippingPoints403ResponseToJSONTyped(json, false);
+export function GetV3FbsSuppliesSupplyIdShippingPoints403ResponseToJSON(json: any): GetV3FbsSuppliesSupplyIdShippingPoints403Response {
+    return GetV3FbsSuppliesSupplyIdShippingPoints403ResponseToJSONTyped(json, false);
 }
 
-export function GetV3FbsShippingPoints403ResponseToJSONTyped(value?: GetV3FbsShippingPoints403Response | null, ignoreDiscriminator: boolean = false): any {
+export function GetV3FbsSuppliesSupplyIdShippingPoints403ResponseToJSONTyped(value?: GetV3FbsSuppliesSupplyIdShippingPoints403Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

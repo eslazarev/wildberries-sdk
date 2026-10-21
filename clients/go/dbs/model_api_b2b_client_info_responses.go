@@ -23,7 +23,7 @@ var _ MappedNullable = &ApiB2bClientInfoResponses{}
 type ApiB2bClientInfoResponses struct {
 	// Уникальный ID запроса
 	RequestId string `json:"requestId"`
-	Results []ApiB2bClientInfoResponse `json:"results,omitempty"`
+	Results []ApiB2bClientInfoResponse `json:"results"`
 }
 
 type _ApiB2bClientInfoResponses ApiB2bClientInfoResponses
@@ -32,9 +32,10 @@ type _ApiB2bClientInfoResponses ApiB2bClientInfoResponses
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiB2bClientInfoResponses(requestId string) *ApiB2bClientInfoResponses {
+func NewApiB2bClientInfoResponses(requestId string, results []ApiB2bClientInfoResponse) *ApiB2bClientInfoResponses {
 	this := ApiB2bClientInfoResponses{}
 	this.RequestId = requestId
+	this.Results = results
 	return &this
 }
 
@@ -70,34 +71,26 @@ func (o *ApiB2bClientInfoResponses) SetRequestId(v string) {
 	o.RequestId = v
 }
 
-// GetResults returns the Results field value if set, zero value otherwise.
+// GetResults returns the Results field value
 func (o *ApiB2bClientInfoResponses) GetResults() []ApiB2bClientInfoResponse {
-	if o == nil || IsNil(o.Results) {
+	if o == nil {
 		var ret []ApiB2bClientInfoResponse
 		return ret
 	}
+
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
+// GetResultsOk returns a tuple with the Results field value
 // and a boolean to check if the value has been set.
 func (o *ApiB2bClientInfoResponses) GetResultsOk() ([]ApiB2bClientInfoResponse, bool) {
-	if o == nil || IsNil(o.Results) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// HasResults returns a boolean if a field has been set.
-func (o *ApiB2bClientInfoResponses) HasResults() bool {
-	if o != nil && !IsNil(o.Results) {
-		return true
-	}
-
-	return false
-}
-
-// SetResults gets a reference to the given []ApiB2bClientInfoResponse and assigns it to the Results field.
+// SetResults sets field value
 func (o *ApiB2bClientInfoResponses) SetResults(v []ApiB2bClientInfoResponse) {
 	o.Results = v
 }
@@ -113,9 +106,7 @@ func (o ApiB2bClientInfoResponses) MarshalJSON() ([]byte, error) {
 func (o ApiB2bClientInfoResponses) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["requestId"] = o.RequestId
-	if !IsNil(o.Results) {
-		toSerialize["results"] = o.Results
-	}
+	toSerialize["results"] = o.Results
 	return toSerialize, nil
 }
 
@@ -125,6 +116,7 @@ func (o *ApiB2bClientInfoResponses) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"requestId",
+		"results",
 	}
 
 	allProperties := make(map[string]interface{})

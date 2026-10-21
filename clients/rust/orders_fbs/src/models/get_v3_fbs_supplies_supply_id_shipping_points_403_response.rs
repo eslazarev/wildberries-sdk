@@ -12,7 +12,7 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct GetV3FbsShippingPoints403Response {
+pub struct GetV3FbsSuppliesSupplyIdShippingPoints403Response {
     /// Заголовок ошибки
     #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
@@ -39,9 +39,9 @@ pub struct GetV3FbsShippingPoints403Response {
     pub timestamp: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
-impl GetV3FbsShippingPoints403Response {
-    pub fn new() -> GetV3FbsShippingPoints403Response {
-        GetV3FbsShippingPoints403Response {
+impl GetV3FbsSuppliesSupplyIdShippingPoints403Response {
+    pub fn new() -> GetV3FbsSuppliesSupplyIdShippingPoints403Response {
+        GetV3FbsSuppliesSupplyIdShippingPoints403Response {
             title: None,
             detail: None,
             code: None,

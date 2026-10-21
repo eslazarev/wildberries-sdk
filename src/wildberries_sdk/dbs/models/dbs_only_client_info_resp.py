@@ -28,7 +28,7 @@ class DbsOnlyClientInfoResp(BaseModel):
     """
     DbsOnlyClientInfoResp
     """ # noqa: E501
-    orders: Optional[List[DbsOnlyClientInfo]] = Field(default=None, description="Информация о покупателе")
+    orders: Optional[List[DbsOnlyClientInfo]] = Field(description="Информация о покупателе")
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(

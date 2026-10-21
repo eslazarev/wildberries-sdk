@@ -16,13 +16,13 @@ pub struct ResponsePaidStorageInner {
     /// Дата, за которую был расчёт или перерасчёт
     #[serde(rename = "date", skip_serializing_if = "Option::is_none")]
     pub date: Option<String>,
-    /// Коэффициент логистики и хранения. ]На данный момент](/release-notes?id=570) может быть только `0`
+    /// Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`
     #[serde(rename = "logWarehouseCoef", skip_serializing_if = "Option::is_none")]
     pub log_warehouse_coef: Option<f64>,
-    /// ID склада. ]На данный момент](/release-notes?id=570) может быть только `0`
+    /// ID склада. [На данный момент](/release-notes?id=570) может быть только `0`
     #[serde(rename = "officeId", skip_serializing_if = "Option::is_none")]
     pub office_id: Option<i32>,
-    /// Название склада. ]На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
+    /// Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
     #[serde(rename = "warehouse", skip_serializing_if = "Option::is_none")]
     pub warehouse: Option<String>,
     /// Коэффициент хранения
@@ -64,7 +64,7 @@ pub struct ResponsePaidStorageInner {
     /// Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
     #[serde(rename = "barcodesCount", skip_serializing_if = "Option::is_none")]
     pub barcodes_count: Option<i32>,
-    /// Код паллетоместа. ]На данный момент](/release-notes?id=570) может быть только `0`
+    /// Код паллетоместа. [На данный момент](/release-notes?id=570) может быть только `0`
     #[serde(rename = "palletPlaceCode", skip_serializing_if = "Option::is_none")]
     pub pallet_place_code: Option<i32>,
     /// Количество паллет

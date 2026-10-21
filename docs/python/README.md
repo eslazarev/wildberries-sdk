@@ -157,7 +157,8 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.get_v3_fbs_orders_archive` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `orders_fbs.DefaultApi.get_v3_fbs_settings_autoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
 - `orders_fbs.DefaultApi.get_v3_fbs_settings_autoreturns_subcategories_restricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
-- `orders_fbs.DefaultApi.get_v3_fbs_shipping_points` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
+- `orders_fbs.DefaultApi.get_v3_fbs_shipping_points` — `GET /api/marketplace/v3/fbs/shipping-points` — (Deprecated) Получить список пунктов отгрузки поставок
+- `orders_fbs.DefaultApi.get_v3_fbs_supplies_supply_id_shipping_points` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points` — Получить список пунктов отгрузки поставки
 - `orders_fbs.DefaultApi.get_v3_fbs_supplies_supply_id_stickers_spot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
 - `orders_fbs.DefaultApi.get_v3_orders` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
 - `orders_fbs.DefaultApi.get_v3_orders_new` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий

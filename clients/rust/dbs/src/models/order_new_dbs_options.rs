@@ -15,15 +15,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrderNewDbsOptions {
     /// Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа 
-    #[serde(rename = "isB2b", skip_serializing_if = "Option::is_none")]
-    pub is_b2b: Option<bool>,
+    #[serde(rename = "isB2b")]
+    pub is_b2b: bool,
 }
 
 impl OrderNewDbsOptions {
     /// Опции заказа
-    pub fn new() -> OrderNewDbsOptions {
+    pub fn new(is_b2b: bool) -> OrderNewDbsOptions {
         OrderNewDbsOptions {
-            is_b2b: None,
+            is_b2b,
         }
     }
 }

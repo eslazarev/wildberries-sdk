@@ -28,9 +28,9 @@ class CourierContactsResponse(BaseModel):
     """
     CourierContactsResponse
     """ # noqa: E501
-    car_number: Optional[StrictStr] = Field(default=None, description="Номер автомобиля", alias="carNumber", json_schema_extra={"examples": ["х111хх11"]})
-    full_name: Optional[StrictStr] = Field(default=None, description="ФИО курьера", alias="fullName", json_schema_extra={"examples": ["Иванов Иван Иванович"]})
-    phone: Optional[StrictStr] = Field(default=None, description="Номер телефона", json_schema_extra={"examples": ["71230971931"]})
+    car_number: StrictStr = Field(description="Номер автомобиля", alias="carNumber", json_schema_extra={"examples": ["х111хх11"]})
+    full_name: StrictStr = Field(description="ФИО курьера", alias="fullName", json_schema_extra={"examples": ["Иванов Иван Иванович"]})
+    phone: StrictStr = Field(description="Номер телефона", json_schema_extra={"examples": ["71230971931"]})
     p_time_from: Optional[datetime] = Field(default=None, description="Дата и время, с которого прибудет курьер", alias="pTimeFrom", json_schema_extra={"examples": ["2025-09-06T08:00:00Z"]})
     p_time_to: Optional[datetime] = Field(default=None, description="Дата и время, до которого прибудет курьер", alias="pTimeTo", json_schema_extra={"examples": ["2025-09-06T11:00:00Z"]})
     __properties: ClassVar[List[str]] = ["carNumber", "fullName", "phone", "pTimeFrom", "pTimeTo"]

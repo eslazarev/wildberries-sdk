@@ -30,13 +30,14 @@ export interface OrderCourierInfoResp {
     /**
      * 
      */
-    orders?: Array<OrderCourierInfo>;
+    orders: Array<OrderCourierInfo>;
 }
 
 /**
  * Check if a given object implements the OrderCourierInfoResp interface.
  */
 export function instanceOfOrderCourierInfoResp(value: object): value is OrderCourierInfoResp {
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function OrderCourierInfoRespFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(OrderCourierInfoFromJSON)),
+        'orders': ((json['orders'] as Array<any>).map(OrderCourierInfoFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function OrderCourierInfoRespToJSONTyped(value?: OrderCourierInfoResp | n
 
     return {
         
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(OrderCourierInfoToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(OrderCourierInfoToJSON)),
     };
 }
 

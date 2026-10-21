@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderNewDBSOptions type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &OrderNewDBSOptions{}
 // OrderNewDBSOptions Опции заказа
 type OrderNewDBSOptions struct {
 	// Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа 
-	IsB2b *bool `json:"isB2b,omitempty"`
+	IsB2b bool `json:"isB2b"`
 }
+
+type _OrderNewDBSOptions OrderNewDBSOptions
 
 // NewOrderNewDBSOptions instantiates a new OrderNewDBSOptions object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderNewDBSOptions() *OrderNewDBSOptions {
+func NewOrderNewDBSOptions(isB2b bool) *OrderNewDBSOptions {
 	this := OrderNewDBSOptions{}
+	this.IsB2b = isB2b
 	return &this
 }
 
@@ -40,36 +45,28 @@ func NewOrderNewDBSOptionsWithDefaults() *OrderNewDBSOptions {
 	return &this
 }
 
-// GetIsB2b returns the IsB2b field value if set, zero value otherwise.
+// GetIsB2b returns the IsB2b field value
 func (o *OrderNewDBSOptions) GetIsB2b() bool {
-	if o == nil || IsNil(o.IsB2b) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsB2b
+
+	return o.IsB2b
 }
 
-// GetIsB2bOk returns a tuple with the IsB2b field value if set, nil otherwise
+// GetIsB2bOk returns a tuple with the IsB2b field value
 // and a boolean to check if the value has been set.
 func (o *OrderNewDBSOptions) GetIsB2bOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsB2b) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsB2b, true
+	return &o.IsB2b, true
 }
 
-// HasIsB2b returns a boolean if a field has been set.
-func (o *OrderNewDBSOptions) HasIsB2b() bool {
-	if o != nil && !IsNil(o.IsB2b) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsB2b gets a reference to the given bool and assigns it to the IsB2b field.
+// SetIsB2b sets field value
 func (o *OrderNewDBSOptions) SetIsB2b(v bool) {
-	o.IsB2b = &v
+	o.IsB2b = v
 }
 
 func (o OrderNewDBSOptions) MarshalJSON() ([]byte, error) {
@@ -82,10 +79,45 @@ func (o OrderNewDBSOptions) MarshalJSON() ([]byte, error) {
 
 func (o OrderNewDBSOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.IsB2b) {
-		toSerialize["isB2b"] = o.IsB2b
-	}
+	toSerialize["isB2b"] = o.IsB2b
 	return toSerialize, nil
+}
+
+func (o *OrderNewDBSOptions) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"isB2b",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderNewDBSOptions := _OrderNewDBSOptions{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderNewDBSOptions)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderNewDBSOptions(varOrderNewDBSOptions)
+
+	return err
 }
 
 type NullableOrderNewDBSOptions struct {

@@ -2342,7 +2342,7 @@ components:
       example:
         code: code
         message: message
-        data: "{}"
+        data: {}
       nullable: false
       properties:
         code:
@@ -2373,7 +2373,7 @@ components:
     api.Error:
       example:
         code: code
-        data: "{}"
+        data: {}
         message: message
       properties:
         code:

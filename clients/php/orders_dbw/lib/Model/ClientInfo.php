@@ -323,6 +323,30 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['replacement_phone'] === null) {
+            $invalidProperties[] = "'replacement_phone' can't be null";
+        }
+        if ($this->container['phone'] === null) {
+            $invalidProperties[] = "'phone' can't be null";
+        }
+        if ($this->container['first_name'] === null) {
+            $invalidProperties[] = "'first_name' can't be null";
+        }
+        if ($this->container['full_name'] === null) {
+            $invalidProperties[] = "'full_name' can't be null";
+        }
+        if ($this->container['additional_phones'] === null) {
+            $invalidProperties[] = "'additional_phones' can't be null";
+        }
+        if ($this->container['additional_phone_codes'] === null) {
+            $invalidProperties[] = "'additional_phone_codes' can't be null";
+        }
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
+        if ($this->container['phone_code'] === null) {
+            $invalidProperties[] = "'phone_code' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -341,7 +365,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets replacement_phone
      *
-     * @return string|null
+     * @return string
      */
     public function getReplacementPhone()
     {
@@ -351,7 +375,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets replacement_phone
      *
-     * @param string|null $replacement_phone Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен
+     * @param string $replacement_phone Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен
      *
      * @return self
      */
@@ -368,7 +392,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets phone
      *
-     * @return string|null
+     * @return string
      */
     public function getPhone()
     {
@@ -378,7 +402,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone
      *
-     * @param string|null $phone Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду
+     * @param string $phone Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду
      *
      * @return self
      */
@@ -395,7 +419,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets first_name
      *
-     * @return string|null
+     * @return string
      */
     public function getFirstName()
     {
@@ -405,7 +429,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets first_name
      *
-     * @param string|null $first_name Имя покупателя
+     * @param string $first_name Имя покупателя
      *
      * @return self
      */
@@ -422,7 +446,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets full_name
      *
-     * @return string|null
+     * @return string
      */
     public function getFullName()
     {
@@ -432,7 +456,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets full_name
      *
-     * @param string|null $full_name Полное имя покупателя, используется для оформления документов
+     * @param string $full_name Полное имя покупателя, используется для оформления документов
      *
      * @return self
      */
@@ -449,7 +473,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets additional_phones
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getAdditionalPhones()
     {
@@ -459,7 +483,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets additional_phones
      *
-     * @param string[]|null $additional_phones Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан
+     * @param string[] $additional_phones Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан
      *
      * @return self
      */
@@ -476,7 +500,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets additional_phone_codes
      *
-     * @return int[]|null
+     * @return int[]
      */
     public function getAdditionalPhoneCodes()
     {
@@ -486,7 +510,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets additional_phone_codes
      *
-     * @param int[]|null $additional_phone_codes Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение указывает, коды ещё не назначены
+     * @param int[] $additional_phone_codes Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение указывает, коды ещё не назначены
      *
      * @return self
      */
@@ -503,7 +527,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -513,7 +537,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id
      *
-     * @param int|null $order_id ID сборочного задания
+     * @param int $order_id ID сборочного задания
      *
      * @return self
      */
@@ -530,7 +554,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets phone_code
      *
-     * @return int|null
+     * @return int
      */
     public function getPhoneCode()
     {
@@ -540,7 +564,7 @@ class ClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone_code
      *
-     * @param int|null $phone_code Добавочный код. <br> Используйте, чтобы связаться с покупателем по номеру из `phone`.<br> Если код не указан, вы можете связаться с покупателем без кода
+     * @param int $phone_code Добавочный код. <br> Используйте, чтобы связаться с покупателем по номеру из `phone`.<br> Если код не указан, вы можете связаться с покупателем без кода
      *
      * @return self
      */

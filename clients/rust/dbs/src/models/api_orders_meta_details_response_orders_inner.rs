@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrdersMetaDetailsResponseOrdersInner {
     /// ID сборочного задания
-    #[serde(rename = "orderId", skip_serializing_if = "Option::is_none")]
-    pub order_id: Option<i32>,
+    #[serde(rename = "orderId")]
+    pub order_id: i32,
     /// Есть ли ошибки
     #[serde(rename = "isError")]
     pub is_error: bool,
@@ -23,17 +23,17 @@ pub struct ApiOrdersMetaDetailsResponseOrdersInner {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<models::ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>>,
     /// Идентификаторы маркировки и статусы их валидации
-    #[serde(rename = "metaDetails", skip_serializing_if = "Option::is_none")]
-    pub meta_details: Option<Vec<models::ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>>,
+    #[serde(rename = "metaDetails")]
+    pub meta_details: Vec<models::ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>,
 }
 
 impl ApiOrdersMetaDetailsResponseOrdersInner {
-    pub fn new(is_error: bool) -> ApiOrdersMetaDetailsResponseOrdersInner {
+    pub fn new(order_id: i32, is_error: bool, meta_details: Vec<models::ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>) -> ApiOrdersMetaDetailsResponseOrdersInner {
         ApiOrdersMetaDetailsResponseOrdersInner {
-            order_id: None,
+            order_id,
             is_error,
             errors: None,
-            meta_details: None,
+            meta_details,
         }
     }
 }

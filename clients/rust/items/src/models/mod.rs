@@ -82,6 +82,8 @@ pub mod get_v2_object_charcs_subject_id_200_response;
 pub use self::get_v2_object_charcs_subject_id_200_response::GetV2ObjectCharcsSubjectId200Response;
 pub mod get_v2_object_charcs_subject_id_200_response_data_inner;
 pub use self::get_v2_object_charcs_subject_id_200_response_data_inner::GetV2ObjectCharcsSubjectId200ResponseDataInner;
+pub mod get_v2_object_charcs_subject_id_400_response;
+pub use self::get_v2_object_charcs_subject_id_400_response::GetV2ObjectCharcsSubjectId400Response;
 pub mod get_v2_object_parent_all_200_response;
 pub use self::get_v2_object_parent_all_200_response::GetV2ObjectParentAll200Response;
 pub mod get_v2_object_parent_all_200_response_data_inner;

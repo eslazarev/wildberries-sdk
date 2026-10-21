@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrderCourierInfo {
     /// Информация о курьере
-    #[serde(rename = "courierInfo", skip_serializing_if = "Option::is_none")]
-    pub courier_info: Option<Box<models::CourierInfo>>,
+    #[serde(rename = "courierInfo")]
+    pub courier_info: Box<models::CourierInfo>,
     /// ID сборочного задания
-    #[serde(rename = "orderID", skip_serializing_if = "Option::is_none")]
-    pub order_id: Option<i32>,
+    #[serde(rename = "orderID")]
+    pub order_id: i32,
 }
 
 impl OrderCourierInfo {
-    pub fn new() -> OrderCourierInfo {
+    pub fn new(courier_info: models::CourierInfo, order_id: i32) -> OrderCourierInfo {
         OrderCourierInfo {
-            courier_info: None,
-            order_id: None,
+            courier_info: Box::new(courier_info),
+            order_id,
         }
     }
 }

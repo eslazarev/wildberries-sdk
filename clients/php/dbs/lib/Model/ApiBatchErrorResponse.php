@@ -281,6 +281,12 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['detail'] === null) {
+            $invalidProperties[] = "'detail' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -299,7 +305,7 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets code
      *
-     * @return int|null
+     * @return int
      */
     public function getCode()
     {
@@ -309,7 +315,7 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets code
      *
-     * @param int|null $code Код ошибки:   - `404`   - `409`   - `400`
+     * @param int $code Код ошибки:   - `404`   - `409`   - `400`
      *
      * @return self
      */
@@ -326,7 +332,7 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets detail
      *
-     * @return string|null
+     * @return string
      */
     public function getDetail()
     {
@@ -336,7 +342,7 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets detail
      *
-     * @param string|null $detail - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
+     * @param string $detail - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
      *
      * @return self
      */

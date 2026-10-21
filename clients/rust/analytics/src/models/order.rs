@@ -29,16 +29,16 @@ pub struct Order {
     /// Дата и время текущего статуса. При `\"status\":\"created\"` возвращается значение поля `createdAt`
     #[serde(rename = "updatedAt")]
     pub updated_at: chrono::DateTime<chrono::FixedOffset>,
-    /// Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака 
+    /// [Статус заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака 
     #[serde(rename = "status")]
     pub status: Status,
-    /// Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена 
+    /// [Тип отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — иное 
     #[serde(rename = "cancelType", skip_serializing_if = "Option::is_none")]
     pub cancel_type: Option<CancelType>,
-    /// Название склада. ]На данный момент](/release-notes?id=570) для складов WB может быть только `Склад WB`
+    /// Название склада. [На данный момент](/release-notes?id=570) для складов WB может быть только `Склад WB`
     #[serde(rename = "warehouseName")]
     pub warehouse_name: String,
-    /// Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный момент](/release-notes?id=570) для складов WB может быть только `\"\"`
+    /// Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](/release-notes?id=570) для складов WB может быть только `\"\"`
     #[serde(rename = "warehouseRegion")]
     pub warehouse_region: String,
     /// Тип склада:   - `true` — склад продавца   - `false` — склад WB 
@@ -79,7 +79,7 @@ impl Order {
         }
     }
 }
-/// Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака 
+/// [Статус заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Status {
     #[serde(rename = "created")]
@@ -99,7 +99,7 @@ impl Default for Status {
         Self::Created
     }
 }
-/// Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена 
+/// [Тип отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — иное 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum CancelType {
     #[serde(rename = "app")]

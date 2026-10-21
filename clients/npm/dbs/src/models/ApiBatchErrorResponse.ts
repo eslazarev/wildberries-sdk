@@ -26,7 +26,7 @@ export interface ApiBatchErrorResponse {
      *   - `400`
      * 
      */
-    code?: number;
+    code: number;
     /**
      * - `NotFound` — сборочное задание не найдено
      * - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
@@ -35,13 +35,15 @@ export interface ApiBatchErrorResponse {
      * - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
      * 
      */
-    detail?: string;
+    detail: string;
 }
 
 /**
  * Check if a given object implements the ApiBatchErrorResponse interface.
  */
 export function instanceOfApiBatchErrorResponse(value: object): value is ApiBatchErrorResponse {
+    if (!('code' in value) || value['code'] === undefined) return false;
+    if (!('detail' in value) || value['detail'] === undefined) return false;
     return true;
 }
 
@@ -55,8 +57,8 @@ export function ApiBatchErrorResponseFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'code': json['code'] == null ? undefined : json['code'],
-        'detail': json['detail'] == null ? undefined : json['detail'],
+        'code': json['code'],
+        'detail': json['detail'],
     };
 }
 

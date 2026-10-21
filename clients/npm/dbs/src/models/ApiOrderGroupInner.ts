@@ -22,29 +22,34 @@ export interface ApiOrderGroupInner {
     /**
      * ID группы сборочных заданий
      */
-    groupID?: string;
+    groupID: string;
     /**
      * Стоимость платной доставки в валюте продажи, умноженная на 100
      */
-    deliveryCost?: number;
+    deliveryCost: number;
     /**
      * Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.
      */
-    convertedDeliveryCost?: number;
+    convertedDeliveryCost: number;
     /**
      * Код валюты продажи
      */
-    currencyCode?: number;
+    currencyCode: number;
     /**
      * Код валюты страны продавца
      */
-    convertedCurrencyCode?: number;
+    convertedCurrencyCode: number;
 }
 
 /**
  * Check if a given object implements the ApiOrderGroupInner interface.
  */
 export function instanceOfApiOrderGroupInner(value: object): value is ApiOrderGroupInner {
+    if (!('groupID' in value) || value['groupID'] === undefined) return false;
+    if (!('deliveryCost' in value) || value['deliveryCost'] === undefined) return false;
+    if (!('convertedDeliveryCost' in value) || value['convertedDeliveryCost'] === undefined) return false;
+    if (!('currencyCode' in value) || value['currencyCode'] === undefined) return false;
+    if (!('convertedCurrencyCode' in value) || value['convertedCurrencyCode'] === undefined) return false;
     return true;
 }
 
@@ -58,11 +63,11 @@ export function ApiOrderGroupInnerFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'groupID': json['groupID'] == null ? undefined : json['groupID'],
-        'deliveryCost': json['deliveryCost'] == null ? undefined : json['deliveryCost'],
-        'convertedDeliveryCost': json['convertedDeliveryCost'] == null ? undefined : json['convertedDeliveryCost'],
-        'currencyCode': json['currencyCode'] == null ? undefined : json['currencyCode'],
-        'convertedCurrencyCode': json['convertedCurrencyCode'] == null ? undefined : json['convertedCurrencyCode'],
+        'groupID': json['groupID'],
+        'deliveryCost': json['deliveryCost'],
+        'convertedDeliveryCost': json['convertedDeliveryCost'],
+        'currencyCode': json['currencyCode'],
+        'convertedCurrencyCode': json['convertedCurrencyCode'],
     };
 }
 

@@ -34,17 +34,19 @@ export interface ApiStatusSetDeliverResponse {
     /**
      * Есть ли ошибки
      */
-    isError?: boolean;
+    isError: boolean;
     /**
      * ID сборочного задания с успешно обновлёнными данными
      */
-    orderId?: number;
+    orderId: number;
 }
 
 /**
  * Check if a given object implements the ApiStatusSetDeliverResponse interface.
  */
 export function instanceOfApiStatusSetDeliverResponse(value: object): value is ApiStatusSetDeliverResponse {
+    if (!('isError' in value) || value['isError'] === undefined) return false;
+    if (!('orderId' in value) || value['orderId'] === undefined) return false;
     return true;
 }
 
@@ -59,8 +61,8 @@ export function ApiStatusSetDeliverResponseFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'errors': json['errors'] == null ? undefined : ((json['errors'] as Array<any>).map(ApiBatchErrorDeliverResponseFromJSON)),
-        'isError': json['isError'] == null ? undefined : json['isError'],
-        'orderId': json['orderId'] == null ? undefined : json['orderId'],
+        'isError': json['isError'],
+        'orderId': json['orderId'],
     };
 }
 

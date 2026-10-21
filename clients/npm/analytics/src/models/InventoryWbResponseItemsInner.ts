@@ -28,15 +28,15 @@ export interface InventoryWbResponseItemsInner {
      */
     chrtId: number;
     /**
-     * ID склада. ]На данный момент](/release-notes?id=570) может быть только `-999999`
+     * ID склада. [На данный момент](/release-notes?id=570) может быть только `-999999`
      */
     warehouseId: number;
     /**
-     * Название склада. ]На данный момент](/release-notes?id=570) может быть только `Склад WB`
+     * Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB`
      */
     warehouseName: string;
     /**
-     * Регион отгрузки. ]На данный момент](/release-notes?id=570) может быть только `Склад WB`
+     * Регион отгрузки. [На данный момент](/release-notes?id=570) может быть только `Склад WB`
      */
     regionName: string;
     /**

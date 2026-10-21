@@ -16,6 +16,9 @@ use serde_repr::{Serialize_repr,Deserialize_repr};
 /// Office : Данные о складе WB
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Office {
+    /// Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
+    #[serde(rename = "federalDistrict", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub federal_district: Option<Option<String>>,
     /// Адрес
     #[serde(rename = "address", skip_serializing_if = "Option::is_none")]
     pub address: Option<String>,
@@ -40,9 +43,6 @@ pub struct Office {
     /// Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) 
     #[serde(rename = "deliveryType", skip_serializing_if = "Option::is_none")]
     pub delivery_type: Option<DeliveryType>,
-    /// Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
-    #[serde(rename = "federalDistrict", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub federal_district: Option<Option<String>>,
     /// Признак того, что склад уже выбран продавцом
     #[serde(rename = "selected", skip_serializing_if = "Option::is_none")]
     pub selected: Option<bool>,
@@ -52,6 +52,7 @@ impl Office {
     /// Данные о складе WB
     pub fn new() -> Office {
         Office {
+            federal_district: None,
             address: None,
             name: None,
             city: None,
@@ -60,7 +61,6 @@ impl Office {
             latitude: None,
             cargo_type: None,
             delivery_type: None,
-            federal_district: None,
             selected: None,
         }
     }

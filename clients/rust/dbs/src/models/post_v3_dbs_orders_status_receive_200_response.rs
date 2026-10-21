@@ -14,17 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV3DbsOrdersStatusReceive200Response {
     /// Уникальный ID запроса
-    #[serde(rename = "requestId", skip_serializing_if = "Option::is_none")]
-    pub request_id: Option<String>,
-    #[serde(rename = "results", skip_serializing_if = "Option::is_none")]
-    pub results: Option<Vec<models::PostV3DbsOrdersStatusReceive200ResponseResultsInner>>,
+    #[serde(rename = "requestId")]
+    pub request_id: String,
+    #[serde(rename = "results")]
+    pub results: Vec<models::PostV3DbsOrdersStatusReceive200ResponseResultsInner>,
 }
 
 impl PostV3DbsOrdersStatusReceive200Response {
-    pub fn new() -> PostV3DbsOrdersStatusReceive200Response {
+    pub fn new(request_id: String, results: Vec<models::PostV3DbsOrdersStatusReceive200ResponseResultsInner>) -> PostV3DbsOrdersStatusReceive200Response {
         PostV3DbsOrdersStatusReceive200Response {
-            request_id: None,
-            results: None,
+            request_id,
+            results,
         }
     }
 }

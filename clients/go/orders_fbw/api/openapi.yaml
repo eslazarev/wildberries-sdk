@@ -38,7 +38,7 @@ paths:
   /api/v1/acceptance/options:
     post:
       description: |
-        Метод ]временно отключён](/release-notes?id=570)
+        Метод [временно отключён](/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -177,7 +177,7 @@ paths:
   /api/v1/warehouses:
     get:
       description: |
-        Метод ]временно отключён](/release-notes?id=570)
+        Метод [временно отключён](/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -273,7 +273,7 @@ paths:
   /api/v1/transit-tariffs:
     get:
       description: |
-        Метод ]временно отключён](/release-notes?id=570)
+        Метод [временно отключён](/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:

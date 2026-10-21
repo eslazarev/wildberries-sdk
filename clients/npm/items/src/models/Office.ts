@@ -20,6 +20,10 @@ import { mapValues } from '../runtime';
  */
 export interface Office {
     /**
+     * Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
+     */
+    federalDistrict?: string | null;
+    /**
      * Адрес
      */
     address?: string;
@@ -60,10 +64,6 @@ export interface Office {
      * 
      */
     deliveryType?: OfficeDeliveryTypeEnum;
-    /**
-     * Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
-     */
-    federalDistrict?: string | null;
     /**
      * Признак того, что склад уже выбран продавцом
      */
@@ -110,6 +110,7 @@ export function OfficeFromJSONTyped(json: any, ignoreDiscriminator: boolean): Of
     }
     return {
         
+        'federalDistrict': json['federalDistrict'] === undefined ? undefined : json['federalDistrict'] === null ? null : json['federalDistrict'],
         'address': json['address'] == null ? undefined : json['address'],
         'name': json['name'] == null ? undefined : json['name'],
         'city': json['city'] == null ? undefined : json['city'],
@@ -118,7 +119,6 @@ export function OfficeFromJSONTyped(json: any, ignoreDiscriminator: boolean): Of
         'latitude': json['latitude'] == null ? undefined : json['latitude'],
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'deliveryType': json['deliveryType'] == null ? undefined : json['deliveryType'],
-        'federalDistrict': json['federalDistrict'] === undefined ? undefined : json['federalDistrict'] === null ? null : json['federalDistrict'],
         'selected': json['selected'] == null ? undefined : json['selected'],
     };
 }
@@ -134,6 +134,7 @@ export function OfficeToJSONTyped(value?: Office | null, ignoreDiscriminator: bo
 
     return {
         
+        'federalDistrict': value['federalDistrict'],
         'address': value['address'],
         'name': value['name'],
         'city': value['city'],
@@ -142,7 +143,6 @@ export function OfficeToJSONTyped(value?: Office | null, ignoreDiscriminator: bo
         'latitude': value['latitude'],
         'cargoType': value['cargoType'],
         'deliveryType': value['deliveryType'],
-        'federalDistrict': value['federalDistrict'],
         'selected': value['selected'],
     };
 }

@@ -94,7 +94,7 @@ export interface StatisticsComparison {
      */
     timeToReadyDynamic: ComparisonTimeToReadyDynamic;
     /**
-     * Динамика локальных заказов в рамках одного региона. ]На данный момент](/release-notes?id=570) может быть только `0`
+     * Динамика локальных заказов в рамках одного региона. [На данный момент](/release-notes?id=570) может быть только `0`
      */
     localizationPercentDynamic: number;
     /**

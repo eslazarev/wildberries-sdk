@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,9 +27,9 @@ class PostV3DbwOrdersStatus200ResponseOrdersInner(BaseModel):
     """
     PostV3DbwOrdersStatus200ResponseOrdersInner
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", json_schema_extra={"examples": [5632423]})
-    supplier_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания, установленный продавцом", alias="supplierStatus", json_schema_extra={"examples": ["new"]})
-    wb_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания в системе Wildberries", alias="wbStatus")
+    id: StrictInt = Field(description="ID сборочного задания", json_schema_extra={"examples": [5632423]})
+    supplier_status: StrictStr = Field(description="Статус сборочного задания, установленный продавцом", alias="supplierStatus", json_schema_extra={"examples": ["new"]})
+    wb_status: StrictStr = Field(description="Статус сборочного задания в системе Wildberries", alias="wbStatus")
     __properties: ClassVar[List[str]] = ["id", "supplierStatus", "wbStatus"]
 
     model_config = ConfigDict(

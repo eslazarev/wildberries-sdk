@@ -69,6 +69,11 @@ class PostV2GetCardsTrashRequestSettingsFilter(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if text_search (nullable) is None
+        # and model_fields_set contains the field
+        if self.text_search is None and "text_search" in self.model_fields_set:
+            _dict['textSearch'] = None
+
         return _dict
 
     @classmethod

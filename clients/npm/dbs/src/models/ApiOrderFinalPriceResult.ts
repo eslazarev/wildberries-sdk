@@ -49,7 +49,7 @@ export interface ApiOrderFinalPriceResult {
     /**
      * Есть ли ошибки
      */
-    isError?: boolean;
+    isError: boolean;
 }
 
 /**
@@ -57,6 +57,7 @@ export interface ApiOrderFinalPriceResult {
  */
 export function instanceOfApiOrderFinalPriceResult(value: object): value is ApiOrderFinalPriceResult {
     if (!('orderId' in value) || value['orderId'] === undefined) return false;
+    if (!('isError' in value) || value['isError'] === undefined) return false;
     return true;
 }
 
@@ -73,7 +74,7 @@ export function ApiOrderFinalPriceResultFromJSONTyped(json: any, ignoreDiscrimin
         'orderId': json['orderId'],
         'data': json['data'] == null ? undefined : ApiOrderFinalPriceResultDataFromJSON(json['data']),
         'errors': json['errors'] == null ? undefined : ((json['errors'] as Array<any>).map(ApiBatchErrorFinalPriceResponseFromJSON)),
-        'isError': json['isError'] == null ? undefined : json['isError'],
+        'isError': json['isError'],
     };
 }
 

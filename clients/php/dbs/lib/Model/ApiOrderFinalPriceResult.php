@@ -298,6 +298,9 @@ class ApiOrderFinalPriceResult implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['order_id'] === null) {
             $invalidProperties[] = "'order_id' can't be null";
         }
+        if ($this->container['is_error'] === null) {
+            $invalidProperties[] = "'is_error' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -397,7 +400,7 @@ class ApiOrderFinalPriceResult implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets is_error
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsError()
     {
@@ -407,7 +410,7 @@ class ApiOrderFinalPriceResult implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets is_error
      *
-     * @param bool|null $is_error Есть ли ошибки
+     * @param bool $is_error Есть ли ошибки
      *
      * @return self
      */

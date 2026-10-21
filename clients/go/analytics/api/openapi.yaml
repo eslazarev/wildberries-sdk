@@ -1172,12 +1172,12 @@ paths:
                   \ | string\t| string | Регион отгрузки. Для складов продавца зна\
                   чение в строках будет `Свой склад`, так как данные по складам пр\
                   одавца приходят в агрегированном виде — по всем сразу, без детал\
-                  изации по конкретным складам. ]На данный момент](/release-notes?id=570)\
+                  изации по конкретным складам. [На данный момент](/release-notes?id=570)\
                   \ для складов WB может быть только `Склад WB` |\n| OfficeName |\
                   \ string\t| string | Название склада. Для складов продавца значе\
                   ние в строках будет `Свой склад`, так как данные по складам прод\
                   авца приходят в агрегированном виде — по всем сразу, без детализ\
-                  ации по конкретным складам. ]На данный момент](/release-notes?id=570)\
+                  ации по конкретным складам. [На данный момент](/release-notes?id=570)\
                   \ для складов WB может быть только `Склад WB` |\n| Availability\
                   \ | string\t| enum | Доступность товара |\n| OrdersCount | integer\t\
                   | uint64 | Заказы, шт. |\n| OrdersSum | integer\t| uint64 | Зака\
@@ -1215,7 +1215,7 @@ paths:
                   ние склада. Для складов продавца значение в строках будет `Свой\
                   \ склад`, так как данные по складам продавца приходят в агрегиро\
                   ванном виде — по всем сразу, без детализации по конкретным склад\
-                  ам. ]На данный момент](/release-notes?id=570) для складов WB мож\
+                  ам. [На данный момент](/release-notes?id=570) для складов WB мож\
                   ет быть только `Склад WB` |\n| DD.MM.YYYY | integer| uint64 | Ос\
                   таток по состоянию на 23:59 дня в заголовке. Столбцы формируются\
                   \ динамически в зависимости от переданного в запросе периода. Ка\
@@ -6297,18 +6297,18 @@ components:
         metrics: ""
       properties:
         regionName:
-          description: "Регион отгрузки. ]На данный момент](/release-notes?id=570)\
+          description: "Регион отгрузки. [На данный момент](/release-notes?id=570)\
             \ для складов WB может быть только `Склад WB`"
           example: Склад WB
           type: string
         officeID:
-          description: "ID склада. ]На данный момент](/release-notes?id=570) для с\
+          description: "ID склада. [На данный момент](/release-notes?id=570) для с\
             кладов WB может быть только `-999999`"
           example: -999999
           format: int64
           type: integer
         officeName:
-          description: "Название склада. ]На данный момент](/release-notes?id=570)\
+          description: "Название склада. [На данный момент](/release-notes?id=570)\
             \ для складов WB может быть только `\"\"`"
           example: ""
           type: string
@@ -6432,7 +6432,7 @@ components:
         offices: []
       properties:
         regionName:
-          description: "Регион отгрузки. ]На данный момент](/release-notes?id=570)\
+          description: "Регион отгрузки. [На данный момент](/release-notes?id=570)\
             \ для складов WB может быть только `Склад WB`"
           example: Склад WB
           type: string
@@ -6441,7 +6441,7 @@ components:
           - $ref: "#/components/schemas/TableShippingOfficeMetrics"
           description: Метрики по региону
         offices:
-          description: "Данные по складам. ]На данный момент](/release-notes?id=570)\
+          description: "Данные по складам. [На данный момент](/release-notes?id=570)\
             \ может быть только `[]`"
           example: []
           items:
@@ -6899,7 +6899,7 @@ components:
         timeToReady:
           $ref: "#/components/schemas/Statistic_timeToReady"
         localizationPercent:
-          description: "Локальные заказы в рамках одного региона. ]На данный момен\
+          description: "Локальные заказы в рамках одного региона. [На данный момен\
             т](/release-notes?id=570) может быть только `100`"
           example: 100
           type: integer
@@ -6990,7 +6990,7 @@ components:
         timeToReadyDynamic:
           $ref: "#/components/schemas/Comparison_timeToReadyDynamic"
         localizationPercentDynamic:
-          description: "Динамика локальных заказов в рамках одного региона. ]На да\
+          description: "Динамика локальных заказов в рамках одного региона. [На да\
             нный момент](/release-notes?id=570) может быть только `0`"
           example: 0
           format: int
@@ -8149,7 +8149,7 @@ components:
           type: string
         status:
           description: |
-            Статус заказа:
+            [Статус заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
               - `created` — оформлен
               - `buyout` — продан
               - `cancel` — отменён
@@ -8165,11 +8165,11 @@ components:
           type: string
         cancelType:
           description: |
-            Тип отмены (при `"status":"cancel"`):
+            [Тип отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `"status":"cancel"`):
               - `app` — отказ до получения
               - `receipt` — отказ при получении
               - `expire` — истёк срок получения
-              - `other` — техническая отмена
+              - `other` — иное
           enum:
           - app
           - receipt
@@ -8178,13 +8178,13 @@ components:
           example: app
           type: string
         warehouseName:
-          description: "Название склада. ]На данный момент](/release-notes?id=570)\
+          description: "Название склада. [На данный момент](/release-notes?id=570)\
             \ для складов WB может быть только `Склад WB`"
           example: Склад WB
           type: string
         warehouseRegion:
           description: "Федеральный округ склада. Если склад не в России, возвраща\
-            ется страна. ]На данный момент](/release-notes?id=570) для складов WB\
+            ется страна. [На данный момент](/release-notes?id=570) для складов WB\
             \ может быть только `\"\"`"
           example: ""
           type: string
@@ -12039,18 +12039,18 @@ components:
           format: uint64
           type: integer
         warehouseId:
-          description: "ID склада. ]На данный момент](/release-notes?id=570) может\
+          description: "ID склада. [На данный момент](/release-notes?id=570) может\
             \ быть только `-999999`"
           example: -999999
           format: int64
           type: integer
         warehouseName:
-          description: "Название склада. ]На данный момент](/release-notes?id=570)\
+          description: "Название склада. [На данный момент](/release-notes?id=570)\
             \ может быть только `Склад WB`"
           example: Склад WB
           type: string
         regionName:
-          description: "Регион отгрузки. ]На данный момент](/release-notes?id=570)\
+          description: "Регион отгрузки. [На данный момент](/release-notes?id=570)\
             \ может быть только `Склад WB`"
           example: Склад WB
           type: string

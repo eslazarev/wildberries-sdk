@@ -274,6 +274,9 @@ class DeliveryDatesInfoResp implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class DeliveryDatesInfoResp implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\OrdersDbw\Model\DeliveryDatesInfoRespOrdersInner[]|null
+     * @return \Wildberries\Sdk\OrdersDbw\Model\DeliveryDatesInfoRespOrdersInner[]
      */
     public function getOrders()
     {
@@ -302,7 +305,7 @@ class DeliveryDatesInfoResp implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\OrdersDbw\Model\DeliveryDatesInfoRespOrdersInner[]|null $orders orders
+     * @param \Wildberries\Sdk\OrdersDbw\Model\DeliveryDatesInfoRespOrdersInner[] $orders orders
      *
      * @return self
      */

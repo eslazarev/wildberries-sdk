@@ -12,6 +12,8 @@ package orders_dbw
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ClientInfoResp type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &ClientInfoResp{}
 // ClientInfoResp struct for ClientInfoResp
 type ClientInfoResp struct {
 	// Информация о покупателях
-	Orders []ClientInfo `json:"orders,omitempty"`
+	Orders []ClientInfo `json:"orders"`
 }
+
+type _ClientInfoResp ClientInfoResp
 
 // NewClientInfoResp instantiates a new ClientInfoResp object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClientInfoResp() *ClientInfoResp {
+func NewClientInfoResp(orders []ClientInfo) *ClientInfoResp {
 	this := ClientInfoResp{}
+	this.Orders = orders
 	return &this
 }
 
@@ -40,34 +45,26 @@ func NewClientInfoRespWithDefaults() *ClientInfoResp {
 	return &this
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise.
+// GetOrders returns the Orders field value
 func (o *ClientInfoResp) GetOrders() []ClientInfo {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		var ret []ClientInfo
 		return ret
 	}
+
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
+// GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
 func (o *ClientInfoResp) GetOrdersOk() ([]ClientInfo, bool) {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Orders, true
 }
 
-// HasOrders returns a boolean if a field has been set.
-func (o *ClientInfoResp) HasOrders() bool {
-	if o != nil && !IsNil(o.Orders) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrders gets a reference to the given []ClientInfo and assigns it to the Orders field.
+// SetOrders sets field value
 func (o *ClientInfoResp) SetOrders(v []ClientInfo) {
 	o.Orders = v
 }
@@ -82,10 +79,45 @@ func (o ClientInfoResp) MarshalJSON() ([]byte, error) {
 
 func (o ClientInfoResp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Orders) {
-		toSerialize["orders"] = o.Orders
-	}
+	toSerialize["orders"] = o.Orders
 	return toSerialize, nil
+}
+
+func (o *ClientInfoResp) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"orders",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varClientInfoResp := _ClientInfoResp{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varClientInfoResp)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ClientInfoResp(varClientInfoResp)
+
+	return err
 }
 
 type NullableClientInfoResp struct {

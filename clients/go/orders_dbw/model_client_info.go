@@ -12,6 +12,8 @@ package orders_dbw
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ClientInfo type satisfies the MappedNullable interface at compile time
@@ -20,29 +22,39 @@ var _ MappedNullable = &ClientInfo{}
 // ClientInfo struct for ClientInfo
 type ClientInfo struct {
 	// Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен 
-	ReplacementPhone *string `json:"replacementPhone,omitempty"`
+	ReplacementPhone string `json:"replacementPhone"`
 	// Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду 
-	Phone *string `json:"phone,omitempty"`
+	Phone string `json:"phone"`
 	// Имя покупателя
-	FirstName *string `json:"firstName,omitempty"`
+	FirstName string `json:"firstName"`
 	// Полное имя покупателя, используется для оформления документов
-	FullName *string `json:"fullName,omitempty"`
+	FullName string `json:"fullName"`
 	// Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан 
-	AdditionalPhones []string `json:"additionalPhones,omitempty"`
+	AdditionalPhones []string `json:"additionalPhones"`
 	// Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение указывает, коды ещё не назначены 
-	AdditionalPhoneCodes []int32 `json:"additionalPhoneCodes,omitempty"`
+	AdditionalPhoneCodes []int32 `json:"additionalPhoneCodes"`
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId int32 `json:"orderId"`
 	// Добавочный код. <br> Используйте, чтобы связаться с покупателем по номеру из `phone`.<br> Если код не указан, вы можете связаться с покупателем без кода 
-	PhoneCode *int32 `json:"phoneCode,omitempty"`
+	PhoneCode int32 `json:"phoneCode"`
 }
+
+type _ClientInfo ClientInfo
 
 // NewClientInfo instantiates a new ClientInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClientInfo() *ClientInfo {
+func NewClientInfo(replacementPhone string, phone string, firstName string, fullName string, additionalPhones []string, additionalPhoneCodes []int32, orderId int32, phoneCode int32) *ClientInfo {
 	this := ClientInfo{}
+	this.ReplacementPhone = replacementPhone
+	this.Phone = phone
+	this.FirstName = firstName
+	this.FullName = fullName
+	this.AdditionalPhones = additionalPhones
+	this.AdditionalPhoneCodes = additionalPhoneCodes
+	this.OrderId = orderId
+	this.PhoneCode = phoneCode
 	return &this
 }
 
@@ -54,260 +66,196 @@ func NewClientInfoWithDefaults() *ClientInfo {
 	return &this
 }
 
-// GetReplacementPhone returns the ReplacementPhone field value if set, zero value otherwise.
+// GetReplacementPhone returns the ReplacementPhone field value
 func (o *ClientInfo) GetReplacementPhone() string {
-	if o == nil || IsNil(o.ReplacementPhone) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ReplacementPhone
+
+	return o.ReplacementPhone
 }
 
-// GetReplacementPhoneOk returns a tuple with the ReplacementPhone field value if set, nil otherwise
+// GetReplacementPhoneOk returns a tuple with the ReplacementPhone field value
 // and a boolean to check if the value has been set.
 func (o *ClientInfo) GetReplacementPhoneOk() (*string, bool) {
-	if o == nil || IsNil(o.ReplacementPhone) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ReplacementPhone, true
+	return &o.ReplacementPhone, true
 }
 
-// HasReplacementPhone returns a boolean if a field has been set.
-func (o *ClientInfo) HasReplacementPhone() bool {
-	if o != nil && !IsNil(o.ReplacementPhone) {
-		return true
-	}
-
-	return false
-}
-
-// SetReplacementPhone gets a reference to the given string and assigns it to the ReplacementPhone field.
+// SetReplacementPhone sets field value
 func (o *ClientInfo) SetReplacementPhone(v string) {
-	o.ReplacementPhone = &v
+	o.ReplacementPhone = v
 }
 
-// GetPhone returns the Phone field value if set, zero value otherwise.
+// GetPhone returns the Phone field value
 func (o *ClientInfo) GetPhone() string {
-	if o == nil || IsNil(o.Phone) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Phone
+
+	return o.Phone
 }
 
-// GetPhoneOk returns a tuple with the Phone field value if set, nil otherwise
+// GetPhoneOk returns a tuple with the Phone field value
 // and a boolean to check if the value has been set.
 func (o *ClientInfo) GetPhoneOk() (*string, bool) {
-	if o == nil || IsNil(o.Phone) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Phone, true
+	return &o.Phone, true
 }
 
-// HasPhone returns a boolean if a field has been set.
-func (o *ClientInfo) HasPhone() bool {
-	if o != nil && !IsNil(o.Phone) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhone gets a reference to the given string and assigns it to the Phone field.
+// SetPhone sets field value
 func (o *ClientInfo) SetPhone(v string) {
-	o.Phone = &v
+	o.Phone = v
 }
 
-// GetFirstName returns the FirstName field value if set, zero value otherwise.
+// GetFirstName returns the FirstName field value
 func (o *ClientInfo) GetFirstName() string {
-	if o == nil || IsNil(o.FirstName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FirstName
+
+	return o.FirstName
 }
 
-// GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
+// GetFirstNameOk returns a tuple with the FirstName field value
 // and a boolean to check if the value has been set.
 func (o *ClientInfo) GetFirstNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FirstName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FirstName, true
+	return &o.FirstName, true
 }
 
-// HasFirstName returns a boolean if a field has been set.
-func (o *ClientInfo) HasFirstName() bool {
-	if o != nil && !IsNil(o.FirstName) {
-		return true
-	}
-
-	return false
-}
-
-// SetFirstName gets a reference to the given string and assigns it to the FirstName field.
+// SetFirstName sets field value
 func (o *ClientInfo) SetFirstName(v string) {
-	o.FirstName = &v
+	o.FirstName = v
 }
 
-// GetFullName returns the FullName field value if set, zero value otherwise.
+// GetFullName returns the FullName field value
 func (o *ClientInfo) GetFullName() string {
-	if o == nil || IsNil(o.FullName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FullName
+
+	return o.FullName
 }
 
-// GetFullNameOk returns a tuple with the FullName field value if set, nil otherwise
+// GetFullNameOk returns a tuple with the FullName field value
 // and a boolean to check if the value has been set.
 func (o *ClientInfo) GetFullNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FullName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FullName, true
+	return &o.FullName, true
 }
 
-// HasFullName returns a boolean if a field has been set.
-func (o *ClientInfo) HasFullName() bool {
-	if o != nil && !IsNil(o.FullName) {
-		return true
-	}
-
-	return false
-}
-
-// SetFullName gets a reference to the given string and assigns it to the FullName field.
+// SetFullName sets field value
 func (o *ClientInfo) SetFullName(v string) {
-	o.FullName = &v
+	o.FullName = v
 }
 
-// GetAdditionalPhones returns the AdditionalPhones field value if set, zero value otherwise.
+// GetAdditionalPhones returns the AdditionalPhones field value
 func (o *ClientInfo) GetAdditionalPhones() []string {
-	if o == nil || IsNil(o.AdditionalPhones) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.AdditionalPhones
 }
 
-// GetAdditionalPhonesOk returns a tuple with the AdditionalPhones field value if set, nil otherwise
+// GetAdditionalPhonesOk returns a tuple with the AdditionalPhones field value
 // and a boolean to check if the value has been set.
 func (o *ClientInfo) GetAdditionalPhonesOk() ([]string, bool) {
-	if o == nil || IsNil(o.AdditionalPhones) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AdditionalPhones, true
 }
 
-// HasAdditionalPhones returns a boolean if a field has been set.
-func (o *ClientInfo) HasAdditionalPhones() bool {
-	if o != nil && !IsNil(o.AdditionalPhones) {
-		return true
-	}
-
-	return false
-}
-
-// SetAdditionalPhones gets a reference to the given []string and assigns it to the AdditionalPhones field.
+// SetAdditionalPhones sets field value
 func (o *ClientInfo) SetAdditionalPhones(v []string) {
 	o.AdditionalPhones = v
 }
 
-// GetAdditionalPhoneCodes returns the AdditionalPhoneCodes field value if set, zero value otherwise.
+// GetAdditionalPhoneCodes returns the AdditionalPhoneCodes field value
 func (o *ClientInfo) GetAdditionalPhoneCodes() []int32 {
-	if o == nil || IsNil(o.AdditionalPhoneCodes) {
+	if o == nil {
 		var ret []int32
 		return ret
 	}
+
 	return o.AdditionalPhoneCodes
 }
 
-// GetAdditionalPhoneCodesOk returns a tuple with the AdditionalPhoneCodes field value if set, nil otherwise
+// GetAdditionalPhoneCodesOk returns a tuple with the AdditionalPhoneCodes field value
 // and a boolean to check if the value has been set.
 func (o *ClientInfo) GetAdditionalPhoneCodesOk() ([]int32, bool) {
-	if o == nil || IsNil(o.AdditionalPhoneCodes) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AdditionalPhoneCodes, true
 }
 
-// HasAdditionalPhoneCodes returns a boolean if a field has been set.
-func (o *ClientInfo) HasAdditionalPhoneCodes() bool {
-	if o != nil && !IsNil(o.AdditionalPhoneCodes) {
-		return true
-	}
-
-	return false
-}
-
-// SetAdditionalPhoneCodes gets a reference to the given []int32 and assigns it to the AdditionalPhoneCodes field.
+// SetAdditionalPhoneCodes sets field value
 func (o *ClientInfo) SetAdditionalPhoneCodes(v []int32) {
 	o.AdditionalPhoneCodes = v
 }
 
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
+// GetOrderId returns the OrderId field value
 func (o *ClientInfo) GetOrderId() int32 {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OrderId
+
+	return o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
 func (o *ClientInfo) GetOrderIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderId, true
+	return &o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *ClientInfo) HasOrderId() bool {
-	if o != nil && !IsNil(o.OrderId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
+// SetOrderId sets field value
 func (o *ClientInfo) SetOrderId(v int32) {
-	o.OrderId = &v
+	o.OrderId = v
 }
 
-// GetPhoneCode returns the PhoneCode field value if set, zero value otherwise.
+// GetPhoneCode returns the PhoneCode field value
 func (o *ClientInfo) GetPhoneCode() int32 {
-	if o == nil || IsNil(o.PhoneCode) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PhoneCode
+
+	return o.PhoneCode
 }
 
-// GetPhoneCodeOk returns a tuple with the PhoneCode field value if set, nil otherwise
+// GetPhoneCodeOk returns a tuple with the PhoneCode field value
 // and a boolean to check if the value has been set.
 func (o *ClientInfo) GetPhoneCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.PhoneCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PhoneCode, true
+	return &o.PhoneCode, true
 }
 
-// HasPhoneCode returns a boolean if a field has been set.
-func (o *ClientInfo) HasPhoneCode() bool {
-	if o != nil && !IsNil(o.PhoneCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhoneCode gets a reference to the given int32 and assigns it to the PhoneCode field.
+// SetPhoneCode sets field value
 func (o *ClientInfo) SetPhoneCode(v int32) {
-	o.PhoneCode = &v
+	o.PhoneCode = v
 }
 
 func (o ClientInfo) MarshalJSON() ([]byte, error) {
@@ -320,31 +268,59 @@ func (o ClientInfo) MarshalJSON() ([]byte, error) {
 
 func (o ClientInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ReplacementPhone) {
-		toSerialize["replacementPhone"] = o.ReplacementPhone
-	}
-	if !IsNil(o.Phone) {
-		toSerialize["phone"] = o.Phone
-	}
-	if !IsNil(o.FirstName) {
-		toSerialize["firstName"] = o.FirstName
-	}
-	if !IsNil(o.FullName) {
-		toSerialize["fullName"] = o.FullName
-	}
-	if !IsNil(o.AdditionalPhones) {
-		toSerialize["additionalPhones"] = o.AdditionalPhones
-	}
-	if !IsNil(o.AdditionalPhoneCodes) {
-		toSerialize["additionalPhoneCodes"] = o.AdditionalPhoneCodes
-	}
-	if !IsNil(o.OrderId) {
-		toSerialize["orderId"] = o.OrderId
-	}
-	if !IsNil(o.PhoneCode) {
-		toSerialize["phoneCode"] = o.PhoneCode
-	}
+	toSerialize["replacementPhone"] = o.ReplacementPhone
+	toSerialize["phone"] = o.Phone
+	toSerialize["firstName"] = o.FirstName
+	toSerialize["fullName"] = o.FullName
+	toSerialize["additionalPhones"] = o.AdditionalPhones
+	toSerialize["additionalPhoneCodes"] = o.AdditionalPhoneCodes
+	toSerialize["orderId"] = o.OrderId
+	toSerialize["phoneCode"] = o.PhoneCode
 	return toSerialize, nil
+}
+
+func (o *ClientInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"replacementPhone",
+		"phone",
+		"firstName",
+		"fullName",
+		"additionalPhones",
+		"additionalPhoneCodes",
+		"orderId",
+		"phoneCode",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varClientInfo := _ClientInfo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varClientInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ClientInfo(varClientInfo)
+
+	return err
 }
 
 type NullableClientInfo struct {

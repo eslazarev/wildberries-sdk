@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.dbs.models.order_new_dbs import OrderNewDBS
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class GetV3DbsOrdersNew200Response(BaseModel):
     """
     GetV3DbsOrdersNew200Response
     """ # noqa: E501
-    orders: Optional[List[OrderNewDBS]] = Field(default=None, description="Список новых сборочных заданий")
+    orders: List[OrderNewDBS] = Field(description="Список новых сборочных заданий")
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(

@@ -8859,7 +8859,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Items\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Items\Model\GetV2ObjectCharcsSubjectId200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\GetV2ObjectParentAll401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\GetV2ObjectParentAll401Response
+     * @return \Wildberries\Sdk\Items\Model\GetV2ObjectCharcsSubjectId200Response|\Wildberries\Sdk\Items\Model\GetV2ObjectCharcsSubjectId400Response|\Wildberries\Sdk\Items\Model\GetV2ObjectParentAll401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\GetV2ObjectParentAll401Response
      */
     public function getV2ObjectCharcsSubjectId($subject_id, $locale = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV2ObjectCharcsSubjectId'][0])
     {
@@ -8885,7 +8885,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Items\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Items\Model\GetV2ObjectCharcsSubjectId200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\GetV2ObjectParentAll401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\GetV2ObjectParentAll401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Items\Model\GetV2ObjectCharcsSubjectId200Response|\Wildberries\Sdk\Items\Model\GetV2ObjectCharcsSubjectId400Response|\Wildberries\Sdk\Items\Model\GetV2ObjectParentAll401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\GetV2ObjectParentAll401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV2ObjectCharcsSubjectIdWithHttpInfo($subject_id, $locale = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV2ObjectCharcsSubjectId'][0])
     {
@@ -8923,7 +8923,7 @@ class DefaultApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Items\Model\ResponseBodyContentError400',
+                        '\Wildberries\Sdk\Items\Model\GetV2ObjectCharcsSubjectId400Response',
                         $request,
                         $response,
                     );
@@ -8980,7 +8980,7 @@ class DefaultApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Items\Model\ResponseBodyContentError400',
+                        '\Wildberries\Sdk\Items\Model\GetV2ObjectCharcsSubjectId400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

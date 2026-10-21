@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiOrderStatusesV2 type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &ApiOrderStatusesV2{}
 // ApiOrderStatusesV2 struct for ApiOrderStatusesV2
 type ApiOrderStatusesV2 struct {
 	// Информация о статусах
-	Orders []ApiOrderStatusV2 `json:"orders,omitempty"`
+	Orders []ApiOrderStatusV2 `json:"orders"`
 }
+
+type _ApiOrderStatusesV2 ApiOrderStatusesV2
 
 // NewApiOrderStatusesV2 instantiates a new ApiOrderStatusesV2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrderStatusesV2() *ApiOrderStatusesV2 {
+func NewApiOrderStatusesV2(orders []ApiOrderStatusV2) *ApiOrderStatusesV2 {
 	this := ApiOrderStatusesV2{}
+	this.Orders = orders
 	return &this
 }
 
@@ -40,34 +45,26 @@ func NewApiOrderStatusesV2WithDefaults() *ApiOrderStatusesV2 {
 	return &this
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise.
+// GetOrders returns the Orders field value
 func (o *ApiOrderStatusesV2) GetOrders() []ApiOrderStatusV2 {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		var ret []ApiOrderStatusV2
 		return ret
 	}
+
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
+// GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderStatusesV2) GetOrdersOk() ([]ApiOrderStatusV2, bool) {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Orders, true
 }
 
-// HasOrders returns a boolean if a field has been set.
-func (o *ApiOrderStatusesV2) HasOrders() bool {
-	if o != nil && !IsNil(o.Orders) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrders gets a reference to the given []ApiOrderStatusV2 and assigns it to the Orders field.
+// SetOrders sets field value
 func (o *ApiOrderStatusesV2) SetOrders(v []ApiOrderStatusV2) {
 	o.Orders = v
 }
@@ -82,10 +79,45 @@ func (o ApiOrderStatusesV2) MarshalJSON() ([]byte, error) {
 
 func (o ApiOrderStatusesV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Orders) {
-		toSerialize["orders"] = o.Orders
-	}
+	toSerialize["orders"] = o.Orders
 	return toSerialize, nil
+}
+
+func (o *ApiOrderStatusesV2) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"orders",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiOrderStatusesV2 := _ApiOrderStatusesV2{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiOrderStatusesV2)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiOrderStatusesV2(varApiOrderStatusesV2)
+
+	return err
 }
 
 type NullableApiOrderStatusesV2 struct {

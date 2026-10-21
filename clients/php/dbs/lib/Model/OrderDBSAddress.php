@@ -289,6 +289,15 @@ class OrderDBSAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['full_address'] === null) {
+            $invalidProperties[] = "'full_address' can't be null";
+        }
+        if ($this->container['longitude'] === null) {
+            $invalidProperties[] = "'longitude' can't be null";
+        }
+        if ($this->container['latitude'] === null) {
+            $invalidProperties[] = "'latitude' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -307,7 +316,7 @@ class OrderDBSAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets full_address
      *
-     * @return string|null
+     * @return string
      */
     public function getFullAddress()
     {
@@ -317,7 +326,7 @@ class OrderDBSAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets full_address
      *
-     * @param string|null $full_address Адрес доставки
+     * @param string $full_address Адрес доставки
      *
      * @return self
      */
@@ -334,7 +343,7 @@ class OrderDBSAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets longitude
      *
-     * @return float|null
+     * @return float
      */
     public function getLongitude()
     {
@@ -344,7 +353,7 @@ class OrderDBSAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets longitude
      *
-     * @param float|null $longitude Долгота
+     * @param float $longitude Долгота
      *
      * @return self
      */
@@ -361,7 +370,7 @@ class OrderDBSAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets latitude
      *
-     * @return float|null
+     * @return float
      */
     public function getLatitude()
     {
@@ -371,7 +380,7 @@ class OrderDBSAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets latitude
      *
-     * @param float|null $latitude Широта
+     * @param float $latitude Широта
      *
      * @return self
      */

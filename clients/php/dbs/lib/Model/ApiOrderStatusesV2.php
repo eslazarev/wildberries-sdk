@@ -274,6 +274,9 @@ class ApiOrderStatusesV2 implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class ApiOrderStatusesV2 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\Dbs\Model\ApiOrderStatusV2[]|null
+     * @return \Wildberries\Sdk\Dbs\Model\ApiOrderStatusV2[]
      */
     public function getOrders()
     {
@@ -302,7 +305,7 @@ class ApiOrderStatusesV2 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\Dbs\Model\ApiOrderStatusV2[]|null $orders Информация о статусах
+     * @param \Wildberries\Sdk\Dbs\Model\ApiOrderStatusV2[] $orders Информация о статусах
      *
      * @return self
      */

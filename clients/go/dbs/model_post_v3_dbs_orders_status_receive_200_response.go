@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PostV3DbsOrdersStatusReceive200Response type satisfies the MappedNullable interface at compile time
@@ -20,16 +22,20 @@ var _ MappedNullable = &PostV3DbsOrdersStatusReceive200Response{}
 // PostV3DbsOrdersStatusReceive200Response struct for PostV3DbsOrdersStatusReceive200Response
 type PostV3DbsOrdersStatusReceive200Response struct {
 	// Уникальный ID запроса
-	RequestId *string `json:"requestId,omitempty"`
-	Results []PostV3DbsOrdersStatusReceive200ResponseResultsInner `json:"results,omitempty"`
+	RequestId string `json:"requestId"`
+	Results []PostV3DbsOrdersStatusReceive200ResponseResultsInner `json:"results"`
 }
+
+type _PostV3DbsOrdersStatusReceive200Response PostV3DbsOrdersStatusReceive200Response
 
 // NewPostV3DbsOrdersStatusReceive200Response instantiates a new PostV3DbsOrdersStatusReceive200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3DbsOrdersStatusReceive200Response() *PostV3DbsOrdersStatusReceive200Response {
+func NewPostV3DbsOrdersStatusReceive200Response(requestId string, results []PostV3DbsOrdersStatusReceive200ResponseResultsInner) *PostV3DbsOrdersStatusReceive200Response {
 	this := PostV3DbsOrdersStatusReceive200Response{}
+	this.RequestId = requestId
+	this.Results = results
 	return &this
 }
 
@@ -41,66 +47,50 @@ func NewPostV3DbsOrdersStatusReceive200ResponseWithDefaults() *PostV3DbsOrdersSt
 	return &this
 }
 
-// GetRequestId returns the RequestId field value if set, zero value otherwise.
+// GetRequestId returns the RequestId field value
 func (o *PostV3DbsOrdersStatusReceive200Response) GetRequestId() string {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RequestId
+
+	return o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
+// GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *PostV3DbsOrdersStatusReceive200Response) GetRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RequestId, true
+	return &o.RequestId, true
 }
 
-// HasRequestId returns a boolean if a field has been set.
-func (o *PostV3DbsOrdersStatusReceive200Response) HasRequestId() bool {
-	if o != nil && !IsNil(o.RequestId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+// SetRequestId sets field value
 func (o *PostV3DbsOrdersStatusReceive200Response) SetRequestId(v string) {
-	o.RequestId = &v
+	o.RequestId = v
 }
 
-// GetResults returns the Results field value if set, zero value otherwise.
+// GetResults returns the Results field value
 func (o *PostV3DbsOrdersStatusReceive200Response) GetResults() []PostV3DbsOrdersStatusReceive200ResponseResultsInner {
-	if o == nil || IsNil(o.Results) {
+	if o == nil {
 		var ret []PostV3DbsOrdersStatusReceive200ResponseResultsInner
 		return ret
 	}
+
 	return o.Results
 }
 
-// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
+// GetResultsOk returns a tuple with the Results field value
 // and a boolean to check if the value has been set.
 func (o *PostV3DbsOrdersStatusReceive200Response) GetResultsOk() ([]PostV3DbsOrdersStatusReceive200ResponseResultsInner, bool) {
-	if o == nil || IsNil(o.Results) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Results, true
 }
 
-// HasResults returns a boolean if a field has been set.
-func (o *PostV3DbsOrdersStatusReceive200Response) HasResults() bool {
-	if o != nil && !IsNil(o.Results) {
-		return true
-	}
-
-	return false
-}
-
-// SetResults gets a reference to the given []PostV3DbsOrdersStatusReceive200ResponseResultsInner and assigns it to the Results field.
+// SetResults sets field value
 func (o *PostV3DbsOrdersStatusReceive200Response) SetResults(v []PostV3DbsOrdersStatusReceive200ResponseResultsInner) {
 	o.Results = v
 }
@@ -115,13 +105,47 @@ func (o PostV3DbsOrdersStatusReceive200Response) MarshalJSON() ([]byte, error) {
 
 func (o PostV3DbsOrdersStatusReceive200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.RequestId) {
-		toSerialize["requestId"] = o.RequestId
-	}
-	if !IsNil(o.Results) {
-		toSerialize["results"] = o.Results
-	}
+	toSerialize["requestId"] = o.RequestId
+	toSerialize["results"] = o.Results
 	return toSerialize, nil
+}
+
+func (o *PostV3DbsOrdersStatusReceive200Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"requestId",
+		"results",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPostV3DbsOrdersStatusReceive200Response := _PostV3DbsOrdersStatusReceive200Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPostV3DbsOrdersStatusReceive200Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostV3DbsOrdersStatusReceive200Response(varPostV3DbsOrdersStatusReceive200Response)
+
+	return err
 }
 
 type NullablePostV3DbsOrdersStatusReceive200Response struct {

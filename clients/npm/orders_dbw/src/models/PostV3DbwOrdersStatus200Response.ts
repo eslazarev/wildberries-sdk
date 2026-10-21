@@ -30,13 +30,14 @@ export interface PostV3DbwOrdersStatus200Response {
     /**
      * 
      */
-    orders?: Array<PostV3DbwOrdersStatus200ResponseOrdersInner>;
+    orders: Array<PostV3DbwOrdersStatus200ResponseOrdersInner>;
 }
 
 /**
  * Check if a given object implements the PostV3DbwOrdersStatus200Response interface.
  */
 export function instanceOfPostV3DbwOrdersStatus200Response(value: object): value is PostV3DbwOrdersStatus200Response {
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function PostV3DbwOrdersStatus200ResponseFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(PostV3DbwOrdersStatus200ResponseOrdersInnerFromJSON)),
+        'orders': ((json['orders'] as Array<any>).map(PostV3DbwOrdersStatus200ResponseOrdersInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function PostV3DbwOrdersStatus200ResponseToJSONTyped(value?: PostV3DbwOrd
 
     return {
         
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(PostV3DbwOrdersStatus200ResponseOrdersInnerToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(PostV3DbwOrdersStatus200ResponseOrdersInnerToJSON)),
     };
 }
 

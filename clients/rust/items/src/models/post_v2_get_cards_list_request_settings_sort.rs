@@ -11,16 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// PostV2GetCardsListRequestSettingsSort : Параметр сортировки
+/// PostV2GetCardsListRequestSettingsSort : Сортировка по дате и времени изменения карточек товаров `updatedAt`
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV2GetCardsListRequestSettingsSort {
-    /// Сортировать по полю `updatedAt`:   - `false` — по убыванию   -  `true` — по возрастанию 
+    /// Порядок сортировки:   - `false` — по убыванию   - `true` — по возрастанию 
     #[serde(rename = "ascending", skip_serializing_if = "Option::is_none")]
     pub ascending: Option<bool>,
 }
 
 impl PostV2GetCardsListRequestSettingsSort {
-    /// Параметр сортировки
+    /// Сортировка по дате и времени изменения карточек товаров `updatedAt`
     pub fn new() -> PostV2GetCardsListRequestSettingsSort {
         PostV2GetCardsListRequestSettingsSort {
             ascending: None,

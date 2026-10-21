@@ -34,7 +34,7 @@ export interface ApiB2bClientInfoResponses {
     /**
      * 
      */
-    results?: Array<ApiB2bClientInfoResponse>;
+    results: Array<ApiB2bClientInfoResponse>;
 }
 
 /**
@@ -42,6 +42,7 @@ export interface ApiB2bClientInfoResponses {
  */
 export function instanceOfApiB2bClientInfoResponses(value: object): value is ApiB2bClientInfoResponses {
     if (!('requestId' in value) || value['requestId'] === undefined) return false;
+    if (!('results' in value) || value['results'] === undefined) return false;
     return true;
 }
 
@@ -56,7 +57,7 @@ export function ApiB2bClientInfoResponsesFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'requestId': json['requestId'],
-        'results': json['results'] == null ? undefined : ((json['results'] as Array<any>).map(ApiB2bClientInfoResponseFromJSON)),
+        'results': ((json['results'] as Array<any>).map(ApiB2bClientInfoResponseFromJSON)),
     };
 }
 
@@ -72,7 +73,7 @@ export function ApiB2bClientInfoResponsesToJSONTyped(value?: ApiB2bClientInfoRes
     return {
         
         'requestId': value['requestId'],
-        'results': value['results'] == null ? undefined : ((value['results'] as Array<any>).map(ApiB2bClientInfoResponseToJSON)),
+        'results': ((value['results'] as Array<any>).map(ApiB2bClientInfoResponseToJSON)),
     };
 }
 

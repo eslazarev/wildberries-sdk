@@ -118,16 +118,13 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
-          у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному
-          значению параметра `dateFrom`.
-          При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
-          <br>
-          Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
-          равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
-          При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
-          сделанных в указанную дату, переданную в параметре `dateFrom`.
+      - description: "Чтобы получить заказы с датой и временем обновления информац\
+          ии `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запр\
+          ос без `flag` или с `flag=0`. При этом количество строк в ответе условно\
+          \ ограничено 80000.<br>Чтобы получить заказы с датой заказа `date`, указ\
+          анной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` знач\
+          ения не имеет. При этом количество строк в ответе будет равно количеству\
+          \ заказов за дату `dateFrom`"
         explode: true
         in: query
         name: flag
@@ -311,16 +308,13 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
-          у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному
-          значению параметра `dateFrom`.
-          При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
-          <br>
-          Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
-          равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
-          При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
-          сделанных в указанную дату, переданную в параметре `dateFrom`.
+      - description: "Чтобы получить продажи с датой и временем обновления информа\
+          ции `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте зап\
+          рос без `flag` или с `flag=0`. При этом количество строк в ответе условн\
+          о ограничено 80000.<br>Чтобы получить продажи с датой заказа `date`, ука\
+          занной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` зна\
+          чения не имеет. При этом количество строк в ответе будет равно количеств\
+          у продаж за дату `dateFrom`"
         explode: true
         in: query
         name: flag
@@ -471,8 +465,7 @@ paths:
         </div>
       operationId: postV1AnalyticsExciseReport
       parameters:
-      - description: |
-          Начало отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Начало отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-02-28
         explode: true
         in: query
@@ -481,8 +474,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Конец отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Конец отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-03-21
         explode: true
         in: query
@@ -1538,10 +1530,9 @@ paths:
         </div>
       operationId: getV1AnalyticsAntifraudDetails
       parameters:
-      - description: |
-          Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.
-          <br/>
-          Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр
+      - description: "Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.<br>Что\
+          бы получить данные за всё время с августа 2023,  не указывайте этот пара\
+          метр"
         example: 2023-12-01
         explode: true
         in: query
@@ -1656,8 +1647,7 @@ paths:
         </div>
       operationId: getV1AnalyticsGoodsLabeling
       parameters:
-      - description: |
-          Начало отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Начало отчётного периода, `ГГГГ-ММ-ДД`"
         explode: true
         in: query
         name: dateFrom
@@ -1667,8 +1657,7 @@ paths:
           format: date
           type: string
         style: form
-      - description: |
-          Конец отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Конец отчётного периода, `ГГГГ-ММ-ДД`"
         explode: true
         in: query
         name: dateTo
@@ -1804,8 +1793,7 @@ paths:
         </div>
       operationId: getV1AcceptanceReport
       parameters:
-      - description: |
-          Начало отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Начало отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-02-28
         explode: true
         in: query
@@ -1814,8 +1802,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Конец отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Конец отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-03-21
         explode: true
         in: query
@@ -2611,8 +2598,7 @@ paths:
         </div>
       operationId: getV1AnalyticsRegionSale
       parameters:
-      - description: |
-          Начало отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Начало отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-02-28
         explode: true
         in: query
@@ -2621,8 +2607,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Конец отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Конец отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-03-21
         explode: true
         in: query
@@ -2864,8 +2849,7 @@ paths:
           example: H%26M
           type: string
         style: form
-      - description: |
-          Начало отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Начало отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-02-28
         explode: true
         in: query
@@ -2874,8 +2858,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Конец отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Конец отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-03-21
         explode: true
         in: query
@@ -3032,8 +3015,7 @@ paths:
           example: H%26M
           type: string
         style: form
-      - description: |
-          Начало отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Начало отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-02-28
         explode: true
         in: query
@@ -3042,8 +3024,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Конец отчётного периода, `ГГГГ-ММ-ДД`
+      - description: "Конец отчётного периода, `ГГГГ-ММ-ДД`"
         example: 2025-03-21
         explode: true
         in: query
@@ -3817,17 +3798,30 @@ components:
         origin: ag-marketplace
         timestamp: 2026-09-03T13:55:15Z
   parameters:
-    flag:
-      description: |
-        Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
-        у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному
-        значению параметра `dateFrom`.
-        При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
-        <br>
-        Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
-        равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
-        При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
-        сделанных в указанную дату, переданную в параметре `dateFrom`.
+    FlagOrders:
+      description: "Чтобы получить заказы с датой и временем обновления информации\
+        \ `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос\
+        \ без `flag` или с `flag=0`. При этом количество строк в ответе условно ог\
+        раничено 80000.<br>Чтобы получить заказы с датой заказа `date`, указанной\
+        \ в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения н\
+        е имеет. При этом количество строк в ответе будет равно количеству заказов\
+        \ за дату `dateFrom`"
+      explode: true
+      in: query
+      name: flag
+      required: false
+      schema:
+        default: 0
+        type: integer
+      style: form
+    FlagSales:
+      description: "Чтобы получить продажи с датой и временем обновления информаци\
+        и `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос\
+        \ без `flag` или с `flag=0`. При этом количество строк в ответе условно ог\
+        раничено 80000.<br>Чтобы получить продажи с датой заказа `date`, указанной\
+        \ в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения н\
+        е имеет. При этом количество строк в ответе будет равно количеству продаж\
+        \ за дату `dateFrom`"
       explode: true
       in: query
       name: flag
@@ -3837,10 +3831,9 @@ components:
         type: integer
       style: form
     Date:
-      description: |
-        Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.
-        <br/>
-        Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр
+      description: "Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.<br>Чтобы\
+        \ получить данные за всё время с августа 2023,  не указывайте этот парамет\
+        р"
       example: 2023-12-01
       explode: true
       in: query
@@ -3850,8 +3843,7 @@ components:
         type: string
       style: form
     DateFrom:
-      description: |
-        Начало отчётного периода, `ГГГГ-ММ-ДД`
+      description: "Начало отчётного периода, `ГГГГ-ММ-ДД`"
       example: 2025-02-28
       explode: true
       in: query
@@ -3861,8 +3853,7 @@ components:
         type: string
       style: form
     DateTo:
-      description: |
-        Конец отчётного периода, `ГГГГ-ММ-ДД`
+      description: "Конец отчётного периода, `ГГГГ-ММ-ДД`"
       example: 2025-03-21
       explode: true
       in: query
@@ -3872,8 +3863,7 @@ components:
         type: string
       style: form
     DateFromGoodsLabeling:
-      description: |
-        Начало отчётного периода, `ГГГГ-ММ-ДД`
+      description: "Начало отчётного периода, `ГГГГ-ММ-ДД`"
       explode: true
       in: query
       name: dateFrom
@@ -3884,8 +3874,7 @@ components:
         type: string
       style: form
     DateToGoodsLabeling:
-      description: |
-        Конец отчётного периода, `ГГГГ-ММ-ДД`
+      description: "Конец отчётного периода, `ГГГГ-ММ-ДД`"
       explode: true
       in: query
       name: dateTo
@@ -5151,7 +5140,7 @@ components:
             type: string
           type: array
         shkID:
-          description: Штрихкод товара в WB
+          description: Штрихкод
           type: integer
         sku:
           description: Баркод из карточки товара
@@ -6140,15 +6129,15 @@ components:
           description: "Дата, за которую был расчёт или перерасчёт"
           type: string
         logWarehouseCoef:
-          description: "Коэффициент логистики и хранения. ]На данный момент](/release-notes?id=570)\
+          description: "Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570)\
             \ может быть только `0`"
           type: number
         officeId:
-          description: "ID склада. ]На данный момент](/release-notes?id=570) может\
+          description: "ID склада. [На данный момент](/release-notes?id=570) может\
             \ быть только `0`"
           type: integer
         warehouse:
-          description: "Название склада. ]На данный момент](/release-notes?id=570)\
+          description: "Название склада. [На данный момент](/release-notes?id=570)\
             \ может быть только `Склад WB РФ`"
           type: string
         warehouseCoef:
@@ -6193,7 +6182,7 @@ components:
             ю за расчётные сутки"
           type: integer
         palletPlaceCode:
-          description: "Код паллетоместа. ]На данный момент](/release-notes?id=570)\
+          description: "Код паллетоместа. [На данный момент](/release-notes?id=570)\
             \ может быть только `0`"
           type: integer
         palletCount:

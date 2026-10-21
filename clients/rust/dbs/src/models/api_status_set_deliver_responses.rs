@@ -14,17 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiStatusSetDeliverResponses {
     /// Уникальный ID запроса
-    #[serde(rename = "requestId", skip_serializing_if = "Option::is_none")]
-    pub request_id: Option<String>,
-    #[serde(rename = "results", skip_serializing_if = "Option::is_none")]
-    pub results: Option<Vec<models::ApiStatusSetDeliverResponse>>,
+    #[serde(rename = "requestId")]
+    pub request_id: String,
+    #[serde(rename = "results")]
+    pub results: Vec<models::ApiStatusSetDeliverResponse>,
 }
 
 impl ApiStatusSetDeliverResponses {
-    pub fn new() -> ApiStatusSetDeliverResponses {
+    pub fn new(request_id: String, results: Vec<models::ApiStatusSetDeliverResponse>) -> ApiStatusSetDeliverResponses {
         ApiStatusSetDeliverResponses {
-            request_id: None,
-            results: None,
+            request_id,
+            results,
         }
     }
 }

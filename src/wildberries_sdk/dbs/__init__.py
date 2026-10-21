@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.173"
+__version__ = "0.1.174"
 
 # Define package exports
 __all__ = [
@@ -77,6 +77,7 @@ __all__ = [
     "GetV3DbsOrdersNew402Response",
     "OrderDBS",
     "OrderDBSAddress",
+    "OrderDBSOptions",
     "OrderNewDBS",
     "OrderNewDBSAddress",
     "OrderNewDBSOptions",
@@ -156,6 +157,7 @@ from wildberries_sdk.dbs.models.get_v3_dbs_orders_new401_response import GetV3Db
 from wildberries_sdk.dbs.models.get_v3_dbs_orders_new402_response import GetV3DbsOrdersNew402Response as GetV3DbsOrdersNew402Response
 from wildberries_sdk.dbs.models.order_dbs import OrderDBS as OrderDBS
 from wildberries_sdk.dbs.models.order_dbs_address import OrderDBSAddress as OrderDBSAddress
+from wildberries_sdk.dbs.models.order_dbs_options import OrderDBSOptions as OrderDBSOptions
 from wildberries_sdk.dbs.models.order_new_dbs import OrderNewDBS as OrderNewDBS
 from wildberries_sdk.dbs.models.order_new_dbs_address import OrderNewDBSAddress as OrderNewDBSAddress
 from wildberries_sdk.dbs.models.order_new_dbs_options import OrderNewDBSOptions as OrderNewDBSOptions

@@ -17,15 +17,15 @@ pub struct ApiOrdersMetaDetailsResponse {
     #[serde(rename = "requestId")]
     pub request_id: String,
     /// Идентификаторы маркировки сборочных заданий и статусы их валидации
-    #[serde(rename = "orders", skip_serializing_if = "Option::is_none")]
-    pub orders: Option<Vec<models::ApiOrdersMetaDetailsResponseOrdersInner>>,
+    #[serde(rename = "orders")]
+    pub orders: Vec<models::ApiOrdersMetaDetailsResponseOrdersInner>,
 }
 
 impl ApiOrdersMetaDetailsResponse {
-    pub fn new(request_id: String) -> ApiOrdersMetaDetailsResponse {
+    pub fn new(request_id: String, orders: Vec<models::ApiOrdersMetaDetailsResponseOrdersInner>) -> ApiOrdersMetaDetailsResponse {
         ApiOrdersMetaDetailsResponse {
             request_id,
-            orders: None,
+            orders,
         }
     }
 }

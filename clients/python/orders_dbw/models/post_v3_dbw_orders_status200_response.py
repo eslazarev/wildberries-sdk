@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.orders_dbw.models.post_v3_dbw_orders_status200_response_orders_inner import PostV3DbwOrdersStatus200ResponseOrdersInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class PostV3DbwOrdersStatus200Response(BaseModel):
     """
     PostV3DbwOrdersStatus200Response
     """ # noqa: E501
-    orders: Optional[List[PostV3DbwOrdersStatus200ResponseOrdersInner]] = None
+    orders: List[PostV3DbwOrdersStatus200ResponseOrdersInner]
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(

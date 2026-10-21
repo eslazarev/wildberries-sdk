@@ -162,6 +162,7 @@ var_dump($response);
 - `orders_fbs.FBSApi.getV3FbsDictionariesCountriesOksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
 - `orders_fbs.FBSApi.getV3FbsOrdersArchive` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `orders_fbs.FBSApi.getV3FbsShippingPoints` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
+- `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdShippingPoints` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points` — Получить список пунктов отгрузки поставки
 - `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdStickersSpot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
 - `orders_fbs.FBSApi.getV3Orders` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
 - `orders_fbs.FBSApi.getV3OrdersNew` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий

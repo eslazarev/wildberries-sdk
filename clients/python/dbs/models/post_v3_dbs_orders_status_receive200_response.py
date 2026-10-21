@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.dbs.models.post_v3_dbs_orders_status_receive200_response_results_inner import PostV3DbsOrdersStatusReceive200ResponseResultsInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,8 @@ class PostV3DbsOrdersStatusReceive200Response(BaseModel):
     """
     PostV3DbsOrdersStatusReceive200Response
     """ # noqa: E501
-    request_id: Optional[StrictStr] = Field(default=None, description="Уникальный ID запроса", alias="requestId", json_schema_extra={"examples": ["f1787bd2d1fdс35d6f537316514у4a05"]})
-    results: Optional[List[PostV3DbsOrdersStatusReceive200ResponseResultsInner]] = None
+    request_id: StrictStr = Field(description="Уникальный ID запроса", alias="requestId", json_schema_extra={"examples": ["f1787bd2d1fdс35d6f537316514у4a05"]})
+    results: List[PostV3DbsOrdersStatusReceive200ResponseResultsInner]
     __properties: ClassVar[List[str]] = ["requestId", "results"]
 
     model_config = ConfigDict(

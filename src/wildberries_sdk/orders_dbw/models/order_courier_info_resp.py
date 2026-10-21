@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.orders_dbw.models.order_courier_info import OrderCourierInfo
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class OrderCourierInfoResp(BaseModel):
     """
     OrderCourierInfoResp
     """ # noqa: E501
-    orders: Optional[List[OrderCourierInfo]] = None
+    orders: List[OrderCourierInfo]
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(

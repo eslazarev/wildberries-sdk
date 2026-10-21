@@ -40,7 +40,7 @@ export interface Order {
      */
     updatedAt: Date;
     /**
-     * Статус заказа:
+     * [Статус заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
      *   - `created` — оформлен
      *   - `buyout` — продан
      *   - `cancel` — отменён
@@ -50,20 +50,20 @@ export interface Order {
      */
     status: OrderStatusEnum;
     /**
-     * Тип отмены (при `"status":"cancel"`):
+     * [Тип отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `"status":"cancel"`):
      *   - `app` — отказ до получения
      *   - `receipt` — отказ при получении
      *   - `expire` — истёк срок получения
-     *   - `other` — техническая отмена
+     *   - `other` — иное
      * 
      */
     cancelType?: OrderCancelTypeEnum;
     /**
-     * Название склада. ]На данный момент](/release-notes?id=570) для складов WB может быть только `Склад WB`
+     * Название склада. [На данный момент](/release-notes?id=570) для складов WB может быть только `Склад WB`
      */
     warehouseName: string;
     /**
-     * Федеральный округ склада. Если склад не в России, возвращается страна. ]На данный момент](/release-notes?id=570) для складов WB может быть только `""`
+     * Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](/release-notes?id=570) для складов WB может быть только `""`
      */
     warehouseRegion: string;
     /**

@@ -29,9 +29,9 @@ class CourierInfo(BaseModel):
     """
     CourierInfo
     """ # noqa: E501
-    contacts: Optional[CourierContactsResponse] = Field(default=None, description="Контактные данные курьера")
-    must_be_assigned: Optional[StrictBool] = Field(default=None, description="Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2) ", alias="mustBeAssigned")
-    updated_at: Optional[datetime] = Field(default=None, description="Дата и время обновления информации о курьере. <br> Если `null`, информация не обновлялась", alias="updatedAt", json_schema_extra={"examples": ["2025-09-06T11:33:10+03:00"]})
+    contacts: Optional[CourierContactsResponse] = Field(description="Контактные данные курьера")
+    must_be_assigned: StrictBool = Field(description="Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2) ", alias="mustBeAssigned")
+    updated_at: Optional[datetime] = Field(description="Дата и время обновления информации о курьере. <br> Если `null`, информация не обновлялась", alias="updatedAt", json_schema_extra={"examples": ["2025-09-06T11:33:10+03:00"]})
     __properties: ClassVar[List[str]] = ["contacts", "mustBeAssigned", "updatedAt"]
 
     model_config = ConfigDict(

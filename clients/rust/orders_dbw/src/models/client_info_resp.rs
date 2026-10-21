@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClientInfoResp {
     /// Информация о покупателях
-    #[serde(rename = "orders", skip_serializing_if = "Option::is_none")]
-    pub orders: Option<Vec<models::ClientInfo>>,
+    #[serde(rename = "orders")]
+    pub orders: Vec<models::ClientInfo>,
 }
 
 impl ClientInfoResp {
-    pub fn new() -> ClientInfoResp {
+    pub fn new(orders: Vec<models::ClientInfo>) -> ClientInfoResp {
         ClientInfoResp {
-            orders: None,
+            orders,
         }
     }
 }

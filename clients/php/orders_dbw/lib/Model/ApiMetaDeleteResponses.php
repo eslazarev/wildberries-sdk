@@ -281,6 +281,9 @@ class ApiMetaDeleteResponses implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['request_id'] === null) {
+            $invalidProperties[] = "'request_id' can't be null";
+        }
         if ($this->container['results'] === null) {
             $invalidProperties[] = "'results' can't be null";
         }
@@ -302,7 +305,7 @@ class ApiMetaDeleteResponses implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets request_id
      *
-     * @return string|null
+     * @return string
      */
     public function getRequestId()
     {
@@ -312,7 +315,7 @@ class ApiMetaDeleteResponses implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets request_id
      *
-     * @param string|null $request_id Уникальный ID запроса. Отображается для ответов с ошибками
+     * @param string $request_id Уникальный ID запроса. Отображается для ответов с ошибками
      *
      * @return self
      */

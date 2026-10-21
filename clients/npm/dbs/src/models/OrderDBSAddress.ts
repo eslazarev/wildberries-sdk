@@ -22,21 +22,24 @@ export interface OrderDBSAddress {
     /**
      * Адрес доставки
      */
-    fullAddress?: string;
+    fullAddress: string;
     /**
      * Долгота
      */
-    longitude?: number;
+    longitude: number;
     /**
      * Широта
      */
-    latitude?: number;
+    latitude: number;
 }
 
 /**
  * Check if a given object implements the OrderDBSAddress interface.
  */
 export function instanceOfOrderDBSAddress(value: object): value is OrderDBSAddress {
+    if (!('fullAddress' in value) || value['fullAddress'] === undefined) return false;
+    if (!('longitude' in value) || value['longitude'] === undefined) return false;
+    if (!('latitude' in value) || value['latitude'] === undefined) return false;
     return true;
 }
 
@@ -50,9 +53,9 @@ export function OrderDBSAddressFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'fullAddress': json['fullAddress'] == null ? undefined : json['fullAddress'],
-        'longitude': json['longitude'] == null ? undefined : json['longitude'],
-        'latitude': json['latitude'] == null ? undefined : json['latitude'],
+        'fullAddress': json['fullAddress'],
+        'longitude': json['longitude'],
+        'latitude': json['latitude'],
     };
 }
 

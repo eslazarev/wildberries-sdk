@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the DbsOnlyClientInfo type satisfies the MappedNullable interface at compile time
@@ -20,31 +22,42 @@ var _ MappedNullable = &DbsOnlyClientInfo{}
 // DbsOnlyClientInfo struct for DbsOnlyClientInfo
 type DbsOnlyClientInfo struct {
 	// Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер еще не назначен <br> 
-	ReplacementPhone *string `json:"replacementPhone,omitempty"`
+	ReplacementPhone string `json:"replacementPhone"`
 	// Резервный подменный номер телефона для связи с покупателем. <br> Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен 
-	Phone *string `json:"phone,omitempty"`
+	Phone string `json:"phone"`
 	// Имя покупателя
-	FirstName *string `json:"firstName,omitempty"`
+	FirstName string `json:"firstName"`
 	// Полное имя, используется для оформления документов. Например, документы на автомобиль
-	FullName *string `json:"fullName,omitempty"`
+	FullName string `json:"fullName"`
 	// Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан 
-	AdditionalPhones []string `json:"additionalPhones,omitempty"`
+	AdditionalPhones []string `json:"additionalPhones"`
 	// Дополнительные подменные номера телефонов для связи с покупателем.<br> Пустое значение означает, что номер не указан 
-	ReplacementAdditionalPhones []string `json:"replacementAdditionalPhones,omitempty"`
+	ReplacementAdditionalPhones []string `json:"replacementAdditionalPhones"`
 	// ID сборочного задания
-	OrderID *int32 `json:"orderID,omitempty"`
+	OrderID int32 `json:"orderID"`
 	// Добавочный код. <br> Пустое значение `\"\"` указывает, что код ещё не назначен 
-	PhoneCode *int32 `json:"phoneCode,omitempty"`
+	PhoneCode int32 `json:"phoneCode"`
 	// Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение `\"\"` указывает, что код ещё не назначен 
-	AdditionalPhoneCodes []string `json:"additionalPhoneCodes,omitempty"`
+	AdditionalPhoneCodes []string `json:"additionalPhoneCodes"`
 }
+
+type _DbsOnlyClientInfo DbsOnlyClientInfo
 
 // NewDbsOnlyClientInfo instantiates a new DbsOnlyClientInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDbsOnlyClientInfo() *DbsOnlyClientInfo {
+func NewDbsOnlyClientInfo(replacementPhone string, phone string, firstName string, fullName string, additionalPhones []string, replacementAdditionalPhones []string, orderID int32, phoneCode int32, additionalPhoneCodes []string) *DbsOnlyClientInfo {
 	this := DbsOnlyClientInfo{}
+	this.ReplacementPhone = replacementPhone
+	this.Phone = phone
+	this.FirstName = firstName
+	this.FullName = fullName
+	this.AdditionalPhones = additionalPhones
+	this.ReplacementAdditionalPhones = replacementAdditionalPhones
+	this.OrderID = orderID
+	this.PhoneCode = phoneCode
+	this.AdditionalPhoneCodes = additionalPhoneCodes
 	return &this
 }
 
@@ -56,290 +69,218 @@ func NewDbsOnlyClientInfoWithDefaults() *DbsOnlyClientInfo {
 	return &this
 }
 
-// GetReplacementPhone returns the ReplacementPhone field value if set, zero value otherwise.
+// GetReplacementPhone returns the ReplacementPhone field value
 func (o *DbsOnlyClientInfo) GetReplacementPhone() string {
-	if o == nil || IsNil(o.ReplacementPhone) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ReplacementPhone
+
+	return o.ReplacementPhone
 }
 
-// GetReplacementPhoneOk returns a tuple with the ReplacementPhone field value if set, nil otherwise
+// GetReplacementPhoneOk returns a tuple with the ReplacementPhone field value
 // and a boolean to check if the value has been set.
 func (o *DbsOnlyClientInfo) GetReplacementPhoneOk() (*string, bool) {
-	if o == nil || IsNil(o.ReplacementPhone) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ReplacementPhone, true
+	return &o.ReplacementPhone, true
 }
 
-// HasReplacementPhone returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfo) HasReplacementPhone() bool {
-	if o != nil && !IsNil(o.ReplacementPhone) {
-		return true
-	}
-
-	return false
-}
-
-// SetReplacementPhone gets a reference to the given string and assigns it to the ReplacementPhone field.
+// SetReplacementPhone sets field value
 func (o *DbsOnlyClientInfo) SetReplacementPhone(v string) {
-	o.ReplacementPhone = &v
+	o.ReplacementPhone = v
 }
 
-// GetPhone returns the Phone field value if set, zero value otherwise.
+// GetPhone returns the Phone field value
 func (o *DbsOnlyClientInfo) GetPhone() string {
-	if o == nil || IsNil(o.Phone) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Phone
+
+	return o.Phone
 }
 
-// GetPhoneOk returns a tuple with the Phone field value if set, nil otherwise
+// GetPhoneOk returns a tuple with the Phone field value
 // and a boolean to check if the value has been set.
 func (o *DbsOnlyClientInfo) GetPhoneOk() (*string, bool) {
-	if o == nil || IsNil(o.Phone) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Phone, true
+	return &o.Phone, true
 }
 
-// HasPhone returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfo) HasPhone() bool {
-	if o != nil && !IsNil(o.Phone) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhone gets a reference to the given string and assigns it to the Phone field.
+// SetPhone sets field value
 func (o *DbsOnlyClientInfo) SetPhone(v string) {
-	o.Phone = &v
+	o.Phone = v
 }
 
-// GetFirstName returns the FirstName field value if set, zero value otherwise.
+// GetFirstName returns the FirstName field value
 func (o *DbsOnlyClientInfo) GetFirstName() string {
-	if o == nil || IsNil(o.FirstName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FirstName
+
+	return o.FirstName
 }
 
-// GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
+// GetFirstNameOk returns a tuple with the FirstName field value
 // and a boolean to check if the value has been set.
 func (o *DbsOnlyClientInfo) GetFirstNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FirstName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FirstName, true
+	return &o.FirstName, true
 }
 
-// HasFirstName returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfo) HasFirstName() bool {
-	if o != nil && !IsNil(o.FirstName) {
-		return true
-	}
-
-	return false
-}
-
-// SetFirstName gets a reference to the given string and assigns it to the FirstName field.
+// SetFirstName sets field value
 func (o *DbsOnlyClientInfo) SetFirstName(v string) {
-	o.FirstName = &v
+	o.FirstName = v
 }
 
-// GetFullName returns the FullName field value if set, zero value otherwise.
+// GetFullName returns the FullName field value
 func (o *DbsOnlyClientInfo) GetFullName() string {
-	if o == nil || IsNil(o.FullName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FullName
+
+	return o.FullName
 }
 
-// GetFullNameOk returns a tuple with the FullName field value if set, nil otherwise
+// GetFullNameOk returns a tuple with the FullName field value
 // and a boolean to check if the value has been set.
 func (o *DbsOnlyClientInfo) GetFullNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FullName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FullName, true
+	return &o.FullName, true
 }
 
-// HasFullName returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfo) HasFullName() bool {
-	if o != nil && !IsNil(o.FullName) {
-		return true
-	}
-
-	return false
-}
-
-// SetFullName gets a reference to the given string and assigns it to the FullName field.
+// SetFullName sets field value
 func (o *DbsOnlyClientInfo) SetFullName(v string) {
-	o.FullName = &v
+	o.FullName = v
 }
 
-// GetAdditionalPhones returns the AdditionalPhones field value if set, zero value otherwise.
+// GetAdditionalPhones returns the AdditionalPhones field value
 func (o *DbsOnlyClientInfo) GetAdditionalPhones() []string {
-	if o == nil || IsNil(o.AdditionalPhones) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.AdditionalPhones
 }
 
-// GetAdditionalPhonesOk returns a tuple with the AdditionalPhones field value if set, nil otherwise
+// GetAdditionalPhonesOk returns a tuple with the AdditionalPhones field value
 // and a boolean to check if the value has been set.
 func (o *DbsOnlyClientInfo) GetAdditionalPhonesOk() ([]string, bool) {
-	if o == nil || IsNil(o.AdditionalPhones) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AdditionalPhones, true
 }
 
-// HasAdditionalPhones returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfo) HasAdditionalPhones() bool {
-	if o != nil && !IsNil(o.AdditionalPhones) {
-		return true
-	}
-
-	return false
-}
-
-// SetAdditionalPhones gets a reference to the given []string and assigns it to the AdditionalPhones field.
+// SetAdditionalPhones sets field value
 func (o *DbsOnlyClientInfo) SetAdditionalPhones(v []string) {
 	o.AdditionalPhones = v
 }
 
-// GetReplacementAdditionalPhones returns the ReplacementAdditionalPhones field value if set, zero value otherwise.
+// GetReplacementAdditionalPhones returns the ReplacementAdditionalPhones field value
 func (o *DbsOnlyClientInfo) GetReplacementAdditionalPhones() []string {
-	if o == nil || IsNil(o.ReplacementAdditionalPhones) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.ReplacementAdditionalPhones
 }
 
-// GetReplacementAdditionalPhonesOk returns a tuple with the ReplacementAdditionalPhones field value if set, nil otherwise
+// GetReplacementAdditionalPhonesOk returns a tuple with the ReplacementAdditionalPhones field value
 // and a boolean to check if the value has been set.
 func (o *DbsOnlyClientInfo) GetReplacementAdditionalPhonesOk() ([]string, bool) {
-	if o == nil || IsNil(o.ReplacementAdditionalPhones) {
+	if o == nil {
 		return nil, false
 	}
 	return o.ReplacementAdditionalPhones, true
 }
 
-// HasReplacementAdditionalPhones returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfo) HasReplacementAdditionalPhones() bool {
-	if o != nil && !IsNil(o.ReplacementAdditionalPhones) {
-		return true
-	}
-
-	return false
-}
-
-// SetReplacementAdditionalPhones gets a reference to the given []string and assigns it to the ReplacementAdditionalPhones field.
+// SetReplacementAdditionalPhones sets field value
 func (o *DbsOnlyClientInfo) SetReplacementAdditionalPhones(v []string) {
 	o.ReplacementAdditionalPhones = v
 }
 
-// GetOrderID returns the OrderID field value if set, zero value otherwise.
+// GetOrderID returns the OrderID field value
 func (o *DbsOnlyClientInfo) GetOrderID() int32 {
-	if o == nil || IsNil(o.OrderID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OrderID
+
+	return o.OrderID
 }
 
-// GetOrderIDOk returns a tuple with the OrderID field value if set, nil otherwise
+// GetOrderIDOk returns a tuple with the OrderID field value
 // and a boolean to check if the value has been set.
 func (o *DbsOnlyClientInfo) GetOrderIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.OrderID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderID, true
+	return &o.OrderID, true
 }
 
-// HasOrderID returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfo) HasOrderID() bool {
-	if o != nil && !IsNil(o.OrderID) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderID gets a reference to the given int32 and assigns it to the OrderID field.
+// SetOrderID sets field value
 func (o *DbsOnlyClientInfo) SetOrderID(v int32) {
-	o.OrderID = &v
+	o.OrderID = v
 }
 
-// GetPhoneCode returns the PhoneCode field value if set, zero value otherwise.
+// GetPhoneCode returns the PhoneCode field value
 func (o *DbsOnlyClientInfo) GetPhoneCode() int32 {
-	if o == nil || IsNil(o.PhoneCode) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PhoneCode
+
+	return o.PhoneCode
 }
 
-// GetPhoneCodeOk returns a tuple with the PhoneCode field value if set, nil otherwise
+// GetPhoneCodeOk returns a tuple with the PhoneCode field value
 // and a boolean to check if the value has been set.
 func (o *DbsOnlyClientInfo) GetPhoneCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.PhoneCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PhoneCode, true
+	return &o.PhoneCode, true
 }
 
-// HasPhoneCode returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfo) HasPhoneCode() bool {
-	if o != nil && !IsNil(o.PhoneCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhoneCode gets a reference to the given int32 and assigns it to the PhoneCode field.
+// SetPhoneCode sets field value
 func (o *DbsOnlyClientInfo) SetPhoneCode(v int32) {
-	o.PhoneCode = &v
+	o.PhoneCode = v
 }
 
-// GetAdditionalPhoneCodes returns the AdditionalPhoneCodes field value if set, zero value otherwise.
+// GetAdditionalPhoneCodes returns the AdditionalPhoneCodes field value
 func (o *DbsOnlyClientInfo) GetAdditionalPhoneCodes() []string {
-	if o == nil || IsNil(o.AdditionalPhoneCodes) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.AdditionalPhoneCodes
 }
 
-// GetAdditionalPhoneCodesOk returns a tuple with the AdditionalPhoneCodes field value if set, nil otherwise
+// GetAdditionalPhoneCodesOk returns a tuple with the AdditionalPhoneCodes field value
 // and a boolean to check if the value has been set.
 func (o *DbsOnlyClientInfo) GetAdditionalPhoneCodesOk() ([]string, bool) {
-	if o == nil || IsNil(o.AdditionalPhoneCodes) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AdditionalPhoneCodes, true
 }
 
-// HasAdditionalPhoneCodes returns a boolean if a field has been set.
-func (o *DbsOnlyClientInfo) HasAdditionalPhoneCodes() bool {
-	if o != nil && !IsNil(o.AdditionalPhoneCodes) {
-		return true
-	}
-
-	return false
-}
-
-// SetAdditionalPhoneCodes gets a reference to the given []string and assigns it to the AdditionalPhoneCodes field.
+// SetAdditionalPhoneCodes sets field value
 func (o *DbsOnlyClientInfo) SetAdditionalPhoneCodes(v []string) {
 	o.AdditionalPhoneCodes = v
 }
@@ -354,34 +295,61 @@ func (o DbsOnlyClientInfo) MarshalJSON() ([]byte, error) {
 
 func (o DbsOnlyClientInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ReplacementPhone) {
-		toSerialize["replacementPhone"] = o.ReplacementPhone
-	}
-	if !IsNil(o.Phone) {
-		toSerialize["phone"] = o.Phone
-	}
-	if !IsNil(o.FirstName) {
-		toSerialize["firstName"] = o.FirstName
-	}
-	if !IsNil(o.FullName) {
-		toSerialize["fullName"] = o.FullName
-	}
-	if !IsNil(o.AdditionalPhones) {
-		toSerialize["additionalPhones"] = o.AdditionalPhones
-	}
-	if !IsNil(o.ReplacementAdditionalPhones) {
-		toSerialize["replacementAdditionalPhones"] = o.ReplacementAdditionalPhones
-	}
-	if !IsNil(o.OrderID) {
-		toSerialize["orderID"] = o.OrderID
-	}
-	if !IsNil(o.PhoneCode) {
-		toSerialize["phoneCode"] = o.PhoneCode
-	}
-	if !IsNil(o.AdditionalPhoneCodes) {
-		toSerialize["additionalPhoneCodes"] = o.AdditionalPhoneCodes
-	}
+	toSerialize["replacementPhone"] = o.ReplacementPhone
+	toSerialize["phone"] = o.Phone
+	toSerialize["firstName"] = o.FirstName
+	toSerialize["fullName"] = o.FullName
+	toSerialize["additionalPhones"] = o.AdditionalPhones
+	toSerialize["replacementAdditionalPhones"] = o.ReplacementAdditionalPhones
+	toSerialize["orderID"] = o.OrderID
+	toSerialize["phoneCode"] = o.PhoneCode
+	toSerialize["additionalPhoneCodes"] = o.AdditionalPhoneCodes
 	return toSerialize, nil
+}
+
+func (o *DbsOnlyClientInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"replacementPhone",
+		"phone",
+		"firstName",
+		"fullName",
+		"additionalPhones",
+		"replacementAdditionalPhones",
+		"orderID",
+		"phoneCode",
+		"additionalPhoneCodes",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDbsOnlyClientInfo := _DbsOnlyClientInfo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varDbsOnlyClientInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DbsOnlyClientInfo(varDbsOnlyClientInfo)
+
+	return err
 }
 
 type NullableDbsOnlyClientInfo struct {

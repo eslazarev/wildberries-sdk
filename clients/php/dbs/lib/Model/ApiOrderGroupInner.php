@@ -302,6 +302,21 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['group_id'] === null) {
+            $invalidProperties[] = "'group_id' can't be null";
+        }
+        if ($this->container['delivery_cost'] === null) {
+            $invalidProperties[] = "'delivery_cost' can't be null";
+        }
+        if ($this->container['converted_delivery_cost'] === null) {
+            $invalidProperties[] = "'converted_delivery_cost' can't be null";
+        }
+        if ($this->container['currency_code'] === null) {
+            $invalidProperties[] = "'currency_code' can't be null";
+        }
+        if ($this->container['converted_currency_code'] === null) {
+            $invalidProperties[] = "'converted_currency_code' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -320,7 +335,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets group_id
      *
-     * @return string|null
+     * @return string
      */
     public function getGroupId()
     {
@@ -330,7 +345,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets group_id
      *
-     * @param string|null $group_id ID группы сборочных заданий
+     * @param string $group_id ID группы сборочных заданий
      *
      * @return self
      */
@@ -347,7 +362,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets delivery_cost
      *
-     * @return int|null
+     * @return int
      */
     public function getDeliveryCost()
     {
@@ -357,7 +372,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets delivery_cost
      *
-     * @param int|null $delivery_cost Стоимость платной доставки в валюте продажи, умноженная на 100
+     * @param int $delivery_cost Стоимость платной доставки в валюте продажи, умноженная на 100
      *
      * @return self
      */
@@ -374,7 +389,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets converted_delivery_cost
      *
-     * @return int|null
+     * @return int
      */
     public function getConvertedDeliveryCost()
     {
@@ -384,7 +399,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets converted_delivery_cost
      *
-     * @param int|null $converted_delivery_cost Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.
+     * @param int $converted_delivery_cost Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.
      *
      * @return self
      */
@@ -401,7 +416,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets currency_code
      *
-     * @return int|null
+     * @return int
      */
     public function getCurrencyCode()
     {
@@ -411,7 +426,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets currency_code
      *
-     * @param int|null $currency_code Код валюты продажи
+     * @param int $currency_code Код валюты продажи
      *
      * @return self
      */
@@ -428,7 +443,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets converted_currency_code
      *
-     * @return int|null
+     * @return int
      */
     public function getConvertedCurrencyCode()
     {
@@ -438,7 +453,7 @@ class ApiOrderGroupInner implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets converted_currency_code
      *
-     * @param int|null $converted_currency_code Код валюты страны продавца
+     * @param int $converted_currency_code Код валюты страны продавца
      *
      * @return self
      */

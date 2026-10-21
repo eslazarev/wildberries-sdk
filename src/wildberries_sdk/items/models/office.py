@@ -27,6 +27,7 @@ class Office(BaseModel):
     """
     Данные о складе WB
     """ # noqa: E501
+    federal_district: Optional[StrictStr] = Field(default=None, description="Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан", alias="federalDistrict", json_schema_extra={"examples": ["Центральный"]})
     address: Optional[StrictStr] = Field(default=None, description="Адрес", json_schema_extra={"examples": ["ул. Троицкая, Подольск, Московская обл."]})
     name: Optional[StrictStr] = Field(default=None, description="Название", json_schema_extra={"examples": ["Коледино"]})
     city: Optional[StrictStr] = Field(default=None, description="Город", json_schema_extra={"examples": ["Москва"]})
@@ -35,9 +36,8 @@ class Office(BaseModel):
     latitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Широта", json_schema_extra={"examples": [37.588898]})
     cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType", json_schema_extra={"examples": [1]})
     delivery_type: Optional[StrictInt] = Field(default=None, description="Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) ", alias="deliveryType", json_schema_extra={"examples": [1]})
-    federal_district: Optional[StrictStr] = Field(default=None, description="Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан", alias="federalDistrict", json_schema_extra={"examples": ["Центральный"]})
     selected: Optional[StrictBool] = Field(default=None, description="Признак того, что склад уже выбран продавцом")
-    __properties: ClassVar[List[str]] = ["address", "name", "city", "id", "longitude", "latitude", "cargoType", "deliveryType", "federalDistrict", "selected"]
+    __properties: ClassVar[List[str]] = ["federalDistrict", "address", "name", "city", "id", "longitude", "latitude", "cargoType", "deliveryType", "selected"]
 
     @field_validator('cargo_type')
     def cargo_type_validate_enum(cls, value):
@@ -115,6 +115,7 @@ class Office(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "federalDistrict": obj.get("federalDistrict"),
             "address": obj.get("address"),
             "name": obj.get("name"),
             "city": obj.get("city"),
@@ -123,7 +124,6 @@ class Office(BaseModel):
             "latitude": obj.get("latitude"),
             "cargoType": obj.get("cargoType"),
             "deliveryType": obj.get("deliveryType"),
-            "federalDistrict": obj.get("federalDistrict"),
             "selected": obj.get("selected")
         })
         return _obj

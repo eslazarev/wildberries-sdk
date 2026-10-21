@@ -22,15 +22,15 @@ export interface CourierContactsResponse {
     /**
      * Номер автомобиля
      */
-    carNumber?: string;
+    carNumber: string;
     /**
      * ФИО курьера
      */
-    fullName?: string;
+    fullName: string;
     /**
      * Номер телефона
      */
-    phone?: string;
+    phone: string;
     /**
      * Дата и время, с которого прибудет курьер
      */
@@ -45,6 +45,9 @@ export interface CourierContactsResponse {
  * Check if a given object implements the CourierContactsResponse interface.
  */
 export function instanceOfCourierContactsResponse(value: object): value is CourierContactsResponse {
+    if (!('carNumber' in value) || value['carNumber'] === undefined) return false;
+    if (!('fullName' in value) || value['fullName'] === undefined) return false;
+    if (!('phone' in value) || value['phone'] === undefined) return false;
     return true;
 }
 
@@ -58,9 +61,9 @@ export function CourierContactsResponseFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'carNumber': json['carNumber'] == null ? undefined : json['carNumber'],
-        'fullName': json['fullName'] == null ? undefined : json['fullName'],
-        'phone': json['phone'] == null ? undefined : json['phone'],
+        'carNumber': json['carNumber'],
+        'fullName': json['fullName'],
+        'phone': json['phone'],
         'pTimeFrom': json['pTimeFrom'] === undefined ? undefined : json['pTimeFrom'] === null ? null : (parseDateTime(json['pTimeFrom'])),
         'pTimeTo': json['pTimeTo'] === undefined ? undefined : json['pTimeTo'] === null ? null : (parseDateTime(json['pTimeTo'])),
     };

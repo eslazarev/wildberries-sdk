@@ -37,40 +37,40 @@ export interface OrderNewDBW {
     /**
      * 
      */
-    address?: OrderNewDBWAddress | null;
+    address: OrderNewDBWAddress | null;
     /**
      * Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
      * 
      */
-    salePrice?: number | null;
+    salePrice: number | null;
     /**
      * Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `"subjectId":515`
      */
-    requiredMeta?: Array<string> | null;
+    requiredMeta: Array<string> | null;
     /**
      * Комментарий покупателя
      */
-    comment?: string;
+    comment: string;
     /**
      * 
      */
-    options?: OrderNewDBWOptions;
+    options: OrderNewDBWOptions;
     /**
      * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
      */
-    orderUid?: string;
+    orderUid: string;
     /**
      * ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
      */
-    groupId?: string;
+    groupId: string;
     /**
      * Артикул продавца
      */
-    article?: string;
+    article: string;
     /**
      * Код цвета (только для колеруемых товаров)
      */
-    colorCode?: string;
+    colorCode: string;
     /**
      * Уникальный ID заказа. <br>
      * Примечание: `rid` — это `srid` в ответах методов:
@@ -85,47 +85,47 @@ export interface OrderNewDBW {
      *   - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
      */
-    rid?: string;
+    rid: string;
     /**
      * Дата создания сборочного задания
      */
-    createdAt?: Date;
+    createdAt: Date;
     /**
      * Массив баркодов товара
      */
-    skus?: Array<string>;
+    skus: Array<string>;
     /**
      * ID сборочного задания
      */
-    id?: number;
+    id: number;
     /**
      * ID склада продавца, на который поступило сборочное задание
      */
-    warehouseId?: number;
+    warehouseId: number;
     /**
      * Артикул WB
      */
-    nmId?: number;
+    nmId: number;
     /**
      * ID размера товара в системе WB
      */
-    chrtId?: number;
+    chrtId: number;
     /**
      * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
      */
-    price?: number;
+    price: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
      */
-    convertedPrice?: number;
+    convertedPrice: number;
     /**
      * Код валюты продажи
      */
-    currencyCode?: number;
+    currencyCode: number;
     /**
      * Код валюты страны продавца
      */
-    convertedCurrencyCode?: number;
+    convertedCurrencyCode: number;
     /**
      * Тип товара:
      *   - `1` — малогабаритный товар (МГТ)
@@ -133,14 +133,14 @@ export interface OrderNewDBW {
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
      */
-    cargoType?: OrderNewDBWCargoTypeEnum;
+    cargoType: OrderNewDBWCargoTypeEnum;
     /**
      * Признак заказа товара с нулевым остатком:
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      * 
      */
-    isZeroOrder?: boolean;
+    isZeroOrder: boolean;
 }
 
 
@@ -159,6 +159,28 @@ export type OrderNewDBWCargoTypeEnum = typeof OrderNewDBWCargoTypeEnum[keyof typ
  * Check if a given object implements the OrderNewDBW interface.
  */
 export function instanceOfOrderNewDBW(value: object): value is OrderNewDBW {
+    if (!('address' in value) || value['address'] === undefined) return false;
+    if (!('salePrice' in value) || value['salePrice'] === undefined) return false;
+    if (!('requiredMeta' in value) || value['requiredMeta'] === undefined) return false;
+    if (!('comment' in value) || value['comment'] === undefined) return false;
+    if (!('options' in value) || value['options'] === undefined) return false;
+    if (!('orderUid' in value) || value['orderUid'] === undefined) return false;
+    if (!('groupId' in value) || value['groupId'] === undefined) return false;
+    if (!('article' in value) || value['article'] === undefined) return false;
+    if (!('colorCode' in value) || value['colorCode'] === undefined) return false;
+    if (!('rid' in value) || value['rid'] === undefined) return false;
+    if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
+    if (!('skus' in value) || value['skus'] === undefined) return false;
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('warehouseId' in value) || value['warehouseId'] === undefined) return false;
+    if (!('nmId' in value) || value['nmId'] === undefined) return false;
+    if (!('chrtId' in value) || value['chrtId'] === undefined) return false;
+    if (!('price' in value) || value['price'] === undefined) return false;
+    if (!('convertedPrice' in value) || value['convertedPrice'] === undefined) return false;
+    if (!('currencyCode' in value) || value['currencyCode'] === undefined) return false;
+    if (!('convertedCurrencyCode' in value) || value['convertedCurrencyCode'] === undefined) return false;
+    if (!('cargoType' in value) || value['cargoType'] === undefined) return false;
+    if (!('isZeroOrder' in value) || value['isZeroOrder'] === undefined) return false;
     return true;
 }
 
@@ -172,28 +194,28 @@ export function OrderNewDBWFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'address': json['address'] === undefined ? undefined : json['address'] === null ? null : OrderNewDBWAddressFromJSON(json['address']),
-        'salePrice': json['salePrice'] === undefined ? undefined : json['salePrice'] === null ? null : json['salePrice'],
-        'requiredMeta': json['requiredMeta'] === undefined ? undefined : json['requiredMeta'] === null ? null : json['requiredMeta'],
-        'comment': json['comment'] == null ? undefined : json['comment'],
-        'options': json['options'] == null ? undefined : OrderNewDBWOptionsFromJSON(json['options']),
-        'orderUid': json['orderUid'] == null ? undefined : json['orderUid'],
-        'groupId': json['groupId'] == null ? undefined : json['groupId'],
-        'article': json['article'] == null ? undefined : json['article'],
-        'colorCode': json['colorCode'] == null ? undefined : json['colorCode'],
-        'rid': json['rid'] == null ? undefined : json['rid'],
-        'createdAt': json['createdAt'] == null ? undefined : (parseDateTime(json['createdAt'])),
-        'skus': json['skus'] == null ? undefined : json['skus'],
-        'id': json['id'] == null ? undefined : json['id'],
-        'warehouseId': json['warehouseId'] == null ? undefined : json['warehouseId'],
-        'nmId': json['nmId'] == null ? undefined : json['nmId'],
-        'chrtId': json['chrtId'] == null ? undefined : json['chrtId'],
-        'price': json['price'] == null ? undefined : json['price'],
-        'convertedPrice': json['convertedPrice'] == null ? undefined : json['convertedPrice'],
-        'currencyCode': json['currencyCode'] == null ? undefined : json['currencyCode'],
-        'convertedCurrencyCode': json['convertedCurrencyCode'] == null ? undefined : json['convertedCurrencyCode'],
-        'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
-        'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
+        'address': OrderNewDBWAddressFromJSON(json['address']),
+        'salePrice': json['salePrice'],
+        'requiredMeta': json['requiredMeta'] == null ? null : json['requiredMeta'],
+        'comment': json['comment'],
+        'options': OrderNewDBWOptionsFromJSON(json['options']),
+        'orderUid': json['orderUid'],
+        'groupId': json['groupId'],
+        'article': json['article'],
+        'colorCode': json['colorCode'],
+        'rid': json['rid'],
+        'createdAt': (json['createdAt'] == null ? json['createdAt'] : parseDateTime(json['createdAt'])),
+        'skus': json['skus'],
+        'id': json['id'],
+        'warehouseId': json['warehouseId'],
+        'nmId': json['nmId'],
+        'chrtId': json['chrtId'],
+        'price': json['price'],
+        'convertedPrice': json['convertedPrice'],
+        'currencyCode': json['currencyCode'],
+        'convertedCurrencyCode': json['convertedCurrencyCode'],
+        'cargoType': json['cargoType'],
+        'isZeroOrder': json['isZeroOrder'],
     };
 }
 

@@ -4362,7 +4362,7 @@ func (a *DefaultApiService) GetV2ObjectCharcsSubjectIdExecute(r ApiGetV2ObjectCh
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ResponseBodyContentError400
+			var v GetV2ObjectCharcsSubjectId400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -10646,10 +10646,10 @@ PutV3DbwWarehousesWarehouseIdContacts Обновить список контак
 Метод обновляет список контактов [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
 <div class="description_important">
-  Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.
+  Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять
 </div>
 
-Только для складов с типом доставки `3` — Деливери WB (DBW).
+Только для складов с типом доставки `3` — Деливери WB ([DBW](/openapi/orders-dbw)).
 <br><br>
 К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.
 

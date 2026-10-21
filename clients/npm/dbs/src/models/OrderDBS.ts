@@ -20,13 +20,13 @@ import {
     OrderDBSAddressToJSON,
     OrderDBSAddressToJSONTyped,
 } from './OrderDBSAddress';
-import type { OrderNewDBSOptions } from './OrderNewDBSOptions';
+import type { OrderDBSOptions } from './OrderDBSOptions';
 import {
-    OrderNewDBSOptionsFromJSON,
-    OrderNewDBSOptionsFromJSONTyped,
-    OrderNewDBSOptionsToJSON,
-    OrderNewDBSOptionsToJSONTyped,
-} from './OrderNewDBSOptions';
+    OrderDBSOptionsFromJSON,
+    OrderDBSOptionsFromJSONTyped,
+    OrderDBSOptionsToJSON,
+    OrderDBSOptionsToJSONTyped,
+} from './OrderDBSOptions';
 
 /**
  * 
@@ -37,7 +37,7 @@ export interface OrderDBS {
     /**
      * 
      */
-    address?: OrderDBSAddress | null;
+    address: OrderDBSAddress | null;
     /**
      * Тип доставки:
      *   - `dbs` — доставка силами продавца
@@ -45,27 +45,27 @@ export interface OrderDBS {
      *   - `edbs` — экспресс-доставка силами продавца
      * 
      */
-    deliveryType?: string;
+    deliveryType: string;
     /**
      * 
      */
-    options?: OrderNewDBSOptions;
+    options: OrderDBSOptions;
     /**
      * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`
      */
-    orderUid?: string;
+    orderUid: string;
     /**
      * ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
      */
-    groupId?: string;
+    groupId: string;
     /**
      * Артикул продавца
      */
-    article?: string;
+    article: string;
     /**
      * Код цвета (только для колеруемых товаров)
      */
-    colorCode?: string;
+    colorCode: string;
     /**
      * Уникальный ID заказа. <br>
      * Примечание: `rid` — это `srid` в ответах методов:
@@ -80,51 +80,51 @@ export interface OrderDBS {
      *   - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
      */
-    rid?: any | null;
+    rid: any | null;
     /**
      * Дата создания сборочного задания
      */
-    createdAt?: Date;
+    createdAt: Date;
     /**
      * Массив баркодов товара
      */
-    skus?: Array<string>;
+    skus: Array<string>;
     /**
      * ID сборочного задания
      */
-    id?: number;
+    id: number;
     /**
      * ID склада продавца, на который поступило сборочное задание
      */
-    warehouseId?: number;
+    warehouseId: number;
     /**
      * Артикул WB
      */
-    nmId?: number;
+    nmId: number;
     /**
      * ID размера товара в системе WB
      */
-    chrtId?: number;
+    chrtId: number;
     /**
      * Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ
      */
-    scanPrice?: number | null;
+    scanPrice: number | null;
     /**
      * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
      */
-    price?: number;
+    price: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
      */
-    convertedPrice?: number;
+    convertedPrice: number;
     /**
      * Код валюты продажи
      */
-    currencyCode?: number;
+    currencyCode: number;
     /**
      * Код валюты страны продавца
      */
-    convertedCurrencyCode?: number;
+    convertedCurrencyCode: number;
     /**
      * Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.
      * <br>
@@ -133,7 +133,7 @@ export interface OrderDBS {
      * Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
      * 
      */
-    convertedFinalPrice?: number;
+    convertedFinalPrice: number;
     /**
      * Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.
      * <br>
@@ -144,7 +144,7 @@ export interface OrderDBS {
      * Используйте значение поля `finalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода
      * 
      */
-    finalPrice?: number;
+    finalPrice: number;
     /**
      * Тип товара:
      *   - `1` — малогабаритный товар (МГТ)
@@ -152,22 +152,22 @@ export interface OrderDBS {
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
      */
-    cargoType?: OrderDBSCargoTypeEnum;
+    cargoType: OrderDBSCargoTypeEnum;
     /**
      * Комментарий покупателя
      */
-    comment?: string;
+    comment: string;
     /**
      * Признак заказа товара с нулевым остатком:
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      * 
      */
-    isZeroOrder?: boolean;
+    isZeroOrder: boolean;
     /**
      * ID стикера. Отображается только для заказов в ПВЗ
      */
-    wbStickerId?: number;
+    wbStickerId: number;
 }
 
 
@@ -186,6 +186,31 @@ export type OrderDBSCargoTypeEnum = typeof OrderDBSCargoTypeEnum[keyof typeof Or
  * Check if a given object implements the OrderDBS interface.
  */
 export function instanceOfOrderDBS(value: object): value is OrderDBS {
+    if (!('address' in value) || value['address'] === undefined) return false;
+    if (!('deliveryType' in value) || value['deliveryType'] === undefined) return false;
+    if (!('options' in value) || value['options'] === undefined) return false;
+    if (!('orderUid' in value) || value['orderUid'] === undefined) return false;
+    if (!('groupId' in value) || value['groupId'] === undefined) return false;
+    if (!('article' in value) || value['article'] === undefined) return false;
+    if (!('colorCode' in value) || value['colorCode'] === undefined) return false;
+    if (!('rid' in value) || value['rid'] === undefined) return false;
+    if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
+    if (!('skus' in value) || value['skus'] === undefined) return false;
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('warehouseId' in value) || value['warehouseId'] === undefined) return false;
+    if (!('nmId' in value) || value['nmId'] === undefined) return false;
+    if (!('chrtId' in value) || value['chrtId'] === undefined) return false;
+    if (!('scanPrice' in value) || value['scanPrice'] === undefined) return false;
+    if (!('price' in value) || value['price'] === undefined) return false;
+    if (!('convertedPrice' in value) || value['convertedPrice'] === undefined) return false;
+    if (!('currencyCode' in value) || value['currencyCode'] === undefined) return false;
+    if (!('convertedCurrencyCode' in value) || value['convertedCurrencyCode'] === undefined) return false;
+    if (!('convertedFinalPrice' in value) || value['convertedFinalPrice'] === undefined) return false;
+    if (!('finalPrice' in value) || value['finalPrice'] === undefined) return false;
+    if (!('cargoType' in value) || value['cargoType'] === undefined) return false;
+    if (!('comment' in value) || value['comment'] === undefined) return false;
+    if (!('isZeroOrder' in value) || value['isZeroOrder'] === undefined) return false;
+    if (!('wbStickerId' in value) || value['wbStickerId'] === undefined) return false;
     return true;
 }
 
@@ -199,31 +224,31 @@ export function OrderDBSFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'address': json['address'] === undefined ? undefined : json['address'] === null ? null : OrderDBSAddressFromJSON(json['address']),
-        'deliveryType': json['deliveryType'] == null ? undefined : json['deliveryType'],
-        'options': json['options'] == null ? undefined : OrderNewDBSOptionsFromJSON(json['options']),
-        'orderUid': json['orderUid'] == null ? undefined : json['orderUid'],
-        'groupId': json['groupId'] == null ? undefined : json['groupId'],
-        'article': json['article'] == null ? undefined : json['article'],
-        'colorCode': json['colorCode'] == null ? undefined : json['colorCode'],
-        'rid': json['rid'] === undefined ? undefined : json['rid'] === null ? null : json['rid'],
-        'createdAt': json['createdAt'] == null ? undefined : (parseDateTime(json['createdAt'])),
-        'skus': json['skus'] == null ? undefined : json['skus'],
-        'id': json['id'] == null ? undefined : json['id'],
-        'warehouseId': json['warehouseId'] == null ? undefined : json['warehouseId'],
-        'nmId': json['nmId'] == null ? undefined : json['nmId'],
-        'chrtId': json['chrtId'] == null ? undefined : json['chrtId'],
-        'scanPrice': json['scanPrice'] === undefined ? undefined : json['scanPrice'] === null ? null : json['scanPrice'],
-        'price': json['price'] == null ? undefined : json['price'],
-        'convertedPrice': json['convertedPrice'] == null ? undefined : json['convertedPrice'],
-        'currencyCode': json['currencyCode'] == null ? undefined : json['currencyCode'],
-        'convertedCurrencyCode': json['convertedCurrencyCode'] == null ? undefined : json['convertedCurrencyCode'],
-        'convertedFinalPrice': json['convertedFinalPrice'] == null ? undefined : json['convertedFinalPrice'],
-        'finalPrice': json['finalPrice'] == null ? undefined : json['finalPrice'],
-        'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
-        'comment': json['comment'] == null ? undefined : json['comment'],
-        'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
-        'wbStickerId': json['wbStickerId'] == null ? undefined : json['wbStickerId'],
+        'address': OrderDBSAddressFromJSON(json['address']),
+        'deliveryType': json['deliveryType'],
+        'options': OrderDBSOptionsFromJSON(json['options']),
+        'orderUid': json['orderUid'],
+        'groupId': json['groupId'],
+        'article': json['article'],
+        'colorCode': json['colorCode'],
+        'rid': json['rid'],
+        'createdAt': (json['createdAt'] == null ? json['createdAt'] : parseDateTime(json['createdAt'])),
+        'skus': json['skus'],
+        'id': json['id'],
+        'warehouseId': json['warehouseId'],
+        'nmId': json['nmId'],
+        'chrtId': json['chrtId'],
+        'scanPrice': json['scanPrice'],
+        'price': json['price'],
+        'convertedPrice': json['convertedPrice'],
+        'currencyCode': json['currencyCode'],
+        'convertedCurrencyCode': json['convertedCurrencyCode'],
+        'convertedFinalPrice': json['convertedFinalPrice'],
+        'finalPrice': json['finalPrice'],
+        'cargoType': json['cargoType'],
+        'comment': json['comment'],
+        'isZeroOrder': json['isZeroOrder'],
+        'wbStickerId': json['wbStickerId'],
     };
 }
 
@@ -240,7 +265,7 @@ export function OrderDBSToJSONTyped(value?: OrderDBS | null, ignoreDiscriminator
         
         'address': OrderDBSAddressToJSON(value['address']),
         'deliveryType': value['deliveryType'],
-        'options': OrderNewDBSOptionsToJSON(value['options']),
+        'options': OrderDBSOptionsToJSON(value['options']),
         'orderUid': value['orderUid'],
         'groupId': value['groupId'],
         'article': value['article'],

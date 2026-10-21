@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PostV3DbsOrdersStatusReceive200ResponseResultsInner type satisfies the MappedNullable interface at compile time
@@ -22,17 +24,21 @@ type PostV3DbsOrdersStatusReceive200ResponseResultsInner struct {
 	// Детали ошибки
 	Errors []PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner `json:"errors,omitempty"`
 	// Есть ли ошибки
-	IsError *bool `json:"isError,omitempty"`
+	IsError bool `json:"isError"`
 	// ID сборочного задания с успешно обновлёнными данными
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId int32 `json:"orderId"`
 }
+
+type _PostV3DbsOrdersStatusReceive200ResponseResultsInner PostV3DbsOrdersStatusReceive200ResponseResultsInner
 
 // NewPostV3DbsOrdersStatusReceive200ResponseResultsInner instantiates a new PostV3DbsOrdersStatusReceive200ResponseResultsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3DbsOrdersStatusReceive200ResponseResultsInner() *PostV3DbsOrdersStatusReceive200ResponseResultsInner {
+func NewPostV3DbsOrdersStatusReceive200ResponseResultsInner(isError bool, orderId int32) *PostV3DbsOrdersStatusReceive200ResponseResultsInner {
 	this := PostV3DbsOrdersStatusReceive200ResponseResultsInner{}
+	this.IsError = isError
+	this.OrderId = orderId
 	return &this
 }
 
@@ -76,68 +82,52 @@ func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) SetErrors(v []Post
 	o.Errors = v
 }
 
-// GetIsError returns the IsError field value if set, zero value otherwise.
+// GetIsError returns the IsError field value
 func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) GetIsError() bool {
-	if o == nil || IsNil(o.IsError) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsError
+
+	return o.IsError
 }
 
-// GetIsErrorOk returns a tuple with the IsError field value if set, nil otherwise
+// GetIsErrorOk returns a tuple with the IsError field value
 // and a boolean to check if the value has been set.
 func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) GetIsErrorOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsError) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsError, true
+	return &o.IsError, true
 }
 
-// HasIsError returns a boolean if a field has been set.
-func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) HasIsError() bool {
-	if o != nil && !IsNil(o.IsError) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsError gets a reference to the given bool and assigns it to the IsError field.
+// SetIsError sets field value
 func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) SetIsError(v bool) {
-	o.IsError = &v
+	o.IsError = v
 }
 
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
+// GetOrderId returns the OrderId field value
 func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) GetOrderId() int32 {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OrderId
+
+	return o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
 func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) GetOrderIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderId, true
+	return &o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) HasOrderId() bool {
-	if o != nil && !IsNil(o.OrderId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
+// SetOrderId sets field value
 func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) SetOrderId(v int32) {
-	o.OrderId = &v
+	o.OrderId = v
 }
 
 func (o PostV3DbsOrdersStatusReceive200ResponseResultsInner) MarshalJSON() ([]byte, error) {
@@ -153,13 +143,47 @@ func (o PostV3DbsOrdersStatusReceive200ResponseResultsInner) ToMap() (map[string
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
-	if !IsNil(o.IsError) {
-		toSerialize["isError"] = o.IsError
-	}
-	if !IsNil(o.OrderId) {
-		toSerialize["orderId"] = o.OrderId
-	}
+	toSerialize["isError"] = o.IsError
+	toSerialize["orderId"] = o.OrderId
 	return toSerialize, nil
+}
+
+func (o *PostV3DbsOrdersStatusReceive200ResponseResultsInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"isError",
+		"orderId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPostV3DbsOrdersStatusReceive200ResponseResultsInner := _PostV3DbsOrdersStatusReceive200ResponseResultsInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPostV3DbsOrdersStatusReceive200ResponseResultsInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostV3DbsOrdersStatusReceive200ResponseResultsInner(varPostV3DbsOrdersStatusReceive200ResponseResultsInner)
+
+	return err
 }
 
 type NullablePostV3DbsOrdersStatusReceive200ResponseResultsInner struct {

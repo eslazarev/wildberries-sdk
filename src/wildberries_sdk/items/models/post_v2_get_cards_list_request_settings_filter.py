@@ -27,7 +27,7 @@ class PostV2GetCardsListRequestSettingsFilter(BaseModel):
     """
     Параметры фильтрации
     """ # noqa: E501
-    with_photo: Optional[StrictInt] = Field(default=0, description="Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](/release-notes?id=531) ", alias="withPhoto")
+    with_photo: Optional[StrictInt] = Field(default=0, description="Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото ", alias="withPhoto")
     text_search: Optional[StrictStr] = Field(default=None, description="Поиск по артикулу продавца, артикулу WB, баркоду", alias="textSearch")
     tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Поиск по ID ярлыков", alias="tagIDs")
     allowed_categories_only: Optional[StrictBool] = Field(default=None, description="Фильтр по категории:   - `true` — только разрешённые   - `false` — все    Не используется в песочнице ", alias="allowedCategoriesOnly")

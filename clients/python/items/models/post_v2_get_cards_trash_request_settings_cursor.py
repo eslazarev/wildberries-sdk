@@ -72,6 +72,16 @@ class PostV2GetCardsTrashRequestSettingsCursor(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if trashed_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.trashed_at is None and "trashed_at" in self.model_fields_set:
+            _dict['trashedAt'] = None
+
+        # set to None if nm_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.nm_id is None and "nm_id" in self.model_fields_set:
+            _dict['nmID'] = None
+
         return _dict
 
     @classmethod

@@ -30,17 +30,19 @@ export interface OrderCourierInfo {
     /**
      * Информация о курьере
      */
-    courierInfo?: CourierInfo;
+    courierInfo: CourierInfo;
     /**
      * ID сборочного задания
      */
-    orderID?: number;
+    orderID: number;
 }
 
 /**
  * Check if a given object implements the OrderCourierInfo interface.
  */
 export function instanceOfOrderCourierInfo(value: object): value is OrderCourierInfo {
+    if (!('courierInfo' in value) || value['courierInfo'] === undefined) return false;
+    if (!('orderID' in value) || value['orderID'] === undefined) return false;
     return true;
 }
 
@@ -54,8 +56,8 @@ export function OrderCourierInfoFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'courierInfo': json['courierInfo'] == null ? undefined : CourierInfoFromJSON(json['courierInfo']),
-        'orderID': json['orderID'] == null ? undefined : json['orderID'],
+        'courierInfo': CourierInfoFromJSON(json['courierInfo']),
+        'orderID': json['orderID'],
     };
 }
 

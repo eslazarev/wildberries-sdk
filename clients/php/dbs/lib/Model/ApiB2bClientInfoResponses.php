@@ -284,6 +284,9 @@ class ApiB2bClientInfoResponses implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['request_id'] === null) {
             $invalidProperties[] = "'request_id' can't be null";
         }
+        if ($this->container['results'] === null) {
+            $invalidProperties[] = "'results' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -329,7 +332,7 @@ class ApiB2bClientInfoResponses implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets results
      *
-     * @return \Wildberries\Sdk\Dbs\Model\ApiB2bClientInfoResponse[]|null
+     * @return \Wildberries\Sdk\Dbs\Model\ApiB2bClientInfoResponse[]
      */
     public function getResults()
     {
@@ -339,7 +342,7 @@ class ApiB2bClientInfoResponses implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets results
      *
-     * @param \Wildberries\Sdk\Dbs\Model\ApiB2bClientInfoResponse[]|null $results results
+     * @param \Wildberries\Sdk\Dbs\Model\ApiB2bClientInfoResponse[] $results results
      *
      * @return self
      */

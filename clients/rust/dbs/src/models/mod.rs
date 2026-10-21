@@ -96,6 +96,8 @@ pub mod order_dbs;
 pub use self::order_dbs::OrderDbs;
 pub mod order_dbs_address;
 pub use self::order_dbs_address::OrderDbsAddress;
+pub mod order_dbs_options;
+pub use self::order_dbs_options::OrderDbsOptions;
 pub mod order_new_dbs;
 pub use self::order_new_dbs::OrderNewDbs;
 pub mod order_new_dbs_address;

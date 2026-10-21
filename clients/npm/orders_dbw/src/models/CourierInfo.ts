@@ -30,7 +30,7 @@ export interface CourierInfo {
     /**
      * Контактные данные курьера
      */
-    contacts?: CourierContactsResponse | null;
+    contacts: CourierContactsResponse | null;
     /**
      * Должен ли быть назначен курьер к текущему моменту:
      *   - `false` — нет
@@ -39,17 +39,20 @@ export interface CourierInfo {
      *   Если `"mustBeAssigned":true`, а `"contacts":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2)
      * 
      */
-    mustBeAssigned?: boolean;
+    mustBeAssigned: boolean;
     /**
      * Дата и время обновления информации о курьере. <br> Если `null`, информация не обновлялась
      */
-    updatedAt?: Date | null;
+    updatedAt: Date | null;
 }
 
 /**
  * Check if a given object implements the CourierInfo interface.
  */
 export function instanceOfCourierInfo(value: object): value is CourierInfo {
+    if (!('contacts' in value) || value['contacts'] === undefined) return false;
+    if (!('mustBeAssigned' in value) || value['mustBeAssigned'] === undefined) return false;
+    if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
 }
 
@@ -63,9 +66,9 @@ export function CourierInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'contacts': json['contacts'] === undefined ? undefined : json['contacts'] === null ? null : CourierContactsResponseFromJSON(json['contacts']),
-        'mustBeAssigned': json['mustBeAssigned'] == null ? undefined : json['mustBeAssigned'],
-        'updatedAt': json['updatedAt'] === undefined ? undefined : json['updatedAt'] === null ? null : (parseDateTime(json['updatedAt'])),
+        'contacts': CourierContactsResponseFromJSON(json['contacts']),
+        'mustBeAssigned': json['mustBeAssigned'],
+        'updatedAt': (json['updatedAt'] == null ? null : parseDateTime(json['updatedAt'])),
     };
 }
 

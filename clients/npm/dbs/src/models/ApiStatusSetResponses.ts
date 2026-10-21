@@ -30,17 +30,19 @@ export interface ApiStatusSetResponses {
     /**
      * Уникальный ID запроса
      */
-    requestId?: string;
+    requestId: string;
     /**
      * 
      */
-    results?: Array<ApiStatusSetResponse>;
+    results: Array<ApiStatusSetResponse>;
 }
 
 /**
  * Check if a given object implements the ApiStatusSetResponses interface.
  */
 export function instanceOfApiStatusSetResponses(value: object): value is ApiStatusSetResponses {
+    if (!('requestId' in value) || value['requestId'] === undefined) return false;
+    if (!('results' in value) || value['results'] === undefined) return false;
     return true;
 }
 
@@ -54,8 +56,8 @@ export function ApiStatusSetResponsesFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'requestId': json['requestId'] == null ? undefined : json['requestId'],
-        'results': json['results'] == null ? undefined : ((json['results'] as Array<any>).map(ApiStatusSetResponseFromJSON)),
+        'requestId': json['requestId'],
+        'results': ((json['results'] as Array<any>).map(ApiStatusSetResponseFromJSON)),
     };
 }
 
@@ -71,7 +73,7 @@ export function ApiStatusSetResponsesToJSONTyped(value?: ApiStatusSetResponses |
     return {
         
         'requestId': value['requestId'],
-        'results': value['results'] == null ? undefined : ((value['results'] as Array<any>).map(ApiStatusSetResponseToJSON)),
+        'results': ((value['results'] as Array<any>).map(ApiStatusSetResponseToJSON)),
     };
 }
 

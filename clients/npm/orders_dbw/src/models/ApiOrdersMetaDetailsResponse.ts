@@ -34,7 +34,7 @@ export interface ApiOrdersMetaDetailsResponse {
     /**
      * Идентификаторы маркировки сборочных заданий и статусы их валидации
      */
-    orders?: Array<ApiOrdersMetaDetailsResponseOrdersInner>;
+    orders: Array<ApiOrdersMetaDetailsResponseOrdersInner>;
 }
 
 /**
@@ -42,6 +42,7 @@ export interface ApiOrdersMetaDetailsResponse {
  */
 export function instanceOfApiOrdersMetaDetailsResponse(value: object): value is ApiOrdersMetaDetailsResponse {
     if (!('requestId' in value) || value['requestId'] === undefined) return false;
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -56,7 +57,7 @@ export function ApiOrdersMetaDetailsResponseFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'requestId': json['requestId'],
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerFromJSON)),
+        'orders': ((json['orders'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerFromJSON)),
     };
 }
 
@@ -72,7 +73,7 @@ export function ApiOrdersMetaDetailsResponseToJSONTyped(value?: ApiOrdersMetaDet
     return {
         
         'requestId': value['requestId'],
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerToJSON)),
     };
 }
 

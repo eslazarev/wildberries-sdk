@@ -16,15 +16,15 @@ pub struct ApiB2bClientInfoResponses {
     /// Уникальный ID запроса
     #[serde(rename = "requestId")]
     pub request_id: String,
-    #[serde(rename = "results", skip_serializing_if = "Option::is_none")]
-    pub results: Option<Vec<models::ApiB2bClientInfoResponse>>,
+    #[serde(rename = "results")]
+    pub results: Vec<models::ApiB2bClientInfoResponse>,
 }
 
 impl ApiB2bClientInfoResponses {
-    pub fn new(request_id: String) -> ApiB2bClientInfoResponses {
+    pub fn new(request_id: String, results: Vec<models::ApiB2bClientInfoResponse>) -> ApiB2bClientInfoResponses {
         ApiB2bClientInfoResponses {
             request_id,
-            results: None,
+            results,
         }
     }
 }

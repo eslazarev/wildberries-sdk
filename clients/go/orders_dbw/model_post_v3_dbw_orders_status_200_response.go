@@ -12,6 +12,8 @@ package orders_dbw
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PostV3DbwOrdersStatus200Response type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,18 @@ var _ MappedNullable = &PostV3DbwOrdersStatus200Response{}
 
 // PostV3DbwOrdersStatus200Response struct for PostV3DbwOrdersStatus200Response
 type PostV3DbwOrdersStatus200Response struct {
-	Orders []PostV3DbwOrdersStatus200ResponseOrdersInner `json:"orders,omitempty"`
+	Orders []PostV3DbwOrdersStatus200ResponseOrdersInner `json:"orders"`
 }
+
+type _PostV3DbwOrdersStatus200Response PostV3DbwOrdersStatus200Response
 
 // NewPostV3DbwOrdersStatus200Response instantiates a new PostV3DbwOrdersStatus200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3DbwOrdersStatus200Response() *PostV3DbwOrdersStatus200Response {
+func NewPostV3DbwOrdersStatus200Response(orders []PostV3DbwOrdersStatus200ResponseOrdersInner) *PostV3DbwOrdersStatus200Response {
 	this := PostV3DbwOrdersStatus200Response{}
+	this.Orders = orders
 	return &this
 }
 
@@ -39,34 +44,26 @@ func NewPostV3DbwOrdersStatus200ResponseWithDefaults() *PostV3DbwOrdersStatus200
 	return &this
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise.
+// GetOrders returns the Orders field value
 func (o *PostV3DbwOrdersStatus200Response) GetOrders() []PostV3DbwOrdersStatus200ResponseOrdersInner {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		var ret []PostV3DbwOrdersStatus200ResponseOrdersInner
 		return ret
 	}
+
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
+// GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
 func (o *PostV3DbwOrdersStatus200Response) GetOrdersOk() ([]PostV3DbwOrdersStatus200ResponseOrdersInner, bool) {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Orders, true
 }
 
-// HasOrders returns a boolean if a field has been set.
-func (o *PostV3DbwOrdersStatus200Response) HasOrders() bool {
-	if o != nil && !IsNil(o.Orders) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrders gets a reference to the given []PostV3DbwOrdersStatus200ResponseOrdersInner and assigns it to the Orders field.
+// SetOrders sets field value
 func (o *PostV3DbwOrdersStatus200Response) SetOrders(v []PostV3DbwOrdersStatus200ResponseOrdersInner) {
 	o.Orders = v
 }
@@ -81,10 +78,45 @@ func (o PostV3DbwOrdersStatus200Response) MarshalJSON() ([]byte, error) {
 
 func (o PostV3DbwOrdersStatus200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Orders) {
-		toSerialize["orders"] = o.Orders
-	}
+	toSerialize["orders"] = o.Orders
 	return toSerialize, nil
+}
+
+func (o *PostV3DbwOrdersStatus200Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"orders",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPostV3DbwOrdersStatus200Response := _PostV3DbwOrdersStatus200Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPostV3DbwOrdersStatus200Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostV3DbwOrdersStatus200Response(varPostV3DbwOrdersStatus200Response)
+
+	return err
 }
 
 type NullablePostV3DbwOrdersStatus200Response struct {

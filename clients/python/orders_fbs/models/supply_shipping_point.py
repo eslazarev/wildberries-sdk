@@ -17,26 +17,26 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class GetV3FbsShippingPoints403Response(BaseModel):
+class SupplyShippingPoint(BaseModel):
     """
-    GetV3FbsShippingPoints403Response
+    Данные пункта отгрузки
     """ # noqa: E501
-    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
-    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
-    code: Optional[StrictStr] = Field(default=None, description="Внутренний код ошибки")
-    request_id: Optional[StrictStr] = Field(default=None, description="ID запроса", alias="requestId")
-    origin: Optional[StrictStr] = Field(default=None, description="ID внутреннего сервиса WB")
-    status: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="HTTP статус-код")
-    status_text: Optional[StrictStr] = Field(default=None, description="Расшифровка HTTP статус-кода", alias="statusText")
-    timestamp: Optional[datetime] = Field(default=None, description="Дата и время запроса")
-    __properties: ClassVar[List[str]] = ["title", "detail", "code", "requestId", "origin", "status", "statusText", "timestamp"]
+    id: StrictInt = Field(description="ID пункта отгрузки", json_schema_extra={"examples": [100]})
+    name: StrictStr = Field(description="Название", json_schema_extra={"examples": ["Москва Морской"]})
+    address: StrictStr = Field(description="Адрес", json_schema_extra={"examples": ["г Москва, Морской Проспект 54"]})
+    city: StrictStr = Field(description="Населённый пункт", json_schema_extra={"examples": ["Москва"]})
+    office_type: StrictStr = Field(description="Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — пункт выдачи заказов (ПВЗ)   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)   - `gpp` — пункт приёма товаров (ППТ) ", alias="officeType", json_schema_extra={"examples": ["pp"]})
+    latitude: Union[StrictFloat, StrictInt] = Field(description="Широта", json_schema_extra={"examples": [37.588898]})
+    longitude: Union[StrictFloat, StrictInt] = Field(description="Долгота", json_schema_extra={"examples": [55.386871]})
+    fulfillment: StrictBool = Field(description="Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна ", json_schema_extra={"examples": [True]})
+    available: StrictBool = Field(description="Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки ", json_schema_extra={"examples": [True]})
+    __properties: ClassVar[List[str]] = ["id", "name", "address", "city", "officeType", "latitude", "longitude", "fulfillment", "available"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -56,7 +56,7 @@ class GetV3FbsShippingPoints403Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetV3FbsShippingPoints403Response from a JSON string"""
+        """Create an instance of SupplyShippingPoint from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,7 +81,7 @@ class GetV3FbsShippingPoints403Response(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetV3FbsShippingPoints403Response from a dict"""
+        """Create an instance of SupplyShippingPoint from a dict"""
         if obj is None:
             return None
 
@@ -89,14 +89,15 @@ class GetV3FbsShippingPoints403Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "title": obj.get("title"),
-            "detail": obj.get("detail"),
-            "code": obj.get("code"),
-            "requestId": obj.get("requestId"),
-            "origin": obj.get("origin"),
-            "status": obj.get("status"),
-            "statusText": obj.get("statusText"),
-            "timestamp": obj.get("timestamp")
+            "id": obj.get("id"),
+            "name": obj.get("name"),
+            "address": obj.get("address"),
+            "city": obj.get("city"),
+            "officeType": obj.get("officeType"),
+            "latitude": obj.get("latitude"),
+            "longitude": obj.get("longitude"),
+            "fulfillment": obj.get("fulfillment"),
+            "available": obj.get("available")
         })
         return _obj
 

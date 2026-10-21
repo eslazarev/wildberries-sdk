@@ -49,6 +49,7 @@ export * from './GetV3DbsOrdersNew402Response';
 export * from './ModelError';
 export * from './OrderDBS';
 export * from './OrderDBSAddress';
+export * from './OrderDBSOptions';
 export * from './OrderNewDBS';
 export * from './OrderNewDBSAddress';
 export * from './OrderNewDBSOptions';

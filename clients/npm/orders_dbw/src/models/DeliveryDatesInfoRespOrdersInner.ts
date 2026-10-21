@@ -22,37 +22,44 @@ export interface DeliveryDatesInfoRespOrdersInner {
     /**
      * Актуальное время доставки "с"
      */
-    dTimeFrom?: string | null;
+    dTimeFrom: string | null;
     /**
      * Актуальное время доставки "по"
      */
-    dTimeTo?: string | null;
+    dTimeTo: string | null;
     /**
      * Прежнее время доставки "с". Доступно первые сутки после изменения
      */
-    dTimeFromOld?: string | null;
+    dTimeFromOld: string | null;
     /**
      * Прежнее время доставки "по". Доступно первые сутки после изменения
      */
-    dTimeToOld?: string | null;
+    dTimeToOld: string | null;
     /**
      * Прежняя дата доставки. Доступна первые сутки после изменения
      */
-    dDateOld?: string | null;
+    dDateOld: string | null;
     /**
      * Актуальная дата доставки
      */
-    dDate?: string;
+    dDate: string;
     /**
      * ID сборочного задания
      */
-    id?: number;
+    id: number;
 }
 
 /**
  * Check if a given object implements the DeliveryDatesInfoRespOrdersInner interface.
  */
 export function instanceOfDeliveryDatesInfoRespOrdersInner(value: object): value is DeliveryDatesInfoRespOrdersInner {
+    if (!('dTimeFrom' in value) || value['dTimeFrom'] === undefined) return false;
+    if (!('dTimeTo' in value) || value['dTimeTo'] === undefined) return false;
+    if (!('dTimeFromOld' in value) || value['dTimeFromOld'] === undefined) return false;
+    if (!('dTimeToOld' in value) || value['dTimeToOld'] === undefined) return false;
+    if (!('dDateOld' in value) || value['dDateOld'] === undefined) return false;
+    if (!('dDate' in value) || value['dDate'] === undefined) return false;
+    if (!('id' in value) || value['id'] === undefined) return false;
     return true;
 }
 
@@ -66,13 +73,13 @@ export function DeliveryDatesInfoRespOrdersInnerFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'dTimeFrom': json['dTimeFrom'] === undefined ? undefined : json['dTimeFrom'] === null ? null : json['dTimeFrom'],
-        'dTimeTo': json['dTimeTo'] === undefined ? undefined : json['dTimeTo'] === null ? null : json['dTimeTo'],
-        'dTimeFromOld': json['dTimeFromOld'] === undefined ? undefined : json['dTimeFromOld'] === null ? null : json['dTimeFromOld'],
-        'dTimeToOld': json['dTimeToOld'] === undefined ? undefined : json['dTimeToOld'] === null ? null : json['dTimeToOld'],
-        'dDateOld': json['dDateOld'] === undefined ? undefined : json['dDateOld'] === null ? null : json['dDateOld'],
-        'dDate': json['dDate'] == null ? undefined : json['dDate'],
-        'id': json['id'] == null ? undefined : json['id'],
+        'dTimeFrom': json['dTimeFrom'],
+        'dTimeTo': json['dTimeTo'],
+        'dTimeFromOld': json['dTimeFromOld'],
+        'dTimeToOld': json['dTimeToOld'],
+        'dDateOld': json['dDateOld'],
+        'dDate': json['dDate'],
+        'id': json['id'],
     };
 }
 

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.orders_dbw.models.courier_info import CourierInfo
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,8 @@ class OrderCourierInfo(BaseModel):
     """
     OrderCourierInfo
     """ # noqa: E501
-    courier_info: Optional[CourierInfo] = Field(default=None, description="Информация о курьере", alias="courierInfo")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderID", json_schema_extra={"examples": [2876979713]})
+    courier_info: CourierInfo = Field(description="Информация о курьере", alias="courierInfo")
+    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderID", json_schema_extra={"examples": [2876979713]})
     __properties: ClassVar[List[str]] = ["courierInfo", "orderID"]
 
     model_config = ConfigDict(

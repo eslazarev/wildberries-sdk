@@ -302,6 +302,15 @@ class CourierContactsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
+        if ($this->container['car_number'] === null) {
+            $invalidProperties[] = "'car_number' can't be null";
+        }
+        if ($this->container['full_name'] === null) {
+            $invalidProperties[] = "'full_name' can't be null";
+        }
+        if ($this->container['phone'] === null) {
+            $invalidProperties[] = "'phone' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -320,7 +329,7 @@ class CourierContactsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets car_number
      *
-     * @return string|null
+     * @return string
      */
     public function getCarNumber()
     {
@@ -330,7 +339,7 @@ class CourierContactsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets car_number
      *
-     * @param string|null $car_number Номер автомобиля
+     * @param string $car_number Номер автомобиля
      *
      * @return self
      */
@@ -347,7 +356,7 @@ class CourierContactsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets full_name
      *
-     * @return string|null
+     * @return string
      */
     public function getFullName()
     {
@@ -357,7 +366,7 @@ class CourierContactsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets full_name
      *
-     * @param string|null $full_name ФИО курьера
+     * @param string $full_name ФИО курьера
      *
      * @return self
      */
@@ -374,7 +383,7 @@ class CourierContactsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets phone
      *
-     * @return string|null
+     * @return string
      */
     public function getPhone()
     {
@@ -384,7 +393,7 @@ class CourierContactsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets phone
      *
-     * @param string|null $phone Номер телефона
+     * @param string $phone Номер телефона
      *
      * @return self
      */

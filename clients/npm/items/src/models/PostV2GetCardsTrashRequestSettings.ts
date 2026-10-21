@@ -44,7 +44,7 @@ export interface PostV2GetCardsTrashRequestSettings {
     /**
      * 
      */
-    sort?: PostV2GetCardsTrashRequestSettingsSort;
+    sort?: PostV2GetCardsTrashRequestSettingsSort | null;
     /**
      * 
      */
@@ -52,7 +52,7 @@ export interface PostV2GetCardsTrashRequestSettings {
     /**
      * 
      */
-    filter?: PostV2GetCardsTrashRequestSettingsFilter;
+    filter?: PostV2GetCardsTrashRequestSettingsFilter | null;
 }
 
 /**
@@ -72,9 +72,9 @@ export function PostV2GetCardsTrashRequestSettingsFromJSONTyped(json: any, ignor
     }
     return {
         
-        'sort': json['sort'] == null ? undefined : PostV2GetCardsTrashRequestSettingsSortFromJSON(json['sort']),
+        'sort': json['sort'] === undefined ? undefined : json['sort'] === null ? null : PostV2GetCardsTrashRequestSettingsSortFromJSON(json['sort']),
         'cursor': json['cursor'] == null ? undefined : PostV2GetCardsTrashRequestSettingsCursorFromJSON(json['cursor']),
-        'filter': json['filter'] == null ? undefined : PostV2GetCardsTrashRequestSettingsFilterFromJSON(json['filter']),
+        'filter': json['filter'] === undefined ? undefined : json['filter'] === null ? null : PostV2GetCardsTrashRequestSettingsFilterFromJSON(json['filter']),
     };
 }
 

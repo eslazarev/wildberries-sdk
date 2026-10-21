@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.dbs.models.order_dbs import OrderDBS
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,8 @@ class GetV3DbsOrders200Response(BaseModel):
     """
     GetV3DbsOrders200Response
     """ # noqa: E501
-    next: Optional[StrictInt] = Field(default=None, description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных", json_schema_extra={"examples": [13833711]})
-    orders: Optional[List[OrderDBS]] = None
+    next: StrictInt = Field(description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных", json_schema_extra={"examples": [13833711]})
+    orders: List[OrderDBS]
     __properties: ClassVar[List[str]] = ["next", "orders"]
 
     model_config = ConfigDict(

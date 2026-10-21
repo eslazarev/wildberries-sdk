@@ -289,6 +289,15 @@ class ApiB2bClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['inn'] === null) {
+            $invalidProperties[] = "'inn' can't be null";
+        }
+        if ($this->container['kpp'] === null) {
+            $invalidProperties[] = "'kpp' can't be null";
+        }
+        if ($this->container['org_name'] === null) {
+            $invalidProperties[] = "'org_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -307,7 +316,7 @@ class ApiB2bClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets inn
      *
-     * @return string|null
+     * @return string
      */
     public function getInn()
     {
@@ -317,7 +326,7 @@ class ApiB2bClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets inn
      *
-     * @param string|null $inn Индивидуальный номер налогоплательщика (ИНН)
+     * @param string $inn Индивидуальный номер налогоплательщика (ИНН)
      *
      * @return self
      */
@@ -334,7 +343,7 @@ class ApiB2bClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets kpp
      *
-     * @return string|null
+     * @return string
      */
     public function getKpp()
     {
@@ -344,7 +353,7 @@ class ApiB2bClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets kpp
      *
-     * @param string|null $kpp Код причины постановки на учёт (КПП)
+     * @param string $kpp Код причины постановки на учёт (КПП)
      *
      * @return self
      */
@@ -361,7 +370,7 @@ class ApiB2bClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets org_name
      *
-     * @return string|null
+     * @return string
      */
     public function getOrgName()
     {
@@ -371,7 +380,7 @@ class ApiB2bClientInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets org_name
      *
-     * @param string|null $org_name Наименование организации
+     * @param string $org_name Наименование организации
      *
      * @return self
      */

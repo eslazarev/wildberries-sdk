@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiOrderStatusV2 type satisfies the MappedNullable interface at compile time
@@ -20,21 +22,27 @@ var _ MappedNullable = &ApiOrderStatusV2{}
 // ApiOrderStatusV2 struct for ApiOrderStatusV2
 type ApiOrderStatusV2 struct {
 	// Информация об ошибке
-	Errors []ApiBatchErrorResponse `json:"errors,omitempty"`
+	Errors []ApiBatchErrorResponse `json:"errors"`
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId int32 `json:"orderId"`
 	// Статус сборочного задания, установленный продавцом
-	SupplierStatus *string `json:"supplierStatus,omitempty"`
+	SupplierStatus string `json:"supplierStatus"`
 	// Статус сборочного задания в системе Wildberries
-	WbStatus *string `json:"wbStatus,omitempty"`
+	WbStatus string `json:"wbStatus"`
 }
+
+type _ApiOrderStatusV2 ApiOrderStatusV2
 
 // NewApiOrderStatusV2 instantiates a new ApiOrderStatusV2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrderStatusV2() *ApiOrderStatusV2 {
+func NewApiOrderStatusV2(errors []ApiBatchErrorResponse, orderId int32, supplierStatus string, wbStatus string) *ApiOrderStatusV2 {
 	this := ApiOrderStatusV2{}
+	this.Errors = errors
+	this.OrderId = orderId
+	this.SupplierStatus = supplierStatus
+	this.WbStatus = wbStatus
 	return &this
 }
 
@@ -46,132 +54,100 @@ func NewApiOrderStatusV2WithDefaults() *ApiOrderStatusV2 {
 	return &this
 }
 
-// GetErrors returns the Errors field value if set, zero value otherwise.
+// GetErrors returns the Errors field value
 func (o *ApiOrderStatusV2) GetErrors() []ApiBatchErrorResponse {
-	if o == nil || IsNil(o.Errors) {
+	if o == nil {
 		var ret []ApiBatchErrorResponse
 		return ret
 	}
+
 	return o.Errors
 }
 
-// GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
+// GetErrorsOk returns a tuple with the Errors field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderStatusV2) GetErrorsOk() ([]ApiBatchErrorResponse, bool) {
-	if o == nil || IsNil(o.Errors) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Errors, true
 }
 
-// HasErrors returns a boolean if a field has been set.
-func (o *ApiOrderStatusV2) HasErrors() bool {
-	if o != nil && !IsNil(o.Errors) {
-		return true
-	}
-
-	return false
-}
-
-// SetErrors gets a reference to the given []ApiBatchErrorResponse and assigns it to the Errors field.
+// SetErrors sets field value
 func (o *ApiOrderStatusV2) SetErrors(v []ApiBatchErrorResponse) {
 	o.Errors = v
 }
 
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
+// GetOrderId returns the OrderId field value
 func (o *ApiOrderStatusV2) GetOrderId() int32 {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OrderId
+
+	return o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderStatusV2) GetOrderIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderId, true
+	return &o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *ApiOrderStatusV2) HasOrderId() bool {
-	if o != nil && !IsNil(o.OrderId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
+// SetOrderId sets field value
 func (o *ApiOrderStatusV2) SetOrderId(v int32) {
-	o.OrderId = &v
+	o.OrderId = v
 }
 
-// GetSupplierStatus returns the SupplierStatus field value if set, zero value otherwise.
+// GetSupplierStatus returns the SupplierStatus field value
 func (o *ApiOrderStatusV2) GetSupplierStatus() string {
-	if o == nil || IsNil(o.SupplierStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SupplierStatus
+
+	return o.SupplierStatus
 }
 
-// GetSupplierStatusOk returns a tuple with the SupplierStatus field value if set, nil otherwise
+// GetSupplierStatusOk returns a tuple with the SupplierStatus field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderStatusV2) GetSupplierStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.SupplierStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SupplierStatus, true
+	return &o.SupplierStatus, true
 }
 
-// HasSupplierStatus returns a boolean if a field has been set.
-func (o *ApiOrderStatusV2) HasSupplierStatus() bool {
-	if o != nil && !IsNil(o.SupplierStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetSupplierStatus gets a reference to the given string and assigns it to the SupplierStatus field.
+// SetSupplierStatus sets field value
 func (o *ApiOrderStatusV2) SetSupplierStatus(v string) {
-	o.SupplierStatus = &v
+	o.SupplierStatus = v
 }
 
-// GetWbStatus returns the WbStatus field value if set, zero value otherwise.
+// GetWbStatus returns the WbStatus field value
 func (o *ApiOrderStatusV2) GetWbStatus() string {
-	if o == nil || IsNil(o.WbStatus) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WbStatus
+
+	return o.WbStatus
 }
 
-// GetWbStatusOk returns a tuple with the WbStatus field value if set, nil otherwise
+// GetWbStatusOk returns a tuple with the WbStatus field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderStatusV2) GetWbStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.WbStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WbStatus, true
+	return &o.WbStatus, true
 }
 
-// HasWbStatus returns a boolean if a field has been set.
-func (o *ApiOrderStatusV2) HasWbStatus() bool {
-	if o != nil && !IsNil(o.WbStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetWbStatus gets a reference to the given string and assigns it to the WbStatus field.
+// SetWbStatus sets field value
 func (o *ApiOrderStatusV2) SetWbStatus(v string) {
-	o.WbStatus = &v
+	o.WbStatus = v
 }
 
 func (o ApiOrderStatusV2) MarshalJSON() ([]byte, error) {
@@ -184,19 +160,51 @@ func (o ApiOrderStatusV2) MarshalJSON() ([]byte, error) {
 
 func (o ApiOrderStatusV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Errors) {
-		toSerialize["errors"] = o.Errors
-	}
-	if !IsNil(o.OrderId) {
-		toSerialize["orderId"] = o.OrderId
-	}
-	if !IsNil(o.SupplierStatus) {
-		toSerialize["supplierStatus"] = o.SupplierStatus
-	}
-	if !IsNil(o.WbStatus) {
-		toSerialize["wbStatus"] = o.WbStatus
-	}
+	toSerialize["errors"] = o.Errors
+	toSerialize["orderId"] = o.OrderId
+	toSerialize["supplierStatus"] = o.SupplierStatus
+	toSerialize["wbStatus"] = o.WbStatus
 	return toSerialize, nil
+}
+
+func (o *ApiOrderStatusV2) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"errors",
+		"orderId",
+		"supplierStatus",
+		"wbStatus",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiOrderStatusV2 := _ApiOrderStatusV2{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiOrderStatusV2)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiOrderStatusV2(varApiOrderStatusV2)
+
+	return err
 }
 
 type NullableApiOrderStatusV2 struct {

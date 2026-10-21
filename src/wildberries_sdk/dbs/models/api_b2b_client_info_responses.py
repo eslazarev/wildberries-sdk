@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.dbs.models.api_b2b_client_info_response import ApiB2bClientInfoResponse
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class ApiB2bClientInfoResponses(BaseModel):
     ApiB2bClientInfoResponses
     """ # noqa: E501
     request_id: StrictStr = Field(description="Уникальный ID запроса", alias="requestId")
-    results: Optional[List[ApiB2bClientInfoResponse]] = None
+    results: List[ApiB2bClientInfoResponse]
     __properties: ClassVar[List[str]] = ["requestId", "results"]
 
     model_config = ConfigDict(

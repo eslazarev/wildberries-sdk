@@ -28,7 +28,7 @@ pub struct GetV1AnalyticsGoodsLabeling200ResponseReportInner {
     /// URL фото товара
     #[serde(rename = "photoUrls", skip_serializing_if = "Option::is_none")]
     pub photo_urls: Option<Vec<String>>,
-    /// Штрихкод товара в WB
+    /// Штрихкод
     #[serde(rename = "shkID", skip_serializing_if = "Option::is_none")]
     pub shk_id: Option<i32>,
     /// Баркод из карточки товара

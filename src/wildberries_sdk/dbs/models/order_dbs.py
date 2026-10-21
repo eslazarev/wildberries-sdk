@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from wildberries_sdk.dbs.models.order_dbs_address import OrderDBSAddress
-from wildberries_sdk.dbs.models.order_new_dbs_options import OrderNewDBSOptions
+from wildberries_sdk.dbs.models.order_dbs_options import OrderDBSOptions
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,39 +31,36 @@ class OrderDBS(BaseModel):
     """
     OrderDBS
     """ # noqa: E501
-    address: Optional[OrderDBSAddress] = None
-    delivery_type: Optional[StrictStr] = Field(default=None, description="Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца ", alias="deliveryType")
-    options: Optional[OrderNewDBSOptions] = None
-    order_uid: Optional[StrictStr] = Field(default=None, description="ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`", alias="orderUid", json_schema_extra={"examples": ["165918930_629fbc924b984618a44354475ca58675"]})
-    group_id: Optional[StrictStr] = Field(default=None, description="ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)", alias="groupId", json_schema_extra={"examples": ["7a2c8810-1db2-4011-9682-5c7fa33afd83"]})
-    article: Optional[StrictStr] = Field(default=None, description="Артикул продавца", json_schema_extra={"examples": ["one-ring-7548"]})
-    color_code: Optional[StrictStr] = Field(default=None, description="Код цвета (только для колеруемых товаров)", alias="colorCode", json_schema_extra={"examples": ["RAL 3017"]})
-    rid: Optional[Any] = Field(default=None, description="Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed) ", json_schema_extra={"examples": ["f884001e44e511edb8780242ac120002"]})
-    created_at: Optional[datetime] = Field(default=None, description="Дата создания сборочного задания", alias="createdAt", json_schema_extra={"examples": ["2022-05-04T07:56:29Z"]})
-    skus: Optional[List[StrictStr]] = Field(default=None, description="Массив баркодов товара")
-    id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", json_schema_extra={"examples": [13833711]})
-    warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада продавца, на который поступило сборочное задание", alias="warehouseId", json_schema_extra={"examples": [658434]})
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId", json_schema_extra={"examples": [12345678]})
-    chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера товара в системе WB", alias="chrtId", json_schema_extra={"examples": [987654321]})
-    scan_price: Optional[StrictInt] = Field(default=None, description="Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ", alias="scanPrice", json_schema_extra={"examples": [50]})
-    price: Optional[StrictInt] = Field(default=None, description="Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях", json_schema_extra={"examples": [1014]})
-    converted_price: Optional[StrictInt] = Field(default=None, description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях", alias="convertedPrice", json_schema_extra={"examples": [1014]})
-    currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты продажи", alias="currencyCode", json_schema_extra={"examples": [643]})
-    converted_currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты страны продавца", alias="convertedCurrencyCode", json_schema_extra={"examples": [643]})
-    converted_final_price: Optional[StrictInt] = Field(default=None, description="Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода ", alias="convertedFinalPrice", json_schema_extra={"examples": [1014]})
-    final_price: Optional[StrictInt] = Field(default=None, description="Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода ", alias="finalPrice", json_schema_extra={"examples": [1014]})
-    cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
-    comment: Optional[Annotated[str, Field(strict=True, max_length=300)]] = Field(default=None, description="Комментарий покупателя", json_schema_extra={"examples": ["Упакуйте в пленку, пожалуйста"]})
-    is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder", json_schema_extra={"examples": [False]})
-    wb_sticker_id: Optional[StrictInt] = Field(default=None, description="ID стикера. Отображается только для заказов в ПВЗ", alias="wbStickerId", json_schema_extra={"examples": [123456]})
+    address: Optional[OrderDBSAddress]
+    delivery_type: StrictStr = Field(description="Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца ", alias="deliveryType")
+    options: OrderDBSOptions
+    order_uid: StrictStr = Field(description="ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`", alias="orderUid", json_schema_extra={"examples": ["165918930_629fbc924b984618a44354475ca58675"]})
+    group_id: StrictStr = Field(description="ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)", alias="groupId", json_schema_extra={"examples": ["7a2c8810-1db2-4011-9682-5c7fa33afd83"]})
+    article: StrictStr = Field(description="Артикул продавца", json_schema_extra={"examples": ["one-ring-7548"]})
+    color_code: StrictStr = Field(description="Код цвета (только для колеруемых товаров)", alias="colorCode", json_schema_extra={"examples": ["RAL 3017"]})
+    rid: Optional[Any] = Field(description="Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed) ", json_schema_extra={"examples": ["f884001e44e511edb8780242ac120002"]})
+    created_at: datetime = Field(description="Дата создания сборочного задания", alias="createdAt", json_schema_extra={"examples": ["2022-05-04T07:56:29Z"]})
+    skus: List[StrictStr] = Field(description="Массив баркодов товара")
+    id: StrictInt = Field(description="ID сборочного задания", json_schema_extra={"examples": [13833711]})
+    warehouse_id: StrictInt = Field(description="ID склада продавца, на который поступило сборочное задание", alias="warehouseId", json_schema_extra={"examples": [658434]})
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [12345678]})
+    chrt_id: StrictInt = Field(description="ID размера товара в системе WB", alias="chrtId", json_schema_extra={"examples": [987654321]})
+    scan_price: Optional[StrictInt] = Field(description="Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ", alias="scanPrice", json_schema_extra={"examples": [50]})
+    price: StrictInt = Field(description="Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях", json_schema_extra={"examples": [1014]})
+    converted_price: StrictInt = Field(description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях", alias="convertedPrice", json_schema_extra={"examples": [1014]})
+    currency_code: StrictInt = Field(description="Код валюты продажи", alias="currencyCode", json_schema_extra={"examples": [643]})
+    converted_currency_code: StrictInt = Field(description="Код валюты страны продавца", alias="convertedCurrencyCode", json_schema_extra={"examples": [643]})
+    converted_final_price: StrictInt = Field(description="Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода ", alias="convertedFinalPrice", json_schema_extra={"examples": [1014]})
+    final_price: StrictInt = Field(description="Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода ", alias="finalPrice", json_schema_extra={"examples": [1014]})
+    cargo_type: StrictInt = Field(description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
+    comment: Annotated[str, Field(strict=True, max_length=300)] = Field(description="Комментарий покупателя", json_schema_extra={"examples": ["Упакуйте в пленку, пожалуйста"]})
+    is_zero_order: StrictBool = Field(description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder", json_schema_extra={"examples": [False]})
+    wb_sticker_id: StrictInt = Field(description="ID стикера. Отображается только для заказов в ПВЗ", alias="wbStickerId", json_schema_extra={"examples": [123456]})
     __properties: ClassVar[List[str]] = ["address", "deliveryType", "options", "orderUid", "groupId", "article", "colorCode", "rid", "createdAt", "skus", "id", "warehouseId", "nmId", "chrtId", "scanPrice", "price", "convertedPrice", "currencyCode", "convertedCurrencyCode", "convertedFinalPrice", "finalPrice", "cargoType", "comment", "isZeroOrder", "wbStickerId"]
 
     @field_validator('cargo_type')
     def cargo_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set([1, 2, 3]):
             raise ValueError("must be one of enum values (1, 2, 3)")
         return value
@@ -142,7 +139,7 @@ class OrderDBS(BaseModel):
         _obj = cls.model_validate({
             "address": OrderDBSAddress.from_dict(obj["address"]) if obj.get("address") is not None else None,
             "deliveryType": obj.get("deliveryType"),
-            "options": OrderNewDBSOptions.from_dict(obj["options"]) if obj.get("options") is not None else None,
+            "options": OrderDBSOptions.from_dict(obj["options"]) if obj.get("options") is not None else None,
             "orderUid": obj.get("orderUid"),
             "groupId": obj.get("groupId"),
             "article": obj.get("article"),

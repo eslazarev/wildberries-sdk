@@ -274,6 +274,9 @@ class PostV3DbwOrdersStatus200Response implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class PostV3DbwOrdersStatus200Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\OrdersDbw\Model\PostV3DbwOrdersStatus200ResponseOrdersInner[]|null
+     * @return \Wildberries\Sdk\OrdersDbw\Model\PostV3DbwOrdersStatus200ResponseOrdersInner[]
      */
     public function getOrders()
     {
@@ -302,7 +305,7 @@ class PostV3DbwOrdersStatus200Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\OrdersDbw\Model\PostV3DbwOrdersStatus200ResponseOrdersInner[]|null $orders orders
+     * @param \Wildberries\Sdk\OrdersDbw\Model\PostV3DbwOrdersStatus200ResponseOrdersInner[] $orders orders
      *
      * @return self
      */

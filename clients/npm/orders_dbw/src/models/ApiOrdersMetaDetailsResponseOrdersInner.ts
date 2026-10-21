@@ -37,7 +37,7 @@ export interface ApiOrdersMetaDetailsResponseOrdersInner {
     /**
      * ID сборочного задания
      */
-    orderId?: number;
+    orderId: number;
     /**
      * Есть ли ошибки
      */
@@ -49,14 +49,16 @@ export interface ApiOrdersMetaDetailsResponseOrdersInner {
     /**
      * Идентификаторы маркировки и статусы их валидации
      */
-    metaDetails?: Array<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>;
+    metaDetails: Array<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>;
 }
 
 /**
  * Check if a given object implements the ApiOrdersMetaDetailsResponseOrdersInner interface.
  */
 export function instanceOfApiOrdersMetaDetailsResponseOrdersInner(value: object): value is ApiOrdersMetaDetailsResponseOrdersInner {
+    if (!('orderId' in value) || value['orderId'] === undefined) return false;
     if (!('isError' in value) || value['isError'] === undefined) return false;
+    if (!('metaDetails' in value) || value['metaDetails'] === undefined) return false;
     return true;
 }
 
@@ -70,10 +72,10 @@ export function ApiOrdersMetaDetailsResponseOrdersInnerFromJSONTyped(json: any, 
     }
     return {
         
-        'orderId': json['orderId'] == null ? undefined : json['orderId'],
+        'orderId': json['orderId'],
         'isError': json['isError'],
         'errors': json['errors'] == null ? undefined : ((json['errors'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerErrorsInnerFromJSON)),
-        'metaDetails': json['metaDetails'] == null ? undefined : ((json['metaDetails'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerFromJSON)),
+        'metaDetails': ((json['metaDetails'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerFromJSON)),
     };
 }
 
@@ -91,7 +93,7 @@ export function ApiOrdersMetaDetailsResponseOrdersInnerToJSONTyped(value?: ApiOr
         'orderId': value['orderId'],
         'isError': value['isError'],
         'errors': value['errors'] == null ? undefined : ((value['errors'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerErrorsInnerToJSON)),
-        'metaDetails': value['metaDetails'] == null ? undefined : ((value['metaDetails'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerToJSON)),
+        'metaDetails': ((value['metaDetails'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerToJSON)),
     };
 }
 

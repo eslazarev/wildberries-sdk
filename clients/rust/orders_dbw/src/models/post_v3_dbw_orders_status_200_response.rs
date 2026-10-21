@@ -13,14 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV3DbwOrdersStatus200Response {
-    #[serde(rename = "orders", skip_serializing_if = "Option::is_none")]
-    pub orders: Option<Vec<models::PostV3DbwOrdersStatus200ResponseOrdersInner>>,
+    #[serde(rename = "orders")]
+    pub orders: Vec<models::PostV3DbwOrdersStatus200ResponseOrdersInner>,
 }
 
 impl PostV3DbwOrdersStatus200Response {
-    pub fn new() -> PostV3DbwOrdersStatus200Response {
+    pub fn new(orders: Vec<models::PostV3DbwOrdersStatus200ResponseOrdersInner>) -> PostV3DbwOrdersStatus200Response {
         PostV3DbwOrdersStatus200Response {
-            orders: None,
+            orders,
         }
     }
 }

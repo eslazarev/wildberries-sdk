@@ -295,6 +295,18 @@ class ApiOrderStatusV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['errors'] === null) {
+            $invalidProperties[] = "'errors' can't be null";
+        }
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
+        if ($this->container['supplier_status'] === null) {
+            $invalidProperties[] = "'supplier_status' can't be null";
+        }
+        if ($this->container['wb_status'] === null) {
+            $invalidProperties[] = "'wb_status' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -313,7 +325,7 @@ class ApiOrderStatusV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets errors
      *
-     * @return \Wildberries\Sdk\Dbs\Model\ApiBatchErrorResponse[]|null
+     * @return \Wildberries\Sdk\Dbs\Model\ApiBatchErrorResponse[]
      */
     public function getErrors()
     {
@@ -323,7 +335,7 @@ class ApiOrderStatusV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \Wildberries\Sdk\Dbs\Model\ApiBatchErrorResponse[]|null $errors Информация об ошибке
+     * @param \Wildberries\Sdk\Dbs\Model\ApiBatchErrorResponse[] $errors Информация об ошибке
      *
      * @return self
      */
@@ -340,7 +352,7 @@ class ApiOrderStatusV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -350,7 +362,7 @@ class ApiOrderStatusV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id
      *
-     * @param int|null $order_id ID сборочного задания
+     * @param int $order_id ID сборочного задания
      *
      * @return self
      */
@@ -367,7 +379,7 @@ class ApiOrderStatusV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets supplier_status
      *
-     * @return string|null
+     * @return string
      */
     public function getSupplierStatus()
     {
@@ -377,7 +389,7 @@ class ApiOrderStatusV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets supplier_status
      *
-     * @param string|null $supplier_status Статус сборочного задания, установленный продавцом
+     * @param string $supplier_status Статус сборочного задания, установленный продавцом
      *
      * @return self
      */
@@ -394,7 +406,7 @@ class ApiOrderStatusV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets wb_status
      *
-     * @return string|null
+     * @return string
      */
     public function getWbStatus()
     {
@@ -404,7 +416,7 @@ class ApiOrderStatusV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets wb_status
      *
-     * @param string|null $wb_status Статус сборочного задания в системе Wildberries
+     * @param string $wb_status Статус сборочного задания в системе Wildberries
      *
      * @return self
      */

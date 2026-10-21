@@ -19,6 +19,8 @@ var _ MappedNullable = &Office{}
 
 // Office Данные о складе WB
 type Office struct {
+	// Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
+	FederalDistrict NullableString `json:"federalDistrict,omitempty"`
 	// Адрес
 	Address *string `json:"address,omitempty"`
 	// Название
@@ -35,8 +37,6 @@ type Office struct {
 	CargoType *int32 `json:"cargoType,omitempty"`
 	// Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) 
 	DeliveryType *int32 `json:"deliveryType,omitempty"`
-	// Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
-	FederalDistrict NullableString `json:"federalDistrict,omitempty"`
 	// Признак того, что склад уже выбран продавцом
 	Selected *bool `json:"selected,omitempty"`
 }
@@ -56,6 +56,48 @@ func NewOffice() *Office {
 func NewOfficeWithDefaults() *Office {
 	this := Office{}
 	return &this
+}
+
+// GetFederalDistrict returns the FederalDistrict field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Office) GetFederalDistrict() string {
+	if o == nil || IsNil(o.FederalDistrict.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.FederalDistrict.Get()
+}
+
+// GetFederalDistrictOk returns a tuple with the FederalDistrict field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Office) GetFederalDistrictOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FederalDistrict.Get(), o.FederalDistrict.IsSet()
+}
+
+// HasFederalDistrict returns a boolean if a field has been set.
+func (o *Office) HasFederalDistrict() bool {
+	if o != nil && o.FederalDistrict.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFederalDistrict gets a reference to the given NullableString and assigns it to the FederalDistrict field.
+func (o *Office) SetFederalDistrict(v string) {
+	o.FederalDistrict.Set(&v)
+}
+// SetFederalDistrictNil sets the value for FederalDistrict to be an explicit nil
+func (o *Office) SetFederalDistrictNil() {
+	o.FederalDistrict.Set(nil)
+}
+
+// UnsetFederalDistrict ensures that no value is present for FederalDistrict, not even an explicit nil
+func (o *Office) UnsetFederalDistrict() {
+	o.FederalDistrict.Unset()
 }
 
 // GetAddress returns the Address field value if set, zero value otherwise.
@@ -314,48 +356,6 @@ func (o *Office) SetDeliveryType(v int32) {
 	o.DeliveryType = &v
 }
 
-// GetFederalDistrict returns the FederalDistrict field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Office) GetFederalDistrict() string {
-	if o == nil || IsNil(o.FederalDistrict.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.FederalDistrict.Get()
-}
-
-// GetFederalDistrictOk returns a tuple with the FederalDistrict field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Office) GetFederalDistrictOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.FederalDistrict.Get(), o.FederalDistrict.IsSet()
-}
-
-// HasFederalDistrict returns a boolean if a field has been set.
-func (o *Office) HasFederalDistrict() bool {
-	if o != nil && o.FederalDistrict.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFederalDistrict gets a reference to the given NullableString and assigns it to the FederalDistrict field.
-func (o *Office) SetFederalDistrict(v string) {
-	o.FederalDistrict.Set(&v)
-}
-// SetFederalDistrictNil sets the value for FederalDistrict to be an explicit nil
-func (o *Office) SetFederalDistrictNil() {
-	o.FederalDistrict.Set(nil)
-}
-
-// UnsetFederalDistrict ensures that no value is present for FederalDistrict, not even an explicit nil
-func (o *Office) UnsetFederalDistrict() {
-	o.FederalDistrict.Unset()
-}
-
 // GetSelected returns the Selected field value if set, zero value otherwise.
 func (o *Office) GetSelected() bool {
 	if o == nil || IsNil(o.Selected) {
@@ -398,6 +398,9 @@ func (o Office) MarshalJSON() ([]byte, error) {
 
 func (o Office) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.FederalDistrict.IsSet() {
+		toSerialize["federalDistrict"] = o.FederalDistrict.Get()
+	}
 	if !IsNil(o.Address) {
 		toSerialize["address"] = o.Address
 	}
@@ -421,9 +424,6 @@ func (o Office) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DeliveryType) {
 		toSerialize["deliveryType"] = o.DeliveryType
-	}
-	if o.FederalDistrict.IsSet() {
-		toSerialize["federalDistrict"] = o.FederalDistrict.Get()
 	}
 	if !IsNil(o.Selected) {
 		toSerialize["selected"] = o.Selected

@@ -164,6 +164,7 @@ SDK выпускается с security-first процессом:
 - `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок (patchV3FbsSuppliesShippingMethod)
 - `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок (postV3FbsSuppliesSpotList)
 - `PATCH /api/marketplace/v3/fbs/supplies/{supplyId}/orders/transfer` — Перевести сборочные задания из доставки на сборку (patchV3FbsSuppliesSupplyIdOrdersTransfer)
+- `GET /api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points` — Получить список пунктов отгрузки поставки (getV3FbsSuppliesSupplyIdShippingPoints)
 - `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку (putV3FbsSuppliesSupplyIdSpot)
 - `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ (getV3FbsSuppliesSupplyIdStickersSpot)
 - `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий (postV3OrdersMeta)

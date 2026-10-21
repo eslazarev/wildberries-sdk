@@ -14,17 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV3DbsOrders200Response {
     /// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-    #[serde(rename = "next", skip_serializing_if = "Option::is_none")]
-    pub next: Option<i64>,
-    #[serde(rename = "orders", skip_serializing_if = "Option::is_none")]
-    pub orders: Option<Vec<models::OrderDbs>>,
+    #[serde(rename = "next")]
+    pub next: i64,
+    #[serde(rename = "orders")]
+    pub orders: Vec<models::OrderDbs>,
 }
 
 impl GetV3DbsOrders200Response {
-    pub fn new() -> GetV3DbsOrders200Response {
+    pub fn new(next: i64, orders: Vec<models::OrderDbs>) -> GetV3DbsOrders200Response {
         GetV3DbsOrders200Response {
-            next: None,
-            orders: None,
+            next,
+            orders,
         }
     }
 }

@@ -14,22 +14,22 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV3DbwOrdersStatus200ResponseOrdersInner {
     /// ID сборочного задания
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<i64>,
+    #[serde(rename = "id")]
+    pub id: i64,
     /// Статус сборочного задания, установленный продавцом
-    #[serde(rename = "supplierStatus", skip_serializing_if = "Option::is_none")]
-    pub supplier_status: Option<String>,
+    #[serde(rename = "supplierStatus")]
+    pub supplier_status: String,
     /// Статус сборочного задания в системе Wildberries
-    #[serde(rename = "wbStatus", skip_serializing_if = "Option::is_none")]
-    pub wb_status: Option<String>,
+    #[serde(rename = "wbStatus")]
+    pub wb_status: String,
 }
 
 impl PostV3DbwOrdersStatus200ResponseOrdersInner {
-    pub fn new() -> PostV3DbwOrdersStatus200ResponseOrdersInner {
+    pub fn new(id: i64, supplier_status: String, wb_status: String) -> PostV3DbwOrdersStatus200ResponseOrdersInner {
         PostV3DbwOrdersStatus200ResponseOrdersInner {
-            id: None,
-            supplier_status: None,
-            wb_status: None,
+            id,
+            supplier_status,
+            wb_status,
         }
     }
 }

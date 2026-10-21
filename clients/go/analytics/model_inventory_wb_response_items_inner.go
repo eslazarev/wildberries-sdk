@@ -25,11 +25,11 @@ type InventoryWbResponseItemsInner struct {
 	NmId int64 `json:"nmId"`
 	// ID размера
 	ChrtId int32 `json:"chrtId"`
-	// ID склада. ]На данный момент](/release-notes?id=570) может быть только `-999999`
+	// ID склада. [На данный момент](/release-notes?id=570) может быть только `-999999`
 	WarehouseId int64 `json:"warehouseId"`
-	// Название склада. ]На данный момент](/release-notes?id=570) может быть только `Склад WB`
+	// Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB`
 	WarehouseName string `json:"warehouseName"`
-	// Регион отгрузки. ]На данный момент](/release-notes?id=570) может быть только `Склад WB`
+	// Регион отгрузки. [На данный момент](/release-notes?id=570) может быть только `Склад WB`
 	RegionName string `json:"regionName"`
 	// Количество товара на складе, доступное клиентам для добавления в корзину
 	Quantity int32 `json:"quantity"`

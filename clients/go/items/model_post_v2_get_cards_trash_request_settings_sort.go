@@ -17,9 +17,9 @@ import (
 // checks if the PostV2GetCardsTrashRequestSettingsSort type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PostV2GetCardsTrashRequestSettingsSort{}
 
-// PostV2GetCardsTrashRequestSettingsSort Параметр сортировки
+// PostV2GetCardsTrashRequestSettingsSort Сортировка по дате и времени помещения карточек товаров в корзину `trashedAt`
 type PostV2GetCardsTrashRequestSettingsSort struct {
-	// Сортировать по `trashedAt`:   - `false` — по убыванию   - `true` — по возрастанию 
+	// Порядок сортировки:   - `false` — по убыванию   - `true` — по возрастанию 
 	Ascending *bool `json:"ascending,omitempty"`
 }
 

@@ -14,12 +14,12 @@ use serde::{Deserialize, Serialize};
 /// PostV2GetCardsTrashRequestSettings : Настройки
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV2GetCardsTrashRequestSettings {
-    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
-    pub sort: Option<Box<models::PostV2GetCardsTrashRequestSettingsSort>>,
+    #[serde(rename = "sort", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<Option<Box<models::PostV2GetCardsTrashRequestSettingsSort>>>,
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<Box<models::PostV2GetCardsTrashRequestSettingsCursor>>,
-    #[serde(rename = "filter", skip_serializing_if = "Option::is_none")]
-    pub filter: Option<Box<models::PostV2GetCardsTrashRequestSettingsFilter>>,
+    #[serde(rename = "filter", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub filter: Option<Option<Box<models::PostV2GetCardsTrashRequestSettingsFilter>>>,
 }
 
 impl PostV2GetCardsTrashRequestSettings {

@@ -22,9 +22,9 @@ type PostV2GetCardsTrashRequestSettingsCursor struct {
 	// Сколько карточек товаров выдать в ответе
 	Limit *int32 `json:"limit,omitempty"`
 	// Дата и время помещения в корзину
-	TrashedAt *string `json:"trashedAt,omitempty"`
+	TrashedAt NullableString `json:"trashedAt,omitempty"`
 	// Артикул WB, с которого надо запрашивать следующий список карточек товаров
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID NullableInt32 `json:"nmID,omitempty"`
 }
 
 // NewPostV2GetCardsTrashRequestSettingsCursor instantiates a new PostV2GetCardsTrashRequestSettingsCursor object
@@ -80,68 +80,88 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) SetLimit(v int32) {
 	o.Limit = &v
 }
 
-// GetTrashedAt returns the TrashedAt field value if set, zero value otherwise.
+// GetTrashedAt returns the TrashedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostV2GetCardsTrashRequestSettingsCursor) GetTrashedAt() string {
-	if o == nil || IsNil(o.TrashedAt) {
+	if o == nil || IsNil(o.TrashedAt.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TrashedAt
+	return *o.TrashedAt.Get()
 }
 
 // GetTrashedAtOk returns a tuple with the TrashedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostV2GetCardsTrashRequestSettingsCursor) GetTrashedAtOk() (*string, bool) {
-	if o == nil || IsNil(o.TrashedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TrashedAt, true
+	return o.TrashedAt.Get(), o.TrashedAt.IsSet()
 }
 
 // HasTrashedAt returns a boolean if a field has been set.
 func (o *PostV2GetCardsTrashRequestSettingsCursor) HasTrashedAt() bool {
-	if o != nil && !IsNil(o.TrashedAt) {
+	if o != nil && o.TrashedAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTrashedAt gets a reference to the given string and assigns it to the TrashedAt field.
+// SetTrashedAt gets a reference to the given NullableString and assigns it to the TrashedAt field.
 func (o *PostV2GetCardsTrashRequestSettingsCursor) SetTrashedAt(v string) {
-	o.TrashedAt = &v
+	o.TrashedAt.Set(&v)
+}
+// SetTrashedAtNil sets the value for TrashedAt to be an explicit nil
+func (o *PostV2GetCardsTrashRequestSettingsCursor) SetTrashedAtNil() {
+	o.TrashedAt.Set(nil)
 }
 
-// GetNmID returns the NmID field value if set, zero value otherwise.
+// UnsetTrashedAt ensures that no value is present for TrashedAt, not even an explicit nil
+func (o *PostV2GetCardsTrashRequestSettingsCursor) UnsetTrashedAt() {
+	o.TrashedAt.Unset()
+}
+
+// GetNmID returns the NmID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostV2GetCardsTrashRequestSettingsCursor) GetNmID() int32 {
-	if o == nil || IsNil(o.NmID) {
+	if o == nil || IsNil(o.NmID.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NmID
+	return *o.NmID.Get()
 }
 
 // GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostV2GetCardsTrashRequestSettingsCursor) GetNmIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmID, true
+	return o.NmID.Get(), o.NmID.IsSet()
 }
 
 // HasNmID returns a boolean if a field has been set.
 func (o *PostV2GetCardsTrashRequestSettingsCursor) HasNmID() bool {
-	if o != nil && !IsNil(o.NmID) {
+	if o != nil && o.NmID.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
+// SetNmID gets a reference to the given NullableInt32 and assigns it to the NmID field.
 func (o *PostV2GetCardsTrashRequestSettingsCursor) SetNmID(v int32) {
-	o.NmID = &v
+	o.NmID.Set(&v)
+}
+// SetNmIDNil sets the value for NmID to be an explicit nil
+func (o *PostV2GetCardsTrashRequestSettingsCursor) SetNmIDNil() {
+	o.NmID.Set(nil)
+}
+
+// UnsetNmID ensures that no value is present for NmID, not even an explicit nil
+func (o *PostV2GetCardsTrashRequestSettingsCursor) UnsetNmID() {
+	o.NmID.Unset()
 }
 
 func (o PostV2GetCardsTrashRequestSettingsCursor) MarshalJSON() ([]byte, error) {
@@ -157,11 +177,11 @@ func (o PostV2GetCardsTrashRequestSettingsCursor) ToMap() (map[string]interface{
 	if !IsNil(o.Limit) {
 		toSerialize["limit"] = o.Limit
 	}
-	if !IsNil(o.TrashedAt) {
-		toSerialize["trashedAt"] = o.TrashedAt
+	if o.TrashedAt.IsSet() {
+		toSerialize["trashedAt"] = o.TrashedAt.Get()
 	}
-	if !IsNil(o.NmID) {
-		toSerialize["nmID"] = o.NmID
+	if o.NmID.IsSet() {
+		toSerialize["nmID"] = o.NmID.Get()
 	}
 	return toSerialize, nil
 }

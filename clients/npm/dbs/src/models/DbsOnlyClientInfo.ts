@@ -24,7 +24,7 @@ export interface DbsOnlyClientInfo {
      * Пустое значение `""` указывает, что номер еще не назначен <br>
      * 
      */
-    replacementPhone?: string;
+    replacementPhone: string;
     /**
      * Резервный подменный номер телефона для связи с покупателем. <br>
      * Используйте, если недоступен основной номер из `replacementPhone`.
@@ -32,51 +32,60 @@ export interface DbsOnlyClientInfo {
      * Пустое значение `""` указывает, что номер ещё не назначен
      * 
      */
-    phone?: string;
+    phone: string;
     /**
      * Имя покупателя
      */
-    firstName?: string;
+    firstName: string;
     /**
      * Полное имя, используется для оформления документов. Например, документы на автомобиль
      */
-    fullName?: string;
+    fullName: string;
     /**
      * Дополнительные номера телефонов для связи с покупателем. <br>
      * Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br>
      * Пустое значение означает, что номер не указан
      * 
      */
-    additionalPhones?: Array<string>;
+    additionalPhones: Array<string>;
     /**
      * Дополнительные подменные номера телефонов для связи с покупателем.<br>
      * Пустое значение означает, что номер не указан
      * 
      */
-    replacementAdditionalPhones?: Array<string>;
+    replacementAdditionalPhones: Array<string>;
     /**
      * ID сборочного задания
      */
-    orderID?: number;
+    orderID: number;
     /**
      * Добавочный код. <br>
      * Пустое значение `""` указывает, что код ещё не назначен
      * 
      */
-    phoneCode?: number;
+    phoneCode: number;
     /**
      * Дополнительные добавочные коды. <br>
      * Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br>
      * Пустое значение `""` указывает, что код ещё не назначен
      * 
      */
-    additionalPhoneCodes?: Array<string>;
+    additionalPhoneCodes: Array<string>;
 }
 
 /**
  * Check if a given object implements the DbsOnlyClientInfo interface.
  */
 export function instanceOfDbsOnlyClientInfo(value: object): value is DbsOnlyClientInfo {
+    if (!('replacementPhone' in value) || value['replacementPhone'] === undefined) return false;
+    if (!('phone' in value) || value['phone'] === undefined) return false;
+    if (!('firstName' in value) || value['firstName'] === undefined) return false;
+    if (!('fullName' in value) || value['fullName'] === undefined) return false;
+    if (!('additionalPhones' in value) || value['additionalPhones'] === undefined) return false;
+    if (!('replacementAdditionalPhones' in value) || value['replacementAdditionalPhones'] === undefined) return false;
+    if (!('orderID' in value) || value['orderID'] === undefined) return false;
+    if (!('phoneCode' in value) || value['phoneCode'] === undefined) return false;
+    if (!('additionalPhoneCodes' in value) || value['additionalPhoneCodes'] === undefined) return false;
     return true;
 }
 
@@ -90,15 +99,15 @@ export function DbsOnlyClientInfoFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'replacementPhone': json['replacementPhone'] == null ? undefined : json['replacementPhone'],
-        'phone': json['phone'] == null ? undefined : json['phone'],
-        'firstName': json['firstName'] == null ? undefined : json['firstName'],
-        'fullName': json['fullName'] == null ? undefined : json['fullName'],
-        'additionalPhones': json['additionalPhones'] == null ? undefined : json['additionalPhones'],
-        'replacementAdditionalPhones': json['replacementAdditionalPhones'] == null ? undefined : json['replacementAdditionalPhones'],
-        'orderID': json['orderID'] == null ? undefined : json['orderID'],
-        'phoneCode': json['phoneCode'] == null ? undefined : json['phoneCode'],
-        'additionalPhoneCodes': json['additionalPhoneCodes'] == null ? undefined : json['additionalPhoneCodes'],
+        'replacementPhone': json['replacementPhone'],
+        'phone': json['phone'],
+        'firstName': json['firstName'],
+        'fullName': json['fullName'],
+        'additionalPhones': json['additionalPhones'],
+        'replacementAdditionalPhones': json['replacementAdditionalPhones'],
+        'orderID': json['orderID'],
+        'phoneCode': json['phoneCode'],
+        'additionalPhoneCodes': json['additionalPhoneCodes'],
     };
 }
 

@@ -274,6 +274,9 @@ class GetV3DbsOrdersNew200Response implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class GetV3DbsOrdersNew200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\Dbs\Model\OrderNewDBS[]|null
+     * @return \Wildberries\Sdk\Dbs\Model\OrderNewDBS[]
      */
     public function getOrders()
     {
@@ -302,7 +305,7 @@ class GetV3DbsOrdersNew200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\Dbs\Model\OrderNewDBS[]|null $orders Список новых сборочных заданий
+     * @param \Wildberries\Sdk\Dbs\Model\OrderNewDBS[] $orders Список новых сборочных заданий
      *
      * @return self
      */

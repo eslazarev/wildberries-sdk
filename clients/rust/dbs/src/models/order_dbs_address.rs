@@ -15,23 +15,23 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrderDbsAddress {
     /// Адрес доставки
-    #[serde(rename = "fullAddress", skip_serializing_if = "Option::is_none")]
-    pub full_address: Option<String>,
+    #[serde(rename = "fullAddress")]
+    pub full_address: String,
     /// Долгота
-    #[serde(rename = "longitude", skip_serializing_if = "Option::is_none")]
-    pub longitude: Option<f64>,
+    #[serde(rename = "longitude")]
+    pub longitude: f64,
     /// Широта
-    #[serde(rename = "latitude", skip_serializing_if = "Option::is_none")]
-    pub latitude: Option<f64>,
+    #[serde(rename = "latitude")]
+    pub latitude: f64,
 }
 
 impl OrderDbsAddress {
     /// Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ
-    pub fn new() -> OrderDbsAddress {
+    pub fn new(full_address: String, longitude: f64, latitude: f64) -> OrderDbsAddress {
         OrderDbsAddress {
-            full_address: None,
-            longitude: None,
-            latitude: None,
+            full_address,
+            longitude,
+            latitude,
         }
     }
 }

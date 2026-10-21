@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderDBSAddress type satisfies the MappedNullable interface at compile time
@@ -20,19 +22,24 @@ var _ MappedNullable = &OrderDBSAddress{}
 // OrderDBSAddress Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ
 type OrderDBSAddress struct {
 	// Адрес доставки
-	FullAddress *string `json:"fullAddress,omitempty"`
+	FullAddress string `json:"fullAddress"`
 	// Долгота
-	Longitude *float32 `json:"longitude,omitempty"`
+	Longitude float32 `json:"longitude"`
 	// Широта
-	Latitude *float32 `json:"latitude,omitempty"`
+	Latitude float32 `json:"latitude"`
 }
+
+type _OrderDBSAddress OrderDBSAddress
 
 // NewOrderDBSAddress instantiates a new OrderDBSAddress object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderDBSAddress() *OrderDBSAddress {
+func NewOrderDBSAddress(fullAddress string, longitude float32, latitude float32) *OrderDBSAddress {
 	this := OrderDBSAddress{}
+	this.FullAddress = fullAddress
+	this.Longitude = longitude
+	this.Latitude = latitude
 	return &this
 }
 
@@ -44,100 +51,76 @@ func NewOrderDBSAddressWithDefaults() *OrderDBSAddress {
 	return &this
 }
 
-// GetFullAddress returns the FullAddress field value if set, zero value otherwise.
+// GetFullAddress returns the FullAddress field value
 func (o *OrderDBSAddress) GetFullAddress() string {
-	if o == nil || IsNil(o.FullAddress) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FullAddress
+
+	return o.FullAddress
 }
 
-// GetFullAddressOk returns a tuple with the FullAddress field value if set, nil otherwise
+// GetFullAddressOk returns a tuple with the FullAddress field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBSAddress) GetFullAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.FullAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FullAddress, true
+	return &o.FullAddress, true
 }
 
-// HasFullAddress returns a boolean if a field has been set.
-func (o *OrderDBSAddress) HasFullAddress() bool {
-	if o != nil && !IsNil(o.FullAddress) {
-		return true
-	}
-
-	return false
-}
-
-// SetFullAddress gets a reference to the given string and assigns it to the FullAddress field.
+// SetFullAddress sets field value
 func (o *OrderDBSAddress) SetFullAddress(v string) {
-	o.FullAddress = &v
+	o.FullAddress = v
 }
 
-// GetLongitude returns the Longitude field value if set, zero value otherwise.
+// GetLongitude returns the Longitude field value
 func (o *OrderDBSAddress) GetLongitude() float32 {
-	if o == nil || IsNil(o.Longitude) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Longitude
+
+	return o.Longitude
 }
 
-// GetLongitudeOk returns a tuple with the Longitude field value if set, nil otherwise
+// GetLongitudeOk returns a tuple with the Longitude field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBSAddress) GetLongitudeOk() (*float32, bool) {
-	if o == nil || IsNil(o.Longitude) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Longitude, true
+	return &o.Longitude, true
 }
 
-// HasLongitude returns a boolean if a field has been set.
-func (o *OrderDBSAddress) HasLongitude() bool {
-	if o != nil && !IsNil(o.Longitude) {
-		return true
-	}
-
-	return false
-}
-
-// SetLongitude gets a reference to the given float32 and assigns it to the Longitude field.
+// SetLongitude sets field value
 func (o *OrderDBSAddress) SetLongitude(v float32) {
-	o.Longitude = &v
+	o.Longitude = v
 }
 
-// GetLatitude returns the Latitude field value if set, zero value otherwise.
+// GetLatitude returns the Latitude field value
 func (o *OrderDBSAddress) GetLatitude() float32 {
-	if o == nil || IsNil(o.Latitude) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Latitude
+
+	return o.Latitude
 }
 
-// GetLatitudeOk returns a tuple with the Latitude field value if set, nil otherwise
+// GetLatitudeOk returns a tuple with the Latitude field value
 // and a boolean to check if the value has been set.
 func (o *OrderDBSAddress) GetLatitudeOk() (*float32, bool) {
-	if o == nil || IsNil(o.Latitude) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Latitude, true
+	return &o.Latitude, true
 }
 
-// HasLatitude returns a boolean if a field has been set.
-func (o *OrderDBSAddress) HasLatitude() bool {
-	if o != nil && !IsNil(o.Latitude) {
-		return true
-	}
-
-	return false
-}
-
-// SetLatitude gets a reference to the given float32 and assigns it to the Latitude field.
+// SetLatitude sets field value
 func (o *OrderDBSAddress) SetLatitude(v float32) {
-	o.Latitude = &v
+	o.Latitude = v
 }
 
 func (o OrderDBSAddress) MarshalJSON() ([]byte, error) {
@@ -150,16 +133,49 @@ func (o OrderDBSAddress) MarshalJSON() ([]byte, error) {
 
 func (o OrderDBSAddress) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.FullAddress) {
-		toSerialize["fullAddress"] = o.FullAddress
-	}
-	if !IsNil(o.Longitude) {
-		toSerialize["longitude"] = o.Longitude
-	}
-	if !IsNil(o.Latitude) {
-		toSerialize["latitude"] = o.Latitude
-	}
+	toSerialize["fullAddress"] = o.FullAddress
+	toSerialize["longitude"] = o.Longitude
+	toSerialize["latitude"] = o.Latitude
 	return toSerialize, nil
+}
+
+func (o *OrderDBSAddress) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fullAddress",
+		"longitude",
+		"latitude",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderDBSAddress := _OrderDBSAddress{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDBSAddress)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderDBSAddress(varOrderDBSAddress)
+
+	return err
 }
 
 type NullableOrderDBSAddress struct {

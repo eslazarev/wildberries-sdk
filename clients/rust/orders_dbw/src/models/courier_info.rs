@@ -14,22 +14,22 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CourierInfo {
     /// Контактные данные курьера
-    #[serde(rename = "contacts", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub contacts: Option<Option<Box<models::CourierContactsResponse>>>,
+    #[serde(rename = "contacts", deserialize_with = "Option::deserialize")]
+    pub contacts: Option<Box<models::CourierContactsResponse>>,
     /// Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2) 
-    #[serde(rename = "mustBeAssigned", skip_serializing_if = "Option::is_none")]
-    pub must_be_assigned: Option<bool>,
+    #[serde(rename = "mustBeAssigned")]
+    pub must_be_assigned: bool,
     /// Дата и время обновления информации о курьере. <br> Если `null`, информация не обновлялась
-    #[serde(rename = "updatedAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub updated_at: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
+    #[serde(rename = "updatedAt", deserialize_with = "Option::deserialize")]
+    pub updated_at: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl CourierInfo {
-    pub fn new() -> CourierInfo {
+    pub fn new(contacts: Option<models::CourierContactsResponse>, must_be_assigned: bool, updated_at: Option<chrono::DateTime<chrono::FixedOffset>>) -> CourierInfo {
         CourierInfo {
-            contacts: None,
-            must_be_assigned: None,
-            updated_at: None,
+            contacts: if let Some(x) = contacts {Some(Box::new(x))} else {None},
+            must_be_assigned,
+            updated_at,
         }
     }
 }

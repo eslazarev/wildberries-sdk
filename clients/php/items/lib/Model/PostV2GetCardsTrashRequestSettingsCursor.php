@@ -83,8 +83,8 @@ class PostV2GetCardsTrashRequestSettingsCursor implements ModelInterface, ArrayA
      */
     protected static array $openAPINullables = [
         'limit' => false,
-        'trashed_at' => false,
-        'nm_id' => false
+        'trashed_at' => true,
+        'nm_id' => true
     ];
 
     /**
@@ -359,7 +359,14 @@ class PostV2GetCardsTrashRequestSettingsCursor implements ModelInterface, ArrayA
     public function setTrashedAt($trashed_at)
     {
         if (is_null($trashed_at)) {
-            throw new \InvalidArgumentException('non-nullable trashed_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'trashed_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trashed_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['trashed_at'] = $trashed_at;
 
@@ -386,7 +393,14 @@ class PostV2GetCardsTrashRequestSettingsCursor implements ModelInterface, ArrayA
     public function setNmId($nm_id)
     {
         if (is_null($nm_id)) {
-            throw new \InvalidArgumentException('non-nullable nm_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'nm_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nm_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['nm_id'] = $nm_id;
 

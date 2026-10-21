@@ -44,10 +44,10 @@ import {
     GetV3FbsOrdersArchive403ResponseToJSON,
 } from '../models/GetV3FbsOrdersArchive403Response';
 import {
-    type GetV3FbsShippingPoints403Response,
-    GetV3FbsShippingPoints403ResponseFromJSON,
-    GetV3FbsShippingPoints403ResponseToJSON,
-} from '../models/GetV3FbsShippingPoints403Response';
+    type GetV3FbsSuppliesSupplyIdShippingPoints403Response,
+    GetV3FbsSuppliesSupplyIdShippingPoints403ResponseFromJSON,
+    GetV3FbsSuppliesSupplyIdShippingPoints403ResponseToJSON,
+} from '../models/GetV3FbsSuppliesSupplyIdShippingPoints403Response';
 import {
     type GetV3Orders200Response,
     GetV3Orders200ResponseFromJSON,
@@ -259,6 +259,11 @@ import {
     SupplyToJSON,
 } from '../models/Supply';
 import {
+    type SupplyShippingPointsResponse,
+    SupplyShippingPointsResponseFromJSON,
+    SupplyShippingPointsResponseToJSON,
+} from '../models/SupplyShippingPointsResponse';
+import {
     type SupplySpotDataResponse,
     SupplySpotDataResponseFromJSON,
     SupplySpotDataResponseToJSON,
@@ -377,6 +382,34 @@ export interface GetV3FbsShippingPointsRequest {
      * 
      */
     cargoType: GetV3FbsShippingPointsCargoTypeEnum;
+}
+
+export interface GetV3FbsSuppliesSupplyIdShippingPointsRequest {
+    /**
+     * ID поставки
+     */
+    supplyId: string;
+    /**
+     * Населённый пункт отгрузки поставки, кириллица
+     */
+    city: string;
+    /**
+     * Тип пункта отгрузки. Укажите значения через запятую:
+     *   - `sc` — сортировочный центр
+     *   - `sw` — склад
+     *   - `pp` — пункт выдачи заказов (ПВЗ)
+     *   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)
+     *   - `gpp` — пункт приёма товаров (ППТ)
+     * 
+     */
+    officeType: string;
+    /**
+     * Планируемая дата отгрузки поставки в формате `YYYY-MM-DD`.
+     * Обязательно для заказов МГТ (`"cargoType":1`) и КГТ+ (`"cargoType":3`). <br>
+     * Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату
+     * 
+     */
+    shippingDt?: string;
 }
 
 export interface GetV3FbsSuppliesSupplyIdStickersSpotRequest {
@@ -1032,6 +1065,7 @@ export class FBSApi extends runtime.BaseAPI {
 
     /**
      * Creates request options for getV3FbsShippingPoints without sending the request
+     * @deprecated
      */
     async getV3FbsShippingPointsRequestOpts(requestParameters: GetV3FbsShippingPointsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['city'] == null) {
@@ -1076,8 +1110,9 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).<br><br>  Доступно только для продавцов из РФ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id=585).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Получить список пунктов отгрузки поставок
+     * @deprecated
      */
     async getV3FbsShippingPointsRaw(requestParameters: GetV3FbsShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingPointsResponse>> {
         const requestOptions = await this.getV3FbsShippingPointsRequestOpts(requestParameters);
@@ -1087,11 +1122,89 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).<br><br>  Доступно только для продавцов из РФ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id=585).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Получить список пунктов отгрузки поставок
+     * @deprecated
      */
     async getV3FbsShippingPoints(requestParameters: GetV3FbsShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingPointsResponse> {
         const response = await this.getV3FbsShippingPointsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV3FbsSuppliesSupplyIdShippingPoints without sending the request
+     */
+    async getV3FbsSuppliesSupplyIdShippingPointsRequestOpts(requestParameters: GetV3FbsSuppliesSupplyIdShippingPointsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['supplyId'] == null) {
+            throw new runtime.RequiredError(
+                'supplyId',
+                'Required parameter "supplyId" was null or undefined when calling getV3FbsSuppliesSupplyIdShippingPoints().'
+            );
+        }
+
+        if (requestParameters['city'] == null) {
+            throw new runtime.RequiredError(
+                'city',
+                'Required parameter "city" was null or undefined when calling getV3FbsSuppliesSupplyIdShippingPoints().'
+            );
+        }
+
+        if (requestParameters['officeType'] == null) {
+            throw new runtime.RequiredError(
+                'officeType',
+                'Required parameter "officeType" was null or undefined when calling getV3FbsSuppliesSupplyIdShippingPoints().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['city'] != null) {
+            queryParameters['city'] = requestParameters['city'];
+        }
+
+        if (requestParameters['officeType'] != null) {
+            queryParameters['officeType'] = requestParameters['officeType'];
+        }
+
+        if (requestParameters['shippingDt'] != null) {
+            queryParameters['shippingDt'] = requestParameters['shippingDt'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points`;
+        urlPath = urlPath.replace('{supplyId}', encodeURIComponent(String(requestParameters['supplyId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает доступные пункты отгрузки для указанной поставки.  Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Получить список пунктов отгрузки поставки
+     */
+    async getV3FbsSuppliesSupplyIdShippingPointsRaw(requestParameters: GetV3FbsSuppliesSupplyIdShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupplyShippingPointsResponse>> {
+        const requestOptions = await this.getV3FbsSuppliesSupplyIdShippingPointsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SupplyShippingPointsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает доступные пункты отгрузки для указанной поставки.  Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Получить список пунктов отгрузки поставки
+     */
+    async getV3FbsSuppliesSupplyIdShippingPoints(requestParameters: GetV3FbsSuppliesSupplyIdShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplyShippingPointsResponse> {
+        const response = await this.getV3FbsSuppliesSupplyIdShippingPointsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

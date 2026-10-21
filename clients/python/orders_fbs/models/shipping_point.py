@@ -35,8 +35,9 @@ class ShippingPoint(BaseModel):
     cargo_types: List[StrictInt] = Field(description="Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoTypes", json_schema_extra={"examples": [[1, 3]]})
     latitude: Union[StrictFloat, StrictInt] = Field(description="Широта", json_schema_extra={"examples": [37.588898]})
     longitude: Union[StrictFloat, StrictInt] = Field(description="Долгота", json_schema_extra={"examples": [55.386871]})
-    fulfillment: StrictBool = Field(description="Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна ", json_schema_extra={"examples": [True]})
-    __properties: ClassVar[List[str]] = ["id", "name", "address", "city", "officeType", "cargoTypes", "latitude", "longitude", "fulfillment"]
+    fulfillment: StrictBool = Field(description="Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна ", json_schema_extra={"examples": [False]})
+    available: StrictBool = Field(description="Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки ", json_schema_extra={"examples": [True]})
+    __properties: ClassVar[List[str]] = ["id", "name", "address", "city", "officeType", "cargoTypes", "latitude", "longitude", "fulfillment", "available"]
 
     @field_validator('office_type')
     def office_type_validate_enum(cls, value):
@@ -112,7 +113,8 @@ class ShippingPoint(BaseModel):
             "cargoTypes": obj.get("cargoTypes"),
             "latitude": obj.get("latitude"),
             "longitude": obj.get("longitude"),
-            "fulfillment": obj.get("fulfillment")
+            "fulfillment": obj.get("fulfillment"),
+            "available": obj.get("available")
         })
         return _obj
 

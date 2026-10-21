@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.orders_dbw.models.delivery_dates_info_resp_orders_inner import DeliveryDatesInfoRespOrdersInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class DeliveryDatesInfoResp(BaseModel):
     """
     DeliveryDatesInfoResp
     """ # noqa: E501
-    orders: Optional[List[DeliveryDatesInfoRespOrdersInner]] = None
+    orders: List[DeliveryDatesInfoRespOrdersInner]
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(

@@ -330,6 +330,27 @@ class DeliveryDatesInfoRespOrdersInner implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
+        if ($this->container['d_time_from'] === null && !$this->isNullableSetToNull('d_time_from')) {
+            $invalidProperties[] = "'d_time_from' is required";
+        }
+        if ($this->container['d_time_to'] === null && !$this->isNullableSetToNull('d_time_to')) {
+            $invalidProperties[] = "'d_time_to' is required";
+        }
+        if ($this->container['d_time_from_old'] === null && !$this->isNullableSetToNull('d_time_from_old')) {
+            $invalidProperties[] = "'d_time_from_old' is required";
+        }
+        if ($this->container['d_time_to_old'] === null && !$this->isNullableSetToNull('d_time_to_old')) {
+            $invalidProperties[] = "'d_time_to_old' is required";
+        }
+        if ($this->container['d_date_old'] === null && !$this->isNullableSetToNull('d_date_old')) {
+            $invalidProperties[] = "'d_date_old' is required";
+        }
+        if ($this->container['d_date'] === null) {
+            $invalidProperties[] = "'d_date' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -518,7 +539,7 @@ class DeliveryDatesInfoRespOrdersInner implements ModelInterface, ArrayAccess, \
     /**
      * Gets d_date
      *
-     * @return string|null
+     * @return string
      */
     public function getDDate()
     {
@@ -528,7 +549,7 @@ class DeliveryDatesInfoRespOrdersInner implements ModelInterface, ArrayAccess, \
     /**
      * Sets d_date
      *
-     * @param string|null $d_date Актуальная дата доставки, указанная покупателем
+     * @param string $d_date Актуальная дата доставки, указанная покупателем
      *
      * @return self
      */
@@ -613,7 +634,7 @@ class DeliveryDatesInfoRespOrdersInner implements ModelInterface, ArrayAccess, \
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -623,7 +644,7 @@ class DeliveryDatesInfoRespOrdersInner implements ModelInterface, ArrayAccess, \
     /**
      * Sets id
      *
-     * @param int|null $id ID сборочного задания
+     * @param int $id ID сборочного задания
      *
      * @return self
      */

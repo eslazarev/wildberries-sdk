@@ -288,6 +288,15 @@ class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner implements ModelIn
     {
         $invalidProperties = [];
 
+        if ($this->container['key'] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
+        if ($this->container['value'] === null && !$this->isNullableSetToNull('value')) {
+            $invalidProperties[] = "'value' is required";
+        }
+        if ($this->container['decision'] === null) {
+            $invalidProperties[] = "'decision' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -306,7 +315,7 @@ class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner implements ModelIn
     /**
      * Gets key
      *
-     * @return string|null
+     * @return string
      */
     public function getKey()
     {
@@ -316,7 +325,7 @@ class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner implements ModelIn
     /**
      * Sets key
      *
-     * @param string|null $key Идентификатор маркировки:   - `imei` — [IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) post)
+     * @param string $key Идентификатор маркировки:   - `imei` — [IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) post)
      *
      * @return self
      */
@@ -367,7 +376,7 @@ class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner implements ModelIn
     /**
      * Gets decision
      *
-     * @return string|null
+     * @return string
      */
     public function getDecision()
     {
@@ -377,7 +386,7 @@ class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner implements ModelIn
     /**
      * Sets decision
      *
-     * @param string|null $decision Статус проверки: - `imei`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `imeiMaySell` — Товар допущен к продаже. Валидация пройдена   - `imeiSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `imeiInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `imeiAlreadySold` — Товар с этим IMEI уже продан. Валидация не пройдена - `uin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `sgtin`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `sgtinIntroduced` — Товар допущен к продаже. Валидация пройдена   - `sgtinSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `sgtinInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `sgtinNotFound` — Маркировка не найдена в [Честном Знаке](https://chestnyznak.ru). Валидация не пройдена   - `sgtinEmitted` —  Маркировка эмитирована. Валидация не пройдена   - `sgtinApplied` — Не пройдена процедура Ввод в оборот. Валидация не пройдена   - `sgtinWrittenOff` — Списан. Валидация не пройдена   - `sgtinRetired` — Выбыл. Валидация не пройдена   - `sgtinWithdrawn` — Выбыл. Валидация не пройдена   - `sgtinDisaggregation` — Расформирован. Валидация не пройдена   - `sgtinDisaggregated` — Расформирован. Валидация не пройдена   - `sgtinAppliedNotPaid` — Не оплачен. Валидация не пройдена - `gtin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `customsDeclaration`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена
+     * @param string $decision Статус проверки: - `imei`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `imeiMaySell` — Товар допущен к продаже. Валидация пройдена   - `imeiSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `imeiInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `imeiAlreadySold` — Товар с этим IMEI уже продан. Валидация не пройдена - `uin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `sgtin`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `sgtinIntroduced` — Товар допущен к продаже. Валидация пройдена   - `sgtinSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `sgtinInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `sgtinNotFound` — Маркировка не найдена в [Честном Знаке](https://chestnyznak.ru). Валидация не пройдена   - `sgtinEmitted` —  Маркировка эмитирована. Валидация не пройдена   - `sgtinApplied` — Не пройдена процедура Ввод в оборот. Валидация не пройдена   - `sgtinWrittenOff` — Списан. Валидация не пройдена   - `sgtinRetired` — Выбыл. Валидация не пройдена   - `sgtinWithdrawn` — Выбыл. Валидация не пройдена   - `sgtinDisaggregation` — Расформирован. Валидация не пройдена   - `sgtinDisaggregated` — Расформирован. Валидация не пройдена   - `sgtinAppliedNotPaid` — Не оплачен. Валидация не пройдена - `gtin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `customsDeclaration`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена
      *
      * @return self
      */

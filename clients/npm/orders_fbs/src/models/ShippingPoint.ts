@@ -66,6 +66,13 @@ export interface ShippingPoint {
      * 
      */
     fulfillment: boolean;
+    /**
+     * Доступен ли пункт для отгрузки поставки:
+     *   - `true` — доступен
+     *   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки
+     * 
+     */
+    available: boolean;
 }
 
 
@@ -103,6 +110,7 @@ export function instanceOfShippingPoint(value: object): value is ShippingPoint {
     if (!('latitude' in value) || value['latitude'] === undefined) return false;
     if (!('longitude' in value) || value['longitude'] === undefined) return false;
     if (!('fulfillment' in value) || value['fulfillment'] === undefined) return false;
+    if (!('available' in value) || value['available'] === undefined) return false;
     return true;
 }
 
@@ -125,6 +133,7 @@ export function ShippingPointFromJSONTyped(json: any, ignoreDiscriminator: boole
         'latitude': json['latitude'],
         'longitude': json['longitude'],
         'fulfillment': json['fulfillment'],
+        'available': json['available'],
     };
 }
 
@@ -148,6 +157,7 @@ export function ShippingPointToJSONTyped(value?: ShippingPoint | null, ignoreDis
         'latitude': value['latitude'],
         'longitude': value['longitude'],
         'fulfillment': value['fulfillment'],
+        'available': value['available'],
     };
 }
 

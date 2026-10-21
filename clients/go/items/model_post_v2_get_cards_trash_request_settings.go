@@ -19,9 +19,9 @@ var _ MappedNullable = &PostV2GetCardsTrashRequestSettings{}
 
 // PostV2GetCardsTrashRequestSettings Настройки
 type PostV2GetCardsTrashRequestSettings struct {
-	Sort *PostV2GetCardsTrashRequestSettingsSort `json:"sort,omitempty"`
+	Sort NullablePostV2GetCardsTrashRequestSettingsSort `json:"sort,omitempty"`
 	Cursor *PostV2GetCardsTrashRequestSettingsCursor `json:"cursor,omitempty"`
-	Filter *PostV2GetCardsTrashRequestSettingsFilter `json:"filter,omitempty"`
+	Filter NullablePostV2GetCardsTrashRequestSettingsFilter `json:"filter,omitempty"`
 }
 
 // NewPostV2GetCardsTrashRequestSettings instantiates a new PostV2GetCardsTrashRequestSettings object
@@ -41,36 +41,46 @@ func NewPostV2GetCardsTrashRequestSettingsWithDefaults() *PostV2GetCardsTrashReq
 	return &this
 }
 
-// GetSort returns the Sort field value if set, zero value otherwise.
+// GetSort returns the Sort field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostV2GetCardsTrashRequestSettings) GetSort() PostV2GetCardsTrashRequestSettingsSort {
-	if o == nil || IsNil(o.Sort) {
+	if o == nil || IsNil(o.Sort.Get()) {
 		var ret PostV2GetCardsTrashRequestSettingsSort
 		return ret
 	}
-	return *o.Sort
+	return *o.Sort.Get()
 }
 
 // GetSortOk returns a tuple with the Sort field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostV2GetCardsTrashRequestSettings) GetSortOk() (*PostV2GetCardsTrashRequestSettingsSort, bool) {
-	if o == nil || IsNil(o.Sort) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sort, true
+	return o.Sort.Get(), o.Sort.IsSet()
 }
 
 // HasSort returns a boolean if a field has been set.
 func (o *PostV2GetCardsTrashRequestSettings) HasSort() bool {
-	if o != nil && !IsNil(o.Sort) {
+	if o != nil && o.Sort.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSort gets a reference to the given PostV2GetCardsTrashRequestSettingsSort and assigns it to the Sort field.
+// SetSort gets a reference to the given NullablePostV2GetCardsTrashRequestSettingsSort and assigns it to the Sort field.
 func (o *PostV2GetCardsTrashRequestSettings) SetSort(v PostV2GetCardsTrashRequestSettingsSort) {
-	o.Sort = &v
+	o.Sort.Set(&v)
+}
+// SetSortNil sets the value for Sort to be an explicit nil
+func (o *PostV2GetCardsTrashRequestSettings) SetSortNil() {
+	o.Sort.Set(nil)
+}
+
+// UnsetSort ensures that no value is present for Sort, not even an explicit nil
+func (o *PostV2GetCardsTrashRequestSettings) UnsetSort() {
+	o.Sort.Unset()
 }
 
 // GetCursor returns the Cursor field value if set, zero value otherwise.
@@ -105,36 +115,46 @@ func (o *PostV2GetCardsTrashRequestSettings) SetCursor(v PostV2GetCardsTrashRequ
 	o.Cursor = &v
 }
 
-// GetFilter returns the Filter field value if set, zero value otherwise.
+// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostV2GetCardsTrashRequestSettings) GetFilter() PostV2GetCardsTrashRequestSettingsFilter {
-	if o == nil || IsNil(o.Filter) {
+	if o == nil || IsNil(o.Filter.Get()) {
 		var ret PostV2GetCardsTrashRequestSettingsFilter
 		return ret
 	}
-	return *o.Filter
+	return *o.Filter.Get()
 }
 
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostV2GetCardsTrashRequestSettings) GetFilterOk() (*PostV2GetCardsTrashRequestSettingsFilter, bool) {
-	if o == nil || IsNil(o.Filter) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Filter, true
+	return o.Filter.Get(), o.Filter.IsSet()
 }
 
 // HasFilter returns a boolean if a field has been set.
 func (o *PostV2GetCardsTrashRequestSettings) HasFilter() bool {
-	if o != nil && !IsNil(o.Filter) {
+	if o != nil && o.Filter.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFilter gets a reference to the given PostV2GetCardsTrashRequestSettingsFilter and assigns it to the Filter field.
+// SetFilter gets a reference to the given NullablePostV2GetCardsTrashRequestSettingsFilter and assigns it to the Filter field.
 func (o *PostV2GetCardsTrashRequestSettings) SetFilter(v PostV2GetCardsTrashRequestSettingsFilter) {
-	o.Filter = &v
+	o.Filter.Set(&v)
+}
+// SetFilterNil sets the value for Filter to be an explicit nil
+func (o *PostV2GetCardsTrashRequestSettings) SetFilterNil() {
+	o.Filter.Set(nil)
+}
+
+// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
+func (o *PostV2GetCardsTrashRequestSettings) UnsetFilter() {
+	o.Filter.Unset()
 }
 
 func (o PostV2GetCardsTrashRequestSettings) MarshalJSON() ([]byte, error) {
@@ -147,14 +167,14 @@ func (o PostV2GetCardsTrashRequestSettings) MarshalJSON() ([]byte, error) {
 
 func (o PostV2GetCardsTrashRequestSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Sort) {
-		toSerialize["sort"] = o.Sort
+	if o.Sort.IsSet() {
+		toSerialize["sort"] = o.Sort.Get()
 	}
 	if !IsNil(o.Cursor) {
 		toSerialize["cursor"] = o.Cursor
 	}
-	if !IsNil(o.Filter) {
-		toSerialize["filter"] = o.Filter
+	if o.Filter.IsSet() {
+		toSerialize["filter"] = o.Filter.Get()
 	}
 	return toSerialize, nil
 }

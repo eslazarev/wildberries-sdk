@@ -41,11 +41,14 @@ pub struct ShippingPoint {
     /// Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна 
     #[serde(rename = "fulfillment")]
     pub fulfillment: bool,
+    /// Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки 
+    #[serde(rename = "available")]
+    pub available: bool,
 }
 
 impl ShippingPoint {
     /// Данные пункта отгрузки
-    pub fn new(id: i64, name: String, address: String, city: String, office_type: OfficeType, cargo_types: Vec<CargoTypes>, latitude: f64, longitude: f64, fulfillment: bool) -> ShippingPoint {
+    pub fn new(id: i64, name: String, address: String, city: String, office_type: OfficeType, cargo_types: Vec<CargoTypes>, latitude: f64, longitude: f64, fulfillment: bool, available: bool) -> ShippingPoint {
         ShippingPoint {
             id,
             name,
@@ -56,6 +59,7 @@ impl ShippingPoint {
             latitude,
             longitude,
             fulfillment,
+            available,
         }
     }
 }

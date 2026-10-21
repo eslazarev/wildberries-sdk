@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,9 +27,9 @@ class OrderDBSAddress(BaseModel):
     """
     Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ
     """ # noqa: E501
-    full_address: Optional[StrictStr] = Field(default=None, description="Адрес доставки", alias="fullAddress", json_schema_extra={"examples": ["Челябинская область, г. Челябинск, 51-я улица Арабкира, д. 10А, кв. 42"]})
-    longitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Долгота", json_schema_extra={"examples": [44.519068]})
-    latitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Широта", json_schema_extra={"examples": [40.20192]})
+    full_address: StrictStr = Field(description="Адрес доставки", alias="fullAddress", json_schema_extra={"examples": ["Челябинская область, г. Челябинск, 51-я улица Арабкира, д. 10А, кв. 42"]})
+    longitude: Union[StrictFloat, StrictInt] = Field(description="Долгота", json_schema_extra={"examples": [44.519068]})
+    latitude: Union[StrictFloat, StrictInt] = Field(description="Широта", json_schema_extra={"examples": [40.20192]})
     __properties: ClassVar[List[str]] = ["fullAddress", "longitude", "latitude"]
 
     model_config = ConfigDict(

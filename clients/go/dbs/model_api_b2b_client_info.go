@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiB2bClientInfo type satisfies the MappedNullable interface at compile time
@@ -20,19 +22,24 @@ var _ MappedNullable = &ApiB2bClientInfo{}
 // ApiB2bClientInfo Данные покупателя B2B
 type ApiB2bClientInfo struct {
 	// Индивидуальный номер налогоплательщика (ИНН)
-	Inn *string `json:"inn,omitempty"`
+	Inn string `json:"inn"`
 	// Код причины постановки на учёт (КПП)
-	Kpp *string `json:"kpp,omitempty"`
+	Kpp string `json:"kpp"`
 	// Наименование организации
-	OrgName *string `json:"orgName,omitempty"`
+	OrgName string `json:"orgName"`
 }
+
+type _ApiB2bClientInfo ApiB2bClientInfo
 
 // NewApiB2bClientInfo instantiates a new ApiB2bClientInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiB2bClientInfo() *ApiB2bClientInfo {
+func NewApiB2bClientInfo(inn string, kpp string, orgName string) *ApiB2bClientInfo {
 	this := ApiB2bClientInfo{}
+	this.Inn = inn
+	this.Kpp = kpp
+	this.OrgName = orgName
 	return &this
 }
 
@@ -44,100 +51,76 @@ func NewApiB2bClientInfoWithDefaults() *ApiB2bClientInfo {
 	return &this
 }
 
-// GetInn returns the Inn field value if set, zero value otherwise.
+// GetInn returns the Inn field value
 func (o *ApiB2bClientInfo) GetInn() string {
-	if o == nil || IsNil(o.Inn) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Inn
+
+	return o.Inn
 }
 
-// GetInnOk returns a tuple with the Inn field value if set, nil otherwise
+// GetInnOk returns a tuple with the Inn field value
 // and a boolean to check if the value has been set.
 func (o *ApiB2bClientInfo) GetInnOk() (*string, bool) {
-	if o == nil || IsNil(o.Inn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Inn, true
+	return &o.Inn, true
 }
 
-// HasInn returns a boolean if a field has been set.
-func (o *ApiB2bClientInfo) HasInn() bool {
-	if o != nil && !IsNil(o.Inn) {
-		return true
-	}
-
-	return false
-}
-
-// SetInn gets a reference to the given string and assigns it to the Inn field.
+// SetInn sets field value
 func (o *ApiB2bClientInfo) SetInn(v string) {
-	o.Inn = &v
+	o.Inn = v
 }
 
-// GetKpp returns the Kpp field value if set, zero value otherwise.
+// GetKpp returns the Kpp field value
 func (o *ApiB2bClientInfo) GetKpp() string {
-	if o == nil || IsNil(o.Kpp) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Kpp
+
+	return o.Kpp
 }
 
-// GetKppOk returns a tuple with the Kpp field value if set, nil otherwise
+// GetKppOk returns a tuple with the Kpp field value
 // and a boolean to check if the value has been set.
 func (o *ApiB2bClientInfo) GetKppOk() (*string, bool) {
-	if o == nil || IsNil(o.Kpp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Kpp, true
+	return &o.Kpp, true
 }
 
-// HasKpp returns a boolean if a field has been set.
-func (o *ApiB2bClientInfo) HasKpp() bool {
-	if o != nil && !IsNil(o.Kpp) {
-		return true
-	}
-
-	return false
-}
-
-// SetKpp gets a reference to the given string and assigns it to the Kpp field.
+// SetKpp sets field value
 func (o *ApiB2bClientInfo) SetKpp(v string) {
-	o.Kpp = &v
+	o.Kpp = v
 }
 
-// GetOrgName returns the OrgName field value if set, zero value otherwise.
+// GetOrgName returns the OrgName field value
 func (o *ApiB2bClientInfo) GetOrgName() string {
-	if o == nil || IsNil(o.OrgName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OrgName
+
+	return o.OrgName
 }
 
-// GetOrgNameOk returns a tuple with the OrgName field value if set, nil otherwise
+// GetOrgNameOk returns a tuple with the OrgName field value
 // and a boolean to check if the value has been set.
 func (o *ApiB2bClientInfo) GetOrgNameOk() (*string, bool) {
-	if o == nil || IsNil(o.OrgName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrgName, true
+	return &o.OrgName, true
 }
 
-// HasOrgName returns a boolean if a field has been set.
-func (o *ApiB2bClientInfo) HasOrgName() bool {
-	if o != nil && !IsNil(o.OrgName) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrgName gets a reference to the given string and assigns it to the OrgName field.
+// SetOrgName sets field value
 func (o *ApiB2bClientInfo) SetOrgName(v string) {
-	o.OrgName = &v
+	o.OrgName = v
 }
 
 func (o ApiB2bClientInfo) MarshalJSON() ([]byte, error) {
@@ -150,16 +133,49 @@ func (o ApiB2bClientInfo) MarshalJSON() ([]byte, error) {
 
 func (o ApiB2bClientInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Inn) {
-		toSerialize["inn"] = o.Inn
-	}
-	if !IsNil(o.Kpp) {
-		toSerialize["kpp"] = o.Kpp
-	}
-	if !IsNil(o.OrgName) {
-		toSerialize["orgName"] = o.OrgName
-	}
+	toSerialize["inn"] = o.Inn
+	toSerialize["kpp"] = o.Kpp
+	toSerialize["orgName"] = o.OrgName
 	return toSerialize, nil
+}
+
+func (o *ApiB2bClientInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"inn",
+		"kpp",
+		"orgName",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiB2bClientInfo := _ApiB2bClientInfo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiB2bClientInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiB2bClientInfo(varApiB2bClientInfo)
+
+	return err
 }
 
 type NullableApiB2bClientInfo struct {

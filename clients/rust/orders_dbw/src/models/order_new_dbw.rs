@@ -15,97 +15,97 @@ use serde_repr::{Serialize_repr,Deserialize_repr};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrderNewDbw {
-    #[serde(rename = "address", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub address: Option<Option<Box<models::OrderNewDbwAddress>>>,
+    #[serde(rename = "address", deserialize_with = "Option::deserialize")]
+    pub address: Option<Box<models::OrderNewDbwAddress>>,
     /// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
-    #[serde(rename = "salePrice", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub sale_price: Option<Option<i32>>,
+    #[serde(rename = "salePrice", deserialize_with = "Option::deserialize")]
+    pub sale_price: Option<i32>,
     /// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `\"subjectId\":515`
-    #[serde(rename = "requiredMeta", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub required_meta: Option<Option<Vec<String>>>,
+    #[serde(rename = "requiredMeta", deserialize_with = "Option::deserialize")]
+    pub required_meta: Option<Vec<String>>,
     /// Комментарий покупателя
-    #[serde(rename = "comment", skip_serializing_if = "Option::is_none")]
-    pub comment: Option<String>,
-    #[serde(rename = "options", skip_serializing_if = "Option::is_none")]
-    pub options: Option<Box<models::OrderNewDbwOptions>>,
+    #[serde(rename = "comment")]
+    pub comment: String,
+    #[serde(rename = "options")]
+    pub options: Box<models::OrderNewDbwOptions>,
     /// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
-    #[serde(rename = "orderUid", skip_serializing_if = "Option::is_none")]
-    pub order_uid: Option<String>,
+    #[serde(rename = "orderUid")]
+    pub order_uid: String,
     /// ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
-    #[serde(rename = "groupId", skip_serializing_if = "Option::is_none")]
-    pub group_id: Option<uuid::Uuid>,
+    #[serde(rename = "groupId")]
+    pub group_id: uuid::Uuid,
     /// Артикул продавца
-    #[serde(rename = "article", skip_serializing_if = "Option::is_none")]
-    pub article: Option<String>,
+    #[serde(rename = "article")]
+    pub article: String,
     /// Код цвета (только для колеруемых товаров)
-    #[serde(rename = "colorCode", skip_serializing_if = "Option::is_none")]
-    pub color_code: Option<String>,
+    #[serde(rename = "colorCode")]
+    pub color_code: String,
     /// Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims)   - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)   - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)   - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)   - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed) 
-    #[serde(rename = "rid", skip_serializing_if = "Option::is_none")]
-    pub rid: Option<String>,
+    #[serde(rename = "rid")]
+    pub rid: String,
     /// Дата создания сборочного задания
-    #[serde(rename = "createdAt", skip_serializing_if = "Option::is_none")]
-    pub created_at: Option<chrono::DateTime<chrono::FixedOffset>>,
+    #[serde(rename = "createdAt")]
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     /// Массив баркодов товара
-    #[serde(rename = "skus", skip_serializing_if = "Option::is_none")]
-    pub skus: Option<Vec<String>>,
+    #[serde(rename = "skus")]
+    pub skus: Vec<String>,
     /// ID сборочного задания
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<i64>,
+    #[serde(rename = "id")]
+    pub id: i64,
     /// ID склада продавца, на который поступило сборочное задание
-    #[serde(rename = "warehouseId", skip_serializing_if = "Option::is_none")]
-    pub warehouse_id: Option<i32>,
+    #[serde(rename = "warehouseId")]
+    pub warehouse_id: i32,
     /// Артикул WB
-    #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
+    #[serde(rename = "nmId")]
+    pub nm_id: i32,
     /// ID размера товара в системе WB
-    #[serde(rename = "chrtId", skip_serializing_if = "Option::is_none")]
-    pub chrt_id: Option<u64>,
+    #[serde(rename = "chrtId")]
+    pub chrt_id: u64,
     /// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-    #[serde(rename = "price", skip_serializing_if = "Option::is_none")]
-    pub price: Option<i32>,
+    #[serde(rename = "price")]
+    pub price: i32,
     /// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
-    #[serde(rename = "convertedPrice", skip_serializing_if = "Option::is_none")]
-    pub converted_price: Option<i32>,
+    #[serde(rename = "convertedPrice")]
+    pub converted_price: i32,
     /// Код валюты продажи
-    #[serde(rename = "currencyCode", skip_serializing_if = "Option::is_none")]
-    pub currency_code: Option<i32>,
+    #[serde(rename = "currencyCode")]
+    pub currency_code: i32,
     /// Код валюты страны продавца
-    #[serde(rename = "convertedCurrencyCode", skip_serializing_if = "Option::is_none")]
-    pub converted_currency_code: Option<i32>,
+    #[serde(rename = "convertedCurrencyCode")]
+    pub converted_currency_code: i32,
     /// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
-    #[serde(rename = "cargoType", skip_serializing_if = "Option::is_none")]
-    pub cargo_type: Option<CargoType>,
+    #[serde(rename = "cargoType")]
+    pub cargo_type: CargoType,
     /// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
-    #[serde(rename = "isZeroOrder", skip_serializing_if = "Option::is_none")]
-    pub is_zero_order: Option<bool>,
+    #[serde(rename = "isZeroOrder")]
+    pub is_zero_order: bool,
 }
 
 impl OrderNewDbw {
-    pub fn new() -> OrderNewDbw {
+    pub fn new(address: Option<models::OrderNewDbwAddress>, sale_price: Option<i32>, required_meta: Option<Vec<String>>, comment: String, options: models::OrderNewDbwOptions, order_uid: String, group_id: uuid::Uuid, article: String, color_code: String, rid: String, created_at: chrono::DateTime<chrono::FixedOffset>, skus: Vec<String>, id: i64, warehouse_id: i32, nm_id: i32, chrt_id: u64, price: i32, converted_price: i32, currency_code: i32, converted_currency_code: i32, cargo_type: CargoType, is_zero_order: bool) -> OrderNewDbw {
         OrderNewDbw {
-            address: None,
-            sale_price: None,
-            required_meta: None,
-            comment: None,
-            options: None,
-            order_uid: None,
-            group_id: None,
-            article: None,
-            color_code: None,
-            rid: None,
-            created_at: None,
-            skus: None,
-            id: None,
-            warehouse_id: None,
-            nm_id: None,
-            chrt_id: None,
-            price: None,
-            converted_price: None,
-            currency_code: None,
-            converted_currency_code: None,
-            cargo_type: None,
-            is_zero_order: None,
+            address: if let Some(x) = address {Some(Box::new(x))} else {None},
+            sale_price,
+            required_meta,
+            comment,
+            options: Box::new(options),
+            order_uid,
+            group_id,
+            article,
+            color_code,
+            rid,
+            created_at,
+            skus,
+            id,
+            warehouse_id,
+            nm_id,
+            chrt_id,
+            price,
+            converted_price,
+            currency_code,
+            converted_currency_code,
+            cargo_type,
+            is_zero_order,
         }
     }
 }

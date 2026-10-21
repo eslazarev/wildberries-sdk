@@ -29,9 +29,9 @@ class InventoryWbResponseItemsInner(BaseModel):
     """ # noqa: E501
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [47254354]})
     chrt_id: StrictInt = Field(description="ID размера", alias="chrtId", json_schema_extra={"examples": [91663228]})
-    warehouse_id: StrictInt = Field(description="ID склада. ]На данный момент](/release-notes?id=570) может быть только `-999999`", alias="warehouseId", json_schema_extra={"examples": [-999999]})
-    warehouse_name: StrictStr = Field(description="Название склада. ]На данный момент](/release-notes?id=570) может быть только `Склад WB`", alias="warehouseName", json_schema_extra={"examples": ["Склад WB"]})
-    region_name: StrictStr = Field(description="Регион отгрузки. ]На данный момент](/release-notes?id=570) может быть только `Склад WB`", alias="regionName", json_schema_extra={"examples": ["Склад WB"]})
+    warehouse_id: StrictInt = Field(description="ID склада. [На данный момент](/release-notes?id=570) может быть только `-999999`", alias="warehouseId", json_schema_extra={"examples": [-999999]})
+    warehouse_name: StrictStr = Field(description="Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB`", alias="warehouseName", json_schema_extra={"examples": ["Склад WB"]})
+    region_name: StrictStr = Field(description="Регион отгрузки. [На данный момент](/release-notes?id=570) может быть только `Склад WB`", alias="regionName", json_schema_extra={"examples": ["Склад WB"]})
     quantity: StrictInt = Field(description="Количество товара на складе, доступное клиентам для добавления в корзину", json_schema_extra={"examples": [43]})
     in_way_to_client: StrictInt = Field(description="В пути к клиенту", alias="inWayToClient", json_schema_extra={"examples": [14]})
     in_way_from_client: StrictInt = Field(description="В пути от клиента", alias="inWayFromClient", json_schema_extra={"examples": [11]})

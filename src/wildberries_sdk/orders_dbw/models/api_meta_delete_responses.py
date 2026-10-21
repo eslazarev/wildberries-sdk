@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.orders_dbw.models.api_meta_delete_responses_results_inner import ApiMetaDeleteResponsesResultsInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class ApiMetaDeleteResponses(BaseModel):
     """
     ApiMetaDeleteResponses
     """ # noqa: E501
-    request_id: Optional[StrictStr] = Field(default=None, description="Уникальный ID запроса. Отображается для ответов с ошибками", alias="requestId")
+    request_id: StrictStr = Field(description="Уникальный ID запроса. Отображается для ответов с ошибками", alias="requestId")
     results: List[ApiMetaDeleteResponsesResultsInner]
     __properties: ClassVar[List[str]] = ["requestId", "results"]
 

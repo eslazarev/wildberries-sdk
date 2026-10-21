@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,9 +27,9 @@ class ApiB2bClientInfo(BaseModel):
     """
     Данные покупателя B2B
     """ # noqa: E501
-    inn: Optional[StrictStr] = Field(default=None, description="Индивидуальный номер налогоплательщика (ИНН)")
-    kpp: Optional[StrictStr] = Field(default=None, description="Код причины постановки на учёт (КПП)")
-    org_name: Optional[StrictStr] = Field(default=None, description="Наименование организации", alias="orgName")
+    inn: StrictStr = Field(description="Индивидуальный номер налогоплательщика (ИНН)")
+    kpp: StrictStr = Field(description="Код причины постановки на учёт (КПП)")
+    org_name: StrictStr = Field(description="Наименование организации", alias="orgName")
     __properties: ClassVar[List[str]] = ["inn", "kpp", "orgName"]
 
     model_config = ConfigDict(

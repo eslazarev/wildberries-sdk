@@ -40,7 +40,7 @@ export interface GetV1AnalyticsGoodsLabeling200ResponseReportInner {
      */
     photoUrls?: Array<string>;
     /**
-     * Штрихкод товара в WB
+     * Штрихкод
      */
     shkID?: number;
     /**

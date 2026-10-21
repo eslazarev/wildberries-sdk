@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.dbs.models.api_batch_error_response import ApiBatchErrorResponse
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,10 +28,10 @@ class ApiOrderStatusV2(BaseModel):
     """
     ApiOrderStatusV2
     """ # noqa: E501
-    errors: Optional[List[ApiBatchErrorResponse]] = Field(default=None, description="Информация об ошибке")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [123456]})
-    supplier_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания, установленный продавцом", alias="supplierStatus", json_schema_extra={"examples": ["deliver"]})
-    wb_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания в системе Wildberries", alias="wbStatus", json_schema_extra={"examples": ["waiting"]})
+    errors: List[ApiBatchErrorResponse] = Field(description="Информация об ошибке")
+    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [123456]})
+    supplier_status: StrictStr = Field(description="Статус сборочного задания, установленный продавцом", alias="supplierStatus", json_schema_extra={"examples": ["deliver"]})
+    wb_status: StrictStr = Field(description="Статус сборочного задания в системе Wildberries", alias="wbStatus", json_schema_extra={"examples": ["waiting"]})
     __properties: ClassVar[List[str]] = ["errors", "orderId", "supplierStatus", "wbStatus"]
 
     model_config = ConfigDict(

@@ -1995,7 +1995,7 @@ components:
         warehouseLogisticsCoeff: 0
         buyerTaxRegistrationReasonCode: "7701123301"
         utdUcdNumber: "12356856523"
-        utdUcdDate: 2006-01-02
+        utdUcdDate: 2026-10-12
         orderUid: id375f16c4bec295d9995393af803ff7b
         srid: 0f1c3999172603062979867564654dac5b702849
       properties:
@@ -2393,7 +2393,7 @@ components:
           type: string
         utdUcdDate:
           description: Дата УПД или УКД
-          example: 2006-01-02
+          example: 2026-10-12
           format: date
           type: string
         orderUid:

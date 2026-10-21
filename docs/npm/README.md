@@ -149,6 +149,7 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.getV3FbsDictionariesCountriesOksm` — Получить список стран ОКСМ
 - `orders_fbs.FBSApi.getV3FbsOrdersArchive` — Получить список архивных сборочных заданий
 - `orders_fbs.FBSApi.getV3FbsShippingPoints` — Получить список пунктов отгрузки поставок
+- `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdShippingPoints` — Получить список пунктов отгрузки поставки
 - `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdStickersSpot` — Получить QR-код СПОТ
 - `orders_fbs.FBSApi.getV3Orders` — Получить информацию о сборочных заданиях
 - `orders_fbs.FBSApi.getV3OrdersNew` — Получить список новых сборочных заданий

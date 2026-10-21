@@ -30,13 +30,14 @@ export interface GetV3DbsOrdersNew200Response {
     /**
      * Список новых сборочных заданий
      */
-    orders?: Array<OrderNewDBS>;
+    orders: Array<OrderNewDBS>;
 }
 
 /**
  * Check if a given object implements the GetV3DbsOrdersNew200Response interface.
  */
 export function instanceOfGetV3DbsOrdersNew200Response(value: object): value is GetV3DbsOrdersNew200Response {
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function GetV3DbsOrdersNew200ResponseFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(OrderNewDBSFromJSON)),
+        'orders': ((json['orders'] as Array<any>).map(OrderNewDBSFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function GetV3DbsOrdersNew200ResponseToJSONTyped(value?: GetV3DbsOrdersNe
 
     return {
         
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(OrderNewDBSToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(OrderNewDBSToJSON)),
     };
 }
 

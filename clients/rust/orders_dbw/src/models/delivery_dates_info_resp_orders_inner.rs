@@ -14,38 +14,38 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DeliveryDatesInfoRespOrdersInner {
     /// Актуальное время доставки \"с\"
-    #[serde(rename = "dTimeFrom", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub d_time_from: Option<Option<String>>,
+    #[serde(rename = "dTimeFrom", deserialize_with = "Option::deserialize")]
+    pub d_time_from: Option<String>,
     /// Актуальное время доставки \"по\"
-    #[serde(rename = "dTimeTo", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub d_time_to: Option<Option<String>>,
+    #[serde(rename = "dTimeTo", deserialize_with = "Option::deserialize")]
+    pub d_time_to: Option<String>,
     /// Прежнее время доставки \"с\". Доступно первые сутки после изменения
-    #[serde(rename = "dTimeFromOld", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub d_time_from_old: Option<Option<String>>,
+    #[serde(rename = "dTimeFromOld", deserialize_with = "Option::deserialize")]
+    pub d_time_from_old: Option<String>,
     /// Прежнее время доставки \"по\". Доступно первые сутки после изменения
-    #[serde(rename = "dTimeToOld", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub d_time_to_old: Option<Option<String>>,
+    #[serde(rename = "dTimeToOld", deserialize_with = "Option::deserialize")]
+    pub d_time_to_old: Option<String>,
     /// Прежняя дата доставки. Доступна первые сутки после изменения
-    #[serde(rename = "dDateOld", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub d_date_old: Option<Option<String>>,
+    #[serde(rename = "dDateOld", deserialize_with = "Option::deserialize")]
+    pub d_date_old: Option<String>,
     /// Актуальная дата доставки
-    #[serde(rename = "dDate", skip_serializing_if = "Option::is_none")]
-    pub d_date: Option<String>,
+    #[serde(rename = "dDate")]
+    pub d_date: String,
     /// ID сборочного задания
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<i32>,
+    #[serde(rename = "id")]
+    pub id: i32,
 }
 
 impl DeliveryDatesInfoRespOrdersInner {
-    pub fn new() -> DeliveryDatesInfoRespOrdersInner {
+    pub fn new(d_time_from: Option<String>, d_time_to: Option<String>, d_time_from_old: Option<String>, d_time_to_old: Option<String>, d_date_old: Option<String>, d_date: String, id: i32) -> DeliveryDatesInfoRespOrdersInner {
         DeliveryDatesInfoRespOrdersInner {
-            d_time_from: None,
-            d_time_to: None,
-            d_time_from_old: None,
-            d_time_to_old: None,
-            d_date_old: None,
-            d_date: None,
-            id: None,
+            d_time_from,
+            d_time_to,
+            d_time_from_old,
+            d_time_to_old,
+            d_date_old,
+            d_date,
+            id,
         }
     }
 }

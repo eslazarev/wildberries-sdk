@@ -22,21 +22,24 @@ export interface ApiB2bClientInfo {
     /**
      * Индивидуальный номер налогоплательщика (ИНН)
      */
-    inn?: string;
+    inn: string;
     /**
      * Код причины постановки на учёт (КПП)
      */
-    kpp?: string;
+    kpp: string;
     /**
      * Наименование организации
      */
-    orgName?: string;
+    orgName: string;
 }
 
 /**
  * Check if a given object implements the ApiB2bClientInfo interface.
  */
 export function instanceOfApiB2bClientInfo(value: object): value is ApiB2bClientInfo {
+    if (!('inn' in value) || value['inn'] === undefined) return false;
+    if (!('kpp' in value) || value['kpp'] === undefined) return false;
+    if (!('orgName' in value) || value['orgName'] === undefined) return false;
     return true;
 }
 
@@ -50,9 +53,9 @@ export function ApiB2bClientInfoFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'inn': json['inn'] == null ? undefined : json['inn'],
-        'kpp': json['kpp'] == null ? undefined : json['kpp'],
-        'orgName': json['orgName'] == null ? undefined : json['orgName'],
+        'inn': json['inn'],
+        'kpp': json['kpp'],
+        'orgName': json['orgName'],
     };
 }
 

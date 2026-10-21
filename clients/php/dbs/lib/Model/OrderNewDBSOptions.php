@@ -275,6 +275,9 @@ class OrderNewDBSOptions implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['is_b2b'] === null) {
+            $invalidProperties[] = "'is_b2b' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class OrderNewDBSOptions implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets is_b2b
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsB2b()
     {
@@ -303,7 +306,7 @@ class OrderNewDBSOptions implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets is_b2b
      *
-     * @param bool|null $is_b2b Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа
+     * @param bool $is_b2b Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа
      *
      * @return self
      */

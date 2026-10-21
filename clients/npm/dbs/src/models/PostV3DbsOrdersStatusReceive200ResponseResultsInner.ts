@@ -34,17 +34,19 @@ export interface PostV3DbsOrdersStatusReceive200ResponseResultsInner {
     /**
      * Есть ли ошибки
      */
-    isError?: boolean;
+    isError: boolean;
     /**
      * ID сборочного задания с успешно обновлёнными данными
      */
-    orderId?: number;
+    orderId: number;
 }
 
 /**
  * Check if a given object implements the PostV3DbsOrdersStatusReceive200ResponseResultsInner interface.
  */
 export function instanceOfPostV3DbsOrdersStatusReceive200ResponseResultsInner(value: object): value is PostV3DbsOrdersStatusReceive200ResponseResultsInner {
+    if (!('isError' in value) || value['isError'] === undefined) return false;
+    if (!('orderId' in value) || value['orderId'] === undefined) return false;
     return true;
 }
 
@@ -59,8 +61,8 @@ export function PostV3DbsOrdersStatusReceive200ResponseResultsInnerFromJSONTyped
     return {
         
         'errors': json['errors'] == null ? undefined : ((json['errors'] as Array<any>).map(PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInnerFromJSON)),
-        'isError': json['isError'] == null ? undefined : json['isError'],
-        'orderId': json['orderId'] == null ? undefined : json['orderId'],
+        'isError': json['isError'],
+        'orderId': json['orderId'],
     };
 }
 

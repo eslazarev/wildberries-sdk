@@ -27,7 +27,7 @@ type ApiOrderFinalPriceResult struct {
 	// Детали ошибки
 	Errors []ApiBatchErrorFinalPriceResponse `json:"errors,omitempty"`
 	// Есть ли ошибки
-	IsError *bool `json:"isError,omitempty"`
+	IsError bool `json:"isError"`
 }
 
 type _ApiOrderFinalPriceResult ApiOrderFinalPriceResult
@@ -36,9 +36,10 @@ type _ApiOrderFinalPriceResult ApiOrderFinalPriceResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrderFinalPriceResult(orderId int32) *ApiOrderFinalPriceResult {
+func NewApiOrderFinalPriceResult(orderId int32, isError bool) *ApiOrderFinalPriceResult {
 	this := ApiOrderFinalPriceResult{}
 	this.OrderId = orderId
+	this.IsError = isError
 	return &this
 }
 
@@ -138,36 +139,28 @@ func (o *ApiOrderFinalPriceResult) SetErrors(v []ApiBatchErrorFinalPriceResponse
 	o.Errors = v
 }
 
-// GetIsError returns the IsError field value if set, zero value otherwise.
+// GetIsError returns the IsError field value
 func (o *ApiOrderFinalPriceResult) GetIsError() bool {
-	if o == nil || IsNil(o.IsError) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsError
+
+	return o.IsError
 }
 
-// GetIsErrorOk returns a tuple with the IsError field value if set, nil otherwise
+// GetIsErrorOk returns a tuple with the IsError field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrderFinalPriceResult) GetIsErrorOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsError) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsError, true
+	return &o.IsError, true
 }
 
-// HasIsError returns a boolean if a field has been set.
-func (o *ApiOrderFinalPriceResult) HasIsError() bool {
-	if o != nil && !IsNil(o.IsError) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsError gets a reference to the given bool and assigns it to the IsError field.
+// SetIsError sets field value
 func (o *ApiOrderFinalPriceResult) SetIsError(v bool) {
-	o.IsError = &v
+	o.IsError = v
 }
 
 func (o ApiOrderFinalPriceResult) MarshalJSON() ([]byte, error) {
@@ -187,9 +180,7 @@ func (o ApiOrderFinalPriceResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
-	if !IsNil(o.IsError) {
-		toSerialize["isError"] = o.IsError
-	}
+	toSerialize["isError"] = o.IsError
 	return toSerialize, nil
 }
 
@@ -199,6 +190,7 @@ func (o *ApiOrderFinalPriceResult) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"orderId",
+		"isError",
 	}
 
 	allProperties := make(map[string]interface{})

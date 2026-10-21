@@ -25,13 +25,14 @@ export interface OrderNewDBSOptions {
      *   - `true` — B2B-продажа
      * 
      */
-    isB2b?: boolean;
+    isB2b: boolean;
 }
 
 /**
  * Check if a given object implements the OrderNewDBSOptions interface.
  */
 export function instanceOfOrderNewDBSOptions(value: object): value is OrderNewDBSOptions {
+    if (!('isB2b' in value) || value['isB2b'] === undefined) return false;
     return true;
 }
 
@@ -45,7 +46,7 @@ export function OrderNewDBSOptionsFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'isB2b': json['isB2b'] == null ? undefined : json['isB2b'],
+        'isB2b': json['isB2b'],
     };
 }
 

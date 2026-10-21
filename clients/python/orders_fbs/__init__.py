@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.173"
+__version__ = "0.1.174"
 
 # Define package exports
 __all__ = [
@@ -41,7 +41,7 @@ __all__ = [
     "GetV3FbsSettingsAutoreturns200Response",
     "GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
     "GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner",
-    "GetV3FbsShippingPoints403Response",
+    "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
     "GetV3Orders200Response",
     "GetV3OrdersNew200Response",
     "GetV3PassesOffices401Response",
@@ -108,6 +108,8 @@ __all__ = [
     "ShippingPoint",
     "ShippingPointsResponse",
     "Supply",
+    "SupplyShippingPoint",
+    "SupplyShippingPointsResponse",
     "SupplySpotData",
     "SupplySpotDataResponse",
     "SupplySpotDataResponseSuppliesInner",
@@ -164,7 +166,7 @@ from wildberries_sdk.orders_fbs.models.get_v3_fbs_orders_archive403_response imp
 from wildberries_sdk.orders_fbs.models.get_v3_fbs_settings_autoreturns200_response import GetV3FbsSettingsAutoreturns200Response as GetV3FbsSettingsAutoreturns200Response
 from wildberries_sdk.orders_fbs.models.get_v3_fbs_settings_autoreturns_subcategories_restricted200_response import GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response as GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response
 from wildberries_sdk.orders_fbs.models.get_v3_fbs_settings_autoreturns_subcategories_restricted200_response_data_inner import GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner as GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner
-from wildberries_sdk.orders_fbs.models.get_v3_fbs_shipping_points403_response import GetV3FbsShippingPoints403Response as GetV3FbsShippingPoints403Response
+from wildberries_sdk.orders_fbs.models.get_v3_fbs_supplies_supply_id_shipping_points403_response import GetV3FbsSuppliesSupplyIdShippingPoints403Response as GetV3FbsSuppliesSupplyIdShippingPoints403Response
 from wildberries_sdk.orders_fbs.models.get_v3_orders200_response import GetV3Orders200Response as GetV3Orders200Response
 from wildberries_sdk.orders_fbs.models.get_v3_orders_new200_response import GetV3OrdersNew200Response as GetV3OrdersNew200Response
 from wildberries_sdk.orders_fbs.models.get_v3_passes_offices401_response import GetV3PassesOffices401Response as GetV3PassesOffices401Response
@@ -231,6 +233,8 @@ from wildberries_sdk.orders_fbs.models.response4_xx import Response4XX as Respon
 from wildberries_sdk.orders_fbs.models.shipping_point import ShippingPoint as ShippingPoint
 from wildberries_sdk.orders_fbs.models.shipping_points_response import ShippingPointsResponse as ShippingPointsResponse
 from wildberries_sdk.orders_fbs.models.supply import Supply as Supply
+from wildberries_sdk.orders_fbs.models.supply_shipping_point import SupplyShippingPoint as SupplyShippingPoint
+from wildberries_sdk.orders_fbs.models.supply_shipping_points_response import SupplyShippingPointsResponse as SupplyShippingPointsResponse
 from wildberries_sdk.orders_fbs.models.supply_spot_data import SupplySpotData as SupplySpotData
 from wildberries_sdk.orders_fbs.models.supply_spot_data_response import SupplySpotDataResponse as SupplySpotDataResponse
 from wildberries_sdk.orders_fbs.models.supply_spot_data_response_supplies_inner import SupplySpotDataResponseSuppliesInner as SupplySpotDataResponseSuppliesInner

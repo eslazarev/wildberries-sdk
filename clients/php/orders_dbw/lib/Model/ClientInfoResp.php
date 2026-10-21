@@ -274,6 +274,9 @@ class ClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class ClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\OrdersDbw\Model\ClientInfo[]|null
+     * @return \Wildberries\Sdk\OrdersDbw\Model\ClientInfo[]
      */
     public function getOrders()
     {
@@ -302,7 +305,7 @@ class ClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\OrdersDbw\Model\ClientInfo[]|null $orders Информация о покупателях
+     * @param \Wildberries\Sdk\OrdersDbw\Model\ClientInfo[] $orders Информация о покупателях
      *
      * @return self
      */

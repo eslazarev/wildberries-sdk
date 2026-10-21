@@ -22,17 +22,17 @@ pub struct ApiOrderFinalPriceResult {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<models::ApiBatchErrorFinalPriceResponse>>,
     /// Есть ли ошибки
-    #[serde(rename = "isError", skip_serializing_if = "Option::is_none")]
-    pub is_error: Option<bool>,
+    #[serde(rename = "isError")]
+    pub is_error: bool,
 }
 
 impl ApiOrderFinalPriceResult {
-    pub fn new(order_id: i32) -> ApiOrderFinalPriceResult {
+    pub fn new(order_id: i32, is_error: bool) -> ApiOrderFinalPriceResult {
         ApiOrderFinalPriceResult {
             order_id,
             data: None,
             errors: None,
-            is_error: None,
+            is_error,
         }
     }
 }

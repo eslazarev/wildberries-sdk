@@ -35,7 +35,7 @@ use \Wildberries\Sdk\Items\ObjectSerializer;
  * PostV2GetCardsListRequestSettingsSort Class Doc Comment
  *
  * @category Class
- * @description Параметр сортировки
+ * @description Сортировка по дате и времени изменения карточек товаров &#x60;updatedAt&#x60;
  * @package  Wildberries\Sdk\Items
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -303,7 +303,7 @@ class PostV2GetCardsListRequestSettingsSort implements ModelInterface, ArrayAcce
     /**
      * Sets ascending
      *
-     * @param bool|null $ascending Сортировать по полю `updatedAt`:   - `false` — по убыванию   -  `true` — по возрастанию
+     * @param bool|null $ascending Порядок сортировки:   - `false` — по убыванию   - `true` — по возрастанию
      *
      * @return self
      */

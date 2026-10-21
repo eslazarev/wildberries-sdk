@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.orders_dbw.models.client_info import ClientInfo
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class ClientInfoResp(BaseModel):
     """
     ClientInfoResp
     """ # noqa: E501
-    orders: Optional[List[ClientInfo]] = Field(default=None, description="Информация о покупателях")
+    orders: List[ClientInfo] = Field(description="Информация о покупателях")
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(

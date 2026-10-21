@@ -330,6 +330,33 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['replacement_phone'] === null) {
+            $invalidProperties[] = "'replacement_phone' can't be null";
+        }
+        if ($this->container['phone'] === null) {
+            $invalidProperties[] = "'phone' can't be null";
+        }
+        if ($this->container['first_name'] === null) {
+            $invalidProperties[] = "'first_name' can't be null";
+        }
+        if ($this->container['full_name'] === null) {
+            $invalidProperties[] = "'full_name' can't be null";
+        }
+        if ($this->container['additional_phones'] === null) {
+            $invalidProperties[] = "'additional_phones' can't be null";
+        }
+        if ($this->container['replacement_additional_phones'] === null) {
+            $invalidProperties[] = "'replacement_additional_phones' can't be null";
+        }
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
+        if ($this->container['phone_code'] === null) {
+            $invalidProperties[] = "'phone_code' can't be null";
+        }
+        if ($this->container['additional_phone_codes'] === null) {
+            $invalidProperties[] = "'additional_phone_codes' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -348,7 +375,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets replacement_phone
      *
-     * @return string|null
+     * @return string
      */
     public function getReplacementPhone()
     {
@@ -358,7 +385,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets replacement_phone
      *
-     * @param string|null $replacement_phone Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер еще не назначен <br>
+     * @param string $replacement_phone Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер еще не назначен <br>
      *
      * @return self
      */
@@ -375,7 +402,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets phone
      *
-     * @return string|null
+     * @return string
      */
     public function getPhone()
     {
@@ -385,7 +412,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets phone
      *
-     * @param string|null $phone Резервный подменный номер телефона для связи с покупателем. <br> Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен
+     * @param string $phone Резервный подменный номер телефона для связи с покупателем. <br> Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен
      *
      * @return self
      */
@@ -402,7 +429,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets first_name
      *
-     * @return string|null
+     * @return string
      */
     public function getFirstName()
     {
@@ -412,7 +439,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets first_name
      *
-     * @param string|null $first_name Имя покупателя
+     * @param string $first_name Имя покупателя
      *
      * @return self
      */
@@ -429,7 +456,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets full_name
      *
-     * @return string|null
+     * @return string
      */
     public function getFullName()
     {
@@ -439,7 +466,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets full_name
      *
-     * @param string|null $full_name Полное имя, используется для оформления документов. Например, документы на автомобиль
+     * @param string $full_name Полное имя, используется для оформления документов. Например, документы на автомобиль
      *
      * @return self
      */
@@ -456,7 +483,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets additional_phones
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getAdditionalPhones()
     {
@@ -466,7 +493,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets additional_phones
      *
-     * @param string[]|null $additional_phones Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан
+     * @param string[] $additional_phones Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан
      *
      * @return self
      */
@@ -483,7 +510,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets replacement_additional_phones
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getReplacementAdditionalPhones()
     {
@@ -493,7 +520,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets replacement_additional_phones
      *
-     * @param string[]|null $replacement_additional_phones Дополнительные подменные номера телефонов для связи с покупателем.<br> Пустое значение означает, что номер не указан
+     * @param string[] $replacement_additional_phones Дополнительные подменные номера телефонов для связи с покупателем.<br> Пустое значение означает, что номер не указан
      *
      * @return self
      */
@@ -510,7 +537,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -520,7 +547,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets order_id
      *
-     * @param int|null $order_id ID сборочного задания
+     * @param int $order_id ID сборочного задания
      *
      * @return self
      */
@@ -537,7 +564,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets phone_code
      *
-     * @return int|null
+     * @return int
      */
     public function getPhoneCode()
     {
@@ -547,7 +574,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets phone_code
      *
-     * @param int|null $phone_code Добавочный код. <br> Пустое значение `\"\"` указывает, что код ещё не назначен
+     * @param int $phone_code Добавочный код. <br> Пустое значение `\"\"` указывает, что код ещё не назначен
      *
      * @return self
      */
@@ -564,7 +591,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets additional_phone_codes
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getAdditionalPhoneCodes()
     {
@@ -574,7 +601,7 @@ class DbsOnlyClientInfo implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets additional_phone_codes
      *
-     * @param string[]|null $additional_phone_codes Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение `\"\"` указывает, что код ещё не назначен
+     * @param string[] $additional_phone_codes Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение `\"\"` указывает, что код ещё не назначен
      *
      * @return self
      */

@@ -12,6 +12,8 @@ package orders_dbw
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderCourierInfo type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &OrderCourierInfo{}
 // OrderCourierInfo struct for OrderCourierInfo
 type OrderCourierInfo struct {
 	// Информация о курьере
-	CourierInfo *CourierInfo `json:"courierInfo,omitempty"`
+	CourierInfo CourierInfo `json:"courierInfo"`
 	// ID сборочного задания
-	OrderID *int32 `json:"orderID,omitempty"`
+	OrderID int32 `json:"orderID"`
 }
+
+type _OrderCourierInfo OrderCourierInfo
 
 // NewOrderCourierInfo instantiates a new OrderCourierInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderCourierInfo() *OrderCourierInfo {
+func NewOrderCourierInfo(courierInfo CourierInfo, orderID int32) *OrderCourierInfo {
 	this := OrderCourierInfo{}
+	this.CourierInfo = courierInfo
+	this.OrderID = orderID
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewOrderCourierInfoWithDefaults() *OrderCourierInfo {
 	return &this
 }
 
-// GetCourierInfo returns the CourierInfo field value if set, zero value otherwise.
+// GetCourierInfo returns the CourierInfo field value
 func (o *OrderCourierInfo) GetCourierInfo() CourierInfo {
-	if o == nil || IsNil(o.CourierInfo) {
+	if o == nil {
 		var ret CourierInfo
 		return ret
 	}
-	return *o.CourierInfo
+
+	return o.CourierInfo
 }
 
-// GetCourierInfoOk returns a tuple with the CourierInfo field value if set, nil otherwise
+// GetCourierInfoOk returns a tuple with the CourierInfo field value
 // and a boolean to check if the value has been set.
 func (o *OrderCourierInfo) GetCourierInfoOk() (*CourierInfo, bool) {
-	if o == nil || IsNil(o.CourierInfo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CourierInfo, true
+	return &o.CourierInfo, true
 }
 
-// HasCourierInfo returns a boolean if a field has been set.
-func (o *OrderCourierInfo) HasCourierInfo() bool {
-	if o != nil && !IsNil(o.CourierInfo) {
-		return true
-	}
-
-	return false
-}
-
-// SetCourierInfo gets a reference to the given CourierInfo and assigns it to the CourierInfo field.
+// SetCourierInfo sets field value
 func (o *OrderCourierInfo) SetCourierInfo(v CourierInfo) {
-	o.CourierInfo = &v
+	o.CourierInfo = v
 }
 
-// GetOrderID returns the OrderID field value if set, zero value otherwise.
+// GetOrderID returns the OrderID field value
 func (o *OrderCourierInfo) GetOrderID() int32 {
-	if o == nil || IsNil(o.OrderID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OrderID
+
+	return o.OrderID
 }
 
-// GetOrderIDOk returns a tuple with the OrderID field value if set, nil otherwise
+// GetOrderIDOk returns a tuple with the OrderID field value
 // and a boolean to check if the value has been set.
 func (o *OrderCourierInfo) GetOrderIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.OrderID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderID, true
+	return &o.OrderID, true
 }
 
-// HasOrderID returns a boolean if a field has been set.
-func (o *OrderCourierInfo) HasOrderID() bool {
-	if o != nil && !IsNil(o.OrderID) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderID gets a reference to the given int32 and assigns it to the OrderID field.
+// SetOrderID sets field value
 func (o *OrderCourierInfo) SetOrderID(v int32) {
-	o.OrderID = &v
+	o.OrderID = v
 }
 
 func (o OrderCourierInfo) MarshalJSON() ([]byte, error) {
@@ -116,13 +106,47 @@ func (o OrderCourierInfo) MarshalJSON() ([]byte, error) {
 
 func (o OrderCourierInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CourierInfo) {
-		toSerialize["courierInfo"] = o.CourierInfo
-	}
-	if !IsNil(o.OrderID) {
-		toSerialize["orderID"] = o.OrderID
-	}
+	toSerialize["courierInfo"] = o.CourierInfo
+	toSerialize["orderID"] = o.OrderID
 	return toSerialize, nil
+}
+
+func (o *OrderCourierInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"courierInfo",
+		"orderID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderCourierInfo := _OrderCourierInfo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderCourierInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderCourierInfo(varOrderCourierInfo)
+
+	return err
 }
 
 type NullableOrderCourierInfo struct {

@@ -15,8 +15,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV2GetCardsTrashRequestSettingsFilter {
     /// Поиск по артикулу продавца, артикулу WB, баркоду
-    #[serde(rename = "textSearch", skip_serializing_if = "Option::is_none")]
-    pub text_search: Option<String>,
+    #[serde(rename = "textSearch", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub text_search: Option<Option<String>>,
 }
 
 impl PostV2GetCardsTrashRequestSettingsFilter {

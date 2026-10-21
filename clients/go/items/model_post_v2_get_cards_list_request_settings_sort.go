@@ -17,9 +17,9 @@ import (
 // checks if the PostV2GetCardsListRequestSettingsSort type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PostV2GetCardsListRequestSettingsSort{}
 
-// PostV2GetCardsListRequestSettingsSort Параметр сортировки
+// PostV2GetCardsListRequestSettingsSort Сортировка по дате и времени изменения карточек товаров `updatedAt`
 type PostV2GetCardsListRequestSettingsSort struct {
-	// Сортировать по полю `updatedAt`:   - `false` — по убыванию   -  `true` — по возрастанию 
+	// Порядок сортировки:   - `false` — по убыванию   - `true` — по возрастанию 
 	Ascending *bool `json:"ascending,omitempty"`
 }
 

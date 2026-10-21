@@ -22,11 +22,11 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
     /**
      * Идентификатор маркировки
      */
-    key?: string;
+    key: string;
     /**
      * Значение идентификатора маркировки
      */
-    value?: string | null;
+    value: string | null;
     /**
      * Статус проверки:
      * - `imei`
@@ -68,13 +68,16 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
      *   - `filled` — Валидация пройдена
      * 
      */
-    decision?: string;
+    decision: string;
 }
 
 /**
  * Check if a given object implements the ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner interface.
  */
 export function instanceOfApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner(value: object): value is ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
+    if (!('key' in value) || value['key'] === undefined) return false;
+    if (!('value' in value) || value['value'] === undefined) return false;
+    if (!('decision' in value) || value['decision'] === undefined) return false;
     return true;
 }
 
@@ -88,9 +91,9 @@ export function ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerFromJSONT
     }
     return {
         
-        'key': json['key'] == null ? undefined : json['key'],
-        'value': json['value'] === undefined ? undefined : json['value'] === null ? null : json['value'],
-        'decision': json['decision'] == null ? undefined : json['decision'],
+        'key': json['key'],
+        'value': json['value'],
+        'decision': json['decision'],
     };
 }
 

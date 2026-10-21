@@ -13,6 +13,8 @@ package orders_dbw
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CourierInfo type satisfies the MappedNullable interface at compile time
@@ -21,19 +23,24 @@ var _ MappedNullable = &CourierInfo{}
 // CourierInfo struct for CourierInfo
 type CourierInfo struct {
 	// Контактные данные курьера
-	Contacts NullableCourierContactsResponse `json:"contacts,omitempty"`
+	Contacts NullableCourierContactsResponse `json:"contacts"`
 	// Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2) 
-	MustBeAssigned *bool `json:"mustBeAssigned,omitempty"`
+	MustBeAssigned bool `json:"mustBeAssigned"`
 	// Дата и время обновления информации о курьере. <br> Если `null`, информация не обновлялась
-	UpdatedAt NullableTime `json:"updatedAt,omitempty"`
+	UpdatedAt NullableTime `json:"updatedAt"`
 }
+
+type _CourierInfo CourierInfo
 
 // NewCourierInfo instantiates a new CourierInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourierInfo() *CourierInfo {
+func NewCourierInfo(contacts NullableCourierContactsResponse, mustBeAssigned bool, updatedAt NullableTime) *CourierInfo {
 	this := CourierInfo{}
+	this.Contacts = contacts
+	this.MustBeAssigned = mustBeAssigned
+	this.UpdatedAt = updatedAt
 	return &this
 }
 
@@ -45,16 +52,18 @@ func NewCourierInfoWithDefaults() *CourierInfo {
 	return &this
 }
 
-// GetContacts returns the Contacts field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContacts returns the Contacts field value
+// If the value is explicit nil, the zero value for CourierContactsResponse will be returned
 func (o *CourierInfo) GetContacts() CourierContactsResponse {
-	if o == nil || IsNil(o.Contacts.Get()) {
+	if o == nil || o.Contacts.Get() == nil {
 		var ret CourierContactsResponse
 		return ret
 	}
+
 	return *o.Contacts.Get()
 }
 
-// GetContactsOk returns a tuple with the Contacts field value if set, nil otherwise
+// GetContactsOk returns a tuple with the Contacts field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CourierInfo) GetContactsOk() (*CourierContactsResponse, bool) {
@@ -64,71 +73,47 @@ func (o *CourierInfo) GetContactsOk() (*CourierContactsResponse, bool) {
 	return o.Contacts.Get(), o.Contacts.IsSet()
 }
 
-// HasContacts returns a boolean if a field has been set.
-func (o *CourierInfo) HasContacts() bool {
-	if o != nil && o.Contacts.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetContacts gets a reference to the given NullableCourierContactsResponse and assigns it to the Contacts field.
+// SetContacts sets field value
 func (o *CourierInfo) SetContacts(v CourierContactsResponse) {
 	o.Contacts.Set(&v)
 }
-// SetContactsNil sets the value for Contacts to be an explicit nil
-func (o *CourierInfo) SetContactsNil() {
-	o.Contacts.Set(nil)
-}
 
-// UnsetContacts ensures that no value is present for Contacts, not even an explicit nil
-func (o *CourierInfo) UnsetContacts() {
-	o.Contacts.Unset()
-}
-
-// GetMustBeAssigned returns the MustBeAssigned field value if set, zero value otherwise.
+// GetMustBeAssigned returns the MustBeAssigned field value
 func (o *CourierInfo) GetMustBeAssigned() bool {
-	if o == nil || IsNil(o.MustBeAssigned) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.MustBeAssigned
+
+	return o.MustBeAssigned
 }
 
-// GetMustBeAssignedOk returns a tuple with the MustBeAssigned field value if set, nil otherwise
+// GetMustBeAssignedOk returns a tuple with the MustBeAssigned field value
 // and a boolean to check if the value has been set.
 func (o *CourierInfo) GetMustBeAssignedOk() (*bool, bool) {
-	if o == nil || IsNil(o.MustBeAssigned) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MustBeAssigned, true
+	return &o.MustBeAssigned, true
 }
 
-// HasMustBeAssigned returns a boolean if a field has been set.
-func (o *CourierInfo) HasMustBeAssigned() bool {
-	if o != nil && !IsNil(o.MustBeAssigned) {
-		return true
-	}
-
-	return false
-}
-
-// SetMustBeAssigned gets a reference to the given bool and assigns it to the MustBeAssigned field.
+// SetMustBeAssigned sets field value
 func (o *CourierInfo) SetMustBeAssigned(v bool) {
-	o.MustBeAssigned = &v
+	o.MustBeAssigned = v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUpdatedAt returns the UpdatedAt field value
+// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *CourierInfo) GetUpdatedAt() time.Time {
-	if o == nil || IsNil(o.UpdatedAt.Get()) {
+	if o == nil || o.UpdatedAt.Get() == nil {
 		var ret time.Time
 		return ret
 	}
+
 	return *o.UpdatedAt.Get()
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CourierInfo) GetUpdatedAtOk() (*time.Time, bool) {
@@ -138,27 +123,9 @@ func (o *CourierInfo) GetUpdatedAtOk() (*time.Time, bool) {
 	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
-// HasUpdatedAt returns a boolean if a field has been set.
-func (o *CourierInfo) HasUpdatedAt() bool {
-	if o != nil && o.UpdatedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUpdatedAt gets a reference to the given NullableTime and assigns it to the UpdatedAt field.
+// SetUpdatedAt sets field value
 func (o *CourierInfo) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
-}
-// SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
-func (o *CourierInfo) SetUpdatedAtNil() {
-	o.UpdatedAt.Set(nil)
-}
-
-// UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
-func (o *CourierInfo) UnsetUpdatedAt() {
-	o.UpdatedAt.Unset()
 }
 
 func (o CourierInfo) MarshalJSON() ([]byte, error) {
@@ -171,16 +138,49 @@ func (o CourierInfo) MarshalJSON() ([]byte, error) {
 
 func (o CourierInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Contacts.IsSet() {
-		toSerialize["contacts"] = o.Contacts.Get()
-	}
-	if !IsNil(o.MustBeAssigned) {
-		toSerialize["mustBeAssigned"] = o.MustBeAssigned
-	}
-	if o.UpdatedAt.IsSet() {
-		toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	}
+	toSerialize["contacts"] = o.Contacts.Get()
+	toSerialize["mustBeAssigned"] = o.MustBeAssigned
+	toSerialize["updatedAt"] = o.UpdatedAt.Get()
 	return toSerialize, nil
+}
+
+func (o *CourierInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"contacts",
+		"mustBeAssigned",
+		"updatedAt",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCourierInfo := _CourierInfo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCourierInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CourierInfo(varCourierInfo)
+
+	return err
 }
 
 type NullableCourierInfo struct {

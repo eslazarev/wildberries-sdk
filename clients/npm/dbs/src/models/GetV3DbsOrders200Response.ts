@@ -30,17 +30,19 @@ export interface GetV3DbsOrders200Response {
     /**
      * Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
      */
-    next?: number;
+    next: number;
     /**
      * 
      */
-    orders?: Array<OrderDBS>;
+    orders: Array<OrderDBS>;
 }
 
 /**
  * Check if a given object implements the GetV3DbsOrders200Response interface.
  */
 export function instanceOfGetV3DbsOrders200Response(value: object): value is GetV3DbsOrders200Response {
+    if (!('next' in value) || value['next'] === undefined) return false;
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -54,8 +56,8 @@ export function GetV3DbsOrders200ResponseFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'next': json['next'] == null ? undefined : json['next'],
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(OrderDBSFromJSON)),
+        'next': json['next'],
+        'orders': ((json['orders'] as Array<any>).map(OrderDBSFromJSON)),
     };
 }
 
@@ -71,7 +73,7 @@ export function GetV3DbsOrders200ResponseToJSONTyped(value?: GetV3DbsOrders200Re
     return {
         
         'next': value['next'],
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(OrderDBSToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(OrderDBSToJSON)),
     };
 }
 

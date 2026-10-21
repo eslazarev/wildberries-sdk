@@ -30,25 +30,29 @@ export interface ApiOrderStatusV2 {
     /**
      * Информация об ошибке
      */
-    errors?: Array<ApiBatchErrorResponse>;
+    errors: Array<ApiBatchErrorResponse>;
     /**
      * ID сборочного задания
      */
-    orderId?: number;
+    orderId: number;
     /**
      * Статус сборочного задания, установленный продавцом
      */
-    supplierStatus?: string;
+    supplierStatus: string;
     /**
      * Статус сборочного задания в системе Wildberries
      */
-    wbStatus?: string;
+    wbStatus: string;
 }
 
 /**
  * Check if a given object implements the ApiOrderStatusV2 interface.
  */
 export function instanceOfApiOrderStatusV2(value: object): value is ApiOrderStatusV2 {
+    if (!('errors' in value) || value['errors'] === undefined) return false;
+    if (!('orderId' in value) || value['orderId'] === undefined) return false;
+    if (!('supplierStatus' in value) || value['supplierStatus'] === undefined) return false;
+    if (!('wbStatus' in value) || value['wbStatus'] === undefined) return false;
     return true;
 }
 
@@ -62,10 +66,10 @@ export function ApiOrderStatusV2FromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'errors': json['errors'] == null ? undefined : ((json['errors'] as Array<any>).map(ApiBatchErrorResponseFromJSON)),
-        'orderId': json['orderId'] == null ? undefined : json['orderId'],
-        'supplierStatus': json['supplierStatus'] == null ? undefined : json['supplierStatus'],
-        'wbStatus': json['wbStatus'] == null ? undefined : json['wbStatus'],
+        'errors': ((json['errors'] as Array<any>).map(ApiBatchErrorResponseFromJSON)),
+        'orderId': json['orderId'],
+        'supplierStatus': json['supplierStatus'],
+        'wbStatus': json['wbStatus'],
     };
 }
 
@@ -80,7 +84,7 @@ export function ApiOrderStatusV2ToJSONTyped(value?: ApiOrderStatusV2 | null, ign
 
     return {
         
-        'errors': value['errors'] == null ? undefined : ((value['errors'] as Array<any>).map(ApiBatchErrorResponseToJSON)),
+        'errors': ((value['errors'] as Array<any>).map(ApiBatchErrorResponseToJSON)),
         'orderId': value['orderId'],
         'supplierStatus': value['supplierStatus'],
         'wbStatus': value['wbStatus'],

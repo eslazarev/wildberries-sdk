@@ -35,7 +35,7 @@ use \Wildberries\Sdk\Items\ObjectSerializer;
  * PostV2GetCardsTrashRequestSettingsSort Class Doc Comment
  *
  * @category Class
- * @description Параметр сортировки
+ * @description Сортировка по дате и времени помещения карточек товаров в корзину &#x60;trashedAt&#x60;
  * @package  Wildberries\Sdk\Items
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -303,7 +303,7 @@ class PostV2GetCardsTrashRequestSettingsSort implements ModelInterface, ArrayAcc
     /**
      * Sets ascending
      *
-     * @param bool|null $ascending Сортировать по `trashedAt`:   - `false` — по убыванию   - `true` — по возрастанию
+     * @param bool|null $ascending Порядок сортировки:   - `false` — по убыванию   - `true` — по возрастанию
      *
      * @return self
      */

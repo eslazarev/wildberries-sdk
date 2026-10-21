@@ -14,13 +14,13 @@
 
 import { mapValues } from '../runtime';
 /**
- * Параметр сортировки
+ * Сортировка по дате и времени помещения карточек товаров в корзину `trashedAt`
  * @export
  * @interface PostV2GetCardsTrashRequestSettingsSort
  */
 export interface PostV2GetCardsTrashRequestSettingsSort {
     /**
-     * Сортировать по `trashedAt`:
+     * Порядок сортировки:
      *   - `false` — по убыванию
      *   - `true` — по возрастанию
      * 

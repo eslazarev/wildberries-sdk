@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV3DbsOrders200Response type satisfies the MappedNullable interface at compile time
@@ -20,16 +22,20 @@ var _ MappedNullable = &GetV3DbsOrders200Response{}
 // GetV3DbsOrders200Response struct for GetV3DbsOrders200Response
 type GetV3DbsOrders200Response struct {
 	// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-	Next *int64 `json:"next,omitempty"`
-	Orders []OrderDBS `json:"orders,omitempty"`
+	Next int64 `json:"next"`
+	Orders []OrderDBS `json:"orders"`
 }
+
+type _GetV3DbsOrders200Response GetV3DbsOrders200Response
 
 // NewGetV3DbsOrders200Response instantiates a new GetV3DbsOrders200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV3DbsOrders200Response() *GetV3DbsOrders200Response {
+func NewGetV3DbsOrders200Response(next int64, orders []OrderDBS) *GetV3DbsOrders200Response {
 	this := GetV3DbsOrders200Response{}
+	this.Next = next
+	this.Orders = orders
 	return &this
 }
 
@@ -41,66 +47,50 @@ func NewGetV3DbsOrders200ResponseWithDefaults() *GetV3DbsOrders200Response {
 	return &this
 }
 
-// GetNext returns the Next field value if set, zero value otherwise.
+// GetNext returns the Next field value
 func (o *GetV3DbsOrders200Response) GetNext() int64 {
-	if o == nil || IsNil(o.Next) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Next
+
+	return o.Next
 }
 
-// GetNextOk returns a tuple with the Next field value if set, nil otherwise
+// GetNextOk returns a tuple with the Next field value
 // and a boolean to check if the value has been set.
 func (o *GetV3DbsOrders200Response) GetNextOk() (*int64, bool) {
-	if o == nil || IsNil(o.Next) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Next, true
+	return &o.Next, true
 }
 
-// HasNext returns a boolean if a field has been set.
-func (o *GetV3DbsOrders200Response) HasNext() bool {
-	if o != nil && !IsNil(o.Next) {
-		return true
-	}
-
-	return false
-}
-
-// SetNext gets a reference to the given int64 and assigns it to the Next field.
+// SetNext sets field value
 func (o *GetV3DbsOrders200Response) SetNext(v int64) {
-	o.Next = &v
+	o.Next = v
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise.
+// GetOrders returns the Orders field value
 func (o *GetV3DbsOrders200Response) GetOrders() []OrderDBS {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		var ret []OrderDBS
 		return ret
 	}
+
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
+// GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
 func (o *GetV3DbsOrders200Response) GetOrdersOk() ([]OrderDBS, bool) {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Orders, true
 }
 
-// HasOrders returns a boolean if a field has been set.
-func (o *GetV3DbsOrders200Response) HasOrders() bool {
-	if o != nil && !IsNil(o.Orders) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrders gets a reference to the given []OrderDBS and assigns it to the Orders field.
+// SetOrders sets field value
 func (o *GetV3DbsOrders200Response) SetOrders(v []OrderDBS) {
 	o.Orders = v
 }
@@ -115,13 +105,47 @@ func (o GetV3DbsOrders200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetV3DbsOrders200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Next) {
-		toSerialize["next"] = o.Next
-	}
-	if !IsNil(o.Orders) {
-		toSerialize["orders"] = o.Orders
-	}
+	toSerialize["next"] = o.Next
+	toSerialize["orders"] = o.Orders
 	return toSerialize, nil
+}
+
+func (o *GetV3DbsOrders200Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"next",
+		"orders",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV3DbsOrders200Response := _GetV3DbsOrders200Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV3DbsOrders200Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV3DbsOrders200Response(varGetV3DbsOrders200Response)
+
+	return err
 }
 
 type NullableGetV3DbsOrders200Response struct {

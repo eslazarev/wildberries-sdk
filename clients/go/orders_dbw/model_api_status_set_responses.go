@@ -22,7 +22,7 @@ var _ MappedNullable = &ApiStatusSetResponses{}
 // ApiStatusSetResponses struct for ApiStatusSetResponses
 type ApiStatusSetResponses struct {
 	// Уникальный ID запроса, содержащего ошибки.
-	RequestId *string `json:"requestId,omitempty"`
+	RequestId string `json:"requestId"`
 	Results []ApiStatusSetResponse `json:"results"`
 }
 
@@ -32,8 +32,9 @@ type _ApiStatusSetResponses ApiStatusSetResponses
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiStatusSetResponses(results []ApiStatusSetResponse) *ApiStatusSetResponses {
+func NewApiStatusSetResponses(requestId string, results []ApiStatusSetResponse) *ApiStatusSetResponses {
 	this := ApiStatusSetResponses{}
+	this.RequestId = requestId
 	this.Results = results
 	return &this
 }
@@ -46,36 +47,28 @@ func NewApiStatusSetResponsesWithDefaults() *ApiStatusSetResponses {
 	return &this
 }
 
-// GetRequestId returns the RequestId field value if set, zero value otherwise.
+// GetRequestId returns the RequestId field value
 func (o *ApiStatusSetResponses) GetRequestId() string {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RequestId
+
+	return o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
+// GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *ApiStatusSetResponses) GetRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RequestId, true
+	return &o.RequestId, true
 }
 
-// HasRequestId returns a boolean if a field has been set.
-func (o *ApiStatusSetResponses) HasRequestId() bool {
-	if o != nil && !IsNil(o.RequestId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+// SetRequestId sets field value
 func (o *ApiStatusSetResponses) SetRequestId(v string) {
-	o.RequestId = &v
+	o.RequestId = v
 }
 
 // GetResults returns the Results field value
@@ -112,9 +105,7 @@ func (o ApiStatusSetResponses) MarshalJSON() ([]byte, error) {
 
 func (o ApiStatusSetResponses) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.RequestId) {
-		toSerialize["requestId"] = o.RequestId
-	}
+	toSerialize["requestId"] = o.RequestId
 	toSerialize["results"] = o.Results
 	return toSerialize, nil
 }
@@ -124,6 +115,7 @@ func (o *ApiStatusSetResponses) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"requestId",
 		"results",
 	}
 

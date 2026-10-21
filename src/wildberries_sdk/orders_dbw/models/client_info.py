@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,14 +27,14 @@ class ClientInfo(BaseModel):
     """
     ClientInfo
     """ # noqa: E501
-    replacement_phone: Optional[StrictStr] = Field(default=None, description="Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен ", alias="replacementPhone", json_schema_extra={"examples": ["79871234567"]})
-    phone: Optional[StrictStr] = Field(default=None, description="Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду ", json_schema_extra={"examples": ["+79871234567"]})
-    first_name: Optional[StrictStr] = Field(default=None, description="Имя покупателя", alias="firstName", json_schema_extra={"examples": ["Иван"]})
-    full_name: Optional[StrictStr] = Field(default=None, description="Полное имя покупателя, используется для оформления документов", alias="fullName", json_schema_extra={"examples": ["Иванов Иван Иванович"]})
-    additional_phones: Optional[List[StrictStr]] = Field(default=None, description="Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан ", alias="additionalPhones")
-    additional_phone_codes: Optional[List[StrictInt]] = Field(default=None, description="Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение указывает, коды ещё не назначены ", alias="additionalPhoneCodes", json_schema_extra={"examples": [[12345]]})
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [1345678910]})
-    phone_code: Optional[StrictInt] = Field(default=None, description="Добавочный код. <br> Используйте, чтобы связаться с покупателем по номеру из `phone`.<br> Если код не указан, вы можете связаться с покупателем без кода ", alias="phoneCode", json_schema_extra={"examples": [0]})
+    replacement_phone: StrictStr = Field(description="Подменный номер для связи с покупателем. <br> Пустое значение `\"\"` указывает, что номер ещё не назначен ", alias="replacementPhone", json_schema_extra={"examples": ["79871234567"]})
+    phone: StrictStr = Field(description="Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду ", json_schema_extra={"examples": ["+79871234567"]})
+    first_name: StrictStr = Field(description="Имя покупателя", alias="firstName", json_schema_extra={"examples": ["Иван"]})
+    full_name: StrictStr = Field(description="Полное имя покупателя, используется для оформления документов", alias="fullName", json_schema_extra={"examples": ["Иванов Иван Иванович"]})
+    additional_phones: List[StrictStr] = Field(description="Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан ", alias="additionalPhones")
+    additional_phone_codes: List[StrictInt] = Field(description="Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение указывает, коды ещё не назначены ", alias="additionalPhoneCodes", json_schema_extra={"examples": [[12345]]})
+    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [1345678910]})
+    phone_code: StrictInt = Field(description="Добавочный код. <br> Используйте, чтобы связаться с покупателем по номеру из `phone`.<br> Если код не указан, вы можете связаться с покупателем без кода ", alias="phoneCode", json_schema_extra={"examples": [0]})
     __properties: ClassVar[List[str]] = ["replacementPhone", "phone", "firstName", "fullName", "additionalPhones", "additionalPhoneCodes", "orderId", "phoneCode"]
 
     model_config = ConfigDict(

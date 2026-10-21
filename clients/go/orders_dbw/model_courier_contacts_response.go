@@ -13,6 +13,8 @@ package orders_dbw
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CourierContactsResponse type satisfies the MappedNullable interface at compile time
@@ -21,23 +23,28 @@ var _ MappedNullable = &CourierContactsResponse{}
 // CourierContactsResponse struct for CourierContactsResponse
 type CourierContactsResponse struct {
 	// Номер автомобиля
-	CarNumber *string `json:"carNumber,omitempty"`
+	CarNumber string `json:"carNumber"`
 	// ФИО курьера
-	FullName *string `json:"fullName,omitempty"`
+	FullName string `json:"fullName"`
 	// Номер телефона
-	Phone *string `json:"phone,omitempty"`
+	Phone string `json:"phone"`
 	// Дата и время, с которого прибудет курьер
 	PTimeFrom NullableTime `json:"pTimeFrom,omitempty"`
 	// Дата и время, до которого прибудет курьер
 	PTimeTo NullableTime `json:"pTimeTo,omitempty"`
 }
 
+type _CourierContactsResponse CourierContactsResponse
+
 // NewCourierContactsResponse instantiates a new CourierContactsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCourierContactsResponse() *CourierContactsResponse {
+func NewCourierContactsResponse(carNumber string, fullName string, phone string) *CourierContactsResponse {
 	this := CourierContactsResponse{}
+	this.CarNumber = carNumber
+	this.FullName = fullName
+	this.Phone = phone
 	return &this
 }
 
@@ -49,100 +56,76 @@ func NewCourierContactsResponseWithDefaults() *CourierContactsResponse {
 	return &this
 }
 
-// GetCarNumber returns the CarNumber field value if set, zero value otherwise.
+// GetCarNumber returns the CarNumber field value
 func (o *CourierContactsResponse) GetCarNumber() string {
-	if o == nil || IsNil(o.CarNumber) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CarNumber
+
+	return o.CarNumber
 }
 
-// GetCarNumberOk returns a tuple with the CarNumber field value if set, nil otherwise
+// GetCarNumberOk returns a tuple with the CarNumber field value
 // and a boolean to check if the value has been set.
 func (o *CourierContactsResponse) GetCarNumberOk() (*string, bool) {
-	if o == nil || IsNil(o.CarNumber) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CarNumber, true
+	return &o.CarNumber, true
 }
 
-// HasCarNumber returns a boolean if a field has been set.
-func (o *CourierContactsResponse) HasCarNumber() bool {
-	if o != nil && !IsNil(o.CarNumber) {
-		return true
-	}
-
-	return false
-}
-
-// SetCarNumber gets a reference to the given string and assigns it to the CarNumber field.
+// SetCarNumber sets field value
 func (o *CourierContactsResponse) SetCarNumber(v string) {
-	o.CarNumber = &v
+	o.CarNumber = v
 }
 
-// GetFullName returns the FullName field value if set, zero value otherwise.
+// GetFullName returns the FullName field value
 func (o *CourierContactsResponse) GetFullName() string {
-	if o == nil || IsNil(o.FullName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FullName
+
+	return o.FullName
 }
 
-// GetFullNameOk returns a tuple with the FullName field value if set, nil otherwise
+// GetFullNameOk returns a tuple with the FullName field value
 // and a boolean to check if the value has been set.
 func (o *CourierContactsResponse) GetFullNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FullName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FullName, true
+	return &o.FullName, true
 }
 
-// HasFullName returns a boolean if a field has been set.
-func (o *CourierContactsResponse) HasFullName() bool {
-	if o != nil && !IsNil(o.FullName) {
-		return true
-	}
-
-	return false
-}
-
-// SetFullName gets a reference to the given string and assigns it to the FullName field.
+// SetFullName sets field value
 func (o *CourierContactsResponse) SetFullName(v string) {
-	o.FullName = &v
+	o.FullName = v
 }
 
-// GetPhone returns the Phone field value if set, zero value otherwise.
+// GetPhone returns the Phone field value
 func (o *CourierContactsResponse) GetPhone() string {
-	if o == nil || IsNil(o.Phone) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Phone
+
+	return o.Phone
 }
 
-// GetPhoneOk returns a tuple with the Phone field value if set, nil otherwise
+// GetPhoneOk returns a tuple with the Phone field value
 // and a boolean to check if the value has been set.
 func (o *CourierContactsResponse) GetPhoneOk() (*string, bool) {
-	if o == nil || IsNil(o.Phone) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Phone, true
+	return &o.Phone, true
 }
 
-// HasPhone returns a boolean if a field has been set.
-func (o *CourierContactsResponse) HasPhone() bool {
-	if o != nil && !IsNil(o.Phone) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhone gets a reference to the given string and assigns it to the Phone field.
+// SetPhone sets field value
 func (o *CourierContactsResponse) SetPhone(v string) {
-	o.Phone = &v
+	o.Phone = v
 }
 
 // GetPTimeFrom returns the PTimeFrom field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -239,15 +222,9 @@ func (o CourierContactsResponse) MarshalJSON() ([]byte, error) {
 
 func (o CourierContactsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CarNumber) {
-		toSerialize["carNumber"] = o.CarNumber
-	}
-	if !IsNil(o.FullName) {
-		toSerialize["fullName"] = o.FullName
-	}
-	if !IsNil(o.Phone) {
-		toSerialize["phone"] = o.Phone
-	}
+	toSerialize["carNumber"] = o.CarNumber
+	toSerialize["fullName"] = o.FullName
+	toSerialize["phone"] = o.Phone
 	if o.PTimeFrom.IsSet() {
 		toSerialize["pTimeFrom"] = o.PTimeFrom.Get()
 	}
@@ -255,6 +232,45 @@ func (o CourierContactsResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["pTimeTo"] = o.PTimeTo.Get()
 	}
 	return toSerialize, nil
+}
+
+func (o *CourierContactsResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"carNumber",
+		"fullName",
+		"phone",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCourierContactsResponse := _CourierContactsResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCourierContactsResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CourierContactsResponse(varCourierContactsResponse)
+
+	return err
 }
 
 type NullableCourierContactsResponse struct {

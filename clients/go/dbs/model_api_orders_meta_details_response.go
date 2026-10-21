@@ -24,7 +24,7 @@ type ApiOrdersMetaDetailsResponse struct {
 	// Уникальный ID запроса
 	RequestId string `json:"requestId"`
 	// Идентификаторы маркировки сборочных заданий и статусы их валидации
-	Orders []ApiOrdersMetaDetailsResponseOrdersInner `json:"orders,omitempty"`
+	Orders []ApiOrdersMetaDetailsResponseOrdersInner `json:"orders"`
 }
 
 type _ApiOrdersMetaDetailsResponse ApiOrdersMetaDetailsResponse
@@ -33,9 +33,10 @@ type _ApiOrdersMetaDetailsResponse ApiOrdersMetaDetailsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersMetaDetailsResponse(requestId string) *ApiOrdersMetaDetailsResponse {
+func NewApiOrdersMetaDetailsResponse(requestId string, orders []ApiOrdersMetaDetailsResponseOrdersInner) *ApiOrdersMetaDetailsResponse {
 	this := ApiOrdersMetaDetailsResponse{}
 	this.RequestId = requestId
+	this.Orders = orders
 	return &this
 }
 
@@ -71,34 +72,26 @@ func (o *ApiOrdersMetaDetailsResponse) SetRequestId(v string) {
 	o.RequestId = v
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise.
+// GetOrders returns the Orders field value
 func (o *ApiOrdersMetaDetailsResponse) GetOrders() []ApiOrdersMetaDetailsResponseOrdersInner {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		var ret []ApiOrdersMetaDetailsResponseOrdersInner
 		return ret
 	}
+
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
+// GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersMetaDetailsResponse) GetOrdersOk() ([]ApiOrdersMetaDetailsResponseOrdersInner, bool) {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Orders, true
 }
 
-// HasOrders returns a boolean if a field has been set.
-func (o *ApiOrdersMetaDetailsResponse) HasOrders() bool {
-	if o != nil && !IsNil(o.Orders) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrders gets a reference to the given []ApiOrdersMetaDetailsResponseOrdersInner and assigns it to the Orders field.
+// SetOrders sets field value
 func (o *ApiOrdersMetaDetailsResponse) SetOrders(v []ApiOrdersMetaDetailsResponseOrdersInner) {
 	o.Orders = v
 }
@@ -114,9 +107,7 @@ func (o ApiOrdersMetaDetailsResponse) MarshalJSON() ([]byte, error) {
 func (o ApiOrdersMetaDetailsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["requestId"] = o.RequestId
-	if !IsNil(o.Orders) {
-		toSerialize["orders"] = o.Orders
-	}
+	toSerialize["orders"] = o.Orders
 	return toSerialize, nil
 }
 
@@ -126,6 +117,7 @@ func (o *ApiOrdersMetaDetailsResponse) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"requestId",
+		"orders",
 	}
 
 	allProperties := make(map[string]interface{})

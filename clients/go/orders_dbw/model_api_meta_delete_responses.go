@@ -22,7 +22,7 @@ var _ MappedNullable = &ApiMetaDeleteResponses{}
 // ApiMetaDeleteResponses struct for ApiMetaDeleteResponses
 type ApiMetaDeleteResponses struct {
 	// Уникальный ID запроса. Отображается для ответов с ошибками
-	RequestId *string `json:"requestId,omitempty"`
+	RequestId string `json:"requestId"`
 	Results []ApiMetaDeleteResponsesResultsInner `json:"results"`
 }
 
@@ -32,8 +32,9 @@ type _ApiMetaDeleteResponses ApiMetaDeleteResponses
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiMetaDeleteResponses(results []ApiMetaDeleteResponsesResultsInner) *ApiMetaDeleteResponses {
+func NewApiMetaDeleteResponses(requestId string, results []ApiMetaDeleteResponsesResultsInner) *ApiMetaDeleteResponses {
 	this := ApiMetaDeleteResponses{}
+	this.RequestId = requestId
 	this.Results = results
 	return &this
 }
@@ -46,36 +47,28 @@ func NewApiMetaDeleteResponsesWithDefaults() *ApiMetaDeleteResponses {
 	return &this
 }
 
-// GetRequestId returns the RequestId field value if set, zero value otherwise.
+// GetRequestId returns the RequestId field value
 func (o *ApiMetaDeleteResponses) GetRequestId() string {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RequestId
+
+	return o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
+// GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *ApiMetaDeleteResponses) GetRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RequestId, true
+	return &o.RequestId, true
 }
 
-// HasRequestId returns a boolean if a field has been set.
-func (o *ApiMetaDeleteResponses) HasRequestId() bool {
-	if o != nil && !IsNil(o.RequestId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+// SetRequestId sets field value
 func (o *ApiMetaDeleteResponses) SetRequestId(v string) {
-	o.RequestId = &v
+	o.RequestId = v
 }
 
 // GetResults returns the Results field value
@@ -112,9 +105,7 @@ func (o ApiMetaDeleteResponses) MarshalJSON() ([]byte, error) {
 
 func (o ApiMetaDeleteResponses) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.RequestId) {
-		toSerialize["requestId"] = o.RequestId
-	}
+	toSerialize["requestId"] = o.RequestId
 	toSerialize["results"] = o.Results
 	return toSerialize, nil
 }
@@ -124,6 +115,7 @@ func (o *ApiMetaDeleteResponses) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"requestId",
 		"results",
 	}
 

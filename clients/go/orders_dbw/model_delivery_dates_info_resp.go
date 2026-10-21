@@ -12,6 +12,8 @@ package orders_dbw
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the DeliveryDatesInfoResp type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,18 @@ var _ MappedNullable = &DeliveryDatesInfoResp{}
 
 // DeliveryDatesInfoResp struct for DeliveryDatesInfoResp
 type DeliveryDatesInfoResp struct {
-	Orders []DeliveryDatesInfoRespOrdersInner `json:"orders,omitempty"`
+	Orders []DeliveryDatesInfoRespOrdersInner `json:"orders"`
 }
+
+type _DeliveryDatesInfoResp DeliveryDatesInfoResp
 
 // NewDeliveryDatesInfoResp instantiates a new DeliveryDatesInfoResp object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeliveryDatesInfoResp() *DeliveryDatesInfoResp {
+func NewDeliveryDatesInfoResp(orders []DeliveryDatesInfoRespOrdersInner) *DeliveryDatesInfoResp {
 	this := DeliveryDatesInfoResp{}
+	this.Orders = orders
 	return &this
 }
 
@@ -39,34 +44,26 @@ func NewDeliveryDatesInfoRespWithDefaults() *DeliveryDatesInfoResp {
 	return &this
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise.
+// GetOrders returns the Orders field value
 func (o *DeliveryDatesInfoResp) GetOrders() []DeliveryDatesInfoRespOrdersInner {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		var ret []DeliveryDatesInfoRespOrdersInner
 		return ret
 	}
+
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
+// GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
 func (o *DeliveryDatesInfoResp) GetOrdersOk() ([]DeliveryDatesInfoRespOrdersInner, bool) {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Orders, true
 }
 
-// HasOrders returns a boolean if a field has been set.
-func (o *DeliveryDatesInfoResp) HasOrders() bool {
-	if o != nil && !IsNil(o.Orders) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrders gets a reference to the given []DeliveryDatesInfoRespOrdersInner and assigns it to the Orders field.
+// SetOrders sets field value
 func (o *DeliveryDatesInfoResp) SetOrders(v []DeliveryDatesInfoRespOrdersInner) {
 	o.Orders = v
 }
@@ -81,10 +78,45 @@ func (o DeliveryDatesInfoResp) MarshalJSON() ([]byte, error) {
 
 func (o DeliveryDatesInfoResp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Orders) {
-		toSerialize["orders"] = o.Orders
-	}
+	toSerialize["orders"] = o.Orders
 	return toSerialize, nil
+}
+
+func (o *DeliveryDatesInfoResp) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"orders",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDeliveryDatesInfoResp := _DeliveryDatesInfoResp{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varDeliveryDatesInfoResp)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DeliveryDatesInfoResp(varDeliveryDatesInfoResp)
+
+	return err
 }
 
 type NullableDeliveryDatesInfoResp struct {

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.dbs.models.api_order_status_v2 import ApiOrderStatusV2
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class ApiOrderStatusesV2(BaseModel):
     """
     ApiOrderStatusesV2
     """ # noqa: E501
-    orders: Optional[List[ApiOrderStatusV2]] = Field(default=None, description="Информация о статусах")
+    orders: List[ApiOrderStatusV2] = Field(description="Информация о статусах")
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(

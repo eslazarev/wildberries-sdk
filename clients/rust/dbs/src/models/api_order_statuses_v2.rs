@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrderStatusesV2 {
     /// Информация о статусах
-    #[serde(rename = "orders", skip_serializing_if = "Option::is_none")]
-    pub orders: Option<Vec<models::ApiOrderStatusV2>>,
+    #[serde(rename = "orders")]
+    pub orders: Vec<models::ApiOrderStatusV2>,
 }
 
 impl ApiOrderStatusesV2 {
-    pub fn new() -> ApiOrderStatusesV2 {
+    pub fn new(orders: Vec<models::ApiOrderStatusV2>) -> ApiOrderStatusesV2 {
         ApiOrderStatusesV2 {
-            orders: None,
+            orders,
         }
     }
 }

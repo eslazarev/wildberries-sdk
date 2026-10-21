@@ -21,11 +21,11 @@ var _ MappedNullable = &ResponsePaidStorageInner{}
 type ResponsePaidStorageInner struct {
 	// Дата, за которую был расчёт или перерасчёт
 	Date *string `json:"date,omitempty"`
-	// Коэффициент логистики и хранения. ]На данный момент](/release-notes?id=570) может быть только `0`
+	// Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`
 	LogWarehouseCoef *float32 `json:"logWarehouseCoef,omitempty"`
-	// ID склада. ]На данный момент](/release-notes?id=570) может быть только `0`
+	// ID склада. [На данный момент](/release-notes?id=570) может быть только `0`
 	OfficeId *int32 `json:"officeId,omitempty"`
-	// Название склада. ]На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
+	// Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
 	Warehouse *string `json:"warehouse,omitempty"`
 	// Коэффициент хранения
 	WarehouseCoef *float32 `json:"warehouseCoef,omitempty"`
@@ -53,7 +53,7 @@ type ResponsePaidStorageInner struct {
 	WarehousePrice *float32 `json:"warehousePrice,omitempty"`
 	// Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
 	BarcodesCount *int32 `json:"barcodesCount,omitempty"`
-	// Код паллетоместа. ]На данный момент](/release-notes?id=570) может быть только `0`
+	// Код паллетоместа. [На данный момент](/release-notes?id=570) может быть только `0`
 	PalletPlaceCode *int32 `json:"palletPlaceCode,omitempty"`
 	// Количество паллет
 	PalletCount *float32 `json:"palletCount,omitempty"`

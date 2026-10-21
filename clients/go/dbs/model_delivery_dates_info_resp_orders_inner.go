@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the DeliveryDatesInfoRespOrdersInner type satisfies the MappedNullable interface at compile time
@@ -20,31 +22,40 @@ var _ MappedNullable = &DeliveryDatesInfoRespOrdersInner{}
 // DeliveryDatesInfoRespOrdersInner struct for DeliveryDatesInfoRespOrdersInner
 type DeliveryDatesInfoRespOrdersInner struct {
 	// Актуальное время доставки \"с\"
-	DTimeFrom NullableString `json:"dTimeFrom,omitempty"`
+	DTimeFrom NullableString `json:"dTimeFrom"`
 	// Актуальное время доставки \"по\"
-	DTimeTo NullableString `json:"dTimeTo,omitempty"`
+	DTimeTo NullableString `json:"dTimeTo"`
 	// Прежнее время доставки \"с\". Доступно первые сутки после изменения
-	DTimeFromOld NullableString `json:"dTimeFromOld,omitempty"`
+	DTimeFromOld NullableString `json:"dTimeFromOld"`
 	// Прежнее время доставки \"по\". Доступно первые сутки после изменения
-	DTimeToOld NullableString `json:"dTimeToOld,omitempty"`
+	DTimeToOld NullableString `json:"dTimeToOld"`
 	// Прежняя дата доставки. Доступна первые сутки после изменения
-	DDateOld NullableString `json:"dDateOld,omitempty"`
+	DDateOld NullableString `json:"dDateOld"`
 	// Актуальная дата доставки, указанная покупателем
-	DDate *string `json:"dDate,omitempty"`
+	DDate string `json:"dDate"`
 	// Не используется
 	DDateFrom NullableString `json:"dDateFrom,omitempty"`
 	// Не используется
 	DDateTo NullableString `json:"dDateTo,omitempty"`
 	// ID сборочного задания
-	Id *int32 `json:"id,omitempty"`
+	Id int32 `json:"id"`
 }
+
+type _DeliveryDatesInfoRespOrdersInner DeliveryDatesInfoRespOrdersInner
 
 // NewDeliveryDatesInfoRespOrdersInner instantiates a new DeliveryDatesInfoRespOrdersInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeliveryDatesInfoRespOrdersInner() *DeliveryDatesInfoRespOrdersInner {
+func NewDeliveryDatesInfoRespOrdersInner(dTimeFrom NullableString, dTimeTo NullableString, dTimeFromOld NullableString, dTimeToOld NullableString, dDateOld NullableString, dDate string, id int32) *DeliveryDatesInfoRespOrdersInner {
 	this := DeliveryDatesInfoRespOrdersInner{}
+	this.DTimeFrom = dTimeFrom
+	this.DTimeTo = dTimeTo
+	this.DTimeFromOld = dTimeFromOld
+	this.DTimeToOld = dTimeToOld
+	this.DDateOld = dDateOld
+	this.DDate = dDate
+	this.Id = id
 	return &this
 }
 
@@ -56,16 +67,18 @@ func NewDeliveryDatesInfoRespOrdersInnerWithDefaults() *DeliveryDatesInfoRespOrd
 	return &this
 }
 
-// GetDTimeFrom returns the DTimeFrom field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDTimeFrom returns the DTimeFrom field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeFrom() string {
-	if o == nil || IsNil(o.DTimeFrom.Get()) {
+	if o == nil || o.DTimeFrom.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.DTimeFrom.Get()
 }
 
-// GetDTimeFromOk returns a tuple with the DTimeFrom field value if set, nil otherwise
+// GetDTimeFromOk returns a tuple with the DTimeFrom field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeFromOk() (*string, bool) {
@@ -75,39 +88,23 @@ func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeFromOk() (*string, bool) {
 	return o.DTimeFrom.Get(), o.DTimeFrom.IsSet()
 }
 
-// HasDTimeFrom returns a boolean if a field has been set.
-func (o *DeliveryDatesInfoRespOrdersInner) HasDTimeFrom() bool {
-	if o != nil && o.DTimeFrom.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDTimeFrom gets a reference to the given NullableString and assigns it to the DTimeFrom field.
+// SetDTimeFrom sets field value
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeFrom(v string) {
 	o.DTimeFrom.Set(&v)
 }
-// SetDTimeFromNil sets the value for DTimeFrom to be an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeFromNil() {
-	o.DTimeFrom.Set(nil)
-}
 
-// UnsetDTimeFrom ensures that no value is present for DTimeFrom, not even an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) UnsetDTimeFrom() {
-	o.DTimeFrom.Unset()
-}
-
-// GetDTimeTo returns the DTimeTo field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDTimeTo returns the DTimeTo field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeTo() string {
-	if o == nil || IsNil(o.DTimeTo.Get()) {
+	if o == nil || o.DTimeTo.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.DTimeTo.Get()
 }
 
-// GetDTimeToOk returns a tuple with the DTimeTo field value if set, nil otherwise
+// GetDTimeToOk returns a tuple with the DTimeTo field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeToOk() (*string, bool) {
@@ -117,39 +114,23 @@ func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeToOk() (*string, bool) {
 	return o.DTimeTo.Get(), o.DTimeTo.IsSet()
 }
 
-// HasDTimeTo returns a boolean if a field has been set.
-func (o *DeliveryDatesInfoRespOrdersInner) HasDTimeTo() bool {
-	if o != nil && o.DTimeTo.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDTimeTo gets a reference to the given NullableString and assigns it to the DTimeTo field.
+// SetDTimeTo sets field value
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeTo(v string) {
 	o.DTimeTo.Set(&v)
 }
-// SetDTimeToNil sets the value for DTimeTo to be an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeToNil() {
-	o.DTimeTo.Set(nil)
-}
 
-// UnsetDTimeTo ensures that no value is present for DTimeTo, not even an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) UnsetDTimeTo() {
-	o.DTimeTo.Unset()
-}
-
-// GetDTimeFromOld returns the DTimeFromOld field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDTimeFromOld returns the DTimeFromOld field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeFromOld() string {
-	if o == nil || IsNil(o.DTimeFromOld.Get()) {
+	if o == nil || o.DTimeFromOld.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.DTimeFromOld.Get()
 }
 
-// GetDTimeFromOldOk returns a tuple with the DTimeFromOld field value if set, nil otherwise
+// GetDTimeFromOldOk returns a tuple with the DTimeFromOld field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeFromOldOk() (*string, bool) {
@@ -159,39 +140,23 @@ func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeFromOldOk() (*string, bool) {
 	return o.DTimeFromOld.Get(), o.DTimeFromOld.IsSet()
 }
 
-// HasDTimeFromOld returns a boolean if a field has been set.
-func (o *DeliveryDatesInfoRespOrdersInner) HasDTimeFromOld() bool {
-	if o != nil && o.DTimeFromOld.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDTimeFromOld gets a reference to the given NullableString and assigns it to the DTimeFromOld field.
+// SetDTimeFromOld sets field value
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeFromOld(v string) {
 	o.DTimeFromOld.Set(&v)
 }
-// SetDTimeFromOldNil sets the value for DTimeFromOld to be an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeFromOldNil() {
-	o.DTimeFromOld.Set(nil)
-}
 
-// UnsetDTimeFromOld ensures that no value is present for DTimeFromOld, not even an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) UnsetDTimeFromOld() {
-	o.DTimeFromOld.Unset()
-}
-
-// GetDTimeToOld returns the DTimeToOld field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDTimeToOld returns the DTimeToOld field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeToOld() string {
-	if o == nil || IsNil(o.DTimeToOld.Get()) {
+	if o == nil || o.DTimeToOld.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.DTimeToOld.Get()
 }
 
-// GetDTimeToOldOk returns a tuple with the DTimeToOld field value if set, nil otherwise
+// GetDTimeToOldOk returns a tuple with the DTimeToOld field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeToOldOk() (*string, bool) {
@@ -201,39 +166,23 @@ func (o *DeliveryDatesInfoRespOrdersInner) GetDTimeToOldOk() (*string, bool) {
 	return o.DTimeToOld.Get(), o.DTimeToOld.IsSet()
 }
 
-// HasDTimeToOld returns a boolean if a field has been set.
-func (o *DeliveryDatesInfoRespOrdersInner) HasDTimeToOld() bool {
-	if o != nil && o.DTimeToOld.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDTimeToOld gets a reference to the given NullableString and assigns it to the DTimeToOld field.
+// SetDTimeToOld sets field value
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeToOld(v string) {
 	o.DTimeToOld.Set(&v)
 }
-// SetDTimeToOldNil sets the value for DTimeToOld to be an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeToOldNil() {
-	o.DTimeToOld.Set(nil)
-}
 
-// UnsetDTimeToOld ensures that no value is present for DTimeToOld, not even an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) UnsetDTimeToOld() {
-	o.DTimeToOld.Unset()
-}
-
-// GetDDateOld returns the DDateOld field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDDateOld returns the DDateOld field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDDateOld() string {
-	if o == nil || IsNil(o.DDateOld.Get()) {
+	if o == nil || o.DDateOld.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.DDateOld.Get()
 }
 
-// GetDDateOldOk returns a tuple with the DDateOld field value if set, nil otherwise
+// GetDDateOldOk returns a tuple with the DDateOld field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeliveryDatesInfoRespOrdersInner) GetDDateOldOk() (*string, bool) {
@@ -243,59 +192,33 @@ func (o *DeliveryDatesInfoRespOrdersInner) GetDDateOldOk() (*string, bool) {
 	return o.DDateOld.Get(), o.DDateOld.IsSet()
 }
 
-// HasDDateOld returns a boolean if a field has been set.
-func (o *DeliveryDatesInfoRespOrdersInner) HasDDateOld() bool {
-	if o != nil && o.DDateOld.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDDateOld gets a reference to the given NullableString and assigns it to the DDateOld field.
+// SetDDateOld sets field value
 func (o *DeliveryDatesInfoRespOrdersInner) SetDDateOld(v string) {
 	o.DDateOld.Set(&v)
 }
-// SetDDateOldNil sets the value for DDateOld to be an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) SetDDateOldNil() {
-	o.DDateOld.Set(nil)
-}
 
-// UnsetDDateOld ensures that no value is present for DDateOld, not even an explicit nil
-func (o *DeliveryDatesInfoRespOrdersInner) UnsetDDateOld() {
-	o.DDateOld.Unset()
-}
-
-// GetDDate returns the DDate field value if set, zero value otherwise.
+// GetDDate returns the DDate field value
 func (o *DeliveryDatesInfoRespOrdersInner) GetDDate() string {
-	if o == nil || IsNil(o.DDate) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DDate
+
+	return o.DDate
 }
 
-// GetDDateOk returns a tuple with the DDate field value if set, nil otherwise
+// GetDDateOk returns a tuple with the DDate field value
 // and a boolean to check if the value has been set.
 func (o *DeliveryDatesInfoRespOrdersInner) GetDDateOk() (*string, bool) {
-	if o == nil || IsNil(o.DDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DDate, true
+	return &o.DDate, true
 }
 
-// HasDDate returns a boolean if a field has been set.
-func (o *DeliveryDatesInfoRespOrdersInner) HasDDate() bool {
-	if o != nil && !IsNil(o.DDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetDDate gets a reference to the given string and assigns it to the DDate field.
+// SetDDate sets field value
 func (o *DeliveryDatesInfoRespOrdersInner) SetDDate(v string) {
-	o.DDate = &v
+	o.DDate = v
 }
 
 // GetDDateFrom returns the DDateFrom field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -382,36 +305,28 @@ func (o *DeliveryDatesInfoRespOrdersInner) UnsetDDateTo() {
 	o.DDateTo.Unset()
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *DeliveryDatesInfoRespOrdersInner) GetId() int32 {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *DeliveryDatesInfoRespOrdersInner) GetIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *DeliveryDatesInfoRespOrdersInner) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given int32 and assigns it to the Id field.
+// SetId sets field value
 func (o *DeliveryDatesInfoRespOrdersInner) SetId(v int32) {
-	o.Id = &v
+	o.Id = v
 }
 
 func (o DeliveryDatesInfoRespOrdersInner) MarshalJSON() ([]byte, error) {
@@ -424,34 +339,63 @@ func (o DeliveryDatesInfoRespOrdersInner) MarshalJSON() ([]byte, error) {
 
 func (o DeliveryDatesInfoRespOrdersInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DTimeFrom.IsSet() {
-		toSerialize["dTimeFrom"] = o.DTimeFrom.Get()
-	}
-	if o.DTimeTo.IsSet() {
-		toSerialize["dTimeTo"] = o.DTimeTo.Get()
-	}
-	if o.DTimeFromOld.IsSet() {
-		toSerialize["dTimeFromOld"] = o.DTimeFromOld.Get()
-	}
-	if o.DTimeToOld.IsSet() {
-		toSerialize["dTimeToOld"] = o.DTimeToOld.Get()
-	}
-	if o.DDateOld.IsSet() {
-		toSerialize["dDateOld"] = o.DDateOld.Get()
-	}
-	if !IsNil(o.DDate) {
-		toSerialize["dDate"] = o.DDate
-	}
+	toSerialize["dTimeFrom"] = o.DTimeFrom.Get()
+	toSerialize["dTimeTo"] = o.DTimeTo.Get()
+	toSerialize["dTimeFromOld"] = o.DTimeFromOld.Get()
+	toSerialize["dTimeToOld"] = o.DTimeToOld.Get()
+	toSerialize["dDateOld"] = o.DDateOld.Get()
+	toSerialize["dDate"] = o.DDate
 	if o.DDateFrom.IsSet() {
 		toSerialize["dDateFrom"] = o.DDateFrom.Get()
 	}
 	if o.DDateTo.IsSet() {
 		toSerialize["dDateTo"] = o.DDateTo.Get()
 	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	return toSerialize, nil
+}
+
+func (o *DeliveryDatesInfoRespOrdersInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"dTimeFrom",
+		"dTimeTo",
+		"dTimeFromOld",
+		"dTimeToOld",
+		"dDateOld",
+		"dDate",
+		"id",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDeliveryDatesInfoRespOrdersInner := _DeliveryDatesInfoRespOrdersInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varDeliveryDatesInfoRespOrdersInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DeliveryDatesInfoRespOrdersInner(varDeliveryDatesInfoRespOrdersInner)
+
+	return err
 }
 
 type NullableDeliveryDatesInfoRespOrdersInner struct {

@@ -62,8 +62,8 @@ class DefaultApi:
     @validate_call
     def get_v1_acceptance_report(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -81,9 +81,9 @@ class DefaultApi:
 
         Метод создаёт [задание на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -138,8 +138,8 @@ class DefaultApi:
     @validate_call
     def get_v1_acceptance_report_with_http_info(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -157,9 +157,9 @@ class DefaultApi:
 
         Метод создаёт [задание на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -214,8 +214,8 @@ class DefaultApi:
     @validate_call
     def get_v1_acceptance_report_without_preload_content(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -233,9 +233,9 @@ class DefaultApi:
 
         Метод создаёт [задание на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -927,7 +927,7 @@ class DefaultApi:
     @validate_call
     def get_v1_analytics_antifraud_details(
         self,
-        var_date: Annotated[Optional[StrictStr], Field(description="Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`. <br/> Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр ")] = None,
+        var_date: Annotated[Optional[StrictStr], Field(description="Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.<br>Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -945,7 +945,7 @@ class DefaultApi:
 
         Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.<br><br>  Удержание за самовыкуп — 30% от стоимости товаров.<br>Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.<br><br>  Данные доступны с августа 2023.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param var_date: Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`. <br/> Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр 
+        :param var_date: Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.<br>Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр
         :type var_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -999,7 +999,7 @@ class DefaultApi:
     @validate_call
     def get_v1_analytics_antifraud_details_with_http_info(
         self,
-        var_date: Annotated[Optional[StrictStr], Field(description="Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`. <br/> Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр ")] = None,
+        var_date: Annotated[Optional[StrictStr], Field(description="Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.<br>Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1017,7 +1017,7 @@ class DefaultApi:
 
         Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.<br><br>  Удержание за самовыкуп — 30% от стоимости товаров.<br>Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.<br><br>  Данные доступны с августа 2023.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param var_date: Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`. <br/> Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр 
+        :param var_date: Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.<br>Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр
         :type var_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1071,7 +1071,7 @@ class DefaultApi:
     @validate_call
     def get_v1_analytics_antifraud_details_without_preload_content(
         self,
-        var_date: Annotated[Optional[StrictStr], Field(description="Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`. <br/> Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр ")] = None,
+        var_date: Annotated[Optional[StrictStr], Field(description="Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.<br>Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1089,7 +1089,7 @@ class DefaultApi:
 
         Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.<br><br>  Удержание за самовыкуп — 30% от стоимости товаров.<br>Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.<br><br>  Данные доступны с августа 2023.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param var_date: Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`. <br/> Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр 
+        :param var_date: Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.<br>Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр
         :type var_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1510,8 +1510,8 @@ class DefaultApi:
         self,
         parent_id: Annotated[StrictInt, Field(description="ID родительской категории")],
         brand: Annotated[StrictStr, Field(description="Бренд")],
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1533,9 +1533,9 @@ class DefaultApi:
         :type parent_id: int
         :param brand: Бренд (required)
         :type brand: str
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1594,8 +1594,8 @@ class DefaultApi:
         self,
         parent_id: Annotated[StrictInt, Field(description="ID родительской категории")],
         brand: Annotated[StrictStr, Field(description="Бренд")],
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1617,9 +1617,9 @@ class DefaultApi:
         :type parent_id: int
         :param brand: Бренд (required)
         :type brand: str
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1678,8 +1678,8 @@ class DefaultApi:
         self,
         parent_id: Annotated[StrictInt, Field(description="ID родительской категории")],
         brand: Annotated[StrictStr, Field(description="Бренд")],
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1701,9 +1701,9 @@ class DefaultApi:
         :type parent_id: int
         :param brand: Бренд (required)
         :type brand: str
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2104,8 +2104,8 @@ class DefaultApi:
     def get_v1_analytics_brand_share_parent_subjects(
         self,
         brand: Annotated[StrictStr, Field(description="Бренд")],
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         locale: Annotated[Optional[StrictStr], Field(description="Язык поля ответа `parentName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
         _request_timeout: Union[
             None,
@@ -2126,9 +2126,9 @@ class DefaultApi:
 
         :param brand: Бренд (required)
         :type brand: str
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param locale: Язык поля ответа `parentName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -2188,8 +2188,8 @@ class DefaultApi:
     def get_v1_analytics_brand_share_parent_subjects_with_http_info(
         self,
         brand: Annotated[StrictStr, Field(description="Бренд")],
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         locale: Annotated[Optional[StrictStr], Field(description="Язык поля ответа `parentName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
         _request_timeout: Union[
             None,
@@ -2210,9 +2210,9 @@ class DefaultApi:
 
         :param brand: Бренд (required)
         :type brand: str
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param locale: Язык поля ответа `parentName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -2272,8 +2272,8 @@ class DefaultApi:
     def get_v1_analytics_brand_share_parent_subjects_without_preload_content(
         self,
         brand: Annotated[StrictStr, Field(description="Бренд")],
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         locale: Annotated[Optional[StrictStr], Field(description="Язык поля ответа `parentName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
         _request_timeout: Union[
             None,
@@ -2294,9 +2294,9 @@ class DefaultApi:
 
         :param brand: Бренд (required)
         :type brand: str
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param locale: Язык поля ответа `parentName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -2436,8 +2436,8 @@ class DefaultApi:
     @validate_call
     def get_v1_analytics_goods_labeling(
         self,
-        date_from: Annotated[date, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[date, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[date, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[date, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2455,9 +2455,9 @@ class DefaultApi:
 
         Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.<br>  В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.<br><br>  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: date
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: date
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2512,8 +2512,8 @@ class DefaultApi:
     @validate_call
     def get_v1_analytics_goods_labeling_with_http_info(
         self,
-        date_from: Annotated[date, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[date, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[date, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[date, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2531,9 +2531,9 @@ class DefaultApi:
 
         Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.<br>  В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.<br><br>  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: date
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: date
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2588,8 +2588,8 @@ class DefaultApi:
     @validate_call
     def get_v1_analytics_goods_labeling_without_preload_content(
         self,
-        date_from: Annotated[date, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[date, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[date, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[date, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2607,9 +2607,9 @@ class DefaultApi:
 
         Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.<br>  В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.<br><br>  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: date
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: date
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3073,8 +3073,8 @@ class DefaultApi:
     @validate_call
     def get_v1_analytics_region_sale(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3092,9 +3092,9 @@ class DefaultApi:
 
         Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3150,8 +3150,8 @@ class DefaultApi:
     @validate_call
     def get_v1_analytics_region_sale_with_http_info(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3169,9 +3169,9 @@ class DefaultApi:
 
         Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3227,8 +3227,8 @@ class DefaultApi:
     @validate_call
     def get_v1_analytics_region_sale_without_preload_content(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3246,9 +3246,9 @@ class DefaultApi:
 
         Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5342,7 +5342,7 @@ class DefaultApi:
     def get_v1_supplier_orders(
         self,
         date_from: Annotated[StrictStr, Field(description="Дата и время последнего изменения по заказу. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00` ")],
-        flag: Annotated[Optional[StrictInt], Field(description="Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. ")] = None,
+        flag: Annotated[Optional[StrictInt], Field(description="Чтобы получить заказы с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить заказы с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату `dateFrom`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5362,7 +5362,7 @@ class DefaultApi:
 
         :param date_from: Дата и время последнего изменения по заказу. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
         :type date_from: str
-        :param flag: Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. 
+        :param flag: Чтобы получить заказы с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить заказы с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату `dateFrom`
         :type flag: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5418,7 +5418,7 @@ class DefaultApi:
     def get_v1_supplier_orders_with_http_info(
         self,
         date_from: Annotated[StrictStr, Field(description="Дата и время последнего изменения по заказу. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00` ")],
-        flag: Annotated[Optional[StrictInt], Field(description="Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. ")] = None,
+        flag: Annotated[Optional[StrictInt], Field(description="Чтобы получить заказы с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить заказы с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату `dateFrom`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5438,7 +5438,7 @@ class DefaultApi:
 
         :param date_from: Дата и время последнего изменения по заказу. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
         :type date_from: str
-        :param flag: Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. 
+        :param flag: Чтобы получить заказы с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить заказы с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату `dateFrom`
         :type flag: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5494,7 +5494,7 @@ class DefaultApi:
     def get_v1_supplier_orders_without_preload_content(
         self,
         date_from: Annotated[StrictStr, Field(description="Дата и время последнего изменения по заказу. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00` ")],
-        flag: Annotated[Optional[StrictInt], Field(description="Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. ")] = None,
+        flag: Annotated[Optional[StrictInt], Field(description="Чтобы получить заказы с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить заказы с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату `dateFrom`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5514,7 +5514,7 @@ class DefaultApi:
 
         :param date_from: Дата и время последнего изменения по заказу. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
         :type date_from: str
-        :param flag: Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. 
+        :param flag: Чтобы получить заказы с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить заказы с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату `dateFrom`
         :type flag: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5642,7 +5642,7 @@ class DefaultApi:
     def get_v1_supplier_sales(
         self,
         date_from: Annotated[StrictStr, Field(description="Дата и время последнего изменения по продаже/возврату. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00` ")],
-        flag: Annotated[Optional[StrictInt], Field(description="Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. ")] = None,
+        flag: Annotated[Optional[StrictInt], Field(description="Чтобы получить продажи с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить продажи с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату `dateFrom`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5662,7 +5662,7 @@ class DefaultApi:
 
         :param date_from: Дата и время последнего изменения по продаже/возврату. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
         :type date_from: str
-        :param flag: Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. 
+        :param flag: Чтобы получить продажи с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить продажи с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату `dateFrom`
         :type flag: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5718,7 +5718,7 @@ class DefaultApi:
     def get_v1_supplier_sales_with_http_info(
         self,
         date_from: Annotated[StrictStr, Field(description="Дата и время последнего изменения по продаже/возврату. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00` ")],
-        flag: Annotated[Optional[StrictInt], Field(description="Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. ")] = None,
+        flag: Annotated[Optional[StrictInt], Field(description="Чтобы получить продажи с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить продажи с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату `dateFrom`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5738,7 +5738,7 @@ class DefaultApi:
 
         :param date_from: Дата и время последнего изменения по продаже/возврату. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
         :type date_from: str
-        :param flag: Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. 
+        :param flag: Чтобы получить продажи с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить продажи с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату `dateFrom`
         :type flag: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5794,7 +5794,7 @@ class DefaultApi:
     def get_v1_supplier_sales_without_preload_content(
         self,
         date_from: Annotated[StrictStr, Field(description="Дата и время последнего изменения по продаже/возврату. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00` ")],
-        flag: Annotated[Optional[StrictInt], Field(description="Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. ")] = None,
+        flag: Annotated[Optional[StrictInt], Field(description="Чтобы получить продажи с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить продажи с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату `dateFrom`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5814,7 +5814,7 @@ class DefaultApi:
 
         :param date_from: Дата и время последнего изменения по продаже/возврату. <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
         :type date_from: str
-        :param flag: Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше переданному значению параметра `dateFrom`. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. <br> Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре `dateFrom`. 
+        :param flag: Чтобы получить продажи с датой и временем обновления информации `lastChangeDate` позднее даты, указанной в `dateFrom`, отправьте запрос без `flag` или с `flag=0`. При этом количество строк в ответе условно ограничено 80000.<br>Чтобы получить продажи с датой заказа `date`, указанной в `dateFrom`, отправьте запрос с `flag=1`, время в `dateFrom` значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату `dateFrom`
         :type flag: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7276,8 +7276,8 @@ class DefaultApi:
     @validate_call
     def post_v1_analytics_excise_report(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         excise_report_request: Optional[ExciseReportRequest] = None,
         _request_timeout: Union[
             None,
@@ -7296,9 +7296,9 @@ class DefaultApi:
 
         Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>  Данный отчёт можно сохранить в [формате таблиц](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param excise_report_request:
         :type excise_report_request: ExciseReportRequest
@@ -7356,8 +7356,8 @@ class DefaultApi:
     @validate_call
     def post_v1_analytics_excise_report_with_http_info(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         excise_report_request: Optional[ExciseReportRequest] = None,
         _request_timeout: Union[
             None,
@@ -7376,9 +7376,9 @@ class DefaultApi:
 
         Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>  Данный отчёт можно сохранить в [формате таблиц](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param excise_report_request:
         :type excise_report_request: ExciseReportRequest
@@ -7436,8 +7436,8 @@ class DefaultApi:
     @validate_call
     def post_v1_analytics_excise_report_without_preload_content(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД`")],
+        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД`")],
         excise_report_request: Optional[ExciseReportRequest] = None,
         _request_timeout: Union[
             None,
@@ -7456,9 +7456,9 @@ class DefaultApi:
 
         Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>  Данный отчёт можно сохранить в [формате таблиц](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 
-        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_from: Начало отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_from: str
-        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД`  (required)
+        :param date_to: Конец отчётного периода, `ГГГГ-ММ-ДД` (required)
         :type date_to: str
         :param excise_report_request:
         :type excise_report_request: ExciseReportRequest

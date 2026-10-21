@@ -14,26 +14,26 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrderStatusV2 {
     /// Информация об ошибке
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::ApiBatchErrorResponse>>,
+    #[serde(rename = "errors")]
+    pub errors: Vec<models::ApiBatchErrorResponse>,
     /// ID сборочного задания
-    #[serde(rename = "orderId", skip_serializing_if = "Option::is_none")]
-    pub order_id: Option<i32>,
+    #[serde(rename = "orderId")]
+    pub order_id: i32,
     /// Статус сборочного задания, установленный продавцом
-    #[serde(rename = "supplierStatus", skip_serializing_if = "Option::is_none")]
-    pub supplier_status: Option<String>,
+    #[serde(rename = "supplierStatus")]
+    pub supplier_status: String,
     /// Статус сборочного задания в системе Wildberries
-    #[serde(rename = "wbStatus", skip_serializing_if = "Option::is_none")]
-    pub wb_status: Option<String>,
+    #[serde(rename = "wbStatus")]
+    pub wb_status: String,
 }
 
 impl ApiOrderStatusV2 {
-    pub fn new() -> ApiOrderStatusV2 {
+    pub fn new(errors: Vec<models::ApiBatchErrorResponse>, order_id: i32, supplier_status: String, wb_status: String) -> ApiOrderStatusV2 {
         ApiOrderStatusV2 {
-            errors: None,
-            order_id: None,
-            supplier_status: None,
-            wb_status: None,
+            errors,
+            order_id,
+            supplier_status,
+            wb_status,
         }
     }
 }

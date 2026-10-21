@@ -59,7 +59,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'address' => '\Wildberries\Sdk\Dbs\Model\OrderDBSAddress',
         'delivery_type' => 'string',
-        'options' => '\Wildberries\Sdk\Dbs\Model\OrderNewDBSOptions',
+        'options' => '\Wildberries\Sdk\Dbs\Model\OrderDBSOptions',
         'order_uid' => 'string',
         'group_id' => 'string',
         'article' => 'string',
@@ -459,6 +459,72 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['address'] === null && !$this->isNullableSetToNull('address')) {
+            $invalidProperties[] = "'address' is required";
+        }
+        if ($this->container['delivery_type'] === null) {
+            $invalidProperties[] = "'delivery_type' can't be null";
+        }
+        if ($this->container['options'] === null) {
+            $invalidProperties[] = "'options' can't be null";
+        }
+        if ($this->container['order_uid'] === null) {
+            $invalidProperties[] = "'order_uid' can't be null";
+        }
+        if ($this->container['group_id'] === null) {
+            $invalidProperties[] = "'group_id' can't be null";
+        }
+        if ($this->container['article'] === null) {
+            $invalidProperties[] = "'article' can't be null";
+        }
+        if ($this->container['color_code'] === null) {
+            $invalidProperties[] = "'color_code' can't be null";
+        }
+        if ($this->container['rid'] === null && !$this->isNullableSetToNull('rid')) {
+            $invalidProperties[] = "'rid' is required";
+        }
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['skus'] === null) {
+            $invalidProperties[] = "'skus' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['warehouse_id'] === null) {
+            $invalidProperties[] = "'warehouse_id' can't be null";
+        }
+        if ($this->container['nm_id'] === null) {
+            $invalidProperties[] = "'nm_id' can't be null";
+        }
+        if ($this->container['chrt_id'] === null) {
+            $invalidProperties[] = "'chrt_id' can't be null";
+        }
+        if ($this->container['scan_price'] === null && !$this->isNullableSetToNull('scan_price')) {
+            $invalidProperties[] = "'scan_price' is required";
+        }
+        if ($this->container['price'] === null) {
+            $invalidProperties[] = "'price' can't be null";
+        }
+        if ($this->container['converted_price'] === null) {
+            $invalidProperties[] = "'converted_price' can't be null";
+        }
+        if ($this->container['currency_code'] === null) {
+            $invalidProperties[] = "'currency_code' can't be null";
+        }
+        if ($this->container['converted_currency_code'] === null) {
+            $invalidProperties[] = "'converted_currency_code' can't be null";
+        }
+        if ($this->container['converted_final_price'] === null) {
+            $invalidProperties[] = "'converted_final_price' can't be null";
+        }
+        if ($this->container['final_price'] === null) {
+            $invalidProperties[] = "'final_price' can't be null";
+        }
+        if ($this->container['cargo_type'] === null) {
+            $invalidProperties[] = "'cargo_type' can't be null";
+        }
         $allowedValues = $this->getCargoTypeAllowableValues();
         if (!is_null($this->container['cargo_type']) && !in_array($this->container['cargo_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -468,10 +534,19 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if (!is_null($this->container['comment']) && (mb_strlen($this->container['comment']) > 300)) {
+        if ($this->container['comment'] === null) {
+            $invalidProperties[] = "'comment' can't be null";
+        }
+        if ((mb_strlen($this->container['comment']) > 300)) {
             $invalidProperties[] = "invalid value for 'comment', the character length must be smaller than or equal to 300.";
         }
 
+        if ($this->container['is_zero_order'] === null) {
+            $invalidProperties[] = "'is_zero_order' can't be null";
+        }
+        if ($this->container['wb_sticker_id'] === null) {
+            $invalidProperties[] = "'wb_sticker_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -524,7 +599,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets delivery_type
      *
-     * @return string|null
+     * @return string
      */
     public function getDeliveryType()
     {
@@ -534,7 +609,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_type
      *
-     * @param string|null $delivery_type Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца
+     * @param string $delivery_type Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца
      *
      * @return self
      */
@@ -551,7 +626,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets options
      *
-     * @return \Wildberries\Sdk\Dbs\Model\OrderNewDBSOptions|null
+     * @return \Wildberries\Sdk\Dbs\Model\OrderDBSOptions
      */
     public function getOptions()
     {
@@ -561,7 +636,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets options
      *
-     * @param \Wildberries\Sdk\Dbs\Model\OrderNewDBSOptions|null $options options
+     * @param \Wildberries\Sdk\Dbs\Model\OrderDBSOptions $options options
      *
      * @return self
      */
@@ -578,7 +653,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_uid
      *
-     * @return string|null
+     * @return string
      */
     public function getOrderUid()
     {
@@ -588,7 +663,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_uid
      *
-     * @param string|null $order_uid ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`
+     * @param string $order_uid ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`
      *
      * @return self
      */
@@ -605,7 +680,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets group_id
      *
-     * @return string|null
+     * @return string
      */
     public function getGroupId()
     {
@@ -615,7 +690,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets group_id
      *
-     * @param string|null $group_id ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
+     * @param string $group_id ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
      *
      * @return self
      */
@@ -632,7 +707,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets article
      *
-     * @return string|null
+     * @return string
      */
     public function getArticle()
     {
@@ -642,7 +717,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets article
      *
-     * @param string|null $article Артикул продавца
+     * @param string $article Артикул продавца
      *
      * @return self
      */
@@ -659,7 +734,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets color_code
      *
-     * @return string|null
+     * @return string
      */
     public function getColorCode()
     {
@@ -669,7 +744,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets color_code
      *
-     * @param string|null $color_code Код цвета (только для колеруемых товаров)
+     * @param string $color_code Код цвета (только для колеруемых товаров)
      *
      * @return self
      */
@@ -720,7 +795,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets created_at
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -730,7 +805,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Дата создания сборочного задания
+     * @param \DateTime $created_at Дата создания сборочного задания
      *
      * @return self
      */
@@ -747,7 +822,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets skus
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getSkus()
     {
@@ -757,7 +832,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets skus
      *
-     * @param string[]|null $skus Массив баркодов товара
+     * @param string[] $skus Массив баркодов товара
      *
      * @return self
      */
@@ -774,7 +849,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -784,7 +859,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id ID сборочного задания
+     * @param int $id ID сборочного задания
      *
      * @return self
      */
@@ -801,7 +876,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets warehouse_id
      *
-     * @return int|null
+     * @return int
      */
     public function getWarehouseId()
     {
@@ -811,7 +886,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets warehouse_id
      *
-     * @param int|null $warehouse_id ID склада продавца, на который поступило сборочное задание
+     * @param int $warehouse_id ID склада продавца, на который поступило сборочное задание
      *
      * @return self
      */
@@ -828,7 +903,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets nm_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNmId()
     {
@@ -838,7 +913,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets nm_id
      *
-     * @param int|null $nm_id Артикул WB
+     * @param int $nm_id Артикул WB
      *
      * @return self
      */
@@ -855,7 +930,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets chrt_id
      *
-     * @return int|null
+     * @return int
      */
     public function getChrtId()
     {
@@ -865,7 +940,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets chrt_id
      *
-     * @param int|null $chrt_id ID размера товара в системе WB
+     * @param int $chrt_id ID размера товара в системе WB
      *
      * @return self
      */
@@ -916,7 +991,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price
      *
-     * @return int|null
+     * @return int
      */
     public function getPrice()
     {
@@ -926,7 +1001,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price
      *
-     * @param int|null $price Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+     * @param int $price Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
      *
      * @return self
      */
@@ -943,7 +1018,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets converted_price
      *
-     * @return int|null
+     * @return int
      */
     public function getConvertedPrice()
     {
@@ -953,7 +1028,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets converted_price
      *
-     * @param int|null $converted_price Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
+     * @param int $converted_price Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
      *
      * @return self
      */
@@ -970,7 +1045,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets currency_code
      *
-     * @return int|null
+     * @return int
      */
     public function getCurrencyCode()
     {
@@ -980,7 +1055,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets currency_code
      *
-     * @param int|null $currency_code Код валюты продажи
+     * @param int $currency_code Код валюты продажи
      *
      * @return self
      */
@@ -997,7 +1072,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets converted_currency_code
      *
-     * @return int|null
+     * @return int
      */
     public function getConvertedCurrencyCode()
     {
@@ -1007,7 +1082,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets converted_currency_code
      *
-     * @param int|null $converted_currency_code Код валюты страны продавца
+     * @param int $converted_currency_code Код валюты страны продавца
      *
      * @return self
      */
@@ -1024,7 +1099,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets converted_final_price
      *
-     * @return int|null
+     * @return int
      */
     public function getConvertedFinalPrice()
     {
@@ -1034,7 +1109,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets converted_final_price
      *
-     * @param int|null $converted_final_price Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
+     * @param int $converted_final_price Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
      *
      * @return self
      */
@@ -1051,7 +1126,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets final_price
      *
-     * @return int|null
+     * @return int
      */
     public function getFinalPrice()
     {
@@ -1061,7 +1136,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets final_price
      *
-     * @param int|null $final_price Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода
+     * @param int $final_price Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода получения [цен продавца и сумм к оплате](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода
      *
      * @return self
      */
@@ -1078,7 +1153,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cargo_type
      *
-     * @return int|null
+     * @return int
      */
     public function getCargoType()
     {
@@ -1088,7 +1163,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cargo_type
      *
-     * @param int|null $cargo_type Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
+     * @param int $cargo_type Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
      *
      * @return self
      */
@@ -1115,7 +1190,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets comment
      *
-     * @return string|null
+     * @return string
      */
     public function getComment()
     {
@@ -1125,7 +1200,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets comment
      *
-     * @param string|null $comment Комментарий покупателя
+     * @param string $comment Комментарий покупателя
      *
      * @return self
      */
@@ -1146,7 +1221,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets is_zero_order
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsZeroOrder()
     {
@@ -1156,7 +1231,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_zero_order
      *
-     * @param bool|null $is_zero_order Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
+     * @param bool $is_zero_order Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      *
      * @return self
      */
@@ -1173,7 +1248,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets wb_sticker_id
      *
-     * @return int|null
+     * @return int
      */
     public function getWbStickerId()
     {
@@ -1183,7 +1258,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets wb_sticker_id
      *
-     * @param int|null $wb_sticker_id ID стикера. Отображается только для заказов в ПВЗ
+     * @param int $wb_sticker_id ID стикера. Отображается только для заказов в ПВЗ
      *
      * @return self
      */

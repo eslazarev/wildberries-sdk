@@ -281,6 +281,12 @@ class OrderCourierInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['courier_info'] === null) {
+            $invalidProperties[] = "'courier_info' can't be null";
+        }
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -299,7 +305,7 @@ class OrderCourierInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets courier_info
      *
-     * @return \Wildberries\Sdk\OrdersDbw\Model\CourierInfo|null
+     * @return \Wildberries\Sdk\OrdersDbw\Model\CourierInfo
      */
     public function getCourierInfo()
     {
@@ -309,7 +315,7 @@ class OrderCourierInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets courier_info
      *
-     * @param \Wildberries\Sdk\OrdersDbw\Model\CourierInfo|null $courier_info Информация о курьере
+     * @param \Wildberries\Sdk\OrdersDbw\Model\CourierInfo $courier_info Информация о курьере
      *
      * @return self
      */
@@ -326,7 +332,7 @@ class OrderCourierInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -336,7 +342,7 @@ class OrderCourierInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id
      *
-     * @param int|null $order_id ID сборочного задания
+     * @param int $order_id ID сборочного задания
      *
      * @return self
      */

@@ -12,6 +12,8 @@ package dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner type satisfies the MappedNullable interface at compile time
@@ -20,19 +22,24 @@ var _ MappedNullable = &ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner{
 // ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner struct for ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
 type ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner struct {
 	// Идентификатор маркировки:   - `imei` — [IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) post) 
-	Key *string `json:"key,omitempty"`
+	Key string `json:"key"`
 	// Значение идентификатора маркировки
-	Value NullableString `json:"value,omitempty"`
+	Value NullableString `json:"value"`
 	// Статус проверки: - `imei`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `imeiMaySell` — Товар допущен к продаже. Валидация пройдена   - `imeiSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `imeiInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `imeiAlreadySold` — Товар с этим IMEI уже продан. Валидация не пройдена - `uin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `sgtin`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `sgtinIntroduced` — Товар допущен к продаже. Валидация пройдена   - `sgtinSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `sgtinInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `sgtinNotFound` — Маркировка не найдена в [Честном Знаке](https://chestnyznak.ru). Валидация не пройдена   - `sgtinEmitted` —  Маркировка эмитирована. Валидация не пройдена   - `sgtinApplied` — Не пройдена процедура Ввод в оборот. Валидация не пройдена   - `sgtinWrittenOff` — Списан. Валидация не пройдена   - `sgtinRetired` — Выбыл. Валидация не пройдена   - `sgtinWithdrawn` — Выбыл. Валидация не пройдена   - `sgtinDisaggregation` — Расформирован. Валидация не пройдена   - `sgtinDisaggregated` — Расформирован. Валидация не пройдена   - `sgtinAppliedNotPaid` — Не оплачен. Валидация не пройдена - `gtin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `customsDeclaration`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена 
-	Decision *string `json:"decision,omitempty"`
+	Decision string `json:"decision"`
 }
+
+type _ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
 
 // NewApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner instantiates a new ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner() *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
+func NewApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner(key string, value NullableString, decision string) *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
 	this := ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner{}
+	this.Key = key
+	this.Value = value
+	this.Decision = decision
 	return &this
 }
 
@@ -44,48 +51,42 @@ func NewApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerWithDefaults() *A
 	return &this
 }
 
-// GetKey returns the Key field value if set, zero value otherwise.
+// GetKey returns the Key field value
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) GetKey() string {
-	if o == nil || IsNil(o.Key) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Key
+
+	return o.Key
 }
 
-// GetKeyOk returns a tuple with the Key field value if set, nil otherwise
+// GetKeyOk returns a tuple with the Key field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) GetKeyOk() (*string, bool) {
-	if o == nil || IsNil(o.Key) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Key, true
+	return &o.Key, true
 }
 
-// HasKey returns a boolean if a field has been set.
-func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) HasKey() bool {
-	if o != nil && !IsNil(o.Key) {
-		return true
-	}
-
-	return false
-}
-
-// SetKey gets a reference to the given string and assigns it to the Key field.
+// SetKey sets field value
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) SetKey(v string) {
-	o.Key = &v
+	o.Key = v
 }
 
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValue returns the Value field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) GetValue() string {
-	if o == nil || IsNil(o.Value.Get()) {
+	if o == nil || o.Value.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.Value.Get()
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) GetValueOk() (*string, bool) {
@@ -95,59 +96,33 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) GetValueOk() (
 	return o.Value.Get(), o.Value.IsSet()
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
+// SetValue sets field value
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) SetValue(v string) {
 	o.Value.Set(&v)
 }
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) SetValueNil() {
-	o.Value.Set(nil)
-}
 
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) UnsetValue() {
-	o.Value.Unset()
-}
-
-// GetDecision returns the Decision field value if set, zero value otherwise.
+// GetDecision returns the Decision field value
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) GetDecision() string {
-	if o == nil || IsNil(o.Decision) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Decision
+
+	return o.Decision
 }
 
-// GetDecisionOk returns a tuple with the Decision field value if set, nil otherwise
+// GetDecisionOk returns a tuple with the Decision field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) GetDecisionOk() (*string, bool) {
-	if o == nil || IsNil(o.Decision) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Decision, true
+	return &o.Decision, true
 }
 
-// HasDecision returns a boolean if a field has been set.
-func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) HasDecision() bool {
-	if o != nil && !IsNil(o.Decision) {
-		return true
-	}
-
-	return false
-}
-
-// SetDecision gets a reference to the given string and assigns it to the Decision field.
+// SetDecision sets field value
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) SetDecision(v string) {
-	o.Decision = &v
+	o.Decision = v
 }
 
 func (o ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) MarshalJSON() ([]byte, error) {
@@ -160,16 +135,49 @@ func (o ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) MarshalJSON() (
 
 func (o ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Key) {
-		toSerialize["key"] = o.Key
-	}
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
-	}
-	if !IsNil(o.Decision) {
-		toSerialize["decision"] = o.Decision
-	}
+	toSerialize["key"] = o.Key
+	toSerialize["value"] = o.Value.Get()
+	toSerialize["decision"] = o.Decision
 	return toSerialize, nil
+}
+
+func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"key",
+		"value",
+		"decision",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner := _ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner(varApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner)
+
+	return err
 }
 
 type NullableApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner struct {

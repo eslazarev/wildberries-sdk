@@ -419,7 +419,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/responseBodyContentError400"
+                $ref: "#/components/schemas/getV2ObjectCharcsSubjectId_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -6316,7 +6316,7 @@ paths:
                 IncorrectParameter:
                   $ref: "#/components/examples/IncorrectParameter"
                 SKUUploadDisabled:
-                  $ref: "#/components/examples/SKUUploadDisabled"
+                  $ref: "#/components/examples/SKUUploadDisabledDelete"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Неправильный запрос
@@ -6456,7 +6456,7 @@ paths:
                 IncorrectParameter:
                   $ref: "#/components/examples/IncorrectParameter"
                 SKUUploadDisabled:
-                  $ref: "#/components/examples/SKUUploadDisabled"
+                  $ref: "#/components/examples/SKUUploadDisabledPost"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Неправильный запрос
@@ -6586,7 +6586,7 @@ paths:
                 IncorrectParameter:
                   $ref: "#/components/examples/IncorrectParameter"
                 SKUUploadDisabled:
-                  $ref: "#/components/examples/SKUUploadDisabled"
+                  $ref: "#/components/examples/SKUUploadDisabledPut"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Неправильный запрос
@@ -7362,7 +7362,7 @@ paths:
         \n<div class=\"description_important\">\n  Список контактов перезаписывает\
         ся при обновлении. Поэтому в запросе нужно передать <strong>все</strong> п\
         араметры списка контактов, в том числе те, которые вы не собираетесь обнов\
-        лять.\n</div>\n\nТолько для складов с типом доставки `3` — Деливери WB (DBW).\n\
+        лять\n</div>\n\nТолько для складов с типом доставки `3` — Деливери WB ([DBW](/openapi/orders-dbw)).\n\
         <br><br>\nК складу можно добавить максимум 5 контактов. Чтобы удалить конт\
         акты, отправьте пустой массив `contacts`.\n\n<div class=\"description_limit\"\
         >\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Л\
@@ -7397,14 +7397,14 @@ paths:
           content:
             application/json:
               examples:
-                IncorrectParameter:
-                  $ref: "#/components/examples/IncorrectParameter"
                 IncorrectRequestBody:
                   $ref: "#/components/examples/IncorrectRequestBody"
-                UploadDataLimitDbw:
-                  $ref: "#/components/examples/UploadDataLimitDbw"
                 IncorrectRequest:
                   $ref: "#/components/examples/IncorrectRequest"
+                IncorrectParameter:
+                  $ref: "#/components/examples/IncorrectParameter"
+                UploadDataLimitDbw:
+                  $ref: "#/components/examples/UploadDataLimitDbw"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Неправильный запрос
@@ -7488,8 +7488,20 @@ components:
       value:
         code: IncorrectParameter
         message: Incorrect parameter
-    SKUUploadDisabled:
+    SKUUploadDisabledPut:
       description: Обновление остатков по баркодам невозможно. Используйте `chrtId`
+      value:
+        code: SKUUploadDisabled
+        message: Uploading stock is not allowed by 'sku'. Please use the 'chrtId'
+          key
+    SKUUploadDisabledDelete:
+      description: Удаление остатков по баркодам невозможно. Используйте `chrtId`
+      value:
+        code: SKUUploadDisabled
+        message: Uploading stock is not allowed by 'sku'. Please use the 'chrtId'
+          key
+    SKUUploadDisabledPost:
+      description: Получение остатков по баркодам невозможно. Используйте `chrtId`
       value:
         code: SKUUploadDisabled
         message: Uploading stock is not allowed by 'sku'. Please use the 'chrtId'
@@ -8752,7 +8764,7 @@ components:
       type: object
     responseItemList:
       example:
-        data: "{}"
+        data: {}
         error: true
         errorText: errorText
         additionalErrors:
@@ -8845,6 +8857,10 @@ components:
           nullable: true
           type: object
       type: object
+    responseBodyContentError400InvalidSyntax:
+      example: "path arguments could not be decoded: strconv.Atoi: parsing \"%D1%82\"\
+        : invalid syntax"
+      type: string
     responseBodyContentError403:
       example:
         data: null
@@ -8913,7 +8929,7 @@ components:
       type: object
     ResponseError:
       example:
-        data: "{}"
+        data: {}
         error: true
         errorText: errorText
       properties:
@@ -9596,6 +9612,7 @@ components:
     Office:
       description: Данные о складе WB
       example:
+        federalDistrict: Центральный
         address: "ул. Троицкая, Подольск, Московская обл."
         name: Коледино
         city: Москва
@@ -9604,9 +9621,14 @@ components:
         latitude: 37.588898
         cargoType: 1
         deliveryType: 1
-        federalDistrict: Центральный
         selected: true
       properties:
+        federalDistrict:
+          description: "Федеральный округ склада WB. Если `null`, склад находится\
+            \ за пределами РФ или федеральный округ не указан"
+          example: Центральный
+          nullable: true
+          type: string
         address:
           description: Адрес
           example: "ул. Троицкая, Подольск, Московская обл."
@@ -9666,12 +9688,6 @@ components:
           - 6
           example: 1
           type: integer
-        federalDistrict:
-          description: "Федеральный округ склада WB. Если `null`, склад находится\
-            \ за пределами РФ или федеральный округ не указан"
-          example: Центральный
-          nullable: true
-          type: string
         selected:
           description: "Признак того, что склад уже выбран продавцом"
           nullable: false
@@ -9798,7 +9814,7 @@ components:
             batchUUID: batchUUID
         error: true
         errorText: errorText
-        additionalErrors: "{}"
+        additionalErrors: {}
       properties:
         data:
           $ref: "#/components/schemas/models.ErrorTableListPublicRespV2"
@@ -10672,6 +10688,10 @@ components:
           nullable: true
           type: string
       type: object
+    getV2ObjectCharcsSubjectId_400_response:
+      oneOf:
+      - $ref: "#/components/schemas/responseBodyContentError400"
+      - $ref: "#/components/schemas/responseBodyContentError400InvalidSyntax"
     getV2DirectoryColors_200_response_data_inner:
       example:
         name: персиковый мелок
@@ -11091,14 +11111,14 @@ components:
           type: array
       type: object
     postV2GetCardsList_request_settings_sort:
-      description: Параметр сортировки
+      description: Сортировка по дате и времени изменения карточек товаров `updatedAt`
       properties:
         ascending:
           default: false
           description: |
-            Сортировать по полю `updatedAt`:
+            Порядок сортировки:
               - `false` — по убыванию
-              -  `true` — по возрастанию
+              - `true` — по возрастанию
           type: boolean
       type: object
     postV2GetCardsList_request_settings_filter:
@@ -11107,11 +11127,11 @@ components:
         withPhoto:
           default: 0
           description: |
-            Фильтр по фото:
-              * `-1` — любые карточки товаров
-              * `0` — только карточки без фото. С [16 июня](/release-notes?id=531) — любые карточки товаров
-              * `1` — только карточки с фото
-              * `2` — только карточки без фото. С [16 июня](/release-notes?id=531)
+            Фильтр по фото:
+              * `-1` — любые карточки товаров
+              * `0` — любые карточки товаров
+              * `1` — только карточки с фото
+              * `2` — только карточки без фото
           enum:
           - -1
           - 0
@@ -11261,7 +11281,7 @@ components:
         verified: true
         status: 2
         reason: reason
-        additionalData: "{}"
+        additionalData: {}
         createdAt: 2000-01-23T04:56:07.000+00:00
       properties:
         verified:
@@ -11314,7 +11334,7 @@ components:
           verified: true
           status: 2
           reason: reason
-          additionalData: "{}"
+          additionalData: {}
           createdAt: 2000-01-23T04:56:07.000+00:00
         createdAt: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11426,7 +11446,7 @@ components:
             verified: true
             status: 2
             reason: reason
-            additionalData: "{}"
+            additionalData: {}
             createdAt: 2000-01-23T04:56:07.000+00:00
           createdAt: 2000-01-23T04:56:07.000+00:00
         - id: id
@@ -11442,7 +11462,7 @@ components:
             verified: true
             status: 2
             reason: reason
-            additionalData: "{}"
+            additionalData: {}
             createdAt: 2000-01-23T04:56:07.000+00:00
           createdAt: 2000-01-23T04:56:07.000+00:00
         overallVerdict:
@@ -11583,7 +11603,7 @@ components:
               verified: true
               status: 2
               reason: reason
-              additionalData: "{}"
+              additionalData: {}
               createdAt: 2000-01-23T04:56:07.000+00:00
             createdAt: 2000-01-23T04:56:07.000+00:00
           - id: id
@@ -11599,7 +11619,7 @@ components:
               verified: true
               status: 2
               reason: reason
-              additionalData: "{}"
+              additionalData: {}
               createdAt: 2000-01-23T04:56:07.000+00:00
             createdAt: 2000-01-23T04:56:07.000+00:00
           overallVerdict:
@@ -11796,7 +11816,7 @@ components:
                 verified: true
                 status: 2
                 reason: reason
-                additionalData: "{}"
+                additionalData: {}
                 createdAt: 2000-01-23T04:56:07.000+00:00
               createdAt: 2000-01-23T04:56:07.000+00:00
             - id: id
@@ -11812,7 +11832,7 @@ components:
                 verified: true
                 status: 2
                 reason: reason
-                additionalData: "{}"
+                additionalData: {}
                 createdAt: 2000-01-23T04:56:07.000+00:00
               createdAt: 2000-01-23T04:56:07.000+00:00
             overallVerdict:
@@ -11898,7 +11918,7 @@ components:
                 verified: true
                 status: 2
                 reason: reason
-                additionalData: "{}"
+                additionalData: {}
                 createdAt: 2000-01-23T04:56:07.000+00:00
               createdAt: 2000-01-23T04:56:07.000+00:00
             - id: id
@@ -11914,7 +11934,7 @@ components:
                 verified: true
                 status: 2
                 reason: reason
-                additionalData: "{}"
+                additionalData: {}
                 createdAt: 2000-01-23T04:56:07.000+00:00
               createdAt: 2000-01-23T04:56:07.000+00:00
             overallVerdict:
@@ -12170,10 +12190,10 @@ components:
       type: object
     postV2CardsDeleteTrash_200_response:
       example:
-        data: "{}"
+        data: {}
         error: true
         errorText: errorText
-        additionalErrors: "{}"
+        additionalErrors: {}
       properties:
         data:
           nullable: true
@@ -12190,12 +12210,14 @@ components:
           type: object
       type: object
     postV2GetCardsTrash_request_settings_sort:
-      description: Параметр сортировки
+      description: Сортировка по дате и времени помещения карточек товаров в корзину
+        `trashedAt`
+      nullable: true
       properties:
         ascending:
           default: false
           description: |
-            Сортировать по `trashedAt`:
+            Порядок сортировки:
               - `false` — по убыванию
               - `true` — по возрастанию
           type: boolean
@@ -12210,17 +12232,21 @@ components:
           type: integer
         trashedAt:
           description: Дата и время помещения в корзину
+          nullable: true
           type: string
         nmID:
           description: "Артикул WB, с которого надо запрашивать следующий список к\
             арточек товаров"
+          nullable: true
           type: integer
       type: object
     postV2GetCardsTrash_request_settings_filter:
       description: Параметры фильтрации
+      nullable: true
       properties:
         textSearch:
           description: "Поиск по артикулу продавца, артикулу WB, баркоду"
+          nullable: true
           type: string
       type: object
     postV2GetCardsTrash_request_settings:
@@ -12860,10 +12886,10 @@ components:
       type: object
     postV3MediaFile_200_response:
       example:
-        data: "{}"
+        data: {}
         error: true
         errorText: errorText
-        additionalErrors: "{}"
+        additionalErrors: {}
       properties:
         data:
           type: object
