@@ -68,11 +68,11 @@ paths:
             application/json:
               schema:
                 type: object
-                nullable: false
+                required:
+                  - orders
                 properties:
                   orders:
                     type: array
-                    nullable: false
                     description: Список новых сборочных заданий
                     items:
                       $ref: '#/components/schemas/OrderNewDBS'
@@ -157,7 +157,9 @@ paths:
             application/json:
               schema:
                 type: object
-                nullable: false
+                required:
+                  - orders
+                  - next
                 properties:
                   next:
                     $ref: '#/components/schemas/Next'
@@ -1128,6 +1130,9 @@ paths:
             application/json:
               schema:
                 type: object
+                required:
+                  - requestId
+                  - results
                 example:
                   requestId: 03615778-eb9e-4f55-b4Of-fd3ac0fad2сc
                   results:
@@ -1147,6 +1152,9 @@ paths:
                     type: array
                     items:
                       type: object
+                      required:
+                        - orderId
+                        - isError
                       properties:
                         errors:
                           items:
@@ -2147,6 +2155,7 @@ components:
       type: object
       required:
         - orderId
+        - isError
       properties:
         orderId:
           description: ID сборочного задания
@@ -2246,6 +2255,12 @@ components:
       nullable: true
       items:
         type: object
+        required:
+          - groupID
+          - deliveryCost
+          - convertedDeliveryCost
+          - currencyCode
+          - convertedCurrencyCode
         properties:
           groupID:
             description: ID группы сборочных заданий
@@ -2290,6 +2305,33 @@ components:
       example: 13833711
     OrderNewDBS:
       type: object
+      required:
+        - salePrice
+        - requiredMeta
+        - options
+        - address
+        - comment
+        - orderUid
+        - groupId
+        - article
+        - colorCode
+        - rid
+        - createdAt
+        - deliveryType
+        - wbStickerId
+        - skus
+        - id
+        - warehouseId
+        - nmId
+        - chrtId
+        - price
+        - finalPrice
+        - convertedFinalPrice
+        - convertedPrice
+        - currencyCode
+        - convertedCurrencyCode
+        - cargoType
+        - isZeroOrder
       properties:
         salePrice:
           description: |
@@ -2314,6 +2356,8 @@ components:
         options:
           type: object
           description: Опции заказа
+          required:
+            - isB2b
           properties:
             isB2b:
               type: boolean
@@ -2491,11 +2535,41 @@ components:
           example: 123456
     OrderDBS:
       type: object
+      required:
+        - options
+        - address
+        - comment
+        - orderUid
+        - groupId
+        - article
+        - colorCode
+        - rid
+        - createdAt
+        - deliveryType
+        - scanPrice
+        - wbStickerId
+        - skus
+        - id
+        - warehouseId
+        - nmId
+        - chrtId
+        - price
+        - finalPrice
+        - convertedFinalPrice
+        - convertedPrice
+        - currencyCode
+        - convertedCurrencyCode
+        - cargoType
+        - isZeroOrder
       properties:
         address:
           type: object
           nullable: true
           description: Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ
+          required:
+            - fullAddress
+            - longitude
+            - latitude
           properties:
             fullAddress:
               description: Адрес доставки
@@ -2677,6 +2751,16 @@ components:
           nullable: false
           example: 123456
     DbsOnlyClientInfo:
+      required:
+        - replacementPhone
+        - phone
+        - firstName
+        - fullName
+        - additionalPhones
+        - replacementAdditionalPhones
+        - additionalPhoneCodes
+        - orderID
+        - phoneCode
       properties:
         replacementPhone:
           type: string
@@ -2747,6 +2831,8 @@ components:
             - '65498'
       type: object
     DbsOnlyClientInfoResp:
+      required:
+        - orders
       properties:
         orders:
           nullable: true
@@ -2757,11 +2843,21 @@ components:
       type: object
     DeliveryDatesInfoResp:
       type: object
+      required:
+        - orders
       properties:
         orders:
           type: array
           items:
             type: object
+            required:
+              - dTimeFrom
+              - dTimeTo
+              - dTimeFromOld
+              - dTimeToOld
+              - dDateOld
+              - dDate
+              - id
             properties:
               dTimeFrom:
                 type: string
@@ -2956,6 +3052,9 @@ components:
             type: integer
     api.StatusSetResponses:
       type: object
+      required:
+        - requestId
+        - results
       example:
         requestId: 03615778-eb9e-4f55-b4Of-fd3ac0fad2сc
         results:
@@ -2977,6 +3076,9 @@ components:
             $ref: '#/components/schemas/api.StatusSetResponse'
     api.StatusSetResponse:
       type: object
+      required:
+        - orderId
+        - isError
       properties:
         errors:
           items:
@@ -2993,6 +3095,9 @@ components:
           example: 123456
     api.StatusSetDeliverResponses:
       type: object
+      required:
+        - requestId
+        - results
       example:
         requestId: 03615778-eb9e-4f55-b4Of-fd3ac0fad2сc
         results:
@@ -3023,6 +3128,9 @@ components:
             $ref: '#/components/schemas/api.StatusSetDeliverResponse'
     api.StatusSetDeliverResponse:
       type: object
+      required:
+        - orderId
+        - isError
       properties:
         errors:
           items:
@@ -3041,6 +3149,7 @@ components:
       type: object
       required:
         - requestId
+        - orders
       properties:
         requestId:
           type: string
@@ -3053,6 +3162,8 @@ components:
             type: object
             required:
               - isError
+              - metaDetails
+              - orderId
             properties:
               orderId:
                 type: integer
@@ -3082,6 +3193,10 @@ components:
                 description: Идентификаторы маркировки и статусы их валидации
                 items:
                   type: object
+                  required:
+                    - key
+                    - value
+                    - decision
                   properties:
                     key:
                       type: string
@@ -3143,6 +3258,8 @@ components:
                           - `filled` — Валидация пройдена
     api.OrderStatusesV2:
       type: object
+      required:
+        - orders
       example:
         orders:
           - supplierStatus: confirm
@@ -3163,6 +3280,11 @@ components:
             $ref: '#/components/schemas/api.OrderStatusV2'
     api.OrderStatusV2:
       type: object
+      required:
+        - errors
+        - orderId
+        - supplierStatus
+        - wbStatus
       properties:
         errors:
           description: Информация об ошибке
@@ -3292,6 +3414,9 @@ components:
                 example: sgtinEmitted
       type: object
     api.BatchErrorResponse:
+      required:
+        - detail
+        - code
       properties:
         code:
           type: integer
@@ -3334,6 +3459,7 @@ components:
       type: object
       required:
         - requestId
+        - results
       example:
         requestId: 03615778-eb9e-4f55-b4O4-fd3ac0fad2сc
         results:
@@ -3386,6 +3512,10 @@ components:
           example: 123456
     api.B2bClientInfo:
       type: object
+      required:
+        - orgName
+        - inn
+        - kpp
       description: Данные покупателя B2B
       properties:
         inn:

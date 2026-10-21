@@ -1,6 +1,33 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.10.21)
+- Товары (Items): для одного из методов расширен ответ `400` — теперь `oneOf` с `responseBodyContentError400` и новым `responseBodyContentError400InvalidSyntax` (строковое сообщение об ошибке декодирования/парсинга path-аргументов)
+- Товары (Items): в запросе списка карточек уточнена семантика `settings.sort` — сортировка по `updatedAt`, описание `ascending` заменено на «Порядок сортировки»
+- Товары (Items): в фильтре карточек `filter.withPhoto` установлен `default: 0` и изменено описание значений: `0` теперь однозначно «любые карточки товаров» (без оговорок про даты), `2` — «только без фото»
+- Товары (Items): в методе получения карточек из корзины (`trashed`) сделаны nullable: `settings.sort`, `settings.cursor.trashedAt`, `settings.cursor.nmID`, `settings.filter`, `settings.filter.textSearch`; сортировка описана как по `trashedAt`, описание `ascending` унифицировано
+- Товары (Items): для операций со стоками по SKU обновлены примеры ошибок `SKUUploadDisabled*` — разделены на `SKUUploadDisabledPut/Delete/Post` с разными описаниями (обновление/удаление/получение остатков по баркодам недоступно, используйте `chrtId`)
+- Товары (Items): в схеме склада WB поле `federalDistrict` перемещено выше (в начало списка свойств), семантика не изменена
+- Товары (Items): в методе обновления контактов склада продавца уточнено описание (DBW с ссылкой на раздел orders-dbw), без изменения контракта
+
+- Заказы FBS: добавлен новый endpoint `GET /api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points` — получение доступных пунктов отгрузки для конкретной поставки; query-параметры: `city` (обяз.), `officeType` (обяз., CSV: `sc|sw|pp|pfc|gpp`), `shippingDt` (опц., обязателен для cargoType 1/3); добавлены ответы `404 supply not found`, `409 SupplyHasZeroOrders`
+- Заказы FBS: endpoint `GET /api/marketplace/v3/fbs/shipping-points` помечен как `deprecated` и будет отключён 20 ноября (ссылка на release-notes)
+- Заказы FBS: добавлена ошибка `ShippingDtRequired` (400) для случаев, когда для МГТ/КГТ+ не передан `shippingDt`
+- Заказы FBS: расширены схемы пунктов отгрузки — добавлено обязательное поле `available: boolean` (доступность пункта для отгрузки; для ПВЗ может быть `false` при перегрузе на дату), добавлены новые схемы `SupplyShippingPoint` и `SupplyShippingPointsResponse`
+
+- Заказы DBW: усилена валидация схем — добавлены `required` поля в ответах/моделях (в т.ч. `orders`, `requestId`, обязательные поля заказа/клиента/курьера, `metaDetails` и обязательные поля элементов `metaDetails`)
+
+- Заказы DBS: усилена валидация схем — добавлены `required` поля в ответах/моделях (в т.ч. `orders`, `next`, `requestId/results`, `orderId/isError`, обязательные поля заказа/адреса/опций, `metaDetails` и обязательные поля элементов `metaDetails`, обязательные поля B2B-клиента)
+
+- Заказы FBW / Тарифы: правки документации (исправлены ссылки «временно отключён»), контракт без изменений
+
+- Аналитика: правки документации/описаний (исправлены ссылки, уточнены тексты; `cancelType.other` переописан как «иное»), контракт без изменений
+
+- Отчёты: параметр `flag` разделён на два параметра в компонентах — `FlagOrders` и `FlagSales` (оба `name: flag`, `default: 0`) с разными описаниями для заказов и продаж; в путях заменены ссылки на соответствующие параметры
+- Отчёты: в одной из схем изменено описание поля `shkID` с «Штрихкод товара в WB» на «Штрихкод»
+
+- Финансы: обновлён пример значения даты УПД/УКД (`example` для `date` изменён на `2026-10-12`)
+
 ### Changed (2026.10.17)
 - Orders FBS: исправлена ссылка в описании поля `canTransferFromDeliveryToAssembly` — операция перевода сборочного задания из доставки на сборку теперь указывает на `patchV3FbsSuppliesSupplyIdOrdersTransfer` (вместо `patchV3PortalSuppliesSupplyOrdersTransfer`).
 - Orders DBS: уточнены описания полей `finalPrice`/`convertedFinalPrice` — ссылка на метод расчёта заменена на «получение цен продавца и сумм к оплате» (`postV3DbsOrdersFinalPrice`), логика использования `finalPrice`/`convertedFinalPrice` при `"data": null` без изменений.
