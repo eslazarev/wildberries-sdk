@@ -1,6 +1,17 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.10.22)
+- Общее: удалены sandbox-серверы из списка `servers` для **Статистики** (`https://statistics-api-sandbox.wildberries.ru`) и **Продвижения** (`https://advert-api-sandbox.wildberries.ru`)
+- Заказы FBW (Поставки): удалены sandbox-серверы (`https://supplies-api-sandbox.wildberries.ru`) из методов `POST /api/v1/acceptance/options` и `GET /api/v1/warehouses`
+- Заказы FBW (Поставки): из описаний лимитов удалено примечание про песочницу «максимум 1 запрос/сек суммарно для всех методов»
+- Продвижение: удалены sandbox-серверы (`https://advert-api-sandbox.wildberries.ru`) у методов `/adv/v1/promotion/count`, `/adv/v2/seacat/save-ad`, `/adv/v1/supplier/subjects`, `/adv/v2/supplier/nms`, `/adv/v0/delete`, `/adv/v0/rename`, `/adv/v0/start`, `/adv/v0/pause`, `/adv/v0/stop`, `/adv/v1/balance`, `/adv/v1/budget`, `/adv/v1/budget/deposit`, `/adv/v1/upd`, `/adv/v1/payments`
+- Продвижение: удалено упоминание о тестировании методов в песочнице и о специальных sandbox-методах для управления тестовым балансом
+- Продвижение: из описания статистики кампаний удалены ограничения/особенности песочницы (доступность за последние 30 дней, генерация только для статуса `9`, тип `8`, 9 раз в сутки)
+- Отчёты/Статистика: удалены sandbox-серверы (`https://statistics-api-sandbox.wildberries.ru`) у методов `GET /api/v1/supplier/orders` и `GET /api/v1/supplier/sales`
+- Отчёты/Статистика: из описаний `GET /api/v1/supplier/orders` и `GET /api/v1/supplier/sales` удалено ограничение песочницы на диапазон `dateFrom/dateTo` (только последние 4 месяца)
+- Отчёты: для метода получения отчёта по возвратам товаров продавцу добавлены лимиты запросов: 1 запрос/мин (burst 10) для Персонального/Сервисного/Базового с секретом; для Базового — 2 запроса/час (интервал 30 мин, burst 1)
+
 ### Changed (2026.10.21)
 - Товары (Items): для одного из методов расширен ответ `400` — теперь `oneOf` с `responseBodyContentError400` и новым `responseBodyContentError400InvalidSyntax` (строковое сообщение об ошибке декодирования/парсинга path-аргументов)
 - Товары (Items): в запросе списка карточек уточнена семантика `settings.sort` — сортировка по `updatedAt`, описание `ascending` заменено на «Порядок сортировки»
