@@ -7505,7 +7505,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -7531,7 +7530,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -7694,7 +7692,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -7723,7 +7720,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -7781,7 +7777,6 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить заказы с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить заказы с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству заказов за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -7917,11 +7912,7 @@ class DefaultApi
         return [
             [
                 "url" => "https://statistics-api.wildberries.ru",
-                "description" => "**Prod**",
-            ],
-            [
-                "url" => "https://statistics-api-sandbox.wildberries.ru",
-                "description" => "**Sandbox**",
+                "description" => "No description provided",
             ]
         ];
     }
@@ -7934,7 +7925,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -7960,7 +7950,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -8123,7 +8112,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -8152,7 +8140,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -8210,7 +8197,6 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  string $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Чтобы получить продажи с датой и временем обновления информации &#x60;lastChangeDate&#x60; позднее даты, указанной в &#x60;dateFrom&#x60;, отправьте запрос без &#x60;flag&#x60; или с &#x60;flag&#x3D;0&#x60;. При этом количество строк в ответе условно ограничено 80000.&lt;br&gt;Чтобы получить продажи с датой заказа &#x60;date&#x60;, указанной в &#x60;dateFrom&#x60;, отправьте запрос с &#x60;flag&#x3D;1&#x60;, время в &#x60;dateFrom&#x60; значения не имеет. При этом количество строк в ответе будет равно количеству продаж за дату &#x60;dateFrom&#x60; (optional, default to 0)
@@ -8346,11 +8332,7 @@ class DefaultApi
         return [
             [
                 "url" => "https://statistics-api.wildberries.ru",
-                "description" => "**Prod**",
-            ],
-            [
-                "url" => "https://statistics-api-sandbox.wildberries.ru",
-                "description" => "**Sandbox**",
+                "description" => "No description provided",
             ]
         ];
     }

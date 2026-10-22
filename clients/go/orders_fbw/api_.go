@@ -1,7 +1,7 @@
 /*
 Поставки FBW
 
-<div class=\"description_important\">   Узнать больше о поставках FBW можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies)   - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation)  Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в <a href='/sandbox'>песочнице</a> Поставок  </div> 
+<div class=\"description_important\">   Узнать больше о поставках FBW можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies)   - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation)  </div> 
 
 API version: ordersfbw
 */
@@ -1824,11 +1824,6 @@ GetV1Warehouses Список складов
 | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
 | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
 | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
-
-<hr>
-
-В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
-
 </div>
 
 
@@ -2000,11 +1995,6 @@ PostV1AcceptanceOptions Опции приёмки
 | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
 | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
 | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-
-<hr>
-
-В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
-
 </div>
 
 

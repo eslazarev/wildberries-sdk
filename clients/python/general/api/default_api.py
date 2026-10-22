@@ -341,7 +341,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=20)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=18)] = 0,
     ) -> GetPing200Response:
         """Проверка подключения
 
@@ -407,7 +407,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=20)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=18)] = 0,
     ) -> ApiResponse[GetPing200Response]:
         """Проверка подключения
 
@@ -473,7 +473,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=20)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=18)] = 0,
     ) -> RESTResponseType:
         """Проверка подключения
 
@@ -539,9 +539,7 @@ class DefaultApi:
             'https://marketplace-api.wildberries.ru',
             'https://marketplace-api-sandbox.wildberries.ru',
             'https://statistics-api.wildberries.ru',
-            'https://statistics-api-sandbox.wildberries.ru',
             'https://advert-api.wildberries.ru',
-            'https://advert-api-sandbox.wildberries.ru',
             'https://feedbacks-api.wildberries.ru',
             'https://feedbacks-api-sandbox.wildberries.ru',
             'https://buyer-chat-api.wildberries.ru',

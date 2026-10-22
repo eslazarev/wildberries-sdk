@@ -170,14 +170,8 @@ paths:
         **Статистика**
       url: https://statistics-api.wildberries.ru
     - description: |
-        **Песочница Статистика**
-      url: https://statistics-api-sandbox.wildberries.ru
-    - description: |
         **Продвижение**
       url: https://advert-api.wildberries.ru
-    - description: |
-        **Песочница Продвижение**
-      url: https://advert-api-sandbox.wildberries.ru
     - description: |
         **Вопросы и отзывы**
       url: https://feedbacks-api.wildberries.ru

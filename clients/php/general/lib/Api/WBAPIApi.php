@@ -141,9 +141,7 @@ class WBAPIApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      * URL: https://advert-api.wildberries.ru
-     * URL: https://advert-api-sandbox.wildberries.ru
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      * URL: https://buyer-chat-api.wildberries.ru
@@ -183,9 +181,7 @@ class WBAPIApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      * URL: https://advert-api.wildberries.ru
-     * URL: https://advert-api-sandbox.wildberries.ru
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      * URL: https://buyer-chat-api.wildberries.ru
@@ -334,9 +330,7 @@ class WBAPIApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      * URL: https://advert-api.wildberries.ru
-     * URL: https://advert-api-sandbox.wildberries.ru
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      * URL: https://buyer-chat-api.wildberries.ru
@@ -379,9 +373,7 @@ class WBAPIApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      * URL: https://advert-api.wildberries.ru
-     * URL: https://advert-api-sandbox.wildberries.ru
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      * URL: https://buyer-chat-api.wildberries.ru
@@ -453,9 +445,7 @@ class WBAPIApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      * URL: https://statistics-api.wildberries.ru
-     * URL: https://statistics-api-sandbox.wildberries.ru
      * URL: https://advert-api.wildberries.ru
-     * URL: https://advert-api-sandbox.wildberries.ru
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      * URL: https://buyer-chat-api.wildberries.ru
@@ -606,16 +596,8 @@ class WBAPIApi
                 "description" => "**Статистика**",
             ],
             [
-                "url" => "https://statistics-api-sandbox.wildberries.ru",
-                "description" => "**Песочница Статистика**",
-            ],
-            [
                 "url" => "https://advert-api.wildberries.ru",
                 "description" => "**Продвижение**",
-            ],
-            [
-                "url" => "https://advert-api-sandbox.wildberries.ru",
-                "description" => "**Песочница Продвижение**",
             ],
             [
                 "url" => "https://feedbacks-api.wildberries.ru",

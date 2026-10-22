@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Поставки FBW
- * <div class=\"description_important\">   Узнать больше о поставках FBW можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies)   - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation)  Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в <a href=\'/sandbox\'>песочнице</a> Поставок  </div> 
+ * <div class=\"description_important\">   Узнать больше о поставках FBW можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies)   - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation)  </div> 
  *
  * The version of the OpenAPI document: ordersfbw
  * 
@@ -784,7 +784,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод [временно отключён](/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+     * Метод [временно отключён](/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
      * Список складов
      */
     async getV1WarehousesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsWarehousesResultItems>>> {
@@ -795,7 +795,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод [временно отключён](/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+     * Метод [временно отключён](/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
      * Список складов
      */
     async getV1Warehouses(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ModelsWarehousesResultItems>> {
@@ -841,7 +841,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод [временно отключён](/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+     * Метод [временно отключён](/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Опции приёмки
      */
     async postV1AcceptanceOptionsRaw(requestParameters: PostV1AcceptanceOptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsOptionsResultModel>> {
@@ -852,7 +852,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод [временно отключён](/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  <hr>  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.  </div> 
+     * Метод [временно отключён](/release-notes?id=570)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Опции приёмки
      */
     async postV1AcceptanceOptions(requestParameters: PostV1AcceptanceOptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ModelsOptionsResultModel> {

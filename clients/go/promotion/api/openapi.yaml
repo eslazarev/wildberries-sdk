@@ -16,7 +16,6 @@ info:
 
     Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>
 
-    Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/promotion) для управления тестовым балансом
 
     </div>
   title: Маркетинг и продвижение
@@ -154,12 +153,7 @@ paths:
       x-category: advert
       x-tagKey: campaigns
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /api/advert/v2/adverts:
     get:
       description: |
@@ -586,12 +580,7 @@ paths:
       x-category: advert
       x-tagKey: creatingCampaigns
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v1/supplier/subjects:
     get:
       description: |
@@ -700,12 +689,7 @@ paths:
       x-category: advert
       x-tagKey: creatingCampaigns
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v2/supplier/nms:
     post:
       description: |
@@ -811,12 +795,7 @@ paths:
       x-category: advert
       x-tagKey: creatingCampaigns
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v0/delete:
     get:
       description: |
@@ -914,12 +893,7 @@ paths:
       x-category: advert
       x-tagKey: campaignManagement
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v0/rename:
     post:
       description: |
@@ -1029,12 +1003,7 @@ paths:
       x-category: advert
       x-tagKey: campaignManagement
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v0/start:
     get:
       description: |
@@ -1145,12 +1114,7 @@ paths:
       x-category: advert
       x-tagKey: campaignManagement
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v0/pause:
     get:
       description: |
@@ -1258,12 +1222,7 @@ paths:
       x-category: advert
       x-tagKey: campaignManagement
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v0/stop:
     get:
       description: |
@@ -1373,12 +1332,7 @@ paths:
       x-category: advert
       x-tagKey: campaignManagement
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v0/auction/placements:
     put:
       description: |
@@ -1721,12 +1675,7 @@ paths:
       x-category: advert
       x-tagKey: finances
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /api/advert/v2/budget:
     post:
       description: |
@@ -1830,9 +1779,7 @@ paths:
       x-category: advert
       x-tagKey: finances
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v1/budget:
     get:
       deprecated: true
@@ -1939,12 +1886,7 @@ paths:
       x-category: advert
       x-tagKey: finances
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v1/budget/deposit:
     post:
       description: |
@@ -2059,12 +2001,7 @@ paths:
       x-category: advert
       x-tagKey: finances
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v1/upd:
     get:
       description: |
@@ -2197,12 +2134,7 @@ paths:
       x-category: advert
       x-tagKey: finances
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v1/payments:
     get:
       description: |
@@ -2335,12 +2267,7 @@ paths:
       x-category: advert
       x-tagKey: finances
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://advert-api-sandbox.wildberries.ru
+    - url: https://advert-api.wildberries.ru
   /adv/v0/auction/nms:
     patch:
       description: |
@@ -3981,8 +3908,6 @@ paths:
         Максимальный период в запросе — 31 день.
         <br><br>
         Для кампаний в статусах `7`, `9` и `11`.
-        <br><br>
-        В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -5586,9 +5511,7 @@ paths:
       - service
       x-tagKey: campaignManagement
     servers:
-    - description: |
-        **Prod**
-      url: https://advert-api.wildberries.ru
+    - url: https://advert-api.wildberries.ru
 components:
   examples:
     DailyLimitTooLow:
