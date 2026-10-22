@@ -18,7 +18,6 @@ info:
 
     Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>
 
-    Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/promotion) для управления тестовым балансом
 
     </div>
   x-file-name: promotion
@@ -61,11 +60,6 @@ paths:
   /adv/v1/promotion/count:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV1PromotionCount
       x-readonly-method: true
@@ -457,11 +451,6 @@ paths:
   /adv/v2/seacat/save-ad:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     post:
       operationId: postV2SeacatSaveAd
       x-readonly-method: false
@@ -575,11 +564,6 @@ paths:
   /adv/v1/supplier/subjects:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV1SupplierSubjects
       x-readonly-method: true
@@ -655,11 +639,6 @@ paths:
   /adv/v2/supplier/nms:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     post:
       operationId: postV2SupplierNms
       x-readonly-method: true
@@ -737,11 +716,6 @@ paths:
   /adv/v0/delete:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV0Delete
       x-readonly-method: false
@@ -796,11 +770,6 @@ paths:
   /adv/v0/rename:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     post:
       operationId: postV0Rename
       x-readonly-method: false
@@ -879,11 +848,6 @@ paths:
   /adv/v0/start:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV0Start
       x-readonly-method: false
@@ -951,11 +915,6 @@ paths:
   /adv/v0/pause:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV0Pause
       x-readonly-method: false
@@ -1020,11 +979,6 @@ paths:
   /adv/v0/stop:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV0Stop
       x-readonly-method: false
@@ -1372,11 +1326,6 @@ paths:
   /adv/v1/balance:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV1Balance
       x-readonly-method: true
@@ -1470,8 +1419,6 @@ paths:
   /api/advert/v2/budget:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
     post:
       operationId: postV2Budget
       x-readonly-method: true
@@ -1534,11 +1481,6 @@ paths:
   /adv/v1/budget:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV1Budget
       x-readonly-method: true
@@ -1616,11 +1558,6 @@ paths:
   /adv/v1/budget/deposit:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     post:
       operationId: postV1BudgetDeposit
       x-readonly-method: false
@@ -1734,11 +1671,6 @@ paths:
   /adv/v1/upd:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV1Upd
       x-readonly-method: true
@@ -1865,11 +1797,6 @@ paths:
   /adv/v1/payments:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://advert-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       operationId: getV1Payments
       x-readonly-method: true
@@ -3574,8 +3501,6 @@ paths:
         Максимальный период в запросе — 31 день.
         <br><br>
         Для кампаний в статусах `7`, `9` и `11`.
-        <br><br>
-        В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -4449,8 +4374,6 @@ paths:
   /api/advert/v0/daily-limits:
     servers:
       - url: https://advert-api.wildberries.ru
-        description: |
-          **Prod**
     get:
       x-readonly-method: true
       x-category: advert
