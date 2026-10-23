@@ -52,6 +52,29 @@ def _ref_name(schema) -> Optional[str]:
     return schema.get("type")
 
 
+def _resolve_ref(doc: dict, node) -> dict:
+    """Follow a local ``$ref`` chain inside the same document.
+
+    WB declares shared parameters once under ``components/parameters`` and
+    references them from the operations. Unresolved, they arrive nameless and
+    render as empty rows in the parameter table.
+    """
+    for _ in range(10):
+        if not isinstance(node, dict) or "$ref" not in node:
+            break
+        ref = node["$ref"]
+        if not isinstance(ref, str) or not ref.startswith("#/"):
+            return {}
+        target = doc
+        for part in ref[2:].split("/"):
+            part = part.replace("~1", "/").replace("~0", "~")
+            if not isinstance(target, dict) or part not in target:
+                return {}
+            target = target[part]
+        node = target
+    return node if isinstance(node, dict) else {}
+
+
 def _json_schema(container) -> Optional[dict]:
     if not isinstance(container, dict):
         return None
@@ -70,17 +93,18 @@ def load_operations(specs_dir: str = "specs") -> List[Operation]:
             for verb, op in item.items():
                 if verb not in VERBS or not isinstance(op, dict):
                     continue
-                params = [
-                    Param(
+                params = []
+                for raw in (op.get("parameters") or []):
+                    p = _resolve_ref(doc, raw)
+                    if not p.get("name"):
+                        continue
+                    params.append(Param(
                         name=p.get("name", ""),
                         location=p.get("in", ""),
                         required=bool(p.get("required")),
                         type=(p.get("schema") or {}).get("type", ""),
                         description=(p.get("description") or "").strip(),
-                    )
-                    for p in (op.get("parameters") or [])
-                    if isinstance(p, dict)
-                ]
+                    ))
                 request_model = _ref_name(_json_schema(op.get("requestBody") or {}))
                 response_model = None
                 for code in ("200", "201"):

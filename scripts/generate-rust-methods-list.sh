@@ -84,13 +84,19 @@ render_module_section() {
     return
   fi
 
-  "${PYTHON_BIN}" - <<'PY' "${module}" "${api_files[@]}"
+  "${PYTHON_BIN}" - <<'PY' "${ROOT_DIR}" "${module}" "${api_files[@]}"
 import re
 import sys
 from pathlib import Path
 
-module = sys.argv[1]
-files = sys.argv[2:]
+root = sys.argv[1]
+module = sys.argv[2]
+files = sys.argv[3:]
+
+# The Rust client keeps the whole WB description in one doc comment; shared with
+# the docs site so both trim it the same way.
+sys.path.insert(0, str(Path(root) / "scripts"))
+from docsgen.summary import clean_summary
 
 FUNC_RE = re.compile(r"^pub\s+(?:async\s+)?fn\s+([A-Za-z0-9_]+)\s*\(")
 DOC_RE = re.compile(r"^\s*///\s?(.*)")
@@ -183,7 +189,7 @@ for api_file in files:
         name = match.group(1)
         block = extract_block(lines, idx)
         method, path = parse_method_path(block)
-        summary = extract_summary(lines, idx)
+        summary = clean_summary(extract_summary(lines, idx))
         if not method or not path:
             continue
         methods.append((api_name, name, method, path, summary))

@@ -46,9 +46,10 @@ python scripts/generate-release-chart.py          # 12 release-cadence SVGs + da
 bash scripts/generate-python-methods-list.sh      # refresh one README's method list (same for npm/go/php/rust)
 ```
 
-Some tests assert counts over the generated clients (operation totals, class
-maps). They fail when `clients/` is behind `specs/`; that is drift, not your
-change. Check against a clean tree before assuming you broke something.
+The suite is green on a clean tree — a failure is your change, not background
+noise. It stays that way because no test spells out an operation count or a
+generated method name: both are read from `specs/` and from the clients at run
+time. Write new tests the same way, or they will rot at the next spec update.
 
 ## What you cannot run locally
 
