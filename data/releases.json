@@ -1,5 +1,5 @@
 {
-  "last_30_days": 16,
+  "last_30_days": 17,
   "longest_gap_days": 7,
   "median_interval_days": 1.06,
   "releases": [
@@ -650,18 +650,22 @@
     {
       "at": "2026-10-22T03:40:23+00:00",
       "version": "v0.1.175"
+    },
+    {
+      "at": "2026-10-23T13:13:50+00:00",
+      "version": "v0.1.176"
     }
   ],
-  "total": 162,
+  "total": 163,
   "weekday_counts": [
     2,
     25,
     36,
     29,
-    40,
+    41,
     28,
     2
   ],
-  "window_end": "2026-10-22",
+  "window_end": "2026-10-23",
   "window_start": "2025-10-20"
 }
