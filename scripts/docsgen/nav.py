@@ -7,11 +7,17 @@ from .render import operation_slug
 from .specs import Operation
 
 
+# An absolute URL in the nav renders as a plain link; assets/js/external-links.js
+# is what makes it open in a new tab, so the reader keeps the reference page open.
+DEEPWIKI_URL = "https://deepwiki.com/eslazarev/wildberries-sdk"
+
+
 def build_summary(by_module: Dict[str, List[Operation]]) -> str:
     lines = [
         "* [Wildberries SDK](index.md)",
         "* [Начало работы](getting-started.md)",
         "* [Частота релизов](releases.md)",
+        f"* [Спросить DeepWiki]({DEEPWIKI_URL})",
         "* Справочник API",
     ]
     for module in by_module:
