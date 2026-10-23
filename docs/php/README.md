@@ -4,6 +4,8 @@
 
 📖 **Документация:** <https://eslazarev.github.io/wildberries-sdk/> — справочник по всем операциям API с примерами вызова.
 
+[![Спроси DeepWiki об этом репо](https://deepwiki.com/badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
+
 ## Безопасность
 
 SDK выпускается с security-first процессом:
@@ -45,7 +47,7 @@ $config = Configuration::getDefaultConfiguration()
     ->setApiKey("Authorization", $token);
 
 $api = new DefaultApi(new Client(), $config);
-$response = $api->apiV1FeedbacksGet(true, 100, 0);
+$response = $api->getV1Feedbacks(true, 100, 0);
 
 var_dump($response);
 ```
@@ -56,12 +58,13 @@ var_dump($response);
 - `Wildberries\Sdk\Items`
 - `Wildberries\Sdk\OrdersFbs`
 - `Wildberries\Sdk\OrdersDbw`
+- `Wildberries\Sdk\Dbs`
 - `Wildberries\Sdk\OrdersDbs`
 - `Wildberries\Sdk\InStorePickup`
 - `Wildberries\Sdk\OrdersFbw`
 - `Wildberries\Sdk\Promotion`
 - `Wildberries\Sdk\Communications`
-- `Wildberries\Sdk\Tariffs`
+- `Wildberries\Sdk\Rates`
 - `Wildberries\Sdk\Analytics`
 - `Wildberries\Sdk\Reports`
 - `Wildberries\Sdk\Finances`

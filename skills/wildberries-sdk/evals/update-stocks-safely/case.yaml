@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: update-stocks-safely
+expected_outcome: |
+  A Node.js script using the wildberries-sdk items module that calls
+  putV3StocksWarehouseId, sets basePath explicitly (the Node runtime defaults
+  to http://localhost), and points it at the marketplace sandbox host because
+  the user asked not to touch live stock.

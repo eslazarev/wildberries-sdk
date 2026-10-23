@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: find-supply-slots-in-go
+expected_outcome: |
+  The acceptance coefficients operation is not in orders_fbw where the FBW
+  framing points — it lives in the rates module as
+  GET /api/tariffs/v1/acceptance/coefficients on common-api. A good answer
+  finds it there, gives the Go import path for clients/go/rates, calls
+  GetV1AcceptanceCoefficients, and shows the context-based API key auth with
+  the token read from the environment.

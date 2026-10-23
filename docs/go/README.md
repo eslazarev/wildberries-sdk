@@ -4,6 +4,8 @@
 
 📖 **Документация:** <https://eslazarev.github.io/wildberries-sdk/> — справочник по всем операциям API с примерами вызова.
 
+[![Спроси DeepWiki об этом репо](https://deepwiki.com/badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
+
 ## Безопасность
 
 SDK выпускается с security-first процессом:
@@ -39,12 +41,13 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `github.com/eslazarev/wildberries-sdk/clients/go/items`
 - `github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs`
 - `github.com/eslazarev/wildberries-sdk/clients/go/orders_dbw`
+- `github.com/eslazarev/wildberries-sdk/clients/go/dbs`
 - `github.com/eslazarev/wildberries-sdk/clients/go/orders_dbs`
 - `github.com/eslazarev/wildberries-sdk/clients/go/in_store_pickup`
 - `github.com/eslazarev/wildberries-sdk/clients/go/orders_fbw`
 - `github.com/eslazarev/wildberries-sdk/clients/go/promotion`
 - `github.com/eslazarev/wildberries-sdk/clients/go/communications`
-- `github.com/eslazarev/wildberries-sdk/clients/go/tariffs`
+- `github.com/eslazarev/wildberries-sdk/clients/go/rates`
 - `github.com/eslazarev/wildberries-sdk/clients/go/analytics`
 - `github.com/eslazarev/wildberries-sdk/clients/go/reports`
 - `github.com/eslazarev/wildberries-sdk/clients/go/finances`

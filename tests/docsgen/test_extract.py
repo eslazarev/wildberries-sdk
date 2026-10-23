@@ -1,66 +1,142 @@
+"""The generator renames methods whenever openapi-generator's naming changes.
+
+These tests therefore never spell a method name out: they look it up the way
+``build-docs-site.py`` does and assert the invariants that must survive a
+rename — every operation resolves, and an operation belonging to a non-default
+API class keeps that class.
+"""
+import pytest
+
 from docsgen.extract import (
     python_anchor, npm_names, go_names, php_names, rust_names,
     npm_class_map, go_class_map, php_class_map, rust_class_map, class_maps,
+    python_params, python_body_params, body_params,
 )
+from docsgen.naming import to_camel, to_pascal
+
+CLIENTS = "clients"
+PING = ("GET", "/ping")                       # lives in WBAPIApi, not DefaultApi
+BALANCE = ("GET", "/api/v1/account/balance")  # a plain DefaultApi operation
 
 
-def test_python_anchor_maps_verb_path_to_snake():
-    anchor = python_anchor("finances", "clients")
-    assert anchor[("GET", "/api/v1/account/balance")] == "api_v1_account_balance_get"
-    assert anchor[("POST", "/api/finance/v1/sales-reports/list")] == \
-        "post_v1_sales_reports_list"
+def _snake(module, verb_path):
+    anchor = python_anchor(module, CLIENTS)
+    assert verb_path in anchor, f"{verb_path} is missing from the {module} python client"
+    return anchor[verb_path]
 
 
-def test_language_name_sets_contain_known_method():
-    assert "apiV1AccountBalanceGet" in npm_names("finances", "clients")
-    assert "ApiV1AccountBalanceGet" in go_names("finances", "clients")
-    assert "apiV1AccountBalanceGet" in php_names("finances", "clients")
-    assert "api_v1_account_balance_get" in rust_names("finances", "clients")
+def _key(lang, snake):
+    """The class-map key build-docs-site.py looks an operation up by."""
+    if lang == "rust":
+        return snake.lower()
+    if lang == "go":
+        return to_pascal(snake).lower()
+    return to_camel(snake).lower()
+
+
+def test_python_anchor_maps_verb_path_to_a_real_method():
+    anchor = python_anchor("finances", CLIENTS)
+    assert anchor
+    assert all(name.isidentifier() for name in anchor.values())
+    assert "account_balance" in _snake("finances", BALANCE)
+    assert "sales_reports_list" in _snake("finances", ("POST", "/api/finance/v1/sales-reports/list"))
+
+
+def test_every_language_exposes_the_same_operation():
+    snake = _snake("finances", BALANCE)
+    lowered = {
+        "npm": {n.lower() for n in npm_names("finances", CLIENTS)},
+        "go": {n.lower() for n in go_names("finances", CLIENTS)},
+        "php": {n.lower() for n in php_names("finances", CLIENTS)},
+        "rust": {n.lower() for n in rust_names("finances", CLIENTS)},
+    }
+    # Acronym casing differs per generator, so compare case-insensitively.
+    assert to_camel(snake).lower() in lowered["npm"]
+    assert to_pascal(snake).lower() in lowered["go"]
+    assert to_camel(snake).lower() in lowered["php"]
+    assert snake.lower() in lowered["rust"]
 
 
 def test_php_names_exclude_helper_suffixes():
-    names = php_names("finances", "clients")
+    names = php_names("finances", CLIENTS)
     assert not any(n.endswith(("WithHttpInfo", "Async", "Request")) for n in names)
 
 
 def test_missing_module_returns_empty_set():
-    assert npm_names("does_not_exist", "clients") == set()
+    assert npm_names("does_not_exist", CLIENTS) == set()
 
 
-def test_npm_class_map_ping_uses_wbapi_class():
-    """GET /ping lives in WBAPIApi, not DefaultApi."""
-    cmap = npm_class_map("general", "clients")
-    real_name, class_token = cmap["pingget"]
-    assert class_token == "WBAPIApi"
-    assert class_token != "DefaultApi"
+@pytest.mark.parametrize("lang,class_map,expected", [
+    ("npm", npm_class_map, "WBAPIApi"),
+    ("go", go_class_map, "WBAPIAPI"),
+    ("php", php_class_map, "WBAPIApi"),
+    ("rust", rust_class_map, "wbapi_api"),
+])
+def test_ping_keeps_its_own_api_class(lang, class_map, expected):
+    snake = _snake("general", PING)
+    cmap = class_map("general", CLIENTS)
+    key = _key(lang, snake)
+    assert key in cmap, f"{key} missing from the {lang} class map"
+    _real_name, token = cmap[key]
+    assert expected.lower() in token.lower()
+    assert "defaultapi" not in token.lower().replace("_", "")
 
 
-def test_go_class_map_ping_uses_wbapi_field():
-    """GET /ping lives in the WBAPIAPI client field, not DefaultApi."""
-    cmap = go_class_map("general", "clients")
-    real_name, field_name = cmap["pingget"]
-    assert field_name == "WBAPIAPI"
-    assert field_name != "DefaultApi"
-
-
-def test_class_maps_default_api_unchanged_for_finances():
-    """DefaultApi operations in finances must still resolve to DefaultApi."""
-    cmaps = class_maps("finances", "clients")
-    npm_real, npm_class = cmaps["npm"]["apiv1accountbalanceget"]
+def test_default_api_operations_stay_on_default_api():
+    snake = _snake("finances", BALANCE)
+    cmaps = class_maps("finances", CLIENTS)
+    _npm_real, npm_class = cmaps["npm"][_key("npm", snake)]
     assert npm_class == "DefaultApi"
-    go_real, go_field = cmaps["go"]["apiv1accountbalanceget"]
+    _go_real, go_field = cmaps["go"][_key("go", snake)]
     assert go_field == "DefaultApi"
 
 
-def test_php_class_map_ping_uses_wbapi_class():
-    cmap = php_class_map("general", "clients")
-    real_name, full_class = cmap["pingget"]
-    assert "WBAPIApi" in full_class
-    assert "DefaultApi" not in full_class
+def test_class_maps_cover_every_python_operation():
+    """Whatever the generator renames, no operation may fall out of a client."""
+    anchor = python_anchor("finances", CLIENTS)
+    cmaps = class_maps("finances", CLIENTS)
+    for snake in anchor.values():
+        for lang in ("npm", "go", "php", "rust"):
+            assert _key(lang, snake) in cmaps[lang], f"{snake} missing in {lang}"
 
 
-def test_rust_class_map_ping_uses_wbapi_module():
-    cmap = rust_class_map("general", "clients")
-    real_name, mod_name = cmap["ping_get"]
-    assert mod_name == "wbapi_api"
-    assert mod_name != "default_api"
+# --- request-body and parameter names --------------------------------------
+
+def test_python_params_use_the_clients_spelling():
+    params = python_params("communications", CLIENTS)
+    snake = _snake("communications", ("GET", "/api/v1/feedbacks"))
+    names = dict(params[snake])
+    # The spec says isAnswered; the client says is_answered, and only the
+    # client's spelling works as a keyword argument.
+    assert names["is_answered"] is True
+    assert names["take"] is True and names["skip"] is True
+    assert "isAnswered" not in names
+
+
+def test_python_body_param_is_named_after_its_model():
+    bodies = python_body_params("items", CLIENTS)
+    snake = _snake("items", ("PUT", "/api/v3/stocks/{warehouseId}"))
+    assert bodies[snake] == f"{snake}_request"
+
+
+def test_body_params_cover_every_operation_that_takes_a_body():
+    """A guessed body key is silently dropped by WB, so none may be missing."""
+    from docsgen.specs import load_operations
+
+    for module in ("items", "finances", "orders_fbs"):
+        anchor = python_anchor(module, CLIENTS)
+        bodies = body_params(module, CLIENTS)
+        for op in load_operations("specs"):
+            if op.module != module or not op.request_model:
+                continue
+            snake = anchor.get((op.verb, op.path))
+            if not snake:
+                continue
+            assert snake in bodies["python"], f"{module}.{snake}"
+            assert _key("npm", snake) in bodies["npm"], f"{module}.{snake}"
+            assert _key("go", snake) in bodies["go"], f"{module}.{snake}"
+
+
+def test_body_params_skip_operations_without_a_body():
+    bodies = python_body_params("finances", CLIENTS)
+    assert _snake("finances", ("GET", "/api/v1/account/balance")) not in bodies

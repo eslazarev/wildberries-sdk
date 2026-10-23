@@ -11,8 +11,9 @@ import shutil
 import sys
 from collections import OrderedDict
 
-from docsgen.extract import class_maps, python_anchor
+from docsgen.extract import body_params, class_maps, python_anchor, python_params
 from docsgen.naming import to_camel, to_pascal
+from docsgen.llms import render_llms_full, render_llms_index
 from docsgen.nav import build_summary
 from docsgen.release_render import render_page as render_release_page
 from docsgen.releases import load_stats
@@ -25,9 +26,10 @@ CLIENTS_DIR = os.path.join(ROOT, "clients")
 DOCS_DIR = os.path.join(ROOT, "website", "docs")
 REFERENCE_DIR = os.path.join(DOCS_DIR, "reference")
 RELEASES_DATA = os.path.join(ROOT, "data", "releases.json")
+LLMS_TXT = os.path.join(ROOT, "llms.txt")
 
 
-def resolve_names(snake, cmaps):
+def resolve_names(snake, cmaps, bodies=None, params=None):
     """Map snake anchor name -> per-language (method_name, class_token) pairs.
 
     Returns a dict keyed by language id, values are ``(method, class_token)``
@@ -36,11 +38,17 @@ def resolve_names(snake, cmaps):
     When a language doesn't have the method it maps to None.
     """
     resolved = {"python": snake, "rust": None, "npm": None, "php": None, "go": None}
+    bodies = bodies or {}
+    # Examples must spell parameters the way the clients do, not the specs.
+    resolved["python_params"] = (params or {}).get(snake, [])
+    resolved["python_body"] = bodies.get("python", {}).get(snake)
     if snake is None:
         return resolved
     pascal = to_pascal(snake)
     camel = to_camel(snake)
     candidates = {"rust": snake, "npm": camel, "php": camel, "go": pascal}
+    resolved["npm_body"] = bodies.get("npm", {}).get(candidates["npm"].lower())
+    resolved["go_body"] = bodies.get("go", {}).get(candidates["go"].lower())
     for lang in ("rust", "npm", "php", "go"):
         # Match case-insensitively and emit the client's REAL method name, so
         # acronym casing (e.g. ``ID``/``IDs`` vs ``Id``/``Ids``) never produces a
@@ -62,6 +70,7 @@ def main():
     os.makedirs(REFERENCE_DIR, exist_ok=True)
 
     no_example = 0
+    digest = OrderedDict()
     for module, module_ops in list(by_module.items()):
         anchor = python_anchor(module, CLIENTS_DIR)
         if not anchor:
@@ -69,6 +78,8 @@ def main():
             del by_module[module]
             continue
         cmaps = class_maps(module, CLIENTS_DIR)
+        bodies = body_params(module, CLIENTS_DIR)
+        pyparams = python_params(module, CLIENTS_DIR)
         module_dir = os.path.join(REFERENCE_DIR, module)
         os.makedirs(module_dir, exist_ok=True)
 
@@ -76,7 +87,8 @@ def main():
             snake = anchor.get((op.verb, op.path))
             if snake is None:
                 no_example += 1
-            names = resolve_names(snake, cmaps)
+            names = resolve_names(snake, cmaps, bodies, pyparams)
+            digest.setdefault(module, []).append((op, names))
             page = render_operation(op, names)
             with open(os.path.join(module_dir, f"{operation_slug(op)}.md"), "w",
                       encoding="utf-8") as fh:
@@ -93,10 +105,21 @@ def main():
     with open(os.path.join(DOCS_DIR, "SUMMARY.md"), "w", encoding="utf-8") as fh:
         fh.write(build_summary(by_module))
 
+    # Served from the site root: the convention looks for <site>/llms.txt, and
+    # the digest beside it is what an agent reads instead of 365 pages.
+    with open(LLMS_TXT, encoding="utf-8") as fh:
+        index = render_llms_index(fh.read())
+    with open(os.path.join(DOCS_DIR, "llms.txt"), "w", encoding="utf-8") as fh:
+        fh.write(index)
+    full = render_llms_full(digest)
+    with open(os.path.join(DOCS_DIR, "llms-full.txt"), "w", encoding="utf-8") as fh:
+        fh.write(full)
+
     total = sum(len(v) for v in by_module.values())
     print(f"Generated {total} operations across {len(by_module)} modules "
           f"({no_example} without any client example).")
     print(f"Release chart: {stats.total} releases in the rolling window.")
+    print(f"llms.txt + llms-full.txt: {len(full) // 1024} KB digest.")
 
 
 if __name__ == "__main__":

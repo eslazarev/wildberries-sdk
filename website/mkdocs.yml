@@ -29,6 +29,9 @@ theme:
         icon: material/weather-sunny
         name: Светлая тема
 
+extra_javascript:
+  - assets/js/external-links.js
+
 markdown_extensions:
   - admonition
   - md_in_html

@@ -55,3 +55,12 @@ def test_build_summary_structure():
     assert "* [finances](reference/finances/index.md)" in summary
     assert "* [Получить баланс продавца](reference/finances/get_api_v1_account_balance.md)" \
         in summary
+
+
+def test_summary_links_to_deepwiki_above_the_reference():
+    from docsgen.nav import DEEPWIKI_URL
+
+    summary = build_summary({})
+    assert f"* [Спросить DeepWiki]({DEEPWIKI_URL})" in summary
+    lines = summary.splitlines()
+    assert lines.index(f"* [Спросить DeepWiki]({DEEPWIKI_URL})") < lines.index("* Справочник API")

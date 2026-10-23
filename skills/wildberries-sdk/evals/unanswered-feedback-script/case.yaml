@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: unanswered-feedback-script
+expected_outcome: |
+  A Python script that uses the wildberries-sdk communications module with the
+  real generated method name (get_v1_feedbacks), reads the token from the
+  WB_API_TOKEN environment variable, passes the required isAnswered/take/skip
+  parameters, paginates, and writes the requested columns to CSV. The method
+  name must match the published client rather than being invented.

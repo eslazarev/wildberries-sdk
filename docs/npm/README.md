@@ -4,6 +4,8 @@
 
 📖 **Документация:** <https://eslazarev.github.io/wildberries-sdk/> — справочник по всем операциям API с примерами вызова.
 
+[![Спроси DeepWiki об этом репо](https://deepwiki.com/badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
+
 ## Безопасность
 
 SDK выпускается с security-first процессом:
@@ -42,7 +44,7 @@ async function main() {
   });
 
   const api = new DefaultApi(config);
-  const response = await api.apiV1FeedbacksGet({
+  const response = await api.getV1Feedbacks({
     isAnswered: true,
     take: 100,
     skip: 0,
