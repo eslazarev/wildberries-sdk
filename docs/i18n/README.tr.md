@@ -4,6 +4,8 @@
 
 📖 **Dokümantasyon:** <https://eslazarev.github.io/wildberries-sdk/> — tüm Wildberries API işlemleri için Python, Node.js, Go, PHP ve Rust örnekleriyle başvuru kılavuzu.
 
+[![Bu depo hakkında DeepWiki'ye sor](https://deepwiki.com/badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
+
 ![using_sdk.gif](../../.github/images/using_wildberries_sdk_python.gif)
 
 | Dil | Sürüm | İndirme | README | Paket Deposu |

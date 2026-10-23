@@ -4,6 +4,8 @@
 
 📖 **Құжаттама:** <https://eslazarev.github.io/wildberries-sdk/> — барлық Wildberries API операциялары бойынша Python, Node.js, Go, PHP және Rust мысалдарымен анықтамалық.
 
+[![Осы репозиторий туралы DeepWiki-ден сұра](https://deepwiki.com/badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
+
 ![using_sdk.gif](../../.github/images/using_wildberries_sdk_python.gif)
 
 | Тіл | Нұсқасы | Жүктеулер | README | Реестр |

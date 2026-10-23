@@ -13,6 +13,7 @@ from collections import OrderedDict
 
 from docsgen.extract import class_maps, python_anchor
 from docsgen.naming import to_camel, to_pascal
+from docsgen.llms import render_llms_full, render_llms_index
 from docsgen.nav import build_summary
 from docsgen.release_render import render_page as render_release_page
 from docsgen.releases import load_stats
@@ -25,6 +26,7 @@ CLIENTS_DIR = os.path.join(ROOT, "clients")
 DOCS_DIR = os.path.join(ROOT, "website", "docs")
 REFERENCE_DIR = os.path.join(DOCS_DIR, "reference")
 RELEASES_DATA = os.path.join(ROOT, "data", "releases.json")
+LLMS_TXT = os.path.join(ROOT, "llms.txt")
 
 
 def resolve_names(snake, cmaps):
@@ -62,6 +64,7 @@ def main():
     os.makedirs(REFERENCE_DIR, exist_ok=True)
 
     no_example = 0
+    digest = OrderedDict()
     for module, module_ops in list(by_module.items()):
         anchor = python_anchor(module, CLIENTS_DIR)
         if not anchor:
@@ -77,6 +80,7 @@ def main():
             if snake is None:
                 no_example += 1
             names = resolve_names(snake, cmaps)
+            digest.setdefault(module, []).append((op, names))
             page = render_operation(op, names)
             with open(os.path.join(module_dir, f"{operation_slug(op)}.md"), "w",
                       encoding="utf-8") as fh:
@@ -93,10 +97,21 @@ def main():
     with open(os.path.join(DOCS_DIR, "SUMMARY.md"), "w", encoding="utf-8") as fh:
         fh.write(build_summary(by_module))
 
+    # Served from the site root: the convention looks for <site>/llms.txt, and
+    # the digest beside it is what an agent reads instead of 365 pages.
+    with open(LLMS_TXT, encoding="utf-8") as fh:
+        index = render_llms_index(fh.read())
+    with open(os.path.join(DOCS_DIR, "llms.txt"), "w", encoding="utf-8") as fh:
+        fh.write(index)
+    full = render_llms_full(digest)
+    with open(os.path.join(DOCS_DIR, "llms-full.txt"), "w", encoding="utf-8") as fh:
+        fh.write(full)
+
     total = sum(len(v) for v in by_module.values())
     print(f"Generated {total} operations across {len(by_module)} modules "
           f"({no_example} without any client example).")
     print(f"Release chart: {stats.total} releases in the rolling window.")
+    print(f"llms.txt + llms-full.txt: {len(full) // 1024} KB digest.")
 
 
 if __name__ == "__main__":
