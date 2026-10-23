@@ -41,7 +41,7 @@ def _required(op: Operation) -> List[str]:
 def _signatures(op: Operation, names: Dict) -> List[Tuple[str, str]]:
     """``[(language label, call), ...]`` in the order the clients are listed."""
     python = names.get("python")
-    rows = [("python", f"wildberries_sdk.{op.module}.DefaultApi.{python}"
+    rows = [("python", f"wildberries_sdk.{op.module}.DefaultApi.{python}{_python_args(names)}"
              if python else MISSING)]
     for label, lang in (("node", "npm"), ("go", "go"), ("php", "php"), ("rust", "rust")):
         entry = names.get(lang)
@@ -60,6 +60,29 @@ def _call(op: Operation, lang: str, entry: Tuple[str, str]) -> str:
     return f"wildberries_sdk_{op.module}::apis::{token}::{method}"
 
 
+def _python_args(names: Dict) -> str:
+    """The call signature, so an agent writes the keywords the client accepts."""
+    params = names.get("python_params") or []
+    args = [name for name, required in params if required]
+    body = names.get("python_body")
+    if body and body not in args:
+        args.append(body)
+    return f"({', '.join(args)})" if args else "()"
+
+
+def _body_names(names: Dict) -> str:
+    """How each client spells the body parameter. A guessed key is accepted by
+    WB on several write methods, which answer 204 and change nothing."""
+    parts = []
+    if names.get("python_body"):
+        parts.append(f"python {names['python_body']}")
+    if names.get("npm_body"):
+        parts.append(f"node {names['npm_body']}")
+    if names.get("go_body"):
+        parts.append(f"go .{names['go_body']}()")
+    return " — " + ", ".join(parts) if parts else ""
+
+
 def render_llms_full(by_module: Dict[str, List[Tuple[Operation, Dict]]]) -> str:
     out = [HEADER.format(site=SITE_URL, missing=MISSING)]
     for module, entries in by_module.items():
@@ -72,11 +95,17 @@ def render_llms_full(by_module: Dict[str, List[Tuple[Operation, Dict]]]) -> str:
 def _block(op: Operation, names: Dict) -> str:
     title = op.summary or f"{op.verb} {op.path}"
     lines = [f"### {title}", f"route: {op.verb} {op.path}"]
+    # Three of the five clients default to http://localhost, so the host is not
+    # a detail — without it the call goes nowhere.
+    if op.servers:
+        lines.append(f"host: {op.servers[0]}")
+    if len(op.servers) > 1:
+        lines.append(f"sandbox: {op.servers[1]}")
     required = _required(op)
     if required:
         lines.append("required: " + ", ".join(required))
     if op.request_model:
-        lines.append(f"body: {op.request_model}")
+        lines.append(f"body: {op.request_model}{_body_names(names)}")
     if op.response_model:
         lines.append(f"returns: {op.response_model}")
     lines += [f"{label}: {call}" for label, call in _signatures(op, names)]

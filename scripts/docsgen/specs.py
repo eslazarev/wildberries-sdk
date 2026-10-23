@@ -30,6 +30,9 @@ class Operation:
     params: List[Param] = field(default_factory=list)
     request_model: Optional[str] = None
     response_model: Optional[str] = None
+    # WB hosts the areas of its API on separate domains and declares them per
+    # path item: production first, sandbox (where it exists) second.
+    servers: List[str] = field(default_factory=list)
 
 
 def module_from_filename(filename: str) -> str:
@@ -50,6 +53,13 @@ def _ref_name(schema) -> Optional[str]:
         inner = _ref_name(schema.get("items") or {})
         return f"{inner}[]" if inner else "array"
     return schema.get("type")
+
+
+def _server_urls(servers) -> List[str]:
+    if not isinstance(servers, list):
+        return []
+    return [s["url"] for s in servers
+            if isinstance(s, dict) and isinstance(s.get("url"), str) and s["url"]]
 
 
 def _resolve_ref(doc: dict, node) -> dict:
@@ -87,9 +97,11 @@ def load_operations(specs_dir: str = "specs") -> List[Operation]:
         with open(filename, "r", encoding="utf-8") as fh:
             doc = yaml.safe_load(fh) or {}
         module = module_from_filename(filename)
+        root_servers = _server_urls(doc.get("servers"))
         for path, item in (doc.get("paths") or {}).items():
             if not isinstance(item, dict):
                 continue
+            path_servers = _server_urls(item.get("servers")) or root_servers
             for verb, op in item.items():
                 if verb not in VERBS or not isinstance(op, dict):
                     continue
@@ -122,5 +134,6 @@ def load_operations(specs_dir: str = "specs") -> List[Operation]:
                     params=params,
                     request_model=request_model,
                     response_model=response_model,
+                    servers=_server_urls(op.get("servers")) or path_servers,
                 ))
     return ops

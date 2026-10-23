@@ -55,3 +55,22 @@ def test_parameters_declared_by_reference_are_resolved():
     assert upload.required is True
     assert upload.type == "integer"
     assert upload.description
+
+
+def test_operations_carry_the_wb_host_from_the_spec():
+    # specs put the servers on the path item: production first, sandbox second.
+    ops = load_operations(SPECS)
+    balance = next(o for o in ops if o.module == "finances"
+                   and o.path == "/api/v1/account/balance")
+    assert balance.servers == ["https://finance-api.wildberries.ru"]
+
+    cards = next(o for o in ops if o.module == "items"
+                 and o.path == "/content/v2/object/parent/all")
+    assert cards.servers[0] == "https://content-api.wildberries.ru"
+    assert "sandbox" in cards.servers[1]
+
+
+def test_every_operation_knows_where_to_send_the_request():
+    ops = load_operations(SPECS)
+    hostless = [f"{o.module} {o.verb} {o.path}" for o in ops if not o.servers]
+    assert not hostless, hostless[:5]

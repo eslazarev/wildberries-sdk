@@ -44,7 +44,7 @@ async function main() {
   });
 
   const api = new DefaultApi(config);
-  const response = await api.apiV1FeedbacksGet({
+  const response = await api.getV1Feedbacks({
     isAnswered: true,
     take: 100,
     skip: 0,

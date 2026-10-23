@@ -10,6 +10,7 @@ import pytest
 from docsgen.extract import (
     python_anchor, npm_names, go_names, php_names, rust_names,
     npm_class_map, go_class_map, php_class_map, rust_class_map, class_maps,
+    python_params, python_body_params, body_params,
 )
 from docsgen.naming import to_camel, to_pascal
 
@@ -97,3 +98,45 @@ def test_class_maps_cover_every_python_operation():
     for snake in anchor.values():
         for lang in ("npm", "go", "php", "rust"):
             assert _key(lang, snake) in cmaps[lang], f"{snake} missing in {lang}"
+
+
+# --- request-body and parameter names --------------------------------------
+
+def test_python_params_use_the_clients_spelling():
+    params = python_params("communications", CLIENTS)
+    snake = _snake("communications", ("GET", "/api/v1/feedbacks"))
+    names = dict(params[snake])
+    # The spec says isAnswered; the client says is_answered, and only the
+    # client's spelling works as a keyword argument.
+    assert names["is_answered"] is True
+    assert names["take"] is True and names["skip"] is True
+    assert "isAnswered" not in names
+
+
+def test_python_body_param_is_named_after_its_model():
+    bodies = python_body_params("items", CLIENTS)
+    snake = _snake("items", ("PUT", "/api/v3/stocks/{warehouseId}"))
+    assert bodies[snake] == f"{snake}_request"
+
+
+def test_body_params_cover_every_operation_that_takes_a_body():
+    """A guessed body key is silently dropped by WB, so none may be missing."""
+    from docsgen.specs import load_operations
+
+    for module in ("items", "finances", "orders_fbs"):
+        anchor = python_anchor(module, CLIENTS)
+        bodies = body_params(module, CLIENTS)
+        for op in load_operations("specs"):
+            if op.module != module or not op.request_model:
+                continue
+            snake = anchor.get((op.verb, op.path))
+            if not snake:
+                continue
+            assert snake in bodies["python"], f"{module}.{snake}"
+            assert _key("npm", snake) in bodies["npm"], f"{module}.{snake}"
+            assert _key("go", snake) in bodies["go"], f"{module}.{snake}"
+
+
+def test_body_params_skip_operations_without_a_body():
+    bodies = python_body_params("finances", CLIENTS)
+    assert _snake("finances", ("GET", "/api/v1/account/balance")) not in bodies

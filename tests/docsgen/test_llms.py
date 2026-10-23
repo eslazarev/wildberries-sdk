@@ -7,7 +7,7 @@ from docsgen.specs import Operation, Param
 def _op(**kw):
     base = dict(module="general", verb="GET", path="/api/v1/account/balance",
                 summary="Получить баланс", description="Длинное описание из спеки WB.",
-                params=[], request_model=None, response_model=None)
+                params=[], request_model=None, response_model=None, servers=[])
     base.update(kw)
     return Operation(**base)
 
@@ -109,3 +109,41 @@ def test_index_keeps_the_repository_file_and_adds_the_digest_link():
     assert text.startswith("# Wildberries SDK")
     assert "> summary" in text
     assert f"{SITE_URL}/llms-full.txt" in text
+
+
+def test_block_states_the_host_and_its_sandbox():
+    from docsgen.llms import render_llms_full as render
+
+    op = _op(servers=["https://finance-api.wildberries.ru",
+                      "https://finance-api-sandbox.wildberries.ru"])
+    text = render(_entries(op))
+    assert "host: https://finance-api.wildberries.ru" in text
+    assert "sandbox: https://finance-api-sandbox.wildberries.ru" in text
+
+
+def test_sandbox_line_is_omitted_when_there_is_none():
+    op = _op(servers=["https://finance-api.wildberries.ru"])
+    text = render_llms_full(_entries(op))
+    assert "host: https://finance-api.wildberries.ru" in text
+    assert "sandbox:" not in text
+
+
+def test_python_line_shows_the_call_signature():
+    names = _names()
+    names["python_params"] = [("warehouse_id", True), ("body_param", False)]
+    names["python_body"] = "body_param"
+    entries = OrderedDict([("items", [(_op(request_model="object"), names)])])
+    text = render_llms_full(entries)
+    assert "(warehouse_id, body_param)" in text
+
+
+def test_body_line_names_the_parameter_in_each_language():
+    names = _names()
+    names["python_body"] = "put_v3_stocks_warehouse_id_request"
+    names["npm_body"] = "putV3StocksWarehouseIdRequest"
+    names["go_body"] = "PutV3StocksWarehouseIdRequest"
+    entries = OrderedDict([("items", [(_op(request_model="object"), names)])])
+    line = next(l for l in render_llms_full(entries).splitlines() if l.startswith("body:"))
+    assert "python put_v3_stocks_warehouse_id_request" in line
+    assert "node putV3StocksWarehouseIdRequest" in line
+    assert "go .PutV3StocksWarehouseIdRequest()" in line

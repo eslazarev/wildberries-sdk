@@ -44,7 +44,7 @@ api = communications.DefaultApi(
         communications.Configuration(api_key={"HeaderApiKey": token})
     )
 )
-feedbacks = api.api_v1_feedbacks_get(is_answered=False, take=100, skip=0).data.feedbacks
+feedbacks = api.get_v1_feedbacks(is_answered=False, take=100, skip=0).data.feedbacks
 
 print(feedbacks)
 ```
@@ -54,15 +54,16 @@ print(feedbacks)
 Импортируйте каждый клиент как `wildberries_sdk.<client>`:
 
 - `wildberries_sdk.general`
-- `wildberries_sdk.products`
+- `wildberries_sdk.items`
 - `wildberries_sdk.orders_fbs`
 - `wildberries_sdk.orders_dbw`
+- `wildberries_sdk.dbs`
 - `wildberries_sdk.orders_dbs`
 - `wildberries_sdk.in_store_pickup`
 - `wildberries_sdk.orders_fbw`
 - `wildberries_sdk.promotion`
 - `wildberries_sdk.communications`
-- `wildberries_sdk.tariffs`
+- `wildberries_sdk.rates`
 - `wildberries_sdk.analytics`
 - `wildberries_sdk.reports`
 - `wildberries_sdk.finances`
