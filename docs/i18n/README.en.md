@@ -4,7 +4,7 @@
 
 📖 **Documentation:** <https://eslazarev.github.io/wildberries-sdk/> — reference for all Wildberries API operations with examples in Python, Node.js, Go, PHP and Rust.
 
-[![Ask DeepWiki about this repo](https://deepwiki.com/badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
+[![Ask DeepWiki about this repo](../../.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
 ![using_sdk.gif](../../.github/images/using_wildberries_sdk_python.gif)
 
