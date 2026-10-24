@@ -16,6 +16,16 @@
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
 
+## ЖИ агенттері үшін
+
+Claude Code дағдысы бір командамен орнатылады:
+
+```
+/plugin install wildberries-sdk --marketplace eslazarev/wildberries-sdk
+```
+
+Орнатқаннан кейін агент ~350 операцияның ішінен керегін өзі табады, модульді, токен санатын және хостты таңдайды және шынымен жұмыс істейтін шақыру жазады. Claude Code-тан тыс агенттерге репозиторий түбіндегі [AGENTS.md](../../AGENTS.md) және операциялардың машинамен оқылатын тізімі керек: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
+
 ## Қауіпсіздік
 
 Бұл SDK қауіпсіздік басымдықты шығарылым процесімен жасалған:

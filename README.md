@@ -16,6 +16,16 @@
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](docs/go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](docs/rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
 
+## Для ИИ-агентов
+
+Навык для Claude Code ставится одной командой:
+
+```
+/plugin install wildberries-sdk --marketplace eslazarev/wildberries-sdk
+```
+
+После установки агент сам находит нужную операцию среди ~350, подбирает модуль, категорию токена и хост и пишет вызов, который действительно работает. Агентам без Claude Code пригодятся [AGENTS.md](AGENTS.md) в корне и машиночитаемый перечень операций: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
+
 ## Безопасность
 
 SDK выпускается с security-first процессом:

@@ -16,6 +16,16 @@
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
 
+## Yapay zekâ ajanları için
+
+Claude Code becerisi tek komutla kurulur:
+
+```
+/plugin install wildberries-sdk --marketplace eslazarev/wildberries-sdk
+```
+
+Kurulumdan sonra ajan ~350 operasyon arasından doğru olanı bulur; modülü, token kategorisini ve host'u seçer ve gerçekten çalışan bir çağrı yazar. Claude Code dışındaki ajanlar için depo kökündeki [AGENTS.md](../../AGENTS.md) ve makine tarafından okunabilir operasyon dizini vardır: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
+
 ## Güvenlik
 
 Bu SDK güvenlik öncelikli bir sürüm süreciyle yayınlanır:

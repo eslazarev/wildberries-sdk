@@ -16,6 +16,16 @@
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
 
+## 面向 AI 智能体
+
+一条命令即可安装 Claude Code 技能：
+
+```
+/plugin install wildberries-sdk --marketplace eslazarev/wildberries-sdk
+```
+
+安装后，智能体会在约 350 个操作中找到所需的那一个，选对模块、令牌类别和主机，并写出真正可运行的调用。不使用 Claude Code 的智能体可以参考仓库根目录的 [AGENTS.md](../../AGENTS.md) 以及机器可读的操作索引：[llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt)、[llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt)。
+
 ## 安全
 
 本 SDK 采用安全优先的发布流程：

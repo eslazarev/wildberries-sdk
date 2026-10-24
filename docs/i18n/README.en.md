@@ -16,6 +16,16 @@
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
 
+## For AI agents
+
+Install the Claude Code skill with a single command:
+
+```
+/plugin install wildberries-sdk --marketplace eslazarev/wildberries-sdk
+```
+
+The agent then finds the right operation among ~350 of them, picks the module, the token category and the host, and writes a call that actually runs. Agents outside Claude Code can read [AGENTS.md](../../AGENTS.md) in the repository root and the machine-readable operation index: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
+
 ## Security
 
 This SDK is built with a security-first release process:

@@ -1,0 +1,24 @@
+{
+  "name": "wildberries-sdk",
+  "owner": {
+    "name": "Evgenii Lazarev",
+    "url": "https://github.com/eslazarev"
+  },
+  "description": "Wildberries seller API skills: operation lookup and working call examples for the generated wildberries-sdk clients in Python, Node.js, Go, PHP and Rust.",
+  "plugins": [
+    {
+      "name": "wildberries-sdk",
+      "source": "./",
+      "description": "Work with the Wildberries (WB, Вайлдберриз) seller API through the wildberries-sdk clients: find the operation, module, token category and host, then write a call that runs.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "homepage": "https://eslazarev.github.io/wildberries-sdk/",
+      "keywords": [
+        "wildberries",
+        "marketplace",
+        "api",
+        "sdk"
+      ]
+    }
+  ]
+}

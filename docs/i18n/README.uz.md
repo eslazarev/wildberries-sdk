@@ -16,6 +16,16 @@
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
 
+## Sunʼiy intellekt agentlari uchun
+
+Claude Code koʻnikmasi bitta buyruq bilan oʻrnatiladi:
+
+```
+/plugin install wildberries-sdk --marketplace eslazarev/wildberries-sdk
+```
+
+Oʻrnatilgandan soʻng agent ~350 operatsiya ichidan keragini oʻzi topadi, modul, token toifasi va hostni tanlaydi va haqiqatan ishlaydigan chaqiruv yozadi. Claude Code'dan tashqaridagi agentlar uchun ombor ildizidagi [AGENTS.md](../../AGENTS.md) va operatsiyalarning mashina oʻqiydigan roʻyxati bor: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
+
 ## Xavfsizlik
 
 Ushbu SDK xavfsizlik birinchi oʻrinda boʻlgan reliz jarayoni bilan chiqariladi:
