@@ -4,7 +4,7 @@
 
 📖 **文档：** <https://eslazarev.github.io/wildberries-sdk/> — 涵盖所有 Wildberries API 操作的参考手册，附 Python、Node.js、Go、PHP 和 Rust 示例。
 
-[![向 DeepWiki 询问此仓库](https://deepwiki.com/badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
+[![向 DeepWiki 询问此仓库](../../.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
 ![using_sdk.gif](../../.github/images/using_wildberries_sdk_python.gif)
 
@@ -15,6 +15,16 @@
 | PHP | [![Packagist](https://img.shields.io/packagist/v/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [![Packagist Downloads](https://img.shields.io/packagist/dt/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [docs/php/README.md](../php/README.md) | [packagist.org](https://packagist.org/packages/eslazarev/wildberries-sdk) |
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
+
+## 面向 AI 智能体
+
+一条命令即可安装 Claude Code 技能：
+
+```
+/plugin install wildberries-sdk --marketplace eslazarev/wildberries-sdk
+```
+
+安装后，智能体会在约 350 个操作中找到所需的那一个，选对模块、令牌类别和主机，并写出真正可运行的调用。不使用 Claude Code 的智能体可以参考仓库根目录的 [AGENTS.md](../../AGENTS.md) 以及机器可读的操作索引：[llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt)、[llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt)。
 
 ## 安全
 

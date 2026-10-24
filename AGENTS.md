@@ -32,6 +32,7 @@ the directory only if you really mean to override them.
 | `website/docs/reference/**`, `SUMMARY.md`, `releases.md`, `llms.txt`, `llms-full.txt` | `website/docs/index.md`, `getting-started.md` |
 | `.github/images/release-cadence-*.svg`, `data/releases.json` | `README.md`, `docs/i18n/README.*.md`, root `llms.txt` |
 | `CHANGELOG.md` | `scripts/**`, `tests/**` |
+| | `skills/**`, `.claude-plugin/**`, `.devin/wiki.json`, `context7.json` |
 
 Generated files under `website/docs/` are gitignored and rebuilt in CI; the rest
 are committed so the README renders on GitHub and the registries.

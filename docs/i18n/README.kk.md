@@ -4,7 +4,7 @@
 
 📖 **Құжаттама:** <https://eslazarev.github.io/wildberries-sdk/> — барлық Wildberries API операциялары бойынша Python, Node.js, Go, PHP және Rust мысалдарымен анықтамалық.
 
-[![Осы репозиторий туралы DeepWiki-ден сұра](https://deepwiki.com/badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
+[![Осы репозиторий туралы DeepWiki-ден сұра](../../.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
 ![using_sdk.gif](../../.github/images/using_wildberries_sdk_python.gif)
 
@@ -15,6 +15,16 @@
 | PHP | [![Packagist](https://img.shields.io/packagist/v/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [![Packagist Downloads](https://img.shields.io/packagist/dt/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [docs/php/README.md](../php/README.md) | [packagist.org](https://packagist.org/packages/eslazarev/wildberries-sdk) |
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
+
+## ЖИ агенттері үшін
+
+Claude Code дағдысы бір командамен орнатылады:
+
+```
+/plugin install wildberries-sdk --marketplace eslazarev/wildberries-sdk
+```
+
+Орнатқаннан кейін агент ~350 операцияның ішінен керегін өзі табады, модульді, токен санатын және хостты таңдайды және шынымен жұмыс істейтін шақыру жазады. Claude Code-тан тыс агенттерге репозиторий түбіндегі [AGENTS.md](../../AGENTS.md) және операциялардың машинамен оқылатын тізімі керек: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
 
 ## Қауіпсіздік
 

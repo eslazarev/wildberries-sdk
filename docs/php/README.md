@@ -4,7 +4,7 @@
 
 📖 **Документация:** <https://eslazarev.github.io/wildberries-sdk/> — справочник по всем операциям API с примерами вызова.
 
-[![Спроси DeepWiki об этом репо](https://deepwiki.com/badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
+[![Спроси DeepWiki об этом репо](https://raw.githubusercontent.com/eslazarev/wildberries-sdk/main/.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
 ## Безопасность
 

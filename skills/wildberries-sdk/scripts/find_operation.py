@@ -16,8 +16,10 @@ from __future__ import annotations
 
 import argparse
 import os
+import ssl
 import sys
 import time
+import urllib.error
 import urllib.request
 
 DIGEST_URL = "https://eslazarev.github.io/wildberries-sdk/llms-full.txt"
@@ -32,6 +34,28 @@ def _read(path: str) -> str:
         return fh.read()
 
 
+def _urlopen(url: str):
+    """Fetch over HTTPS, surviving interpreters that ship no CA bundle.
+
+    A python.org macOS build that never ran Install Certificates.command
+    verifies nothing — and that is exactly the python3 an agent picks up from
+    PATH. certifi is not a dependency; it is only borrowed when it happens to
+    be installed and the interpreter has no trust store of its own.
+    """
+    try:
+        return urllib.request.urlopen(url, timeout=30)
+    except urllib.error.URLError as exc:
+        # urllib wraps the verification failure, so check the cause, not the type.
+        if not isinstance(exc.reason, ssl.SSLCertVerificationError):
+            raise
+        try:
+            import certifi
+        except ImportError:
+            raise
+        context = ssl.create_default_context(cafile=certifi.where())
+        return urllib.request.urlopen(url, timeout=30, context=context)
+
+
 def load_digest(source: str | None, refresh: bool) -> str:
     """The published digest, or the best local copy when the site is unreachable."""
     if source:
@@ -43,7 +67,7 @@ def load_digest(source: str | None, refresh: bool) -> str:
         return _read(CACHE_FILE)
 
     try:
-        with urllib.request.urlopen(DIGEST_URL, timeout=30) as response:
+        with _urlopen(DIGEST_URL) as response:
             text = response.read().decode("utf-8")
     except Exception:
         # Offline, behind a proxy, or run from a checkout before the site is

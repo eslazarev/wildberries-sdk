@@ -1,0 +1,25 @@
+{
+  "name": "wildberries-sdk",
+  "version": "0.1.0",
+  "description": "Call the Wildberries seller API from Python, Node.js, Go, PHP or Rust with the generated wildberries-sdk clients: finds the right operation, module, token category and host across ~350 operations instead of guessing method names.",
+  "author": {
+    "name": "Evgenii Lazarev",
+    "url": "https://github.com/eslazarev"
+  },
+  "homepage": "https://eslazarev.github.io/wildberries-sdk/",
+  "repository": "https://github.com/eslazarev/wildberries-sdk",
+  "license": "MIT",
+  "keywords": [
+    "wildberries",
+    "marketplace",
+    "api",
+    "sdk",
+    "openapi",
+    "python",
+    "nodejs",
+    "go",
+    "php",
+    "rust",
+    "ecommerce"
+  ]
+}
