@@ -9,6 +9,7 @@ use_directory_urls: true
 
 theme:
   name: material
+  custom_dir: overrides
   language: ru
   features:
     - navigation.sections

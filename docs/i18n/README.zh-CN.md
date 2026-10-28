@@ -4,6 +4,8 @@
 
 📖 **文档：** <https://eslazarev.github.io/wildberries-sdk/> — 涵盖所有 Wildberries API 操作的参考手册，附 Python、Node.js、Go、PHP 和 Rust 示例。
 
+📡 **Telegram 频道：** [@wildberries_api_radar](https://t.me/wildberries_api_radar) — 每次 Wildberries 规范更新都会发帖：新方法、速率限制、删除内容（俄语）。
+
 [![向 DeepWiki 询问此仓库](../../.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
 ![using_sdk.gif](../../.github/images/using_wildberries_sdk_python.gif)

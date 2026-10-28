@@ -8,6 +8,7 @@ on:
       - "clients/**"
       - "website/**"
       - "data/releases.json"
+      - "data/changelog.json"
       - "llms.txt"
       - "scripts/build-docs-site.py"
       - "scripts/docsgen/**"

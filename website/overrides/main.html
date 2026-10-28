@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <link rel="alternate" type="application/atom+xml" title="Изменения API Wildberries" href="{{ config.site_url }}changelog.xml">
+{% endblock %}

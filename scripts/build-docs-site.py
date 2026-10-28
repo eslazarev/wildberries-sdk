@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """Generate the MkDocs reference site from specs + generated clients.
 
-Writes Markdown into website/docs/reference/<module>/ and website/docs/SUMMARY.md.
+Writes Markdown into website/docs/reference/<module>/ and website/docs/SUMMARY.md,
+plus llms.txt, llms-full.txt and the changelog.xml Atom feed at the site root.
 Run from the repo root:  python scripts/build-docs-site.py
 """
 from __future__ import annotations
 
+import json
 import os
 import shutil
 import sys
 from collections import OrderedDict
 
+from docsgen.changelog import FEED_FILE, render_atom
 from docsgen.extract import body_params, class_maps, python_anchor, python_params
 from docsgen.naming import to_camel, to_pascal
 from docsgen.llms import render_llms_full, render_llms_index
@@ -27,6 +30,8 @@ DOCS_DIR = os.path.join(ROOT, "website", "docs")
 REFERENCE_DIR = os.path.join(DOCS_DIR, "reference")
 RELEASES_DATA = os.path.join(ROOT, "data", "releases.json")
 LLMS_TXT = os.path.join(ROOT, "llms.txt")
+CHANGELOG_DATA = os.path.join(ROOT, "data", "changelog.json")
+SITE_URL = "https://eslazarev.github.io/wildberries-sdk/"
 
 
 def resolve_names(snake, cmaps, bodies=None, params=None):
@@ -115,11 +120,17 @@ def main():
     with open(os.path.join(DOCS_DIR, "llms-full.txt"), "w", encoding="utf-8") as fh:
         fh.write(full)
 
+    with open(CHANGELOG_DATA, encoding="utf-8") as fh:
+        changelog = json.load(fh)
+    with open(os.path.join(DOCS_DIR, FEED_FILE), "w", encoding="utf-8") as fh:
+        fh.write(render_atom(changelog, SITE_URL))
+
     total = sum(len(v) for v in by_module.values())
     print(f"Generated {total} operations across {len(by_module)} modules "
           f"({no_example} without any client example).")
     print(f"Release chart: {stats.total} releases in the rolling window.")
     print(f"llms.txt + llms-full.txt: {len(full) // 1024} KB digest.")
+    print(f"{FEED_FILE}: {min(len(changelog['entries']), 50)} latest changelog entries.")
 
 
 if __name__ == "__main__":

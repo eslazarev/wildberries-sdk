@@ -4,6 +4,8 @@
 
 📖 **Hujjatlar:** <https://eslazarev.github.io/wildberries-sdk/> — barcha Wildberries API operatsiyalari uchun Python, Node.js, Go, PHP va Rust misollari bilan ma'lumotnoma.
 
+📡 **API oʻzgarishlari Telegramda:** [@wildberries_api_radar](https://t.me/wildberries_api_radar) — har bir Wildberries spetsifikatsiya yangilanishi haqida post: yangi metodlar, limitlar, olib tashlanganlar (rus tilida).
+
 [![Bu repozitoriy haqida DeepWiki'dan soʻra](../../.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
 ![using_sdk.gif](../../.github/images/using_wildberries_sdk_python.gif)

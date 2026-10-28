@@ -86,6 +86,10 @@ jobs:
 
           mv CHANGELOG.tmp CHANGELOG.md
 
+      - name: Update changelog data
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: python3 scripts/generate-changelog-data.py
+
       - name: Create pull request
         uses: peter-evans/create-pull-request@v6
         with:
@@ -99,5 +103,6 @@ jobs:
           add-paths: |
             specs
             CHANGELOG.md
+            data/changelog.json
           reviewers: eslazarev
           assignees: eslazarev

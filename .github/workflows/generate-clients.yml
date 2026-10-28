@@ -6,6 +6,30 @@ on:
       - main
 
 jobs:
+  # Posts the CHANGELOG entries this push added (a merged spec PR) to the
+  # Telegram channel. Separate from the release so a failed publish does not
+  # hold the post back, and the bot token never reaches the release steps.
+  announce:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Post new CHANGELOG entries to Telegram
+        continue-on-error: true
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          TELEGRAM_BOT: ${{ secrets.TELEGRAM_BOT }}
+          TELEGRAM_CHAT_ID: "@wildberries_api_radar"
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || 'gpt-4o-mini' }}
+        run: python3 scripts/changelog_post.py --since "$BEFORE_SHA"
+
   generate:
     runs-on: ubuntu-latest
     if: github.actor != 'github-actions[bot]'

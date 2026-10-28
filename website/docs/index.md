@@ -5,6 +5,8 @@
 
 <a href="https://deepwiki.com/eslazarev/wildberries-sdk" target="_blank" rel="noopener"><img src="https://deepwiki.com/badge.svg" alt="Спроси DeepWiki об этом репо"></a>
 
+📡 Изменения API — в Telegram-канале [@wildberries_api_radar](https://t.me/wildberries_api_radar): пост о каждом обновлении спецификаций Wildberries. Для RSS-ридеров есть [Atom-лента](changelog.xml).
+
 Этот сайт — справочник по **всем операциям API**. Для каждой операции указаны HTTP-метод
 и путь, параметры, модели запроса и ответа, а также пример вызова на всех пяти языках.
 

@@ -29,8 +29,8 @@ the directory only if you really mean to override them.
 | --- | --- |
 | `clients/**` | `specs/**` (downloaded, see below) |
 | `docs/*/README.md` **between** `<!-- *_METHODS_LIST_START/END -->` | the rest of `docs/*/README.md` |
-| `website/docs/reference/**`, `SUMMARY.md`, `releases.md`, `llms.txt`, `llms-full.txt` | `website/docs/index.md`, `getting-started.md` |
-| `.github/images/release-cadence-*.svg`, `data/releases.json` | `README.md`, `docs/i18n/README.*.md`, root `llms.txt` |
+| `website/docs/reference/**`, `SUMMARY.md`, `releases.md`, `llms.txt`, `llms-full.txt`, `changelog.xml` | `website/docs/index.md`, `getting-started.md` |
+| `.github/images/release-cadence-*.svg`, `data/releases.json`, `data/changelog.json` | `README.md`, `docs/i18n/README.*.md`, root `llms.txt` |
 | `CHANGELOG.md` | `scripts/**`, `tests/**` |
 | | `skills/**`, `.claude-plugin/**`, `.devin/wiki.json`, `context7.json` |
 
@@ -44,6 +44,7 @@ python -m pytest                                  # tests (conftest.py puts scri
 python scripts/build-docs-site.py                 # generate reference pages + llms.txt + llms-full.txt
 mkdocs build --strict -f website/mkdocs.yml       # build the site (pip install -r website/requirements.txt)
 python scripts/generate-release-chart.py          # 12 release-cadence SVGs + data/releases.json
+python scripts/generate-changelog-data.py         # data/changelog.json from CHANGELOG.md (feeds the Atom feed)
 bash scripts/generate-python-methods-list.sh      # refresh one README's method list (same for npm/go/php/rust)
 ```
 
@@ -65,10 +66,13 @@ time. Write new tests the same way, or they will rot at the next spec update.
 ## Pipelines
 
 - `update-specs.yml` — nightly spec download; writes the `CHANGELOG.md` entry
-  from an LLM summary of the diff and opens a PR when something changed.
+  from an LLM summary of the diff, refreshes `data/changelog.json` and opens a
+  PR when something changed.
 - `generate-clients.yml` — on push to `main`: regenerate clients, bump version,
   update method lists, commit, tag, publish to PyPI, npm, Packagist and
   crates.io, cut a GitHub Release, refresh the release chart.
+  A parallel `announce` job posts the `CHANGELOG.md` entries the push added to
+  the Telegram channel @wildberries_api_radar (`scripts/changelog_post.py`).
 - `deploy-docs.yml` — builds and deploys the MkDocs site to GitHub Pages.
 
 Jobs are guarded by `if: github.actor != 'github-actions[bot]'` so the bot's own

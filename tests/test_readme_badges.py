@@ -23,3 +23,9 @@ def test_the_badge_lives_in_the_repository():
     head = BADGE.read_text(encoding="utf-8")[:200]
     # A Vercel checkpoint page saved by mistake is HTML, not an image.
     assert head.lstrip().startswith("<svg"), "deepwiki-badge.svg is not an SVG"
+
+
+def test_every_readme_links_the_telegram_channel():
+    missing = [str(p.relative_to(ROOT)) for p in READMES
+               if "https://t.me/wildberries_api_radar" not in p.read_text(encoding="utf-8")]
+    assert not missing, f"no Telegram channel link in {missing}"
