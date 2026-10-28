@@ -22,10 +22,54 @@ tags:
     x-displayName: Сборочные задания DBS
     description: ''
     x-tagKey: dbsAssemblyOrders
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a3-ff7d-70ba-a872-828430b24ea1/zakazy-dbs">инструкции</a> по работе с <strong>заказами DBS</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше о сборочных заданиях DBS можно в <a href="https://seller.wildberries.ru/instructions/material/A-108?goBackOption=prevRoute&categoryId=0fc94a39-22b1-4a54-8ef2-06dac1d8137b">справочном центре</a>
+      </div>
+
+      Для работы со сборочными заданиями DBS:
+      1. [Получите новое сборочное задание](./dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) и сохраните его до перевода на сборку. Если вы не сохраните информацию о сборочном задании заранее, вы сможете получить ее только после завершения задания (отмены или продажи). Проверяйте [дату и время доставки](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersDeliveryDate).
+      2. [Переведите его на сборку](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm).
+      3. После перевода на сборку для заказа становится доступной [информация о покупателе](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersClient) (имя, телефон).
+      4. [Переведите в доставку](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver).
+      5. После доставки задания покупателю вам необходимо сообщить на наш сервер, что [сборочное задание принято](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) покупателем или, что [покупатель отказался от сборочного задания](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject).
   - name: Идентификаторы маркировки DBS
     x-displayName: Идентификаторы маркировки DBS
     description: ''
     x-tagKey: dbsLabelIdentifiers
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a3-ff7d-70ba-a872-828430b24ea1/zakazy-dbs">инструкции</a> по работе с <strong>заказами DBS</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше об идентификаторах маркировки можно в <a href="https://seller.wildberries.ru/instructions/material/A-305?goBackOption=prevRoute&categoryId=6d85301c-719b-4145-9275-2ac8b793f345">справочном центре</a>
+      </div>
+
+      С помощью этих методов вы можете [получать](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails), [удалять](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDelete) и редактировать идентификаторы маркировки [сборочных заданий](./dbs#tag/dbsAssemblyOrders):
+        - [Код маркировки Честного знака](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
+        - [УИН](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
+        - [IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
+        - [GTIN](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
+        - [Номера ДТ и коды стран происхождения товара](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
+
+      Заполнять идентификаторы маркировки сборочных заданий в песочнице необязательно
 paths:
   /api/v3/dbs/orders/new:
     servers:
@@ -3529,6 +3573,14 @@ components:
           description: Наименование организации
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

@@ -20,14 +20,54 @@ tags:
     x-displayName: Баланс
     description: ''
     x-tagKey: balance
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Финансы</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о балансе продавца можно в <a href="https://seller.wildberries.ru/help-center/article/A-225">справочном центре</a>
+      </div>
+
+      Чтобы получить [текущий баланс](https://seller.wildberries.ru), воспользуйтесь [методом загрузки](./documents-and-accounting#tag/balance/operation/getV1AccountBalance).
   - name: Финансовые отчёты
     x-displayName: Финансовые отчёты
     description: ''
     x-tagKey: financialReports
+    x-description: |+
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Финансы</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о финансовых отчётах можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/subcategory/financial-reports">справочном центре</a>
+      </div>
+
+      Методы получения:
+        1. [Списка](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsList) отчётов реализации и детализаций к отчётам по [ID](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) и за [период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)
+        2. [Списка](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringList) отчётов об издержках на приём платежей и детализаций к отчётам по [ID](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) и за [период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed). Доступно только для продавцов из России
+
+
+      <div class="description_important">
+        Вы можете выгрузить данные в <a href="/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3">Google Таблицы</a>
+      </div>
+
   - name: Документы
     x-displayName: Документы
     description: ''
     x-tagKey: documents
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Документы</strong>
+      </div>
+
+      С помощью этих методов вы можете получить [документы продавца](https://seller.wildberries.ru/supplementary-agreements) различных категорий: акты, бухгалтерские отчёты, оферты, письма, списки товаров, УКД, УПД, уведомления и так далее.
+      <br><br>
+      Для работы с документами получите списки:
+      1. [Категорий документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories)
+      2. [Документов продавца](./documents-and-accounting#tag/documents/operation/getV1DocumentsList), доступных для загрузки
+
+      Вы можете загрузить [один](./documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](./documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
 paths:
   /api/v1/account/balance:
     servers:
@@ -1891,6 +1931,14 @@ components:
           example: RUB
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

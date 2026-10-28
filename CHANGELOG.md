@@ -1,6 +1,12 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.10.28)
+- API информация / Коммуникации: добавлен новый endpoint `GET /api/communications/v1/notifications` для получения уведомлений портала продавцов (только РФ) с пагинацией через `from`, параметрами `timezone` (IANA) и `limit` (5–100, default 10); введены новые схемы `SellerNotificationsResponse` (поля `date`, `id`, `title`, `text`, опционально `linkData{linkHref,linkText}`) и `SellerNotificationsError`, добавлены примеры ответов/ошибок
+- API информация / Коммуникации: переименован тег раздела с «API новостей» на «API коммуникаций»; метод новостей `GET /api/v2/news` перенесён под новый тег и обновлено описание/summary (функционально без изменения контракта)
+- Общие ошибки (несколько разделов): для схемы `Response4XX` добавлены обязательные поля `requestId`, `origin`, `statusText`, `timestamp` (и зафиксирован `required`-набор) — требуется учитывать при валидации ошибок 4XX
+- Лимиты: для `GET /api/communications/v1/notifications` заданы отдельные rate limits — персональный/сервисный/базовый с секретом: 1 запрос/мин (burst 10), базовый без секрета: 1 запрос/час (burst 1)
+
 ### Changed (2026.10.22)
 - Общее: удалены sandbox-серверы из списка `servers` для **Статистики** (`https://statistics-api-sandbox.wildberries.ru`) и **Продвижения** (`https://advert-api-sandbox.wildberries.ru`)
 - Заказы FBW (Поставки): удалены sandbox-серверы (`https://supplies-api-sandbox.wildberries.ru`) из методов `POST /api/v1/acceptance/options` и `GET /api/v1/warehouses`

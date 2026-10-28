@@ -28,34 +28,139 @@ tags:
     x-displayName: Кампании
     description: ''
     x-tagKey: campaigns
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Продвижение</strong>
+      </div>
+
+      Методы получения:
+        - [списков рекламных кампаний](./promotion#tag/campaigns/operation/getV1PromotionCount)
+        - [информации о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts)
   - name: Создание кампаний
     x-displayName: Создание кампаний
     description: ''
     x-tagKey: creatingCampaigns
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Продвижение</strong>
+      </div>
+
+      Метод создания кампаний с [единой или ручной](./promotion#tag/creatingCampaigns/operation/postV2SeacatSaveAd) ставкой, а также получения:
+        1. [Минимальных ставок для карточек товаров](./promotion#tag/creatingCampaigns/operation/postV1BidsMin)
+        2. [Предметов для кампаний](./promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects)
+        3. [Карточек товаров для кампаний](./promotion#tag/creatingCampaigns/operation/postV2SupplierNms)
   - name: Управление кампаниями
     x-displayName: Управление кампаниями
     description: ''
     x-tagKey: campaignManagement
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Продвижение</strong>
+      </div>
+
+      С помощью методов управления кампаниями вы можете:
+        1. [Удалить](./promotion#tag/campaignManagement/operation/getV0Delete) кампанию
+        2. [Переименовать](./promotion#tag/campaignManagement/operation/getV0Delete) кампанию
+        3. [Запустить](./promotion#tag/campaignManagement/operation/getV0Start) кампанию
+        4. [Поставить кампанию на паузу](./promotion#tag/campaignManagement/operation/getV0Pause)
+        5. [Завершить](./promotion#tag/campaignManagement/operation/getV0Stop) кампанию
+        6. Получить [список рекомендуемых ставок](./promotion#tag/campaignManagement/operation/getV0BidsRecommendations)
+        7. Получить [конфигурационные значения продвижения](./promotion#tag/campaignManagement/operation/getV1Config)
+        8. Изменить [ставки в кампаниях](./promotion#tag/campaignManagement/operation/patchV1Bids)
+        9. Изменить [список карточек товаров в кампаниях](./promotion#tag/campaignManagement/operation/patchV0AuctionNms)
+        10. Изменить [места размещения в кампаниях с ручной ставкой](./promotion#tag/campaignManagement/operation/putV0AuctionPlacements)
   - name: Поисковые кластеры
     x-displayName: Поисковые кластеры
     description: ''
     x-tagKey: searchClusters
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Продвижение</strong>
+      </div>
+
+      **Поисковые кластеры**<br><br>
+
+      **Кластер запросов** — это сгруппированный список запросов, по которым покупатели ищут товары на WB. В кластер входят:
+        - синонимы
+        - запросы в разном роде: мужской, женский, средний
+        - запросы с опечатками
+        - разные формы слова
+        - близкие по смыслу словосочетания
+
+      Например, в кластер `футболка мужская` войдут также запросы `футболка мужкая`, `футболки мужские с рукавом`, `футболки мужские` и другие похожие словосочетания.<br><br>
+
+      Чтобы получить кластеры, по которым уже были показы, используйте метод [статистики поисковых запросов](./promotion#tag/statistics/operation/postV0NormqueryStats).<br><br>
+
+      Для кампаний с ручной ставкой можно [установить](./promotion#tag/searchClusters/operation/postV1NormqueryBids) или [удалить](./promotion#tag/searchClusters/operation/deleteV0NormqueryBids) ставки в валюте [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Валюту профиля продавца и шаги ставок можно уточнить в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config). Ставки индивидуальны для каждого поискового кластера.<br><br>
+
+      **Исключения**<br><br>
+
+      [Установите минус-фразы](./promotion#tag/searchClusters/operation/postV0NormquerySetMinus), чтобы исключить кластеры запросов из кампаний. Товар не будет продвигаться по минус-фразам.
   - name: Финансы
     x-displayName: Финансы
     description: ''
     x-tagKey: finances
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Продвижение</strong>
+      </div>
+
+      С помощью методов этого раздела вы можете:
+        - получить информацию о [балансе и счёте](./promotion#tag/finances/operation/getV1Balance)
+        - получить информацию об [остатках бюджетов кампаний](./promotion#tag/finances/operation/postV2Budget)
+        - получить историю ваших [затрат](./promotion#tag/finances/operation/getV1Upd)
+        - получить историю [пополнений счёта](./promotion#tag/finances/operation/getV1Payments)
+        - [пополнить бюджет](./promotion#tag/finances/operation/postV1BudgetDeposit)
   - name: Медиа
     x-displayName: Медиа
     description: ''
     x-tagKey: media
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Продвижение</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о WB Медиа можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/subcategory/wb-media">справочном центре</a>
+      </div>
+
+      Методы для получения данных кампаний [WB Медиа](https://cmp.wildberries.ru/cmpf/list):
+        1. [Количество медиакампаний](./promotion#tag/media/operation/getV1Count)
+        2. [Список медиакампаний](./promotion#tag/media/operation/getV1Adverts)
+        3. [Информация о медиакампании](./promotion#tag/media/operation/getV1Advert)
   - name: Статистика
     x-displayName: Статистика
     description: ''
     x-tagKey: statistics
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Продвижение</strong>
+      </div>
+
+      Методы получения статистики, в частности:
+        1. [Поисковых кластеров](./promotion#tag/statistics/operation/postV0NormqueryStats)
+        2. [Кампаний WB Продвижение](./promotion#tag/statistics/operation/getV3Fullstats)
+        3. [Кампаний WB Медиа](./promotion#tag/statistics/operation/postV1Stats)
+        4. [Поисковых кластеров с детализацией по дням](./promotion#tag/statistics/operation/postV1NormqueryStats)
   - name: Календарь акций
     x-displayName: Календарь акций
     description: ''
     x-tagKey: promoCalendar
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Цены и скидки</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о календаре акций можно в <a href="https://seller.wildberries.ru/instructions/material/A-259?goBackOption=prevRoute&categoryId=cddf8f00-821e-4a42-8d6d-80f2601bb7b3">справочном центре</a>
+      </div>
+
+      С помощью этих методов можно получить:
+        1. [Список акций](./promotion#tag/promoCalendar/operation/getV1CalendarPromotions)
+        2. [Детальную информацию об акциях](./promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails)
+        3. [Список товаров для участия в акциях](./promotion#tag/promoCalendar/operation/getV1CalendarPromotionsNomenclatures)
+
+      Также можно [добавить товар для участия в акции](./promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).
 paths:
   /adv/v1/promotion/count:
     servers:
@@ -6428,6 +6533,14 @@ components:
         - origin
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

@@ -24,18 +24,54 @@ tags:
     x-displayName: Комиссии
     description: ''
     x-tagKey: fees
+    x-description: |
+      <div class="description_auth">
+        Комиссии можно получить с токеном любой <a href="./api-information#tag/authorization/Kategorii-tokenov">категории</a>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о комиссиях можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/wildberries-reward-ratio">справочном центре</a>
+      </div>
+
+      Метод получения [комиссии по категориям товаров](./rates#tag/fees/operation/getV1TariffsCommission).
   - name: Тарифы на поставку
     x-displayName: Тарифы на поставку
     description: ''
     x-tagKey: supplyRates
+    x-description: |
+      <div class="description_auth">
+        Тарифы на поставку можно получить с токеном любой <a href="./api-information#tag/authorization/Kategorii-tokenov">категории</a>
+      </div>
+
+      Данные о фиксированных коэффициентах [тарифов на поставку](./rates#tag/supplyRates/operation/getV1AcceptanceCoefficients)
   - name: Тарифы на остаток
     x-displayName: Тарифы на остаток
     description: ''
     x-tagKey: stockRates
+    x-description: |
+      <div class="description_auth">
+        Тарифы на остаток можно получить с токеном любой <a href="./api-information#tag/authorization/Kategorii-tokenov">категории</a>
+      </div>
+
+      Данные по текущим и архивным тарифам для:
+        - [коробов](./rates#tag/stockRates/operation/getV1TariffsBox)
+        - [монопаллет](./rates#tag/stockRates/operation/getV1TariffsPallet)
+
+      Методы возвращают коэффициенты тарифов без фиксации на поставку
   - name: Стоимость возврата продавцу
     x-displayName: Стоимость возврата продавцу
     description: ''
     x-tagKey: returnCostToSeller
+    x-description: |
+      <div class="description_auth">
+        Стоимость возврата продавцу можно получить с токеном любой <a href="./api-information#tag/authorization/Kategorii-tokenov">категории</a>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о возвратах продавцу можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/item-returns-to-seller-from-wb-warehouse">справочном центре</a>
+      </div>
+
+      Метод получения [тарифов на возврат](./rates#tag/returnCostToSeller/operation/getV1TariffsReturn).
 paths:
   /api/v1/tariffs/commission:
     servers:

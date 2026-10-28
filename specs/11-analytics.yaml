@@ -26,26 +26,145 @@ tags:
     x-displayName: Воронка продаж
     description: ''
     x-tagKey: salesFunnel
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a3-fb9a-7c0c-9372-17d880f74ff9">инструкции</a> по работе с <strong>Воронкой продаж</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше об аналитике воронки продаж можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/sales-funnel-report">справочном центре</a>
+      </div>
+
+      Методы получения [статистики](https://seller.wildberries.ru/content-analytics/interactive-report/main):
+        1. [Карточек товаров за период](./analytics#tag/salesFunnel/operation/postV3SalesFunnelProducts)
+        2. [Карточек товаров по дням](./analytics#tag/salesFunnel/operation/postV3SalesFunnelProductsHistory)
+        3. [Групп карточек товаров по дням](./analytics#tag/salesFunnel/operation/postV3SalesFunnelGroupedHistory)
+
+      <div class="description_important">
+        Таймзоны представлены в формате IANA, актуальный список можно посмотреть <a href="https://nodatime.org/TimeZones">здесь</a>
+      </div>
   - name: Лента заказов
     x-displayName: Лента заказов
     description: ''
     x-tagKey: orderFeed
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методу используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о <strong>Ленте заказов</strong> можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report">справочном центре</a>
+      </div>
+
+      [Метод](./analytics#tag/orderFeed/operation/postV1OrderFeed) получения отчёта [Лента заказов](https://seller.wildberries.ru/content-analytics/order-feed)
   - name: Поисковые запросы по вашим товарам
     x-displayName: Поисковые запросы по вашим товарам
     description: ''
     x-tagKey: searchQueriesForYourItems
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-0f6a-70bb-a87b-c1237a1a0714">инструкции</a> по работе с <strong>Поисковыми запросами по вашим товарам</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше об аналитике поисковых запросов можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/search-queries-report">справочном центре</a>
+      </div>
+
+      Методы получения [отчёта по поисковым запросам по вашим товарам](https://seller.wildberries.ru/search-analytics/my-search-queries), в частности:
+        1. [Основной страницы](./analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport)
+        2. Дополнительных данных к основной странице с [пагинацией по группам](./analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups) или [пагинацией по товарам в группе](./analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails)
+        3. [Поисковых запросов по товару](./analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts)
+        4. [Заказов и позиций по поисковым запросам товара](./analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductOrders)
+
+      <div class="description_important">
+        Вы можете использовать эти методы только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
+      </div>
   - name: История остатков
     x-displayName: История остатков
     description: ''
     x-tagKey: stocksReport
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019ef14c-c72d-717a-9fc2-b0b2f361dc80">инструкции</a> по работе с <strong>Историей остатков</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше об аналитике остатков можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/stock-history-report">справочном центре</a>
+      </div>
+
+      Это информация из детализированной таблицы товаров и виджета детализации по регионам.<br></br>
+      Остатки в ответах данных методов — на текущий день.
+
+
+      <div class="description_important">
+        Чтобы получать остатки по дням за период до 3 месяцев от текущей даты, используйте методы <a href='./analytics#tag/sellerAnalyticsCsv'>Аналитика продавца CSV</a> — тип отчёта <code>STOCK_HISTORY_DAILY_CSV</code>
+      </div>
+
+
+      Методы получения [отчёта по статистике остатков](https://seller.wildberries.ru/content-analytics/history-remains):
+        1. Текущих [остатков на складах WB](./analytics#tag/stocksReport/operation/postV1StocksReportWbWarehouses) по размерам
+        2. Данных по таблице товаров с агрегацией по [группам](./analytics#tag/stocksReport/operation/postV2StocksReportProductsGroups), [товарам](./analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts), [размерам](./analytics#tag/stocksReport/operation/postV2StocksReportProductsSizes)
+        3. Данных виджета **Статистика по регионам отгрузки** с детализацией по [складам](./analytics#tag/stocksReport/operation/postV2StocksReportOffices)
   - name: Оценка товара
     x-displayName: Оценка товара
     description: ''
     x-tagKey: itemRating
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методу используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше об аналитике оценок товаров можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/item-ratings">справочном центре</a>
+      </div>
+
+      [Метод](./analytics#tag/itemRating/operation/postV2ItemRating) получения отчёта [Оценка товара](https://seller.wildberries.ru/content-ratings)
   - name: Аналитика продавца CSV
     x-displayName: Аналитика продавца CSV
     description: ''
     x-tagKey: sellerAnalyticsCsv
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+      </div>
+
+      s
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a3-f76b-7f22-82f3-54930b8f59e8">инструкции</a> по работе с <strong>Аналитикой продавца CSV</strong>
+      </div>
+
+
+      Чтобы получить отчёт:
+        1. Сгенерируйте его с помощью метода [создания отчёта](./analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
+        2. Дождитесь, когда отчёт будет готов. Вы можете проверить статус готовности через [получение списка отчётов](./analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads). Готовый отчёт хранится 48 часов.<br>
+        Если вы получили статус `FAILED`, [сгенерируйте отчёт повторно](./analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry).
+        3. [Получите отчёт](./analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId).
+
+      Можно получить отчёт максимум за год. Отчёты по остаткам — за 3 месяца.
+
+      Максимальное количество отчётов, генерируемых в сутки — 20.
+
+      <div class="description_important">
+        Вы можете использовать эти методы — за исключением отчётов по остаткам — только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
+      </div>
 paths:
   /api/analytics/v3/sales-funnel/products:
     servers:
@@ -6697,6 +6816,14 @@ components:
           example: false
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

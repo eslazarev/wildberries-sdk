@@ -31,38 +31,198 @@ tags:
     x-displayName: Категории, предметы и характеристики
     description: ''
     x-tagKey: categoriesSubcategoriesAndCharacteristics
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Контент</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше о категориях, предметах и характеристиках можно в <a href="https://seller.wildberries.ru/instructions/material/A-254?categoryId=f878a9b1-850b-4538-899c-4e4f4a9ab15c">справочном центре</a>
+      </div>
+
+      Для [создания карточек товаров](./item-management#tag/listingItems) необходимо:
+        1. Определить [родительскую категорию](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll), к которой будет относиться товар.
+        2. Внутри категории выбрать [предмет](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).
+        3. Подобрать для каждого предмета [характеристики](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) товара. Характеристики [Цвет](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors), [Пол](item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds), [Страна производства](item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries), [Сезон](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons), [Ставка НДС](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat) и [ТНВЭД-код](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved) можно получить с помощью отдельных методов.
+        4. Выбрать [бренд](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV1Brands) товара.
   - name: Создание карточек товаров
     x-displayName: Создание карточек товаров
     description: ''
     x-tagKey: listingItems
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Контент</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше о создании карточек товаров можно в <a href="https://seller.wildberries.ru/instructions/material/A-164?categoryId=bcbf9386-1316-4ad4-ab10-34ddb2857b54">справочном центре</a>
+      </div>
+
+      После получения [категорий, предметов и характеристик товаров](./item-management#tag/categoriesSubcategoriesAndCharacteristics) вы можете создать карточку товара. Для этого:
+        1. Проверьте [лимиты для создания карточек товаров](./item-management#tag/listingItems/operation/getV2CardsLimits).
+        2. Вы можете [сгенерировать баркоды](./item-management#tag/listingItems/operation/postV2Barcodes) для карточек товаров. Но если вы создадите карточку товара без баркода, он будет сгенерирован автоматически. Либо вы можете использовать свой баркод.
+
+      Можно создавать карточки товаров:
+        1. [Объединёнными или отдельными](./item-management#tag/listingItems/operation/postV2CardsUpload).
+        2. [Присоединёнными](./item-management#tag/listingItems/operation/postV2CardsUploadAdd) к уже существующим карточкам товаров.
+
+      Присоединять, [объединять и разъединять](./item-management#tag/listings/operation/postV2CardsMoveNm) карточки товаров можно через `imtID` — ID WB для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.
   - name: Карточки товаров
     x-displayName: Карточки товаров
     description: ''
     x-tagKey: listings
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Контент</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше о карточках товаров можно в <a href="https://seller.wildberries.ru/instructions/material/A-165?categoryId=3a795fe1-d5cb-4120-be1a-387eed6494e5">справочном центре</a>
+      </div>
+
+      После [создания карточек товаров](./item-management#tag/listingItems) вы можете:
+        1. Получать [списки с подробной информацией](./item-management#tag/listings/operation/postV2GetCardsList) об уже созданных карточках. Если вы не увидели карточку товара в списке после её создания, [произошла ошибка](./item-management#tag/listings/operation/postV2CardsErrorList).
+        2. [Объединять и разъединять созданные карточки](./item-management#tag/listings/operation/postV2CardsMoveNm).
+        3. [Редактировать данные карточки товара](./item-management#tag/listings/operation/postV2CardsUpdate).
+        4. Работать с корзиной: можно [переносить карточки товаров](./item-management#tag/listings/operation/postV2CardsDeleteTrash) в корзину и [восстанавливать их](./item-management#tag/listings/operation/postV2CardsRecover).
+        5. Получать [списки карточек товаров в корзине](./item-management#tag/listings/operation/postV2GetCardsTrash).
   - name: Медиафайлы
     x-displayName: Медиафайлы
     description: ''
     x-tagKey: mediaFiles
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Контент</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
+      </div>
+
+
+      Управлять медиафайлами в карточке товара можно двумя способами:
+        1. Через прямую [загрузку одного медиафайла](./item-management#tag/mediaFiles/operation/postV3MediaFile) в карточку товара.
+        2. Через [перечисление ссылок на медиафайлы](./item-management#tag/mediaFiles/operation/postV3MediaSave). В этом случае новые медиафайлы заменяют медиафайлы, уже добавленные в карточку товара.
   - name: Ярлыки
     x-displayName: Ярлыки
     description: ''
     x-tagKey: labels
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Контент</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше о ярлыках можно в <a href="https://seller.wildberries.ru/instructions/material/A-166?categoryId=3a795fe1-d5cb-4120-be1a-387eed6494e5">справочном центре</a>
+      </div>
+
+      Ярлыки позволяют быстро фильтровать и искать карточки товаров в личном кабинете. В разделе вам доступны методы:
+        1. [Получения списка ярлыков продавца](./item-management#tag/labels/operation/getV2Tags). Эти ярлыки можно использовать в карточках товаров.
+        2. [Добавления новых ярлыков](./item-management#tag/labels/operation/postV2Tag).
+        3. [Изменения существующих ярлыков](./item-management#tag/labels/operation/patchV2TagId).
+        4. [Удаления ярлыков](./item-management#tag/labels/operation/deleteV2TagId).
+        5. [Управления ярлыками в карточке товара](./item-management#tag/labels/operation/postV2TagNomenclatureLink): добавления или удаления ярлыка.
   - name: Рекомендации
     x-displayName: Рекомендации
     description: ''
     x-tagKey: recommendations
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Контент</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о рекомендациях можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/sellers-recomendation-module-in-card">справочном центре</a>
+      </div>
+
+      С помощью этих методов можно:
+        1. [Получить](./item-management#tag/recommendations/operation/postV1RecommendationsList) список рекомендаций в карточках товаров
+        2. [Установить](./item-management#tag/recommendations/operation/postV1RecommendationsSet) рекомендации для товаров
+
+      <div class="description_important">
+        Вы можете использовать эти методы только с тарифом <strong>Продвинутый</strong> или <strong>Премиальный</strong> в подписке <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a> либо с опцией <strong>Блок «Продавец рекомендует» в карточке товара</strong> в <a href='https://seller.wildberries.ru/tariff-constructor'>Конструкторе тарифов</a>
+      </div>
   - name: Цены и скидки
     x-displayName: Цены и скидки
     description: ''
     x-tagKey: pricesAndDiscounts
+    x-description: "<div class=\"description_auth\">\n  Для доступа к методам используйте <a href=\"./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token\">токен</a> для категории <strong>Цены и скидки</strong>\n</div>\n\n\n<div class=\"description_ref\">\n  Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong>\n</div>\n\n\n<div class=\"description_important\">\n  Узнать больше о ценах и скидках можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/85fc88fa-a455-4df8-b530-bc67761edf84\">справочном центре</a>\n</div>\n\nС помощью этих методов можно устанавливать [цены и скидки](./item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), в том числе [цены для размеров одного товара](./item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), [скидки WB Клуба](./item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](./item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).\n<br><br>\nКогда вы обновляете цены или скидки, данные по каким-то товарам могут не обновиться. Например, если вы передали неправильную цену или скидку. Проверяйте статус загрузки с помощью метода [состояния обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks).\n<br><br>\nСтатусы загрузки:\n  - `3`\_— обработана. В товарах нет ошибок, цены и скидки обновились.\n  - `4`\_— отменена.\n  - `5`\_— обработана, но в\_товарах есть ошибки. Ошибки можно получить с помощью метода [детализации обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask). Для товаров без ошибок цены и скидки обновились.\n  - `6`\_— обработана, но\_во всех товарах есть ошибки. Ошибки можно получить с\_помощью метода [детализации обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).\n\nЕсли вы задаёте скидки в [календаре акций](./promotion#tag/promoCalendar), загрузки попадают в обработку. Скидка применится в момент старта акции. У такой загрузки будет статус `1`, получить информацию о ней можно с помощью методов [состояния необработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2BufferTasks) и [детализации необработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2BufferGoodsTask).<br><br>\n\nВы можете создавать карточки товара в песочнице [Контента](./api-information#tag/authorization/Kategorii-tokenov), а потом редактировать цены карточек в <a href='/sandbox'>песочнице</a> Цен и скидок.\n\n<div class=\"description_important\">\n  У загрузки не может быть статуса <code>2</code>.\n</div>\n"
   - name: Склады продавца
     x-displayName: Склады продавца
     description: ''
     x-tagKey: sellerWarehouses
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше о складах продавца можно в <a href="https://seller.wildberries.ru/instructions/material/A-6?categoryId=2a88d2ed-45c4-4205-a540-7d0e87f0193d">справочном центре</a>
+      </div>
+
+      На складах продавца доступно управление [остатками товаров](./item-management#tag/sellerWarehousesInventory).
+
+      Чтобы работать со складами продавца, вы можете:
+        1. Получать [список складов WB](./item-management#tag/sellerWarehouses/operation/getV3Offices), чтобы связывать склады WB и склады продавца при [создании](./item-management#tag/sellerWarehouses/operation/postV3Warehouses) и [редактировании](./item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId) склада.
+        2. Получать [список складов продавца](./item-management#tag/sellerWarehouses/operation/getV3Warehouses).
+        3. [Получать](./item-management#tag/sellerWarehouses/operation/getV3DbwWarehousesWarehouseIdContacts) и [обновлять](./item-management#tag/sellerWarehouses/operation/putV3DbwWarehousesWarehouseIdContacts) список контактов складов модели DBW.
+        4. [Создавать](./item-management#tag/sellerWarehouses/operation/postV3Warehouses) склады модели FBS.
+        5. [Обновлять](./item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId) склады продавца.
+        6. [Удалять](./item-management#tag/sellerWarehouses/operation/deleteV3WarehousesWarehouseId) склады продавца.
   - name: Остатки на складах продавца
     x-displayName: Остатки на складах продавца
     description: ''
     x-tagKey: sellerWarehousesInventory
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
+      </div>
+
+
+      <div class="description_important">
+        Узнать больше об остатках на складах продавца можно в <a href="https://seller.wildberries.ru/instructions/material/A-123?categoryId=2a88d2ed-45c4-4205-a540-7d0e87f0193d">справочном центре</a>
+      </div>
+
+      Если вы работаете по модели продаж со [склада продавца](./item-management#tag/sellerWarehouses), через эти методы вы можете:
+        1. [Обновлять остатки товаров](./item-management#tag/sellerWarehousesInventory/operation/putV3StocksWarehouseId).
+        2. [Удалять остатки](./item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId). После удаления остатки можно будет загрузить повторно.
+        3. Проверять [количество остатков](./item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
 paths:
   /content/v2/object/parent/all:
     servers:
@@ -8426,6 +8586,14 @@ components:
           - `kiz_certificate_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

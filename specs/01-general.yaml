@@ -16,7 +16,7 @@ info:
 
     С помощью методов этого раздела вы можете:
     - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing)
-    - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News)
+    - получить [новости](/openapi/api-information#tag/newsApi/operation/getV2News) и [уведомления](/openapi/api-information#tag/newsApi/operation/getV1Notifications) портала продавцов
     - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo)
     - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)
 
@@ -28,26 +28,198 @@ tags:
     x-displayName: Введение
     description: ''
     x-tagKey: introduction
+    x-description: |
+      Wildberries API предоставляет продавцам инструменты для управления магазином и получения оперативной и статистической информации по протоколу HTTP REST API.<br><br>
+
+      Главное преимущество API — возможность автоматизировать процессы за счет интеграции с информационными системами продавца: например, ERP, WMS, OMS, CRM. С WB API продавец может не управлять магазином через интерфейс сайта вручную. <br><br>
+
+      Использование API для работы с магазином на Wildberries — это отличный способ:
+        - автоматизировать рутинные процессы
+        - получить доступ к актуальной информации
+        - оптимизировать управление ассортиментом
+
+      Документация API предоставлена в формате Swagger OpenAPI и может быть использована для импорта в другие инструменты — например, Postman — или генерации клиентского кода на различных языках программирования с помощью Swagger CodeGen.<br><br>
+
+      Для ручного тестирования API вы можете использовать:
+        - Под ОС Windows — [PostMan](https://www.postman.com)
+        - Под ОС Linux — [curl](https://curl.se)
+
+      # Как начать работу с API
+
+        1. Зарегистрируйтесь в [личном кабинете Продавца](https://seller.wildberries.ru/).
+        2. Выберите способ интеграции:
+            1. Самостоятельная интеграция с WB API с помощью собственных разработчиков или внешних специалистов. Для этого вы можете использовать спецификации в формате OpenAPI. Методы регулярно обновляются, поэтому для корректной работы интеграции необходимо следить за [журналом изменений](/release-notes).
+            2. Подключение партнёрских сервисы из [Каталога решений для бизнеса](https://seller.wildberries.ru/auth-services). Сервисы сами поддерживают обновления WB API.
+        3. Создайте API-токен в [настройках магазина](./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token). Токен позволит получить доступ к WB API. Система токенов позволит вам контролировать, кто и как взаимодействует с вашими данными через API.
+
+
+      <div class="description_ref">
+        Узнать больше о способах интеграции с WB API можно в статье <a href="/knowledge-base/articles/019d49a0-daa8-7cc4-81a4-af60cf43a6dd/sposoby-integratsii-svoio-reshenie-ili-gotovyi-servis">Способы интеграции: своё решение или готовый сервис</a> в базе знаний
+      </div>
+
+
+      <div class="description_important">
+        Используйте метод <a href='./api-information#tag/connectionCheck'>проверки подключения</a>, чтобы узнать, успешно ли доходят запросы до API и правильно ли настроен API-токен
+      </div>
+
+      Практические советы:
+        - **Используйте документацию**. <br>[Официальная документация WB API](./api-information) поможет разобраться в функциональности и возможностях API. В ней приводятся примеры возможных запросов и ответов, список возможных ошибок, лимиты запросов, правила безопасности и так далее.
+        - **Регулярно проверяйте работу интеграции**. <br>Следите, корректно ли вы передаете данные и какие вы получаете ответы, чтобы вовремя дорабатывать интеграцию. Не забывайте про ограничения и учитывайте лимиты на количество запросов.
+        - **Тестируйте основные сценарии работы** в [песочнице](/sandbox)
+        - **Храните API-токен в безопасности**. <br>Не передавайте его третьим лицам без необходимости. Используйте только доверенные сервисы. При обнаружении подозрительной активности немедленно удалите и замените токен.
+        - При необходимости обращайтесь в [техническую поддержку](./api-information#tag/introduction/Podderzhka).
+        - Следите за новостями и изменениями WB API в:
+          - [Журнале изменений](/release-notes)
+          - [Telegram-канале](https://t.me/wb_api_notifications)
+          - [канале в WB Chat](https://chat.wb.ru/all/019e9619-ce9e-7d5e-b08d-cc5db2297a93)
+          - [новостной ленте Wildberries](https://seller.wildberries.ru/news-v2)
+
+      # Поддержка
+
+      Техническая поддержка происходит через [диалоги](https://seller.wildberries.ru/service-desk-v2) в личном кабинете продавца. При создании нового обращения в техподдержку используйте категорию **Интеграции по API**.
+
+      # Статус-коды HTTP
+
+      Основные статус-коды ответов на запросы в WB API:
+
+      | Код | Описание | Как решить |
+      | --- | --- | --- |
+      | **200** | Успешно | |
+      | **204** | Удалено/Обновлено/Добавлено | |
+      | **400** | Неправильный запрос | Проверьте синтаксис запроса |
+      | **401** | Пользователь не авторизован | Проверьте токен авторизации. Токен не должен:<br />• быть просроченным<br />• быть некорректным<br />• отсутствовать в запросе |
+      | **402** | Требуется платёж | На балансе сервиса недостаточно средств. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)  |
+      | **403** | Доступ запрещён | Проверьте токен авторизации:<br />• Категория токена должна совпадать с категорией API.<br />• Метод должен быть доступен по вашему типу токена.<br />• Токен не должен быть сгенерирован удалённым пользователем.<br />• Доступ к методу не должен быть заблокирован.<br />• Чтобы использовать методы [Джема](https://seller.wildberries.ru/monetization/jam), проверьте подписку в личном кабинете. |
+      | **404** | Не найдено | Проверьте URL запроса |
+      | **409** | Ошибка сохранения для части ссылок/обновления статуса/добавления сборочного задания/т.д. | Проверьте данные запроса. Они должны отвечать требованиям и ограничениям сервиса |
+      | **413** | Превышен лимит объёма данных в запросе | Уменьшите количество объектов в запросе |
+      | **422** | Отсутствие в запросе параметра nmId/Размер ставки не изменен/т.д. | Проверьте данные запроса. Данные запроса не должны противоречить друг другу |
+      | **429** | Слишком много запросов | Проверьте лимиты запросов и повторите запрос позже |
+      | **5ХХ** | Внутренние ошибки сервиса | Сервис недоступен. Повторите запрос позже или обратитесь в техническую поддержку |
+
+      <div class="description_important">
+        Обращайте внимание на поле <code>details</code> в ошибках <code>404</code> и <code>429</code> — туда мы добавляем полезную информацию по использованию методов
+      </div>
+
+      Пример ошибки:
+
+      ```json
+      {
+        "title": "path not found",
+        "detail": "Please consult the https://dev.wildberries.ru/openapi/api-information",
+        ...
+        "status": 404,
+        "statusText": "Not Found",
+        "timestamp": "2025-04-24T07:25:28Z"
+      }
+      ```
+
+      # Лимиты запросов
+
+      В WB API есть ограничения на скорость отправки запросов. Для равномерного распределения нагрузки используется алгоритм `token bucket`. Лимиты для конкретных методов API указаны в документации.<br><br>
+
+      Например:
+
+      <div class="description_limit">
+      <a href='./api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Маркетплейс</strong>:
+
+      | Тип | Период | Лимит | Интервал | Всплеск |
+      | --- | --- | --- | --- | --- |
+      | Персональный | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |
+      | Сервисный | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |
+      | Базовый | 1 минута | 150 запросов | 200 миллисекунд | 10 запросов |
+      | Тестовый | 1 минута | 150 запросов | 200 миллисекунд | 10 запросов |
+
+      Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+      </div>
+
+      - **Тип** — тип лимита. Определяется типом токена и аутентификацией.
+
+      <div class="description_important">
+        Сервисный лимит запросов применяется:<br>
+          • для запросов с сервисным токеном от сервисов из <a href='/business-solutions'>Каталога готовых решений для бизнеса</a><br>
+          • для запросов с базовым токеном с секретом от зарегистрированных и авторизованных сервисов, которые не включены в Каталог<br><br>
+
+        Сервисный лимит распространяется на все токены в пределах одного сервиса
+      </div>
+
+      - **Период** — временной интервал, в течение которого можно отправить максимальное количество запросов по лимиту.
+      - **Лимит** — максимальное количество запросов за период. В примере за одну минуту можно отправить до 300 запросов. Запросы должны быть равномерно распределены по времени.
+      - **Интервал** — промежуток времени для пауз между запросами. В примере должен составлять `60 секунд/300 запросов` — `200 миллисекунд` или `0.2 секунды`. Используйте интервал, чтобы равномерно распределить отправку запросов.
+      - **Всплеск** — `burst`, максимальное количество запросов, которое можно отправить одновременно, без интервальных пауз. Допустимый всплеск также возвращается в ответе в заголовке `X-Ratelimit-Remaining`. Он встречается во всех статусах ответов, кроме ошибки `429`.
+
+      `X-Ratelimit-Remaining` — это количество запросов, которое можно выполнить на данный момент без пауз. Значение `X-Ratelimit-Remaining` уменьшается на единицу после каждого запроса. Если `X-Ratelimit-Remaining` равен `0` и вы сделали следующий запрос без задержки, в ответ вы получите ошибку `429`. Значение `X-Ratelimit-Remaining` восстанавливается со временем.
+
+      <div class="description_important">
+        Есть случаи, когда один запрос может быть равен нескольким. Например, если вы отправляете запросы категории <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">Маркетплейс</a>, запрос с ошибками <code>4XX</code> будет равен 10 запросам с другими статусами. Тогда значение <code>X-Ratelimit-Remaining</code> снизится сразу на 10 единиц.
+      </div>
+
+      Если вы превысите скорость выполнения запросов, вы получите ошибку `429`. В этом случае следующий запрос вы сможете сделать только после небольшого ожидания. Чтобы понять, сколько времени вам нужно ждать, используйте заголовки ответа `429`:
+
+        - `X-Ratelimit-Retry` — через сколько секунд вы можете повторить запрос. Если вы сделаете попытку раньше, вы все равно будете получать ошибку `429`.
+        - `X-Ratelimit-Limit` — максимальное значение всплеска запросов — `burst`, которое будет восстановлено через `X-Ratelimit-Reset` секунд.
+        - `X-Ratelimit-Reset` — через сколько секунд допустимый всплеск запросов восстановится до максимального значения, указанного в `X-Ratelimit-Limit`.
+
+      Пример ответа:
+
+      ```sh
+      HTTP/1.1 429 Too Many Requests
+      ...
+      X-Ratelimit-Reset: 29
+      X-Ratelimit-Retry: 2
+      ...
+      X-Ratelimit-Limit: 10
+      ```
   - name: Авторизация
     x-displayName: Авторизация
     description: ''
     x-tagKey: authorization
+    x-description: "Чтобы авторизоваться в API, вам понадобится токен. Он действует 180 дней после создания. Добавляйте токен в заголовок запроса `Authorization`.\n\n<div class=\"description_important\">\n  По пункту 9.9.6 оферты запрещена интеграция с порталом продавца без <a href=\"/\">WB API</a>\n</div>\n\n# Правила использования токенов доступа к API\n\n<div class=\"description_auth\">\n  Порядок и основания отзыва токенов доступа предусмотрены в <a href=\"https://legal.wildberries.ru/soglashenie-o-razmeschenii-avtorizovannykh-servisov-na-platforme-wb-api/country/ru/lang/ru/\">Соглашение о предоставлении доступа к платформе WB API</a>\n</div>\n\n\n<div class=\"description_ref\">\n  Подробнее о токенах можно узнать в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/api-integration-with-token\">инструкции в справочном центре</a>\n</div>\n\n\nДля авторизации доступно четыре типа токенов:\n\n<div class=\"description_limit\">\n  Для разных типов токенов лимиты запросов могут отличаться\n</div>\n\n1. **Персональный токен**\n\n- **Назначение:** Эксклюзивный токен с расширенными возможностями. Предназначен для того, чтобы предоставлять доступ к данным продавца только вашим собственным программам — в том числе корпоративным системам (on-premise), развёрнутым на собственной или арендованной инфраструктуре.<br />Расширенные возможности означают, что со временем по персональному токену появится доступ к дополнительным категориям данных продавца, которые недоступны в базовом токене. Мы заранее расскажем об этом в новостях.\n- **Подходит для:**\n  - собственных программных продуктов или систем компании, размещённых на своих или арендованных серверах\n  - готовых ERP/CRM-систем в редакции on-premise, включая локальные (коробочные) версии 1С, развёрнутые на серверах компании или на компьютерах пользователей\n- **Ограничения:** Персональный токен даёт доступ к чувствительной информации, поэтому его нельзя передавать третьим лицам или использовать в облачных сервисах. При создании токена система покажет предупреждение об ответственности — его нужно принять, чтобы продолжить.<br />Настройки токена вы выбираете самостоятельно. Если не уверены, какие параметры указать, уточните у разработчика или IT-специалиста, который отвечает за подключаемую систему.\n\n2. **Сервисный токен**\n\n- **Назначение:** Специальный токен для подключения конкретного облачного сервиса из официального [Каталога готовых решений для бизнеса](/business-solutions) на **Wildberries**.\n- **Особенности:** При создании токена вы выбираете сервис из [Каталога](/business-solutions), после чего все необходимые настройки, в том числе категории данных и уровни доступа, заполняются автоматически. Вам останется только подтвердить создание токена и передать его сервису.\n- **Ограничения:** Привязан к конкретному сервису и работает только с ним.\n\n3. **Базовый токен**\n\n- **Назначение:** Вспомогательный токен, который предоставляет доступ к ограниченному набору данных продавца и используется во всех случаях, когда не подходит сервисный или персональный токен.\n- **Подходит для:**\n  - тестирования интеграции на реальных данных перед запуском\n  - остальных случаев, когда вы не можете использовать сервисный или персональный токен\n- **Ограничения:** Можно работать с ограниченным набором данных.\n\n4. **Тестовый токен**\n\n- **Назначение:** Специальный токен для безопасного тестирования и отладки интеграций в изолированной среде — [песочнице WB API](/sandbox).\n- **Подходит для:**\n  - разработки и отладки интеграций без риска для реальных данных\n  - изучения возможностей API и экспериментов с методами\n  - проверки новых функций перед запуском в рабочей среде\n- **Ограничения:** Тестовый токен работает только с песочницей и даёт доступ к сгенерированным тестовым данным. Реальные данные магазина при этом недоступны.\n\n<div class=\"description_important\">\n  В некоторых методах вы можете увидеть блок с иконкой ключа — в нём прописаны ограничения на использования метода. Например, для запроса может быть нужен конкретный тип токена или наличие сервисного секрета в запросе. <br><br>\n\n  Если блока с ключом в методе нет, вы можете использовать его с любым типом токена.\n</div>\n\n# Как создать персональный, базовый или тестовый токен\n\n\n<div class=\"description_ref\">\n  Подробнее о создании <strong>Сервисного токена</strong> можно узнать в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-update-or-delete-a-wb-api-token#%D0%BA%D0%B0%D0%BA-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BD%D1%8B%D0%B9-%D1%82%D0%BE%D0%BA%D0%B5%D0%BD\">инструкции в справочном центре</a>\n</div>\n\n\n1. В личном кабинете перейдите в раздел [Интеграции по API](https://seller.wildberries.ru/api-integrations).\n2. Нажмите **+ Создать токен**. Откроется окно создания токена с двумя вкладками. Для всех типов токенов, кроме сервисного, выберите вкладку **Для интеграции вручную**.\n3. Выберите тип токена.\n4. Для базового и персонального токенов:\n  - Заполните название токена\n  - Выберите, к каким [категориям](./api-information#tag/authorization/Kategorii-tokenov) методов у вас будет доступ с этим токеном\n  - Задайте уровень доступа к данным: **Чтение и запись** или **Только чтение**\n\n<div class=\"description_important\">\n  Выбирайте только те категории, с которыми вы планируете работать. Например, если вы будете только загружать карточки товаров, выберите одну категорию — <strong>Контент</strong>. Если токен попадёт в чужие руки, по нему нельзя будет получить доступ к другим категориям API вашего магазина.\n</div>\n\n5. Добавьте комментарий к токену по желанию. Для персонального токена отметьте чекбокс **Я понимаю, что не следует передавать токен третьим лицам**.\n6. Нажмите **Создать**. Появится окно с вашим токеном.\n7. Нажмите кнопку **Скопировать и закрыть** — окно закроется, токен будет скопирован в буфер обмена. После этого токен нельзя будет посмотреть в личном кабинете.\n8. Сохраните токен в безопасном месте. Если вы потеряли токен, создайте новый.\n\n<div class=\"description_important\">\n  Если у вас несколько сервисов (интеграций) для работы с разными категориями, создайте для них отдельные токены. Это позволит предоставить доступ только к необходимым категориям, а также более гибко и безопасно управлять интеграциями.\n</div>\n\n# Категории токенов\n\nПри создании базового и персонального токена вы можете выбрать категории методов, к которым у вас будет доступ:\n\n| Категория | Методы |\n|---------------|-----------------------|\n| Контент | [Категории, предметы и характеристики](./item-management#tag/categoriesSubcategoriesAndCharacteristics)<br />[Создание карточек товаров](./item-management#tag/listingItems)<br />[Карточки товаров](./item-management#tag/listings)<br />[Медиафайлы](./item-management#tag/mediaFiles)<br />[Ярлыки](./item-management#tag/labels)<br />[Рекомендации](./item-management#tag/recommendations) |\n| Аналитика | [Аналитика и данные](./analytics)<br />[Отчёт об остатках на складах](./reports#tag/warehousesInventoryReport)<br />[Отчёт о товарах с обязательной маркировкой](./reports#tag/reportOnItemsWithMandatoryLabeling)<br />[Отчёты об удержаниях](./reports#tag/retentionReports)<br />[Операции при приёмке](./reports#tag/acceptanceExpenses)<br />[Платное хранение](./reports#tag/paidStorage)<br />[Продажи по регионам](./reports#tag/salesByRegions)<br />[Доля бренда в продажах](./reports#tag/shareOfBrandInSales)<br />[Заблокированные карточки](./reports#tag/blockedItems)<br />[Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) |\n| Цены и скидки | [Цены и скидки](./item-management#tag/pricesAndDiscounts)<br />[Календарь акций](./promotion#tag/promoCalendar) |\n| Маркетплейс | [Склады продавца](./item-management#tag/sellerWarehouses)<br />[Остатки на складах продавца](./item-management#tag/sellerWarehousesInventory)<br />[Заказы FBS](./orders-fbs)<br />[Заказы DBW](./orders-dbw)<br />[Заказы DBS](./orders-dbs)<br />[Заказы Самовывоз](./in-store-pickup) |\n| Статистика | [Основные отчёты](./reports#tag/mainReports) |\n| Продвижение | [Кампании](./promotion#tag/campaigns)<br />[Создание кампаний](./promotion#tag/creatingCampaigns)<br />[Управление кампаниями](./promotion#tag/campaignManagement)<br />[Поисковые кластеры](./promotion#tag/searchClusters)<br />[Финансы](./promotion#tag/finances)<br />[Медиа](./promotion#tag/media)<br />[Статистика](./promotion#tag/statistics) |\n| Вопросы и отзывы | [Вопросы](./customer-communication#tag/questions)<br />[Отзывы](./customer-communication#tag/feedbacks)<br />[Закреплённые отзывы](././customer-communication#tag/pinnedFeedbacks) |\n| Чат с покупателями | [Чат с покупателями](./customer-communication#tag/buyersChat) |\n| Поставки | [Поставки FBW](./orders-fbw#tag/Postavki-FBW) |\n| Возвраты | [Возвраты покупателями](./customer-communication#tag/buyersReturns) |\n| Документы | [Документы](./documents-and-accounting#tag/documents) |\n| Финансы | [Баланс](./documents-and-accounting#tag/balance)<br />[Финансовые отчёты](./documents-and-accounting#tag/financialReports) |\n| Пользователи | [Управление пользователями продавца](./api-information#tag/sellerUserManagement) |\n\n# Как устроен токен\n\nТокен представляет собой JWT согласно [RFC 7519](https://www.rfc-editor.org/rfc/rfc7519). Чтобы проверить, действителен ли ваш токен и какие категории методов API по нему доступны, вы можете [декодировать его](/jwt?utm_source=dev-portal&utm_campaign=api-information&utm_content=cta-link).\n\n<div class=\"description_important\">\n  Рекомендуем не просматривать токен с помощью внешних онлайн-инструментов, чтобы он не попал в чужие руки\n</div>\n\n**Поля токенов**<br><br>\n\nТип токена можно определить по списку полей из `payload` токена после декодирования:\n\n| Токен              | Значение `acc` | Значение `for`      | Значение `t` |\n| ------------------ | -------------- | ------------------- | ------------ |\n| Базовый токен      | `1`            | Поле отсутствует    | `false`      |\n| Тестовый токен     | `2`            | Поле отсутствует    | `true`       |\n| Персональный токен | `3`            | `self`              | `false`      |\n| Сервисный токен    | `4`            | `asid:{ID сервиса}` | `false`      |\n\nДругие поля:\n\n| Поле       | Тип          | Описание                                                         |\n| ---------- | ------------ | ---------------------------------------------------------------------------- |\n| **id**   | UUIDv4 | Уникальный ID токена                                              |\n| **s**    | uint   | Битовая маска свойств токена                                                 |\n| **sid**  | UUIDv4 | Уникальный ID продавца на Wildberries, которому принадлежит токен |\n| **exp**  | uint   | Время жизни токена. Соответствует стандарту [RFC 7519: JSON Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.4) |\n\nОстальные поля `payload` служебные и могут быть удалены.<br><br>\n\n**Поле `s`**<br><br>\n\nПоле `s` — это битовая маска, то есть целое число, каждый бит которого означает наличие или отсутствие какого-то свойства.<br><br>\n\n[Подробнее про битовую маску](https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%BE%D0%B2%D0%B0%D1%8F_%D0%BC%D0%B0%D1%81%D0%BA%D0%B0)\n<br><br>\n**Значения бит**\n\nПозиция бита отсчитывается от 0, где 0\_— это младший бит.\n\n| Позиция бита | Свойство (если бит равен 1) |\n| ------------ | ---------------------------------------|\n| 1| Доступ к категории **Контент**|\n| 2| Доступ к категории **Аналитика**|\n| 3| Доступ к категории **Цены и скидки**|\n| 4| Доступ к категории **Маркетплейс**|\n| 5| Доступ к категории **Статистика**|\n\n| 6| Доступ к категории **Продвижение**|\n| 7| Доступ к категории **Вопросы и отзывы**|\n| 9| Доступ к категории **Чат с покупателями**|\n| 10| Доступ к категории **Поставки**|\n| 11| Доступ к категории **Возвраты покупателями**|\n| 12| Доступ к категории **Документы**|\n| 13| Доступ к категории **Финансы**|\n| 16| Доступ к категории **Пользователи**|\n| 30| Токен только на чтение|\n\n\n# Декодирование токена\n\nДекодирование токена позволяет проверить, является ли токен действительным и к каким категориям методов API имеется доступ. Вы можете декодировать токен на [отдельной странице портала разработчиков](/jwt?utm_source=dev-portal&utm_campaign=api-information&utm_content=cta-link).\n\n"
   - name: Проверка подключения к WB API
     x-displayName: Проверка подключения к WB API
     description: ''
     x-tagKey: connectionCheck
-  - name: API новостей
-    x-displayName: API новостей
+    x-description: |
+      <div class="description_auth">
+
+        Проверить подключение можно с токеном любой <a href="./api-information#tag/authorization/Kategorii-tokenov">категории</a>
+      </div>
+  - name: API коммуникаций
+    x-displayName: API коммуникаций
     description: ''
     x-tagKey: newsApi
+    x-description: |
+      <div class="description_auth">
+
+
+        [Новости](./api-information#tag/newsApi/operation/getV2News) и [уведомления](./api-information#tag/newsApi/operation/getV1Notifications) портала продавцов можно получить с токеном любой <a href="./api-information#tag/authorization/Kategorii-tokenov">категории</a>
+      </div>
   - name: Информация о продавце
     x-displayName: Информация о продавце
     description: ''
     x-tagKey: sellerInformation
+    x-description: |
+      С помощью этих методов вы можете получить:
+        - [информацию о продавце](./api-information#tag/sellerInformation/operation/getV1SellerInfo)
+        - [рейтинг продавца](./api-information#tag/sellerInformation/operation/getV1Rating)
+        - [информацию о подписке Джем](./api-information#tag/sellerInformation/operation/getV1Subscriptions)
+        - [информацию об опциях Конструктора тарифов](./api-information#tag/sellerInformation/operation/getV1TariffConstructorOptions)
   - name: Управление пользователями продавца
     x-displayName: Управление пользователями продавца
     description: ''
     x-tagKey: sellerUserManagement
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Пользователи</strong>
+      </div>
+
+      С помощью этих методов вы можете:
+        - [Создать приглашение для пользователя](./api-information#tag/sellerUserManagement/operation/postV1Invite) с доступом к профилю продавца
+        - [Получить список активных или приглашённых пользователей продавца](./api-information#tag/sellerUserManagement/operation/getV1Users)
+        - [Изменить права доступа пользователей](./api-information#tag/sellerUserManagement/operation/putV1UsersAccess) к профилю продавца
+        - [Закрыть доступ пользователю](./api-information#tag/sellerUserManagement/operation/deleteV1User) к профилю продавца
+
+      Управлять доступом пользователей можно только с токеном активного владельца профиля продавца.
 paths:
   /ping:
     servers:
@@ -169,12 +341,12 @@ paths:
       x-readonly-method: true
       x-category: commonapi
       tags:
-        - API новостей
+        - API коммуникаций
       security:
         - HeaderApiKey: []
-      summary: Получение новостей портала продавцов
+      summary: Получить новости портала продавцов
       description: |
-        Метод позволяет получать новости портала продавцов. <br> Для получения успешного ответа необходимо указать
+        Метод позволяет получать [новости](https://seller.wildberries.ru/news-v2) портала продавцов. <br> Для получения успешного ответа необходимо указать
         один из параметров `from` или `fromID`. <br> За один запрос можно получить не более 100 новостей.
 
         <div class="description_limit">
@@ -285,6 +457,117 @@ paths:
           description: Неправильный запрос
         '401':
           $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: newsApi
+  /api/communications/v1/notifications:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      operationId: getV1Notifications
+      x-readonly-method: true
+      x-category: commonapi
+      tags:
+        - API коммуникаций
+      security:
+        - HeaderApiKey: []
+      summary: Получить уведомления портала продавцов
+      description: |
+        Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым.
+
+        Доступно только для продавцов из РФ.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+        | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+        | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        </div>
+      parameters:
+        - name: from
+          in: query
+          required: false
+          allowEmptyValue: true
+          description: |
+            Фильтр по дате и времени: в ответе возвращаются только уведомления, полученные до указанной даты и времени. Указывайте значения не позднее текущих.<br>
+            Чтобы получить самые новые уведомления, не передавайте в запросе этот параметр.<br>
+            Используйте параметр для пагинации:
+              1. Отправьте первый запрос запрос без параметра `from`.
+              2. В следующих запросах передайте в параметре `from` значение `date` последнего уведомления в ответе.
+          schema:
+            type: string
+            format: date-time
+          example: '2025-02-13T11:18:09.308Z'
+        - name: timezone
+          in: query
+          required: false
+          allowEmptyValue: false
+          description: Временная зона в формате [IANA](https://nodatime.org/TimeZones)
+          schema:
+            type: string
+            default: Europe/Moscow
+          example: Europe/Moscow
+        - name: limit
+          in: query
+          required: false
+          allowEmptyValue: false
+          description: Количество уведомлений в ответе
+          schema:
+            type: integer
+            format: int64
+            default: 10
+            minimum: 5
+            maximum: 100
+          example: 10
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    description: Список уведомлений
+                    items:
+                      $ref: '#/components/schemas/SellerNotificationsResponse'
+              examples:
+                SellerNotificationsExample:
+                  $ref: '#/components/examples/SellerNotificationsExample'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/SellerNotificationsError'
+              examples:
+                SellerNotifications400:
+                  $ref: '#/components/examples/SellerNotifications400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/SellerNotificationsError'
+                  - $ref: '#/components/schemas/Response4XX'
+              examples:
+                SellerNotifications403NotOwner:
+                  $ref: '#/components/examples/SellerNotifications403NotOwner'
+                SellerNotifications403Country:
+                  $ref: '#/components/examples/SellerNotifications403Country'
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: newsApi
@@ -1669,8 +1952,102 @@ components:
         errors:
           type: array
           description: Ошибки запроса с указанием параметров и деталей ошибок
+    SellerNotificationsResponse:
+      type: object
+      required:
+        - date
+        - id
+        - text
+        - title
+      properties:
+        date:
+          type: string
+          format: date-time
+          example: '2025-02-13T11:18:09.308Z'
+          description: Дата и время отправки уведомления
+        id:
+          type: string
+          format: uuid
+          example: 9f70d38a-2f66-4ba6-82bd-1e513ac03b0d
+          description: ID уведомления
+        linkData:
+          type: object
+          description: Данные кнопки в уведомлении
+          required:
+            - linkHref
+            - linkText
+          properties:
+            linkHref:
+              type: string
+              example: https://seller.wildberries.ru/supply-plan-upload/orders
+              description: URL кнопки в уведомлении
+            linkText:
+              type: string
+              example: К заказу
+              description: Текст кнопки в уведомлении
+        text:
+          type: string
+          example: Обработайте заказ...
+          description: Текст уведомления
+        title:
+          type: string
+          example: У вас новый заказ
+          description: Заголовок уведомления
+    SellerNotificationsError:
+      type: object
+      required:
+        - status
+        - title
+        - detail
+        - origin
+        - code
+        - requestId
+      properties:
+        status:
+          type: integer
+          description: HTTP статус-код
+        title:
+          type: string
+          description: Заголовок ошибки
+        detail:
+          type: string
+          description: Детали ошибки
+        origin:
+          type: string
+          description: ID внутреннего сервиса WB
+        errors:
+          type: array
+          description: Список ошибок
+          items:
+            type: object
+            required:
+              - location
+              - message
+            properties:
+              location:
+                type: string
+                description: Параметр запроса, вызвавший ошибку
+                example: body.name
+              message:
+                type: string
+                description: Описание ошибки
+                example: expected string
+        code:
+          type: string
+          description: Внутренний код ошибки
+        requestId:
+          type: string
+          description: ID запроса
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string
@@ -1755,6 +2132,44 @@ components:
         status: 404
         origin: options-service
         code: OPTIONS_NOT_AVAILABLE
+    SellerNotificationsExample:
+      value:
+        data:
+          - date: '2025-02-13T11:18:09.308Z'
+            id: 9f70d38a-2f66-4ba6-82bd-1e513ac03b0d
+            linkData:
+              linkHref: https://seller.wildberries.ru/supply-plan-upload/orders
+              linkText: К заказу
+            text: Обработайте заказ...
+            title: У вас новый заказ
+          - date: '2025-02-13T10:10:10.100Z'
+            id: b1e2f3a4-5b6c-4d7e-8f90-1a2b3c4d5e6f
+            text: Проверьте остатки
+            title: Остатки закончились
+    SellerNotifications400:
+      value:
+        status: 400
+        title: Validation failed
+        detail: Invalid request
+        origin: notifications-public
+        code: validationError
+        requestId: 0582f92d-abb5-4e41-8f7a-c8cd447ba551
+    SellerNotifications403NotOwner:
+      value:
+        status: 403
+        title: Access denied
+        detail: User is not the owner
+        origin: notifications-public
+        code: notOwnerError
+        requestId: 0582f92d-abb5-4e41-8f7a-c8cd447ba551
+    SellerNotifications403Country:
+      value:
+        status: 403
+        title: Access denied
+        detail: Seller is not from Russia
+        origin: notifications-public
+        code: countryError
+        requestId: 0582f92d-abb5-4e41-8f7a-c8cd447ba551
     Response403TokenCategory:
       value:
         status: 403

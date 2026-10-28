@@ -32,22 +32,107 @@ tags:
     x-displayName: Вопросы
     description: ''
     x-tagKey: questions
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Вопросы и отзывы</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о вопросах можно в <a href="https://seller.wildberries.ru/instructions/material/A-81?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b">справочном центре</a>
+      </div>
+
+      Методы для получения вопросов:
+        1. [Непросмотренные отзывы и вопросы](./customer-communication#tag/questions/operation/getV1NewFeedbacksQuestions)
+        2. [Неотвеченные вопросы](./customer-communication#tag/questions/operation/getV1QuestionsCountUnanswered)
+        3. [Количество вопросов](./customer-communication#tag/questions/operation/getV1QuestionsCount)
+        4. [Список вопросов](./customer-communication#tag/questions/operation/getV1Questions)
+
+        Вы можете получить [один вопрос по его ID](./customer-communication#tag/questions/operation/getV1Question) и [работать с полученными вопросами](./customer-communication#tag/questions/operation/patchV1Questions).
   - name: Отзывы
     x-displayName: Отзывы
     description: ''
     x-tagKey: feedbacks
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Вопросы и отзывы</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше об отзывах можно в <a href="https://seller.wildberries.ru/instructions/material/A-79?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942">справочном центре</a>
+      </div>
+
+      Методы для получения отзывов:
+        1. [Непросмотренные отзывы и вопросы](./customer-communication#tag/questions/operation/getV1NewFeedbacksQuestions)
+        2. [Необработанные отзывы](./customer-communication#tag/feedbacks/operation/getV1FeedbacksCountUnanswered)
+        3. [Количество отзывов](./customer-communication#tag/feedbacks/operation/getV1FeedbacksCount)
+        4. [Список отзывов](./customer-communication#tag/feedbacks/operation/getV1Feedbacks)
+        5. [Список архивных отзывов](./customer-communication#tag/feedbacks/operation/getV1FeedbacksArchive)
+
+      Вы можете получить товар [один отзыв по его ID](./customer-communication#tag/feedbacks/operation/getV1Feedback) и работать с полученными вопросами через методы:
+        1. [Ответить на отзыв](./customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer)
+        1. [Отредактировать ответ на отзыв](./customer-communication#tag/feedbacks/operation/patchV1FeedbacksAnswer)
+        1. [Возврат товара по ID отзыва](./customer-communication#tag/feedbacks/operation/postV1FeedbacksOrderReturn)
   - name: Закреплённые отзывы
     x-displayName: Закреплённые отзывы
     description: ''
     x-tagKey: pinnedFeedbacks
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization">токен</a> для категории <strong>Вопросы и отзывы</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о закреплённых отзывах можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/pinned-reviews?categoryId=3c971375-9939-45e8-ab82-376019be8942&goBackOption=prevRoute">справочном центре</a>
+      </div>
+
+      С помощью этих методов вы можете:
+        1. [Получить список закреплённых и откреплённых отзывов](./customer-communication#tag/pinnedFeedbacks/operation/getV1Pins)
+        2. [Закрепить отзывы](./customer-communication#tag/pinnedFeedbacks/operation/postV1Pins). Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**
+        3. [Открепить отзывы](./customer-communication#tag/pinnedFeedbacks/operation/deleteV1Pins)
+        4. [Получить количество закреплённых и откреплённых отзывов](./customer-communication#tag/pinnedFeedbacks/operation/getV1PinsCount)
+        5. [Получить лимиты закреплённых отзывов по подписке и тарифной опции](./customer-communication#tag/pinnedFeedbacks/operation/getV1PinsLimits)
   - name: Чат с покупателями
     x-displayName: Чат с покупателями
     description: ''
     x-tagKey: buyersChat
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Чат с покупателями</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о чате с покупателями можно в <a href="https://seller.wildberries.ru/instructions/material/A-76?goBackOption=prevRoute&categoryId=62727f31-fac5-477a-9e6e-4789aff9de2e">справочном центре</a>
+      </div>
+
+      Чат позволяет продавцам и покупателям общаться напрямую.
+      <br>Покупатели могут обращаться с вопросами по товарам или претензиями. Рекомендуем отвечать на сообщения в чате в течение 10 дней.
+
+      <br><br>Чат всегда начинает покупатель. В одном чате можно общаться только с одним покупателем.
+
+      <div class="description_important">
+        Обработка заявок на возврат товара доступна только в <a class="link" target="_blank" href="https://seller.wildberries.ru/chat-with-clients">веб-версии чатов с покупателями</a>.
+      </div>
+
+      Работа с чатами:
+        1. [Получите список чатов](./customer-communication#tag/buyersChat/operation/getV1SellerChats). Сохраните ID чатов в своей базе данных — это позволит обновлять информацию о чатах при получении событий.
+        2. [Получите события чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents): сообщения. У новых чатов значение поля `isNewChat` будет `true`.
+        3. [Отправляйте сообщения в чат](./customer-communication#tag/buyersChat/operation/postV1SellerMessage)
   - name: Возвраты покупателями
     x-displayName: Возвраты покупателями
     description: ''
     x-tagKey: buyersReturns
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Возвраты покупателями</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше о возвратах покупателями можно в <a href="https://seller.wildberries.ru/instructions/material/A-102?categoryId=8499952e-79d5-4be4-9c75-4aa29e0eb146&goBackOption=prevRoute">справочном центре</a>
+      </div>
+
+      С помощью этих методов вы можете:
+        1. Отслеживать [заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims)
+        2. [Отвечать на заявки](./customer-communication#tag/buyersReturns/operation/patchV1Claim)
 paths:
   /api/v1/new-feedbacks-questions:
     servers:
@@ -4085,6 +4170,14 @@ components:
         - data
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string
