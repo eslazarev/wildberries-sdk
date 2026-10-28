@@ -22,14 +22,45 @@ tags:
     x-displayName: Информация для формирования поставок
     description: ''
     x-tagKey: informationForFormingSupplies
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Поставки</strong>
+      </div>
+
+      Получение информации для формирования поставок на склады WB:
+        1. [Опции приёмки](./orders-fbw#tag/informationForFormingSupplies/operation/postV1AcceptanceOptions)
+        2. [Список складов](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
+        3. [Транзитные направления](./orders-fbw#tag/informationForFormingSupplies/operation/getV1TransitTariffs)
   - name: Информация о поставках
     x-displayName: Информация о поставках
     description: ''
     x-tagKey: suppliesInformation
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Поставки</strong>
+      </div>
+
+      Получение информации о поставках товаров для хранения на складах WB:
+        1. [Список поставок](./orders-fbw#tag/suppliesInformation/operation/postV1Supplies)
+        2. [Детали поставки](./orders-fbw#tag/suppliesInformation/operation/getV1SuppliesId)
+        3. [Товары поставки](./orders-fbw#tag/suppliesInformation/operation/getV1SuppliesIdGoods)
+        4. [Упаковка поставки](./orders-fbw#tag/suppliesInformation/operation/getV1SuppliesIdPackage)
   - name: Черновики поставок
     x-displayName: Черновики поставок
     description: ''
     x-tagKey: supplyDrafts
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Поставки</strong>
+      </div>
+
+      Методы работы с черновиками поставок:
+        1. [Создать черновик](./orders-fbw#tag/supplyDrafts/operation/postV1Drafts)
+        2. [Добавить товары в черновик](./orders-fbw#tag/supplyDrafts/operation/postV1DraftsDraftIdItems)
+        3. [Список черновиков](./orders-fbw#tag/supplyDrafts/operation/getV1Drafts)
+        4. [Список товаров в черновике](./orders-fbw#tag/supplyDrafts/operation/getV1DraftsDraftIdItems)
+        5. [Удалить товары из черновика](./orders-fbw#tag/supplyDrafts/operation/deleteV1DraftsDraftIdItems)
+        6. [Удалить черновик](./orders-fbw#tag/supplyDrafts/operation/deleteV1DraftsDraftId)
 paths:
   /api/v1/acceptance/options:
     servers:
@@ -2049,6 +2080,14 @@ components:
           description: Сервис, в котором произошла ошибка
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

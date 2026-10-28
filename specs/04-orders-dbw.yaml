@@ -24,10 +24,44 @@ tags:
     x-displayName: Сборочные задания DBW
     description: ''
     x-tagKey: dbwAssemblyOrders
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
+      </div>
+
+      Для работы со сборочными заданиями DBW:
+      1. [Получите новое сборочное задание](./orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew).
+      2. [Переведите его на сборку](./orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdConfirm).
+      3. После перевода на сборку для заказа становится доступной [информация о курьере](./orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersCourier) (телефон, номер автомобиля).
+      <br>Чтобы курьер мог связаться с вами [привяжите](./item-management#tag/sellerWarehouses/operation/putV3DbwWarehousesWarehouseIdContacts) свои контакты к складу. Вы так же можете [получить](./item-management#tag/sellerWarehouses/operation/getV3DbwWarehousesWarehouseIdContacts) текущий список своих контактов.
+      4. [Получите](./orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStickers), распечатайте и прикрепите стикеры.
+      5. [Переведите сборочное задание в доставку](./orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatusDeliver).
+      6. Дождитесь курьера.
+      7. Курьер забирает заказ и отвозит клиенту.
+      8. Клиент принимает заказ или отказывается от него.
+      9. Если клиент принимает заказ, курьер переводит сборочное задание в статус `receive`. Если отказывается — в `reject`.
+
+        <div class="description_important">
+          Узнать больше о сборочных заданиях DBW можно в <a href="https://seller.wildberries.ru/help-center/category/01956ff5-e134-74f3-a798-24b6b49a403b">справочном центре</a>
+        </div>
   - name: Идентификаторы маркировки DBW
     x-displayName: Идентификаторы маркировки DBW
     description: ''
     x-tagKey: dbwLabelIdentifiers
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Маркетплейс</strong>
+      </div>
+
+      <div class="description_important">
+        Узнать больше об идентификаторах маркировки можно в <a href="https://seller.wildberries.ru/instructions/material/A-305?goBackOption=prevRoute&categoryId=6d85301c-719b-4145-9275-2ac8b793f345">справочном центре</a>
+      </div>
+
+      С помощью этих методов вы можете [получать](./orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails), [удалять](./orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDelete) и редактировать идентификаторы маркировки [сборочных заданий](./orders-dbw#tag/dbwAssemblyOrders):
+        - [Код маркировки Честного знака](./orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)
+        - [УИН](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)
+        - [IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
+        - [GTIN](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)
 paths:
   /api/v3/dbw/orders/new:
     servers:
@@ -2664,6 +2698,14 @@ components:
                 example: 1234567890
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string

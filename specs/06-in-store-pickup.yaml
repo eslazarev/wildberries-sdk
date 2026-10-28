@@ -20,10 +20,47 @@ tags:
     x-displayName: Сборочные задания Самовывоз
     description: ''
     x-tagKey: inStorePickupAssemblyOrders
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="/openapi/api-information#tag/authorization">токен</a> для категории <strong>Маркетплейс</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-16d3-7b8c-b42a-026b566a8e29/samovyvoz">инструкции</a> по работе с <strong>заказами Самовывоз</strong>
+      </div>
+
+
+      Порядок работы:
+      1. [Получите новое сборочное задание](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
+      2. [Переведите его на сборку](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm)
+      3. После этого для задания становится доступной [информация по покупателю](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersClient) (имя, телефон)
+      4. После сборки [сообщите, что сборочное задание готово к выдаче](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare)
+      5. После того как сборочное задание получит статус `Готово к выдаче`, вы можете проверить, [принадлежит ли это сборочное задание покупателю](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersClientIdentity).
+      6. После доставки задания покупателю вам необходимо сообщить на наш сервер, что [заказ принят покупателем](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive) или что [покупатель отказался от заказа](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject)
   - name: Идентификаторы маркировки Самовывоз
     x-displayName: Идентификаторы маркировки Самовывоз
     description: ''
     x-tagKey: inStorePickupLabelIdentifiers
+    x-description: |
+      <div class="description_auth">
+        Для доступа к методам используйте <a href="/openapi/api-information#tag/authorization">токен</a> для категории <strong>Маркетплейс</strong>
+      </div>
+
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-16d3-7b8c-b42a-026b566a8e29/samovyvoz">инструкции</a> по работе с <strong>заказами Самовывоз</strong>
+      </div>
+
+
+      С помощью этих методов вы можете [получать](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails), [удалять](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDelete) и редактировать идентификаторы маркировки сборочных заданий:
+        - [Код маркировки Честного знака](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
+        - [УИН](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+        - [IMEI](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+        - [GTIN](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+        - [Номера ДТ и коды стран происхождения товара](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
+
+      Заполнять идентификаторы маркировки сборочных заданий в песочнице необязательно
 paths:
   /api/v3/click-collect/orders/new:
     servers:
@@ -2633,6 +2670,14 @@ components:
             type: integer
     Response4XX:
       type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+        - statusText
+        - timestamp
       properties:
         title:
           type: string
