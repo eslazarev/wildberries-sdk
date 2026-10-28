@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="808" height="394" viewBox="0 0 808 394" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
 <rect class="bg" width="808" height="394" fill="#0d1117"/>
 <text x="20" y="36" fill="#8b949e" font-size="11">Жылдағы релиздер</text>
-<text x="20" y="62" fill="#e6edf3" font-size="21" font-weight="700">165</text>
+<text x="20" y="62" fill="#e6edf3" font-size="21" font-weight="700">166</text>
 <text x="212" y="36" fill="#8b949e" font-size="11">Медианалық аралық</text>
 <text x="212" y="62" fill="#e6edf3" font-size="21" font-weight="700">1,1 күн</text>
 <text x="404" y="36" fill="#8b949e" font-size="11">30 күндегі релиздер</text>
-<text x="404" y="62" fill="#e6edf3" font-size="21" font-weight="700">18</text>
+<text x="404" y="62" fill="#e6edf3" font-size="21" font-weight="700">19</text>
 <text x="596" y="36" fill="#8b949e" font-size="11">Ең ұзақ үзіліс</text>
 <text x="596" y="62" fill="#e6edf3" font-size="21" font-weight="700">7 күн</text>
 <text x="46" y="90" fill="#8b949e" font-size="10">қаз</text>
@@ -400,8 +400,8 @@
 <rect x="46" y="266" width="428.0" height="11" rx="2" fill="#2f81f7"/>
 <text x="788" y="275" fill="#e6edf3" font-size="10" text-anchor="end">25</text>
 <text x="20" y="293" fill="#8b949e" font-size="10">ср</text>
-<rect x="46" y="284" width="633.5" height="11" rx="2" fill="#2f81f7"/>
-<text x="788" y="293" fill="#e6edf3" font-size="10" text-anchor="end">37</text>
+<rect x="46" y="284" width="650.6" height="11" rx="2" fill="#2f81f7"/>
+<text x="788" y="293" fill="#e6edf3" font-size="10" text-anchor="end">38</text>
 <text x="20" y="311" fill="#8b949e" font-size="10">бс</text>
 <rect x="46" y="302" width="496.5" height="11" rx="2" fill="#2f81f7"/>
 <text x="788" y="311" fill="#e6edf3" font-size="10" text-anchor="end">29</text>
