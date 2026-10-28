@@ -230,12 +230,27 @@ jobs:
         continue-on-error: true
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_IO_TOKEN }}
+          PACKAGE_VERSION: ${{ steps.bump.outputs.version }}
         run: |
           if [ -z "$CARGO_REGISTRY_TOKEN" ]; then
             echo "CRATES_IO_TOKEN not set; skipping."
             exit 0
           fi
+          # A crate whose spec left generation.yaml is never regenerated, so its
+          # version stays put and crates.io rejects it. Skip those, and never let
+          # one failure stop the crates after it in the loop.
+          failed=()
           for crate in clients/rust/*; do
             [ -f "$crate/Cargo.toml" ] || continue
-            (cd "$crate" && cargo publish --allow-dirty)
+            name=$(basename "$crate")
+            version=$(sed -n 's/^version = "\(.*\)"/\1/p' "$crate/Cargo.toml" | head -n 1)
+            if [ "$version" != "$PACKAGE_VERSION" ]; then
+              echo "::warning::$name is at $version, not $PACKAGE_VERSION: not regenerated, skipping."
+              continue
+            fi
+            (cd "$crate" && cargo publish --allow-dirty) || failed+=("$name")
           done
+          if [ ${#failed[@]} -gt 0 ]; then
+            echo "::error::crates.io publish failed for: ${failed[*]}"
+            exit 1
+          fi
