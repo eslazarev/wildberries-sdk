@@ -65,7 +65,8 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 ## Методы API
 
 ### general (`general`)
-- `general::api_api::get_v2_news` — `GET /api/communications/v2/news` — Метод позволяет получать новости портала продавцов.
+- `general::api_api::get_v1_notifications` — `GET /api/communications/v1/notifications` — Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке.
+- `general::api_api::get_v2_news` — `GET /api/communications/v2/news` — Метод позволяет получать [новости](https://seller.wildberries.ru/news-v2) портала продавцов.
 - `general::default_api::delete_v1_user` — `DELETE /api/v1/user` — Метод удаляет пользователя из [списка сотрудников продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users).
 - `general::default_api::get_v1_rating` — `GET /api/common/v1/rating` — Метод возвращает пользовательский рейтинг продавца и количество отзывов.
 - `general::default_api::get_v1_seller_info` — `GET /api/v1/seller-info` — Метод позволяет получать наименование продавца и ID его профиля.

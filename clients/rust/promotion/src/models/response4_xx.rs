@@ -14,42 +14,42 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Response4Xx {
     /// Заголовок ошибки
-    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
-    pub title: Option<String>,
+    #[serde(rename = "title")]
+    pub title: String,
     /// Детали ошибки
-    #[serde(rename = "detail", skip_serializing_if = "Option::is_none")]
-    pub detail: Option<String>,
+    #[serde(rename = "detail")]
+    pub detail: String,
     /// Внутренний код ошибки
     #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
     /// ID запроса
-    #[serde(rename = "requestId", skip_serializing_if = "Option::is_none")]
-    pub request_id: Option<String>,
+    #[serde(rename = "requestId")]
+    pub request_id: String,
     /// ID внутреннего сервиса WB
-    #[serde(rename = "origin", skip_serializing_if = "Option::is_none")]
-    pub origin: Option<String>,
+    #[serde(rename = "origin")]
+    pub origin: String,
     /// HTTP статус-код
-    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<f64>,
+    #[serde(rename = "status")]
+    pub status: f64,
     /// Расшифровка HTTP статус-кода
-    #[serde(rename = "statusText", skip_serializing_if = "Option::is_none")]
-    pub status_text: Option<String>,
+    #[serde(rename = "statusText")]
+    pub status_text: String,
     /// Дата и время запроса
-    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
-    pub timestamp: Option<chrono::DateTime<chrono::FixedOffset>>,
+    #[serde(rename = "timestamp")]
+    pub timestamp: chrono::DateTime<chrono::FixedOffset>,
 }
 
 impl Response4Xx {
-    pub fn new() -> Response4Xx {
+    pub fn new(title: String, detail: String, request_id: String, origin: String, status: f64, status_text: String, timestamp: chrono::DateTime<chrono::FixedOffset>) -> Response4Xx {
         Response4Xx {
-            title: None,
-            detail: None,
+            title,
+            detail,
             code: None,
-            request_id: None,
-            origin: None,
-            status: None,
-            status_text: None,
-            timestamp: None,
+            request_id,
+            origin,
+            status,
+            status_text,
+            timestamp,
         }
     }
 }

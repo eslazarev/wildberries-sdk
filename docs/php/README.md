@@ -86,7 +86,8 @@ var_dump($response);
 ## Методы API
 
 ### general (`general`)
-- `general.APIApi.getV2News` — `GET /api/communications/v2/news` — Получение новостей портала продавцов
+- `general.APIApi.getV1Notifications` — `GET /api/communications/v1/notifications` — Получить уведомления портала продавцов
+- `general.APIApi.getV2News` — `GET /api/communications/v2/news` — Получить новости портала продавцов
 - `general.DefaultApi.deleteV1User` — `DELETE /api/v1/user` — Удалить пользователя
 - `general.DefaultApi.getV1Rating` — `GET /api/common/v1/rating` — Получить рейтинг продавца
 - `general.DefaultApi.getV1SellerInfo` — `GET /api/v1/seller-info` — Получить информацию о продавце

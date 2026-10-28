@@ -28,14 +28,14 @@ class Response4XX(BaseModel):
     """
     Response4XX
     """ # noqa: E501
-    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
-    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
+    title: StrictStr = Field(description="Заголовок ошибки")
+    detail: StrictStr = Field(description="Детали ошибки")
     code: Optional[StrictStr] = Field(default=None, description="Внутренний код ошибки")
-    request_id: Optional[StrictStr] = Field(default=None, description="ID запроса", alias="requestId")
-    origin: Optional[StrictStr] = Field(default=None, description="ID внутреннего сервиса WB")
-    status: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="HTTP статус-код")
-    status_text: Optional[StrictStr] = Field(default=None, description="Расшифровка HTTP статус-кода", alias="statusText")
-    timestamp: Optional[datetime] = Field(default=None, description="Дата и время запроса")
+    request_id: StrictStr = Field(description="ID запроса", alias="requestId")
+    origin: StrictStr = Field(description="ID внутреннего сервиса WB")
+    status: Union[StrictFloat, StrictInt] = Field(description="HTTP статус-код")
+    status_text: StrictStr = Field(description="Расшифровка HTTP статус-кода", alias="statusText")
+    timestamp: datetime = Field(description="Дата и время запроса")
     __properties: ClassVar[List[str]] = ["title", "detail", "code", "requestId", "origin", "status", "statusText", "timestamp"]
 
     model_config = ConfigDict(

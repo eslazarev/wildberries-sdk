@@ -87,12 +87,13 @@ print(feedbacks)
 ### general (`general`)
 - `general.DefaultApi.delete_v1_user` — `DELETE /api/v1/user` — Удалить пользователя
 - `general.DefaultApi.get_ping` — `GET /ping` — Проверка подключения
+- `general.DefaultApi.get_v1_notifications` — `GET /api/communications/v1/notifications` — Получить уведомления портала продавцов
 - `general.DefaultApi.get_v1_rating` — `GET /api/common/v1/rating` — Получить рейтинг продавца
 - `general.DefaultApi.get_v1_seller_info` — `GET /api/v1/seller-info` — Получить информацию о продавце
 - `general.DefaultApi.get_v1_subscriptions` — `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем
 - `general.DefaultApi.get_v1_tariff_constructor_options` — `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов
 - `general.DefaultApi.get_v1_users` — `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
-- `general.DefaultApi.get_v2_news` — `GET /api/communications/v2/news` — Получение новостей портала продавцов
+- `general.DefaultApi.get_v2_news` — `GET /api/communications/v2/news` — Получить новости портала продавцов
 - `general.DefaultApi.post_v1_invite` — `POST /api/v1/invite` — Создать приглашение для нового пользователя
 - `general.DefaultApi.put_v1_users_access` — `PUT /api/v1/users/access` — Изменить права доступа пользователей
 

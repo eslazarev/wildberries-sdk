@@ -22,11 +22,11 @@ export interface Response4XX {
     /**
      * Заголовок ошибки
      */
-    title?: string;
+    title: string;
     /**
      * Детали ошибки
      */
-    detail?: string;
+    detail: string;
     /**
      * Внутренний код ошибки
      */
@@ -34,29 +34,36 @@ export interface Response4XX {
     /**
      * ID запроса
      */
-    requestId?: string;
+    requestId: string;
     /**
      * ID внутреннего сервиса WB
      */
-    origin?: string;
+    origin: string;
     /**
      * HTTP статус-код
      */
-    status?: number;
+    status: number;
     /**
      * Расшифровка HTTP статус-кода
      */
-    statusText?: string;
+    statusText: string;
     /**
      * Дата и время запроса
      */
-    timestamp?: Date;
+    timestamp: Date;
 }
 
 /**
  * Check if a given object implements the Response4XX interface.
  */
 export function instanceOfResponse4XX(value: object): value is Response4XX {
+    if (!('title' in value) || value['title'] === undefined) return false;
+    if (!('detail' in value) || value['detail'] === undefined) return false;
+    if (!('requestId' in value) || value['requestId'] === undefined) return false;
+    if (!('origin' in value) || value['origin'] === undefined) return false;
+    if (!('status' in value) || value['status'] === undefined) return false;
+    if (!('statusText' in value) || value['statusText'] === undefined) return false;
+    if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
     return true;
 }
 
@@ -70,14 +77,14 @@ export function Response4XXFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'title': json['title'] == null ? undefined : json['title'],
-        'detail': json['detail'] == null ? undefined : json['detail'],
+        'title': json['title'],
+        'detail': json['detail'],
         'code': json['code'] == null ? undefined : json['code'],
-        'requestId': json['requestId'] == null ? undefined : json['requestId'],
-        'origin': json['origin'] == null ? undefined : json['origin'],
-        'status': json['status'] == null ? undefined : json['status'],
-        'statusText': json['statusText'] == null ? undefined : json['statusText'],
-        'timestamp': json['timestamp'] == null ? undefined : (parseDateTime(json['timestamp'])),
+        'requestId': json['requestId'],
+        'origin': json['origin'],
+        'status': json['status'],
+        'statusText': json['statusText'],
+        'timestamp': (json['timestamp'] == null ? json['timestamp'] : parseDateTime(json['timestamp'])),
     };
 }
 

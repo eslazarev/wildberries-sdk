@@ -13,6 +13,8 @@ package orders_dbw
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the Response4XX type satisfies the MappedNullable interface at compile time
@@ -21,29 +23,38 @@ var _ MappedNullable = &Response4XX{}
 // Response4XX struct for Response4XX
 type Response4XX struct {
 	// Заголовок ошибки
-	Title *string `json:"title,omitempty"`
+	Title string `json:"title"`
 	// Детали ошибки
-	Detail *string `json:"detail,omitempty"`
+	Detail string `json:"detail"`
 	// Внутренний код ошибки
 	Code *string `json:"code,omitempty"`
 	// ID запроса
-	RequestId *string `json:"requestId,omitempty"`
+	RequestId string `json:"requestId"`
 	// ID внутреннего сервиса WB
-	Origin *string `json:"origin,omitempty"`
+	Origin string `json:"origin"`
 	// HTTP статус-код
-	Status *float32 `json:"status,omitempty"`
+	Status float32 `json:"status"`
 	// Расшифровка HTTP статус-кода
-	StatusText *string `json:"statusText,omitempty"`
+	StatusText string `json:"statusText"`
 	// Дата и время запроса
-	Timestamp *time.Time `json:"timestamp,omitempty"`
+	Timestamp time.Time `json:"timestamp"`
 }
+
+type _Response4XX Response4XX
 
 // NewResponse4XX instantiates a new Response4XX object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResponse4XX() *Response4XX {
+func NewResponse4XX(title string, detail string, requestId string, origin string, status float32, statusText string, timestamp time.Time) *Response4XX {
 	this := Response4XX{}
+	this.Title = title
+	this.Detail = detail
+	this.RequestId = requestId
+	this.Origin = origin
+	this.Status = status
+	this.StatusText = statusText
+	this.Timestamp = timestamp
 	return &this
 }
 
@@ -55,68 +66,52 @@ func NewResponse4XXWithDefaults() *Response4XX {
 	return &this
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise.
+// GetTitle returns the Title field value
 func (o *Response4XX) GetTitle() string {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Title
+
+	return o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
 func (o *Response4XX) GetTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Title, true
+	return &o.Title, true
 }
 
-// HasTitle returns a boolean if a field has been set.
-func (o *Response4XX) HasTitle() bool {
-	if o != nil && !IsNil(o.Title) {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given string and assigns it to the Title field.
+// SetTitle sets field value
 func (o *Response4XX) SetTitle(v string) {
-	o.Title = &v
+	o.Title = v
 }
 
-// GetDetail returns the Detail field value if set, zero value otherwise.
+// GetDetail returns the Detail field value
 func (o *Response4XX) GetDetail() string {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Detail
+
+	return o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
+// GetDetailOk returns a tuple with the Detail field value
 // and a boolean to check if the value has been set.
 func (o *Response4XX) GetDetailOk() (*string, bool) {
-	if o == nil || IsNil(o.Detail) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Detail, true
+	return &o.Detail, true
 }
 
-// HasDetail returns a boolean if a field has been set.
-func (o *Response4XX) HasDetail() bool {
-	if o != nil && !IsNil(o.Detail) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetail gets a reference to the given string and assigns it to the Detail field.
+// SetDetail sets field value
 func (o *Response4XX) SetDetail(v string) {
-	o.Detail = &v
+	o.Detail = v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
@@ -151,164 +146,124 @@ func (o *Response4XX) SetCode(v string) {
 	o.Code = &v
 }
 
-// GetRequestId returns the RequestId field value if set, zero value otherwise.
+// GetRequestId returns the RequestId field value
 func (o *Response4XX) GetRequestId() string {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RequestId
+
+	return o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
+// GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *Response4XX) GetRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RequestId, true
+	return &o.RequestId, true
 }
 
-// HasRequestId returns a boolean if a field has been set.
-func (o *Response4XX) HasRequestId() bool {
-	if o != nil && !IsNil(o.RequestId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+// SetRequestId sets field value
 func (o *Response4XX) SetRequestId(v string) {
-	o.RequestId = &v
+	o.RequestId = v
 }
 
-// GetOrigin returns the Origin field value if set, zero value otherwise.
+// GetOrigin returns the Origin field value
 func (o *Response4XX) GetOrigin() string {
-	if o == nil || IsNil(o.Origin) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Origin
+
+	return o.Origin
 }
 
-// GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
+// GetOriginOk returns a tuple with the Origin field value
 // and a boolean to check if the value has been set.
 func (o *Response4XX) GetOriginOk() (*string, bool) {
-	if o == nil || IsNil(o.Origin) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Origin, true
+	return &o.Origin, true
 }
 
-// HasOrigin returns a boolean if a field has been set.
-func (o *Response4XX) HasOrigin() bool {
-	if o != nil && !IsNil(o.Origin) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrigin gets a reference to the given string and assigns it to the Origin field.
+// SetOrigin sets field value
 func (o *Response4XX) SetOrigin(v string) {
-	o.Origin = &v
+	o.Origin = v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value
 func (o *Response4XX) GetStatus() float32 {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Status
+
+	return o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *Response4XX) GetStatusOk() (*float32, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return &o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *Response4XX) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given float32 and assigns it to the Status field.
+// SetStatus sets field value
 func (o *Response4XX) SetStatus(v float32) {
-	o.Status = &v
+	o.Status = v
 }
 
-// GetStatusText returns the StatusText field value if set, zero value otherwise.
+// GetStatusText returns the StatusText field value
 func (o *Response4XX) GetStatusText() string {
-	if o == nil || IsNil(o.StatusText) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.StatusText
+
+	return o.StatusText
 }
 
-// GetStatusTextOk returns a tuple with the StatusText field value if set, nil otherwise
+// GetStatusTextOk returns a tuple with the StatusText field value
 // and a boolean to check if the value has been set.
 func (o *Response4XX) GetStatusTextOk() (*string, bool) {
-	if o == nil || IsNil(o.StatusText) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusText, true
+	return &o.StatusText, true
 }
 
-// HasStatusText returns a boolean if a field has been set.
-func (o *Response4XX) HasStatusText() bool {
-	if o != nil && !IsNil(o.StatusText) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatusText gets a reference to the given string and assigns it to the StatusText field.
+// SetStatusText sets field value
 func (o *Response4XX) SetStatusText(v string) {
-	o.StatusText = &v
+	o.StatusText = v
 }
 
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+// GetTimestamp returns the Timestamp field value
 func (o *Response4XX) GetTimestamp() time.Time {
-	if o == nil || IsNil(o.Timestamp) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.Timestamp
+
+	return o.Timestamp
 }
 
-// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *Response4XX) GetTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.Timestamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Timestamp, true
+	return &o.Timestamp, true
 }
 
-// HasTimestamp returns a boolean if a field has been set.
-func (o *Response4XX) HasTimestamp() bool {
-	if o != nil && !IsNil(o.Timestamp) {
-		return true
-	}
-
-	return false
-}
-
-// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
+// SetTimestamp sets field value
 func (o *Response4XX) SetTimestamp(v time.Time) {
-	o.Timestamp = &v
+	o.Timestamp = v
 }
 
 func (o Response4XX) MarshalJSON() ([]byte, error) {
@@ -321,31 +276,60 @@ func (o Response4XX) MarshalJSON() ([]byte, error) {
 
 func (o Response4XX) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Title) {
-		toSerialize["title"] = o.Title
-	}
-	if !IsNil(o.Detail) {
-		toSerialize["detail"] = o.Detail
-	}
+	toSerialize["title"] = o.Title
+	toSerialize["detail"] = o.Detail
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
 	}
-	if !IsNil(o.RequestId) {
-		toSerialize["requestId"] = o.RequestId
-	}
-	if !IsNil(o.Origin) {
-		toSerialize["origin"] = o.Origin
-	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
-	if !IsNil(o.StatusText) {
-		toSerialize["statusText"] = o.StatusText
-	}
-	if !IsNil(o.Timestamp) {
-		toSerialize["timestamp"] = o.Timestamp
-	}
+	toSerialize["requestId"] = o.RequestId
+	toSerialize["origin"] = o.Origin
+	toSerialize["status"] = o.Status
+	toSerialize["statusText"] = o.StatusText
+	toSerialize["timestamp"] = o.Timestamp
 	return toSerialize, nil
+}
+
+func (o *Response4XX) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"title",
+		"detail",
+		"requestId",
+		"origin",
+		"status",
+		"statusText",
+		"timestamp",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varResponse4XX := _Response4XX{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varResponse4XX)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Response4XX(varResponse4XX)
+
+	return err
 }
 
 type NullableResponse4XX struct {

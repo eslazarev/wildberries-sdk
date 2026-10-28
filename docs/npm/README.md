@@ -72,7 +72,8 @@ main().catch(console.error);
 ## Методы API
 
 ### general (`general`)
-- `general.APIApi.getV2News` — Получение новостей портала продавцов
+- `general.APIApi.getV1Notifications` — Получить уведомления портала продавцов
+- `general.APIApi.getV2News` — Получить новости портала продавцов
 - `general.DefaultApi.deleteV1User` — Удалить пользователя
 - `general.DefaultApi.getV1Rating` — Получить рейтинг продавца
 - `general.DefaultApi.getV1SellerInfo` — Получить информацию о продавце

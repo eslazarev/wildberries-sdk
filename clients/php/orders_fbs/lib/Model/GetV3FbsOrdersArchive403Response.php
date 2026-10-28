@@ -333,8 +333,23 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
         if ($this->container['detail'] === null) {
             $invalidProperties[] = "'detail' can't be null";
         }
+        if ($this->container['origin'] === null) {
+            $invalidProperties[] = "'origin' can't be null";
+        }
+        if ($this->container['request_id'] === null) {
+            $invalidProperties[] = "'request_id' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['status_text'] === null) {
+            $invalidProperties[] = "'status_text' can't be null";
+        }
+        if ($this->container['timestamp'] === null) {
+            $invalidProperties[] = "'timestamp' can't be null";
         }
         return $invalidProperties;
     }
@@ -435,7 +450,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets origin
      *
-     * @return string|null
+     * @return string
      */
     public function getOrigin()
     {
@@ -445,7 +460,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets origin
      *
-     * @param string|null $origin ID внутреннего сервиса WB
+     * @param string $origin ID внутреннего сервиса WB
      *
      * @return self
      */
@@ -462,7 +477,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets request_id
      *
-     * @return string|null
+     * @return string
      */
     public function getRequestId()
     {
@@ -472,7 +487,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets request_id
      *
-     * @param string|null $request_id ID запроса
+     * @param string $request_id ID запроса
      *
      * @return self
      */
@@ -489,7 +504,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets status
      *
-     * @return float|null
+     * @return float
      */
     public function getStatus()
     {
@@ -499,7 +514,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets status
      *
-     * @param float|null $status HTTP статус-код
+     * @param float $status HTTP статус-код
      *
      * @return self
      */
@@ -543,7 +558,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets status_text
      *
-     * @return string|null
+     * @return string
      */
     public function getStatusText()
     {
@@ -553,7 +568,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets status_text
      *
-     * @param string|null $status_text Расшифровка HTTP статус-кода
+     * @param string $status_text Расшифровка HTTP статус-кода
      *
      * @return self
      */
@@ -570,7 +585,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets timestamp
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getTimestamp()
     {
@@ -580,7 +595,7 @@ class GetV3FbsOrdersArchive403Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets timestamp
      *
-     * @param \DateTime|null $timestamp Дата и время запроса
+     * @param \DateTime $timestamp Дата и время запроса
      *
      * @return self
      */

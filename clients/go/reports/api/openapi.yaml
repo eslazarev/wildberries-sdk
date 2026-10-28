@@ -31,42 +31,158 @@ tags:
   name: Основные отчёты
   x-displayName: Основные отчёты
   x-tagKey: mainReports
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Статистика</strong>
+    </div>
+
+    Получение статистики по:
+      - [Заказам](./reports#tag/mainReports/operation/getV1SupplierOrders)
+      - [Продажам](./reports#tag/mainReports/operation/getV1SupplierSales)
+
+    Основные отчёты можно сохранять в [формате таблиц](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).
 - description: ""
   name: Отчёт об остатках на складах
   x-displayName: Отчёт об остатках на складах
   x-tagKey: warehousesInventoryReport
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+    </div>
+
+    <div class="description_important">
+      Узнать больше об отчётах по остаткам на складах можно в <a href="https://seller.wildberries.ru/instructions/material/A-244?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
+    </div>
+
+    Чтобы получить отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains):
+      1. [Создайте отчёт](./reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).
+      2. Дождитесь, когда отчёт будет готов. Вы можете [проверить статус](./reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) готовности отчёта. Готовый отчёт хранится 2 часа.
+      3. [Получите отчёт](./reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
 - description: ""
   name: Отчёт о товарах c обязательной маркировкой
   x-displayName: Отчёт о товарах c обязательной маркировкой
   x-tagKey: reportOnItemsWithMandatoryLabeling
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+    </div>
+
+    <div class="description_important">
+      Узнать больше об отчётах по товарам с обязательной маркировкой можно в <a href="https://seller.wildberries.ru/instructions/material/A-243?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
+    </div>
+
+    Чтобы получить отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report), воспользуйтесь [методом загрузки](./reports#tag/reportOnItemsWithMandatoryLabeling/operation/postV1AnalyticsExciseReport).
 - description: ""
   name: Отчёты об удержаниях
   x-displayName: Отчёты об удержаниях
   x-tagKey: retentionReports
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+    </div>
+
+    <div class="description_important">
+      Узнать больше об отчётах об удержаниях можно в <a href="https://seller.wildberries.ru/instructions/material/A-247?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
+    </div>
+
+    Методы загрузки отчётов об [удержаниях](https://seller.wildberries.ru/analytics-reports/dimensions-penalties):
+      1. [Удержания за занижение габаритов упаковки](./reports#tag/retentionReports/operation/getV1MeasurementPenalties)
+      2. [Замеры склада](./reports#tag/retentionReports/operation/getV1WarehouseMeasurements)
+      2. [Подмены и неверные вложения](./reports#tag/retentionReports/operation/getV1Deductions)
+      3. [Самовыкупы](./reports#tag/retentionReports/operation/getV1AnalyticsAntifraudDetails)
+      4. [Маркировка товара](./reports#tag/retentionReports/operation/getV1AnalyticsGoodsLabeling)
 - description: ""
   name: Операции при приёмке
   x-displayName: Операции при приёмке
   x-tagKey: acceptanceExpenses
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+    </div>
+
+    Чтобы получить отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report):
+      1. [Создайте отчёт](./reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).
+      2. Дождитесь, когда отчёт будет готов. Вы можете [проверить статус](./reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) готовности отчёта. Готовый отчёт хранится 2 часа.
+      3. [Получите отчёт](./reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
 - description: ""
   name: Платное хранение
   x-displayName: Платное хранение
   x-tagKey: paidStorage
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+    </div>
+
+    <div class="description_important">
+      Узнать больше об отчётах о платном хранении можно в <a href="https://seller.wildberries.ru/instructions/material/A-242?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
+    </div>
+
+    Чтобы получить отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage):
+      1. [Создайте отчёт](./reports#tag/paidStorage/operation/getV1PaidStorage).
+      2. Дождитесь, когда отчёт будет готов. Вы можете [проверить статус](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) готовности отчёта. Готовый отчёт хранится 2 часа, после чего его нельзя будет получить.
+      3. [Получите отчёт](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
 - description: ""
   name: Продажи по регионам
   x-displayName: Продажи по регионам
   x-tagKey: salesByRegions
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+    </div>
+
+    <div class="description_important">
+      Узнать больше об отчётах о продажах по регионам можно в <a href="https://seller.wildberries.ru/instructions/material/A-235?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
+    </div>
+
+    Чтобы получить отчёт о [продажах по регионам](https://seller.wildberries.ru/analytics-reports/region-sale), воспользуйтесь [методом загрузки](./reports#tag/salesByRegions/operation/getV1AnalyticsRegionSale).
 - description: ""
   name: Доля бренда в продажах
   x-displayName: Доля бренда в продажах
   x-tagKey: shareOfBrandInSales
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+    </div>
+
+    <div class="description_important">
+      Узнать больше об отчётах о доле бренда в продажах можно в <a href="https://seller.wildberries.ru/instructions/material/A-234?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
+    </div>
+
+    Отчёты о [доле бренда продавца в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
+
+    Для [получения отчёта](./reports#tag/shareOfBrandInSales/operation/getV1AnalyticsBrandShare) вам понадобятся:
+      1. [Названия брендов](./reports#tag/shareOfBrandInSales/operation/getV1AnalyticsBrandShareBrands).
+      2. [ID категорий](./reports#tag/shareOfBrandInSales/operation/getV1AnalyticsBrandShareParentSubjects).
+
+    Можно получить отчёт максимум за 365 дней.
 - description: ""
   name: Заблокированные карточки
   x-displayName: Заблокированные карточки
   x-tagKey: blockedItems
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методу используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+    </div>
+
+    <div class="description_important">
+      Узнать больше об отчёте о заблокированных карточках можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/hidden-items-report?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0#вкладка-«заблокированные-карточки»">справочном центре</a>
+    </div>
+
+    [Метод](./reports#tag/blockedItems/operation/getV1AnalyticsBannedProducsBlocked) загрузки отчётов о [заблокированных карточках](https://seller.wildberries.ru/analytics-reports/banned-products)
 - description: ""
   name: Отчёт о возвратах и перемещении товаров
   x-displayName: Отчёт о возвратах и перемещении товаров
   x-tagKey: returnsAndItemMovementReport
+  x-description: |
+    <div class="description_auth">
+      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
+    </div>
+
+    <div class="description_important">
+      Узнать больше об отчётах о возвратах и перемещении товаров можно в <a href="https://seller.wildberries.ru/instructions/material/A-248?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
+    </div>
+
+    Чтобы получить отчёт о [возвратах товаров](https://seller.wildberries.ru/return-transfer-reports/active), воспользуйтесь [методом загрузки](./reports#tag/returnsAndItemMovementReport/operation/getV1AnalyticsGoodsReturn).
 paths:
   /api/v1/supplier/orders:
     get:
@@ -4739,6 +4855,14 @@ components:
           description: Дата и время запроса
           format: date-time
           type: string
+      required:
+      - detail
+      - origin
+      - requestId
+      - status
+      - statusText
+      - timestamp
+      - title
       type: object
     getV1SupplierOrders_400_response:
       oneOf:
