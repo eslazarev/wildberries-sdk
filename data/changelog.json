@@ -2,6 +2,48 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-10-29",
+      "anchor": "changed-20261029",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261029",
+      "sections": [
+        "API коммуникаций"
+      ],
+      "changes": [
+        {
+          "section": "API коммуникаций",
+          "text": "для `GET /v1/notifications` добавлены поддерживаемые типы токенов `personal` и `service`; в описании закреплено, что метод доступен только по персональному/сервисному токену; убрана поддержка токенов «Базовый» и «Базовый с секретом» (и соответствующие лимиты)."
+        }
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "anchor": "changed-20261028",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261028",
+      "sections": [
+        "API информация / Коммуникации",
+        "Общие ошибки (несколько разделов)",
+        "Лимиты"
+      ],
+      "changes": [
+        {
+          "section": "API информация / Коммуникации",
+          "text": "добавлен новый endpoint `GET /api/communications/v1/notifications` для получения уведомлений портала продавцов (только РФ) с пагинацией через `from`, параметрами `timezone` (IANA) и `limit` (5–100, default 10); введены новые схемы `SellerNotificationsResponse` (поля `date`, `id`, `title`, `text`, опционально `linkData{linkHref,linkText}`) и `SellerNotificationsError`, добавлены примеры ответов/ошибок"
+        },
+        {
+          "section": "API информация / Коммуникации",
+          "text": "переименован тег раздела с «API новостей» на «API коммуникаций»; метод новостей `GET /api/v2/news` перенесён под новый тег и обновлено описание/summary (функционально без изменения контракта)"
+        },
+        {
+          "section": "Общие ошибки (несколько разделов)",
+          "text": "для схемы `Response4XX` добавлены обязательные поля `requestId`, `origin`, `statusText`, `timestamp` (и зафиксирован `required`-набор) — требуется учитывать при валидации ошибок 4XX"
+        },
+        {
+          "section": "Лимиты",
+          "text": "для `GET /api/communications/v1/notifications` заданы отдельные rate limits — персональный/сервисный/базовый с секретом: 1 запрос/мин (burst 10), базовый без секрета: 1 запрос/час (burst 1)"
+        }
+      ]
+    },
+    {
       "date": "2026-10-22",
       "anchor": "changed-20261022",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261022",

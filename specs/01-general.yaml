@@ -466,6 +466,9 @@ paths:
     get:
       operationId: getV1Notifications
       x-readonly-method: true
+      x-token-types:
+        - personal
+        - service
       x-category: commonapi
       tags:
         - API коммуникаций
@@ -473,6 +476,13 @@ paths:
         - HeaderApiKey: []
       summary: Получить уведомления портала продавцов
       description: |
+
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену
+        </div>
+
         Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым.
 
         Доступно только для продавцов из РФ.
@@ -485,8 +495,6 @@ paths:
         | --- | --- | --- | --- | --- |
         | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-        | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
       parameters:
         - name: from
