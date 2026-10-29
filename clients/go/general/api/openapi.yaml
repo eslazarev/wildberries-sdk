@@ -669,22 +669,17 @@ paths:
     - url: https://common-api.wildberries.ru
   /api/communications/v1/notifications:
     get:
-      description: |
-        Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым.
-
-        Доступно только для продавцов из РФ.
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
-
-
-        | Тип | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- | --- |
-        | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-        | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-        | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-        </div>
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает список у\
+        ведомлений из [профиля](https://seller.wildberries.ru) продавца на русском\
+        \ языке. Порядок уведомлений в ответе — от новых к старым.\n\nДоступно тол\
+        ько для продавцов из РФ.\n\n<div class=\"description_limit\">\n<a href=\"\
+        /openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов\
+        </a> на один профиль продавца:\n\n\n| Тип | Период | Лимит | Интервал | Вс\
+        плеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 1 запро\
+        с | 1 мин | 10 запросов |\n| Сервисный | 1 мин | 1 запрос | 1 мин | 10 зап\
+        росов |\n</div>\n"
       operationId: getV1Notifications
       parameters:
       - allowEmptyValue: true
@@ -797,6 +792,9 @@ paths:
       tags:
       - API коммуникаций
       x-readonly-method: true
+      x-token-types:
+      - personal
+      - service
       x-category: commonapi
       x-tagKey: newsApi
     servers:

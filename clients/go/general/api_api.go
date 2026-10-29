@@ -56,6 +56,13 @@ func (r ApiGetV1NotificationsRequest) Execute() (*GetV1Notifications200Response,
 /*
 GetV1Notifications Получить уведомления портала продавцов
 
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену
+</div>
+
 Метод возвращает список уведомлений из [профиля](https://seller.wildberries.ru) продавца на русском языке. Порядок уведомлений в ответе — от новых к старым.
 
 Доступно только для продавцов из РФ.
@@ -68,8 +75,6 @@ GetV1Notifications Получить уведомления портала про
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 </div>
 
 
