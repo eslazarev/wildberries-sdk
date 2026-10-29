@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="808" height="394" viewBox="0 0 808 394" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
 <rect class="bg" width="808" height="394" fill="#ffffff"/>
 <text x="20" y="36" fill="#59636e" font-size="11">年度发布</text>
-<text x="20" y="62" fill="#1f2328" font-size="21" font-weight="700">166</text>
+<text x="20" y="62" fill="#1f2328" font-size="21" font-weight="700">167</text>
 <text x="212" y="36" fill="#59636e" font-size="11">发布间隔中位数</text>
 <text x="212" y="62" fill="#1f2328" font-size="21" font-weight="700">1.1 天</text>
 <text x="404" y="36" fill="#59636e" font-size="11">30 天内发布</text>
@@ -392,6 +392,7 @@
 <rect class="off" x="774" y="100" width="11" height="11" rx="2" fill="#ebedf0"/>
 <rect class="off" x="774" y="114" width="11" height="11" rx="2" fill="#ebedf0"/>
 <rect class="on" x="774" y="128" width="11" height="11" rx="2" fill="#1f6feb"/>
+<rect class="on" x="774" y="142" width="11" height="11" rx="2" fill="#1f6feb"/>
 <text x="20" y="232" fill="#1f2328" font-size="12" font-weight="600">按星期统计的发布</text>
 <text x="20" y="257" fill="#59636e" font-size="10">周一</text>
 <rect x="46" y="248" width="34.2" height="11" rx="2" fill="#1f6feb"/>
@@ -403,8 +404,8 @@
 <rect x="46" y="284" width="650.6" height="11" rx="2" fill="#1f6feb"/>
 <text x="788" y="293" fill="#1f2328" font-size="10" text-anchor="end">38</text>
 <text x="20" y="311" fill="#59636e" font-size="10">周四</text>
-<rect x="46" y="302" width="496.5" height="11" rx="2" fill="#1f6feb"/>
-<text x="788" y="311" fill="#1f2328" font-size="10" text-anchor="end">29</text>
+<rect x="46" y="302" width="513.7" height="11" rx="2" fill="#1f6feb"/>
+<text x="788" y="311" fill="#1f2328" font-size="10" text-anchor="end">30</text>
 <text x="20" y="329" fill="#59636e" font-size="10">周五</text>
 <rect x="46" y="320" width="702.0" height="11" rx="2" fill="#1f6feb"/>
 <text x="788" y="329" fill="#1f2328" font-size="10" text-anchor="end">41</text>
