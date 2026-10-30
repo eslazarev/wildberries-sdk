@@ -133,6 +133,21 @@ jobs:
           git commit -m "chore: update release cadence chart"
           git push
 
+      # Not gated on did_commit: CHANGELOG.md can change without the clients, and
+      # a separate commit keeps a data-only change from cutting a release.
+      - name: Update changelog data
+        run: |
+          python3 scripts/generate-changelog-data.py
+          git add data/changelog.json
+          if git diff --cached --quiet; then
+            echo "Changelog data unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update changelog data"
+          git push
+
       - name: Set up Go
         if: steps.commit.outputs.did_commit == 'true'
         uses: actions/setup-go@v5

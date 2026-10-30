@@ -120,7 +120,7 @@ def to_data(entries: list[Entry]) -> dict:
 
 
 def render_atom(data: dict, site_url: str, limit: int = FEED_LIMIT) -> str:
-    """An Atom feed of the newest entries in data/changelog.json."""
+    """An Atom feed of the newest entries of a ``to_data`` document."""
     site_url = site_url.rstrip("/") + "/"
     entries = data["entries"][:limit]
     updated = f"{entries[0]['date']}T00:00:00Z" if entries else "1970-01-01T00:00:00Z"

@@ -2,8 +2,8 @@
 """Refresh data/changelog.json from CHANGELOG.md.
 
 One object per dated entry, newest first: date, GitHub anchor and link, and
-every change split into its API section and text. The docs site builds the
-Atom feed from this file.
+every change split into its API section and text. The Atom feed on the docs
+site is built from CHANGELOG.md directly, the same way.
 
 Run from anywhere:  python scripts/generate-changelog-data.py
 """

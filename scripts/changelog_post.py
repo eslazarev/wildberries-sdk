@@ -183,7 +183,7 @@ def ask_openai(entry: Entry, api_key: str, model: str) -> tuple[str, list[str]] 
 
 def compose(entry: Entry, body: str, hashtags: list[str]) -> str:
     parts = [
-        f"📡 <b>WB API · {human_date(entry.date)}</b>",
+        f"📡 <b>WB API · {human_date(entry.date)} {entry.date[0]}</b>",
         body,
         f'🔗 <a href="{CHANGELOG_URL}#{entry.anchor}">Все изменения за день</a>\n'
         f'🧰 <a href="{REPO_URL}">wildberries-sdk</a> — Python · Node.js · Go · PHP · Rust',

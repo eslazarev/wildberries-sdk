@@ -7,13 +7,12 @@ Run from the repo root:  python scripts/build-docs-site.py
 """
 from __future__ import annotations
 
-import json
 import os
 import shutil
 import sys
 from collections import OrderedDict
 
-from docsgen.changelog import FEED_FILE, render_atom
+from docsgen.changelog import FEED_FILE, parse_entries, render_atom, to_data
 from docsgen.extract import body_params, class_maps, python_anchor, python_params
 from docsgen.naming import to_camel, to_pascal
 from docsgen.llms import render_llms_full, render_llms_index
@@ -30,7 +29,7 @@ DOCS_DIR = os.path.join(ROOT, "website", "docs")
 REFERENCE_DIR = os.path.join(DOCS_DIR, "reference")
 RELEASES_DATA = os.path.join(ROOT, "data", "releases.json")
 LLMS_TXT = os.path.join(ROOT, "llms.txt")
-CHANGELOG_DATA = os.path.join(ROOT, "data", "changelog.json")
+CHANGELOG = os.path.join(ROOT, "CHANGELOG.md")
 SITE_URL = "https://eslazarev.github.io/wildberries-sdk/"
 
 
@@ -120,8 +119,10 @@ def main():
     with open(os.path.join(DOCS_DIR, "llms-full.txt"), "w", encoding="utf-8") as fh:
         fh.write(full)
 
-    with open(CHANGELOG_DATA, encoding="utf-8") as fh:
-        changelog = json.load(fh)
+    # Straight from CHANGELOG.md, not data/changelog.json: the feed must not
+    # wait for that file to be regenerated.
+    with open(CHANGELOG, encoding="utf-8") as fh:
+        changelog = to_data(parse_entries(fh.read()))
     with open(os.path.join(DOCS_DIR, FEED_FILE), "w", encoding="utf-8") as fh:
         fh.write(render_atom(changelog, SITE_URL))
 

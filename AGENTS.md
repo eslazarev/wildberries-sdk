@@ -44,7 +44,7 @@ python -m pytest                                  # tests (conftest.py puts scri
 python scripts/build-docs-site.py                 # generate reference pages + llms.txt + llms-full.txt
 mkdocs build --strict -f website/mkdocs.yml       # build the site (pip install -r website/requirements.txt)
 python scripts/generate-release-chart.py          # 12 release-cadence SVGs + data/releases.json
-python scripts/generate-changelog-data.py         # data/changelog.json from CHANGELOG.md (feeds the Atom feed)
+python scripts/generate-changelog-data.py         # data/changelog.json from CHANGELOG.md
 bash scripts/generate-python-methods-list.sh      # refresh one README's method list (same for npm/go/php/rust)
 ```
 
