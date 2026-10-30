@@ -73,6 +73,6 @@ def test_model_markup_outside_telegram_html_is_rejected():
 def test_post_links_to_the_entry_anchor():
     entry = new_entries(BEFORE, AFTER)[0]
     text = compose(entry, "тело", ["лимиты"])
-    assert text.startswith("📡 <b>WB API · 22 октября</b>")
+    assert text.startswith("📡 <b>WB API · 22 октября 2026</b>")
     assert "CHANGELOG.md#changed-20261022" in text
     assert text.endswith("#лимиты")
