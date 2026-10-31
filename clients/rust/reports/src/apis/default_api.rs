@@ -1,7 +1,7 @@
 /*
  * Отчёты
  *
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)   7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   7. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   8. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -123,18 +123,6 @@ pub enum GetV1AnalyticsGoodsLabelingError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_v1_analytics_goods_return`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetV1AnalyticsGoodsReturnError {
-    Status400(models::Model4XxResponse),
-    Status401(models::GetV1SupplierOrders401Response),
-    Status402(models::GetV1SupplierOrders402Response),
-    Status403(models::GetV1SupplierOrders403Response),
-    Status429(models::GetV1SupplierOrders401Response),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`get_v1_analytics_region_sale`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -159,10 +147,10 @@ pub enum GetV1DeductionsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_v1_goods_return`]
+/// struct for typed errors of method [`get_v1_item_returns`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetV1GoodsReturnError {
+pub enum GetV1ItemReturnsError {
     Status400(models::Model4XxResponse),
     Status401(models::GetV1SupplierOrders401Response),
     Status429(models::GetV1SupplierOrders401Response),
@@ -723,55 +711,6 @@ pub async fn get_v1_analytics_goods_labeling(configuration: &configuration::Conf
     }
 }
 
-/// Метод будет отключен [26 октября](/release-notes?id=577). 
-#[deprecated]
-pub async fn get_v1_analytics_goods_return(configuration: &configuration::Configuration, date_from: chrono::NaiveDate, date_to: chrono::NaiveDate) -> Result<models::GetV1AnalyticsGoodsReturn200Response, Error<GetV1AnalyticsGoodsReturnError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_date_from = date_from;
-    let p_query_date_to = date_to;
-
-    let uri_str = format!("{}/api/v1/analytics/goods-return", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("dateFrom", &p_query_date_from.to_string())]);
-    req_builder = req_builder.query(&[("dateTo", &p_query_date_to.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV1AnalyticsGoodsReturn200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV1AnalyticsGoodsReturn200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetV1AnalyticsGoodsReturnError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
 /// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 #[deprecated]
 pub async fn get_v1_analytics_region_sale(configuration: &configuration::Configuration, date_from: &str, date_to: &str) -> Result<models::GetV1AnalyticsRegionSale200Response, Error<GetV1AnalyticsRegionSaleError>> {
@@ -886,7 +825,7 @@ pub async fn get_v1_deductions(configuration: &configuration::Configuration, dat
 }
 
 /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn get_v1_goods_return(configuration: &configuration::Configuration, date_from: chrono::NaiveDate, date_to: chrono::NaiveDate, status: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::GoodsReturn200Response, Error<GetV1GoodsReturnError>> {
+pub async fn get_v1_item_returns(configuration: &configuration::Configuration, date_from: chrono::NaiveDate, date_to: chrono::NaiveDate, status: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::ItemReturns200Response, Error<GetV1ItemReturnsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_date_from = date_from;
     let p_query_date_to = date_to;
@@ -935,12 +874,12 @@ pub async fn get_v1_goods_return(configuration: &configuration::Configuration, d
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GoodsReturn200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GoodsReturn200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItemReturns200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItemReturns200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetV1GoodsReturnError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1ItemReturnsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

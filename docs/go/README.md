@@ -379,10 +379,9 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `reports.DefaultApiService.GetV1AnalyticsBrandShareBrands` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
 - `reports.DefaultApiService.GetV1AnalyticsBrandShareParentSubjects` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда
 - `reports.DefaultApiService.GetV1AnalyticsGoodsLabeling` — `GET /api/v1/analytics/goods-labeling` — Маркировка товара
-- `reports.DefaultApiService.GetV1AnalyticsGoodsReturn` — `GET /api/v1/analytics/goods-return` — Получить отчёт
 - `reports.DefaultApiService.GetV1AnalyticsRegionSale` — `GET /api/v1/analytics/region-sale` — Получить отчёт
 - `reports.DefaultApiService.GetV1Deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
-- `reports.DefaultApiService.GetV1GoodsReturn` — `GET /api/analytics/v1/item-returns` — Получить отчёт
+- `reports.DefaultApiService.GetV1ItemReturns` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApiService.GetV1MeasurementPenalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
 - `reports.DefaultApiService.GetV1PaidStorage` — `GET /api/v1/paid_storage` — Создать отчёт
 - `reports.DefaultApiService.GetV1PaidStorageTasksTaskIdDownload` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт

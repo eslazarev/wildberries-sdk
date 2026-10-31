@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Отчёты
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)   7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   7. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   8. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -16,9 +16,9 @@ import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime }
 /**
  * 
  * @export
- * @interface GoodsReturn200ResponseReportInner
+ * @interface ItemReturns200ResponseReportInner
  */
-export interface GoodsReturn200ResponseReportInner {
+export interface ItemReturns200ResponseReportInner {
     /**
      * Баркод
      */
@@ -98,9 +98,9 @@ export interface GoodsReturn200ResponseReportInner {
 }
 
 /**
- * Check if a given object implements the GoodsReturn200ResponseReportInner interface.
+ * Check if a given object implements the ItemReturns200ResponseReportInner interface.
  */
-export function instanceOfGoodsReturn200ResponseReportInner(value: object): value is GoodsReturn200ResponseReportInner {
+export function instanceOfItemReturns200ResponseReportInner(value: object): value is ItemReturns200ResponseReportInner {
     if (!('sku' in value) || value['sku'] === undefined) return false;
     if (!('brand' in value) || value['brand'] === undefined) return false;
     if (!('completedDt' in value) || value['completedDt'] === undefined) return false;
@@ -122,11 +122,11 @@ export function instanceOfGoodsReturn200ResponseReportInner(value: object): valu
     return true;
 }
 
-export function GoodsReturn200ResponseReportInnerFromJSON(json: any): GoodsReturn200ResponseReportInner {
-    return GoodsReturn200ResponseReportInnerFromJSONTyped(json, false);
+export function ItemReturns200ResponseReportInnerFromJSON(json: any): ItemReturns200ResponseReportInner {
+    return ItemReturns200ResponseReportInnerFromJSONTyped(json, false);
 }
 
-export function GoodsReturn200ResponseReportInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): GoodsReturn200ResponseReportInner {
+export function ItemReturns200ResponseReportInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): ItemReturns200ResponseReportInner {
     if (json == null) {
         return json;
     }
@@ -154,11 +154,11 @@ export function GoodsReturn200ResponseReportInnerFromJSONTyped(json: any, ignore
     };
 }
 
-export function GoodsReturn200ResponseReportInnerToJSON(json: any): GoodsReturn200ResponseReportInner {
-    return GoodsReturn200ResponseReportInnerToJSONTyped(json, false);
+export function ItemReturns200ResponseReportInnerToJSON(json: any): ItemReturns200ResponseReportInner {
+    return ItemReturns200ResponseReportInnerToJSONTyped(json, false);
 }
 
-export function GoodsReturn200ResponseReportInnerToJSONTyped(value?: GoodsReturn200ResponseReportInner | null, ignoreDiscriminator: boolean = false): any {
+export function ItemReturns200ResponseReportInnerToJSONTyped(value?: ItemReturns200ResponseReportInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

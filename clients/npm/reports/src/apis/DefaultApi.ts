@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Отчёты
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)   7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   7. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   8. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -64,11 +64,6 @@ import {
     GetV1AnalyticsGoodsLabeling200ResponseToJSON,
 } from '../models/GetV1AnalyticsGoodsLabeling200Response';
 import {
-    type GetV1AnalyticsGoodsReturn200Response,
-    GetV1AnalyticsGoodsReturn200ResponseFromJSON,
-    GetV1AnalyticsGoodsReturn200ResponseToJSON,
-} from '../models/GetV1AnalyticsGoodsReturn200Response';
-import {
     type GetV1AnalyticsRegionSale200Response,
     GetV1AnalyticsRegionSale200ResponseFromJSON,
     GetV1AnalyticsRegionSale200ResponseToJSON,
@@ -104,10 +99,10 @@ import {
     GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerToJSON,
 } from '../models/GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner';
 import {
-    type GoodsReturn200Response,
-    GoodsReturn200ResponseFromJSON,
-    GoodsReturn200ResponseToJSON,
-} from '../models/GoodsReturn200Response';
+    type ItemReturns200Response,
+    ItemReturns200ResponseFromJSON,
+    ItemReturns200ResponseToJSON,
+} from '../models/ItemReturns200Response';
 import {
     type MeasurementPenalties,
     MeasurementPenaltiesFromJSON,
@@ -261,17 +256,6 @@ export interface GetV1AnalyticsGoodsLabelingRequest {
     dateTo: Date;
 }
 
-export interface GetV1AnalyticsGoodsReturnRequest {
-    /**
-     * Дата начала отчётного периода
-     */
-    dateFrom: Date;
-    /**
-     * Дата окончания отчётного периода
-     */
-    dateTo: Date;
-}
-
 export interface GetV1AnalyticsRegionSaleRequest {
     /**
      * Начало отчётного периода, `ГГГГ-ММ-ДД`
@@ -317,7 +301,7 @@ export interface GetV1DeductionsRequest {
     offset?: number;
 }
 
-export interface GetV1GoodsReturnRequest {
+export interface GetV1ItemReturnsRequest {
     /**
      * Дата начала отчётного периода
      */
@@ -332,7 +316,7 @@ export interface GetV1GoodsReturnRequest {
      *   - `active` — активный
      * 
      */
-    status?: GetV1GoodsReturnStatusEnum;
+    status?: GetV1ItemReturnsStatusEnum;
     /**
      * Количество возвратов в ответе
      */
@@ -1094,74 +1078,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for getV1AnalyticsGoodsReturn without sending the request
-     * @deprecated
-     */
-    async getV1AnalyticsGoodsReturnRequestOpts(requestParameters: GetV1AnalyticsGoodsReturnRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['dateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling getV1AnalyticsGoodsReturn().'
-            );
-        }
-
-        if (requestParameters['dateTo'] == null) {
-            throw new runtime.RequiredError(
-                'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling getV1AnalyticsGoodsReturn().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = runtime.serializeDate(requestParameters['dateFrom'] as any);
-        }
-
-        if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = runtime.serializeDate(requestParameters['dateTo'] as any);
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/analytics/goods-return`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод будет отключен [26 октября](/release-notes?id=577). 
-     * Получить отчёт
-     * @deprecated
-     */
-    async getV1AnalyticsGoodsReturnRaw(requestParameters: GetV1AnalyticsGoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsGoodsReturn200Response>> {
-        const requestOptions = await this.getV1AnalyticsGoodsReturnRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsGoodsReturn200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод будет отключен [26 октября](/release-notes?id=577). 
-     * Получить отчёт
-     * @deprecated
-     */
-    async getV1AnalyticsGoodsReturn(requestParameters: GetV1AnalyticsGoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsGoodsReturn200Response> {
-        const response = await this.getV1AnalyticsGoodsReturnRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Creates request options for getV1AnalyticsRegionSale without sending the request
      * @deprecated
      */
@@ -1311,20 +1227,20 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for getV1GoodsReturn without sending the request
+     * Creates request options for getV1ItemReturns without sending the request
      */
-    async getV1GoodsReturnRequestOpts(requestParameters: GetV1GoodsReturnRequest): Promise<runtime.RequestOpts> {
+    async getV1ItemReturnsRequestOpts(requestParameters: GetV1ItemReturnsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling getV1GoodsReturn().'
+                'Required parameter "dateFrom" was null or undefined when calling getV1ItemReturns().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling getV1GoodsReturn().'
+                'Required parameter "dateTo" was null or undefined when calling getV1ItemReturns().'
             );
         }
 
@@ -1371,19 +1287,19 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Получить отчёт
      */
-    async getV1GoodsReturnRaw(requestParameters: GetV1GoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GoodsReturn200Response>> {
-        const requestOptions = await this.getV1GoodsReturnRequestOpts(requestParameters);
+    async getV1ItemReturnsRaw(requestParameters: GetV1ItemReturnsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemReturns200Response>> {
+        const requestOptions = await this.getV1ItemReturnsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GoodsReturn200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ItemReturns200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Получить отчёт
      */
-    async getV1GoodsReturn(requestParameters: GetV1GoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GoodsReturn200Response | null | undefined > {
-        const response = await this.getV1GoodsReturnRaw(requestParameters, initOverrides);
+    async getV1ItemReturns(requestParameters: GetV1ItemReturnsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemReturns200Response | null | undefined > {
+        const response = await this.getV1ItemReturnsRaw(requestParameters, initOverrides);
         switch (response.raw.status) {
             case 200:
                 return await response.value();
@@ -2059,8 +1975,8 @@ export type GetV1DeductionsOrderEnum = typeof GetV1DeductionsOrderEnum[keyof typ
 /**
  * @export
  */
-export const GetV1GoodsReturnStatusEnum = {
+export const GetV1ItemReturnsStatusEnum = {
     Active: 'active',
     Archive: 'archive',
 } as const;
-export type GetV1GoodsReturnStatusEnum = typeof GetV1GoodsReturnStatusEnum[keyof typeof GetV1GoodsReturnStatusEnum];
+export type GetV1ItemReturnsStatusEnum = typeof GetV1ItemReturnsStatusEnum[keyof typeof GetV1ItemReturnsStatusEnum];

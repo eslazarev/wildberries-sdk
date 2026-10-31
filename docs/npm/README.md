@@ -379,10 +379,9 @@ main().catch(console.error);
 - `reports.DefaultApi.getV1AnalyticsBrandShareBrands` — Бренды продавца
 - `reports.DefaultApi.getV1AnalyticsBrandShareParentSubjects` — Родительские категории бренда
 - `reports.DefaultApi.getV1AnalyticsGoodsLabeling` — Маркировка товара
-- `reports.DefaultApi.getV1AnalyticsGoodsReturn` — Получить отчёт
 - `reports.DefaultApi.getV1AnalyticsRegionSale` — Получить отчёт
 - `reports.DefaultApi.getV1Deductions` — Подмены и неверные вложения
-- `reports.DefaultApi.getV1GoodsReturn` — Получить отчёт
+- `reports.DefaultApi.getV1ItemReturns` — Получить отчёт
 - `reports.DefaultApi.getV1MeasurementPenalties` — Удержания за занижение габаритов упаковки
 - `reports.DefaultApi.getV1PaidStorage` — Создать отчёт
 - `reports.DefaultApi.getV1PaidStorageTasksTaskIdDownload` — Получить отчёт

@@ -372,10 +372,9 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `reports::default_api::get_v1_analytics_brand_share_brands` — `GET /api/v1/analytics/brand-share/brands` — Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
 - `reports::default_api::get_v1_analytics_brand_share_parent_subjects` — `GET /api/v1/analytics/brand-share/parent-subjects` — Метод возвращает родительские категории бренда продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).
 - `reports::default_api::get_v1_analytics_goods_labeling` — `GET /api/v1/analytics/goods-labeling` — Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.
-- `reports::default_api::get_v1_analytics_goods_return` — `GET /api/v1/analytics/goods-return`
 - `reports::default_api::get_v1_analytics_region_sale` — `GET /api/v1/analytics/region-sale`
 - `reports::default_api::get_v1_deductions` — `GET /api/analytics/v1/deductions` — Метод возвращает отчёт об удержаниях за [подмены и неверные вложения](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/retentions)
-- `reports::default_api::get_v1_goods_return` — `GET /api/analytics/v1/item-returns` — Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+- `reports::default_api::get_v1_item_returns` — `GET /api/analytics/v1/item-returns` — Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
 - `reports::default_api::get_v1_measurement_penalties` — `GET /api/analytics/v1/measurement-penalties` — Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)
 - `reports::default_api::get_v1_paid_storage` — `GET /api/v1/paid_storage` — Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) отчёта о…
 - `reports::default_api::get_v1_paid_storage_tasks_task_id_download` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID…

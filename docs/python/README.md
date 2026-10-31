@@ -391,10 +391,9 @@ print(feedbacks)
 - `reports.DefaultApi.get_v1_analytics_brand_share_brands` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
 - `reports.DefaultApi.get_v1_analytics_brand_share_parent_subjects` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда
 - `reports.DefaultApi.get_v1_analytics_goods_labeling` — `GET /api/v1/analytics/goods-labeling` — Маркировка товара
-- `reports.DefaultApi.get_v1_analytics_goods_return` — `GET /api/v1/analytics/goods-return` — (Deprecated) Получить отчёт
 - `reports.DefaultApi.get_v1_analytics_region_sale` — `GET /api/v1/analytics/region-sale` — (Deprecated) Получить отчёт
 - `reports.DefaultApi.get_v1_deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
-- `reports.DefaultApi.get_v1_goods_return` — `GET /api/analytics/v1/item-returns` — Получить отчёт
+- `reports.DefaultApi.get_v1_item_returns` — `GET /api/analytics/v1/item-returns` — Получить отчёт
 - `reports.DefaultApi.get_v1_measurement_penalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
 - `reports.DefaultApi.get_v1_paid_storage` — `GET /api/v1/paid_storage` — Создать отчёт
 - `reports.DefaultApi.get_v1_paid_storage_tasks_task_id_download` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт

@@ -396,7 +396,7 @@ SDK выпускается с security-first процессом:
 
 ### Отчёты (`12-reports.yaml`)
 - `GET /api/analytics/v1/deductions` — Подмены и неверные вложения (getV1Deductions)
-- `GET /api/analytics/v1/item-returns` — Получить отчёт (getV1GoodsReturn)
+- `GET /api/analytics/v1/item-returns` — Получить отчёт (getV1ItemReturns)
 - `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки (getV1MeasurementPenalties)
 - `GET /api/analytics/v1/warehouse-measurements` — Замеры склада (getV1WarehouseMeasurements)
 - `GET /api/v1/acceptance_report` — Создать отчёт (getV1AcceptanceReport)
@@ -409,7 +409,6 @@ SDK выпускается с security-first процессом:
 - `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда (getV1AnalyticsBrandShareParentSubjects)
 - `POST /api/v1/analytics/excise-report` — Получить отчёт (postV1AnalyticsExciseReport)
 - `GET /api/v1/analytics/goods-labeling` — Маркировка товара (getV1AnalyticsGoodsLabeling)
-- `GET /api/v1/analytics/goods-return` — Получить отчёт (getV1AnalyticsGoodsReturn)
 - `GET /api/v1/analytics/region-sale` — Получить отчёт (getV1AnalyticsRegionSale)
 - `GET /api/v1/paid_storage` — Создать отчёт (getV1PaidStorage)
 - `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт (getV1PaidStorageTasksTaskIdDownload)
