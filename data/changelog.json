@@ -2,6 +2,38 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-10-31",
+      "anchor": "changed-20261031",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261031",
+      "sections": [
+        "Авторизация",
+        "Отчёты",
+        "Отчёты → Возвраты и перемещение товаров"
+      ],
+      "changes": [
+        {
+          "section": "Авторизация",
+          "text": "обновлено описание категорий токенов — ссылки на разделы **DBS** и **Самовывоз** заменены (вместо «Заказы DBS»/«Заказы Самовывоз» теперь «DBS»/«Самовывоз»), без изменения механики авторизации/лимитов."
+        },
+        {
+          "section": "Отчёты",
+          "text": "из вступительного списка отчётов удалён пункт «Продажи по регионам» (salesByRegions) из перечисления доступных отчётов."
+        },
+        {
+          "section": "Отчёты → Возвраты и перемещение товаров",
+          "text": "удалён deprecated-метод `GET /api/v1/analytics/goods-return` (operationId `getV1AnalyticsGoodsReturn`), который планировался к отключению."
+        },
+        {
+          "section": "Отчёты → Возвраты и перемещение товаров",
+          "text": "переименован operationId для `GET /api/analytics/v1/item-returns` с `getV1GoodsReturn` на `getV1ItemReturns`; схема ответа переименована с `GoodsReturn200Response` на `ItemReturns200Response` (структура ответа по ссылке на новую схему)."
+        },
+        {
+          "section": "Отчёты",
+          "text": "обновлены ссылки в описаниях/справочном центре для отчётов «Заблокированные карточки» и «Возвраты и перемещение товаров», а также ссылка на страницу отчёта о возвратах (URL без `/active`)."
+        }
+      ]
+    },
+    {
       "date": "2026-10-29",
       "anchor": "changed-20261029",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261029",
