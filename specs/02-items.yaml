@@ -5059,6 +5059,8 @@ paths:
                 $ref: '#/components/schemas/response400GetRecom'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -5129,6 +5131,8 @@ paths:
                 $ref: '#/components/schemas/response400SetRecom'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -5544,6 +5548,8 @@ paths:
                   $ref: '#/components/examples/InvalidDataFormatV3'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -6559,6 +6565,8 @@ paths:
                   $ref: '#/components/schemas/Office'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -6624,6 +6632,8 @@ paths:
                   $ref: '#/components/schemas/Warehouse'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:

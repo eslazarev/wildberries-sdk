@@ -275,6 +275,8 @@ paths:
           $ref: '#/components/responses/IncorrectRequest'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -909,6 +911,8 @@ paths:
           $ref: '#/components/responses/IncorrectRequest'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -1367,6 +1371,8 @@ paths:
           $ref: '#/components/responses/IncorrectRequest'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
