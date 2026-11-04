@@ -3398,6 +3398,8 @@ paths:
                   $ref: '#/components/examples/IncorrectParameter'
         '401':
           $ref: '#/components/responses/401-2'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '429':
@@ -3465,6 +3467,8 @@ paths:
                   $ref: '#/components/examples/IncorrectParameter'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -4109,6 +4113,8 @@ paths:
                 $ref: '#/components/schemas/CountriesOKSMList'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '429':
@@ -4203,6 +4209,8 @@ paths:
                   $ref: '#/components/examples/ApiError400V3'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -4292,6 +4300,8 @@ paths:
                   $ref: '#/components/examples/ApiError400V3'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '429':
@@ -4348,6 +4358,8 @@ paths:
                   $ref: '#/components/examples/ApiError400V3'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -4426,6 +4438,8 @@ paths:
                       - manual
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -4517,6 +4531,8 @@ paths:
                   $ref: '#/components/examples/ApiError400V3'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -4667,6 +4683,8 @@ paths:
                   $ref: '#/components/examples/ApiError400V3'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -4807,6 +4825,8 @@ paths:
                   $ref: '#/components/examples/SupplierSettingMustBeManual'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -4923,6 +4943,8 @@ paths:
                   $ref: '#/components/examples/AutoreturnError400Parameter'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:

@@ -1813,8 +1813,6 @@ paths:
                   $ref: '#/components/examples/DateRanges'
         '401':
           $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '429':
@@ -2264,6 +2262,8 @@ paths:
                   $ref: '#/components/examples/DateRanges'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: returnsAndItemMovementReport
