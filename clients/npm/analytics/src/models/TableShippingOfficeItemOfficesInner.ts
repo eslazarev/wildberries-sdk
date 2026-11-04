@@ -28,11 +28,13 @@ import {
  */
 export interface TableShippingOfficeItemOfficesInner {
     /**
-     * ID склада
+     * [ID склада](/release-notes?id=605)
+     * 
      */
     officeID: number;
     /**
-     * Название склада
+     * [Название склада](/release-notes?id=605)
+     * 
      */
     officeName: string;
     /**

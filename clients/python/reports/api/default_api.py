@@ -2811,7 +2811,6 @@ class DefaultApi:
             '200': "GetV1AnalyticsRegionSale200Response",
             '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
-            '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -2888,7 +2887,6 @@ class DefaultApi:
             '200': "GetV1AnalyticsRegionSale200Response",
             '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
-            '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -2965,7 +2963,6 @@ class DefaultApi:
             '200': "GetV1AnalyticsRegionSale200Response",
             '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
-            '402': "GetV1SupplierOrders402Response",
             '403': "GetV1SupplierOrders403Response",
             '429': "GetV1SupplierOrders401Response",
         }
@@ -3510,6 +3507,7 @@ class DefaultApi:
             '204': None,
             '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
+            '402': "GetV1SupplierOrders402Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -3597,6 +3595,7 @@ class DefaultApi:
             '204': None,
             '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
+            '402': "GetV1SupplierOrders402Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
@@ -3684,6 +3683,7 @@ class DefaultApi:
             '204': None,
             '400': "Model4XXResponse",
             '401': "GetV1SupplierOrders401Response",
+            '402': "GetV1SupplierOrders402Response",
             '429': "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(

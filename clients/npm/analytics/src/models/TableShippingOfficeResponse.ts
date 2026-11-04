@@ -30,7 +30,7 @@ export interface TableShippingOfficeResponse {
     /**
      * Множество данных по регионам отгрузки
      */
-    regions?: Array<TableShippingOfficeItem>;
+    regions: Array<TableShippingOfficeItem>;
     /**
      * Валюта отчёта
      */
@@ -41,6 +41,7 @@ export interface TableShippingOfficeResponse {
  * Check if a given object implements the TableShippingOfficeResponse interface.
  */
 export function instanceOfTableShippingOfficeResponse(value: object): value is TableShippingOfficeResponse {
+    if (!('regions' in value) || value['regions'] === undefined) return false;
     if (!('currency' in value) || value['currency'] === undefined) return false;
     return true;
 }
@@ -55,7 +56,7 @@ export function TableShippingOfficeResponseFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'regions': json['regions'] == null ? undefined : ((json['regions'] as Array<any>).map(TableShippingOfficeItemFromJSON)),
+        'regions': ((json['regions'] as Array<any>).map(TableShippingOfficeItemFromJSON)),
         'currency': json['currency'],
     };
 }
@@ -71,7 +72,7 @@ export function TableShippingOfficeResponseToJSONTyped(value?: TableShippingOffi
 
     return {
         
-        'regions': value['regions'] == null ? undefined : ((value['regions'] as Array<any>).map(TableShippingOfficeItemToJSON)),
+        'regions': ((value['regions'] as Array<any>).map(TableShippingOfficeItemToJSON)),
         'currency': value['currency'],
     };
 }

@@ -28,8 +28,8 @@ class TableShippingOfficeItemOfficesInner(BaseModel):
     """
     TableShippingOfficeItemOfficesInner
     """ # noqa: E501
-    office_id: StrictInt = Field(description="ID склада", alias="officeID", json_schema_extra={"examples": [123456]})
-    office_name: StrictStr = Field(description="Название склада", alias="officeName", json_schema_extra={"examples": ["Коледино"]})
+    office_id: StrictInt = Field(description="[ID склада](/release-notes?id=605) ", alias="officeID", json_schema_extra={"examples": [-999999]})
+    office_name: StrictStr = Field(description="[Название склада](/release-notes?id=605) ", alias="officeName", json_schema_extra={"examples": ["Склад WB РФ"]})
     metrics: TableShippingOfficeMetrics = Field(description="Метрики по складу")
     __properties: ClassVar[List[str]] = ["officeID", "officeName", "metrics"]
 

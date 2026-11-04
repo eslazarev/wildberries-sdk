@@ -14,17 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TableShippingOfficeResponse {
     /// Множество данных по регионам отгрузки
-    #[serde(rename = "regions", skip_serializing_if = "Option::is_none")]
-    pub regions: Option<Vec<models::TableShippingOfficeItem>>,
+    #[serde(rename = "regions")]
+    pub regions: Vec<models::TableShippingOfficeItem>,
     /// Валюта отчёта
     #[serde(rename = "currency")]
     pub currency: String,
 }
 
 impl TableShippingOfficeResponse {
-    pub fn new(currency: String) -> TableShippingOfficeResponse {
+    pub fn new(regions: Vec<models::TableShippingOfficeItem>, currency: String) -> TableShippingOfficeResponse {
         TableShippingOfficeResponse {
-            regions: None,
+            regions,
             currency,
         }
     }

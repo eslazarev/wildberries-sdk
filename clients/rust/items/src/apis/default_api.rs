@@ -317,6 +317,7 @@ pub enum GetV3DbwWarehousesWarehouseIdContactsError {
 #[serde(untagged)]
 pub enum GetV3OfficesError {
     Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::Error),
     Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
@@ -327,6 +328,7 @@ pub enum GetV3OfficesError {
 #[serde(untagged)]
 pub enum GetV3WarehousesError {
     Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::Error),
     Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
@@ -350,6 +352,7 @@ pub enum PatchV2TagIdError {
 pub enum PostV1RecommendationsListError {
     Status400(models::Response400GetRecom),
     Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::Response4Xx),
     Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
@@ -361,6 +364,7 @@ pub enum PostV1RecommendationsListError {
 pub enum PostV1RecommendationsSetError {
     Status400(models::Response400SetRecom),
     Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::Response4Xx),
     Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),
@@ -372,6 +376,7 @@ pub enum PostV1RecommendationsSetError {
 pub enum PostV1UploadTaskB2bWholesaleError {
     Status400(models::ResponseErrorV3),
     Status401(models::GetV2ObjectParentAll401Response),
+    Status402(models::GetV2Tags402Response),
     Status403(models::ResponseErrorV3),
     Status429(models::GetV2ObjectParentAll401Response),
     UnknownValue(serde_json::Value),

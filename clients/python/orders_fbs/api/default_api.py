@@ -1328,6 +1328,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CountriesOKSMList",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '429': "GetV3PassesOffices401Response",
         }
@@ -1394,6 +1395,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CountriesOKSMList",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '429': "GetV3PassesOffices401Response",
         }
@@ -1460,6 +1462,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CountriesOKSMList",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '429': "GetV3PassesOffices401Response",
         }
@@ -1920,6 +1923,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV3FbsSettingsAutoreturns200Response",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '406': "ApiErrorV3",
             '429': "GetV3PassesOffices401Response",
@@ -1987,6 +1991,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV3FbsSettingsAutoreturns200Response",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '406': "ApiErrorV3",
             '429': "GetV3PassesOffices401Response",
@@ -2054,6 +2059,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetV3FbsSettingsAutoreturns200Response",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '406': "ApiErrorV3",
             '429': "GetV3PassesOffices401Response",
@@ -2191,6 +2197,7 @@ class DefaultApi:
             '200': "GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -2266,6 +2273,7 @@ class DefaultApi:
             '200': "GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -2341,6 +2349,7 @@ class DefaultApi:
             '200': "GetV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -2488,6 +2497,7 @@ class DefaultApi:
             '200': "ShippingPointsResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '429': "GetV3PassesOffices401Response",
         }
@@ -2564,6 +2574,7 @@ class DefaultApi:
             '200': "ShippingPointsResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '429': "GetV3PassesOffices401Response",
         }
@@ -2640,6 +2651,7 @@ class DefaultApi:
             '200': "ShippingPointsResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '429': "GetV3PassesOffices401Response",
         }
@@ -3116,6 +3128,7 @@ class DefaultApi:
             '200': "SupplySpotQRCode",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '404': "ApiErrorV3",
             '429': "GetV3PassesOffices401Response",
@@ -3188,6 +3201,7 @@ class DefaultApi:
             '200': "SupplySpotQRCode",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '404': "ApiErrorV3",
             '429': "GetV3PassesOffices401Response",
@@ -3260,6 +3274,7 @@ class DefaultApi:
             '200': "SupplySpotQRCode",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '404': "ApiErrorV3",
             '429': "GetV3PassesOffices401Response",
@@ -6241,6 +6256,7 @@ class DefaultApi:
             '204': None,
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -6312,6 +6328,7 @@ class DefaultApi:
             '204': None,
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -6383,6 +6400,7 @@ class DefaultApi:
             '204': None,
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -6531,6 +6549,7 @@ class DefaultApi:
             '200': "PatchV3FbsSettingsAutoreturnsItems200Response",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -6602,6 +6621,7 @@ class DefaultApi:
             '200': "PatchV3FbsSettingsAutoreturnsItems200Response",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -6673,6 +6693,7 @@ class DefaultApi:
             '200': "PatchV3FbsSettingsAutoreturnsItems200Response",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -6821,6 +6842,7 @@ class DefaultApi:
             '200': "UpdateSuppliesShippingMethodResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Error",
             '409': "V3APIError",
             '429': "GetV3PassesOffices401Response",
@@ -6893,6 +6915,7 @@ class DefaultApi:
             '200': "UpdateSuppliesShippingMethodResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Error",
             '409': "V3APIError",
             '429': "GetV3PassesOffices401Response",
@@ -6965,6 +6988,7 @@ class DefaultApi:
             '200': "UpdateSuppliesShippingMethodResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Error",
             '409': "V3APIError",
             '429': "GetV3PassesOffices401Response",
@@ -8305,6 +8329,7 @@ class DefaultApi:
             '200': "PostV3FbsSettingsAutoreturnsItems200Response",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -8376,6 +8401,7 @@ class DefaultApi:
             '200': "PostV3FbsSettingsAutoreturnsItems200Response",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -8447,6 +8473,7 @@ class DefaultApi:
             '200': "PostV3FbsSettingsAutoreturnsItems200Response",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "Response4XX",
             '429': "GetV3PassesOffices401Response",
         }
@@ -8595,6 +8622,7 @@ class DefaultApi:
             '200': "SupplySpotDataResponse",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '429': "GetV3PassesOffices401Response",
         }
@@ -8666,6 +8694,7 @@ class DefaultApi:
             '200': "SupplySpotDataResponse",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '429': "GetV3PassesOffices401Response",
         }
@@ -8737,6 +8766,7 @@ class DefaultApi:
             '200': "SupplySpotDataResponse",
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '429': "GetV3PassesOffices401Response",
         }
@@ -11947,6 +11977,7 @@ class DefaultApi:
             '204': None,
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '404': "ApiErrorV3",
             '409': "ApiErrorV3",
@@ -12024,6 +12055,7 @@ class DefaultApi:
             '204': None,
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '404': "ApiErrorV3",
             '409': "ApiErrorV3",
@@ -12101,6 +12133,7 @@ class DefaultApi:
             '204': None,
             '400': "ApiErrorV3",
             '401': "GetV3PassesOffices401Response",
+            '402': "GetV3PassesOffices402Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
             '404': "ApiErrorV3",
             '409': "ApiErrorV3",

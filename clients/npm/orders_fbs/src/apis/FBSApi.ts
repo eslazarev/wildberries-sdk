@@ -588,7 +588,7 @@ export interface PostV3OrdersStickersCrossBorderOperationRequest {
 
 export interface PostV3PassesOperationRequest {
     /**
-     * 
+     * Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры
      */
     postV3PassesRequest: PostV3PassesRequest;
 }
@@ -709,7 +709,7 @@ export interface PutV3PassesPassIdOperationRequest {
      */
     passId: number;
     /**
-     * 
+     * Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры.
      */
     putV3PassesPassIdRequest: PutV3PassesPassIdRequest;
 }

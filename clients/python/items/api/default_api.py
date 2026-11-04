@@ -7796,6 +7796,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Office]",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Error",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -7862,6 +7863,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Office]",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Error",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -7928,6 +7930,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Office]",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Error",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -8056,6 +8059,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Warehouse]",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Error",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -8122,6 +8126,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Warehouse]",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Error",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -8188,6 +8193,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Warehouse]",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Error",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -8630,6 +8636,7 @@ class DefaultApi:
             '200': "GetRecomRes",
             '400': "Response400GetRecom",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Response4XX",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -8701,6 +8708,7 @@ class DefaultApi:
             '200': "GetRecomRes",
             '400': "Response400GetRecom",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Response4XX",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -8772,6 +8780,7 @@ class DefaultApi:
             '200': "GetRecomRes",
             '400': "Response400GetRecom",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Response4XX",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -8921,6 +8930,7 @@ class DefaultApi:
             '208': "Response208SetRecom",
             '400': "Response400SetRecom",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Response4XX",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -8993,6 +9003,7 @@ class DefaultApi:
             '208': "Response208SetRecom",
             '400': "Response400SetRecom",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Response4XX",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -9065,6 +9076,7 @@ class DefaultApi:
             '208': "Response208SetRecom",
             '400': "Response400SetRecom",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "Response4XX",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -9214,6 +9226,7 @@ class DefaultApi:
             '208': "PostV1UploadTaskB2bWholesale208Response",
             '400': "ResponseErrorV3",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "ResponseErrorV3",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -9286,6 +9299,7 @@ class DefaultApi:
             '208': "PostV1UploadTaskB2bWholesale208Response",
             '400': "ResponseErrorV3",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "ResponseErrorV3",
             '429': "GetV2ObjectParentAll401Response",
         }
@@ -9358,6 +9372,7 @@ class DefaultApi:
             '208': "PostV1UploadTaskB2bWholesale208Response",
             '400': "ResponseErrorV3",
             '401': "GetV2ObjectParentAll401Response",
+            '402': "GetV2Tags402Response",
             '403': "ResponseErrorV3",
             '429': "GetV2ObjectParentAll401Response",
         }

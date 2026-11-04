@@ -715,7 +715,7 @@ export interface PostV2SeacatSaveAdOperationRequest {
 
 export interface PostV2SupplierNmsRequest {
     /**
-     * 
+     * ID предметов, для которых нужно получить карточки товаров
      */
     requestBody?: Array<number>;
 }

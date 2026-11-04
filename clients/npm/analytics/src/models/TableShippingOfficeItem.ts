@@ -35,7 +35,8 @@ import {
  */
 export interface TableShippingOfficeItem {
     /**
-     * Регион отгрузки. [На данный момент](/release-notes?id=570) для складов WB может быть только `Склад WB`
+     * [Страна отгрузки](/release-notes?id=605)
+     * 
      */
     regionName: string;
     /**
@@ -43,7 +44,8 @@ export interface TableShippingOfficeItem {
      */
     metrics: TableShippingOfficeMetrics;
     /**
-     * Данные по складам. [На данный момент](/release-notes?id=570) может быть только `[]`
+     * [Данные по складам](/release-notes?id=605)
+     * 
      */
     offices: Array<TableShippingOfficeItemOfficesInner>;
 }

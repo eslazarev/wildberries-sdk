@@ -21,11 +21,11 @@ var _ MappedNullable = &TableShippingOfficeItem{}
 
 // TableShippingOfficeItem Данные по региону отгрузки
 type TableShippingOfficeItem struct {
-	// Регион отгрузки. [На данный момент](/release-notes?id=570) для складов WB может быть только `Склад WB`
+	// [Страна отгрузки](/release-notes?id=605) 
 	RegionName string `json:"regionName"`
 	// Метрики по региону
 	Metrics TableShippingOfficeMetrics `json:"metrics"`
-	// Данные по складам. [На данный момент](/release-notes?id=570) может быть только `[]`
+	// [Данные по складам](/release-notes?id=605) 
 	Offices []TableShippingOfficeItemOfficesInner `json:"offices"`
 }
 

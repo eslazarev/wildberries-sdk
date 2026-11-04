@@ -21,6 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum PostV1OrderFeedError {
     Status400(models::ErrorObject400),
     Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
     Status403(models::ErrorObject403),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
@@ -32,6 +33,7 @@ pub enum PostV1OrderFeedError {
 pub enum PostV1StocksReportSellerWarehousesError {
     Status400(models::ErrorObject400),
     Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
     Status403(models::ErrorObject403),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
@@ -55,6 +57,7 @@ pub enum PostV1StocksReportWbWarehousesError {
 pub enum PostV2ItemRatingError {
     Status400(models::ErrorObject400),
     Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
     Status403(models::ErrorObject403),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
@@ -619,7 +622,7 @@ pub async fn post_v2_search_report_table_groups(configuration: &configuration::C
     }
 }
 
-/// Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в 2 часа.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+/// Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в 2 часа.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 pub async fn post_v2_stocks_report_offices(configuration: &configuration::Configuration, table_shipping_office_request: models::TableShippingOfficeRequest) -> Result<models::PostV2StocksReportOffices200Response, Error<PostV2StocksReportOfficesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_table_shipping_office_request = table_shipping_office_request;
@@ -757,7 +760,7 @@ pub async fn post_v2_stocks_report_products_products(configuration: &configurati
     }
 }
 
-/// Метод формирует набор данных об остатках по размерам товара. <br><br> Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым.<br></br> Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`.<br></br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.<br><br>  Данные отчёта обновляются 1 раз в 2 часа.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+/// Метод формирует набор данных об остатках по размерам товара. <br><br> Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым.<br></br> Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`.<br></br> Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"officeName\":\"\"`.<br><br>  Данные отчёта обновляются 1 раз в 2 часа.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 pub async fn post_v2_stocks_report_products_sizes(configuration: &configuration::Configuration, table_size_request: models::TableSizeRequest) -> Result<models::PostV2StocksReportProductsSizes200Response, Error<PostV2StocksReportProductsSizesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_table_size_request = table_size_request;

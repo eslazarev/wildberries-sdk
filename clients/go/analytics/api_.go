@@ -176,6 +176,17 @@ func (a *DefaultApiService) PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest) 
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v PostV3SalesFunnelProducts402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ErrorObject403
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -354,6 +365,17 @@ func (a *DefaultApiService) PostV1StocksReportSellerWarehousesExecute(r ApiPostV
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v PostV3SalesFunnelProducts401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v PostV3SalesFunnelProducts402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -738,6 +760,17 @@ func (a *DefaultApiService) PostV2ItemRatingExecute(r ApiPostV2ItemRatingRequest
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v PostV3SalesFunnelProducts401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v PostV3SalesFunnelProducts402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1809,7 +1842,7 @@ PostV2StocksReportOffices Данные по складам
 
 Метод формирует набор данных об остатках по складам.
 <br><br>
-Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"offices":[]`.<br><br>
+Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` или `"regionName":"Свой склад СГТ"` и `"offices":[]`.<br><br>
 
 Данные отчёта обновляются 1 раз в 2 часа.
 
@@ -2400,7 +2433,7 @@ PostV2StocksReportProductsSizes Данные по размерам
 3. Товар не имеет размера и `"includeOffice":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров.
 4. Товар не имеет размера и `"includeOffice":false`, тогда тело ответа будет пустым.<br></br>
 Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.<br></br>
-Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"officeName":""`.<br><br>
+Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` или `"regionName":"Свой склад СГТ"` и `"officeName":""`.<br><br>
 
 Данные отчёта обновляются 1 раз в 2 часа.
 

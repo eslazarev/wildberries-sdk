@@ -778,7 +778,7 @@ export interface PostV1RecommendationsSetRequest {
 
 export interface PostV1UploadTaskB2bWholesaleOperationRequest {
     /**
-     * 
+     * Установка оптовых скидок для B2B
      */
     postV1UploadTaskB2bWholesaleRequest: PostV1UploadTaskB2bWholesaleRequest;
 }

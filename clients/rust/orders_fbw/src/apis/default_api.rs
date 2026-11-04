@@ -21,6 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum DeleteV1DraftsDraftIdError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
     Status403(models::PostV1AcceptanceOptions403Response),
     Status404(models::ErrorsDraftError),
     Status429(models::PostV1AcceptanceOptions401Response),
@@ -33,6 +34,7 @@ pub enum DeleteV1DraftsDraftIdError {
 pub enum DeleteV1DraftsDraftIdItemsError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
     Status403(models::PostV1AcceptanceOptions403Response),
     Status404(models::ErrorsDraftError),
     Status429(models::PostV1AcceptanceOptions401Response),
@@ -45,6 +47,7 @@ pub enum DeleteV1DraftsDraftIdItemsError {
 pub enum GetV1DraftsError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
     Status403(models::PostV1AcceptanceOptions403Response),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -56,6 +59,7 @@ pub enum GetV1DraftsError {
 pub enum GetV1DraftsDraftIdItemsError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
     Status403(models::PostV1AcceptanceOptions403Response),
     Status404(models::ErrorsDraftError),
     Status429(models::PostV1AcceptanceOptions401Response),
@@ -116,6 +120,7 @@ pub enum GetV1SuppliesSupplyIdDiscrepanciesQuantityError {
 #[serde(untagged)]
 pub enum GetV1TransitTariffsError {
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
     Status403(models::PostV1AcceptanceOptions403Response),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -126,6 +131,7 @@ pub enum GetV1TransitTariffsError {
 #[serde(untagged)]
 pub enum GetV1WarehousesError {
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
     Status403(models::PostV1AcceptanceOptions403Response),
     Status404(),
     Status429(models::PostV1AcceptanceOptions401Response),
@@ -150,6 +156,7 @@ pub enum PostV1AcceptanceOptionsError {
 #[serde(untagged)]
 pub enum PostV1DraftsError {
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
     Status403(models::PostV1AcceptanceOptions403Response),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
@@ -161,6 +168,7 @@ pub enum PostV1DraftsError {
 pub enum PostV1DraftsDraftIdItemsError {
     Status400(models::ErrorsDraftError),
     Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
     Status403(models::PostV1AcceptanceOptions403Response),
     Status404(models::ErrorsDraftError),
     Status429(models::PostV1AcceptanceOptions401Response),

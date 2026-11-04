@@ -21,9 +21,9 @@ var _ MappedNullable = &TableShippingOfficeItemOfficesInner{}
 
 // TableShippingOfficeItemOfficesInner struct for TableShippingOfficeItemOfficesInner
 type TableShippingOfficeItemOfficesInner struct {
-	// ID склада
+	// [ID склада](/release-notes?id=605) 
 	OfficeID int64 `json:"officeID"`
-	// Название склада
+	// [Название склада](/release-notes?id=605) 
 	OfficeName string `json:"officeName"`
 	// Метрики по складу
 	Metrics TableShippingOfficeMetrics `json:"metrics"`

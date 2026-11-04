@@ -20,6 +20,7 @@ use super::{Error, configuration, ContentType};
 #[serde(untagged)]
 pub enum GetV3FbsSettingsAutoreturnsError {
     Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
     Status403(models::Response4Xx),
     Status406(models::ApiErrorV3),
     Status429(models::GetV3PassesOffices401Response),
@@ -32,6 +33,7 @@ pub enum GetV3FbsSettingsAutoreturnsError {
 pub enum GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
     Status400(models::ApiErrorV3),
     Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
     Status403(models::Response4Xx),
     Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
@@ -43,6 +45,7 @@ pub enum GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
 pub enum PatchV3FbsSettingsAutoreturnsError {
     Status400(models::ApiErrorV3),
     Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
     Status403(models::Response4Xx),
     Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
@@ -54,6 +57,7 @@ pub enum PatchV3FbsSettingsAutoreturnsError {
 pub enum PatchV3FbsSettingsAutoreturnsItemsError {
     Status400(models::ApiErrorV3),
     Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
     Status403(models::Response4Xx),
     Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
@@ -65,6 +69,7 @@ pub enum PatchV3FbsSettingsAutoreturnsItemsError {
 pub enum PostV3FbsSettingsAutoreturnsItemsError {
     Status400(models::ApiErrorV3),
     Status401(models::GetV3PassesOffices401Response),
+    Status402(models::GetV3PassesOffices402Response),
     Status403(models::Response4Xx),
     Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),

@@ -129,7 +129,6 @@ pub enum GetV1AnalyticsGoodsLabelingError {
 pub enum GetV1AnalyticsRegionSaleError {
     Status400(models::Model4XxResponse),
     Status401(models::GetV1SupplierOrders401Response),
-    Status402(models::GetV1SupplierOrders402Response),
     Status403(models::GetV1SupplierOrders403Response),
     Status429(models::GetV1SupplierOrders401Response),
     UnknownValue(serde_json::Value),
@@ -153,6 +152,7 @@ pub enum GetV1DeductionsError {
 pub enum GetV1ItemReturnsError {
     Status400(models::Model4XxResponse),
     Status401(models::GetV1SupplierOrders401Response),
+    Status402(models::GetV1SupplierOrders402Response),
     Status429(models::GetV1SupplierOrders401Response),
     UnknownValue(serde_json::Value),
 }

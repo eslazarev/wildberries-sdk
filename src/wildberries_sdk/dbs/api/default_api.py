@@ -1894,6 +1894,7 @@ class DefaultApi:
             '200': "ApiOrdersFinalPriceResponse",
             '400': "ApiBatchError",
             '401': "GetV3DbsOrdersNew401Response",
+            '402': "GetV3DbsOrdersNew402Response",
             '403': "ApiBatchError",
             '429': "GetV3DbsOrdersNew401Response",
         }
@@ -1965,6 +1966,7 @@ class DefaultApi:
             '200': "ApiOrdersFinalPriceResponse",
             '400': "ApiBatchError",
             '401': "GetV3DbsOrdersNew401Response",
+            '402': "GetV3DbsOrdersNew402Response",
             '403': "ApiBatchError",
             '429': "GetV3DbsOrdersNew401Response",
         }
@@ -2036,6 +2038,7 @@ class DefaultApi:
             '200': "ApiOrdersFinalPriceResponse",
             '400': "ApiBatchError",
             '401': "GetV3DbsOrdersNew401Response",
+            '402': "GetV3DbsOrdersNew402Response",
             '403': "ApiBatchError",
             '429': "GetV3DbsOrdersNew401Response",
         }

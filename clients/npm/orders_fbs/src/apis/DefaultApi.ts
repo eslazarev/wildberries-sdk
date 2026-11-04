@@ -34,6 +34,11 @@ import {
     GetV3PassesOffices401ResponseToJSON,
 } from '../models/GetV3PassesOffices401Response';
 import {
+    type GetV3PassesOffices402Response,
+    GetV3PassesOffices402ResponseFromJSON,
+    GetV3PassesOffices402ResponseToJSON,
+} from '../models/GetV3PassesOffices402Response';
+import {
     type PatchV3FbsSettingsAutoreturnsItems200Response,
     PatchV3FbsSettingsAutoreturnsItems200ResponseFromJSON,
     PatchV3FbsSettingsAutoreturnsItems200ResponseToJSON,

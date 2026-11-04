@@ -22,7 +22,7 @@ var _ MappedNullable = &TableShippingOfficeResponse{}
 // TableShippingOfficeResponse struct for TableShippingOfficeResponse
 type TableShippingOfficeResponse struct {
 	// Множество данных по регионам отгрузки
-	Regions []TableShippingOfficeItem `json:"regions,omitempty"`
+	Regions []TableShippingOfficeItem `json:"regions"`
 	// Валюта отчёта
 	Currency string `json:"currency"`
 }
@@ -33,8 +33,9 @@ type _TableShippingOfficeResponse TableShippingOfficeResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableShippingOfficeResponse(currency string) *TableShippingOfficeResponse {
+func NewTableShippingOfficeResponse(regions []TableShippingOfficeItem, currency string) *TableShippingOfficeResponse {
 	this := TableShippingOfficeResponse{}
+	this.Regions = regions
 	this.Currency = currency
 	return &this
 }
@@ -47,34 +48,26 @@ func NewTableShippingOfficeResponseWithDefaults() *TableShippingOfficeResponse {
 	return &this
 }
 
-// GetRegions returns the Regions field value if set, zero value otherwise.
+// GetRegions returns the Regions field value
 func (o *TableShippingOfficeResponse) GetRegions() []TableShippingOfficeItem {
-	if o == nil || IsNil(o.Regions) {
+	if o == nil {
 		var ret []TableShippingOfficeItem
 		return ret
 	}
+
 	return o.Regions
 }
 
-// GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
+// GetRegionsOk returns a tuple with the Regions field value
 // and a boolean to check if the value has been set.
 func (o *TableShippingOfficeResponse) GetRegionsOk() ([]TableShippingOfficeItem, bool) {
-	if o == nil || IsNil(o.Regions) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Regions, true
 }
 
-// HasRegions returns a boolean if a field has been set.
-func (o *TableShippingOfficeResponse) HasRegions() bool {
-	if o != nil && !IsNil(o.Regions) {
-		return true
-	}
-
-	return false
-}
-
-// SetRegions gets a reference to the given []TableShippingOfficeItem and assigns it to the Regions field.
+// SetRegions sets field value
 func (o *TableShippingOfficeResponse) SetRegions(v []TableShippingOfficeItem) {
 	o.Regions = v
 }
@@ -113,9 +106,7 @@ func (o TableShippingOfficeResponse) MarshalJSON() ([]byte, error) {
 
 func (o TableShippingOfficeResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Regions) {
-		toSerialize["regions"] = o.Regions
-	}
+	toSerialize["regions"] = o.Regions
 	toSerialize["currency"] = o.Currency
 	return toSerialize, nil
 }
@@ -125,6 +116,7 @@ func (o *TableShippingOfficeResponse) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"regions",
 		"currency",
 	}
 

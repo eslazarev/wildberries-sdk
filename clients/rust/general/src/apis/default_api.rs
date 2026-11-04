@@ -64,6 +64,7 @@ pub enum GetV1SubscriptionsError {
 pub enum GetV1TariffConstructorOptionsError {
     Status400(models::PlanBuilderErrors),
     Status401(models::GetPing401Response),
+    Status402(models::GetV1SellerInfo402Response),
     Status403(models::Response4Xx),
     Status404(models::PlanBuilderErrors),
     Status429(models::GetPing401Response),

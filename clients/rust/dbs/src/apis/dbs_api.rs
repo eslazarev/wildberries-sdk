@@ -93,6 +93,7 @@ pub enum PostV3DbsOrdersDeliveryDateError {
 pub enum PostV3DbsOrdersFinalPriceError {
     Status400(models::ApiBatchError),
     Status401(models::GetV3DbsOrdersNew401Response),
+    Status402(models::GetV3DbsOrdersNew402Response),
     Status403(models::ApiBatchError),
     Status429(models::GetV3DbsOrdersNew401Response),
     UnknownValue(serde_json::Value),

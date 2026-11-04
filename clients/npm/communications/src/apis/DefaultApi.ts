@@ -206,7 +206,7 @@ import {
 
 export interface DeleteV1PinsRequest {
     /**
-     * 
+     * Список `pinId` — ID операций закрепления отзывов
      */
     requestBody: Array<number>;
 }
@@ -479,7 +479,7 @@ export interface GetV1SellerEventsRequest {
 
 export interface PatchV1ClaimOperationRequest {
     /**
-     * 
+     * Ответ на заявку
      */
     patchV1ClaimRequest: PatchV1ClaimRequest;
 }

@@ -28,15 +28,18 @@ import {
  */
 export interface TableOfficeItem {
     /**
-     * Регион отгрузки. [На данный момент](/release-notes?id=570) для складов WB может быть только `Склад WB`
+     * [Страна отгрузки](/release-notes?id=605)
+     * 
      */
     regionName: string;
     /**
-     * ID склада. [На данный момент](/release-notes?id=570) для складов WB может быть только `-999999`
+     * [ID склада](/release-notes?id=605)
+     * 
      */
     officeID: number;
     /**
-     * Название склада. [На данный момент](/release-notes?id=570) для складов WB может быть только `""`
+     * [Название склада](/release-notes?id=605)
+     * 
      */
     officeName: string;
     /**
