@@ -35,7 +35,7 @@ tags:
 
       Методы получения:
         - [списков рекламных кампаний](./promotion#tag/campaigns/operation/getV1PromotionCount)
-        - [информации о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts)
+        - [информации о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts)
   - name: Создание кампаний
     x-displayName: Создание кампаний
     description: ''
@@ -91,7 +91,7 @@ tags:
 
       Чтобы получить кластеры, по которым уже были показы, используйте метод [статистики поисковых запросов](./promotion#tag/statistics/operation/postV0NormqueryStats).<br><br>
 
-      Для кампаний с ручной ставкой можно [установить](./promotion#tag/searchClusters/operation/postV1NormqueryBids) или [удалить](./promotion#tag/searchClusters/operation/deleteV0NormqueryBids) ставки в валюте [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Валюту профиля продавца и шаги ставок можно уточнить в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config). Ставки индивидуальны для каждого поискового кластера.<br><br>
+      Для кампаний с ручной ставкой можно [установить](./promotion#tag/searchClusters/operation/postV1NormqueryBids) или [удалить](./promotion#tag/searchClusters/operation/deleteV0NormqueryBids) ставки в валюте [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Валюту профиля продавца и шаги ставок можно уточнить в ответе метода получения [конфигурационных значений продвижения](./promotion#tag/campaignManagement/operation/getV1Config). Ставки индивидуальны для каждого поискового кластера.<br><br>
 
       **Исключения**<br><br>
 
@@ -173,7 +173,7 @@ paths:
         - HeaderApiKey: []
       summary: Списки кампаний
       description: |
-        Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
+        Метод возвращает списки всех [кампаний](/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -207,7 +207,7 @@ paths:
                           description: |
                             Тип кампании:
                               - `8` — кампания с единой ставкой (**устаревший тип**)
-                              - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type`
+                              - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts), поле `bid_type`
                           type: integer
                         status:
                           description: Статус кампании
@@ -251,6 +251,106 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaigns
+  /api/advert/v3/adverts:
+    servers:
+      - url: https://advert-api.wildberries.ru
+        description: |
+          **Prod**
+    get:
+      tags:
+        - Кампании
+      summary: Информация о кампаниях
+      description: |
+        Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.
+
+        Чтобы получить все кампании:
+          1. Сделайте первый запрос без параметра `next`.
+          2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `""`. Это будет означать, что вы получили все кампании.
+
+        Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`.
+        Не передавайте `advertIds` в одном запросе с другими параметрами.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | <no value> | <no value> | <no value> | <no value> |
+        </div>
+      operationId: getV3Adverts
+      parameters:
+        - name: advertIds
+          in: query
+          description: |
+            ID кампаний
+          schema:
+            type: string
+            example: 12345,23456,34567
+        - name: statuses
+          in: query
+          description: |
+            Статусы кампаний:
+            - `4` — готова к запуску
+            - `7` — кампания завершена
+            - `9` — идут показы
+            - `11` — кампания на паузе
+          schema:
+            type: string
+            example: 4,7,9,11
+        - name: next
+          in: query
+          description: Параметр пагинации
+          schema:
+            type: string
+            default: ''
+        - name: limit
+          in: query
+          description: |
+            Количество кампаний в ответе
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 50
+        - name: paymentType
+          in: query
+          description: |
+            Тип оплаты:
+            - `cpm` — за показы
+            - `cpc` — за клик
+          schema:
+            type: string
+            enum:
+              - cpm
+              - cpc
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V3GetAdvertsResponse'
+              examples:
+                GetV3AdvertsSuccessResponse:
+                  $ref: '#/components/examples/GetV3AdvertsSuccessResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response400'
+              examples:
+                ConflictingModes:
+                  $ref: '#/components/examples/ConflictingModes'
+                InvalidStatus:
+                  $ref: '#/components/examples/InvalidStatus'
+                InvalidId:
+                  $ref: '#/components/examples/InvalidId'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: campaigns
   /api/advert/v2/adverts:
     servers:
       - url: https://advert-api.wildberries.ru
@@ -258,13 +358,14 @@ paths:
       operationId: getV2Adverts
       x-readonly-method: true
       x-category: advert
+      deprecated: true
       security:
         - HeaderApiKey: []
       summary: Информация о кампаниях
       description: |
-        Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.
+        Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id=597).
 
-         <div class="description_limit">
+        <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
@@ -315,65 +416,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetAdverts'
-              example:
-                adverts:
-                  - bid_type: manual
-                    currency: RUB
-                    id: 567456457
-                    nm_settings:
-                      - bids_kopecks:
-                          recommendations: 0
-                          search: 0
-                        nm_id: 123456789
-                        subject:
-                          id: 52
-                          name: кошельки
-                      - bids_kopecks:
-                          recommendations: 11200
-                          search: 11200
-                        nm_id: 987654321
-                        subject:
-                          id: 54
-                          name: ювелирные кольца
-                    restrictions:
-                      can_change_nms: true
-                    settings:
-                      name: Кампания от 01.02.2024
-                      payment_type: cpm
-                      placements:
-                        recommendations: false
-                        search: true
-                    status: 7
-                    timestamps:
-                      created: '2024-02-01T09:57:38.500606+03:00'
-                      deleted: '2024-02-05T14:29:32.633968+03:00'
-                      started: '2024-02-05T12:38:10.212086+03:00'
-                      updated: '2024-02-05T14:29:32.633968+03:00'
-                  - bid_type: manual
-                    currency: RUB
-                    id: 28150154
-                    nm_settings:
-                      - bids_kopecks:
-                          recommendations: 0
-                          search: 1100
-                        nm_id: 5764746785
-                        subject:
-                          id: 69
-                          name: платья
-                    restrictions:
-                      can_change_nms: false
-                    settings:
-                      name: 'Кампания от 28.08.2025 '
-                      payment_type: cpc
-                      placements:
-                        recommendations: false
-                        search: true
-                    status: 11
-                    timestamps:
-                      created: '2025-08-28T09:50:57.611559+03:00'
-                      deleted: '2100-01-01T00:00:00+03:00'
-                      started: null
-                      updated: '2025-09-10T10:14:58.475499+03:00'
+              examples:
+                GtV3AdvertsResponseExmpl:
+                  $ref: '#/components/examples/GtV3AdvertsResponseExmpl'
         '400':
           description: Неправильный запрос
           content:
@@ -677,7 +722,7 @@ paths:
         - HeaderApiKey: []
       summary: Предметы для кампаний
       description: |
-        Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+        Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV3Adverts).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -752,7 +797,7 @@ paths:
         - HeaderApiKey: []
       summary: Карточки товаров для кампаний
       description: |
-        Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
+        Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -829,7 +874,7 @@ paths:
         - HeaderApiKey: []
       summary: Удаление кампании
       description: |
-        Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>
+        Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `4` — готова к запуску.<br><br>
 
         После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.
 
@@ -883,7 +928,7 @@ paths:
         - HeaderApiKey: []
       summary: Переименование кампании
       description: |
-        Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.
+        Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -961,7 +1006,7 @@ paths:
         - HeaderApiKey: []
       summary: Запуск кампании
       description: |
-        Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
+        Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
         Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
 
         <div class="description_limit">
@@ -1028,7 +1073,7 @@ paths:
         - HeaderApiKey: []
       summary: Пауза кампании
       description: |
-        Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.
+        Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `9` — активна — на паузу.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -1092,7 +1137,7 @@ paths:
         - HeaderApiKey: []
       summary: Завершение кампании
       description: |
-        Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:
+        Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах:
           - `9` — активна
           - `11` — пауза
 
@@ -1532,7 +1577,7 @@ paths:
         - HeaderApiKey: []
       summary: Остатки бюджетов кампаний
       description: |
-        Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+        Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV3Adverts).
         Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):
           - `4` — готова к запуску
           - `9` — активна
@@ -2638,7 +2683,7 @@ paths:
         - Управление кампаниями
       summary: Конфигурационные значения продвижения
       description: |
-        Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
+        Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
 
 
         <div class="description_token">
@@ -4534,7 +4579,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
@@ -4611,12 +4665,159 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: campaignManagement
 components:
   schemas:
+    V3GetAdvertsResponse:
+      type: object
+      required:
+        - adverts
+        - next
+      properties:
+        adverts:
+          type: array
+          description: Кампании
+          items:
+            $ref: '#/components/schemas/V3GetAdverts'
+        next:
+          type: string
+          description: |
+            Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет кампаний. Если поле пустое `""`, вы получили все кампании
+    V3GetAdverts:
+      type: object
+      required:
+        - advertId
+        - status
+        - timestamps
+        - settings
+        - nms
+        - currency
+        - restrictions
+      properties:
+        advertId:
+          description: ID кампании
+          type: integer
+        status:
+          type: integer
+          enum:
+            - 4
+            - 7
+            - 9
+            - 11
+          description: |
+            Статус кампании:
+            - `4` — готова к запуску
+            - `7` — завершена
+            - `9` — активна
+            - `11` — на паузе
+        timestamps:
+          $ref: '#/components/schemas/Timestamps'
+        settings:
+          $ref: '#/components/schemas/V3AdvertSettings'
+        nms:
+          type: array
+          description: Настройки товаров
+          items:
+            $ref: '#/components/schemas/V3AdvertNMsSettings'
+        currency:
+          type: string
+          description: Код валюты
+          format: ISO 4217
+        restrictions:
+          type: object
+          description: Ограничения кампании
+          properties:
+            canChangeNms:
+              type: boolean
+              description: |
+                Можно ли изменять список товаров кампании:
+                  - `true` — да
+                  - `false` — нет
+    V3AdvertSettings:
+      type: object
+      description: Настройки кампании
+      required:
+        - paymentType
+        - name
+        - placements
+      properties:
+        paymentType:
+          type: string
+          description: |
+            Тип оплаты:
+            - `cpm` — за показы
+            - `cpc` — за клик
+        name:
+          type: string
+          description: Название кампании
+        placements:
+          items:
+            $ref: '#/components/schemas/V3Placements'
+    V3AdvertNMsSettings:
+      type: object
+      required:
+        - nmId
+        - subject
+        - bids
+      properties:
+        nmId:
+          type: integer
+          description: Артикул WB
+        subject:
+          $ref: '#/components/schemas/V3AdvertSubject'
+        bids:
+          type: array
+          description: Ставки
+          items:
+            $ref: '#/components/schemas/V3AdvertBidsKopecks'
+    V3AdvertSubject:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          description: ID предмета
+          format: int64
+        name:
+          type: string
+          description: Название предмета
+    V3AdvertBidsKopecks:
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          $ref: '#/components/schemas/V3Placements'
+        value:
+          type: integer
+          format: int64
+          description: Ставка
+    V3Placements:
+      type: string
+      enum:
+        - search
+        - recommendations
+        - combined
+      description: |
+        Место размещения кампании:
+        - `search` - поиск
+        - `recommendations` - рекомендации
+        - `combined` - поиск и рекомендации с единой ставкой
     V0GetDailyLimitsResponse:
       type: object
       required:
@@ -4716,7 +4917,7 @@ components:
           minimum: 1000
           description: |
             Сумма дневного лимита. Параметр обязателен при `"enabled": true`.
-            Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
+            Минимально допустимая сумма указана в поле `minDailyLimit` метода получения [конфигурационных значений продвижения](./promotion#tag/campaignManagement/operation/getV1Config)
           example: 1000
         carryOverEnabled:
           type: boolean
@@ -4829,7 +5030,7 @@ components:
           type: integer
           description: |
             Ставка в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
-            Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
+            Допустимый шаг ставки указан в ответе метода получения [конфигурационных значений продвижения](./promotion#tag/campaignManagement/operation/getV1Config)
     V1SetNormQueryBidsRequest:
       type: object
       required:
@@ -5827,7 +6028,6 @@ components:
         - created
         - updated
         - started
-        - deleted
       properties:
         created:
           description: Время создания кампании
@@ -5841,10 +6041,6 @@ components:
           description: Время последнего запуска кампании
           nullable: true
           type: string
-          format: date-time
-        deleted:
-          type: string
-          description: Время удаления кампании. Если кампания не удалена, время указывается в будущем
           format: date-time
     response400:
       type: object
@@ -7085,8 +7281,60 @@ components:
                 description: Текст ошибки
                 example: Failed to parse data
   examples:
+    ConflictingModes:
+      summary: Недопустимо одновременное применение параметра advertIds с другими параметрами
+      value:
+        title: invalid payload
+        detail: advertIds cannot be used together with statuses, next or limit
+        request_id: c948568b2849bdeed5b49e96873c1155
+        status: 400
+        origin: camp-api-public-cache
+    GetV3AdvertsSuccessResponse:
+      value:
+        adverts:
+          - advertId: 12345
+            status: 9
+            settings:
+              name: Моя кампания
+              paymentType: cpm
+              placements:
+                - search
+                - recommendations
+                - combined
+            nms:
+              - nmId: 12345678
+                subject:
+                  id: 270
+                  name: Парашюты
+                bids:
+                  - type: search
+                    value: 65000
+            timestamps:
+              created: '2024-01-01T10:00:00+03:00'
+              updated: '2024-01-02T15:30:00+03:00'
+              started: '2024-01-01T10:05:00+03:00'
+            currency: RUB
+            restrictions:
+              canChangeNms: true
+        next: eyJhIjo0MTUzODE5NSwiZiI6WzQsNyw5LDExXSwicCI6ImNwbSJ9.Jbzq790NvwJyyafNoNZZUf_zXgvamfbsNi4DGt47MLI
+    InvalidStatus:
+      description: Передано недопустимое значение `statuses`
+      value:
+        title: invalid payload
+        detail: invalid advert status value
+        request_id: c948568b2849bdeed5b49e96873c1155
+        status: 400
+        origin: camp-api-public-cache
+    InvalidId:
+      description: Недопустимый ID кампании
+      value:
+        title: invalid payload
+        detail: invalid id in advertIds param
+        request_id: c948568b2849bdeed5b49e96873c1155
+        status: 400
+        origin: camp-api-public-cache
     DailyLimitTooLow:
-      summary: Сумма дневного лимита меньше минимально допустимой
+      description: Сумма дневного лимита меньше минимально допустимой
       value:
         detail: dailyLimit must be at least 100000
         origin: camp-api-public-cache
@@ -7094,7 +7342,7 @@ components:
         status: 400
         title: bad request
     AdvertIdsCountInvalid:
-      summary: Некорректное количество ID кампаний
+      description: Некорректное количество ID кампаний
       value:
         detail: advertIds must contain from 1 to 100 items
         origin: camp-api-public-cache
@@ -7434,6 +7682,64 @@ components:
           interval:
             begin: '2023-09-08'
             end: '2023-09-11'
+    GtV3AdvertsResponseExmpl:
+      value:
+        adverts:
+          - bid_type: manual
+            currency: RUB
+            id: 567456457
+            nm_settings:
+              - bids_kopecks:
+                  recommendations: 0
+                  search: 0
+                nm_id: 123456789
+                subject:
+                  id: 52
+                  name: кошельки
+              - bids_kopecks:
+                  recommendations: 11200
+                  search: 11200
+                nm_id: 987654321
+                subject:
+                  id: 54
+                  name: ювелирные кольца
+            restrictions:
+              can_change_nms: true
+            settings:
+              name: Кампания от 01.02.2024
+              payment_type: cpm
+              placements:
+                recommendations: false
+                search: true
+            status: 7
+            timestamps:
+              created: '2024-02-01T09:57:38.500606+03:00'
+              started: '2024-02-05T12:38:10.212086+03:00'
+              updated: '2024-02-05T14:29:32.633968+03:00'
+          - bid_type: manual
+            currency: RUB
+            id: 28150154
+            nm_settings:
+              - bids_kopecks:
+                  recommendations: 0
+                  search: 1100
+                nm_id: 5764746785
+                subject:
+                  id: 69
+                  name: платья
+            restrictions:
+              can_change_nms: false
+            settings:
+              name: 'Кампания от 28.08.2025 '
+              payment_type: cpc
+              placements:
+                recommendations: false
+                search: true
+            status: 11
+            timestamps:
+              created: '2025-08-28T09:50:57.611559+03:00'
+              started: null
+              updated: '2025-09-10T10:14:58.475499+03:00'
     AccessDenied:
       value:
         detail: norm_query API not available

@@ -1,6 +1,15 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.11.10)
+- Товары (Items): в схеме загрузки файла добавлено `additionalProperties: true` (разрешены дополнительные поля в объекте).
+- Заказы FBS: уточнено описание проверки возможности отмены сборочного задания — ссылка/текст теперь про «получение статусов сборочных заданий» и поле `isCancellable` (без изменения эндпоинта).
+- Самовывоз из магазина (Click&Collect): обновлены формулировки/ссылки в описаниях полей `finalPrice`/`convertedFinalPrice` — теперь ссылаются на метод получения «цены продавца и суммы к оплате» (без изменения контрактов).
+- Заказы FBW: унифицированы ответы `403` для ряда методов по черновикам поставок/поставкам — вместо `$ref` добавлено явное описание `application/problem+json` со схемой `Response4XX` и примерами `Response403TokenCategory`/`Response403TokenType`; удалён частный `application/json`-пример `models.SupplyAcceptedMoreThanYearAgo` из `403`; добавлен пример `Response403TokenType` («base token is not allowed»).
+- Продвижение (Promotion): добавлен новый эндпоинт `GET /api/advert/v3/adverts` (информация о кампаниях) с пагинацией (`next`, `limit`), фильтрами (`statuses`, `paymentType`) и режимом выборки по `advertIds` (нельзя сочетать с другими параметрами); добавлены схемы `V3GetAdvertsResponse`, `V3GetAdverts` и связанные (`V3AdvertSettings`, `V3AdvertNMsSettings`, `V3AdvertBidsKopecks`, `V3Placements`), а также примеры ошибок `400` (`ConflictingModes`, `InvalidStatus`, `InvalidId`) и успешного ответа.
+- Продвижение (Promotion): `GET /api/advert/v2/adverts` помечен как `deprecated: true`, в описании указано отключение 10 января; обновлены ссылки в документации на новый `getV3Adverts`; в схеме `Timestamps` удалено поле `deleted` (время удаления кампании больше не возвращается/не описывается).
+- Продвижение (Promotion): для методов управления кампаниями обновлён формат ответа `403` на `application/problem+json` со схемой `Response4XX` и примерами `Response403TokenCategory`/`Response403TokenType`.
+
 ### Changed (2026.11.04)
 - Общие: для одного из методов добавлен ответ `402` (`#/components/responses/402`) в список возможных ошибок.
 - Товары (Items): для ряда методов добавлен ответ `402` (`#/components/responses/402`) наряду с `401/403` (в т.ч. методы рекомендаций, а также справочники офисов/складов).
