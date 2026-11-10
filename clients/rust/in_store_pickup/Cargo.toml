@@ -1,6 +1,6 @@
 [package]
 name = "wildberries_sdk_in_store_pickup"
-version = "0.1.183"
+version = "0.1.184"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "Wildberries OpenAPI client (generated)."
 repository = "https://github.com/eslazarev/wildberries-sdk"
@@ -17,6 +17,7 @@ serde_json = "^1.0"
 serde_repr = "^0.1"
 url = "^2.5"
 chrono = { version = "^0.4",  features = ["serde"] }
+percent-encoding = "^2.3"
 reqwest = { version = "^0.13", default-features = false, features = ["json", "multipart", "query", "form"] }
 
 [features]

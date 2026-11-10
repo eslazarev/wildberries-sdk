@@ -94,11 +94,6 @@ import {
     ModelsSupplyToJSON,
 } from '../models/ModelsSupply';
 import {
-    type ModelsSupplyAcceptedMoreThanYearAgo,
-    ModelsSupplyAcceptedMoreThanYearAgoFromJSON,
-    ModelsSupplyAcceptedMoreThanYearAgoToJSON,
-} from '../models/ModelsSupplyAcceptedMoreThanYearAgo';
-import {
     type ModelsSupplyDetails,
     ModelsSupplyDetailsFromJSON,
     ModelsSupplyDetailsToJSON,

@@ -290,6 +290,7 @@ main().catch(console.error);
 - `promotion.DefaultApi.getV1SupplierSubjects` — Предметы для кампаний
 - `promotion.DefaultApi.getV1Upd` — Получение истории затрат
 - `promotion.DefaultApi.getV2Adverts` — Информация о кампаниях
+- `promotion.DefaultApi.getV3Adverts` — Информация о кампаниях
 - `promotion.DefaultApi.getV3Fullstats` — Статистика кампаний
 - `promotion.DefaultApi.patchV0AuctionNms` — Изменение списка карточек товаров в кампаниях
 - `promotion.DefaultApi.patchV1Bids` — Изменение ставок в кампаниях

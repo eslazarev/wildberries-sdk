@@ -43,7 +43,7 @@ pub enum GetV0BidsRecommendationsError {
 pub enum GetV0DailyLimitsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
-    Status403(models::GetV1PromotionCount403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -245,6 +245,16 @@ pub enum GetV2AdvertsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
     Status403(models::GetV1PromotionCount403Response),
+    Status429(models::GetV1PromotionCount401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_adverts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3AdvertsError {
+    Status400(models::Response400),
+    Status401(models::GetV1PromotionCount401Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -478,7 +488,7 @@ pub enum PutV0AuctionPlacementsError {
 pub enum PutV0DailyLimitsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
-    Status403(models::GetV1PromotionCount403Response),
+    Status403(models::Response4Xx),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -613,7 +623,7 @@ pub async fn get_v0_daily_limits(configuration: &configuration::Configuration, a
     }
 }
 
-/// Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn get_v0_delete(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<GetV0DeleteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_id = id;
@@ -648,7 +658,7 @@ pub async fn get_v0_delete(configuration: &configuration::Configuration, id: i32
     }
 }
 
-/// Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn get_v0_pause(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<GetV0PauseError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_id = id;
@@ -683,7 +693,7 @@ pub async fn get_v0_pause(configuration: &configuration::Configuration, id: i32)
     }
 }
 
-/// Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn get_v0_start(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<GetV0StartError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_id = id;
@@ -718,7 +728,7 @@ pub async fn get_v0_start(configuration: &configuration::Configuration, id: i32)
     }
 }
 
-/// Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn get_v0_stop(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<GetV0StopError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_id = id;
@@ -969,8 +979,8 @@ pub async fn get_v1_calendar_promotions(configuration: &configuration::Configura
     let uri_str = format!("{}/api/v1/calendar/promotions", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("startDateTime", &p_query_start_date_time.to_string())]);
-    req_builder = req_builder.query(&[("endDateTime", &p_query_end_date_time.to_string())]);
+    req_builder = req_builder.query(&[("startDateTime", &p_query_start_date_time.to_rfc3339())]);
+    req_builder = req_builder.query(&[("endDateTime", &p_query_end_date_time.to_rfc3339())]);
     req_builder = req_builder.query(&[("allPromo", &p_query_all_promo.to_string())]);
     if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
@@ -1120,7 +1130,7 @@ pub async fn get_v1_calendar_promotions_nomenclatures(configuration: &configurat
     }
 }
 
-/// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+/// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
 pub async fn get_v1_config(configuration: &configuration::Configuration, ) -> Result<models::V2GetConfigResponse, Error<GetV1ConfigError>> {
 
     let uri_str = format!("{}/api/advert/v1/config", configuration.base_path);
@@ -1258,7 +1268,7 @@ pub async fn get_v1_payments(configuration: &configuration::Configuration, from:
     }
 }
 
-/// Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+/// Метод возвращает списки всех [кампаний](/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
 pub async fn get_v1_promotion_count(configuration: &configuration::Configuration, ) -> Result<models::GetV1PromotionCount200Response, Error<GetV1PromotionCountError>> {
 
     let uri_str = format!("{}/adv/v1/promotion/count", configuration.base_path);
@@ -1301,7 +1311,7 @@ pub async fn get_v1_promotion_count(configuration: &configuration::Configuration
     }
 }
 
-/// Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+/// Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV3Adverts).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 pub async fn get_v1_supplier_subjects(configuration: &configuration::Configuration, payment_type: Option<&str>) -> Result<Vec<models::GetV1SupplierSubjects200ResponseInner>, Error<GetV1SupplierSubjectsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_payment_type = payment_type;
@@ -1397,7 +1407,8 @@ pub async fn get_v1_upd(configuration: &configuration::Configuration, from: chro
     }
 }
 
-/// Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+/// Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id=597).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+#[deprecated]
 pub async fn get_v2_adverts(configuration: &configuration::Configuration, ids: Option<&str>, statuses: Option<&str>, payment_type: Option<&str>) -> Result<models::GetAdverts, Error<GetV2AdvertsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_ids = ids;
@@ -1449,6 +1460,70 @@ pub async fn get_v2_adverts(configuration: &configuration::Configuration, ids: O
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV2AdvertsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра `next`.   2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> | </div> 
+pub async fn get_v3_adverts(configuration: &configuration::Configuration, advert_ids: Option<&str>, statuses: Option<&str>, next: Option<&str>, limit: Option<i32>, payment_type: Option<&str>) -> Result<models::V3GetAdvertsResponse, Error<GetV3AdvertsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_advert_ids = advert_ids;
+    let p_query_statuses = statuses;
+    let p_query_next = next;
+    let p_query_limit = limit;
+    let p_query_payment_type = payment_type;
+
+    let uri_str = format!("{}/api/advert/v3/adverts", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_advert_ids {
+        req_builder = req_builder.query(&[("advertIds", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_statuses {
+        req_builder = req_builder.query(&[("statuses", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_next {
+        req_builder = req_builder.query(&[("next", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_payment_type {
+        req_builder = req_builder.query(&[("paymentType", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V3GetAdvertsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V3GetAdvertsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV3AdvertsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1849,7 +1924,7 @@ pub async fn post_v0_normquery_stats(configuration: &configuration::Configuratio
     }
 }
 
-/// Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+/// Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 pub async fn post_v0_rename(configuration: &configuration::Configuration, post_v0_rename_request: Option<models::PostV0RenameRequest>) -> Result<(), Error<PostV0RenameError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_post_v0_rename_request = post_v0_rename_request;
@@ -2162,7 +2237,7 @@ pub async fn post_v1_stats(configuration: &configuration::Configuration, post_v1
     }
 }
 
-/// Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):   - `4` — готова к запуску   - `9` — активна   - `11` — на паузе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+/// Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):   - `4` — готова к запуску   - `9` — активна   - `11` — на паузе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
 pub async fn post_v2_budget(configuration: &configuration::Configuration, v2_budget_request: models::V2BudgetRequest) -> Result<models::V2BudgetResponse, Error<PostV2BudgetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_v2_budget_request = v2_budget_request;
@@ -2254,7 +2329,7 @@ pub async fn post_v2_seacat_save_ad(configuration: &configuration::Configuration
     }
 }
 
-/// Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+/// Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 pub async fn post_v2_supplier_nms(configuration: &configuration::Configuration, request_body: Option<Vec<i32>>) -> Result<Vec<models::PostV2SupplierNms200ResponseInner>, Error<PostV2SupplierNmsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_request_body = request_body;

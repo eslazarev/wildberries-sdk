@@ -291,6 +291,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.GetV1SupplierSubjects` — `GET /adv/v1/supplier/subjects` — Предметы для кампаний
 - `promotion.DefaultApiService.GetV1Upd` — `GET /adv/v1/upd` — Получение истории затрат
 - `promotion.DefaultApiService.GetV2Adverts` — `GET /api/advert/v2/adverts` — Информация о кампаниях
+- `promotion.DefaultApiService.GetV3Adverts` — `GET /api/advert/v3/adverts` — Информация о кампаниях
 - `promotion.DefaultApiService.GetV3Fullstats` — `GET /adv/v3/fullstats` — Статистика кампаний
 - `promotion.DefaultApiService.PatchV0AuctionNms` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
 - `promotion.DefaultApiService.PatchV1Bids` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях

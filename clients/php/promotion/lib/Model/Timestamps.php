@@ -60,8 +60,7 @@ class Timestamps implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'created' => '\DateTime',
         'updated' => '\DateTime',
-        'started' => '\DateTime',
-        'deleted' => '\DateTime'
+        'started' => '\DateTime'
     ];
 
     /**
@@ -74,8 +73,7 @@ class Timestamps implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'created' => 'date-time',
         'updated' => 'date-time',
-        'started' => 'date-time',
-        'deleted' => 'date-time'
+        'started' => 'date-time'
     ];
 
     /**
@@ -86,8 +84,7 @@ class Timestamps implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'created' => false,
         'updated' => false,
-        'started' => true,
-        'deleted' => false
+        'started' => true
     ];
 
     /**
@@ -178,8 +175,7 @@ class Timestamps implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'created' => 'created',
         'updated' => 'updated',
-        'started' => 'started',
-        'deleted' => 'deleted'
+        'started' => 'started'
     ];
 
     /**
@@ -190,8 +186,7 @@ class Timestamps implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'created' => 'setCreated',
         'updated' => 'setUpdated',
-        'started' => 'setStarted',
-        'deleted' => 'setDeleted'
+        'started' => 'setStarted'
     ];
 
     /**
@@ -202,8 +197,7 @@ class Timestamps implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'created' => 'getCreated',
         'updated' => 'getUpdated',
-        'started' => 'getStarted',
-        'deleted' => 'getDeleted'
+        'started' => 'getStarted'
     ];
 
     /**
@@ -266,7 +260,6 @@ class Timestamps implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('created', $data ?? [], null);
         $this->setIfExists('updated', $data ?? [], null);
         $this->setIfExists('started', $data ?? [], null);
-        $this->setIfExists('deleted', $data ?? [], null);
     }
 
     /**
@@ -304,9 +297,6 @@ class Timestamps implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['started'] === null && !$this->isNullableSetToNull('started')) {
             $invalidProperties[] = "'started' is required";
-        }
-        if ($this->container['deleted'] === null) {
-            $invalidProperties[] = "'deleted' can't be null";
         }
         return $invalidProperties;
     }
@@ -407,33 +397,6 @@ class Timestamps implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['started'] = $started;
-
-        return $this;
-    }
-
-    /**
-     * Gets deleted
-     *
-     * @return \DateTime
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param \DateTime $deleted Время удаления кампании. Если кампания не удалена, время указывается в будущем
-     *
-     * @return self
-     */
-    public function setDeleted($deleted)
-    {
-        if (is_null($deleted)) {
-            throw new \InvalidArgumentException('non-nullable deleted cannot be null');
-        }
-        $this->container['deleted'] = $deleted;
 
         return $this;
     }

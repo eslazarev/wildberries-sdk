@@ -765,10 +765,10 @@ pub async fn get_v1_pins(configuration: &configuration::Configuration, state: Op
         req_builder = req_builder.query(&[("feedbackId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_date_from {
-        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("dateFrom", &param_value.to_rfc3339())]);
     }
     if let Some(ref param_value) = p_query_date_to {
-        req_builder = req_builder.query(&[("dateTo", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("dateTo", &param_value.to_rfc3339())]);
     }
     if let Some(ref param_value) = p_query_next {
         req_builder = req_builder.query(&[("next", &param_value.to_string())]);
@@ -843,10 +843,10 @@ pub async fn get_v1_pins_count(configuration: &configuration::Configuration, sta
         req_builder = req_builder.query(&[("feedbackId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_date_from {
-        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("dateFrom", &param_value.to_rfc3339())]);
     }
     if let Some(ref param_value) = p_query_date_to {
-        req_builder = req_builder.query(&[("dateTo", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("dateTo", &param_value.to_rfc3339())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

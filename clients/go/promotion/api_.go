@@ -538,7 +538,7 @@ func (a *DefaultApiService) GetV0DailyLimitsExecute(r ApiGetV0DailyLimitsRequest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1PromotionCount403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -592,7 +592,7 @@ func (r ApiGetV0DeleteRequest) Execute() (*http.Response, error) {
 /*
 GetV0Delete Удаление кампании
 
-Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>
+Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `4` — готова к запуску.<br><br>
 
 После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.
 
@@ -763,7 +763,7 @@ func (r ApiGetV0PauseRequest) Execute() (*http.Response, error) {
 /*
 GetV0Pause Пауза кампании
 
-Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.
+Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `9` — активна — на паузу.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -943,7 +943,7 @@ func (r ApiGetV0StartRequest) Execute() (*http.Response, error) {
 /*
 GetV0Start Запуск кампании
 
-Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
+Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
 Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
 
 <div class="description_limit">
@@ -1124,7 +1124,7 @@ func (r ApiGetV0StopRequest) Execute() (*http.Response, error) {
 /*
 GetV0Stop Завершение кампании
 
-Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:
+Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах:
   - `9` — активна
   - `11` — пауза
 
@@ -2728,7 +2728,7 @@ func (r ApiGetV1ConfigRequest) Execute() (*V2GetConfigResponse, *http.Response, 
 /*
 GetV1Config Конфигурационные значения продвижения
 
-Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
+Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
 
 
 <div class="description_token">
@@ -3236,7 +3236,7 @@ func (r ApiGetV1PromotionCountRequest) Execute() (*GetV1PromotionCount200Respons
 /*
 GetV1PromotionCount Списки кампаний
 
-Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
+Метод возвращает списки всех [кампаний](/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -3401,7 +3401,7 @@ func (r ApiGetV1SupplierSubjectsRequest) Execute() ([]GetV1SupplierSubjects200Re
 /*
 GetV1SupplierSubjects Предметы для кампаний
 
-Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+Метод возвращает список [предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV3Adverts).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -3778,9 +3778,9 @@ func (r ApiGetV2AdvertsRequest) Execute() (*GetAdverts, *http.Response, error) {
 /*
 GetV2Adverts Информация о кампаниях
 
-Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.
+Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id=597).
 
- <div class="description_limit">
+<div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
 
 
@@ -3795,6 +3795,8 @@ GetV2Adverts Информация о кампаниях
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2AdvertsRequest
+
+Deprecated
 */
 func (a *DefaultApiService) GetV2Adverts(ctx context.Context) ApiGetV2AdvertsRequest {
 	return ApiGetV2AdvertsRequest{
@@ -3805,6 +3807,7 @@ func (a *DefaultApiService) GetV2Adverts(ctx context.Context) ApiGetV2AdvertsReq
 
 // Execute executes the request
 //  @return GetAdverts
+// Deprecated
 func (a *DefaultApiService) GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*GetAdverts, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -3910,6 +3913,225 @@ func (a *DefaultApiService) GetV2AdvertsExecute(r ApiGetV2AdvertsRequest) (*GetA
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV3AdvertsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	advertIds *string
+	statuses *string
+	next *string
+	limit *int32
+	paymentType *string
+}
+
+// ID кампаний 
+func (r ApiGetV3AdvertsRequest) AdvertIds(advertIds string) ApiGetV3AdvertsRequest {
+	r.advertIds = &advertIds
+	return r
+}
+
+// Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе 
+func (r ApiGetV3AdvertsRequest) Statuses(statuses string) ApiGetV3AdvertsRequest {
+	r.statuses = &statuses
+	return r
+}
+
+// Параметр пагинации
+func (r ApiGetV3AdvertsRequest) Next(next string) ApiGetV3AdvertsRequest {
+	r.next = &next
+	return r
+}
+
+// Количество кампаний в ответе 
+func (r ApiGetV3AdvertsRequest) Limit(limit int32) ApiGetV3AdvertsRequest {
+	r.limit = &limit
+	return r
+}
+
+// Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик 
+func (r ApiGetV3AdvertsRequest) PaymentType(paymentType string) ApiGetV3AdvertsRequest {
+	r.paymentType = &paymentType
+	return r
+}
+
+func (r ApiGetV3AdvertsRequest) Execute() (*V3GetAdvertsResponse, *http.Response, error) {
+	return r.ApiService.GetV3AdvertsExecute(r)
+}
+
+/*
+GetV3Adverts Информация о кампаниях
+
+Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.
+
+Чтобы получить все кампании:
+  1. Сделайте первый запрос без параметра `next`.
+  2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `""`. Это будет означать, что вы получили все кампании.
+
+Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`.
+Не передавайте `advertIds` в одном запросе с другими параметрами.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| <no value> | <no value> | <no value> | <no value> |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV3AdvertsRequest
+*/
+func (a *DefaultApiService) GetV3Adverts(ctx context.Context) ApiGetV3AdvertsRequest {
+	return ApiGetV3AdvertsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return V3GetAdvertsResponse
+func (a *DefaultApiService) GetV3AdvertsExecute(r ApiGetV3AdvertsRequest) (*V3GetAdvertsResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V3GetAdvertsResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV3Adverts")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/advert/v3/adverts"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.advertIds != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "advertIds", r.advertIds, "form", "")
+	}
+	if r.statuses != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "statuses", r.statuses, "form", "")
+	}
+	if r.next != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "next", r.next, "form", "")
+	} else {
+		var defaultValue string = ""
+		parameterAddToHeaderOrQuery(localVarQueryParams, "next", defaultValue, "form", "")
+		r.next = &defaultValue
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 50
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
+		r.limit = &defaultValue
+	}
+	if r.paymentType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "paymentType", r.paymentType, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Response400
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1PromotionCount401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -5611,7 +5833,7 @@ func (r ApiPostV0RenameRequest) Execute() (*http.Response, error) {
 /*
 PostV0Rename Переименование кампании
 
-Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.
+Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -6920,7 +7142,7 @@ func (r ApiPostV2BudgetRequest) Execute() (*V2BudgetResponse, *http.Response, er
 /*
 PostV2Budget Остатки бюджетов кампаний
 
-Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+Метод возвращает информацию об остатках бюджетов [кампаний](/openapi/promotion#tag/campaigns/operation/getV3Adverts).
 Для кампаний в [статусах](/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):
   - `4` — готова к запуску
   - `9` — активна
@@ -7284,7 +7506,7 @@ func (r ApiPostV2SupplierNmsRequest) Execute() ([]PostV2SupplierNms200ResponseIn
 /*
 PostV2SupplierNms Карточки товаров для кампаний
 
-Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
+Метод возвращает список [карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
@@ -7764,7 +7986,7 @@ func (a *DefaultApiService) PutV0DailyLimitsExecute(r ApiPutV0DailyLimitsRequest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v GetV1PromotionCount403Response
+			var v Response4XX
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

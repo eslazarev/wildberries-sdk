@@ -31,8 +31,7 @@ class Timestamps(BaseModel):
     created: datetime = Field(description="Время создания кампании")
     updated: datetime = Field(description="Время последнего изменения кампании")
     started: Optional[datetime] = Field(description="Время последнего запуска кампании")
-    deleted: datetime = Field(description="Время удаления кампании. Если кампания не удалена, время указывается в будущем")
-    __properties: ClassVar[List[str]] = ["created", "updated", "started", "deleted"]
+    __properties: ClassVar[List[str]] = ["created", "updated", "started"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -92,8 +91,7 @@ class Timestamps(BaseModel):
         _obj = cls.model_validate({
             "created": obj.get("created"),
             "updated": obj.get("updated"),
-            "started": obj.get("started"),
-            "deleted": obj.get("deleted")
+            "started": obj.get("started")
         })
         return _obj
 

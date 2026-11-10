@@ -302,7 +302,8 @@ print(feedbacks)
 - `promotion.DefaultApi.get_v1_promotion_count` — `GET /adv/v1/promotion/count` — Списки кампаний
 - `promotion.DefaultApi.get_v1_supplier_subjects` — `GET /adv/v1/supplier/subjects` — Предметы для кампаний
 - `promotion.DefaultApi.get_v1_upd` — `GET /adv/v1/upd` — Получение истории затрат
-- `promotion.DefaultApi.get_v2_adverts` — `GET /api/advert/v2/adverts` — Информация о кампаниях
+- `promotion.DefaultApi.get_v2_adverts` — `GET /api/advert/v2/adverts` — (Deprecated) Информация о кампаниях
+- `promotion.DefaultApi.get_v3_adverts` — `GET /api/advert/v3/adverts` — Информация о кампаниях
 - `promotion.DefaultApi.get_v3_fullstats` — `GET /adv/v3/fullstats` — Статистика кампаний
 - `promotion.DefaultApi.patch_v0_auction_nms` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
 - `promotion.DefaultApi.patch_v1_bids` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях

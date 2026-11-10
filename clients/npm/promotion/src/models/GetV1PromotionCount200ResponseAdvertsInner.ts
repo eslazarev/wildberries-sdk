@@ -30,7 +30,7 @@ export interface GetV1PromotionCount200ResponseAdvertsInner {
     /**
      * Тип кампании:
      *   - `8` — кампания с единой ставкой (**устаревший тип**)
-     *   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type`
+     *   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts), поле `bid_type`
      * 
      */
     type?: number;

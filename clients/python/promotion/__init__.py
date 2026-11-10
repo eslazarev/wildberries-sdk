@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.183"
+__version__ = "0.1.184"
 
 # Define package exports
 __all__ = [
@@ -186,6 +186,14 @@ __all__ = [
     "V2BudgetRequest",
     "V2BudgetResponse",
     "V2GetConfigResponse",
+    "V3AdvertBidsKopecks",
+    "V3AdvertNMsSettings",
+    "V3AdvertSettings",
+    "V3AdvertSubject",
+    "V3GetAdverts",
+    "V3GetAdvertsResponse",
+    "V3GetAdvertsRestrictions",
+    "V3Placements",
 ]
 
 # import apis into sdk package
@@ -361,4 +369,12 @@ from wildberries_sdk.promotion.models.v1_set_norm_query_bids_success_response_it
 from wildberries_sdk.promotion.models.v2_budget_request import V2BudgetRequest as V2BudgetRequest
 from wildberries_sdk.promotion.models.v2_budget_response import V2BudgetResponse as V2BudgetResponse
 from wildberries_sdk.promotion.models.v2_get_config_response import V2GetConfigResponse as V2GetConfigResponse
+from wildberries_sdk.promotion.models.v3_advert_bids_kopecks import V3AdvertBidsKopecks as V3AdvertBidsKopecks
+from wildberries_sdk.promotion.models.v3_advert_nms_settings import V3AdvertNMsSettings as V3AdvertNMsSettings
+from wildberries_sdk.promotion.models.v3_advert_settings import V3AdvertSettings as V3AdvertSettings
+from wildberries_sdk.promotion.models.v3_advert_subject import V3AdvertSubject as V3AdvertSubject
+from wildberries_sdk.promotion.models.v3_get_adverts import V3GetAdverts as V3GetAdverts
+from wildberries_sdk.promotion.models.v3_get_adverts_response import V3GetAdvertsResponse as V3GetAdvertsResponse
+from wildberries_sdk.promotion.models.v3_get_adverts_restrictions import V3GetAdvertsRestrictions as V3GetAdvertsRestrictions
+from wildberries_sdk.promotion.models.v3_placements import V3Placements as V3Placements
 

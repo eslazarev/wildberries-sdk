@@ -118,7 +118,7 @@ export interface ApiNewOrder {
      * <br>
      * Предоставляется в информационных целях.
      * <br><br>
-     * Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
+     * Используйте значение поля `finalPrice`, только если в ответе метода получения [цены продавца и суммы к оплате](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
      * 
      */
     finalPrice?: number;
@@ -131,7 +131,7 @@ export interface ApiNewOrder {
      * <br>
      * Предоставляется в информационных целях.
      * <br><br>
-     *  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
+     * Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цены продавца и суммы к оплате](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
      * 
      */
     convertedFinalPrice?: number;

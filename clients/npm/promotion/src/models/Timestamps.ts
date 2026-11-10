@@ -31,10 +31,6 @@ export interface Timestamps {
      * Время последнего запуска кампании
      */
     started: Date | null;
-    /**
-     * Время удаления кампании. Если кампания не удалена, время указывается в будущем
-     */
-    deleted: Date;
 }
 
 /**
@@ -44,7 +40,6 @@ export function instanceOfTimestamps(value: object): value is Timestamps {
     if (!('created' in value) || value['created'] === undefined) return false;
     if (!('updated' in value) || value['updated'] === undefined) return false;
     if (!('started' in value) || value['started'] === undefined) return false;
-    if (!('deleted' in value) || value['deleted'] === undefined) return false;
     return true;
 }
 
@@ -61,7 +56,6 @@ export function TimestampsFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'created': (json['created'] == null ? json['created'] : parseDateTime(json['created'])),
         'updated': (json['updated'] == null ? json['updated'] : parseDateTime(json['updated'])),
         'started': (json['started'] == null ? null : parseDateTime(json['started'])),
-        'deleted': (json['deleted'] == null ? json['deleted'] : parseDateTime(json['deleted'])),
     };
 }
 
@@ -79,7 +73,6 @@ export function TimestampsToJSONTyped(value?: Timestamps | null, ignoreDiscrimin
         'created': value['created'] == null ? value['created'] : serializeDateTime(value['created']),
         'updated': value['updated'] == null ? value['updated'] : serializeDateTime(value['updated']),
         'started': value['started'] == null ? value['started'] : serializeDateTime(value['started']),
-        'deleted': value['deleted'] == null ? value['deleted'] : serializeDateTime(value['deleted']),
     };
 }
 

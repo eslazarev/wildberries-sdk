@@ -112,7 +112,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -185,7 +185,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -258,7 +258,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -399,7 +399,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -476,7 +476,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -553,7 +553,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -718,7 +718,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -802,7 +802,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -886,7 +886,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -1039,7 +1039,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -1112,7 +1112,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -1185,7 +1185,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -2233,7 +2233,7 @@ class DefaultApi:
             '200': "List[ModelsItemDiscrepancyResponse]",
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
-            '403': "ModelsSupplyAcceptedMoreThanYearAgo",
+            '403': "Response4XX",
             '404': "ModelsErrorModel",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -2305,7 +2305,7 @@ class DefaultApi:
             '200': "List[ModelsItemDiscrepancyResponse]",
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
-            '403': "ModelsSupplyAcceptedMoreThanYearAgo",
+            '403': "Response4XX",
             '404': "ModelsErrorModel",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -2377,7 +2377,7 @@ class DefaultApi:
             '200': "List[ModelsItemDiscrepancyResponse]",
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
-            '403': "ModelsSupplyAcceptedMoreThanYearAgo",
+            '403': "Response4XX",
             '404': "ModelsErrorModel",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -3350,7 +3350,7 @@ class DefaultApi:
             '200': "ModelsDraftCreateResponse",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -3417,7 +3417,7 @@ class DefaultApi:
             '200': "ModelsDraftCreateResponse",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -3484,7 +3484,7 @@ class DefaultApi:
             '200': "ModelsDraftCreateResponse",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '429': "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
@@ -3621,7 +3621,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -3698,7 +3698,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -3775,7 +3775,7 @@ class DefaultApi:
             '400': "ErrorsDraftError",
             '401': "PostV1AcceptanceOptions401Response",
             '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
+            '403': "Response4XX",
             '404': "ErrorsDraftError",
             '429': "PostV1AcceptanceOptions401Response",
         }

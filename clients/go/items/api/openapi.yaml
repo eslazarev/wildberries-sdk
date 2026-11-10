@@ -13128,6 +13128,7 @@ components:
           type: array
       type: object
     postV3MediaFile_request:
+      additionalProperties: true
       properties:
         uploadfile:
           format: binary

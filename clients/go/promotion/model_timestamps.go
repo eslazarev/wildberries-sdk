@@ -28,8 +28,6 @@ type Timestamps struct {
 	Updated time.Time `json:"updated"`
 	// Время последнего запуска кампании
 	Started NullableTime `json:"started"`
-	// Время удаления кампании. Если кампания не удалена, время указывается в будущем
-	Deleted time.Time `json:"deleted"`
 }
 
 type _Timestamps Timestamps
@@ -38,12 +36,11 @@ type _Timestamps Timestamps
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTimestamps(created time.Time, updated time.Time, started NullableTime, deleted time.Time) *Timestamps {
+func NewTimestamps(created time.Time, updated time.Time, started NullableTime) *Timestamps {
 	this := Timestamps{}
 	this.Created = created
 	this.Updated = updated
 	this.Started = started
-	this.Deleted = deleted
 	return &this
 }
 
@@ -129,30 +126,6 @@ func (o *Timestamps) SetStarted(v time.Time) {
 	o.Started.Set(&v)
 }
 
-// GetDeleted returns the Deleted field value
-func (o *Timestamps) GetDeleted() time.Time {
-	if o == nil {
-		var ret time.Time
-		return ret
-	}
-
-	return o.Deleted
-}
-
-// GetDeletedOk returns a tuple with the Deleted field value
-// and a boolean to check if the value has been set.
-func (o *Timestamps) GetDeletedOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Deleted, true
-}
-
-// SetDeleted sets field value
-func (o *Timestamps) SetDeleted(v time.Time) {
-	o.Deleted = v
-}
-
 func (o Timestamps) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -166,7 +139,6 @@ func (o Timestamps) ToMap() (map[string]interface{}, error) {
 	toSerialize["created"] = o.Created
 	toSerialize["updated"] = o.Updated
 	toSerialize["started"] = o.Started.Get()
-	toSerialize["deleted"] = o.Deleted
 	return toSerialize, nil
 }
 
@@ -178,7 +150,6 @@ func (o *Timestamps) UnmarshalJSON(data []byte) (err error) {
 		"created",
 		"updated",
 		"started",
-		"deleted",
 	}
 
 	allProperties := make(map[string]interface{})

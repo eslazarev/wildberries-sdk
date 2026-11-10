@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1PromotionCount200ResponseAdvertsInner {
-    /// Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type` 
+    /// Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts), поле `bid_type` 
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<i32>,
     /// Статус кампании

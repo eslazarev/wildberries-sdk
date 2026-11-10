@@ -304,6 +304,7 @@ var_dump($response);
 - `promotion.DefaultApi.getV1SupplierSubjects` — `GET /adv/v1/supplier/subjects` — Предметы для кампаний
 - `promotion.DefaultApi.getV1Upd` — `GET /adv/v1/upd` — Получение истории затрат
 - `promotion.DefaultApi.getV2Adverts` — `GET /api/advert/v2/adverts` — Информация о кампаниях
+- `promotion.DefaultApi.getV3Adverts` — `GET /api/advert/v3/adverts` — Информация о кампаниях
 - `promotion.DefaultApi.getV3Fullstats` — `GET /adv/v3/fullstats` — Статистика кампаний
 - `promotion.DefaultApi.patchV0AuctionNms` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
 - `promotion.DefaultApi.patchV1Bids` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях

@@ -19,7 +19,7 @@ var _ MappedNullable = &GetV1PromotionCount200ResponseAdvertsInner{}
 
 // GetV1PromotionCount200ResponseAdvertsInner struct for GetV1PromotionCount200ResponseAdvertsInner
 type GetV1PromotionCount200ResponseAdvertsInner struct {
-	// Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type` 
+	// Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts), поле `bid_type` 
 	Type *int32 `json:"type,omitempty"`
 	// Статус кампании
 	Status *int32 `json:"status,omitempty"`

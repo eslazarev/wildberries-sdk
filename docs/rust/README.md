@@ -265,10 +265,10 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `promotion::default_api::delete_v0_normquery_bids` — `DELETE /adv/v0/normquery/bids` — Метод удаляет ставки с поисковых кластеров.
 - `promotion::default_api::get_v0_bids_recommendations` — `GET /api/advert/v0/bids/recommendations` — Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании.
 - `promotion::default_api::get_v0_daily_limits` — `GET /api/advert/v0/daily-limits` — Метод возвращает текущие настройки…
-- `promotion::default_api::get_v0_delete` — `GET /adv/v0/delete` — Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.
-- `promotion::default_api::get_v0_pause` — `GET /adv/v0/pause` — Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.
-- `promotion::default_api::get_v0_start` — `GET /adv/v0/start` — Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
-- `promotion::default_api::get_v0_stop` — `GET /adv/v0/stop` — Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах: - `9` — активна - `11` — пауза
+- `promotion::default_api::get_v0_delete` — `GET /adv/v0/delete` — Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `4` — готова к запуску.
+- `promotion::default_api::get_v0_pause` — `GET /adv/v0/pause` — Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `9` — активна — на паузу.
+- `promotion::default_api::get_v0_start` — `GET /adv/v0/start` — Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
+- `promotion::default_api::get_v0_stop` — `GET /adv/v0/stop` — Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - `9` — активна - `11` — пауза
 - `promotion::default_api::get_v1_advert` — `GET /adv/v1/advert` — Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list).
 - `promotion::default_api::get_v1_adverts` — `GET /adv/v1/adverts` — Метод возвращает список всех [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.
 - `promotion::default_api::get_v1_balance` — `GET /adv/v1/balance` — Метод возвращает информацию о: - счёте кабинета Продвижения WB.
@@ -279,10 +279,11 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `promotion::default_api::get_v1_config` — `GET /api/advert/v1/config` — Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода…
 - `promotion::default_api::get_v1_count` — `GET /adv/v1/count` — Метод возвращает количество [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.
 - `promotion::default_api::get_v1_payments` — `GET /adv/v1/payments` — Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.
-- `promotion::default_api::get_v1_promotion_count` — `GET /adv/v1/promotion/count` — Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID.
+- `promotion::default_api::get_v1_promotion_count` — `GET /adv/v1/promotion/count` — Метод возвращает списки всех [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID.
 - `promotion::default_api::get_v1_supplier_subjects` — `GET /adv/v1/supplier/subjects` — Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную…
 - `promotion::default_api::get_v1_upd` — `GET /adv/v1/upd` — Метод формирует список фактических затрат на рекламные кампании за заданный период.
-- `promotion::default_api::get_v2_adverts` — `GET /api/advert/v2/adverts` — Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.
+- `promotion::default_api::get_v2_adverts` — `GET /api/advert/v2/adverts`
+- `promotion::default_api::get_v3_adverts` — `GET /api/advert/v3/adverts` — Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.
 - `promotion::default_api::get_v3_fullstats` — `GET /adv/v3/fullstats` — Метод формирует статистику для кампаний независимо от типа.
 - `promotion::default_api::patch_v0_auction_nms` — `PATCH /adv/v0/auction/nms` — Метод добавляет и удаляет карточки товаров в кампаниях.
 - `promotion::default_api::patch_v1_bids` — `PATCH /api/advert/v1/bids` — Метод меняет ставки карточек товаров по артикулам WB в кампаниях: - с единой ставкой - с ручной ставкой - с моделью оплаты `cpc` — за клики Для кампаний в статусах `4`, `9` и `11`.
@@ -292,14 +293,14 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `promotion::default_api::post_v0_normquery_list` — `POST /adv/v0/normquery/list` — Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.
 - `promotion::default_api::post_v0_normquery_set_minus` — `POST /adv/v0/normquery/set-minus` — Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.
 - `promotion::default_api::post_v0_normquery_stats` — `POST /adv/v0/normquery/stats` — Метод формирует статистику по поисковым кластерам за указанный период.
-- `promotion::default_api::post_v0_rename` — `POST /adv/v0/rename` — Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+- `promotion::default_api::post_v0_rename` — `POST /adv/v0/rename` — Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
 - `promotion::default_api::post_v1_bids_min` — `POST /api/advert/v1/bids/min` — Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам…
 - `promotion::default_api::post_v1_budget_deposit` — `POST /adv/v1/budget/deposit` — Метод пополняет [бюджет](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV2Budget) кампании.
 - `promotion::default_api::post_v1_calendar_promotions_upload` — `POST /api/v1/calendar/promotions/upload` — Метод создаёт задание на загрузку товара в [акцию](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).
 - `promotion::default_api::post_v1_normquery_bids` — `POST /api/advert/v1/normquery/bids` — Метод устанавливает ставки на поисковые кластеры в валюте [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).
 - `promotion::default_api::post_v1_normquery_stats` — `POST /adv/v1/normquery/stats` — Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.
 - `promotion::default_api::post_v1_stats` — `POST /adv/v1/stats` — Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics).
-- `promotion::default_api::post_v2_budget` — `POST /api/advert/v2/budget` — Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+- `promotion::default_api::post_v2_budget` — `POST /api/advert/v2/budget` — Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
 - `promotion::default_api::post_v2_seacat_save_ad` — `POST /adv/v2/seacat/save-ad` — Метод создаёт кампанию: - с ручной ставкой для продвижения товаров в поиске и/или рекомендациях - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях
 - `promotion::default_api::post_v2_supplier_nms` — `POST /adv/v2/supplier/nms` — Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную…
 - `promotion::default_api::put_v0_auction_placements` — `PUT /adv/v0/auction/placements` — Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`.

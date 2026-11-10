@@ -774,9 +774,9 @@ pub async fn get_v1_deductions(configuration: &configuration::Configuration, dat
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_date_from {
-        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("dateFrom", &param_value.to_rfc3339())]);
     }
-    req_builder = req_builder.query(&[("dateTo", &p_query_date_to.to_string())]);
+    req_builder = req_builder.query(&[("dateTo", &p_query_date_to.to_rfc3339())]);
     if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
@@ -896,9 +896,9 @@ pub async fn get_v1_measurement_penalties(configuration: &configuration::Configu
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_date_from {
-        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("dateFrom", &param_value.to_rfc3339())]);
     }
-    req_builder = req_builder.query(&[("dateTo", &p_query_date_to.to_string())]);
+    req_builder = req_builder.query(&[("dateTo", &p_query_date_to.to_rfc3339())]);
     req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
     if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
@@ -1190,9 +1190,9 @@ pub async fn get_v1_warehouse_measurements(configuration: &configuration::Config
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_date_from {
-        req_builder = req_builder.query(&[("dateFrom", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("dateFrom", &param_value.to_rfc3339())]);
     }
-    req_builder = req_builder.query(&[("dateTo", &p_query_date_to.to_string())]);
+    req_builder = req_builder.query(&[("dateTo", &p_query_date_to.to_rfc3339())]);
     req_builder = req_builder.query(&[("limit", &p_query_limit.to_string())]);
     if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);

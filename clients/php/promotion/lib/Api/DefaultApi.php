@@ -137,6 +137,9 @@ class DefaultApi
         'getV2Adverts' => [
             'application/json',
         ],
+        'getV3Adverts' => [
+            'application/json',
+        ],
         'getV3Fullstats' => [
             'application/json',
         ],
@@ -1013,7 +1016,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Promotion\Model\V0GetDailyLimitsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     * @return \Wildberries\Sdk\Promotion\Model\V0GetDailyLimitsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\Response4XX|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
      */
     public function getV0DailyLimits($advert_ids, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV0DailyLimits'][0])
     {
@@ -1037,7 +1040,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Promotion\Model\V0GetDailyLimitsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Promotion\Model\V0GetDailyLimitsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\Response4XX|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV0DailyLimitsWithHttpInfo($advert_ids, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV0DailyLimits'][0])
     {
@@ -1088,7 +1091,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        '\Wildberries\Sdk\Promotion\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -1149,7 +1152,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        '\Wildberries\Sdk\Promotion\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8091,6 +8094,7 @@ class DefaultApi
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Promotion\Model\GetAdverts|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     * @deprecated
      */
     public function getV2Adverts($ids = null, $statuses = null, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV2Adverts'][0])
     {
@@ -8117,6 +8121,7 @@ class DefaultApi
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Promotion\Model\GetAdverts|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getV2AdvertsWithHttpInfo($ids = null, $statuses = null, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV2Adverts'][0])
     {
@@ -8266,6 +8271,7 @@ class DefaultApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getV2AdvertsAsync($ids = null, $statuses = null, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV2Adverts'][0])
     {
@@ -8295,6 +8301,7 @@ class DefaultApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getV2AdvertsAsyncWithHttpInfo($ids = null, $statuses = null, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV2Adverts'][0])
     {
@@ -8361,6 +8368,7 @@ class DefaultApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getV2AdvertsRequest($ids = null, $statuses = null, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV2Adverts'][0])
     {
@@ -8492,6 +8500,452 @@ class DefaultApi
             [
                 "url" => "https://advert-api.wildberries.ru",
                 "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation getV3Adverts
+     *
+     * Информация о кампаниях
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  string|null $advert_ids ID кампаний (optional)
+     * @param  string|null $statuses Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе (optional)
+     * @param  string|null $next Параметр пагинации (optional, default to '')
+     * @param  int|null $limit Количество кампаний в ответе (optional, default to 50)
+     * @param  string|null $payment_type Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3Adverts'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\Promotion\Model\V3GetAdvertsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     */
+    public function getV3Adverts($advert_ids = null, $statuses = null, $next = '', $limit = 50, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3Adverts'][0])
+    {
+        list($response) = $this->getV3AdvertsWithHttpInfo($advert_ids, $statuses, $next, $limit, $payment_type, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getV3AdvertsWithHttpInfo
+     *
+     * Информация о кампаниях
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  string|null $advert_ids ID кампаний (optional)
+     * @param  string|null $statuses Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе (optional)
+     * @param  string|null $next Параметр пагинации (optional, default to '')
+     * @param  int|null $limit Количество кампаний в ответе (optional, default to 50)
+     * @param  string|null $payment_type Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3Adverts'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\Promotion\Model\V3GetAdvertsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getV3AdvertsWithHttpInfo($advert_ids = null, $statuses = null, $next = '', $limit = 50, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3Adverts'][0])
+    {
+        $request = $this->getV3AdvertsRequest($advert_ids, $statuses, $next, $limit, $payment_type, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                $eResponse = $this->getExceptionResponse($e);
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $eResponse ? $eResponse->getHeaders() : null,
+                    $eResponse ? (string) $eResponse->getBody() : null
+                );
+            } catch (NetworkExceptionInterface $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\V3GetAdvertsResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\Response400',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\Promotion\Model\V3GetAdvertsResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\V3GetAdvertsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\Response400',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getV3AdvertsAsync
+     *
+     * Информация о кампаниях
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  string|null $advert_ids ID кампаний (optional)
+     * @param  string|null $statuses Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе (optional)
+     * @param  string|null $next Параметр пагинации (optional, default to '')
+     * @param  int|null $limit Количество кампаний в ответе (optional, default to 50)
+     * @param  string|null $payment_type Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3Adverts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV3AdvertsAsync($advert_ids = null, $statuses = null, $next = '', $limit = 50, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3Adverts'][0])
+    {
+        return $this->getV3AdvertsAsyncWithHttpInfo($advert_ids, $statuses, $next, $limit, $payment_type, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getV3AdvertsAsyncWithHttpInfo
+     *
+     * Информация о кампаниях
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  string|null $advert_ids ID кампаний (optional)
+     * @param  string|null $statuses Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе (optional)
+     * @param  string|null $next Параметр пагинации (optional, default to '')
+     * @param  int|null $limit Количество кампаний в ответе (optional, default to 50)
+     * @param  string|null $payment_type Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3Adverts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV3AdvertsAsyncWithHttpInfo($advert_ids = null, $statuses = null, $next = '', $limit = 50, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3Adverts'][0])
+    {
+        $returnType = '\Wildberries\Sdk\Promotion\Model\V3GetAdvertsResponse';
+        $request = $this->getV3AdvertsRequest($advert_ids, $statuses, $next, $limit, $payment_type, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $this->getExceptionResponse($exception);
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getV3Adverts'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  string|null $advert_ids ID кампаний (optional)
+     * @param  string|null $statuses Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе (optional)
+     * @param  string|null $next Параметр пагинации (optional, default to '')
+     * @param  int|null $limit Количество кампаний в ответе (optional, default to 50)
+     * @param  string|null $payment_type Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3Adverts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getV3AdvertsRequest($advert_ids = null, $statuses = null, $next = '', $limit = 50, $payment_type = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3Adverts'][0])
+    {
+
+
+
+
+        if ($limit !== null && $limit > 50) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV3Adverts, must be smaller than or equal to 50.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV3Adverts, must be bigger than or equal to 1.');
+        }
+        
+
+
+        $resourcePath = '/api/advert/v3/adverts';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $advert_ids,
+            'advertIds', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $statuses,
+            'statuses', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $next,
+            'next', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $payment_type,
+            'paymentType', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForgetV3Adverts();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation getV3Adverts
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForgetV3Adverts(): array
+    {
+        return [
+            [
+                "url" => "https://advert-api.wildberries.ru",
+                "description" => "**Prod**",
             ]
         ];
     }
@@ -16341,7 +16795,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Promotion\Model\V0PutDailyLimitsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     * @return \Wildberries\Sdk\Promotion\Model\V0PutDailyLimitsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\Response4XX|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
      */
     public function putV0DailyLimits($v0_put_daily_limits_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['putV0DailyLimits'][0])
     {
@@ -16365,7 +16819,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Promotion\Model\V0PutDailyLimitsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Promotion\Model\V0PutDailyLimitsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\Response4XX|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function putV0DailyLimitsWithHttpInfo($v0_put_daily_limits_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['putV0DailyLimits'][0])
     {
@@ -16416,7 +16870,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        '\Wildberries\Sdk\Promotion\Model\Response4XX',
                         $request,
                         $response,
                     );
@@ -16477,7 +16931,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        '\Wildberries\Sdk\Promotion\Model\Response4XX',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

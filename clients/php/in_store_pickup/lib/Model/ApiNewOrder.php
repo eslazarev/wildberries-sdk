@@ -908,7 +908,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets final_price
      *
-     * @param int|null $final_price Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
+     * @param int|null $final_price Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода получения [цены продавца и суммы к оплате](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
      *
      * @return self
      */
@@ -962,7 +962,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets converted_final_price
      *
-     * @param int|null $converted_final_price Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br>  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
+     * @param int|null $converted_final_price Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цены продавца и суммы к оплате](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
      *
      * @return self
      */
