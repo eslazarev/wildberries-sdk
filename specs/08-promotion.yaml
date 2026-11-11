@@ -2256,7 +2256,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
+                anyOf:
                   - $ref: '#/components/schemas/V0BidsRecommendationsCpmResponse1'
                   - $ref: '#/components/schemas/V0BidsRecommendationsCpcResponse2'
               examples:
@@ -5940,7 +5940,7 @@ components:
                   - 11
                 type: integer
               timestamps:
-                $ref: '#/components/schemas/Timestamps'
+                $ref: '#/components/schemas/TimestampsV2'
     AdvertNMsSettings:
       type: object
       required:
@@ -6022,6 +6022,33 @@ components:
                   - `true` — включено
               type: boolean
     Timestamps:
+      description: Временные отметки
+      type: object
+      required:
+        - created
+        - updated
+        - started
+        - ended
+      properties:
+        created:
+          description: Время создания кампании
+          type: string
+          format: date-time
+        updated:
+          description: Время последнего изменения кампании
+          type: string
+          format: date-time
+        started:
+          description: Время последнего запуска кампании
+          nullable: true
+          type: string
+          format: date-time
+        ended:
+          description: Время завершения кампании
+          nullable: true
+          type: string
+          format: date-time
+    TimestampsV2:
       description: Временные отметки
       type: object
       required:
@@ -7282,7 +7309,7 @@ components:
                 example: Failed to parse data
   examples:
     ConflictingModes:
-      summary: Недопустимо одновременное применение параметра advertIds с другими параметрами
+      summary: Недопустимо одновременное применение параметра `advertIds` с другими параметрами
       value:
         title: invalid payload
         detail: advertIds cannot be used together with statuses, next or limit
@@ -7298,8 +7325,6 @@ components:
               name: Моя кампания
               paymentType: cpm
               placements:
-                - search
-                - recommendations
                 - combined
             nms:
               - nmId: 12345678
@@ -7313,6 +7338,7 @@ components:
               created: '2024-01-01T10:00:00+03:00'
               updated: '2024-01-02T15:30:00+03:00'
               started: '2024-01-01T10:05:00+03:00'
+              ended: null
             currency: RUB
             restrictions:
               canChangeNms: true
