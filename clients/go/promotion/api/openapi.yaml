@@ -5696,7 +5696,7 @@ paths:
 components:
   examples:
     ConflictingModes:
-      summary: Недопустимо одновременное применение параметра advertIds с другими
+      summary: Недопустимо одновременное применение параметра `advertIds` с другими
         параметрами
       value:
         title: invalid payload
@@ -5713,8 +5713,6 @@ components:
             name: Моя кампания
             paymentType: cpm
             placements:
-            - search
-            - recommendations
             - combined
           nms:
           - nmId: 12345678
@@ -5728,6 +5726,7 @@ components:
             created: 2024-01-01T10:00:00+03:00
             updated: 2024-01-02T15:30:00+03:00
             started: 2024-01-01T10:05:00+03:00
+            ended: null
           currency: RUB
           restrictions:
             canChangeNms: true
@@ -6429,6 +6428,7 @@ components:
             created: 2000-01-23T04:56:07.000+00:00
             updated: 2000-01-23T04:56:07.000+00:00
             started: 2000-01-23T04:56:07.000+00:00
+            ended: 2000-01-23T04:56:07.000+00:00
           settings:
             paymentType: paymentType
             name: name
@@ -6463,6 +6463,7 @@ components:
             created: 2000-01-23T04:56:07.000+00:00
             updated: 2000-01-23T04:56:07.000+00:00
             started: 2000-01-23T04:56:07.000+00:00
+            ended: 2000-01-23T04:56:07.000+00:00
           settings:
             paymentType: paymentType
             name: name
@@ -6514,6 +6515,7 @@ components:
           created: 2000-01-23T04:56:07.000+00:00
           updated: 2000-01-23T04:56:07.000+00:00
           started: 2000-01-23T04:56:07.000+00:00
+          ended: 2000-01-23T04:56:07.000+00:00
         settings:
           paymentType: paymentType
           name: name
@@ -8541,6 +8543,38 @@ components:
         created: 2000-01-23T04:56:07.000+00:00
         updated: 2000-01-23T04:56:07.000+00:00
         started: 2000-01-23T04:56:07.000+00:00
+        ended: 2000-01-23T04:56:07.000+00:00
+      properties:
+        created:
+          description: Время создания кампании
+          format: date-time
+          type: string
+        updated:
+          description: Время последнего изменения кампании
+          format: date-time
+          type: string
+        started:
+          description: Время последнего запуска кампании
+          format: date-time
+          nullable: true
+          type: string
+        ended:
+          description: Время завершения кампании
+          format: date-time
+          nullable: true
+          type: string
+      required:
+      - created
+      - ended
+      - started
+      - updated
+      type: object
+    TimestampsV2:
+      description: Временные отметки
+      example:
+        created: 2000-01-23T04:56:07.000+00:00
+        updated: 2000-01-23T04:56:07.000+00:00
+        started: 2000-01-23T04:56:07.000+00:00
       properties:
         created:
           description: Время создания кампании
@@ -10090,7 +10124,7 @@ components:
       - nms
       type: object
     getV0BidsRecommendations_200_response:
-      oneOf:
+      anyOf:
       - $ref: "#/components/schemas/V0BidsRecommendationsCpmResponse1"
       - $ref: "#/components/schemas/V0BidsRecommendationsCpcResponse2"
     getV1Count_200_response_adverts:
@@ -11080,7 +11114,7 @@ components:
           - 11
           type: integer
         timestamps:
-          $ref: "#/components/schemas/Timestamps"
+          $ref: "#/components/schemas/TimestampsV2"
       required:
       - bid_type
       - id

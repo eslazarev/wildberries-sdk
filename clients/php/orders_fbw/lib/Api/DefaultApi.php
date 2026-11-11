@@ -3179,7 +3179,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsItemDiscrepancyResponse[]|\Wildberries\Sdk\OrdersFbw\Model\ModelsErrorModel|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\Response4XX|\Wildberries\Sdk\OrdersFbw\Model\ModelsErrorModel|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response
+     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsItemDiscrepancyResponse[]|\Wildberries\Sdk\OrdersFbw\Model\ModelsErrorModel|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response|\Wildberries\Sdk\OrdersFbw\Model\ModelsErrorModel|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response
      */
     public function getV1SuppliesSupplyIdDiscrepanciesQuantity($supply_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SuppliesSupplyIdDiscrepanciesQuantity'][0])
     {
@@ -3203,7 +3203,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\OrdersFbw\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbw\Model\ModelsItemDiscrepancyResponse[]|\Wildberries\Sdk\OrdersFbw\Model\ModelsErrorModel|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\Response4XX|\Wildberries\Sdk\OrdersFbw\Model\ModelsErrorModel|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbw\Model\ModelsItemDiscrepancyResponse[]|\Wildberries\Sdk\OrdersFbw\Model\ModelsErrorModel|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response|\Wildberries\Sdk\OrdersFbw\Model\GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response|\Wildberries\Sdk\OrdersFbw\Model\ModelsErrorModel|\Wildberries\Sdk\OrdersFbw\Model\PostV1AcceptanceOptions401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1SuppliesSupplyIdDiscrepanciesQuantityWithHttpInfo($supply_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1SuppliesSupplyIdDiscrepanciesQuantity'][0])
     {
@@ -3254,7 +3254,7 @@ class DefaultApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbw\Model\Response4XX',
+                        '\Wildberries\Sdk\OrdersFbw\Model\GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response',
                         $request,
                         $response,
                     );
@@ -3321,7 +3321,7 @@ class DefaultApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbw\Model\Response4XX',
+                        '\Wildberries\Sdk\OrdersFbw\Model\GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

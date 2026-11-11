@@ -12,28 +12,86 @@
  * Do not edit the class manually.
  */
 
-import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { ArhiveOrderError400 } from './ArhiveOrderError400';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
+import type { ArhiveOrderError400ErrorsInner } from './ArhiveOrderError400ErrorsInner';
 import {
-    instanceOfArhiveOrderError400,
-    ArhiveOrderError400FromJSON,
-    ArhiveOrderError400FromJSONTyped,
-    ArhiveOrderError400ToJSON,
-} from './ArhiveOrderError400';
+    ArhiveOrderError400ErrorsInnerFromJSON,
+    ArhiveOrderError400ErrorsInnerFromJSONTyped,
+    ArhiveOrderError400ErrorsInnerToJSON,
+    ArhiveOrderError400ErrorsInnerToJSONTyped,
+} from './ArhiveOrderError400ErrorsInner';
 import type { Response4XX } from './Response4XX';
 import {
-    instanceOfResponse4XX,
     Response4XXFromJSON,
     Response4XXFromJSONTyped,
     Response4XXToJSON,
+    Response4XXToJSONTyped,
 } from './Response4XX';
+import type { ArhiveOrderError400 } from './ArhiveOrderError400';
+import {
+    ArhiveOrderError400FromJSON,
+    ArhiveOrderError400FromJSONTyped,
+    ArhiveOrderError400ToJSON,
+    ArhiveOrderError400ToJSONTyped,
+} from './ArhiveOrderError400';
 
 /**
- * @type GetV3FbsOrdersArchive403Response
  * 
  * @export
+ * @interface GetV3FbsOrdersArchive403Response
  */
-export type GetV3FbsOrdersArchive403Response = ArhiveOrderError400 | Response4XX;
+export interface GetV3FbsOrdersArchive403Response {
+    /**
+     * Внутренний код ошибки
+     */
+    code?: string;
+    /**
+     * Детали ошибки
+     */
+    detail: string;
+    /**
+     * Информация об ошибке
+     */
+    errors?: Array<ArhiveOrderError400ErrorsInner>;
+    /**
+     * ID внутреннего сервиса WB
+     */
+    origin: string;
+    /**
+     * ID запроса
+     */
+    requestId: string;
+    /**
+     * HTTP статус-код
+     */
+    status: number;
+    /**
+     * Заголовок ошибки
+     */
+    title: string;
+    /**
+     * Расшифровка HTTP статус-кода
+     */
+    statusText: string;
+    /**
+     * Дата и время запроса
+     */
+    timestamp: Date;
+}
+
+/**
+ * Check if a given object implements the GetV3FbsOrdersArchive403Response interface.
+ */
+export function instanceOfGetV3FbsOrdersArchive403Response(value: object): value is GetV3FbsOrdersArchive403Response {
+    if (!('detail' in value) || value['detail'] === undefined) return false;
+    if (!('origin' in value) || value['origin'] === undefined) return false;
+    if (!('requestId' in value) || value['requestId'] === undefined) return false;
+    if (!('status' in value) || value['status'] === undefined) return false;
+    if (!('title' in value) || value['title'] === undefined) return false;
+    if (!('statusText' in value) || value['statusText'] === undefined) return false;
+    if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
+    return true;
+}
 
 export function GetV3FbsOrdersArchive403ResponseFromJSON(json: any): GetV3FbsOrdersArchive403Response {
     return GetV3FbsOrdersArchive403ResponseFromJSONTyped(json, false);
@@ -43,19 +101,21 @@ export function GetV3FbsOrdersArchive403ResponseFromJSONTyped(json: any, ignoreD
     if (json == null) {
         return json;
     }
-    if (typeof json !== 'object') {
-        return json;
-    }
-    if (instanceOfArhiveOrderError400(json)) {
-        return ArhiveOrderError400FromJSONTyped(json, true);
-    }
-    if (instanceOfResponse4XX(json)) {
-        return Response4XXFromJSONTyped(json, true);
-    }
-    return {} as any;
+    return {
+        
+        'code': json['code'] == null ? undefined : json['code'],
+        'detail': json['detail'],
+        'errors': json['errors'] == null ? undefined : ((json['errors'] as Array<any>).map(ArhiveOrderError400ErrorsInnerFromJSON)),
+        'origin': json['origin'],
+        'requestId': json['requestId'],
+        'status': json['status'],
+        'title': json['title'],
+        'statusText': json['statusText'],
+        'timestamp': (json['timestamp'] == null ? json['timestamp'] : parseDateTime(json['timestamp'])),
+    };
 }
 
-export function GetV3FbsOrdersArchive403ResponseToJSON(json: any): any {
+export function GetV3FbsOrdersArchive403ResponseToJSON(json: any): GetV3FbsOrdersArchive403Response {
     return GetV3FbsOrdersArchive403ResponseToJSONTyped(json, false);
 }
 
@@ -63,15 +123,18 @@ export function GetV3FbsOrdersArchive403ResponseToJSONTyped(value?: GetV3FbsOrde
     if (value == null) {
         return value;
     }
-    if (typeof value !== 'object') {
-        return value;
-    }
-    if (instanceOfArhiveOrderError400(value)) {
-        return ArhiveOrderError400ToJSON(value as ArhiveOrderError400);
-    }
-    if (instanceOfResponse4XX(value)) {
-        return Response4XXToJSON(value as Response4XX);
-    }
-    return {};
+
+    return {
+        
+        'code': value['code'],
+        'detail': value['detail'],
+        'errors': value['errors'] == null ? undefined : ((value['errors'] as Array<any>).map(ArhiveOrderError400ErrorsInnerToJSON)),
+        'origin': value['origin'],
+        'requestId': value['requestId'],
+        'status': value['status'],
+        'title': value['title'],
+        'statusText': value['statusText'],
+        'timestamp': value['timestamp'] == null ? value['timestamp'] : serializeDateTime(value['timestamp']),
+    };
 }
 

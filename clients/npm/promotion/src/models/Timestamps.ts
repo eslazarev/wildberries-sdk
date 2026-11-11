@@ -31,6 +31,10 @@ export interface Timestamps {
      * Время последнего запуска кампании
      */
     started: Date | null;
+    /**
+     * Время завершения кампании
+     */
+    ended: Date | null;
 }
 
 /**
@@ -40,6 +44,7 @@ export function instanceOfTimestamps(value: object): value is Timestamps {
     if (!('created' in value) || value['created'] === undefined) return false;
     if (!('updated' in value) || value['updated'] === undefined) return false;
     if (!('started' in value) || value['started'] === undefined) return false;
+    if (!('ended' in value) || value['ended'] === undefined) return false;
     return true;
 }
 
@@ -56,6 +61,7 @@ export function TimestampsFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'created': (json['created'] == null ? json['created'] : parseDateTime(json['created'])),
         'updated': (json['updated'] == null ? json['updated'] : parseDateTime(json['updated'])),
         'started': (json['started'] == null ? null : parseDateTime(json['started'])),
+        'ended': (json['ended'] == null ? null : parseDateTime(json['ended'])),
     };
 }
 
@@ -73,6 +79,7 @@ export function TimestampsToJSONTyped(value?: Timestamps | null, ignoreDiscrimin
         'created': value['created'] == null ? value['created'] : serializeDateTime(value['created']),
         'updated': value['updated'] == null ? value['updated'] : serializeDateTime(value['updated']),
         'started': value['started'] == null ? value['started'] : serializeDateTime(value['started']),
+        'ended': value['ended'] == null ? value['ended'] : serializeDateTime(value['ended']),
     };
 }
 

@@ -35,11 +35,11 @@ pub struct GetAdvertsAdvertsInner {
     #[serde(rename = "status")]
     pub status: Status,
     #[serde(rename = "timestamps")]
-    pub timestamps: Box<models::Timestamps>,
+    pub timestamps: Box<models::TimestampsV2>,
 }
 
 impl GetAdvertsAdvertsInner {
-    pub fn new(bid_type: String, id: i64, nm_settings: Option<Vec<models::AdvertNmsSettings>>, settings: models::AdvertSettings, restrictions: models::GetAdvertsAdvertsInnerRestrictions, status: Status, timestamps: models::Timestamps) -> GetAdvertsAdvertsInner {
+    pub fn new(bid_type: String, id: i64, nm_settings: Option<Vec<models::AdvertNmsSettings>>, settings: models::AdvertSettings, restrictions: models::GetAdvertsAdvertsInnerRestrictions, status: Status, timestamps: models::TimestampsV2) -> GetAdvertsAdvertsInner {
         GetAdvertsAdvertsInner {
             bid_type,
             currency: None,

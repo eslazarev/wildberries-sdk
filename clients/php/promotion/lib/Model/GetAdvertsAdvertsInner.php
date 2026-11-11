@@ -64,7 +64,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
         'settings' => '\Wildberries\Sdk\Promotion\Model\AdvertSettings',
         'restrictions' => '\Wildberries\Sdk\Promotion\Model\GetAdvertsAdvertsInnerRestrictions',
         'status' => 'int',
-        'timestamps' => '\Wildberries\Sdk\Promotion\Model\Timestamps'
+        'timestamps' => '\Wildberries\Sdk\Promotion\Model\TimestampsV2'
     ];
 
     /**
@@ -600,7 +600,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets timestamps
      *
-     * @return \Wildberries\Sdk\Promotion\Model\Timestamps
+     * @return \Wildberries\Sdk\Promotion\Model\TimestampsV2
      */
     public function getTimestamps()
     {
@@ -610,7 +610,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets timestamps
      *
-     * @param \Wildberries\Sdk\Promotion\Model\Timestamps $timestamps timestamps
+     * @param \Wildberries\Sdk\Promotion\Model\TimestampsV2 $timestamps timestamps
      *
      * @return self
      */

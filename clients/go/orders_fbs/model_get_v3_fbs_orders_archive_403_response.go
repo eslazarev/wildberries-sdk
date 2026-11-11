@@ -13,83 +13,45 @@ package orders_fbs
 import (
 	"encoding/json"
 	"fmt"
-	"gopkg.in/validator.v2"
 )
 
-// GetV3FbsOrdersArchive403Response - struct for GetV3FbsOrdersArchive403Response
+
+// GetV3FbsOrdersArchive403Response struct for GetV3FbsOrdersArchive403Response
 type GetV3FbsOrdersArchive403Response struct {
 	ArhiveOrderError400 *ArhiveOrderError400
 	Response4XX *Response4XX
 }
 
-// ArhiveOrderError400AsGetV3FbsOrdersArchive403Response is a convenience function that returns ArhiveOrderError400 wrapped in GetV3FbsOrdersArchive403Response
-func ArhiveOrderError400AsGetV3FbsOrdersArchive403Response(v *ArhiveOrderError400) GetV3FbsOrdersArchive403Response {
-	return GetV3FbsOrdersArchive403Response{
-		ArhiveOrderError400: v,
-	}
-}
-
-// Response4XXAsGetV3FbsOrdersArchive403Response is a convenience function that returns Response4XX wrapped in GetV3FbsOrdersArchive403Response
-func Response4XXAsGetV3FbsOrdersArchive403Response(v *Response4XX) GetV3FbsOrdersArchive403Response {
-	return GetV3FbsOrdersArchive403Response{
-		Response4XX: v,
-	}
-}
-
-
-// Unmarshal JSON data into one of the pointers in the struct
+// Unmarshal JSON data into any of the pointers in the struct
 func (dst *GetV3FbsOrdersArchive403Response) UnmarshalJSON(data []byte) error {
 	var err error
-	match := 0
-	// try to unmarshal data into ArhiveOrderError400
-	err = newStrictDecoder(data).Decode(&dst.ArhiveOrderError400)
+	// try to unmarshal JSON data into ArhiveOrderError400
+	err = json.Unmarshal(data, &dst.ArhiveOrderError400);
 	if err == nil {
 		jsonArhiveOrderError400, _ := json.Marshal(dst.ArhiveOrderError400)
 		if string(jsonArhiveOrderError400) == "{}" { // empty struct
 			dst.ArhiveOrderError400 = nil
 		} else {
-			if err = validator.Validate(dst.ArhiveOrderError400); err != nil {
-				dst.ArhiveOrderError400 = nil
-			} else {
-				match++
-			}
+			return nil // data stored in dst.ArhiveOrderError400, return on the first match
 		}
 	} else {
 		dst.ArhiveOrderError400 = nil
 	}
 
-	// try to unmarshal data into Response4XX
-	err = newStrictDecoder(data).Decode(&dst.Response4XX)
+	// try to unmarshal JSON data into Response4XX
+	err = json.Unmarshal(data, &dst.Response4XX);
 	if err == nil {
 		jsonResponse4XX, _ := json.Marshal(dst.Response4XX)
 		if string(jsonResponse4XX) == "{}" { // empty struct
 			dst.Response4XX = nil
 		} else {
-			if err = validator.Validate(dst.Response4XX); err != nil {
-				dst.Response4XX = nil
-			} else {
-				match++
-			}
+			return nil // data stored in dst.Response4XX, return on the first match
 		}
 	} else {
 		dst.Response4XX = nil
 	}
 
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.ArhiveOrderError400 = nil
-		dst.Response4XX = nil
-
-		return fmt.Errorf("data matches more than one schema in oneOf(GetV3FbsOrdersArchive403Response)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		if err != nil {
-			return fmt.Errorf("data failed to match schemas in oneOf(GetV3FbsOrdersArchive403Response): %v", err)
-		}
-
-		return fmt.Errorf("data failed to match schemas in oneOf(GetV3FbsOrdersArchive403Response)")
-	}
+	return fmt.Errorf("data failed to match schemas in anyOf(GetV3FbsOrdersArchive403Response)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
@@ -102,39 +64,9 @@ func (src GetV3FbsOrdersArchive403Response) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.Response4XX)
 	}
 
-	return nil, nil // no data in oneOf schemas
+	return nil, nil // no data in anyOf schemas
 }
 
-// Get the actual instance
-func (obj *GetV3FbsOrdersArchive403Response) GetActualInstance() (interface{}) {
-	if obj == nil {
-		return nil
-	}
-	if obj.ArhiveOrderError400 != nil {
-		return obj.ArhiveOrderError400
-	}
-
-	if obj.Response4XX != nil {
-		return obj.Response4XX
-	}
-
-	// all schemas are nil
-	return nil
-}
-
-// Get the actual instance value
-func (obj GetV3FbsOrdersArchive403Response) GetActualInstanceValue() (interface{}) {
-	if obj.ArhiveOrderError400 != nil {
-		return *obj.ArhiveOrderError400
-	}
-
-	if obj.Response4XX != nil {
-		return *obj.Response4XX
-	}
-
-	// all schemas are nil
-	return nil
-}
 
 type NullableGetV3FbsOrdersArchive403Response struct {
 	value *GetV3FbsOrdersArchive403Response

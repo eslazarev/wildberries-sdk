@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.184"
+__version__ = "0.1.185"
 
 # Define package exports
 __all__ = [
@@ -132,6 +132,7 @@ __all__ = [
     "StatsBlok1",
     "StatsBlok2",
     "Timestamps",
+    "TimestampsV2",
     "V0BidRecommendationBase",
     "V0BidRecommendationBaseBid",
     "V0BidRecommendationBaseBidCompetitiveBid",
@@ -315,6 +316,7 @@ from wildberries_sdk.promotion.models.stats2_inner import Stats2Inner as Stats2I
 from wildberries_sdk.promotion.models.stats_blok1 import StatsBlok1 as StatsBlok1
 from wildberries_sdk.promotion.models.stats_blok2 import StatsBlok2 as StatsBlok2
 from wildberries_sdk.promotion.models.timestamps import Timestamps as Timestamps
+from wildberries_sdk.promotion.models.timestamps_v2 import TimestampsV2 as TimestampsV2
 from wildberries_sdk.promotion.models.v0_bid_recommendation_base import V0BidRecommendationBase as V0BidRecommendationBase
 from wildberries_sdk.promotion.models.v0_bid_recommendation_base_bid import V0BidRecommendationBaseBid as V0BidRecommendationBaseBid
 from wildberries_sdk.promotion.models.v0_bid_recommendation_base_bid_competitive_bid import V0BidRecommendationBaseBidCompetitiveBid as V0BidRecommendationBaseBidCompetitiveBid

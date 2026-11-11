@@ -109,7 +109,7 @@ pub enum GetV1SuppliesIdPackageError {
 pub enum GetV1SuppliesSupplyIdDiscrepanciesQuantityError {
     Status400(models::ModelsErrorModel),
     Status401(models::PostV1AcceptanceOptions401Response),
-    Status403(models::Response4Xx),
+    Status403(models::GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response),
     Status404(models::ModelsErrorModel),
     Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),

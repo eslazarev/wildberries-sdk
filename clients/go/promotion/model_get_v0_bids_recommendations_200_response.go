@@ -13,83 +13,45 @@ package promotion
 import (
 	"encoding/json"
 	"fmt"
-	"gopkg.in/validator.v2"
 )
 
-// GetV0BidsRecommendations200Response - struct for GetV0BidsRecommendations200Response
+
+// GetV0BidsRecommendations200Response struct for GetV0BidsRecommendations200Response
 type GetV0BidsRecommendations200Response struct {
 	V0BidsRecommendationsCpcResponse2 *V0BidsRecommendationsCpcResponse2
 	V0BidsRecommendationsCpmResponse1 *V0BidsRecommendationsCpmResponse1
 }
 
-// V0BidsRecommendationsCpcResponse2AsGetV0BidsRecommendations200Response is a convenience function that returns V0BidsRecommendationsCpcResponse2 wrapped in GetV0BidsRecommendations200Response
-func V0BidsRecommendationsCpcResponse2AsGetV0BidsRecommendations200Response(v *V0BidsRecommendationsCpcResponse2) GetV0BidsRecommendations200Response {
-	return GetV0BidsRecommendations200Response{
-		V0BidsRecommendationsCpcResponse2: v,
-	}
-}
-
-// V0BidsRecommendationsCpmResponse1AsGetV0BidsRecommendations200Response is a convenience function that returns V0BidsRecommendationsCpmResponse1 wrapped in GetV0BidsRecommendations200Response
-func V0BidsRecommendationsCpmResponse1AsGetV0BidsRecommendations200Response(v *V0BidsRecommendationsCpmResponse1) GetV0BidsRecommendations200Response {
-	return GetV0BidsRecommendations200Response{
-		V0BidsRecommendationsCpmResponse1: v,
-	}
-}
-
-
-// Unmarshal JSON data into one of the pointers in the struct
+// Unmarshal JSON data into any of the pointers in the struct
 func (dst *GetV0BidsRecommendations200Response) UnmarshalJSON(data []byte) error {
 	var err error
-	match := 0
-	// try to unmarshal data into V0BidsRecommendationsCpcResponse2
-	err = newStrictDecoder(data).Decode(&dst.V0BidsRecommendationsCpcResponse2)
+	// try to unmarshal JSON data into V0BidsRecommendationsCpcResponse2
+	err = json.Unmarshal(data, &dst.V0BidsRecommendationsCpcResponse2);
 	if err == nil {
 		jsonV0BidsRecommendationsCpcResponse2, _ := json.Marshal(dst.V0BidsRecommendationsCpcResponse2)
 		if string(jsonV0BidsRecommendationsCpcResponse2) == "{}" { // empty struct
 			dst.V0BidsRecommendationsCpcResponse2 = nil
 		} else {
-			if err = validator.Validate(dst.V0BidsRecommendationsCpcResponse2); err != nil {
-				dst.V0BidsRecommendationsCpcResponse2 = nil
-			} else {
-				match++
-			}
+			return nil // data stored in dst.V0BidsRecommendationsCpcResponse2, return on the first match
 		}
 	} else {
 		dst.V0BidsRecommendationsCpcResponse2 = nil
 	}
 
-	// try to unmarshal data into V0BidsRecommendationsCpmResponse1
-	err = newStrictDecoder(data).Decode(&dst.V0BidsRecommendationsCpmResponse1)
+	// try to unmarshal JSON data into V0BidsRecommendationsCpmResponse1
+	err = json.Unmarshal(data, &dst.V0BidsRecommendationsCpmResponse1);
 	if err == nil {
 		jsonV0BidsRecommendationsCpmResponse1, _ := json.Marshal(dst.V0BidsRecommendationsCpmResponse1)
 		if string(jsonV0BidsRecommendationsCpmResponse1) == "{}" { // empty struct
 			dst.V0BidsRecommendationsCpmResponse1 = nil
 		} else {
-			if err = validator.Validate(dst.V0BidsRecommendationsCpmResponse1); err != nil {
-				dst.V0BidsRecommendationsCpmResponse1 = nil
-			} else {
-				match++
-			}
+			return nil // data stored in dst.V0BidsRecommendationsCpmResponse1, return on the first match
 		}
 	} else {
 		dst.V0BidsRecommendationsCpmResponse1 = nil
 	}
 
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.V0BidsRecommendationsCpcResponse2 = nil
-		dst.V0BidsRecommendationsCpmResponse1 = nil
-
-		return fmt.Errorf("data matches more than one schema in oneOf(GetV0BidsRecommendations200Response)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		if err != nil {
-			return fmt.Errorf("data failed to match schemas in oneOf(GetV0BidsRecommendations200Response): %v", err)
-		}
-
-		return fmt.Errorf("data failed to match schemas in oneOf(GetV0BidsRecommendations200Response)")
-	}
+	return fmt.Errorf("data failed to match schemas in anyOf(GetV0BidsRecommendations200Response)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
@@ -102,39 +64,9 @@ func (src GetV0BidsRecommendations200Response) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.V0BidsRecommendationsCpmResponse1)
 	}
 
-	return nil, nil // no data in oneOf schemas
+	return nil, nil // no data in anyOf schemas
 }
 
-// Get the actual instance
-func (obj *GetV0BidsRecommendations200Response) GetActualInstance() (interface{}) {
-	if obj == nil {
-		return nil
-	}
-	if obj.V0BidsRecommendationsCpcResponse2 != nil {
-		return obj.V0BidsRecommendationsCpcResponse2
-	}
-
-	if obj.V0BidsRecommendationsCpmResponse1 != nil {
-		return obj.V0BidsRecommendationsCpmResponse1
-	}
-
-	// all schemas are nil
-	return nil
-}
-
-// Get the actual instance value
-func (obj GetV0BidsRecommendations200Response) GetActualInstanceValue() (interface{}) {
-	if obj.V0BidsRecommendationsCpcResponse2 != nil {
-		return *obj.V0BidsRecommendationsCpcResponse2
-	}
-
-	if obj.V0BidsRecommendationsCpmResponse1 != nil {
-		return *obj.V0BidsRecommendationsCpmResponse1
-	}
-
-	// all schemas are nil
-	return nil
-}
 
 type NullableGetV0BidsRecommendations200Response struct {
 	value *GetV0BidsRecommendations200Response

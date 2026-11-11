@@ -104,6 +104,7 @@ export * from './Stats2Inner';
 export * from './StatsBlok1';
 export * from './StatsBlok2';
 export * from './Timestamps';
+export * from './TimestampsV2';
 export * from './V0BidRecommendationBase';
 export * from './V0BidRecommendationBaseBid';
 export * from './V0BidRecommendationBaseBidCompetitiveBid';

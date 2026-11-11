@@ -1640,7 +1640,7 @@ func (a *DefaultApiService) GetV1SuppliesSupplyIdDiscrepanciesQuantityExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v Response4XX
+			var v GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

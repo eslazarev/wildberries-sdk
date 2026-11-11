@@ -9168,7 +9168,7 @@ components:
           type: array
       type: object
     getV3FbsOrdersArchive_403_response:
-      oneOf:
+      anyOf:
       - $ref: "#/components/schemas/ArhiveOrderError400"
       - $ref: "#/components/schemas/Response4XX"
     putV3OrdersOrderIdMetaSgtin_request:

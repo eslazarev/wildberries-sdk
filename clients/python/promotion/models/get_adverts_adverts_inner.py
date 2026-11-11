@@ -22,7 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.promotion.models.advert_nms_settings import AdvertNMsSettings
 from wildberries_sdk.promotion.models.advert_settings import AdvertSettings
 from wildberries_sdk.promotion.models.get_adverts_adverts_inner_restrictions import GetAdvertsAdvertsInnerRestrictions
-from wildberries_sdk.promotion.models.timestamps import Timestamps
+from wildberries_sdk.promotion.models.timestamps_v2 import TimestampsV2
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -38,7 +38,7 @@ class GetAdvertsAdvertsInner(BaseModel):
     settings: AdvertSettings
     restrictions: GetAdvertsAdvertsInnerRestrictions
     status: StrictInt = Field(description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ")
-    timestamps: Timestamps
+    timestamps: TimestampsV2
     __properties: ClassVar[List[str]] = ["bid_type", "currency", "id", "nm_settings", "settings", "restrictions", "status", "timestamps"]
 
     @field_validator('status')
@@ -126,7 +126,7 @@ class GetAdvertsAdvertsInner(BaseModel):
             "settings": AdvertSettings.from_dict(obj["settings"]) if obj.get("settings") is not None else None,
             "restrictions": GetAdvertsAdvertsInnerRestrictions.from_dict(obj["restrictions"]) if obj.get("restrictions") is not None else None,
             "status": obj.get("status"),
-            "timestamps": Timestamps.from_dict(obj["timestamps"]) if obj.get("timestamps") is not None else None
+            "timestamps": TimestampsV2.from_dict(obj["timestamps"]) if obj.get("timestamps") is not None else None
         })
         return _obj
 

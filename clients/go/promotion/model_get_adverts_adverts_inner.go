@@ -33,7 +33,7 @@ type GetAdvertsAdvertsInner struct {
 	Restrictions GetAdvertsAdvertsInnerRestrictions `json:"restrictions"`
 	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе 
 	Status int32 `json:"status"`
-	Timestamps Timestamps `json:"timestamps"`
+	Timestamps TimestampsV2 `json:"timestamps"`
 }
 
 type _GetAdvertsAdvertsInner GetAdvertsAdvertsInner
@@ -42,7 +42,7 @@ type _GetAdvertsAdvertsInner GetAdvertsAdvertsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetAdvertsAdvertsInner(bidType string, id int64, nmSettings []AdvertNMsSettings, settings AdvertSettings, restrictions GetAdvertsAdvertsInnerRestrictions, status int32, timestamps Timestamps) *GetAdvertsAdvertsInner {
+func NewGetAdvertsAdvertsInner(bidType string, id int64, nmSettings []AdvertNMsSettings, settings AdvertSettings, restrictions GetAdvertsAdvertsInnerRestrictions, status int32, timestamps TimestampsV2) *GetAdvertsAdvertsInner {
 	this := GetAdvertsAdvertsInner{}
 	this.BidType = bidType
 	this.Id = id
@@ -241,9 +241,9 @@ func (o *GetAdvertsAdvertsInner) SetStatus(v int32) {
 }
 
 // GetTimestamps returns the Timestamps field value
-func (o *GetAdvertsAdvertsInner) GetTimestamps() Timestamps {
+func (o *GetAdvertsAdvertsInner) GetTimestamps() TimestampsV2 {
 	if o == nil {
-		var ret Timestamps
+		var ret TimestampsV2
 		return ret
 	}
 
@@ -252,7 +252,7 @@ func (o *GetAdvertsAdvertsInner) GetTimestamps() Timestamps {
 
 // GetTimestampsOk returns a tuple with the Timestamps field value
 // and a boolean to check if the value has been set.
-func (o *GetAdvertsAdvertsInner) GetTimestampsOk() (*Timestamps, bool) {
+func (o *GetAdvertsAdvertsInner) GetTimestampsOk() (*TimestampsV2, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -260,7 +260,7 @@ func (o *GetAdvertsAdvertsInner) GetTimestampsOk() (*Timestamps, bool) {
 }
 
 // SetTimestamps sets field value
-func (o *GetAdvertsAdvertsInner) SetTimestamps(v Timestamps) {
+func (o *GetAdvertsAdvertsInner) SetTimestamps(v TimestampsV2) {
 	o.Timestamps = v
 }
 

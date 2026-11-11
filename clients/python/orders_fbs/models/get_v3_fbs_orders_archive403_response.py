@@ -13,34 +13,39 @@
 
 
 from __future__ import annotations
+from inspect import getfullargspec
 import json
 import pprint
+import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
-from typing import Any, List, Optional
+from typing import Optional
 from wildberries_sdk.orders_fbs.models.arhive_order_error400 import ArhiveOrderError400
 from wildberries_sdk.orders_fbs.models.response4_xx import Response4XX
-from pydantic import StrictStr, Field
-from typing import Union, List, Set, Optional, Dict
+from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
+from pydantic import Field
 
-GETV3FBSORDERSARCHIVE403RESPONSE_ONE_OF_SCHEMAS = ["ArhiveOrderError400", "Response4XX"]
+GETV3FBSORDERSARCHIVE403RESPONSE_ANY_OF_SCHEMAS = ["ArhiveOrderError400", "Response4XX"]
 
 class GetV3FbsOrdersArchive403Response(BaseModel):
     """
     GetV3FbsOrdersArchive403Response
     """
+
     # data type: ArhiveOrderError400
-    oneof_schema_1_validator: Optional[ArhiveOrderError400] = None
+    anyof_schema_1_validator: Optional[ArhiveOrderError400] = None
     # data type: Response4XX
-    oneof_schema_2_validator: Optional[Response4XX] = None
-    actual_instance: Optional[Union[ArhiveOrderError400, Response4XX]] = None
-    one_of_schemas: Set[str] = { "ArhiveOrderError400", "Response4XX" }
+    anyof_schema_2_validator: Optional[Response4XX] = None
+    if TYPE_CHECKING:
+        actual_instance: Optional[Union[ArhiveOrderError400, Response4XX]] = None
+    else:
+        actual_instance: Any = None
+    any_of_schemas: Set[str] = { "ArhiveOrderError400", "Response4XX" }
 
-    model_config = ConfigDict(
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
-
+    model_config = {
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
 
     def __init__(self, *args, **kwargs) -> None:
         if args:
@@ -53,31 +58,29 @@ class GetV3FbsOrdersArchive403Response(BaseModel):
             super().__init__(**kwargs)
 
     @field_validator('actual_instance')
-    def actual_instance_must_validate_oneof(cls, v):
+    def actual_instance_must_validate_anyof(cls, v):
         instance = GetV3FbsOrdersArchive403Response.model_construct()
         error_messages = []
-        match = 0
         # validate data type: ArhiveOrderError400
         if not isinstance(v, ArhiveOrderError400):
             error_messages.append(f"Error! Input type `{type(v)}` is not `ArhiveOrderError400`")
         else:
-            match += 1
+            return v
+
         # validate data type: Response4XX
         if not isinstance(v, Response4XX):
             error_messages.append(f"Error! Input type `{type(v)}` is not `Response4XX`")
         else:
-            match += 1
-        if match > 1:
-            # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in GetV3FbsOrdersArchive403Response with oneOf schemas: ArhiveOrderError400, Response4XX. Details: " + ", ".join(error_messages))
-        elif match == 0:
+            return v
+
+        if error_messages:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in GetV3FbsOrdersArchive403Response with oneOf schemas: ArhiveOrderError400, Response4XX. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in GetV3FbsOrdersArchive403Response with anyOf schemas: ArhiveOrderError400, Response4XX. Details: " + ", ".join(error_messages))
         else:
             return v
 
     @classmethod
-    def from_dict(cls, obj: Union[str, Dict[str, Any]]) -> Self:
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
         return cls.from_json(json.dumps(obj))
 
     @classmethod
@@ -85,27 +88,22 @@ class GetV3FbsOrdersArchive403Response(BaseModel):
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
         error_messages = []
-        match = 0
-
-        # deserialize data into ArhiveOrderError400
+        # anyof_schema_1_validator: Optional[ArhiveOrderError400] = None
         try:
             instance.actual_instance = ArhiveOrderError400.from_json(json_str)
-            match += 1
+            return instance
         except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-        # deserialize data into Response4XX
+             error_messages.append(str(e))
+        # anyof_schema_2_validator: Optional[Response4XX] = None
         try:
             instance.actual_instance = Response4XX.from_json(json_str)
-            match += 1
+            return instance
         except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
+             error_messages.append(str(e))
 
-        if match > 1:
-            # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into GetV3FbsOrdersArchive403Response with oneOf schemas: ArhiveOrderError400, Response4XX. Details: " + ", ".join(error_messages))
-        elif match == 0:
+        if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into GetV3FbsOrdersArchive403Response with oneOf schemas: ArhiveOrderError400, Response4XX. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into GetV3FbsOrdersArchive403Response with anyOf schemas: ArhiveOrderError400, Response4XX. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -127,7 +125,6 @@ class GetV3FbsOrdersArchive403Response(BaseModel):
         if hasattr(self.actual_instance, "to_dict") and callable(self.actual_instance.to_dict):
             return self.actual_instance.to_dict()
         else:
-            # primitive type
             return self.actual_instance
 
     def to_str(self) -> str:

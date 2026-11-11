@@ -14,6 +14,7 @@
 
 # import models into model package
 from wildberries_sdk.orders_fbw.models.errors_draft_error import ErrorsDraftError
+from wildberries_sdk.orders_fbw.models.get_v1_supplies_supply_id_discrepancies_quantity403_response import GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
 from wildberries_sdk.orders_fbw.models.models_box import ModelsBox
 from wildberries_sdk.orders_fbw.models.models_date_filter_request import ModelsDateFilterRequest
 from wildberries_sdk.orders_fbw.models.models_discrepancy_response_item import ModelsDiscrepancyResponseItem

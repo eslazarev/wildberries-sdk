@@ -11,16 +11,37 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetV0BidsRecommendations200Response {
-    V0BidsRecommendationsCpmResponse1(Box<models::V0BidsRecommendationsCpmResponse1>),
-    V0BidsRecommendationsCpcResponse2(Box<models::V0BidsRecommendationsCpcResponse2>),
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+pub struct GetV0BidsRecommendations200Response {
+    /// ID кампании
+    #[serde(rename = "advertId", skip_serializing_if = "Option::is_none")]
+    pub advert_id: Option<i64>,
+    #[serde(rename = "base", skip_serializing_if = "Option::is_none")]
+    pub base: Option<Box<models::V0BidRecommendationBase>>,
+    /// Артикул WB
+    #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
+    pub nm_id: Option<i64>,
+    /// Рекомендуемые ставки для поисковых кластеров
+    #[serde(rename = "normQueries", skip_serializing_if = "Option::is_none")]
+    pub norm_queries: Option<Vec<models::V0BidRecommendationNormQuery>>,
+    /// Тип оплаты:   - `cpc` — за клики 
+    #[serde(rename = "paymentType", skip_serializing_if = "Option::is_none")]
+    pub payment_type: Option<PaymentType>,
+    /// Рекомендуемые ставки для карточек товаров
+    #[serde(rename = "levels", skip_serializing_if = "Option::is_none")]
+    pub levels: Option<Vec<models::V0BidRecommendationCpcLevels>>,
 }
 
-impl Default for GetV0BidsRecommendations200Response {
-    fn default() -> Self {
-        Self::V0BidsRecommendationsCpmResponse1(Default::default())
+impl GetV0BidsRecommendations200Response {
+    pub fn new() -> GetV0BidsRecommendations200Response {
+        GetV0BidsRecommendations200Response {
+            advert_id: None,
+            base: None,
+            nm_id: None,
+            norm_queries: None,
+            payment_type: None,
+            levels: None,
+        }
     }
 }
 /// Тип оплаты:   - `cpc` — за клики 

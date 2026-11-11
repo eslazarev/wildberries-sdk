@@ -2233,7 +2233,7 @@ class DefaultApi:
             '200': "List[ModelsItemDiscrepancyResponse]",
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
-            '403': "Response4XX",
+            '403': "GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response",
             '404': "ModelsErrorModel",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -2305,7 +2305,7 @@ class DefaultApi:
             '200': "List[ModelsItemDiscrepancyResponse]",
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
-            '403': "Response4XX",
+            '403': "GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response",
             '404': "ModelsErrorModel",
             '429': "PostV1AcceptanceOptions401Response",
         }
@@ -2377,7 +2377,7 @@ class DefaultApi:
             '200': "List[ModelsItemDiscrepancyResponse]",
             '400': "ModelsErrorModel",
             '401': "PostV1AcceptanceOptions401Response",
-            '403': "Response4XX",
+            '403': "GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response",
             '404': "ModelsErrorModel",
             '429': "PostV1AcceptanceOptions401Response",
         }

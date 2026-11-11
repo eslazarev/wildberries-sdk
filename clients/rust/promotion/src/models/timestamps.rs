@@ -23,15 +23,19 @@ pub struct Timestamps {
     /// Время последнего запуска кампании
     #[serde(rename = "started", deserialize_with = "Option::deserialize")]
     pub started: Option<chrono::DateTime<chrono::FixedOffset>>,
+    /// Время завершения кампании
+    #[serde(rename = "ended", deserialize_with = "Option::deserialize")]
+    pub ended: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl Timestamps {
     /// Временные отметки
-    pub fn new(created: chrono::DateTime<chrono::FixedOffset>, updated: chrono::DateTime<chrono::FixedOffset>, started: Option<chrono::DateTime<chrono::FixedOffset>>) -> Timestamps {
+    pub fn new(created: chrono::DateTime<chrono::FixedOffset>, updated: chrono::DateTime<chrono::FixedOffset>, started: Option<chrono::DateTime<chrono::FixedOffset>>, ended: Option<chrono::DateTime<chrono::FixedOffset>>) -> Timestamps {
         Timestamps {
             created,
             updated,
             started,
+            ended,
         }
     }
 }

@@ -117,6 +117,7 @@ from wildberries_sdk.promotion.models.stats2_inner import Stats2Inner
 from wildberries_sdk.promotion.models.stats_blok1 import StatsBlok1
 from wildberries_sdk.promotion.models.stats_blok2 import StatsBlok2
 from wildberries_sdk.promotion.models.timestamps import Timestamps
+from wildberries_sdk.promotion.models.timestamps_v2 import TimestampsV2
 from wildberries_sdk.promotion.models.v0_bid_recommendation_base import V0BidRecommendationBase
 from wildberries_sdk.promotion.models.v0_bid_recommendation_base_bid import V0BidRecommendationBaseBid
 from wildberries_sdk.promotion.models.v0_bid_recommendation_base_bid_competitive_bid import V0BidRecommendationBaseBidCompetitiveBid

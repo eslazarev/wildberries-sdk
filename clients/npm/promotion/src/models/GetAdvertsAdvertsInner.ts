@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { Timestamps } from './Timestamps';
-import {
-    TimestampsFromJSON,
-    TimestampsFromJSONTyped,
-    TimestampsToJSON,
-    TimestampsToJSONTyped,
-} from './Timestamps';
 import type { AdvertNMsSettings } from './AdvertNMsSettings';
 import {
     AdvertNMsSettingsFromJSON,
@@ -41,6 +34,13 @@ import {
     AdvertSettingsToJSON,
     AdvertSettingsToJSONTyped,
 } from './AdvertSettings';
+import type { TimestampsV2 } from './TimestampsV2';
+import {
+    TimestampsV2FromJSON,
+    TimestampsV2FromJSONTyped,
+    TimestampsV2ToJSON,
+    TimestampsV2ToJSONTyped,
+} from './TimestampsV2';
 
 /**
  * 
@@ -89,7 +89,7 @@ export interface GetAdvertsAdvertsInner {
     /**
      * 
      */
-    timestamps: Timestamps;
+    timestamps: TimestampsV2;
 }
 
 
@@ -138,7 +138,7 @@ export function GetAdvertsAdvertsInnerFromJSONTyped(json: any, ignoreDiscriminat
         'settings': AdvertSettingsFromJSON(json['settings']),
         'restrictions': GetAdvertsAdvertsInnerRestrictionsFromJSON(json['restrictions']),
         'status': json['status'],
-        'timestamps': TimestampsFromJSON(json['timestamps']),
+        'timestamps': TimestampsV2FromJSON(json['timestamps']),
     };
 }
 
@@ -160,7 +160,7 @@ export function GetAdvertsAdvertsInnerToJSONTyped(value?: GetAdvertsAdvertsInner
         'settings': AdvertSettingsToJSON(value['settings']),
         'restrictions': GetAdvertsAdvertsInnerRestrictionsToJSON(value['restrictions']),
         'status': value['status'],
-        'timestamps': TimestampsToJSON(value['timestamps']),
+        'timestamps': TimestampsV2ToJSON(value['timestamps']),
     };
 }
 

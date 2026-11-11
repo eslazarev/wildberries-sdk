@@ -1758,8 +1758,10 @@ paths:
                   $ref: "#/components/examples/Response403TokenCategory"
                 Response403TokenType:
                   $ref: "#/components/examples/Response403TokenType"
+                SupplyAcceptedMoreThanYearAgo:
+                  $ref: "#/components/examples/SupplyAcceptedMoreThanYearAgo"
               schema:
-                $ref: "#/components/schemas/Response4XX"
+                $ref: "#/components/schemas/getV1SuppliesSupplyIdDiscrepanciesQuantity_403_response"
           description: Доступ запрещён
         "404":
           content:
@@ -3289,6 +3291,10 @@ components:
           format: date-time
           type: string
       type: object
+    getV1SuppliesSupplyIdDiscrepanciesQuantity_403_response:
+      anyOf:
+      - $ref: "#/components/schemas/Response4XX"
+      - $ref: "#/components/schemas/models.SupplyAcceptedMoreThanYearAgo"
     models_OptionsResultModel_result_inner_error:
       description: Данные ошибки. При наличии
       example:

@@ -28,6 +28,8 @@ type Timestamps struct {
 	Updated time.Time `json:"updated"`
 	// Время последнего запуска кампании
 	Started NullableTime `json:"started"`
+	// Время завершения кампании
+	Ended NullableTime `json:"ended"`
 }
 
 type _Timestamps Timestamps
@@ -36,11 +38,12 @@ type _Timestamps Timestamps
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTimestamps(created time.Time, updated time.Time, started NullableTime) *Timestamps {
+func NewTimestamps(created time.Time, updated time.Time, started NullableTime, ended NullableTime) *Timestamps {
 	this := Timestamps{}
 	this.Created = created
 	this.Updated = updated
 	this.Started = started
+	this.Ended = ended
 	return &this
 }
 
@@ -126,6 +129,32 @@ func (o *Timestamps) SetStarted(v time.Time) {
 	o.Started.Set(&v)
 }
 
+// GetEnded returns the Ended field value
+// If the value is explicit nil, the zero value for time.Time will be returned
+func (o *Timestamps) GetEnded() time.Time {
+	if o == nil || o.Ended.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return *o.Ended.Get()
+}
+
+// GetEndedOk returns a tuple with the Ended field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Timestamps) GetEndedOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Ended.Get(), o.Ended.IsSet()
+}
+
+// SetEnded sets field value
+func (o *Timestamps) SetEnded(v time.Time) {
+	o.Ended.Set(&v)
+}
+
 func (o Timestamps) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -139,6 +168,7 @@ func (o Timestamps) ToMap() (map[string]interface{}, error) {
 	toSerialize["created"] = o.Created
 	toSerialize["updated"] = o.Updated
 	toSerialize["started"] = o.Started.Get()
+	toSerialize["ended"] = o.Ended.Get()
 	return toSerialize, nil
 }
 
@@ -150,6 +180,7 @@ func (o *Timestamps) UnmarshalJSON(data []byte) (err error) {
 		"created",
 		"updated",
 		"started",
+		"ended",
 	}
 
 	allProperties := make(map[string]interface{})

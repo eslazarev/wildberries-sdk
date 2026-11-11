@@ -11,16 +11,50 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetV3FbsOrdersArchive403Response {
-    ArhiveOrderError400(Box<models::ArhiveOrderError400>),
-    Response4Xx(Box<models::Response4Xx>),
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+pub struct GetV3FbsOrdersArchive403Response {
+    /// Внутренний код ошибки
+    #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
+    pub code: Option<String>,
+    /// Детали ошибки
+    #[serde(rename = "detail")]
+    pub detail: String,
+    /// Информация об ошибке
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<models::ArhiveOrderError400ErrorsInner>>,
+    /// ID внутреннего сервиса WB
+    #[serde(rename = "origin")]
+    pub origin: String,
+    /// ID запроса
+    #[serde(rename = "requestId")]
+    pub request_id: String,
+    /// HTTP статус-код
+    #[serde(rename = "status")]
+    pub status: f64,
+    /// Заголовок ошибки
+    #[serde(rename = "title")]
+    pub title: String,
+    /// Расшифровка HTTP статус-кода
+    #[serde(rename = "statusText")]
+    pub status_text: String,
+    /// Дата и время запроса
+    #[serde(rename = "timestamp")]
+    pub timestamp: chrono::DateTime<chrono::FixedOffset>,
 }
 
-impl Default for GetV3FbsOrdersArchive403Response {
-    fn default() -> Self {
-        Self::ArhiveOrderError400(Default::default())
+impl GetV3FbsOrdersArchive403Response {
+    pub fn new(detail: String, origin: String, request_id: String, status: f64, title: String, status_text: String, timestamp: chrono::DateTime<chrono::FixedOffset>) -> GetV3FbsOrdersArchive403Response {
+        GetV3FbsOrdersArchive403Response {
+            code: None,
+            detail,
+            errors: None,
+            origin,
+            request_id,
+            status,
+            title,
+            status_text,
+            timestamp,
+        }
     }
 }
 

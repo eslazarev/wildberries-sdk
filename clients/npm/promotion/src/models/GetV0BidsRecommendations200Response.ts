@@ -12,28 +12,93 @@
  * Do not edit the class manually.
  */
 
-import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
+import { mapValues } from '../runtime';
+import type { V0BidRecommendationNormQuery } from './V0BidRecommendationNormQuery';
+import {
+    V0BidRecommendationNormQueryFromJSON,
+    V0BidRecommendationNormQueryFromJSONTyped,
+    V0BidRecommendationNormQueryToJSON,
+    V0BidRecommendationNormQueryToJSONTyped,
+} from './V0BidRecommendationNormQuery';
 import type { V0BidsRecommendationsCpcResponse2 } from './V0BidsRecommendationsCpcResponse2';
 import {
-    instanceOfV0BidsRecommendationsCpcResponse2,
     V0BidsRecommendationsCpcResponse2FromJSON,
     V0BidsRecommendationsCpcResponse2FromJSONTyped,
     V0BidsRecommendationsCpcResponse2ToJSON,
+    V0BidsRecommendationsCpcResponse2ToJSONTyped,
 } from './V0BidsRecommendationsCpcResponse2';
+import type { V0BidRecommendationBase } from './V0BidRecommendationBase';
+import {
+    V0BidRecommendationBaseFromJSON,
+    V0BidRecommendationBaseFromJSONTyped,
+    V0BidRecommendationBaseToJSON,
+    V0BidRecommendationBaseToJSONTyped,
+} from './V0BidRecommendationBase';
+import type { V0BidRecommendationCPCLevels } from './V0BidRecommendationCPCLevels';
+import {
+    V0BidRecommendationCPCLevelsFromJSON,
+    V0BidRecommendationCPCLevelsFromJSONTyped,
+    V0BidRecommendationCPCLevelsToJSON,
+    V0BidRecommendationCPCLevelsToJSONTyped,
+} from './V0BidRecommendationCPCLevels';
 import type { V0BidsRecommendationsCpmResponse1 } from './V0BidsRecommendationsCpmResponse1';
 import {
-    instanceOfV0BidsRecommendationsCpmResponse1,
     V0BidsRecommendationsCpmResponse1FromJSON,
     V0BidsRecommendationsCpmResponse1FromJSONTyped,
     V0BidsRecommendationsCpmResponse1ToJSON,
+    V0BidsRecommendationsCpmResponse1ToJSONTyped,
 } from './V0BidsRecommendationsCpmResponse1';
 
 /**
- * @type GetV0BidsRecommendations200Response
  * 
  * @export
+ * @interface GetV0BidsRecommendations200Response
  */
-export type GetV0BidsRecommendations200Response = V0BidsRecommendationsCpcResponse2 | V0BidsRecommendationsCpmResponse1;
+export interface GetV0BidsRecommendations200Response {
+    /**
+     * ID кампании
+     */
+    advertId?: number;
+    /**
+     * 
+     */
+    base?: V0BidRecommendationBase;
+    /**
+     * Артикул WB
+     */
+    nmId?: number;
+    /**
+     * Рекомендуемые ставки для поисковых кластеров
+     */
+    normQueries?: Array<V0BidRecommendationNormQuery>;
+    /**
+     * Тип оплаты:
+     *   - `cpc` — за клики
+     * 
+     */
+    paymentType?: GetV0BidsRecommendations200ResponsePaymentTypeEnum;
+    /**
+     * Рекомендуемые ставки для карточек товаров
+     */
+    levels?: Array<V0BidRecommendationCPCLevels>;
+}
+
+
+/**
+ * @export
+ */
+export const GetV0BidsRecommendations200ResponsePaymentTypeEnum = {
+    Cpc: 'cpc',
+} as const;
+export type GetV0BidsRecommendations200ResponsePaymentTypeEnum = typeof GetV0BidsRecommendations200ResponsePaymentTypeEnum[keyof typeof GetV0BidsRecommendations200ResponsePaymentTypeEnum];
+
+
+/**
+ * Check if a given object implements the GetV0BidsRecommendations200Response interface.
+ */
+export function instanceOfGetV0BidsRecommendations200Response(value: object): value is GetV0BidsRecommendations200Response {
+    return true;
+}
 
 export function GetV0BidsRecommendations200ResponseFromJSON(json: any): GetV0BidsRecommendations200Response {
     return GetV0BidsRecommendations200ResponseFromJSONTyped(json, false);
@@ -43,19 +108,18 @@ export function GetV0BidsRecommendations200ResponseFromJSONTyped(json: any, igno
     if (json == null) {
         return json;
     }
-    if (typeof json !== 'object') {
-        return json;
-    }
-    if (instanceOfV0BidsRecommendationsCpcResponse2(json)) {
-        return V0BidsRecommendationsCpcResponse2FromJSONTyped(json, true);
-    }
-    if (instanceOfV0BidsRecommendationsCpmResponse1(json)) {
-        return V0BidsRecommendationsCpmResponse1FromJSONTyped(json, true);
-    }
-    return {} as any;
+    return {
+        
+        'advertId': json['advertId'] == null ? undefined : json['advertId'],
+        'base': json['base'] == null ? undefined : V0BidRecommendationBaseFromJSON(json['base']),
+        'nmId': json['nmId'] == null ? undefined : json['nmId'],
+        'normQueries': json['normQueries'] == null ? undefined : ((json['normQueries'] as Array<any>).map(V0BidRecommendationNormQueryFromJSON)),
+        'paymentType': json['paymentType'] == null ? undefined : json['paymentType'],
+        'levels': json['levels'] == null ? undefined : ((json['levels'] as Array<any>).map(V0BidRecommendationCPCLevelsFromJSON)),
+    };
 }
 
-export function GetV0BidsRecommendations200ResponseToJSON(json: any): any {
+export function GetV0BidsRecommendations200ResponseToJSON(json: any): GetV0BidsRecommendations200Response {
     return GetV0BidsRecommendations200ResponseToJSONTyped(json, false);
 }
 
@@ -63,15 +127,15 @@ export function GetV0BidsRecommendations200ResponseToJSONTyped(value?: GetV0Bids
     if (value == null) {
         return value;
     }
-    if (typeof value !== 'object') {
-        return value;
-    }
-    if (instanceOfV0BidsRecommendationsCpcResponse2(value)) {
-        return V0BidsRecommendationsCpcResponse2ToJSON(value as V0BidsRecommendationsCpcResponse2);
-    }
-    if (instanceOfV0BidsRecommendationsCpmResponse1(value)) {
-        return V0BidsRecommendationsCpmResponse1ToJSON(value as V0BidsRecommendationsCpmResponse1);
-    }
-    return {};
+
+    return {
+        
+        'advertId': value['advertId'],
+        'base': V0BidRecommendationBaseToJSON(value['base']),
+        'nmId': value['nmId'],
+        'normQueries': value['normQueries'] == null ? undefined : ((value['normQueries'] as Array<any>).map(V0BidRecommendationNormQueryToJSON)),
+        'paymentType': value['paymentType'],
+        'levels': value['levels'] == null ? undefined : ((value['levels'] as Array<any>).map(V0BidRecommendationCPCLevelsToJSON)),
+    };
 }
 
