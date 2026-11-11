@@ -1,6 +1,13 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.11.11)
+- Orders FBS: в ответах ошибок `application/problem+json` схема изменена с `oneOf` на `anyOf` (для `ArhiveOrderError400`/`Response4XX`).
+- Orders FBW: для одного из ответов ошибок `application/problem+json` вместо единственного `$ref: Response4XX` теперь используется `anyOf` (`Response4XX` или `models.SupplyAcceptedMoreThanYearAgo`); добавлен пример ошибки `SupplyAcceptedMoreThanYearAgo`.
+- Promotion: в одном из ответов `application/json` схема изменена с `oneOf` на `anyOf` (между `V0BidsRecommendationsCpmResponse1` и `V0BidsRecommendationsCpcResponse2`).
+- Promotion: поле `timestamps` в `Advert` (на уровне схемы) переведено с `Timestamps` на `TimestampsV2`; при этом добавлена/зафиксирована отдельная схема `Timestamps` (created/updated/started/ended, где `started`/`ended` nullable).
+- Promotion: обновлены примеры — в `ConflictingModes` параметр `advertIds` оформлен как код; в примере кампании изменён список `placements` (удалены `search` и `recommendations`, оставлен `combined`), в `timestamps` добавлено поле `ended: null`.
+
 ### Changed (2026.11.10)
 - Товары (Items): в схеме загрузки файла добавлено `additionalProperties: true` (разрешены дополнительные поля в объекте).
 - Заказы FBS: уточнено описание проверки возможности отмены сборочного задания — ссылка/текст теперь про «получение статусов сборочных заданий» и поле `isCancellable` (без изменения эндпоинта).

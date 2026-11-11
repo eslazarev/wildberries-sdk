@@ -2,6 +2,38 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-11-11",
+      "anchor": "changed-20261111",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261111",
+      "sections": [
+        "Orders FBS",
+        "Orders FBW",
+        "Promotion"
+      ],
+      "changes": [
+        {
+          "section": "Orders FBS",
+          "text": "в ответах ошибок `application/problem+json` схема изменена с `oneOf` на `anyOf` (для `ArhiveOrderError400`/`Response4XX`)."
+        },
+        {
+          "section": "Orders FBW",
+          "text": "для одного из ответов ошибок `application/problem+json` вместо единственного `$ref: Response4XX` теперь используется `anyOf` (`Response4XX` или `models.SupplyAcceptedMoreThanYearAgo`); добавлен пример ошибки `SupplyAcceptedMoreThanYearAgo`."
+        },
+        {
+          "section": "Promotion",
+          "text": "в одном из ответов `application/json` схема изменена с `oneOf` на `anyOf` (между `V0BidsRecommendationsCpmResponse1` и `V0BidsRecommendationsCpcResponse2`)."
+        },
+        {
+          "section": "Promotion",
+          "text": "поле `timestamps` в `Advert` (на уровне схемы) переведено с `Timestamps` на `TimestampsV2`; при этом добавлена/зафиксирована отдельная схема `Timestamps` (created/updated/started/ended, где `started`/`ended` nullable)."
+        },
+        {
+          "section": "Promotion",
+          "text": "обновлены примеры — в `ConflictingModes` параметр `advertIds` оформлен как код; в примере кампании изменён список `placements` (удалены `search` и `recommendations`, оставлен `combined`), в `timestamps` добавлено поле `ended: null`."
+        }
+      ]
+    },
+    {
       "date": "2026-11-10",
       "anchor": "changed-20261110",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261110",

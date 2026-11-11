@@ -1768,7 +1768,7 @@ paths:
           content:
             application/problem+json:
               schema:
-                oneOf:
+                anyOf:
                   - $ref: '#/components/schemas/ArhiveOrderError400'
                   - $ref: '#/components/schemas/Response4XX'
               examples:
