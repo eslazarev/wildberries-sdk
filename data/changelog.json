@@ -2,6 +2,29 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-11-12",
+      "anchor": "changed-20261112",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261112",
+      "sections": [
+        "Контент",
+        "Отчёты / Аналитика"
+      ],
+      "changes": [
+        {
+          "section": "Контент",
+          "text": "обновлено описание лимита в песочнице — добавлена ссылка на раздел `/sandbox` (лимит без изменений: 1 запрос/сек суммарно для всех методов Контента)."
+        },
+        {
+          "section": "Отчёты / Аналитика",
+          "text": "удалён раздел «Продажи по регионам» (`salesByRegions`) из тегов документации."
+        },
+        {
+          "section": "Отчёты / Аналитика",
+          "text": "удалён endpoint `GET https://seller-analytics-api.wildberries.ru/api/v1/analytics/region-sale` (ранее был `deprecated` и планировался к отключению 3 ноября); вместе с ним удалена схема ответа `SuccessRegionSaleResponse` и связанные описания/лимиты для этого метода."
+        }
+      ]
+    },
+    {
       "date": "2026-11-11",
       "anchor": "changed-20261111",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261111",

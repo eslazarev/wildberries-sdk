@@ -1,6 +1,11 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.11.12)
+- Контент: обновлено описание лимита в песочнице — добавлена ссылка на раздел `/sandbox` (лимит без изменений: 1 запрос/сек суммарно для всех методов Контента).
+- Отчёты / Аналитика: удалён раздел «Продажи по регионам» (`salesByRegions`) из тегов документации.
+- Отчёты / Аналитика: удалён endpoint `GET https://seller-analytics-api.wildberries.ru/api/v1/analytics/region-sale` (ранее был `deprecated` и планировался к отключению 3 ноября); вместе с ним удалена схема ответа `SuccessRegionSaleResponse` и связанные описания/лимиты для этого метода.
+
 ### Changed (2026.11.11)
 - Orders FBS: в ответах ошибок `application/problem+json` схема изменена с `oneOf` на `anyOf` (для `ArhiveOrderError400`/`Response4XX`).
 - Orders FBW: для одного из ответов ошибок `application/problem+json` вместо единственного `$ref: Response4XX` теперь используется `anyOf` (`Response4XX` или `models.SupplyAcceptedMoreThanYearAgo`); добавлен пример ошибки `SupplyAcceptedMoreThanYearAgo`.

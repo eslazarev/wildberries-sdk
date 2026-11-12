@@ -118,20 +118,6 @@ tags:
         1. [Создайте отчёт](./reports#tag/paidStorage/operation/getV1PaidStorage).
         2. Дождитесь, когда отчёт будет готов. Вы можете [проверить статус](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) готовности отчёта. Готовый отчёт хранится 2 часа, после чего его нельзя будет получить.
         3. [Получите отчёт](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
-  - name: Продажи по регионам
-    x-displayName: Продажи по регионам
-    description: ''
-    x-tagKey: salesByRegions
-    x-description: |
-      <div class="description_auth">
-        Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
-      </div>
-
-      <div class="description_important">
-        Узнать больше об отчётах о продажах по регионам можно в <a href="https://seller.wildberries.ru/instructions/material/A-235?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
-      </div>
-
-      Чтобы получить отчёт о [продажах по регионам](https://seller.wildberries.ru/analytics-reports/region-sale), воспользуйтесь [методом загрузки](./reports#tag/salesByRegions/operation/getV1AnalyticsRegionSale).
   - name: Доля бренда в продажах
     x-displayName: Доля бренда в продажах
     description: ''
@@ -1759,65 +1745,6 @@ paths:
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: paidStorage
-  /api/v1/analytics/region-sale:
-    servers:
-      - url: https://seller-analytics-api.wildberries.ru
-    get:
-      operationId: getV1AnalyticsRegionSale
-      x-readonly-method: true
-      deprecated: true
-      x-category: contentanalytics
-      security:
-        - HeaderApiKey: []
-      tags:
-        - Продажи по регионам
-      summary: Получить отчёт
-      description: |
-        Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
-
-
-        | Тип | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- | --- |
-        | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-        | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-        | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-        </div>
-      parameters:
-        - $ref: '#/components/parameters/DateFrom'
-        - $ref: '#/components/parameters/DateTo'
-      responses:
-        '200':
-          $ref: '#/components/responses/SuccessRegionSaleResponse'
-        '400':
-          description: Неправильный запрос
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/4XXResponse'
-              examples:
-                MissingDateTimeFrom:
-                  $ref: '#/components/examples/MissingDateTimeFrom'
-                MissingDateTimeTo:
-                  $ref: '#/components/examples/MissingDateTimeTo'
-                IncorrectDateTimeFrom:
-                  $ref: '#/components/examples/IncorrectDateTimeFrom'
-                IncorrectDateTimeTo:
-                  $ref: '#/components/examples/IncorrectDateTimeTo'
-                DateRangeExceeded:
-                  $ref: '#/components/examples/DateRangeExceeded'
-                DateRanges:
-                  $ref: '#/components/examples/DateRanges'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: salesByRegions
   /api/v1/analytics/brand-share/brands:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -3551,56 +3478,6 @@ components:
             status: 429
             statusText: Too Many Requests
             timestamp: '2024-09-30T06:52:38Z'
-    SuccessRegionSaleResponse:
-      description: Успешно
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              report:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    cityName:
-                      type: string
-                      description: Населённый пункт
-                      example: деревня Суханово
-                    countryName:
-                      type: string
-                      description: Страна
-                      example: Россия
-                    foName:
-                      type: string
-                      description: Федеральный округ
-                      example: Центральный федеральный округ
-                    nmID:
-                      type: integer
-                      description: Артикул WB
-                      example: 177974431
-                    regionName:
-                      type: string
-                      description: Регион
-                      example: Московская область
-                    sa:
-                      type: string
-                      description: Артикул продавца
-                      example: '112233445566778899'
-                    saleInvoiceCostPrice:
-                      type: number
-                      format: float
-                      description: К перечислению за товар, ₽
-                      example: 592.11
-                    saleInvoiceCostPricePerc:
-                      type: number
-                      format: float
-                      description: Доля, %
-                      example: 43.0547333297454
-                    saleItemInvoiceQty:
-                      type: integer
-                      description: Выкупили, шт.
-                      example: 4
     SuccessTaskResponse:
       description: Успешно
       content:
