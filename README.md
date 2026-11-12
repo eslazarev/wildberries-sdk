@@ -410,7 +410,6 @@ SDK выпускается с security-first процессом:
 - `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда (getV1AnalyticsBrandShareParentSubjects)
 - `POST /api/v1/analytics/excise-report` — Получить отчёт (postV1AnalyticsExciseReport)
 - `GET /api/v1/analytics/goods-labeling` — Маркировка товара (getV1AnalyticsGoodsLabeling)
-- `GET /api/v1/analytics/region-sale` — Получить отчёт (getV1AnalyticsRegionSale)
 - `GET /api/v1/paid_storage` — Создать отчёт (getV1PaidStorage)
 - `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт (getV1PaidStorageTasksTaskIdDownload)
 - `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус (getV1PaidStorageTasksTaskIdStatus)

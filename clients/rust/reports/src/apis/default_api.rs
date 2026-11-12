@@ -123,17 +123,6 @@ pub enum GetV1AnalyticsGoodsLabelingError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_v1_analytics_region_sale`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetV1AnalyticsRegionSaleError {
-    Status400(models::Model4XxResponse),
-    Status401(models::GetV1SupplierOrders401Response),
-    Status403(models::GetV1SupplierOrders403Response),
-    Status429(models::GetV1SupplierOrders401Response),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`get_v1_deductions`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -707,55 +696,6 @@ pub async fn get_v1_analytics_goods_labeling(configuration: &configuration::Conf
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV1AnalyticsGoodsLabelingError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-#[deprecated]
-pub async fn get_v1_analytics_region_sale(configuration: &configuration::Configuration, date_from: &str, date_to: &str) -> Result<models::GetV1AnalyticsRegionSale200Response, Error<GetV1AnalyticsRegionSaleError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_date_from = date_from;
-    let p_query_date_to = date_to;
-
-    let uri_str = format!("{}/api/v1/analytics/region-sale", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("dateFrom", &p_query_date_from.to_string())]);
-    req_builder = req_builder.query(&[("dateTo", &p_query_date_to.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV1AnalyticsRegionSale200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV1AnalyticsRegionSale200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetV1AnalyticsRegionSaleError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

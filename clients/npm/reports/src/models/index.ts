@@ -19,8 +19,6 @@ export * from './GetV1AnalyticsBrandShareParentSubjects200Response';
 export * from './GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner';
 export * from './GetV1AnalyticsGoodsLabeling200Response';
 export * from './GetV1AnalyticsGoodsLabeling200ResponseReportInner';
-export * from './GetV1AnalyticsRegionSale200Response';
-export * from './GetV1AnalyticsRegionSale200ResponseReportInner';
 export * from './GetV1Deductions200Response';
 export * from './GetV1Deductions200ResponseData';
 export * from './GetV1Deductions200ResponseDataReportsInner';

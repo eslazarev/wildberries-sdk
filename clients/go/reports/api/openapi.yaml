@@ -121,20 +121,6 @@ tags:
       2. Дождитесь, когда отчёт будет готов. Вы можете [проверить статус](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) готовности отчёта. Готовый отчёт хранится 2 часа, после чего его нельзя будет получить.
       3. [Получите отчёт](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
 - description: ""
-  name: Продажи по регионам
-  x-displayName: Продажи по регионам
-  x-tagKey: salesByRegions
-  x-description: |
-    <div class="description_auth">
-      Для доступа к методам используйте <a href="./api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Аналитика</strong>
-    </div>
-
-    <div class="description_important">
-      Узнать больше об отчётах о продажах по регионам можно в <a href="https://seller.wildberries.ru/instructions/material/A-235?categoryId=5f2162c5-069b-416d-a4e1-48da2a76e6b0">справочном центре</a>
-    </div>
-
-    Чтобы получить отчёт о [продажах по регионам](https://seller.wildberries.ru/analytics-reports/region-sale), воспользуйтесь [методом загрузки](./reports#tag/salesByRegions/operation/getV1AnalyticsRegionSale).
-- description: ""
   name: Доля бренда в продажах
   x-displayName: Доля бренда в продажах
   x-tagKey: shareOfBrandInSales
@@ -2680,127 +2666,6 @@ paths:
       x-tagKey: paidStorage
     servers:
     - url: https://seller-analytics-api.wildberries.ru
-  /api/v1/analytics/region-sale:
-    get:
-      deprecated: true
-      description: |
-        Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
-
-
-        | Тип | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- | --- |
-        | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-        | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов |
-        | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
-        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-        </div>
-      operationId: getV1AnalyticsRegionSale
-      parameters:
-      - description: "Начало отчётного периода, `ГГГГ-ММ-ДД`"
-        example: 2025-02-28
-        explode: true
-        in: query
-        name: dateFrom
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: "Конец отчётного периода, `ГГГГ-ММ-ДД`"
-        example: 2025-03-21
-        explode: true
-        in: query
-        name: dateTo
-        required: true
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/getV1AnalyticsRegionSale_200_response"
-          description: Успешно
-        "400":
-          content:
-            application/problem+json:
-              examples:
-                MissingDateTimeFrom:
-                  $ref: "#/components/examples/MissingDateTimeFrom"
-                MissingDateTimeTo:
-                  $ref: "#/components/examples/MissingDateTimeTo"
-                IncorrectDateTimeFrom:
-                  $ref: "#/components/examples/IncorrectDateTimeFrom"
-                IncorrectDateTimeTo:
-                  $ref: "#/components/examples/IncorrectDateTimeTo"
-                DateRangeExceeded:
-                  $ref: "#/components/examples/DateRangeExceeded"
-                DateRanges:
-                  $ref: "#/components/examples/DateRanges"
-              schema:
-                $ref: "#/components/schemas/Model4XXResponse"
-          description: Неправильный запрос
-        "401":
-          content:
-            application/problem+json:
-              example:
-                title: unauthorized
-                detail: "token problem; token is malformed: could not base64 decode\
-                  \ signature: illegal base64 data at input byte 84"
-                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
-                requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: ag-marketplace
-                status: 401
-                statusText: Unauthorized
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
-          description: Не авторизован
-        "403":
-          content:
-            application/problem+json:
-              examples:
-                Response403TokenCategory:
-                  description: Неверная категория токена
-                  value:
-                    status: 403
-                    statusText: Forbidden
-                    title: Forbidden
-                    detail: scope is not allowed for this resource
-                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
-                    origin: ag-marketplace
-                    timestamp: 2026-09-03T13:55:15Z
-              schema:
-                $ref: "#/components/schemas/getV1SupplierOrders_403_response"
-          description: Доступ запрещён
-        "429":
-          content:
-            application/problem+json:
-              example:
-                title: too many requests
-                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
-                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
-                requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: ag-marketplace
-                status: 429
-                statusText: Too Many Requests
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
-          description: Слишком много запросов
-      security:
-      - HeaderApiKey: []
-      summary: Получить отчёт
-      tags:
-      - Продажи по регионам
-      x-readonly-method: true
-      x-category: contentanalytics
-      x-tagKey: salesByRegions
-    servers:
-    - url: https://seller-analytics-api.wildberries.ru
   /api/v1/analytics/brand-share/brands:
     get:
       description: |
@@ -3935,12 +3800,6 @@ components:
           schema:
             $ref: "#/components/schemas/getV1SupplierOrders_401_response"
       description: Слишком много запросов
-    SuccessRegionSaleResponse:
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/getV1AnalyticsRegionSale_200_response"
-      description: Успешно
     SuccessTaskResponse:
       content:
         application/json:
@@ -5213,84 +5072,6 @@ components:
           description: "Суммарная стоимость приёмки, ₽ с копейками"
           example: 873.04
           type: number
-      type: object
-    getV1AnalyticsRegionSale_200_response_report_inner:
-      example:
-        cityName: деревня Суханово
-        countryName: Россия
-        foName: Центральный федеральный округ
-        nmID: 177974431
-        regionName: Московская область
-        sa: "112233445566778899"
-        saleInvoiceCostPrice: 592.11
-        saleInvoiceCostPricePerc: 43.0547333297454
-        saleItemInvoiceQty: 4
-      properties:
-        cityName:
-          description: Населённый пункт
-          example: деревня Суханово
-          type: string
-        countryName:
-          description: Страна
-          example: Россия
-          type: string
-        foName:
-          description: Федеральный округ
-          example: Центральный федеральный округ
-          type: string
-        nmID:
-          description: Артикул WB
-          example: 177974431
-          type: integer
-        regionName:
-          description: Регион
-          example: Московская область
-          type: string
-        sa:
-          description: Артикул продавца
-          example: "112233445566778899"
-          type: string
-        saleInvoiceCostPrice:
-          description: "К перечислению за товар, ₽"
-          example: 592.11
-          format: float
-          type: number
-        saleInvoiceCostPricePerc:
-          description: "Доля, %"
-          example: 43.0547333297454
-          format: float
-          type: number
-        saleItemInvoiceQty:
-          description: "Выкупили, шт."
-          example: 4
-          type: integer
-      type: object
-    getV1AnalyticsRegionSale_200_response:
-      example:
-        report:
-        - cityName: деревня Суханово
-          countryName: Россия
-          foName: Центральный федеральный округ
-          nmID: 177974431
-          regionName: Московская область
-          sa: "112233445566778899"
-          saleInvoiceCostPrice: 592.11
-          saleInvoiceCostPricePerc: 43.0547333297454
-          saleItemInvoiceQty: 4
-        - cityName: деревня Суханово
-          countryName: Россия
-          foName: Центральный федеральный округ
-          nmID: 177974431
-          regionName: Московская область
-          sa: "112233445566778899"
-          saleInvoiceCostPrice: 592.11
-          saleInvoiceCostPricePerc: 43.0547333297454
-          saleItemInvoiceQty: 4
-      properties:
-        report:
-          items:
-            $ref: "#/components/schemas/getV1AnalyticsRegionSale_200_response_report_inner"
-          type: array
       type: object
     getV1AnalyticsBrandShareBrands_200_response:
       example:

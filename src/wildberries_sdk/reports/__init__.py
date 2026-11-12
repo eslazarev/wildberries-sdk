@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.185"
+__version__ = "0.1.186"
 
 # Define package exports
 __all__ = [
@@ -47,8 +47,6 @@ __all__ = [
     "GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner",
     "GetV1AnalyticsGoodsLabeling200Response",
     "GetV1AnalyticsGoodsLabeling200ResponseReportInner",
-    "GetV1AnalyticsRegionSale200Response",
-    "GetV1AnalyticsRegionSale200ResponseReportInner",
     "GetV1Deductions200Response",
     "GetV1Deductions200ResponseData",
     "GetV1Deductions200ResponseDataReportsInner",
@@ -113,8 +111,6 @@ from wildberries_sdk.reports.models.get_v1_analytics_brand_share_parent_subjects
 from wildberries_sdk.reports.models.get_v1_analytics_brand_share_parent_subjects200_response_data_inner import GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner as GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner
 from wildberries_sdk.reports.models.get_v1_analytics_goods_labeling200_response import GetV1AnalyticsGoodsLabeling200Response as GetV1AnalyticsGoodsLabeling200Response
 from wildberries_sdk.reports.models.get_v1_analytics_goods_labeling200_response_report_inner import GetV1AnalyticsGoodsLabeling200ResponseReportInner as GetV1AnalyticsGoodsLabeling200ResponseReportInner
-from wildberries_sdk.reports.models.get_v1_analytics_region_sale200_response import GetV1AnalyticsRegionSale200Response as GetV1AnalyticsRegionSale200Response
-from wildberries_sdk.reports.models.get_v1_analytics_region_sale200_response_report_inner import GetV1AnalyticsRegionSale200ResponseReportInner as GetV1AnalyticsRegionSale200ResponseReportInner
 from wildberries_sdk.reports.models.get_v1_deductions200_response import GetV1Deductions200Response as GetV1Deductions200Response
 from wildberries_sdk.reports.models.get_v1_deductions200_response_data import GetV1Deductions200ResponseData as GetV1Deductions200ResponseData
 from wildberries_sdk.reports.models.get_v1_deductions200_response_data_reports_inner import GetV1Deductions200ResponseDataReportsInner as GetV1Deductions200ResponseDataReportsInner

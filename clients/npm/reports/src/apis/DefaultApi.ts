@@ -64,11 +64,6 @@ import {
     GetV1AnalyticsGoodsLabeling200ResponseToJSON,
 } from '../models/GetV1AnalyticsGoodsLabeling200Response';
 import {
-    type GetV1AnalyticsRegionSale200Response,
-    GetV1AnalyticsRegionSale200ResponseFromJSON,
-    GetV1AnalyticsRegionSale200ResponseToJSON,
-} from '../models/GetV1AnalyticsRegionSale200Response';
-import {
     type GetV1Deductions200Response,
     GetV1Deductions200ResponseFromJSON,
     GetV1Deductions200ResponseToJSON,
@@ -254,17 +249,6 @@ export interface GetV1AnalyticsGoodsLabelingRequest {
      * Конец отчётного периода, `ГГГГ-ММ-ДД`
      */
     dateTo: Date;
-}
-
-export interface GetV1AnalyticsRegionSaleRequest {
-    /**
-     * Начало отчётного периода, `ГГГГ-ММ-ДД`
-     */
-    dateFrom: string;
-    /**
-     * Конец отчётного периода, `ГГГГ-ММ-ДД`
-     */
-    dateTo: string;
 }
 
 export interface GetV1DeductionsRequest {
@@ -1074,74 +1058,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getV1AnalyticsGoodsLabeling(requestParameters: GetV1AnalyticsGoodsLabelingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsGoodsLabeling200Response> {
         const response = await this.getV1AnalyticsGoodsLabelingRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for getV1AnalyticsRegionSale without sending the request
-     * @deprecated
-     */
-    async getV1AnalyticsRegionSaleRequestOpts(requestParameters: GetV1AnalyticsRegionSaleRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['dateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling getV1AnalyticsRegionSale().'
-            );
-        }
-
-        if (requestParameters['dateTo'] == null) {
-            throw new runtime.RequiredError(
-                'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling getV1AnalyticsRegionSale().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = requestParameters['dateFrom'];
-        }
-
-        if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = requestParameters['dateTo'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/analytics/region-sale`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Получить отчёт
-     * @deprecated
-     */
-    async getV1AnalyticsRegionSaleRaw(requestParameters: GetV1AnalyticsRegionSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsRegionSale200Response>> {
-        const requestOptions = await this.getV1AnalyticsRegionSaleRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsRegionSale200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Получить отчёт
-     * @deprecated
-     */
-    async getV1AnalyticsRegionSale(requestParameters: GetV1AnalyticsRegionSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsRegionSale200Response> {
-        const response = await this.getV1AnalyticsRegionSaleRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
