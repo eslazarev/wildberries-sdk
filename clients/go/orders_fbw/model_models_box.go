@@ -12,6 +12,8 @@ package orders_fbw
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ModelsBox type satisfies the MappedNullable interface at compile time
@@ -19,20 +21,27 @@ var _ MappedNullable = &ModelsBox{}
 
 // ModelsBox struct for ModelsBox
 type ModelsBox struct {
-	// Штрих-код упаковки
-	PackageCode *string `json:"packageCode,omitempty"`
+	// Закодированное значение стикера упаковки
+	PackageCode string `json:"packageCode"`
+	// ID стикера упаковки
+	PackageId *string `json:"packageId,omitempty"`
 	// Суммарное количество товара в упаковке, шт
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity int32 `json:"quantity"`
 	// Список упакованных товаров
-	Barcodes []ModelsGoodInBox `json:"barcodes,omitempty"`
+	Barcodes []ModelsGoodInBox `json:"barcodes"`
 }
+
+type _ModelsBox ModelsBox
 
 // NewModelsBox instantiates a new ModelsBox object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsBox() *ModelsBox {
+func NewModelsBox(packageCode string, quantity int32, barcodes []ModelsGoodInBox) *ModelsBox {
 	this := ModelsBox{}
+	this.PackageCode = packageCode
+	this.Quantity = quantity
+	this.Barcodes = barcodes
 	return &this
 }
 
@@ -44,98 +53,106 @@ func NewModelsBoxWithDefaults() *ModelsBox {
 	return &this
 }
 
-// GetPackageCode returns the PackageCode field value if set, zero value otherwise.
+// GetPackageCode returns the PackageCode field value
 func (o *ModelsBox) GetPackageCode() string {
-	if o == nil || IsNil(o.PackageCode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PackageCode
+
+	return o.PackageCode
 }
 
-// GetPackageCodeOk returns a tuple with the PackageCode field value if set, nil otherwise
+// GetPackageCodeOk returns a tuple with the PackageCode field value
 // and a boolean to check if the value has been set.
 func (o *ModelsBox) GetPackageCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.PackageCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PackageCode, true
+	return &o.PackageCode, true
 }
 
-// HasPackageCode returns a boolean if a field has been set.
-func (o *ModelsBox) HasPackageCode() bool {
-	if o != nil && !IsNil(o.PackageCode) {
+// SetPackageCode sets field value
+func (o *ModelsBox) SetPackageCode(v string) {
+	o.PackageCode = v
+}
+
+// GetPackageId returns the PackageId field value if set, zero value otherwise.
+func (o *ModelsBox) GetPackageId() string {
+	if o == nil || IsNil(o.PackageId) {
+		var ret string
+		return ret
+	}
+	return *o.PackageId
+}
+
+// GetPackageIdOk returns a tuple with the PackageId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsBox) GetPackageIdOk() (*string, bool) {
+	if o == nil || IsNil(o.PackageId) {
+		return nil, false
+	}
+	return o.PackageId, true
+}
+
+// HasPackageId returns a boolean if a field has been set.
+func (o *ModelsBox) HasPackageId() bool {
+	if o != nil && !IsNil(o.PackageId) {
 		return true
 	}
 
 	return false
 }
 
-// SetPackageCode gets a reference to the given string and assigns it to the PackageCode field.
-func (o *ModelsBox) SetPackageCode(v string) {
-	o.PackageCode = &v
+// SetPackageId gets a reference to the given string and assigns it to the PackageId field.
+func (o *ModelsBox) SetPackageId(v string) {
+	o.PackageId = &v
 }
 
-// GetQuantity returns the Quantity field value if set, zero value otherwise.
+// GetQuantity returns the Quantity field value
 func (o *ModelsBox) GetQuantity() int32 {
-	if o == nil || IsNil(o.Quantity) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Quantity
+
+	return o.Quantity
 }
 
-// GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
+// GetQuantityOk returns a tuple with the Quantity field value
 // and a boolean to check if the value has been set.
 func (o *ModelsBox) GetQuantityOk() (*int32, bool) {
-	if o == nil || IsNil(o.Quantity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Quantity, true
+	return &o.Quantity, true
 }
 
-// HasQuantity returns a boolean if a field has been set.
-func (o *ModelsBox) HasQuantity() bool {
-	if o != nil && !IsNil(o.Quantity) {
-		return true
-	}
-
-	return false
-}
-
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
+// SetQuantity sets field value
 func (o *ModelsBox) SetQuantity(v int32) {
-	o.Quantity = &v
+	o.Quantity = v
 }
 
-// GetBarcodes returns the Barcodes field value if set, zero value otherwise.
+// GetBarcodes returns the Barcodes field value
 func (o *ModelsBox) GetBarcodes() []ModelsGoodInBox {
-	if o == nil || IsNil(o.Barcodes) {
+	if o == nil {
 		var ret []ModelsGoodInBox
 		return ret
 	}
+
 	return o.Barcodes
 }
 
-// GetBarcodesOk returns a tuple with the Barcodes field value if set, nil otherwise
+// GetBarcodesOk returns a tuple with the Barcodes field value
 // and a boolean to check if the value has been set.
 func (o *ModelsBox) GetBarcodesOk() ([]ModelsGoodInBox, bool) {
-	if o == nil || IsNil(o.Barcodes) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Barcodes, true
 }
 
-// HasBarcodes returns a boolean if a field has been set.
-func (o *ModelsBox) HasBarcodes() bool {
-	if o != nil && !IsNil(o.Barcodes) {
-		return true
-	}
-
-	return false
-}
-
-// SetBarcodes gets a reference to the given []ModelsGoodInBox and assigns it to the Barcodes field.
+// SetBarcodes sets field value
 func (o *ModelsBox) SetBarcodes(v []ModelsGoodInBox) {
 	o.Barcodes = v
 }
@@ -150,16 +167,52 @@ func (o ModelsBox) MarshalJSON() ([]byte, error) {
 
 func (o ModelsBox) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PackageCode) {
-		toSerialize["packageCode"] = o.PackageCode
+	toSerialize["packageCode"] = o.PackageCode
+	if !IsNil(o.PackageId) {
+		toSerialize["packageId"] = o.PackageId
 	}
-	if !IsNil(o.Quantity) {
-		toSerialize["quantity"] = o.Quantity
-	}
-	if !IsNil(o.Barcodes) {
-		toSerialize["barcodes"] = o.Barcodes
-	}
+	toSerialize["quantity"] = o.Quantity
+	toSerialize["barcodes"] = o.Barcodes
 	return toSerialize, nil
+}
+
+func (o *ModelsBox) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"packageCode",
+		"quantity",
+		"barcodes",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModelsBox := _ModelsBox{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varModelsBox)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModelsBox(varModelsBox)
+
+	return err
 }
 
 type NullableModelsBox struct {

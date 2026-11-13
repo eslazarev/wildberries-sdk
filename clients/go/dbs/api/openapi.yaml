@@ -1995,7 +1995,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersMetaSgtin

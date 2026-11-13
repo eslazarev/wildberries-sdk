@@ -28,23 +28,30 @@ import {
  */
 export interface ModelsBox {
     /**
-     * Штрих-код упаковки
+     * Закодированное значение стикера упаковки
      */
-    packageCode?: string;
+    packageCode: string;
+    /**
+     * ID стикера упаковки
+     */
+    packageId?: string;
     /**
      * Суммарное количество товара в упаковке, шт
      */
-    quantity?: number;
+    quantity: number;
     /**
      * Список упакованных товаров
      */
-    barcodes?: Array<ModelsGoodInBox>;
+    barcodes: Array<ModelsGoodInBox>;
 }
 
 /**
  * Check if a given object implements the ModelsBox interface.
  */
 export function instanceOfModelsBox(value: object): value is ModelsBox {
+    if (!('packageCode' in value) || value['packageCode'] === undefined) return false;
+    if (!('quantity' in value) || value['quantity'] === undefined) return false;
+    if (!('barcodes' in value) || value['barcodes'] === undefined) return false;
     return true;
 }
 
@@ -58,9 +65,10 @@ export function ModelsBoxFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
-        'packageCode': json['packageCode'] == null ? undefined : json['packageCode'],
-        'quantity': json['quantity'] == null ? undefined : json['quantity'],
-        'barcodes': json['barcodes'] == null ? undefined : ((json['barcodes'] as Array<any>).map(ModelsGoodInBoxFromJSON)),
+        'packageCode': json['packageCode'],
+        'packageId': json['packageId'] == null ? undefined : json['packageId'],
+        'quantity': json['quantity'],
+        'barcodes': ((json['barcodes'] as Array<any>).map(ModelsGoodInBoxFromJSON)),
     };
 }
 
@@ -76,8 +84,9 @@ export function ModelsBoxToJSONTyped(value?: ModelsBox | null, ignoreDiscriminat
     return {
         
         'packageCode': value['packageCode'],
+        'packageId': value['packageId'],
         'quantity': value['quantity'],
-        'barcodes': value['barcodes'] == null ? undefined : ((value['barcodes'] as Array<any>).map(ModelsGoodInBoxToJSON)),
+        'barcodes': ((value['barcodes'] as Array<any>).map(ModelsGoodInBoxToJSON)),
     };
 }
 

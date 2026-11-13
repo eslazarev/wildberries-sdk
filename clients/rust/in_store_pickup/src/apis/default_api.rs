@@ -420,7 +420,7 @@ pub async fn post_v3_click_collect_orders_client_identity(configuration: &config
     }
 }
 
-/// Метод возвращает:   - цены продавца без учёта скидок   - суммы к оплате покупателем с учетом всех скидок и кэшбека  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+/// Метод возвращает:   - цены продавца без учёта скидок   - суммы к оплате покупателем с учетом всех скидок и кэшбека  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  </div> 
 pub async fn post_v3_click_collect_orders_final_price(configuration: &configuration::Configuration, api_orders_request: Option<models::ApiOrdersRequest>) -> Result<models::ApiOrdersFinalPriceResponse, Error<PostV3ClickCollectOrdersFinalPriceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_request = api_orders_request;

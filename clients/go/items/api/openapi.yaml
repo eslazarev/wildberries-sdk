@@ -798,7 +798,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
 
         </div>
@@ -1024,7 +1024,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
 
         </div>
@@ -1134,7 +1134,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
 
         </div>
@@ -1399,10 +1399,6 @@ paths:
             <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
             <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
-
-        <hr>
-
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2DirectoryTnvedAll
@@ -1896,7 +1892,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2Tags
@@ -2002,7 +1998,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: postV2Tag
@@ -2120,7 +2116,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: deleteV2TagId
@@ -2234,7 +2230,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: patchV2TagId
@@ -2362,7 +2358,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: postV2TagNomenclatureLink
@@ -2511,6 +2507,11 @@ paths:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 100 запросов | 600 мс | 5 запросов |
+
+        <hr>
+
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов.
+
         </div>
       operationId: postV2GetCardsList
       parameters:
@@ -2755,7 +2756,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: postV2CardsErrorList
@@ -2968,11 +2969,27 @@ paths:
 
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 10 запросов | 6 сек | 5 запросов |
+
+        Исключение — методы:
+
+        <ul>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+        </ul>
+
+        <hr>
+
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+
         </div>
       operationId: postV2CardsUpdate
       requestBody:
@@ -3272,6 +3289,11 @@ paths:
         | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
         | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        <hr>
+
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов.
+
         </div>
       operationId: postV2CardsDeleteTrash
       requestBody:
@@ -3389,6 +3411,11 @@ paths:
         | Сервисный | 1 мин | 3 запроса | 20 сек | 5 запросов |
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
+        <hr>
+
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов.
+
         </div>
       operationId: postV2CardsRecover
       requestBody:
@@ -3720,7 +3747,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2CardsLimits
@@ -3935,11 +3962,27 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 10 запросов | 6 сек | 5 запросов |
+
+        Исключение — методы:
+
+        <ul>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">создания карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+        </ul>
+
+        <hr>
+
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+
         </div>
       operationId: postV2CardsUpload
       requestBody:
@@ -4108,6 +4151,11 @@ paths:
         | Сервисный | 1 мин | 10 запросов | 6 сек | 5 запросов |
         | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов |
         | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
+
+        <hr>
+
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов.
+
         </div>
       operationId: postV2CardsUploadAdd
       requestBody:
@@ -4333,7 +4381,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: postV3MediaFile
@@ -4494,7 +4542,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: postV3MediaSave
@@ -4821,7 +4869,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: postV2UploadTask
@@ -4993,7 +5041,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: postV2UploadTaskSize
@@ -5163,7 +5211,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: postV2UploadTaskClubDiscount
@@ -5450,7 +5498,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2HistoryTasks
@@ -5563,7 +5611,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2HistoryGoodsTask
@@ -5699,7 +5747,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2BufferTasks
@@ -5812,7 +5860,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2BufferGoodsTask
@@ -5951,7 +5999,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2ListGoodsFilter
@@ -6093,7 +6141,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: postV2ListGoodsFilter
@@ -6208,7 +6256,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2ListGoodsSizeNm
@@ -6358,7 +6406,7 @@ paths:
 
         <hr>
 
-        В песочнице — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Контента</strong>.
 
         </div>
       operationId: getV2QuarantineGoods

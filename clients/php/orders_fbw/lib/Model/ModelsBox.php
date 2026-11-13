@@ -58,6 +58,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'package_code' => 'string',
+        'package_id' => 'string',
         'quantity' => 'int',
         'barcodes' => '\Wildberries\Sdk\OrdersFbw\Model\ModelsGoodInBox[]'
     ];
@@ -71,6 +72,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'package_code' => null,
+        'package_id' => null,
         'quantity' => null,
         'barcodes' => null
     ];
@@ -82,6 +84,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'package_code' => false,
+        'package_id' => false,
         'quantity' => false,
         'barcodes' => false
     ];
@@ -173,6 +176,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'package_code' => 'packageCode',
+        'package_id' => 'packageId',
         'quantity' => 'quantity',
         'barcodes' => 'barcodes'
     ];
@@ -184,6 +188,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'package_code' => 'setPackageCode',
+        'package_id' => 'setPackageId',
         'quantity' => 'setQuantity',
         'barcodes' => 'setBarcodes'
     ];
@@ -195,6 +200,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'package_code' => 'getPackageCode',
+        'package_id' => 'getPackageId',
         'quantity' => 'getQuantity',
         'barcodes' => 'getBarcodes'
     ];
@@ -257,6 +263,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('package_code', $data ?? [], null);
+        $this->setIfExists('package_id', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('barcodes', $data ?? [], null);
     }
@@ -288,6 +295,15 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['package_code'] === null) {
+            $invalidProperties[] = "'package_code' can't be null";
+        }
+        if ($this->container['quantity'] === null) {
+            $invalidProperties[] = "'quantity' can't be null";
+        }
+        if ($this->container['barcodes'] === null) {
+            $invalidProperties[] = "'barcodes' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -306,7 +322,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets package_code
      *
-     * @return string|null
+     * @return string
      */
     public function getPackageCode()
     {
@@ -316,7 +332,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets package_code
      *
-     * @param string|null $package_code Штрих-код упаковки
+     * @param string $package_code Закодированное значение стикера упаковки
      *
      * @return self
      */
@@ -331,9 +347,36 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets package_id
+     *
+     * @return string|null
+     */
+    public function getPackageId()
+    {
+        return $this->container['package_id'];
+    }
+
+    /**
+     * Sets package_id
+     *
+     * @param string|null $package_id ID стикера упаковки
+     *
+     * @return self
+     */
+    public function setPackageId($package_id)
+    {
+        if (is_null($package_id)) {
+            throw new \InvalidArgumentException('non-nullable package_id cannot be null');
+        }
+        $this->container['package_id'] = $package_id;
+
+        return $this;
+    }
+
+    /**
      * Gets quantity
      *
-     * @return int|null
+     * @return int
      */
     public function getQuantity()
     {
@@ -343,7 +386,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets quantity
      *
-     * @param int|null $quantity Суммарное количество товара в упаковке, шт
+     * @param int $quantity Суммарное количество товара в упаковке, шт
      *
      * @return self
      */
@@ -360,7 +403,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets barcodes
      *
-     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsGoodInBox[]|null
+     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsGoodInBox[]
      */
     public function getBarcodes()
     {
@@ -370,7 +413,7 @@ class ModelsBox implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets barcodes
      *
-     * @param \Wildberries\Sdk\OrdersFbw\Model\ModelsGoodInBox[]|null $barcodes Список упакованных товаров
+     * @param \Wildberries\Sdk\OrdersFbw\Model\ModelsGoodInBox[] $barcodes Список упакованных товаров
      *
      * @return self
      */

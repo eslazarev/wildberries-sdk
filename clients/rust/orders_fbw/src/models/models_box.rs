@@ -13,23 +13,27 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ModelsBox {
-    /// Штрих-код упаковки
-    #[serde(rename = "packageCode", skip_serializing_if = "Option::is_none")]
-    pub package_code: Option<String>,
+    /// Закодированное значение стикера упаковки
+    #[serde(rename = "packageCode")]
+    pub package_code: String,
+    /// ID стикера упаковки
+    #[serde(rename = "packageId", skip_serializing_if = "Option::is_none")]
+    pub package_id: Option<String>,
     /// Суммарное количество товара в упаковке, шт
-    #[serde(rename = "quantity", skip_serializing_if = "Option::is_none")]
-    pub quantity: Option<i32>,
+    #[serde(rename = "quantity")]
+    pub quantity: i32,
     /// Список упакованных товаров
-    #[serde(rename = "barcodes", skip_serializing_if = "Option::is_none")]
-    pub barcodes: Option<Vec<models::ModelsGoodInBox>>,
+    #[serde(rename = "barcodes")]
+    pub barcodes: Vec<models::ModelsGoodInBox>,
 }
 
 impl ModelsBox {
-    pub fn new() -> ModelsBox {
+    pub fn new(package_code: String, quantity: i32, barcodes: Vec<models::ModelsGoodInBox>) -> ModelsBox {
         ModelsBox {
-            package_code: None,
-            quantity: None,
-            barcodes: None,
+            package_code,
+            package_id: None,
+            quantity,
+            barcodes,
         }
     }
 }

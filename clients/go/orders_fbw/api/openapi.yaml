@@ -874,6 +874,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                GetPackageSuccessResponse:
+                  $ref: "#/components/examples/GetPackageSuccessResponse"
               schema:
                 items:
                   $ref: "#/components/schemas/models.Box"
@@ -1965,6 +1968,14 @@ components:
         detail: неверный формат id (должен быть int32)
         requestId: aee7d3a5378ef3c7ec0e7a5bc94abfcf
         origin: supply-api
+    GetPackageSuccessResponse:
+      value:
+      - packageCode: $Ts;G8Z;tXcC;1;TuLY5Lo;TAS
+        packageId: "123456"
+        quantity: 1
+        barcodes:
+        - barcode: "1234567891234"
+          quantity: 1
     PreorderIdSearchError:
       description: По заказу найдена поставка. Используйте поиск по ID поставки
       value:
@@ -2664,14 +2675,20 @@ components:
       type: object
     models.Box:
       example:
-        packageCode: WB_689
-        quantity: 1
+        packageCode: packageCode
+        packageId: packageId
+        quantity: 0
         barcodes:
-        - barcode: "1234567891234"
-          quantity: 1
+        - barcode: barcode
+          quantity: 6
+        - barcode: barcode
+          quantity: 6
       properties:
         packageCode:
-          description: Штрих-код упаковки
+          description: Закодированное значение стикера упаковки
+          type: string
+        packageId:
+          description: ID стикера упаковки
           type: string
         quantity:
           description: "Суммарное количество товара в упаковке, шт"
@@ -2681,8 +2698,15 @@ components:
           items:
             $ref: "#/components/schemas/models.GoodInBox"
           type: array
+      required:
+      - barcodes
+      - packageCode
+      - quantity
       type: object
     models.GoodInBox:
+      example:
+        barcode: barcode
+        quantity: 6
       properties:
         barcode:
           description: Баркод
