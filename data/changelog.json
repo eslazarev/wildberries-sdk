@@ -2,6 +2,48 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-11-13",
+      "anchor": "changed-20261113",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261113",
+      "sections": [
+        "Прочее"
+      ],
+      "changes": [
+        {
+          "section": "Прочее",
+          "text": "Общие"
+        },
+        {
+          "section": "Прочее",
+          "text": "Товары / Контент (item-management)"
+        },
+        {
+          "section": "Прочее",
+          "text": "Заказы FBS"
+        },
+        {
+          "section": "Прочее",
+          "text": "Заказы FBW"
+        },
+        {
+          "section": "Прочее",
+          "text": "Продвижение / Реклама (promotion)"
+        },
+        {
+          "section": "Прочее",
+          "text": "Коммуникации / Вопросы и отзывы"
+        },
+        {
+          "section": "Прочее",
+          "text": "DBS (Маркетплейс)"
+        },
+        {
+          "section": "Прочее",
+          "text": "Самовывоз (in-store pickup)"
+        }
+      ]
+    },
+    {
       "date": "2026-11-12",
       "anchor": "changed-20261112",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261112",
