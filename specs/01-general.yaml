@@ -1441,6 +1441,7 @@ components:
               * `sellersChat` — Чат с покупателями
               * `brandzone` — Бренд-зона. Публикация изменений
               * `brandzoneSubscribe` — Управление подпиской бренд-зоны
+              * `reportRating` — Отчёт [Оценка товара](https://seller.wildberries.ru/content-ratings)
             enum:
               - balance
               - brands
@@ -1462,6 +1463,7 @@ components:
               - sellersChat
               - brandzone
               - brandzoneSubscribe
+              - reportRating
           disabled:
             type: boolean
             description: |
