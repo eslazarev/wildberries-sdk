@@ -26,13 +26,32 @@ def test_render_operation_contains_core_sections():
         "go": ("ApiV1AccountBalanceGet", "DefaultApi"),
     }
     md = render_operation(_op(), names)
-    assert md.startswith("# Получить баланс продавца")
+    assert "\n# Получить баланс продавца\n" in md
     assert "`GET /api/v1/account/balance`" in md
     assert "Возвращает баланс." in md
     assert "| locale | query |" in md
     assert '=== "Python"' in md
     assert '=== "Rust"' in md
     assert "ApiV1AccountBalanceGet200Response" in md
+
+
+def test_operation_page_has_its_own_meta_description():
+    import yaml
+
+    md = render_operation(_op(), {})
+    assert md.startswith("---\n")
+    front = yaml.safe_load(md.split("---\n")[1])
+    assert front["description"].startswith(
+        "Получить баланс продавца (GET /api/v1/account/balance): ")
+
+
+def test_meta_description_survives_quotes_and_colons():
+    import yaml
+
+    op = _op()
+    op.summary = 'Отчёт "Детализация": по неделям'
+    front = yaml.safe_load(render_operation(op, {}).split("---\n")[1])
+    assert front["description"].startswith('Отчёт "Детализация": по неделям (GET ')
 
 
 def test_render_module_index_lists_operations():

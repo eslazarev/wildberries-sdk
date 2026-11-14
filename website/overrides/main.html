@@ -3,4 +3,59 @@
 {% block extrahead %}
   {{ super() }}
   <link rel="alternate" type="application/atom+xml" title="Изменения API Wildberries" href="{{ config.site_url }}changelog.xml">
+
+  {#- Link previews (Telegram, VK, Slack, X): one card for the whole site, the
+      page's own title and description. Reference pages carry a description in
+      their front matter; the rest fall back to the site's. The 404 page has
+      no page object and gets no card. -#}
+  {%- if page -%}
+  {%- if page.is_homepage -%}
+    {%- set og_title = config.site_name ~ " — клиенты API Wildberries" -%}
+  {%- else -%}
+    {%- set og_title = (page.title | striptags) ~ " — " ~ config.site_name -%}
+  {%- endif -%}
+  {%- set og_description = page.meta.description or config.site_description -%}
+  {%- set og_image = config.site_url ~ "assets/images/social-card.png" %}
+  <meta property="og:type" content="{{ 'website' if page.is_homepage else 'article' }}">
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="{{ og_title }}">
+  <meta property="og:description" content="{{ og_description }}">
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  <meta property="og:image" content="{{ og_image }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wildberries SDK: клиенты API для Python, Node.js, Go, PHP и Rust">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ og_title }}">
+  <meta name="twitter:description" content="{{ og_description }}">
+  <meta name="twitter:image" content="{{ og_image }}">
+
+  {%- if page.is_homepage %}
+  <script type="application/ld+json">
+  {{ {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": config.site_name,
+    "description": "Клиенты API Wildberries для Python, Node.js, Go, PHP и Rust, сгенерированные из официальных OpenAPI-спецификаций и обновляемые при каждом их изменении.",
+    "url": config.site_url,
+    "codeRepository": config.repo_url,
+    "programmingLanguage": ["Python", "TypeScript", "Go", "PHP", "Rust"],
+    "license": "https://opensource.org/licenses/MIT",
+    "inLanguage": "ru",
+    "keywords": "wildberries, wildberries api, вайлдберриз, wb api, sdk, openapi, маркетплейс",
+    "image": og_image,
+    "author": {"@type": "Person", "name": "Evgenii Lazarev", "url": "https://github.com/eslazarev"},
+    "sameAs": [
+      "https://pypi.org/project/wildberries-sdk/",
+      "https://www.npmjs.com/package/wildberries-sdk",
+      "https://packagist.org/packages/eslazarev/wildberries-sdk",
+      "https://pkg.go.dev/github.com/eslazarev/wildberries-sdk",
+      "https://t.me/wildberries_api_radar"
+    ]
+  } | tojson }}
+  </script>
+  {%- endif %}
+  {%- endif %}
 {% endblock %}

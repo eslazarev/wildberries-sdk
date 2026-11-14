@@ -2,6 +2,44 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-11-14",
+      "anchor": "changed-20261114",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261114",
+      "sections": [
+        "Авторизация",
+        "Товары (Контент)",
+        "Заказы FBS",
+        "Заказы FBW (Поставки)",
+        "Аналитика"
+      ],
+      "changes": [
+        {
+          "section": "Авторизация",
+          "text": "обновлено описание типов токенов/правил использования (технических изменений API-методов нет)"
+        },
+        {
+          "section": "Товары (Контент)",
+          "text": "снижены лимиты запросов для одного из методов — 100→80 запросов/мин, интервал 600→750 мс (burst 5 без изменений)"
+        },
+        {
+          "section": "Товары (Контент)",
+          "text": "снижены лимиты запросов для одного из методов — 10→8 запросов/мин, интервал 6 сек→7500 мс (burst 5 без изменений)"
+        },
+        {
+          "section": "Заказы FBS",
+          "text": "в ответе поле `stickers` (array) помечено как `nullable: true` — теперь может возвращаться `null`"
+        },
+        {
+          "section": "Заказы FBW (Поставки)",
+          "text": "в описании раздела добавлено упоминание управления черновиками поставок (`supplyDrafts`) (новых/удалённых endpoint’ов в диффе не показано)"
+        },
+        {
+          "section": "Аналитика",
+          "text": "для CSV-отчёта `SEARCH_QUERIES_PREMIUM_REPORT_TEXT` удалены поля `OpenCardPercentile`, `AddToCartPercentile`, `OpenToCartPercentile`, `OrdersPercentile`, `CartToOrderPercentile` (обновлены описание и пример CSV)"
+        }
+      ]
+    },
+    {
       "date": "2026-11-13",
       "anchor": "changed-20261113",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261113",

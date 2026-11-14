@@ -4058,6 +4058,7 @@ paths:
                 properties:
                   stickers:
                     type: array
+                    nullable: true
                     items:
                       $ref: '#/components/schemas/TrbxStickers'
         '400':
