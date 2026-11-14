@@ -665,13 +665,22 @@ def ensure_cargo_metadata(root):
     if package_start is None:
         return
 
-    desired_description = "Wildberries OpenAPI client (generated)."
+    module = (crate_name or "").replace("wildberries_sdk_", "", 1)
+    desired_description = (
+        f"Wildberries API SDK for Rust, {module} module: typed client for the "
+        "Wildberries seller API, regenerated from the official OpenAPI spec."
+    )
     desired_license = "MIT"
     desired_repo = "https://github.com/eslazarev/wildberries-sdk"
-    desired_homepage = desired_repo
+    desired_homepage = "https://eslazarev.github.io/wildberries-sdk/"
     desired_doc = f"https://docs.rs/{crate_name}" if crate_name else None
+    # crates.io allows at most five keywords (ASCII, 20 chars) and only the
+    # category slugs it lists at https://crates.io/category_slugs.
+    desired_keywords = 'keywords = ["wildberries", "wb", "marketplace", "api-client", "openapi"]'
+    desired_categories = 'categories = ["api-bindings", "web-programming::http-client"]'
 
-    found = {"description": False, "license": False, "repository": False, "homepage": False, "documentation": False}
+    found = {"description": False, "license": False, "repository": False, "homepage": False,
+             "documentation": False, "keywords": False, "categories": False}
     for idx in range(package_start + 1, package_end):
         line = lines[idx]
         if line.strip().startswith("description ="):
@@ -689,6 +698,12 @@ def ensure_cargo_metadata(root):
         elif line.strip().startswith("documentation =") and desired_doc:
             lines[idx] = f'documentation = "{desired_doc}"'
             found["documentation"] = True
+        elif line.strip().startswith("keywords ="):
+            lines[idx] = desired_keywords
+            found["keywords"] = True
+        elif line.strip().startswith("categories ="):
+            lines[idx] = desired_categories
+            found["categories"] = True
 
     insert_at = package_start + 1
     for idx in range(package_start + 1, package_end):
@@ -708,6 +723,8 @@ def ensure_cargo_metadata(root):
     insert_if_missing("homepage", f'homepage = "{desired_homepage}"')
     if desired_doc:
         insert_if_missing("documentation", f'documentation = "{desired_doc}"')
+    insert_if_missing("keywords", desired_keywords)
+    insert_if_missing("categories", desired_categories)
 
     cargo.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

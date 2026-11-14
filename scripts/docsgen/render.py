@@ -1,6 +1,7 @@
 """Render Markdown pages for operations and module indexes."""
 from __future__ import annotations
 
+import json
 import re
 from typing import Dict, List, Optional
 
@@ -70,9 +71,19 @@ def _params_table(op: Operation) -> str:
     return "\n".join(rows) + "\n"
 
 
+def page_description(op: Operation) -> str:
+    """The page's own meta description: search snippets and link previews."""
+    endpoint = f"{op.verb} {op.path}"
+    lead = f"{op.summary} ({endpoint})" if op.summary else endpoint
+    return f"{lead}: пример вызова API Wildberries на Python, Node.js, Go, PHP и Rust."
+
+
 def render_operation(op: Operation, names: Dict[str, Optional[str]]) -> str:
     title = op.summary or f"{op.verb} {op.path}"
-    parts: List[str] = [f"# {title}", "", f"`{op.verb} {op.path}`", ""]
+    # A JSON string is a valid YAML double-quoted scalar, so this escapes any
+    # quote or colon a summary may hold.
+    parts: List[str] = ["---", f"description: {json.dumps(page_description(op), ensure_ascii=False)}",
+                        "---", "", f"# {title}", "", f"`{op.verb} {op.path}`", ""]
     if op.description:
         parts += [_enable_markdown_in_divs(_rewrite_wb_links(op.description)), ""]
     table = _params_table(op)

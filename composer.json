@@ -1,19 +1,25 @@
 {
   "name": "eslazarev/wildberries-sdk",
-  "description": "Wildberries OpenAPI clients (generated).",
+  "description": "Wildberries API SDK for PHP: typed clients for the Wildberries seller API, regenerated from the official OpenAPI specs on every change.",
   "license": "MIT",
   "type": "library",
   "homepage": "https://eslazarev.github.io/wildberries-sdk/",
   "keywords": [
     "wildberries",
-    "wb",
     "wildberries-api",
+    "wildberries-sdk",
+    "wb",
+    "wb-api",
+    "seller-api",
+    "marketplace",
+    "ecommerce",
     "api",
     "sdk",
     "openapi",
-    "marketplace",
-    "ecommerce",
-    "вайлдберриз"
+    "api-client",
+    "вайлдберриз",
+    "вб",
+    "php"
   ],
   "require": {
     "php": "^8.1",
