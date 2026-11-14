@@ -28,6 +28,14 @@
 
 После установки агент сам находит нужную операцию среди ~350, подбирает модуль, категорию токена и хост и пишет вызов, который действительно работает. Агентам без Claude Code пригодятся [AGENTS.md](AGENTS.md) в корне и машиночитаемый перечень операций: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
 
+MCP-сервер даёт агенту прямой доступ к API: агент ищет операцию, читает её параметры и вызывает её с вашим токеном. Подключение в Claude Code:
+
+```
+claude mcp add wildberries --env WB_API_TOKEN=<токен> -- uvx wildberries-mcp
+```
+
+Настройка для Cursor, Claude Desktop и других клиентов — в [mcp-server/README.md](mcp-server/README.md).
+
 ## Безопасность
 
 SDK выпускается с security-first процессом:

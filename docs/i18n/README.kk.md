@@ -28,6 +28,14 @@ Claude Code дағдысы бір командамен орнатылады:
 
 Орнатқаннан кейін агент ~350 операцияның ішінен керегін өзі табады, модульді, токен санатын және хостты таңдайды және шынымен жұмыс істейтін шақыру жазады. Claude Code-тан тыс агенттерге репозиторий түбіндегі [AGENTS.md](../../AGENTS.md) және операциялардың машинамен оқылатын тізімі керек: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
 
+MCP-сервер агентке API-ға тікелей қол жеткізу береді: агент операцияны табады, оның параметрлерін оқиды және сіздің токеніңізбен шақырады. Claude Code-та:
+
+```
+claude mcp add wildberries --env WB_API_TOKEN=<токен> -- uvx wildberries-mcp
+```
+
+Cursor, Claude Desktop және басқа клиенттерге баптау: [mcp-server/README.md](../../mcp-server/README.md).
+
 ## Қауіпсіздік
 
 Бұл SDK қауіпсіздік басымдықты шығарылым процесімен жасалған:

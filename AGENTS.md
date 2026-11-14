@@ -9,6 +9,11 @@ marketplace API. They are **generated** from the OpenAPI specs in `specs/` by
 openapi-generator and republished whenever Wildberries changes a spec, which
 happens a few times a week.
 
+`mcp-server/` is the `wildberries-mcp` package: an MCP server that lets AI agents
+search, describe and call every operation through the Python SDK. It holds no
+copy of the API: it reads the operations from the installed `wildberries-sdk`
+source, so it changes only when its own code does.
+
 ## The one rule that matters
 
 **Never hand-edit anything under `clients/`.** Every file there is regenerated
@@ -33,6 +38,7 @@ the directory only if you really mean to override them.
 | `.github/images/release-cadence-*.svg`, `data/releases.json`, `data/changelog.json` | `README.md`, `docs/i18n/README.*.md`, root `llms.txt` |
 | `CHANGELOG.md` | `scripts/**`, `tests/**` |
 | | `skills/**`, `.claude-plugin/**`, `.devin/wiki.json`, `context7.json` |
+| | `mcp-server/**` (its `version` and SDK pin are bumped by `scripts/bump-version.sh`) |
 
 Generated files under `website/docs/` are gitignored and rebuilt in CI; the rest
 are committed so the README renders on GitHub and the registries.
@@ -45,6 +51,7 @@ python scripts/build-docs-site.py                 # generate reference pages + l
 mkdocs build --strict -f website/mkdocs.yml       # build the site (pip install -r website/requirements.txt)
 python scripts/generate-release-chart.py          # 12 release-cadence SVGs + data/releases.json
 python scripts/generate-changelog-data.py         # data/changelog.json from CHANGELOG.md
+python -m build mcp-server                        # the wildberries-mcp package (its tests need `pip install mcp`, Python 3.10+)
 bash scripts/generate-python-methods-list.sh      # refresh one README's method list (same for npm/go/php/rust)
 ```
 
@@ -70,7 +77,8 @@ time. Write new tests the same way, or they will rot at the next spec update.
   PR when something changed.
 - `generate-clients.yml` — on push to `main`: regenerate clients, bump version,
   update method lists, commit, tag, publish to PyPI, npm, Packagist and
-  crates.io, cut a GitHub Release, refresh the release chart.
+  crates.io, cut a GitHub Release, refresh the release chart. `wildberries-mcp`
+  goes to PyPI right after the SDK, at the same version and pinned to it.
   A parallel `announce` job posts the `CHANGELOG.md` entries the push added to
   the Telegram channel @wildberries_api_radar (`scripts/changelog_post.py`).
 - `deploy-docs.yml` — builds and deploys the MkDocs site to GitHub Pages.

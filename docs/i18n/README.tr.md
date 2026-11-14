@@ -28,6 +28,14 @@ Claude Code becerisi tek komutla kurulur:
 
 Kurulumdan sonra ajan ~350 operasyon arasından doğru olanı bulur; modülü, token kategorisini ve host'u seçer ve gerçekten çalışan bir çağrı yazar. Claude Code dışındaki ajanlar için depo kökündeki [AGENTS.md](../../AGENTS.md) ve makine tarafından okunabilir operasyon dizini vardır: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
 
+MCP sunucusu ajana API'ye doğrudan erişim verir: ajan operasyonu bulur, parametrelerini okur ve sizin token'ınızla çağırır. Claude Code'da:
+
+```
+claude mcp add wildberries --env WB_API_TOKEN=<token> -- uvx wildberries-mcp
+```
+
+Cursor, Claude Desktop ve diğer istemciler için kurulum: [mcp-server/README.md](../../mcp-server/README.md).
+
 ## Güvenlik
 
 Bu SDK güvenlik öncelikli bir sürüm süreciyle yayınlanır:

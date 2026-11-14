@@ -28,6 +28,14 @@ Install the Claude Code skill with a single command:
 
 The agent then finds the right operation among ~350 of them, picks the module, the token category and the host, and writes a call that actually runs. Agents outside Claude Code can read [AGENTS.md](../../AGENTS.md) in the repository root and the machine-readable operation index: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
 
+The MCP server gives an agent direct access to the API: the agent finds an operation, reads its parameters and calls it with your token. In Claude Code:
+
+```
+claude mcp add wildberries --env WB_API_TOKEN=<token> -- uvx wildberries-mcp
+```
+
+Setup for Cursor, Claude Desktop and other clients: [mcp-server/README.md](../../mcp-server/README.md).
+
 ## Security
 
 This SDK is built with a security-first release process:
