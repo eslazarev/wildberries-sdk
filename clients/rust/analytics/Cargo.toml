@@ -1,6 +1,6 @@
 [package]
 name = "wildberries_sdk_analytics"
-version = "0.1.188"
+version = "0.1.189"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "Wildberries API SDK for Rust, analytics module: typed client for the Wildberries seller API, regenerated from the official OpenAPI spec."
 repository = "https://github.com/eslazarev/wildberries-sdk"
