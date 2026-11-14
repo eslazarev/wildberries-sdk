@@ -39,9 +39,9 @@ func NewPostV3SuppliesSupplyIdTrbxStickers200ResponseWithDefaults() *PostV3Suppl
 	return &this
 }
 
-// GetStickers returns the Stickers field value if set, zero value otherwise.
+// GetStickers returns the Stickers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostV3SuppliesSupplyIdTrbxStickers200Response) GetStickers() []TrbxStickers {
-	if o == nil || IsNil(o.Stickers) {
+	if o == nil {
 		var ret []TrbxStickers
 		return ret
 	}
@@ -50,6 +50,7 @@ func (o *PostV3SuppliesSupplyIdTrbxStickers200Response) GetStickers() []TrbxStic
 
 // GetStickersOk returns a tuple with the Stickers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostV3SuppliesSupplyIdTrbxStickers200Response) GetStickersOk() ([]TrbxStickers, bool) {
 	if o == nil || IsNil(o.Stickers) {
 		return nil, false
@@ -81,7 +82,7 @@ func (o PostV3SuppliesSupplyIdTrbxStickers200Response) MarshalJSON() ([]byte, er
 
 func (o PostV3SuppliesSupplyIdTrbxStickers200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Stickers) {
+	if o.Stickers != nil {
 		toSerialize["stickers"] = o.Stickers
 	}
 	return toSerialize, nil

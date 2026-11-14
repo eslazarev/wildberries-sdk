@@ -1242,61 +1242,53 @@ paths:
                   и, из которых пользователи добавляли товар в корзину или переход\
                   или в его карточку |\n| OpenCard | integer | uint64 | Количество\
                   \ открытий карточки товара из поисковой выдачи в текущий период\
-                  \ |\n| OpenCardPercentile | float | float64 | Поле будет отключе\
-                  но [12 октября](https://dev.wildberries.ru/release-notes?id=589)\
                   \ |\n| AddToCart | integer | uint64 | Количество добавлений това\
-                  ра в корзину из поисковой выдачи в текущий период |\n| AddToCartPercentile\
-                  \ | float | float64 | Поле будет отключено [12 октября](https://dev.wildberries.ru/release-notes?id=589)\
-                  \ |\n| OpenToCart | integer | uint64 | Конверсия в корзину из по\
-                  иска в текущий период, % |\n| OpenToCartPercentile\t| float\t| float64\t\
-                  | Поле будет отключено [12 октября](https://dev.wildberries.ru/release-notes?id=589)\
-                  \ |\n| Orders | integer | uint64 | Заказали товар из поиска в те\
-                  кущий период |\n| OrdersPercentile | float | float64 | Поле буде\
-                  т отключено [12 октября](https://dev.wildberries.ru/release-notes?id=589)\
-                  \ |\n| CartToOrder | integer | uint64 | Конверсия в заказ из пои\
-                  ска в текущий период, % |\n| CartToOrderPercentile | float | float64\
-                  \ | Поле будет отключено [12 октября](https://dev.wildberries.ru/release-notes?id=589)\
-                  \ |\n| Visibility | integer | uint64 | Видимость товара в поиске\
-                  \ в текущий период. Процент вероятности, что пользователь увидит\
-                  \ карточку товара. Зависит от средней позиции |\n| FrequencyPast\
-                  \ | integer | uint64 | Количество обращений с поисковым запросом\
-                  \ за предыдущий период (заполняется, если указан прошлый период\
-                  ) |\n| MedianPositionPast | float | float64 | Медианная позиция\
-                  \ товара в поиске за предыдущий период (заполняется, если указан\
-                  \ прошлый период) |\n| AveragePositionPast | integer | uint64 |\
-                  \ Средняя позиция товара в поиске в предыдущий период (заполняет\
-                  ся, если указан прошлый период) |\n| OpenCardPast | integer | uint64\
-                  \ | Количество открытий карточки товара из поисковой выдачи в пр\
-                  едыдущий период (заполняется, если указан прошлый период) |\n| AddToCartPast\
-                  \ | integer | uint64 | Количество добавлений товара в корзину в\
-                  \ предыдущий период (заполняется, если указан прошлый период) |\n\
-                  | OpenToCartPast | integer | uint64 | Конверсия в корзину из пои\
-                  ска в предыдущий период (заполняется, если указан прошлый период\
-                  ) |\n| OrdersPast | integer | uint64 | Заказали товар из поиска\
-                  \ в предыдущий период (заполняется, если указан прошлый период)\
-                  \ |\n| CartToOrderPast | integer | uint64 | Конверсия в заказ из\
-                  \ поиска в предыдущий период (заполняется, если указан прошлый п\
-                  ериод), % |\n| VisibilityPast | integer | uint64 | Видимость тов\
-                  ара в поиске в предыдущий период. Процент вероятности, что польз\
-                  ователь увидит карточку товара. Зависит от средней позиции (запо\
-                  лняется, если указан прошлый период), % |\n| Currency | string |\
-                  \ string | Валюта отчёта |\n\n\n**Отчёт по статистике остатков**\
-                  \ — `STOCK_HISTORY_REPORT_CSV`\n\n| Имя | Поле | Формат | Описан\
-                  ие |\n|-----------------| --- | --- | --- |\n| VendorCode | string\
-                  \ | string | Артикул продавца |\n| Name | string\t| string | Наз\
-                  вание товара |\n| NmID | integer | int64 | Артикул WB |\n| SubjectName\
-                  \ | string\t| string | Название предмета |\n| BrandName | string\
-                  \ | string  | Бренд |\n| SizeName | string\t| string | Название\
-                  \ размера |\n| ChrtID | integer | uint64 | ID размера |\n| RegionName\
-                  \ | string\t| string | [Страна отгрузки](/release-notes?id=605)\
-                  \ |\n| OfficeName | string\t| string | [Название склада](/release-notes?id=605)\
-                  \ |\n| Availability | string\t| enum | Доступность товара |\n| OrdersCount\
-                  \ | integer\t| uint64 | Заказы, шт. |\n| OrdersSum | integer\t|\
-                  \ uint64 | Заказы, сумма |\n| BuyoutCount | integer\t| uint64 |\
-                  \ Выкупы, шт. |\n| BuyoutSum | integer\t| uint64 | Выкупы, сумма\
-                  \ |\n| BuyoutPercent | integer\t| uint32 | Процент выкупа |\n| AvgOrders\
-                  \ | number\t| float64 | Среднее количество заказов в день |\n| StockCount\
-                  \ | integer\t| uint64 | Остатки на текущий день, шт. |\n| StockSum\
+                  ра в корзину из поисковой выдачи в текущий период |\n| OpenToCart\
+                  \ | integer | uint64 | Конверсия в корзину из поиска в текущий п\
+                  ериод, % |\n| Orders | integer | uint64 | Заказали товар из поис\
+                  ка в текущий период |\n| CartToOrder | integer | uint64 | Конвер\
+                  сия в заказ из поиска в текущий период, % |\n| Visibility | integer\
+                  \ | uint64 | Видимость товара в поиске в текущий период. Процент\
+                  \ вероятности, что пользователь увидит карточку товара. Зависит\
+                  \ от средней позиции |\n| FrequencyPast | integer | uint64 | Кол\
+                  ичество обращений с поисковым запросом за предыдущий период (зап\
+                  олняется, если указан прошлый период) |\n| MedianPositionPast |\
+                  \ float | float64 | Медианная позиция товара в поиске за предыду\
+                  щий период (заполняется, если указан прошлый период) |\n| AveragePositionPast\
+                  \ | integer | uint64 | Средняя позиция товара в поиске в предыду\
+                  щий период (заполняется, если указан прошлый период) |\n| OpenCardPast\
+                  \ | integer | uint64 | Количество открытий карточки товара из по\
+                  исковой выдачи в предыдущий период (заполняется, если указан про\
+                  шлый период) |\n| AddToCartPast | integer | uint64 | Количество\
+                  \ добавлений товара в корзину в предыдущий период (заполняется,\
+                  \ если указан прошлый период) |\n| OpenToCartPast | integer | uint64\
+                  \ | Конверсия в корзину из поиска в предыдущий период (заполняет\
+                  ся, если указан прошлый период) |\n| OrdersPast | integer | uint64\
+                  \ | Заказали товар из поиска в предыдущий период (заполняется, е\
+                  сли указан прошлый период) |\n| CartToOrderPast | integer | uint64\
+                  \ | Конверсия в заказ из поиска в предыдущий период (заполняется\
+                  , если указан прошлый период), % |\n| VisibilityPast | integer |\
+                  \ uint64 | Видимость товара в поиске в предыдущий период. Процен\
+                  т вероятности, что пользователь увидит карточку товара. Зависит\
+                  \ от средней позиции (заполняется, если указан прошлый период),\
+                  \ % |\n| Currency | string | string | Валюта отчёта |\n\n\n**Отч\
+                  ёт по статистике остатков** — `STOCK_HISTORY_REPORT_CSV`\n\n| Им\
+                  я | Поле | Формат | Описание |\n|-----------------| --- | --- |\
+                  \ --- |\n| VendorCode | string | string | Артикул продавца |\n|\
+                  \ Name | string\t| string | Название товара |\n| NmID | integer\
+                  \ | int64 | Артикул WB |\n| SubjectName | string\t| string | Наз\
+                  вание предмета |\n| BrandName | string | string  | Бренд |\n| SizeName\
+                  \ | string\t| string | Название размера |\n| ChrtID | integer |\
+                  \ uint64 | ID размера |\n| RegionName | string\t| string | [Стра\
+                  на отгрузки](/release-notes?id=605) |\n| OfficeName | string\t|\
+                  \ string | [Название склада](/release-notes?id=605) |\n| Availability\
+                  \ | string\t| enum | Доступность товара |\n| OrdersCount | integer\t\
+                  | uint64 | Заказы, шт. |\n| OrdersSum | integer\t| uint64 | Зака\
+                  зы, сумма |\n| BuyoutCount | integer\t| uint64 | Выкупы, шт. |\n\
+                  | BuyoutSum | integer\t| uint64 | Выкупы, сумма |\n| BuyoutPercent\
+                  \ | integer\t| uint32 | Процент выкупа |\n| AvgOrders | number\t\
+                  | float64 | Среднее количество заказов в день |\n| StockCount |\
+                  \ integer\t| uint64 | Остатки на текущий день, шт. |\n| StockSum\
                   \ | integer\t| uint64 | Стоимость остатков на текущий день |\n|\
                   \ SaleRate | integer\t| int32 | Оборачиваемость текущих остатков\
                   \ в часах |\n| AvgStockTurnover | integer\t| int32 | Оборачиваем\
@@ -2794,14 +2786,14 @@ components:
     SearchReportTextRes:
       description: ""
       value: |
-        Text,NmID,SubjectName,BrandName,VendorCode,Name,Rating,FeedbackRating,MinPrice,MaxPrice,Frequency,MedianPosition,AveragePosition,OpenCard,OpenCardPercentile,AddToCart,AddToCartPercentile,OpenToCart,OpenToCartPercentile,Orders,OrdersPercentile,CartToOrder,CartToOrderPercentile,Visibility,FrequencyPast,MedianPositionPast,AveragePositionPast,OpenCardPast,AddToCartPast,OpenToCartPast,OrdersPast,CartToOrderPast,VisibilityPast,Currency
-        267945415,267945415,Термокомплекты для малышей,Lopsa,wb44h5ku68,1,5.5,0.0,47,47,156,1,1,235,100,98,100,42,100,0,100,0,100,100,15,1,1,19,16,84,0,0,100,RUB
-        термобелье мужское,267945415,Термокомплекты для малышей,Lopsa,wb44h5ku68,1,5.5,0.0,47,47,52633,2,2,5,0,0,0,0,0,0,0,0,0,100,49975,0,0,0,0,0,0,0,0,RUB
-        267945415,296070764,Термокомплекты для малышей,Lopsa,wb51k31eyg,2,1.5,0.0,88,88,156,1,1,82,100,22,100,27,100,0,100,0,100,100,15,5,5,1,1,100,0,0,100,RUB
-        термобелье мужское,296070764,Термокомплекты для малышей,Lopsa,wb51k31eyg,2,1.5,0.0,88,88,52633,3,3,2,0,0,0,0,0,0,0,0,0,100,49975,0,0,0,0,0,0,0,0,RUB
-        211131895,211131895,Костюмы,H&M,wb51k31eyg,костюм,10.0,5.0,102,102,36,1,1,44,100,6,100,14,0,5,100,83,100,100,0,0,0,0,0,0,0,0,0,RUB
-        221411786,211131895,Костюмы,H&M,wb51k31eyg,костюм,10.0,5.0,102,102,19,1,1,2,11,0,0,0,0,0,0,0,0,100,3,0,0,0,0,0,0,0,0
-        женские блузки,211131895,Костюмы,H&M,wb51k31eyg,костюм,10.0,5.0,102,102,38383,14,14,1,0,0,0,0,0,0,0,0,0,79,29764,0,0,0,0,0,0,0,0,RUB
+        Text,NmID,SubjectName,BrandName,VendorCode,Name,Rating,FeedbackRating,MinPrice,MaxPrice,Frequency,MedianPosition,AveragePosition,OpenCard,AddToCart,OpenToCart,Orders,CartToOrder,Visibility,FrequencyPast,MedianPositionPast,AveragePositionPast,OpenCardPast,AddToCartPast,OpenToCartPast,OrdersPast,CartToOrderPast,VisibilityPast,Currency
+        267945415,267945415,Термокомплекты для малышей,Lopsa,wb44h5ku68,1,5.5,0.0,47,47,156,1,1,235,98,42,0,0,100,15,1,1,19,16,84,0,0,100,RUB
+        термобелье мужское,267945415,Термокомплекты для малышей,Lopsa,wb44h5ku68,1,5.5,0.0,47,47,52633,2,2,5,0,0,0,0,0,100,49975,0,0,0,0,0,0,0,0,RUB
+        267945415,296070764,Термокомплекты для малышей,Lopsa,wb51k31eyg,2,1.5,0.0,88,88,156,1,1,82,22,27,0,0,100,15,5,5,1,1,100,0,0,100,RUB
+        термобелье мужское,296070764,Термокомплекты для малышей,Lopsa,wb51k31eyg,2,1.5,0.0,88,88,52633,3,3,2,0,0,0,0,0,100,49975,0,0,0,0,0,0,0,0,RUB
+        211131895,211131895,Костюмы,H&M,wb51k31eyg,костюм,10.0,5.0,102,102,36,1,1,44,6,14,5,83,100,0,0,0,0,0,0,0,0,0,RUB
+        221411786,211131895,Костюмы,H&M,wb51k31eyg,костюм,10.0,5.0,102,102,19,1,1,2,0,0,0,0,0,100,3,0,0,0,0,0,0,0,0
+        женские блузки,211131895,Костюмы,H&M,wb51k31eyg,костюм,10.0,5.0,102,102,38383,14,14,1,0,0,0,0,0,0,0,0,79,29764,0,0,0,0,0,0,0,0,RUB
     InventoryMetricsReportRes:
       description: ""
       value: |

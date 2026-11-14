@@ -77,7 +77,7 @@ class PostV3SuppliesSupplyIdTrbxStickers200Response implements ModelInterface, A
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'stickers' => false
+        'stickers' => true
     ];
 
     /**
@@ -309,7 +309,14 @@ class PostV3SuppliesSupplyIdTrbxStickers200Response implements ModelInterface, A
     public function setStickers($stickers)
     {
         if (is_null($stickers)) {
-            throw new \InvalidArgumentException('non-nullable stickers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'stickers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('stickers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['stickers'] = $stickers;
 

@@ -7,9 +7,10 @@ info:
 
     <div class="api-block">
 
-    В разделе описаны методы получения:
-      - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies)
-      - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation)
+    С помощью методов этого раздела вы можете:
+      - получить [информацию для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies)
+      - получить [информацию о поставках](/openapi/orders-fbw#tag/suppliesInformation)
+      - управлять [черновиками поставок](/openapi/orders-fbw#tag/supplyDrafts)
 
     </div>
   title: Поставки FBW

@@ -9481,6 +9481,7 @@ components:
         stickers:
           items:
             $ref: "#/components/schemas/TrbxStickers"
+          nullable: true
           type: array
       type: object
     putV3FbsSuppliesSupplyIdSpot_request:

@@ -1,11 +1,13 @@
 [package]
 name = "wildberries_sdk_finances"
-version = "0.1.187"
+version = "0.1.188"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
-description = "Wildberries OpenAPI client (generated)."
+description = "Wildberries API SDK for Rust, finances module: typed client for the Wildberries seller API, regenerated from the official OpenAPI spec."
 repository = "https://github.com/eslazarev/wildberries-sdk"
-homepage = "https://github.com/eslazarev/wildberries-sdk"
+homepage = "https://eslazarev.github.io/wildberries-sdk/"
 documentation = "https://docs.rs/wildberries_sdk_finances"
+keywords = ["wildberries", "wb", "marketplace", "api-client", "openapi"]
+categories = ["api-bindings", "web-programming::http-client"]
 # Override this license by providing a License Object in the OpenAPI.
 license = "MIT"
 edition = "2021"

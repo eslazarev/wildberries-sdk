@@ -30,7 +30,7 @@ export interface PostV3SuppliesSupplyIdTrbxStickers200Response {
     /**
      * 
      */
-    stickers?: Array<TrbxStickers>;
+    stickers?: Array<TrbxStickers> | null;
 }
 
 /**
@@ -50,7 +50,7 @@ export function PostV3SuppliesSupplyIdTrbxStickers200ResponseFromJSONTyped(json:
     }
     return {
         
-        'stickers': json['stickers'] == null ? undefined : ((json['stickers'] as Array<any>).map(TrbxStickersFromJSON)),
+        'stickers': json['stickers'] === undefined ? undefined : json['stickers'] === null ? null : ((json['stickers'] as Array<any>).map(TrbxStickersFromJSON)),
     };
 }
 
