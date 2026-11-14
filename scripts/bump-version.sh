@@ -37,5 +37,15 @@ awk -v new_version="${next}" '
 
 mv "${PYPROJECT}.tmp" "${PYPROJECT}"
 
+# The MCP server ships in lockstep: same version, pinned to this exact SDK,
+# because it reads its operations from the SDK release it depends on.
+MCP_PYPROJECT="${ROOT_DIR}/mcp-server/pyproject.toml"
+if [[ -f "${MCP_PYPROJECT}" ]]; then
+  sed -e "s/^version = \".*\"/version = \"${next}\"/" \
+      -e "s/\"wildberries-sdk==[^\"]*\"/\"wildberries-sdk==${next}\"/" \
+      "${MCP_PYPROJECT}" > "${MCP_PYPROJECT}.tmp"
+  mv "${MCP_PYPROJECT}.tmp" "${MCP_PYPROJECT}"
+fi
+
 echo "Bumped version: ${current} -> ${next}" >&2
 echo "${next}"

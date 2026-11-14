@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68,<77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wildberries-mcp"
+# Kept equal to the SDK release by scripts/bump-version.sh: the server reads
+# its operations from that exact wildberries-sdk, so the two move together.
+version = "0.1.188"
+description = "MCP server for the Wildberries seller API: AI agents search, describe and call every operation through wildberries-sdk."
+keywords = ["wildberries", "wildberries-api", "mcp", "mcp-server", "model-context-protocol", "wb", "wb-api", "seller-api", "marketplace", "ai-agents", "claude", "вайлдберриз"]
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Evgenii Lazarev", email = "elazarev@gmail.com" },
+]
+license = { text = "MIT" }
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: Russian",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Office/Business",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "mcp>=2.3,<3",
+  "wildberries-sdk==0.1.188",
+]
+
+[project.scripts]
+wildberries-mcp = "wildberries_mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/eslazarev/wildberries-sdk/tree/main/mcp-server"
+Documentation = "https://eslazarev.github.io/wildberries-sdk/"
+Source = "https://github.com/eslazarev/wildberries-sdk"
+Issues = "https://github.com/eslazarev/wildberries-sdk/issues"
+Changelog = "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]

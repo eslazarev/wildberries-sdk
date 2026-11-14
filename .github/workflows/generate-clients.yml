@@ -92,7 +92,7 @@ jobs:
       - name: Commit generated clients
         id: commit
         run: |
-          git add pyproject.toml README.md composer.json docs/python/README.md docs/npm/README.md docs/go/README.md docs/php/README.md docs/rust/README.md clients/python clients/npm clients/go clients/php clients/rust src
+          git add pyproject.toml mcp-server/pyproject.toml README.md composer.json docs/python/README.md docs/npm/README.md docs/go/README.md docs/php/README.md docs/rust/README.md clients/python clients/npm clients/go clients/php clients/rust src
           if git diff --cached --quiet; then
             echo "No client changes to commit."
             echo "did_commit=false" >> "$GITHUB_OUTPUT"
@@ -177,6 +177,19 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: /usr/bin/python3 -m twine upload --skip-existing dist/*
+
+      # The MCP server is pinned to the SDK release just uploaded, so it goes up
+      # right after it. Built into its own directory: dist/ feeds the GitHub
+      # Release assets.
+      - name: Upload MCP server to PyPI
+        if: steps.commit.outputs.did_commit == 'true'
+        continue-on-error: true
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          /usr/bin/python3 -m build mcp-server --outdir dist-mcp
+          /usr/bin/python3 -m twine upload --skip-existing dist-mcp/*
 
       - name: Set up Node
         uses: actions/setup-node@v4
