@@ -2132,6 +2132,7 @@ paths:
           in: query
           schema:
             type: string
+            default: archive
             example: active
             enum:
               - active
@@ -2144,6 +2145,7 @@ paths:
           in: query
           schema:
             type: integer
+            default: 1000
             maximum: 1000
             minimum: 0
             format: date
@@ -2153,6 +2155,7 @@ paths:
           in: query
           schema:
             type: integer
+            default: 0
             format: date
             example: 3
           description: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента

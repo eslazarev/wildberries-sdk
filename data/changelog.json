@@ -2,6 +2,43 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-11-18",
+      "anchor": "changed-20261118",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261118",
+      "sections": [
+        "Orders FBS",
+        "Promotion/Реклама (Статистика)",
+        "Promotion/Реклама",
+        "Reports"
+      ],
+      "changes": [
+        {
+          "section": "Orders FBS",
+          "text": "уточнено описание поля рекомендуемой даты отгрузки СГТ — теперь это дата, когда нужно отгрузить сверхгабаритный товар на склад, с указанием часового пояса UTC+3 и ссылкой на инструкцию (поле для `cargoType: 2`)."
+        },
+        {
+          "section": "Promotion/Реклама (Статистика)",
+          "text": "добавлен новый endpoint `GET https://advert-api.wildberries.ru/api/advert/v4/fullstats` — плоская статистика кампаний по `advertIds` (1..50) и диапазону дат (макс. 31 день), для статусов кампаний `7/9/11`; лимиты: personal/service/secret 3 запроса/мин (интервал 20с, всплеск 1), basic 1 запрос/час."
+        },
+        {
+          "section": "Promotion/Реклама (Статистика)",
+          "text": "добавлен новый endpoint `GET https://advert-api.wildberries.ru/api/advert/v0/positions` — медианные позиции карточек в поисковой выдаче и распределение показов/кликов по диапазонам позиций; параметры `advertIds` (до 50), опционально `nmIds`, `beginDate/endDate`; доступ только для токенов personal/service; лимит 10 запросов/мин (интервал 6с, всплеск 1)."
+        },
+        {
+          "section": "Promotion/Реклама (Статистика)",
+          "text": "добавлены новые схемы ответов `V4FullStatsResponse/Row` (в т.ч. `placement`, `conversionType`, `avgPos`) и `V0PositionsResponse/Row/Range`; добавлены примеры ошибок 400 для некорректных `advertIds/beginDate/endDate` и пример успешного ответа для `v4/fullstats`."
+        },
+        {
+          "section": "Promotion/Реклама",
+          "text": "массово обновлены описания полей в статистических моделях (терминология): `atbs` → «Сколько раз товар добавили в корзину», `ctr` → «Кликабельность… %», `canceled` → «Количество отмен», `cr` → описание без аббревиатуры."
+        },
+        {
+          "section": "Reports",
+          "text": "для параметров запроса добавлены значения по умолчанию — `status=archive`, `take=1000`, `skip=0`."
+        }
+      ]
+    },
+    {
       "date": "2026-11-14",
       "anchor": "changed-20261114",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261114",
