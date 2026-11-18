@@ -275,6 +275,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.GetV0DailyLimits` — `GET /api/advert/v0/daily-limits` — Получить настройки дневных лимитов кампаний
 - `promotion.DefaultApiService.GetV0Delete` — `GET /adv/v0/delete` — Удаление кампании
 - `promotion.DefaultApiService.GetV0Pause` — `GET /adv/v0/pause` — Пауза кампании
+- `promotion.DefaultApiService.GetV0Positions` — `GET /api/advert/v0/positions` — Позиции карточек товаров в поисковой выдаче
 - `promotion.DefaultApiService.GetV0Start` — `GET /adv/v0/start` — Запуск кампании
 - `promotion.DefaultApiService.GetV0Stop` — `GET /adv/v0/stop` — Завершение кампании
 - `promotion.DefaultApiService.GetV1Advert` — `GET /adv/v1/advert` — Информация о медиакампании
@@ -293,6 +294,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.GetV2Adverts` — `GET /api/advert/v2/adverts` — Информация о кампаниях
 - `promotion.DefaultApiService.GetV3Adverts` — `GET /api/advert/v3/adverts` — Информация о кампаниях
 - `promotion.DefaultApiService.GetV3Fullstats` — `GET /adv/v3/fullstats` — Статистика кампаний
+- `promotion.DefaultApiService.GetV4Fullstats` — `GET /api/advert/v4/fullstats` — Плоская статистика кампаний
 - `promotion.DefaultApiService.PatchV0AuctionNms` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
 - `promotion.DefaultApiService.PatchV1Bids` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
 - `promotion.DefaultApiService.PostV0NormqueryBids` — `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров

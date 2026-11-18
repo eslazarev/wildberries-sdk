@@ -11,8 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// V3Placements : Место размещения кампании: - `search` - поиск - `recommendations` - рекомендации - `combined` - поиск и рекомендации с единой ставкой 
-/// Место размещения кампании: - `search` - поиск - `recommendations` - рекомендации - `combined` - поиск и рекомендации с единой ставкой 
+/// V3Placements : Место размещения кампании: - `search` — поиск - `recommendations` — рекомендации - `combined` — поиск и рекомендации с единой ставкой 
+/// Место размещения кампании: - `search` — поиск - `recommendations` — рекомендации - `combined` — поиск и рекомендации с единой ставкой 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum V3Placements {
     #[serde(rename = "search")]

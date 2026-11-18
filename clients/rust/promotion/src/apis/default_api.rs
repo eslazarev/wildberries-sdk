@@ -71,6 +71,17 @@ pub enum GetV0PauseError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_v0_positions`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV0PositionsError {
+    Status400(models::StandardizedBatchError),
+    Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
+    Status429(models::GetV1PromotionCount401Response),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_v0_start`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -264,6 +275,17 @@ pub enum GetV3AdvertsError {
 #[serde(untagged)]
 pub enum GetV3FullstatsError {
     Status400(models::FullStatsError),
+    Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1PromotionCount403Response),
+    Status429(models::GetV1PromotionCount401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v4_fullstats`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV4FullstatsError {
+    Status400(models::StandardizedBatchError),
     Status401(models::GetV1PromotionCount401Response),
     Status403(models::GetV1PromotionCount403Response),
     Status429(models::GetV1PromotionCount401Response),
@@ -689,6 +711,66 @@ pub async fn get_v0_pause(configuration: &configuration::Configuration, id: i32)
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV0PauseError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос | </div> 
+pub async fn get_v0_positions(configuration: &configuration::Configuration, advert_ids: Vec<i64>, begin_date: chrono::NaiveDate, end_date: chrono::NaiveDate, nm_ids: Option<Vec<i64>>) -> Result<models::V0PositionsResponse, Error<GetV0PositionsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_advert_ids = advert_ids;
+    let p_query_begin_date = begin_date;
+    let p_query_end_date = end_date;
+    let p_query_nm_ids = nm_ids;
+
+    let uri_str = format!("{}/api/advert/v0/positions", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "csv" {
+        "multi" => req_builder.query(&p_query_advert_ids.into_iter().map(|p| ("advertIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("advertIds", &p_query_advert_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref param_value) = p_query_nm_ids {
+        req_builder = match "csv" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("nmIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("nmIds", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    req_builder = req_builder.query(&[("beginDate", &p_query_begin_date.to_string())]);
+    req_builder = req_builder.query(&[("endDate", &p_query_end_date.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V0PositionsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V0PositionsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV0PositionsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1574,6 +1656,59 @@ pub async fn get_v3_fullstats(configuration: &configuration::Configuration, ids:
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV3FullstatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn get_v4_fullstats(configuration: &configuration::Configuration, advert_ids: Vec<i64>, begin_date: chrono::NaiveDate, end_date: chrono::NaiveDate) -> Result<models::V4FullStatsResponse, Error<GetV4FullstatsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_advert_ids = advert_ids;
+    let p_query_begin_date = begin_date;
+    let p_query_end_date = end_date;
+
+    let uri_str = format!("{}/api/advert/v4/fullstats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "csv" {
+        "multi" => req_builder.query(&p_query_advert_ids.into_iter().map(|p| ("advertIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("advertIds", &p_query_advert_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    req_builder = req_builder.query(&[("beginDate", &p_query_begin_date.to_string())]);
+    req_builder = req_builder.query(&[("endDate", &p_query_end_date.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V4FullStatsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V4FullStatsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV4FullstatsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

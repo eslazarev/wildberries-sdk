@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class V3Placements(str, Enum):
     """
-    Место размещения кампании: - `search` - поиск - `recommendations` - рекомендации - `combined` - поиск и рекомендации с единой ставкой 
+    Место размещения кампании: - `search` — поиск - `recommendations` — рекомендации - `combined` — поиск и рекомендации с единой ставкой 
     """
 
     """

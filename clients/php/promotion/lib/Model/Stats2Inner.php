@@ -391,7 +391,7 @@ class Stats2Inner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets atbs
      *
-     * @param int|null $atbs Количество добавлений товаров в корзину
+     * @param int|null $atbs Сколько раз товар добавили в корзину
      *
      * @return self
      */

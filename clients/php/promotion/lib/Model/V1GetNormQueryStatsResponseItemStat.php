@@ -460,7 +460,7 @@ class V1GetNormQueryStatsResponseItemStat implements ModelInterface, ArrayAccess
     /**
      * Sets atbs
      *
-     * @param int|null $atbs Количество добавлений товаров в корзину
+     * @param int|null $atbs Сколько раз товар добавили в корзину
      *
      * @return self
      */
@@ -514,7 +514,7 @@ class V1GetNormQueryStatsResponseItemStat implements ModelInterface, ArrayAccess
     /**
      * Sets ctr
      *
-     * @param float|null $ctr CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
+     * @param float|null $ctr Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      *
      * @return self
      */

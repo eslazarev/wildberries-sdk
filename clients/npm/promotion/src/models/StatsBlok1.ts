@@ -81,7 +81,7 @@ export interface StatsBlok1 {
      */
     subjectName?: string;
     /**
-     * Количество добавлений товаров в корзину
+     * Сколько раз товар добавили в корзину
      */
     atbs?: number;
     /**

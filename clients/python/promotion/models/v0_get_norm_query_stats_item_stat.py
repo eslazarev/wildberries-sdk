@@ -30,7 +30,7 @@ class V0GetNormQueryStatsItemStat(BaseModel):
     norm_query: Optional[StrictStr] = Field(default=None, description="Поисковый кластер")
     views: Optional[StrictInt] = Field(default=None, description="Количество просмотров.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ")
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
-    atbs: Optional[StrictInt] = Field(default=None, description="Количество добавлений товаров в корзину")
+    atbs: Optional[StrictInt] = Field(default=None, description="Сколько раз товар добавили в корзину")
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
     ctr: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ")
     cpc: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Стоимость одного клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")

@@ -488,7 +488,7 @@ class DaysV3InnerAppsInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets atbs
      *
-     * @param int $atbs Количество добавлений товаров в корзину
+     * @param int $atbs Сколько раз товар добавили в корзину
      *
      * @return self
      */
@@ -515,7 +515,7 @@ class DaysV3InnerAppsInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets canceled
      *
-     * @param int $canceled Отмены, шт.
+     * @param int $canceled Количество отмен
      *
      * @return self
      */
@@ -596,7 +596,7 @@ class DaysV3InnerAppsInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets cr
      *
-     * @param float $cr CR (conversion rate) — отношение количества заказов к общему количеству кликов
+     * @param float $cr Отношение количества заказов к общему количеству кликов
      *
      * @return self
      */
@@ -623,7 +623,7 @@ class DaysV3InnerAppsInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets ctr
      *
-     * @param float $ctr CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+     * @param float $ctr Кликабельность — отношение числа кликов к количеству показов, %
      *
      * @return self
      */

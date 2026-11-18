@@ -23,19 +23,19 @@ var _ MappedNullable = &FullStatsItem{}
 type FullStatsItem struct {
 	// ID кампании
 	AdvertId int32 `json:"advertId"`
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs int32 `json:"atbs"`
 	// Статистика по бустеру
 	BoosterStats []BoosterStatsV3Inner `json:"boosterStats,omitempty"`
-	// Отмены, шт.
+	// Количество отмен
 	Canceled int32 `json:"canceled"`
 	// Количество кликов
 	Clicks int32 `json:"clicks"`
 	// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc float64 `json:"cpc"`
-	// CR (conversion rate) — отношение количества заказов к общему количеству кликов
+	// Отношение количества заказов к общему количеству кликов
 	Cr float64 `json:"cr"`
-	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+	// Кликабельность — отношение числа кликов к количеству показов, %
 	Ctr float64 `json:"ctr"`
 	// Статистика с разбивкой по дням
 	Days []DaysV3Inner `json:"days"`

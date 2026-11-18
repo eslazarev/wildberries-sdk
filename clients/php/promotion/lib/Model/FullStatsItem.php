@@ -470,7 +470,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets atbs
      *
-     * @param int $atbs Количество добавлений товаров в корзину
+     * @param int $atbs Сколько раз товар добавили в корзину
      *
      * @return self
      */
@@ -524,7 +524,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets canceled
      *
-     * @param int $canceled Отмены, шт.
+     * @param int $canceled Количество отмен
      *
      * @return self
      */
@@ -605,7 +605,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cr
      *
-     * @param float $cr CR (conversion rate) — отношение количества заказов к общему количеству кликов
+     * @param float $cr Отношение количества заказов к общему количеству кликов
      *
      * @return self
      */
@@ -632,7 +632,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ctr
      *
-     * @param float $ctr CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+     * @param float $ctr Кликабельность — отношение числа кликов к количеству показов, %
      *
      * @return self
      */

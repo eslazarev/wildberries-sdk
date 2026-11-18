@@ -35,7 +35,7 @@ export interface V0GetNormQueryStatsItemStat {
      */
     clicks?: number;
     /**
-     * Количество добавлений товаров в корзину
+     * Сколько раз товар добавили в корзину
      */
     atbs?: number;
     /**

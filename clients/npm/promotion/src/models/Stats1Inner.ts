@@ -28,7 +28,7 @@ export interface Stats1Inner {
      */
     clicks?: number;
     /**
-     * Количество добавлений товаров в корзину
+     * Сколько раз товар добавили в корзину
      */
     atbs?: number;
     /**

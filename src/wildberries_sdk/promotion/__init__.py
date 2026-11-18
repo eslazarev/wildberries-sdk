@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.189"
+__version__ = "0.1.190"
 
 # Define package exports
 __all__ = [
@@ -167,6 +167,9 @@ __all__ = [
     "V0GetNormQueryStatsRequest",
     "V0GetNormQueryStatsRequestItemsInner",
     "V0GetNormQueryStatsResponse",
+    "V0PositionsRange",
+    "V0PositionsResponse",
+    "V0PositionsRow",
     "V0PutDailyLimitsAdvertResult",
     "V0PutDailyLimitsRequest",
     "V0PutDailyLimitsResponse",
@@ -195,6 +198,10 @@ __all__ = [
     "V3GetAdvertsResponse",
     "V3GetAdvertsRestrictions",
     "V3Placements",
+    "V4FullStatsConversionType",
+    "V4FullStatsPlacement",
+    "V4FullStatsResponse",
+    "V4FullStatsRow",
 ]
 
 # import apis into sdk package
@@ -351,6 +358,9 @@ from wildberries_sdk.promotion.models.v0_get_norm_query_stats_item_stat import V
 from wildberries_sdk.promotion.models.v0_get_norm_query_stats_request import V0GetNormQueryStatsRequest as V0GetNormQueryStatsRequest
 from wildberries_sdk.promotion.models.v0_get_norm_query_stats_request_items_inner import V0GetNormQueryStatsRequestItemsInner as V0GetNormQueryStatsRequestItemsInner
 from wildberries_sdk.promotion.models.v0_get_norm_query_stats_response import V0GetNormQueryStatsResponse as V0GetNormQueryStatsResponse
+from wildberries_sdk.promotion.models.v0_positions_range import V0PositionsRange as V0PositionsRange
+from wildberries_sdk.promotion.models.v0_positions_response import V0PositionsResponse as V0PositionsResponse
+from wildberries_sdk.promotion.models.v0_positions_row import V0PositionsRow as V0PositionsRow
 from wildberries_sdk.promotion.models.v0_put_daily_limits_advert_result import V0PutDailyLimitsAdvertResult as V0PutDailyLimitsAdvertResult
 from wildberries_sdk.promotion.models.v0_put_daily_limits_request import V0PutDailyLimitsRequest as V0PutDailyLimitsRequest
 from wildberries_sdk.promotion.models.v0_put_daily_limits_response import V0PutDailyLimitsResponse as V0PutDailyLimitsResponse
@@ -379,4 +389,8 @@ from wildberries_sdk.promotion.models.v3_get_adverts import V3GetAdverts as V3Ge
 from wildberries_sdk.promotion.models.v3_get_adverts_response import V3GetAdvertsResponse as V3GetAdvertsResponse
 from wildberries_sdk.promotion.models.v3_get_adverts_restrictions import V3GetAdvertsRestrictions as V3GetAdvertsRestrictions
 from wildberries_sdk.promotion.models.v3_placements import V3Placements as V3Placements
+from wildberries_sdk.promotion.models.v4_full_stats_conversion_type import V4FullStatsConversionType as V4FullStatsConversionType
+from wildberries_sdk.promotion.models.v4_full_stats_placement import V4FullStatsPlacement as V4FullStatsPlacement
+from wildberries_sdk.promotion.models.v4_full_stats_response import V4FullStatsResponse as V4FullStatsResponse
+from wildberries_sdk.promotion.models.v4_full_stats_row import V4FullStatsRow as V4FullStatsRow
 

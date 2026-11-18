@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// V3Placements Место размещения кампании: - `search` - поиск - `recommendations` - рекомендации - `combined` - поиск и рекомендации с единой ставкой 
+// V3Placements Место размещения кампании: - `search` — поиск - `recommendations` — рекомендации - `combined` — поиск и рекомендации с единой ставкой 
 type V3Placements string
 
 // List of V3Placements

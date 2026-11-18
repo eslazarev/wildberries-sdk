@@ -29,7 +29,7 @@ class Stats1Inner(BaseModel):
     """ # noqa: E501
     views: Optional[StrictInt] = Field(default=None, description="Количество просмотров")
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
-    atbs: Optional[StrictInt] = Field(default=None, description="Количество добавлений товаров в корзину")
+    atbs: Optional[StrictInt] = Field(default=None, description="Сколько раз товар добавили в корзину")
     ctr: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании ")
     __properties: ClassVar[List[str]] = ["views", "clicks", "atbs", "ctr"]
 

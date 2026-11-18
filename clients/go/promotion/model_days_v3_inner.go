@@ -24,9 +24,9 @@ var _ MappedNullable = &DaysV3Inner{}
 type DaysV3Inner struct {
 	// Блок информации о платформе
 	Apps []DaysV3InnerAppsInner `json:"apps"`
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs int32 `json:"atbs"`
-	// Отмены, шт.
+	// Количество отмен
 	Canceled int32 `json:"canceled"`
 	// Дата, за которую представлены данные
 	Date time.Time `json:"date"`
@@ -36,7 +36,7 @@ type DaysV3Inner struct {
 	Cpc float32 `json:"cpc"`
 	// CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании
 	Cr float32 `json:"cr"`
-	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+	// Кликабельность — отношение числа кликов к количеству показов, %
 	Ctr float32 `json:"ctr"`
 	// Количество заказов
 	Orders int32 `json:"orders"`

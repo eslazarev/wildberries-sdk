@@ -656,7 +656,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets seller_date
      *
-     * @param string|null $seller_date Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. <br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
+     * @param string|null $seller_date Дата, когда [нужно отгрузить](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) сверхгабаритный товар (СГТ) на склад. Часовой пояс — UTC+3.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
      *
      * @return self
      */

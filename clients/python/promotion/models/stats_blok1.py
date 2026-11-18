@@ -41,7 +41,7 @@ class StatsBlok1(BaseModel):
     date_from: Optional[datetime] = Field(default=None, description="Время начала размещения")
     date_to: Optional[datetime] = Field(default=None, description="Время завершения размещения")
     subject_name: Optional[StrictStr] = Field(default=None, description="Родительская категория предмета")
-    atbs: Optional[StrictInt] = Field(default=None, description="Количество добавлений товаров в корзину")
+    atbs: Optional[StrictInt] = Field(default=None, description="Сколько раз товар добавили в корзину")
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
     price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Стоимость размещения")
     cpc: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(cost per click) — цена клика по продвигаемому товару")

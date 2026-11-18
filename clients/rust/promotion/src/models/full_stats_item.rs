@@ -17,13 +17,13 @@ pub struct FullStatsItem {
     /// ID кампании
     #[serde(rename = "advertId")]
     pub advert_id: i32,
-    /// Количество добавлений товаров в корзину
+    /// Сколько раз товар добавили в корзину
     #[serde(rename = "atbs")]
     pub atbs: i32,
     /// Статистика по бустеру
     #[serde(rename = "boosterStats", skip_serializing_if = "Option::is_none")]
     pub booster_stats: Option<Vec<models::BoosterStatsV3Inner>>,
-    /// Отмены, шт.
+    /// Количество отмен
     #[serde(rename = "canceled")]
     pub canceled: i32,
     /// Количество кликов
@@ -32,10 +32,10 @@ pub struct FullStatsItem {
     /// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "cpc")]
     pub cpc: f64,
-    /// CR (conversion rate) — отношение количества заказов к общему количеству кликов
+    /// Отношение количества заказов к общему количеству кликов
     #[serde(rename = "cr")]
     pub cr: f64,
-    /// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+    /// Кликабельность — отношение числа кликов к количеству показов, %
     #[serde(rename = "ctr")]
     pub ctr: f64,
     /// Статистика с разбивкой по дням

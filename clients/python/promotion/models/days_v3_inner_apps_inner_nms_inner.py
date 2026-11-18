@@ -27,12 +27,12 @@ class DaysV3InnerAppsInnerNmsInner(BaseModel):
     """
     DaysV3InnerAppsInnerNmsInner
     """ # noqa: E501
-    atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
-    canceled: StrictInt = Field(description="Отмены, шт.")
+    atbs: StrictInt = Field(description="Сколько раз товар добавили в корзину")
+    canceled: StrictInt = Field(description="Количество отмен")
     clicks: StrictInt = Field(description="Количество кликов")
     cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    cr: Union[StrictFloat, StrictInt] = Field(description="CR (conversion rate) — отношение количества заказов к общему количеству кликов")
-    ctr: Union[StrictFloat, StrictInt] = Field(description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах")
+    cr: Union[StrictFloat, StrictInt] = Field(description="Отношение количества заказов к общему количеству кликов")
+    ctr: Union[StrictFloat, StrictInt] = Field(description="Кликабельность — отношение числа кликов к количеству показов, %")
     name: StrictStr = Field(description="Название товара")
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     orders: StrictInt = Field(description="Количество заказов")

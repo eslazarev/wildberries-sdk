@@ -45,7 +45,7 @@ export interface OrderNew {
      */
     ddate?: string;
     /**
-     * Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. <br>
+     * Дата, когда [нужно отгрузить](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) сверхгабаритный товар (СГТ) на склад. Часовой пояс — UTC+3.<br>
      * Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
      * 
      */

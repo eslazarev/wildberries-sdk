@@ -16,10 +16,10 @@ pub struct DaysV3Inner {
     /// Блок информации о платформе
     #[serde(rename = "apps")]
     pub apps: Vec<models::DaysV3InnerAppsInner>,
-    /// Количество добавлений товаров в корзину
+    /// Сколько раз товар добавили в корзину
     #[serde(rename = "atbs")]
     pub atbs: i32,
-    /// Отмены, шт.
+    /// Количество отмен
     #[serde(rename = "canceled")]
     pub canceled: i32,
     /// Дата, за которую представлены данные
@@ -34,7 +34,7 @@ pub struct DaysV3Inner {
     /// CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании
     #[serde(rename = "cr")]
     pub cr: f64,
-    /// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+    /// Кликабельность — отношение числа кликов к количеству показов, %
     #[serde(rename = "ctr")]
     pub ctr: f64,
     /// Количество заказов

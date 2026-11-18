@@ -20,11 +20,11 @@ import { mapValues } from '../runtime';
  */
 export interface DaysV3InnerAppsInnerNmsInner {
     /**
-     * Количество добавлений товаров в корзину
+     * Сколько раз товар добавили в корзину
      */
     atbs: number;
     /**
-     * Отмены, шт.
+     * Количество отмен
      */
     canceled: number;
     /**
@@ -36,11 +36,11 @@ export interface DaysV3InnerAppsInnerNmsInner {
      */
     cpc: number;
     /**
-     * CR (conversion rate) — отношение количества заказов к общему количеству кликов
+     * Отношение количества заказов к общему количеству кликов
      */
     cr: number;
     /**
-     * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+     * Кликабельность — отношение числа кликов к количеству показов, %
      */
     ctr: number;
     /**

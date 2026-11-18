@@ -19,7 +19,7 @@ pub struct Stats2Inner {
     /// Количество кликов
     #[serde(rename = "clicks", skip_serializing_if = "Option::is_none")]
     pub clicks: Option<i32>,
-    /// Количество добавлений товаров в корзину
+    /// Сколько раз товар добавили в корзину
     #[serde(rename = "atbs", skip_serializing_if = "Option::is_none")]
     pub atbs: Option<i32>,
     /// Количество заказов

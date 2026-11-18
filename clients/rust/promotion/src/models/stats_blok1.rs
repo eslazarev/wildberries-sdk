@@ -49,7 +49,7 @@ pub struct StatsBlok1 {
     /// Родительская категория предмета
     #[serde(rename = "subject_name", skip_serializing_if = "Option::is_none")]
     pub subject_name: Option<String>,
-    /// Количество добавлений товаров в корзину
+    /// Сколько раз товар добавили в корзину
     #[serde(rename = "atbs", skip_serializing_if = "Option::is_none")]
     pub atbs: Option<i32>,
     /// Количество заказов

@@ -287,6 +287,7 @@ print(feedbacks)
 - `promotion.DefaultApi.get_v0_daily_limits` — `GET /api/advert/v0/daily-limits` — Получить настройки дневных лимитов кампаний
 - `promotion.DefaultApi.get_v0_delete` — `GET /adv/v0/delete` — Удаление кампании
 - `promotion.DefaultApi.get_v0_pause` — `GET /adv/v0/pause` — Пауза кампании
+- `promotion.DefaultApi.get_v0_positions` — `GET /api/advert/v0/positions` — Позиции карточек товаров в поисковой выдаче
 - `promotion.DefaultApi.get_v0_start` — `GET /adv/v0/start` — Запуск кампании
 - `promotion.DefaultApi.get_v0_stop` — `GET /adv/v0/stop` — Завершение кампании
 - `promotion.DefaultApi.get_v1_advert` — `GET /adv/v1/advert` — Информация о медиакампании
@@ -305,6 +306,7 @@ print(feedbacks)
 - `promotion.DefaultApi.get_v2_adverts` — `GET /api/advert/v2/adverts` — (Deprecated) Информация о кампаниях
 - `promotion.DefaultApi.get_v3_adverts` — `GET /api/advert/v3/adverts` — Информация о кампаниях
 - `promotion.DefaultApi.get_v3_fullstats` — `GET /adv/v3/fullstats` — Статистика кампаний
+- `promotion.DefaultApi.get_v4_fullstats` — `GET /api/advert/v4/fullstats` — Плоская статистика кампаний
 - `promotion.DefaultApi.patch_v0_auction_nms` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
 - `promotion.DefaultApi.patch_v1_bids` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
 - `promotion.DefaultApi.post_v0_normquery_bids` — `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров

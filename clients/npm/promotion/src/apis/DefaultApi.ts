@@ -289,6 +289,11 @@ import {
     V0GetNormQueryStatsResponseToJSON,
 } from '../models/V0GetNormQueryStatsResponse';
 import {
+    type V0PositionsResponse,
+    V0PositionsResponseFromJSON,
+    V0PositionsResponseToJSON,
+} from '../models/V0PositionsResponse';
+import {
     type V0PutDailyLimitsRequest,
     V0PutDailyLimitsRequestFromJSON,
     V0PutDailyLimitsRequestToJSON,
@@ -348,6 +353,11 @@ import {
     V3GetAdvertsResponseFromJSON,
     V3GetAdvertsResponseToJSON,
 } from '../models/V3GetAdvertsResponse';
+import {
+    type V4FullStatsResponse,
+    V4FullStatsResponseFromJSON,
+    V4FullStatsResponseToJSON,
+} from '../models/V4FullStatsResponse';
 
 export interface DeleteV0NormqueryBidsRequest {
     /**
@@ -386,6 +396,25 @@ export interface GetV0PauseRequest {
      * ID кампании
      */
     id: number;
+}
+
+export interface GetV0PositionsRequest {
+    /**
+     * Список ID рекламных кампаний
+     */
+    advertIds: Array<number>;
+    /**
+     * Дата начала интервала
+     */
+    beginDate: Date;
+    /**
+     * Дата окончания интервала
+     */
+    endDate: Date;
+    /**
+     * Артикулы WB
+     */
+    nmIds?: Array<number>;
 }
 
 export interface GetV0StartRequest {
@@ -618,6 +647,21 @@ export interface GetV3FullstatsRequest {
      * ID кампаний, максимум 50 значений
      */
     ids: string;
+    /**
+     * Дата начала интервала
+     */
+    beginDate: Date;
+    /**
+     * Дата окончания интервала
+     */
+    endDate: Date;
+}
+
+export interface GetV4FullstatsRequest {
+    /**
+     * Список ID рекламных кампаний
+     */
+    advertIds: Array<number>;
     /**
      * Дата начала интервала
      */
@@ -1052,6 +1096,86 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getV0Pause(requestParameters: GetV0PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.getV0PauseRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for getV0Positions without sending the request
+     */
+    async getV0PositionsRequestOpts(requestParameters: GetV0PositionsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['advertIds'] == null) {
+            throw new runtime.RequiredError(
+                'advertIds',
+                'Required parameter "advertIds" was null or undefined when calling getV0Positions().'
+            );
+        }
+
+        if (requestParameters['beginDate'] == null) {
+            throw new runtime.RequiredError(
+                'beginDate',
+                'Required parameter "beginDate" was null or undefined when calling getV0Positions().'
+            );
+        }
+
+        if (requestParameters['endDate'] == null) {
+            throw new runtime.RequiredError(
+                'endDate',
+                'Required parameter "endDate" was null or undefined when calling getV0Positions().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['advertIds'] != null) {
+            queryParameters['advertIds'] = requestParameters['advertIds']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        }
+
+        if (requestParameters['nmIds'] != null) {
+            queryParameters['nmIds'] = requestParameters['nmIds']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        }
+
+        if (requestParameters['beginDate'] != null) {
+            queryParameters['beginDate'] = runtime.serializeDate(requestParameters['beginDate'] as any);
+        }
+
+        if (requestParameters['endDate'] != null) {
+            queryParameters['endDate'] = runtime.serializeDate(requestParameters['endDate'] as any);
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v0/positions`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос | </div> 
+     * Позиции карточек товаров в поисковой выдаче
+     */
+    async getV0PositionsRaw(requestParameters: GetV0PositionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0PositionsResponse>> {
+        const requestOptions = await this.getV0PositionsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V0PositionsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос | </div> 
+     * Позиции карточек товаров в поисковой выдаче
+     */
+    async getV0Positions(requestParameters: GetV0PositionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0PositionsResponse> {
+        const response = await this.getV0PositionsRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
@@ -2099,6 +2223,82 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getV3Fullstats(requestParameters: GetV3FullstatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FullStatsItem>> {
         const response = await this.getV3FullstatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV4Fullstats without sending the request
+     */
+    async getV4FullstatsRequestOpts(requestParameters: GetV4FullstatsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['advertIds'] == null) {
+            throw new runtime.RequiredError(
+                'advertIds',
+                'Required parameter "advertIds" was null or undefined when calling getV4Fullstats().'
+            );
+        }
+
+        if (requestParameters['beginDate'] == null) {
+            throw new runtime.RequiredError(
+                'beginDate',
+                'Required parameter "beginDate" was null or undefined when calling getV4Fullstats().'
+            );
+        }
+
+        if (requestParameters['endDate'] == null) {
+            throw new runtime.RequiredError(
+                'endDate',
+                'Required parameter "endDate" was null or undefined when calling getV4Fullstats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['advertIds'] != null) {
+            queryParameters['advertIds'] = requestParameters['advertIds']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        }
+
+        if (requestParameters['beginDate'] != null) {
+            queryParameters['beginDate'] = runtime.serializeDate(requestParameters['beginDate'] as any);
+        }
+
+        if (requestParameters['endDate'] != null) {
+            queryParameters['endDate'] = runtime.serializeDate(requestParameters['endDate'] as any);
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v4/fullstats`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Плоская статистика кампаний
+     */
+    async getV4FullstatsRaw(requestParameters: GetV4FullstatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V4FullStatsResponse>> {
+        const requestOptions = await this.getV4FullstatsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V4FullStatsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Плоская статистика кампаний
+     */
+    async getV4Fullstats(requestParameters: GetV4FullstatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V4FullStatsResponse> {
+        const response = await this.getV4FullstatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

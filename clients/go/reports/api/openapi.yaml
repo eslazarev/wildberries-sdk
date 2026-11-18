@@ -3295,6 +3295,7 @@ paths:
         name: status
         required: false
         schema:
+          default: archive
           enum:
           - active
           - archive
@@ -3307,6 +3308,7 @@ paths:
         name: limit
         required: false
         schema:
+          default: 1000
           example: 10
           format: date
           maximum: 1000
@@ -3320,6 +3322,7 @@ paths:
         name: offset
         required: false
         schema:
+          default: 0
           example: 3
           format: date
           type: integer

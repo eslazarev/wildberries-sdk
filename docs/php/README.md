@@ -288,6 +288,7 @@ var_dump($response);
 - `promotion.DefaultApi.getV0DailyLimits` — `GET /api/advert/v0/daily-limits` — Получить настройки дневных лимитов кампаний
 - `promotion.DefaultApi.getV0Delete` — `GET /adv/v0/delete` — Удаление кампании
 - `promotion.DefaultApi.getV0Pause` — `GET /adv/v0/pause` — Пауза кампании
+- `promotion.DefaultApi.getV0Positions` — `GET /api/advert/v0/positions` — Позиции карточек товаров в поисковой выдаче
 - `promotion.DefaultApi.getV0Start` — `GET /adv/v0/start` — Запуск кампании
 - `promotion.DefaultApi.getV0Stop` — `GET /adv/v0/stop` — Завершение кампании
 - `promotion.DefaultApi.getV1Advert` — `GET /adv/v1/advert` — Информация о медиакампании
@@ -306,6 +307,7 @@ var_dump($response);
 - `promotion.DefaultApi.getV2Adverts` — `GET /api/advert/v2/adverts` — Информация о кампаниях
 - `promotion.DefaultApi.getV3Adverts` — `GET /api/advert/v3/adverts` — Информация о кампаниях
 - `promotion.DefaultApi.getV3Fullstats` — `GET /adv/v3/fullstats` — Статистика кампаний
+- `promotion.DefaultApi.getV4Fullstats` — `GET /api/advert/v4/fullstats` — Плоская статистика кампаний
 - `promotion.DefaultApi.patchV0AuctionNms` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
 - `promotion.DefaultApi.patchV1Bids` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
 - `promotion.DefaultApi.postV0NormqueryBids` — `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров

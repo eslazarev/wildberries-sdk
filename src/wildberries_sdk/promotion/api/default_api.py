@@ -60,6 +60,7 @@ from wildberries_sdk.promotion.models.v0_get_norm_query_minus_request import V0G
 from wildberries_sdk.promotion.models.v0_get_norm_query_minus_response import V0GetNormQueryMinusResponse
 from wildberries_sdk.promotion.models.v0_get_norm_query_stats_request import V0GetNormQueryStatsRequest
 from wildberries_sdk.promotion.models.v0_get_norm_query_stats_response import V0GetNormQueryStatsResponse
+from wildberries_sdk.promotion.models.v0_positions_response import V0PositionsResponse
 from wildberries_sdk.promotion.models.v0_put_daily_limits_request import V0PutDailyLimitsRequest
 from wildberries_sdk.promotion.models.v0_put_daily_limits_response import V0PutDailyLimitsResponse
 from wildberries_sdk.promotion.models.v0_set_minus_norm_query_request import V0SetMinusNormQueryRequest
@@ -72,6 +73,7 @@ from wildberries_sdk.promotion.models.v2_budget_request import V2BudgetRequest
 from wildberries_sdk.promotion.models.v2_budget_response import V2BudgetResponse
 from wildberries_sdk.promotion.models.v2_get_config_response import V2GetConfigResponse
 from wildberries_sdk.promotion.models.v3_get_adverts_response import V3GetAdvertsResponse
+from wildberries_sdk.promotion.models.v4_full_stats_response import V4FullStatsResponse
 
 from wildberries_sdk.promotion.api_client import ApiClient, RequestSerialized
 from wildberries_sdk.promotion.api_response import ApiResponse
@@ -1504,6 +1506,356 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/adv/v0/pause',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_v0_positions(
+        self,
+        advert_ids: Annotated[List[StrictInt], Field(max_length=50, description="Список ID рекламных кампаний")],
+        begin_date: Annotated[date, Field(description="Дата начала интервала")],
+        end_date: Annotated[date, Field(description="Дата окончания интервала")],
+        nm_ids: Annotated[Optional[List[StrictInt]], Field(description="Артикулы WB")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> V0PositionsResponse:
+        """Позиции карточек товаров в поисковой выдаче
+
+        Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос | </div> 
+
+        :param advert_ids: Список ID рекламных кампаний (required)
+        :type advert_ids: List[int]
+        :param begin_date: Дата начала интервала (required)
+        :type begin_date: date
+        :param end_date: Дата окончания интервала (required)
+        :type end_date: date
+        :param nm_ids: Артикулы WB
+        :type nm_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v0_positions_serialize(
+            advert_ids=advert_ids,
+            begin_date=begin_date,
+            end_date=end_date,
+            nm_ids=nm_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "V0PositionsResponse",
+            '400': "StandardizedBatchError",
+            '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
+            '429': "GetV1PromotionCount401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v0_positions_with_http_info(
+        self,
+        advert_ids: Annotated[List[StrictInt], Field(max_length=50, description="Список ID рекламных кампаний")],
+        begin_date: Annotated[date, Field(description="Дата начала интервала")],
+        end_date: Annotated[date, Field(description="Дата окончания интервала")],
+        nm_ids: Annotated[Optional[List[StrictInt]], Field(description="Артикулы WB")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[V0PositionsResponse]:
+        """Позиции карточек товаров в поисковой выдаче
+
+        Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос | </div> 
+
+        :param advert_ids: Список ID рекламных кампаний (required)
+        :type advert_ids: List[int]
+        :param begin_date: Дата начала интервала (required)
+        :type begin_date: date
+        :param end_date: Дата окончания интервала (required)
+        :type end_date: date
+        :param nm_ids: Артикулы WB
+        :type nm_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v0_positions_serialize(
+            advert_ids=advert_ids,
+            begin_date=begin_date,
+            end_date=end_date,
+            nm_ids=nm_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "V0PositionsResponse",
+            '400': "StandardizedBatchError",
+            '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
+            '429': "GetV1PromotionCount401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v0_positions_without_preload_content(
+        self,
+        advert_ids: Annotated[List[StrictInt], Field(max_length=50, description="Список ID рекламных кампаний")],
+        begin_date: Annotated[date, Field(description="Дата начала интервала")],
+        end_date: Annotated[date, Field(description="Дата окончания интервала")],
+        nm_ids: Annotated[Optional[List[StrictInt]], Field(description="Артикулы WB")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Позиции карточек товаров в поисковой выдаче
+
+        Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос | </div> 
+
+        :param advert_ids: Список ID рекламных кампаний (required)
+        :type advert_ids: List[int]
+        :param begin_date: Дата начала интервала (required)
+        :type begin_date: date
+        :param end_date: Дата окончания интервала (required)
+        :type end_date: date
+        :param nm_ids: Артикулы WB
+        :type nm_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v0_positions_serialize(
+            advert_ids=advert_ids,
+            begin_date=begin_date,
+            end_date=end_date,
+            nm_ids=nm_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "V0PositionsResponse",
+            '400': "StandardizedBatchError",
+            '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
+            '429': "GetV1PromotionCount401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v0_positions_serialize(
+        self,
+        advert_ids,
+        begin_date,
+        end_date,
+        nm_ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://advert-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+            'advertIds': 'csv',
+            'nmIds': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if advert_ids is not None:
+            
+            _query_params.append(('advertIds', advert_ids))
+            
+        if nm_ids is not None:
+            
+            _query_params.append(('nmIds', nm_ids))
+            
+        if begin_date is not None:
+            if isinstance(begin_date, date):
+                _query_params.append(
+                    (
+                        'beginDate',
+                        begin_date.strftime(
+                            self.api_client.configuration.date_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('beginDate', begin_date))
+            
+        if end_date is not None:
+            if isinstance(end_date, date):
+                _query_params.append(
+                    (
+                        'endDate',
+                        end_date.strftime(
+                            self.api_client.configuration.date_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('endDate', end_date))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if not any(key.lower() == 'accept' for key in _header_params):
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/problem+json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/advert/v0/positions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6928,6 +7280,338 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/adv/v3/fullstats',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_v4_fullstats(
+        self,
+        advert_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=50, description="Список ID рекламных кампаний")],
+        begin_date: Annotated[date, Field(description="Дата начала интервала")],
+        end_date: Annotated[date, Field(description="Дата окончания интервала")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> V4FullStatsResponse:
+        """Плоская статистика кампаний
+
+        Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+
+        :param advert_ids: Список ID рекламных кампаний (required)
+        :type advert_ids: List[int]
+        :param begin_date: Дата начала интервала (required)
+        :type begin_date: date
+        :param end_date: Дата окончания интервала (required)
+        :type end_date: date
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v4_fullstats_serialize(
+            advert_ids=advert_ids,
+            begin_date=begin_date,
+            end_date=end_date,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "V4FullStatsResponse",
+            '400': "StandardizedBatchError",
+            '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
+            '429': "GetV1PromotionCount401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v4_fullstats_with_http_info(
+        self,
+        advert_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=50, description="Список ID рекламных кампаний")],
+        begin_date: Annotated[date, Field(description="Дата начала интервала")],
+        end_date: Annotated[date, Field(description="Дата окончания интервала")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[V4FullStatsResponse]:
+        """Плоская статистика кампаний
+
+        Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+
+        :param advert_ids: Список ID рекламных кампаний (required)
+        :type advert_ids: List[int]
+        :param begin_date: Дата начала интервала (required)
+        :type begin_date: date
+        :param end_date: Дата окончания интервала (required)
+        :type end_date: date
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v4_fullstats_serialize(
+            advert_ids=advert_ids,
+            begin_date=begin_date,
+            end_date=end_date,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "V4FullStatsResponse",
+            '400': "StandardizedBatchError",
+            '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
+            '429': "GetV1PromotionCount401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v4_fullstats_without_preload_content(
+        self,
+        advert_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=50, description="Список ID рекламных кампаний")],
+        begin_date: Annotated[date, Field(description="Дата начала интервала")],
+        end_date: Annotated[date, Field(description="Дата окончания интервала")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Плоская статистика кампаний
+
+        Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+
+        :param advert_ids: Список ID рекламных кампаний (required)
+        :type advert_ids: List[int]
+        :param begin_date: Дата начала интервала (required)
+        :type begin_date: date
+        :param end_date: Дата окончания интервала (required)
+        :type end_date: date
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v4_fullstats_serialize(
+            advert_ids=advert_ids,
+            begin_date=begin_date,
+            end_date=end_date,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "V4FullStatsResponse",
+            '400': "StandardizedBatchError",
+            '401': "GetV1PromotionCount401Response",
+            '403': "GetV1PromotionCount403Response",
+            '429': "GetV1PromotionCount401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v4_fullstats_serialize(
+        self,
+        advert_ids,
+        begin_date,
+        end_date,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://advert-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+            'advertIds': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if advert_ids is not None:
+            
+            _query_params.append(('advertIds', advert_ids))
+            
+        if begin_date is not None:
+            if isinstance(begin_date, date):
+                _query_params.append(
+                    (
+                        'beginDate',
+                        begin_date.strftime(
+                            self.api_client.configuration.date_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('beginDate', begin_date))
+            
+        if end_date is not None:
+            if isinstance(end_date, date):
+                _query_params.append(
+                    (
+                        'endDate',
+                        end_date.strftime(
+                            self.api_client.configuration.date_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('endDate', end_date))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if not any(key.lower() == 'accept' for key in _header_params):
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/problem+json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/advert/v4/fullstats',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

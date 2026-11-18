@@ -924,6 +924,219 @@ func (a *DefaultApiService) GetV0PauseExecute(r ApiGetV0PauseRequest) (*http.Res
 	return localVarHTTPResponse, nil
 }
 
+type ApiGetV0PositionsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	advertIds *[]int64
+	beginDate *string
+	endDate *string
+	nmIds *[]int64
+}
+
+// Список ID рекламных кампаний
+func (r ApiGetV0PositionsRequest) AdvertIds(advertIds []int64) ApiGetV0PositionsRequest {
+	r.advertIds = &advertIds
+	return r
+}
+
+// Дата начала интервала
+func (r ApiGetV0PositionsRequest) BeginDate(beginDate string) ApiGetV0PositionsRequest {
+	r.beginDate = &beginDate
+	return r
+}
+
+// Дата окончания интервала
+func (r ApiGetV0PositionsRequest) EndDate(endDate string) ApiGetV0PositionsRequest {
+	r.endDate = &endDate
+	return r
+}
+
+// Артикулы WB
+func (r ApiGetV0PositionsRequest) NmIds(nmIds []int64) ApiGetV0PositionsRequest {
+	r.nmIds = &nmIds
+	return r
+}
+
+func (r ApiGetV0PositionsRequest) Execute() (*V0PositionsResponse, *http.Response, error) {
+	return r.ApiService.GetV0PositionsExecute(r)
+}
+
+/*
+GetV0Positions Позиции карточек товаров в поисковой выдаче
+
+Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.
+
+ <div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос |
+| Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV0PositionsRequest
+*/
+func (a *DefaultApiService) GetV0Positions(ctx context.Context) ApiGetV0PositionsRequest {
+	return ApiGetV0PositionsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return V0PositionsResponse
+func (a *DefaultApiService) GetV0PositionsExecute(r ApiGetV0PositionsRequest) (*V0PositionsResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V0PositionsResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV0Positions")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/advert/v0/positions"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.advertIds == nil {
+		return localVarReturnValue, nil, reportError("advertIds is required and must be specified")
+	}
+	if len(*r.advertIds) > 50 {
+		return localVarReturnValue, nil, reportError("advertIds must have less than 50 elements")
+	}
+	if r.beginDate == nil {
+		return localVarReturnValue, nil, reportError("beginDate is required and must be specified")
+	}
+	if r.endDate == nil {
+		return localVarReturnValue, nil, reportError("endDate is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "advertIds", r.advertIds, "form", "csv")
+	if r.nmIds != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nmIds", r.nmIds, "form", "csv")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "beginDate", r.beginDate, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v StandardizedBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetV0StartRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
@@ -4320,6 +4533,218 @@ func (a *DefaultApiService) GetV3FullstatsExecute(r ApiGetV3FullstatsRequest) ([
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v FullStatsError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV1PromotionCount403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1PromotionCount401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV4FullstatsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	advertIds *[]int64
+	beginDate *string
+	endDate *string
+}
+
+// Список ID рекламных кампаний
+func (r ApiGetV4FullstatsRequest) AdvertIds(advertIds []int64) ApiGetV4FullstatsRequest {
+	r.advertIds = &advertIds
+	return r
+}
+
+// Дата начала интервала
+func (r ApiGetV4FullstatsRequest) BeginDate(beginDate string) ApiGetV4FullstatsRequest {
+	r.beginDate = &beginDate
+	return r
+}
+
+// Дата окончания интервала
+func (r ApiGetV4FullstatsRequest) EndDate(endDate string) ApiGetV4FullstatsRequest {
+	r.endDate = &endDate
+	return r
+}
+
+func (r ApiGetV4FullstatsRequest) Execute() (*V4FullStatsResponse, *http.Response, error) {
+	return r.ApiService.GetV4FullstatsExecute(r)
+}
+
+/*
+GetV4Fullstats Плоская статистика кампаний
+
+Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.
+<br><br>
+Максимальный период в запросе — 31 день.
+<br><br>
+Для кампаний в статусах `7`, `9` и `11`.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV4FullstatsRequest
+*/
+func (a *DefaultApiService) GetV4Fullstats(ctx context.Context) ApiGetV4FullstatsRequest {
+	return ApiGetV4FullstatsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return V4FullStatsResponse
+func (a *DefaultApiService) GetV4FullstatsExecute(r ApiGetV4FullstatsRequest) (*V4FullStatsResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V4FullStatsResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV4Fullstats")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/advert/v4/fullstats"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.advertIds == nil {
+		return localVarReturnValue, nil, reportError("advertIds is required and must be specified")
+	}
+	if len(*r.advertIds) < 1 {
+		return localVarReturnValue, nil, reportError("advertIds must have at least 1 elements")
+	}
+	if len(*r.advertIds) > 50 {
+		return localVarReturnValue, nil, reportError("advertIds must have less than 50 elements")
+	}
+	if r.beginDate == nil {
+		return localVarReturnValue, nil, reportError("beginDate is required and must be specified")
+	}
+	if r.endDate == nil {
+		return localVarReturnValue, nil, reportError("endDate is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "advertIds", r.advertIds, "form", "csv")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "beginDate", r.beginDate, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "endDate", r.endDate, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v StandardizedBatchError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

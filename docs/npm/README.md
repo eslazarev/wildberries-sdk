@@ -274,6 +274,7 @@ main().catch(console.error);
 - `promotion.DefaultApi.getV0DailyLimits` — Получить настройки дневных лимитов кампаний
 - `promotion.DefaultApi.getV0Delete` — Удаление кампании
 - `promotion.DefaultApi.getV0Pause` — Пауза кампании
+- `promotion.DefaultApi.getV0Positions` — Позиции карточек товаров в поисковой выдаче
 - `promotion.DefaultApi.getV0Start` — Запуск кампании
 - `promotion.DefaultApi.getV0Stop` — Завершение кампании
 - `promotion.DefaultApi.getV1Advert` — Информация о медиакампании
@@ -292,6 +293,7 @@ main().catch(console.error);
 - `promotion.DefaultApi.getV2Adverts` — Информация о кампаниях
 - `promotion.DefaultApi.getV3Adverts` — Информация о кампаниях
 - `promotion.DefaultApi.getV3Fullstats` — Статистика кампаний
+- `promotion.DefaultApi.getV4Fullstats` — Плоская статистика кампаний
 - `promotion.DefaultApi.patchV0AuctionNms` — Изменение списка карточек товаров в кампаниях
 - `promotion.DefaultApi.patchV1Bids` — Изменение ставок в кампаниях
 - `promotion.DefaultApi.postV0NormqueryBids` — Установить ставки для поисковых кластеров

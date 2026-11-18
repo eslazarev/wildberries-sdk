@@ -30,13 +30,13 @@ class FullStatsItem(BaseModel):
     Статистика по одной кампании за период, указанный в запросе. По всем артикулам WB и платформам
     """ # noqa: E501
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
-    atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
+    atbs: StrictInt = Field(description="Сколько раз товар добавили в корзину")
     booster_stats: Optional[List[BoosterStatsV3Inner]] = Field(default=None, description="Статистика по бустеру", alias="boosterStats")
-    canceled: StrictInt = Field(description="Отмены, шт.")
+    canceled: StrictInt = Field(description="Количество отмен")
     clicks: StrictInt = Field(description="Количество кликов")
     cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    cr: Union[StrictFloat, StrictInt] = Field(description="CR (conversion rate) — отношение количества заказов к общему количеству кликов")
-    ctr: Union[StrictFloat, StrictInt] = Field(description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах")
+    cr: Union[StrictFloat, StrictInt] = Field(description="Отношение количества заказов к общему количеству кликов")
+    ctr: Union[StrictFloat, StrictInt] = Field(description="Кликабельность — отношение числа кликов к количеству показов, %")
     days: List[DaysV3Inner] = Field(description="Статистика с разбивкой по дням")
     orders: StrictInt = Field(description="Количество заказов")
     shks: StrictInt = Field(description="Количество заказанных товаров, шт.")

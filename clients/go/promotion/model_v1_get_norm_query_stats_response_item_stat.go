@@ -25,11 +25,11 @@ type V1GetNormQueryStatsResponseItemStat struct {
 	Views NullableInt32 `json:"views,omitempty"`
 	// Количество кликов
 	Clicks *int32 `json:"clicks,omitempty"`
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs *int32 `json:"atbs,omitempty"`
 	// Количество заказов
 	Orders *int32 `json:"orders,omitempty"`
-	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
+	// Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
 	Ctr NullableFloat32 `json:"ctr,omitempty"`
 	// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc *float32 `json:"cpc,omitempty"`

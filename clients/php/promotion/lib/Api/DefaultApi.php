@@ -89,6 +89,9 @@ class DefaultApi
         'getV0Pause' => [
             'application/json',
         ],
+        'getV0Positions' => [
+            'application/json',
+        ],
         'getV0Start' => [
             'application/json',
         ],
@@ -141,6 +144,9 @@ class DefaultApi
             'application/json',
         ],
         'getV3Fullstats' => [
+            'application/json',
+        ],
+        'getV4Fullstats' => [
             'application/json',
         ],
         'patchV0AuctionNms' => [
@@ -2051,6 +2057,466 @@ class DefaultApi
      * @return array an array of host settings
      */
     protected function getHostSettingsForgetV0Pause(): array
+    {
+        return [
+            [
+                "url" => "https://advert-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation getV0Positions
+     *
+     * Позиции карточек товаров в поисковой выдаче
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  int[]|null $nm_ids Артикулы WB (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV0Positions'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\Promotion\Model\V0PositionsResponse|\Wildberries\Sdk\Promotion\Model\StandardizedBatchError|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     */
+    public function getV0Positions($advert_ids, $begin_date, $end_date, $nm_ids = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV0Positions'][0])
+    {
+        list($response) = $this->getV0PositionsWithHttpInfo($advert_ids, $begin_date, $end_date, $nm_ids, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getV0PositionsWithHttpInfo
+     *
+     * Позиции карточек товаров в поисковой выдаче
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  int[]|null $nm_ids Артикулы WB (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV0Positions'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\Promotion\Model\V0PositionsResponse|\Wildberries\Sdk\Promotion\Model\StandardizedBatchError|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getV0PositionsWithHttpInfo($advert_ids, $begin_date, $end_date, $nm_ids = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV0Positions'][0])
+    {
+        $request = $this->getV0PositionsRequest($advert_ids, $begin_date, $end_date, $nm_ids, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                $eResponse = $this->getExceptionResponse($e);
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $eResponse ? $eResponse->getHeaders() : null,
+                    $eResponse ? (string) $eResponse->getBody() : null
+                );
+            } catch (NetworkExceptionInterface $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\V0PositionsResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\StandardizedBatchError',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\Promotion\Model\V0PositionsResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\V0PositionsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\StandardizedBatchError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getV0PositionsAsync
+     *
+     * Позиции карточек товаров в поисковой выдаче
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  int[]|null $nm_ids Артикулы WB (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV0Positions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV0PositionsAsync($advert_ids, $begin_date, $end_date, $nm_ids = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV0Positions'][0])
+    {
+        return $this->getV0PositionsAsyncWithHttpInfo($advert_ids, $begin_date, $end_date, $nm_ids, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getV0PositionsAsyncWithHttpInfo
+     *
+     * Позиции карточек товаров в поисковой выдаче
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  int[]|null $nm_ids Артикулы WB (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV0Positions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV0PositionsAsyncWithHttpInfo($advert_ids, $begin_date, $end_date, $nm_ids = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV0Positions'][0])
+    {
+        $returnType = '\Wildberries\Sdk\Promotion\Model\V0PositionsResponse';
+        $request = $this->getV0PositionsRequest($advert_ids, $begin_date, $end_date, $nm_ids, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $this->getExceptionResponse($exception);
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getV0Positions'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  int[]|null $nm_ids Артикулы WB (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV0Positions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getV0PositionsRequest($advert_ids, $begin_date, $end_date, $nm_ids = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV0Positions'][0])
+    {
+
+        // verify the required parameter 'advert_ids' is set
+        if ($advert_ids === null || (is_array($advert_ids) && count($advert_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advert_ids when calling getV0Positions'
+            );
+        }
+        if (count($advert_ids) > 50) {
+            throw new \InvalidArgumentException('invalid value for "$advert_ids" when calling DefaultApi.getV0Positions, number of items must be less than or equal to 50.');
+        }
+        
+        // verify the required parameter 'begin_date' is set
+        if ($begin_date === null || (is_array($begin_date) && count($begin_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $begin_date when calling getV0Positions'
+            );
+        }
+
+        // verify the required parameter 'end_date' is set
+        if ($end_date === null || (is_array($end_date) && count($end_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $end_date when calling getV0Positions'
+            );
+        }
+
+
+
+        $resourcePath = '/api/advert/v0/positions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $advert_ids,
+            'advertIds', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $nm_ids,
+            'nmIds', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $begin_date,
+            'beginDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_date,
+            'endDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForgetV0Positions();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation getV0Positions
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForgetV0Positions(): array
     {
         return [
             [
@@ -9383,6 +9849,454 @@ class DefaultApi
      * @return array an array of host settings
      */
     protected function getHostSettingsForgetV3Fullstats(): array
+    {
+        return [
+            [
+                "url" => "https://advert-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation getV4Fullstats
+     *
+     * Плоская статистика кампаний
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV4Fullstats'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\Promotion\Model\V4FullStatsResponse|\Wildberries\Sdk\Promotion\Model\StandardizedBatchError|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     */
+    public function getV4Fullstats($advert_ids, $begin_date, $end_date, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV4Fullstats'][0])
+    {
+        list($response) = $this->getV4FullstatsWithHttpInfo($advert_ids, $begin_date, $end_date, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getV4FullstatsWithHttpInfo
+     *
+     * Плоская статистика кампаний
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV4Fullstats'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\Promotion\Model\V4FullStatsResponse|\Wildberries\Sdk\Promotion\Model\StandardizedBatchError|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getV4FullstatsWithHttpInfo($advert_ids, $begin_date, $end_date, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV4Fullstats'][0])
+    {
+        $request = $this->getV4FullstatsRequest($advert_ids, $begin_date, $end_date, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                $eResponse = $this->getExceptionResponse($e);
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $eResponse ? $eResponse->getHeaders() : null,
+                    $eResponse ? (string) $eResponse->getBody() : null
+                );
+            } catch (NetworkExceptionInterface $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\V4FullStatsResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\StandardizedBatchError',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\Promotion\Model\V4FullStatsResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\V4FullStatsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\StandardizedBatchError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount403Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getV4FullstatsAsync
+     *
+     * Плоская статистика кампаний
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV4Fullstats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV4FullstatsAsync($advert_ids, $begin_date, $end_date, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV4Fullstats'][0])
+    {
+        return $this->getV4FullstatsAsyncWithHttpInfo($advert_ids, $begin_date, $end_date, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getV4FullstatsAsyncWithHttpInfo
+     *
+     * Плоская статистика кампаний
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV4Fullstats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV4FullstatsAsyncWithHttpInfo($advert_ids, $begin_date, $end_date, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV4Fullstats'][0])
+    {
+        $returnType = '\Wildberries\Sdk\Promotion\Model\V4FullStatsResponse';
+        $request = $this->getV4FullstatsRequest($advert_ids, $begin_date, $end_date, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $this->getExceptionResponse($exception);
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getV4Fullstats'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://advert-api.wildberries.ru
+     *
+     * @param  int[] $advert_ids Список ID рекламных кампаний (required)
+     * @param  \DateTime $begin_date Дата начала интервала (required)
+     * @param  \DateTime $end_date Дата окончания интервала (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV4Fullstats'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getV4FullstatsRequest($advert_ids, $begin_date, $end_date, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV4Fullstats'][0])
+    {
+
+        // verify the required parameter 'advert_ids' is set
+        if ($advert_ids === null || (is_array($advert_ids) && count($advert_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $advert_ids when calling getV4Fullstats'
+            );
+        }
+        if (count($advert_ids) > 50) {
+            throw new \InvalidArgumentException('invalid value for "$advert_ids" when calling DefaultApi.getV4Fullstats, number of items must be less than or equal to 50.');
+        }
+        if (count($advert_ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$advert_ids" when calling DefaultApi.getV4Fullstats, number of items must be greater than or equal to 1.');
+        }
+        
+        // verify the required parameter 'begin_date' is set
+        if ($begin_date === null || (is_array($begin_date) && count($begin_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $begin_date when calling getV4Fullstats'
+            );
+        }
+
+        // verify the required parameter 'end_date' is set
+        if ($end_date === null || (is_array($end_date) && count($end_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $end_date when calling getV4Fullstats'
+            );
+        }
+
+
+        $resourcePath = '/api/advert/v4/fullstats';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $advert_ids,
+            'advertIds', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $begin_date,
+            'beginDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_date,
+            'endDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForgetV4Fullstats();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation getV4Fullstats
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForgetV4Fullstats(): array
     {
         return [
             [

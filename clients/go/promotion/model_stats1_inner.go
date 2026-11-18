@@ -23,7 +23,7 @@ type Stats1Inner struct {
 	Views *int32 `json:"views,omitempty"`
 	// Количество кликов
 	Clicks *int32 `json:"clicks,omitempty"`
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs *int32 `json:"atbs,omitempty"`
 	// CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании 
 	Ctr *float32 `json:"ctr,omitempty"`

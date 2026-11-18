@@ -29,7 +29,7 @@ class Stats2Inner(BaseModel):
     """ # noqa: E501
     views: Optional[StrictInt] = Field(default=None, description="Количество просмотров")
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
-    atbs: Optional[StrictInt] = Field(default=None, description="Количество добавлений товаров в корзину")
+    atbs: Optional[StrictInt] = Field(default=None, description="Сколько раз товар добавили в корзину")
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
     cr: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CR(conversion rate) — отношение количества заказов к общему количеству посещений медиакампании ")
     ctr: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании ")

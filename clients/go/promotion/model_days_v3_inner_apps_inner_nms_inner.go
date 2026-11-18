@@ -21,17 +21,17 @@ var _ MappedNullable = &DaysV3InnerAppsInnerNmsInner{}
 
 // DaysV3InnerAppsInnerNmsInner struct for DaysV3InnerAppsInnerNmsInner
 type DaysV3InnerAppsInnerNmsInner struct {
-	// Количество добавлений товаров в корзину
+	// Сколько раз товар добавили в корзину
 	Atbs int32 `json:"atbs"`
-	// Отмены, шт.
+	// Количество отмен
 	Canceled int32 `json:"canceled"`
 	// Количество кликов
 	Clicks int32 `json:"clicks"`
 	// Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc float32 `json:"cpc"`
-	// CR (conversion rate) — отношение количества заказов к общему количеству кликов
+	// Отношение количества заказов к общему количеству кликов
 	Cr float32 `json:"cr"`
-	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+	// Кликабельность — отношение числа кликов к количеству показов, %
 	Ctr float32 `json:"ctr"`
 	// Название товара
 	Name string `json:"name"`

@@ -5698,8 +5698,374 @@ paths:
       x-tagKey: campaignManagement
     servers:
     - url: https://advert-api.wildberries.ru
+  /api/advert/v4/fullstats:
+    get:
+      description: |
+        Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.
+        <br><br>
+        Максимальный период в запросе — 31 день.
+        <br><br>
+        Для кампаний в статусах `7`, `9` и `11`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        </div>
+      operationId: getV4Fullstats
+      parameters:
+      - description: Список ID рекламных кампаний
+        example:
+        - 13456789
+        - 987654321
+        explode: false
+        in: query
+        name: advertIds
+        required: true
+        schema:
+          items:
+            format: int64
+            type: integer
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      - description: Дата начала интервала
+        example: 2025-09-07
+        explode: true
+        in: query
+        name: beginDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания интервала
+        example: 2025-09-08
+        explode: true
+        in: query
+        name: endDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                V4FullStatsSuccesResponse:
+                  $ref: "#/components/examples/V4FullStatsSuccesResponse"
+              schema:
+                $ref: "#/components/schemas/V4FullStatsResponse"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              examples:
+                InvalidAdvertIdsFormat:
+                  $ref: "#/components/examples/InvalidAdvertIdsFormat"
+                InvalidBeginDateFormat:
+                  $ref: "#/components/examples/InvalidBeginDateFormat"
+                InvalidEndDateFormat:
+                  $ref: "#/components/examples/InvalidEndDateFormat"
+              schema:
+                $ref: "#/components/schemas/StandardizedBatchError"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
+          description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV1PromotionCount_403_response"
+          description: Доступ запрещён
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
+          description: Слишком много запросов
+      security:
+      - HeaderApiKey: []
+      summary: Плоская статистика кампаний
+      tags:
+      - Статистика
+      x-readonly-method: true
+      x-category: advert
+      x-tagKey: statistics
+    servers:
+    - url: https://advert-api.wildberries.ru
+  /api/advert/v0/positions:
+    get:
+      description: |
+        Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.
+
+         <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос |
+        | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |
+        </div>
+      operationId: getV0Positions
+      parameters:
+      - description: Список ID рекламных кампаний
+        example:
+        - 13456789
+        - 987654321
+        explode: false
+        in: query
+        name: advertIds
+        required: true
+        schema:
+          items:
+            format: int64
+            type: integer
+          maxItems: 50
+          type: array
+        style: form
+      - description: Артикулы WB
+        example:
+        - 1
+        - 2
+        - 3
+        explode: false
+        in: query
+        name: nmIds
+        required: false
+        schema:
+          items:
+            format: int64
+            type: integer
+          type: array
+        style: form
+      - description: Дата начала интервала
+        example: 2026-09-01
+        explode: true
+        in: query
+        name: beginDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Дата окончания интервала
+        example: 2026-09-07
+        explode: true
+        in: query
+        name: endDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/V0PositionsResponse"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              examples:
+                InvalidAdvertIdsFormat:
+                  $ref: "#/components/examples/InvalidAdvertIdsFormat"
+                InvalidBeginDateFormat:
+                  $ref: "#/components/examples/InvalidBeginDateFormat"
+                InvalidEndDateFormat:
+                  $ref: "#/components/examples/InvalidEndDateFormat"
+              schema:
+                $ref: "#/components/schemas/StandardizedBatchError"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: ag-marketplace
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
+          description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              examples:
+                Response403TokenCategory:
+                  description: Неверная категория токена
+                  value:
+                    status: 403
+                    statusText: Forbidden
+                    title: Forbidden
+                    detail: scope is not allowed for this resource
+                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                    origin: ag-marketplace
+                    timestamp: 2026-09-03T13:55:15Z
+              schema:
+                $ref: "#/components/schemas/getV1PromotionCount_403_response"
+          description: Доступ запрещён
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: ag-marketplace
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
+          description: Слишком много запросов
+      security:
+      - HeaderApiKey: []
+      summary: Позиции карточек товаров в поисковой выдаче
+      tags:
+      - Статистика
+      x-readonly-method: true
+      x-category: advert
+      x-token-types:
+      - personal
+      - service
+      x-tagKey: statistics
+    servers:
+    - url: https://advert-api.wildberries.ru
 components:
   examples:
+    InvalidAdvertIdsFormat:
+      value:
+        detail: "code=400, message=Invalid format for parameter advertIds: error setting\
+          \ array element: error binding string parameter: strconv.ParseInt: parsing\
+          \ \"\": invalid syntax"
+        origin: camp-api-public-cache
+        request_id: 6dca9599bce5dc8b382e89d55a89ad77
+        status: 400
+        title: bad request
+    InvalidBeginDateFormat:
+      value:
+        detail: "code=400, message=Invalid format for parameter beginDate: parsing\
+          \ time \"29030753\" as \"2006-01-02\": cannot parse \"0753\" as \"-\""
+        origin: camp-api-public-cache
+        request_id: f3aca18bbffd05f2aaa82b92e8771076
+        status: 400
+        title: bad request
+    InvalidEndDateFormat:
+      value:
+        detail: "code=400, message=Invalid format for parameter endDate: parsing time\
+          \ \"29030753\" as \"2006-01-02\": cannot parse \"0753\" as \"-\""
+        origin: camp-api-public-cache
+        request_id: f81ba90077bcc8ce26611a0635c5c85e
+        status: 400
+        title: bad request
+    V4FullStatsSuccesResponse:
+      value:
+        rows:
+        - advertId: 28449281
+          nmId: 398309059
+          date: 2026-09-05
+          placement: search
+          conversionType: direct
+          currency: RUB
+          views: 260
+          clicks: 5
+          ctr: 1.92
+          cpc: 33.02
+          sum: 165.1
+          atbs: 1
+          orders: 1
+          cr: 20
+          shks: 1
+          sumPrice: 500
+          canceled: 0
+          avgPos: 24
+        - advertId: 28449281
+          nmId: 301957154
+          date: 2026-09-05
+          placement: search
+          conversionType: associated
+          currency: RUB
+          views: 0
+          clicks: 0
+          ctr: 0
+          cpc: 0
+          sum: 0
+          atbs: 0
+          orders: 2
+          cr: 0
+          shks: 2
+          sumPrice: 1400
+          canceled: 0
+        - advertId: 28449281
+          nmId: 398309061
+          date: 2026-09-05
+          placement: search
+          conversionType: multicard
+          currency: RUB
+          views: 0
+          clicks: 0
+          ctr: 0
+          cpc: 0
+          sum: 0
+          atbs: 1
+          orders: 1
+          cr: 0
+          shks: 1
+          sumPrice: 700
+          canceled: 0
     ConflictingModes:
       summary: Недопустимо одновременное применение параметра `advertIds` с другими
         параметрами
@@ -6678,14 +7044,410 @@ components:
     V3Placements:
       description: |
         Место размещения кампании:
-        - `search` - поиск
-        - `recommendations` - рекомендации
-        - `combined` - поиск и рекомендации с единой ставкой
+        - `search` — поиск
+        - `recommendations` — рекомендации
+        - `combined` — поиск и рекомендации с единой ставкой
       enum:
       - search
       - recommendations
       - combined
       type: string
+    V4FullStatsResponse:
+      example:
+        rows:
+        - advertId: 0
+          nmId: 6
+          date: 2000-01-23
+          placement: search
+          conversionType: direct
+          currency: currency
+          views: 1
+          clicks: 5
+          ctr: 5.637376656633329
+          cpc: 2.3021358869347655
+          sum: 7.061401241503109
+          atbs: 9
+          orders: 3
+          cr: 2.027123023002322
+          shks: 4
+          sumPrice: 7.386281948385884
+          canceled: 1
+          avgPos: 1.0246457001441578
+        - advertId: 0
+          nmId: 6
+          date: 2000-01-23
+          placement: search
+          conversionType: direct
+          currency: currency
+          views: 1
+          clicks: 5
+          ctr: 5.637376656633329
+          cpc: 2.3021358869347655
+          sum: 7.061401241503109
+          atbs: 9
+          orders: 3
+          cr: 2.027123023002322
+          shks: 4
+          sumPrice: 7.386281948385884
+          canceled: 1
+          avgPos: 1.0246457001441578
+      properties:
+        rows:
+          items:
+            $ref: "#/components/schemas/V4FullStatsRow"
+          nullable: false
+          type: array
+      required:
+      - rows
+      type: object
+    V4FullStatsRow:
+      example:
+        advertId: 0
+        nmId: 6
+        date: 2000-01-23
+        placement: search
+        conversionType: direct
+        currency: currency
+        views: 1
+        clicks: 5
+        ctr: 5.637376656633329
+        cpc: 2.3021358869347655
+        sum: 7.061401241503109
+        atbs: 9
+        orders: 3
+        cr: 2.027123023002322
+        shks: 4
+        sumPrice: 7.386281948385884
+        canceled: 1
+        avgPos: 1.0246457001441578
+      properties:
+        advertId:
+          description: ID рекламной кампании
+          format: int64
+          nullable: false
+          type: integer
+        nmId:
+          description: Артикул WB
+          format: int64
+          nullable: false
+          type: integer
+        date:
+          description: "Дата, за которую предоставлены данные"
+          format: date
+          nullable: false
+          type: string
+        placement:
+          $ref: "#/components/schemas/V4FullStatsPlacement"
+        conversionType:
+          $ref: "#/components/schemas/V4FullStatsConversionType"
+        currency:
+          description: "Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          format: ISO 4217
+          type: string
+        views:
+          description: |
+            Показы.
+
+            Для `"conversionType":"multicard"` и `"conversionType":"associated"` возвращается `0`, если показ был на другом товаре
+          format: int64
+          nullable: false
+          type: integer
+        clicks:
+          description: Количество кликов. Только для `"conversionType":"direct"`
+          format: int64
+          nullable: false
+          type: integer
+        ctr:
+          description: "Кликабельность — отношение числа кликов к количеству показ\
+            ов, %"
+          format: double
+          nullable: false
+          type: number
+        cpc:
+          description: "Стоимость клика в базовых единицах валюты [профиля продавц\
+            а](https://cmp.wildberries.ru/campaigns/finances)"
+          format: double
+          nullable: false
+          type: number
+        sum:
+          description: "Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).\
+            \ Только для `\"conversionType\":\"direct\"`"
+          format: double
+          nullable: false
+          type: number
+        atbs:
+          description: Сколько раз товар добавили в корзину
+          nullable: false
+          type: integer
+        orders:
+          description: Количество заказов
+          nullable: false
+          type: integer
+        cr:
+          description: Отношение количества заказов к общему количеству кликов
+          format: double
+          nullable: false
+          type: number
+        shks:
+          description: "Количество заказанных товаров, шт."
+          nullable: false
+          type: integer
+        sumPrice:
+          description: "Сумма заказов в базовых единицах валюты [профиля продавца\
+            ](https://cmp.wildberries.ru/campaigns/finances)"
+          format: double
+          nullable: false
+          type: number
+        canceled:
+          description: Количество отмен
+          nullable: false
+          type: integer
+        avgPos:
+          description: Средняя позиция товара на страницах поисковой выдачи. Возвращается
+            только при комбинации значений `"placement":search` и `"conversionType":"direct"`
+          format: double
+          nullable: false
+          type: number
+      required:
+      - advertId
+      - atbs
+      - canceled
+      - clicks
+      - conversionType
+      - cpc
+      - cr
+      - ctr
+      - currency
+      - date
+      - nmId
+      - orders
+      - placement
+      - shks
+      - sum
+      - sumPrice
+      - views
+      type: object
+    V4FullStatsPlacement:
+      description: |
+        Место размещения кампании:
+        - `search` — поиск
+        - `recommendations` — рекомендации
+      enum:
+      - search
+      - recommendation
+      nullable: false
+      type: string
+    V4FullStatsConversionType:
+      description: |
+        Тип конверсии:
+        - `direct` —  заказ рекламируемого товара. Показы, клики и расход относятся к конверсии этого типа
+        - `multicard` — заказ другого варианта товара из этой карточки
+        - `associated` — заказ другого товара
+      enum:
+      - direct
+      - multicard
+      - associated
+      nullable: false
+      type: string
+    V0PositionsResponse:
+      example:
+        rows:
+        - advertId: 28449281
+          nmId: 398309059
+          date: 2026-09-05
+          posMedian: 12
+          posNoboostMedian: 40
+          posMedianDiff: 28
+          ranges:
+          - range: 3-10
+            views: 100
+            viewsShare: 38.5
+            viewsNoBoost: 15
+            clicks: 2
+            clicksShare: 40
+            ctr: 2
+          - range: 3-10
+            views: 100
+            viewsShare: 38.5
+            viewsNoBoost: 15
+            clicks: 2
+            clicksShare: 40
+            ctr: 2
+        - advertId: 28449281
+          nmId: 398309059
+          date: 2026-09-05
+          posMedian: 12
+          posNoboostMedian: 40
+          posMedianDiff: 28
+          ranges:
+          - range: 3-10
+            views: 100
+            viewsShare: 38.5
+            viewsNoBoost: 15
+            clicks: 2
+            clicksShare: 40
+            ctr: 2
+          - range: 3-10
+            views: 100
+            viewsShare: 38.5
+            viewsNoBoost: 15
+            clicks: 2
+            clicksShare: 40
+            ctr: 2
+      properties:
+        rows:
+          items:
+            $ref: "#/components/schemas/V0PositionsRow"
+          type: array
+      required:
+      - rows
+      type: object
+    V0PositionsRow:
+      example:
+        advertId: 28449281
+        nmId: 398309059
+        date: 2026-09-05
+        posMedian: 12
+        posNoboostMedian: 40
+        posMedianDiff: 28
+        ranges:
+        - range: 3-10
+          views: 100
+          viewsShare: 38.5
+          viewsNoBoost: 15
+          clicks: 2
+          clicksShare: 40
+          ctr: 2
+        - range: 3-10
+          views: 100
+          viewsShare: 38.5
+          viewsNoBoost: 15
+          clicks: 2
+          clicksShare: 40
+          ctr: 2
+      properties:
+        advertId:
+          description: ID рекламной кампании
+          example: 28449281
+          format: int64
+          nullable: false
+          type: integer
+        nmId:
+          description: Артикул WB
+          example: 398309059
+          format: int64
+          nullable: false
+          type: integer
+        date:
+          description: "Дата, за которую представлены данные"
+          example: 2026-09-05
+          format: date
+          nullable: false
+          type: string
+        posMedian:
+          description: Медианная позиция карточки товара в поиске с учётом буста
+          example: 12
+          nullable: false
+          type: integer
+        posNoboostMedian:
+          description: Медианная позиция карточки товара в поиске без учёта буста
+          example: 40
+          nullable: false
+          type: integer
+        posMedianDiff:
+          description: |
+            На сколько буст поднял карточку товара в выдаче: `posNoboostMedian` - `posMedian`
+          example: 28
+          nullable: false
+          type: integer
+        ranges:
+          description: Диапазоны
+          items:
+            $ref: "#/components/schemas/V0PositionsRange"
+          nullable: false
+          type: array
+      required:
+      - advertId
+      - date
+      - nmId
+      - posMedian
+      - posMedianDiff
+      - posNoboostMedian
+      - ranges
+      type: object
+    V0PositionsRange:
+      example:
+        range: 3-10
+        views: 100
+        viewsShare: 38.5
+        viewsNoBoost: 15
+        clicks: 2
+        clicksShare: 40
+        ctr: 2
+      properties:
+        range:
+          description: Диапазон позиций в поисковой выдаче
+          enum:
+          - 1-2
+          - 3-10
+          - 11-34
+          - 35-50
+          - 51-100
+          - 101-300
+          - 301+
+          example: 3-10
+          nullable: false
+          type: string
+        views:
+          description: |
+            Количество показов в диапазоне с учётом буста.
+            <br>
+            Только для CPM-кампаний
+          example: 100
+          nullable: false
+          type: integer
+        viewsShare:
+          description: |
+            Доля показов диапазона от всех показов карточки товара за день, %.
+            <br>
+            Только для CPM-кампаний
+          example: 38.5
+          format: double
+          nullable: false
+          type: number
+        viewsNoBoost:
+          description: |
+            Количество показов в диапазоне без учёта буста.
+            <br>
+            Только для CPM-кампаний
+          example: 15
+          nullable: false
+          type: integer
+        clicks:
+          description: Количество кликов в диапазоне
+          example: 2
+          nullable: false
+          type: integer
+        clicksShare:
+          description: "Доля кликов диапазона от всех кликов по карточке товара за\
+            \ день, %"
+          example: 40
+          format: double
+          nullable: false
+          type: number
+        ctr:
+          description: "Кликабельность — отношение числа кликов к количеству показ\
+            ов, %"
+          example: 2
+          format: double
+          nullable: false
+          type: number
+      required:
+      - clicks
+      - clicksShare
+      - ctr
+      - range
+      type: object
     V0GetDailyLimitsResponse:
       example:
         adverts:
@@ -7703,14 +8465,14 @@ components:
           description: Количество кликов
           type: integer
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         orders:
           description: Количество заказов
           type: integer
         ctr:
           description: |
-            CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.
+            Кликабельность — отношение числа кликов к количеству показов, %.
 
             Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
           format: float
@@ -7869,7 +8631,7 @@ components:
           description: Количество кликов
           type: integer
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         orders:
           description: Количество заказов
@@ -8932,7 +9694,7 @@ components:
           description: Родительская категория предмета
           type: string
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         orders:
           description: Количество заказов
@@ -9014,7 +9776,7 @@ components:
           description: Родительская категория предмета
           type: string
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         orders:
           description: Количество заказов
@@ -9115,14 +9877,14 @@ components:
           description: ID кампании
           type: integer
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         boosterStats:
           allOf:
           - $ref: "#/components/schemas/BoosterStatsV3"
           description: Статистика по бустеру
         canceled:
-          description: "Отмены, шт."
+          description: Количество отмен
           type: integer
         clicks:
           description: Количество кликов
@@ -9133,13 +9895,12 @@ components:
           format: double
           type: number
         cr:
-          description: CR (conversion rate) — отношение количества заказов к общему
-            количеству кликов
+          description: Отношение количества заказов к общему количеству кликов
           format: double
           type: number
         ctr:
-          description: CTR (click-through rate) — отношение числа кликов к количеству
-            показов в процентах
+          description: "Кликабельность — отношение числа кликов к количеству показ\
+            ов, %"
           format: double
           type: number
         days:
@@ -11218,7 +11979,7 @@ components:
           description: Количество кликов
           type: integer
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         ctr:
           description: |
@@ -11260,7 +12021,7 @@ components:
           description: Количество кликов
           type: integer
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         orders:
           description: Количество заказов
@@ -11289,10 +12050,10 @@ components:
     DaysV3_inner_apps_inner_nms_inner:
       properties:
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         canceled:
-          description: "Отмены, шт."
+          description: Количество отмен
           type: integer
         clicks:
           description: Количество кликов
@@ -11302,12 +12063,11 @@ components:
             \ продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         cr:
-          description: CR (conversion rate) — отношение количества заказов к общему
-            количеству кликов
+          description: Отношение количества заказов к общему количеству кликов
           type: number
         ctr:
-          description: CTR (click-through rate) — отношение числа кликов к количеству
-            показов в процентах
+          description: "Кликабельность — отношение числа кликов к количеству показ\
+            ов, %"
           type: number
         name:
           description: Название товара
@@ -11360,10 +12120,10 @@ components:
           - 64
           type: integer
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         canceled:
-          description: "Отмены, шт."
+          description: Количество отмен
           type: integer
         clicks:
           description: Количество кликов
@@ -11373,12 +12133,11 @@ components:
             \ продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: number
         cr:
-          description: CR (conversion rate) — отношение количества заказов к общему
-            количеству кликов
+          description: Отношение количества заказов к общему количеству кликов
           type: number
         ctr:
-          description: CTR (click-through rate) — отношение числа кликов к количеству
-            показов в процентах
+          description: "Кликабельность — отношение числа кликов к количеству показ\
+            ов, %"
           type: number
         nms:
           description: Блок статистики по артикулам WB
@@ -11424,10 +12183,10 @@ components:
             $ref: "#/components/schemas/DaysV3_inner_apps_inner"
           type: array
         atbs:
-          description: Количество добавлений товаров в корзину
+          description: Сколько раз товар добавили в корзину
           type: integer
         canceled:
-          description: "Отмены, шт."
+          description: Количество отмен
           type: integer
         date:
           description: "Дата, за которую представлены данные"
@@ -11445,8 +12204,8 @@ components:
             количеству посещений кампании
           type: number
         ctr:
-          description: CTR (click-through rate) — отношение числа кликов к количеству
-            показов в процентах
+          description: "Кликабельность — отношение числа кликов к количеству показ\
+            ов, %"
           type: number
         orders:
           description: Количество заказов

@@ -267,6 +267,7 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `promotion::default_api::get_v0_daily_limits` — `GET /api/advert/v0/daily-limits` — Метод возвращает текущие настройки…
 - `promotion::default_api::get_v0_delete` — `GET /adv/v0/delete` — Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `4` — готова к запуску.
 - `promotion::default_api::get_v0_pause` — `GET /adv/v0/pause` — Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе `9` — активна — на паузу.
+- `promotion::default_api::get_v0_positions` — `GET /api/advert/v0/positions` — Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.
 - `promotion::default_api::get_v0_start` — `GET /adv/v0/start` — Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
 - `promotion::default_api::get_v0_stop` — `GET /adv/v0/stop` — Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - `9` — активна - `11` — пауза
 - `promotion::default_api::get_v1_advert` — `GET /adv/v1/advert` — Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list).
@@ -285,6 +286,7 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `promotion::default_api::get_v2_adverts` — `GET /api/advert/v2/adverts`
 - `promotion::default_api::get_v3_adverts` — `GET /api/advert/v3/adverts` — Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.
 - `promotion::default_api::get_v3_fullstats` — `GET /adv/v3/fullstats` — Метод формирует статистику для кампаний независимо от типа.
+- `promotion::default_api::get_v4_fullstats` — `GET /api/advert/v4/fullstats` — Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.
 - `promotion::default_api::patch_v0_auction_nms` — `PATCH /adv/v0/auction/nms` — Метод добавляет и удаляет карточки товаров в кампаниях.
 - `promotion::default_api::patch_v1_bids` — `PATCH /api/advert/v1/bids` — Метод меняет ставки карточек товаров по артикулам WB в кампаниях: - с единой ставкой - с ручной ставкой - с моделью оплаты `cpc` — за клики Для кампаний в статусах `4`, `9` и `11`.
 - `promotion::default_api::post_v0_normquery_bids` — `POST /adv/v0/normquery/bids` — Метод устанавливает ставки в рублях на поисковые кластеры.

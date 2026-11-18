@@ -23,7 +23,7 @@ type OrderNew struct {
 	Address NullableOrderAddress `json:"address,omitempty"`
 	// Планируемая дата доставки заказа покупателю.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` 
 	Ddate *string `json:"ddate,omitempty"`
-	// Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. <br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` 
+	// Дата, когда [нужно отгрузить](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) сверхгабаритный товар (СГТ) на склад. Часовой пояс — UTC+3.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` 
 	SellerDate NullableString `json:"sellerDate,omitempty"`
 	// Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
 	SalePrice NullableInt32 `json:"salePrice,omitempty"`

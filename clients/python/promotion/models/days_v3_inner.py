@@ -30,13 +30,13 @@ class DaysV3Inner(BaseModel):
     DaysV3Inner
     """ # noqa: E501
     apps: List[DaysV3InnerAppsInner] = Field(description="Блок информации о платформе")
-    atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
-    canceled: StrictInt = Field(description="Отмены, шт.")
+    atbs: StrictInt = Field(description="Сколько раз товар добавили в корзину")
+    canceled: StrictInt = Field(description="Количество отмен")
     var_date: datetime = Field(description="Дата, за которую представлены данные", alias="date")
     clicks: StrictInt = Field(description="Количество кликов")
     cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
     cr: Union[StrictFloat, StrictInt] = Field(description="CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании")
-    ctr: Union[StrictFloat, StrictInt] = Field(description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах")
+    ctr: Union[StrictFloat, StrictInt] = Field(description="Кликабельность — отношение числа кликов к количеству показов, %")
     orders: StrictInt = Field(description="Количество заказов")
     shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
     sum: Union[StrictFloat, StrictInt] = Field(description="Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)")
