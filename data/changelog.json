@@ -2,6 +2,41 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-11-21",
+      "anchor": "changed-20261121",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261121",
+      "sections": [
+        "Orders FBS",
+        "Finances (Promotion/Advert)"
+      ],
+      "changes": [
+        {
+          "section": "Orders FBS",
+          "text": "в методе получения статусов сборочных заданий добавлена рекомендация использовать архивный метод `getV3FbsOrdersArchive` для заданий старше 3 месяцев"
+        },
+        {
+          "section": "Orders FBS",
+          "text": "расширен перечень значений `wbStatus` — добавлен статус `postponed_delivery` (отложена курьерская доставка) и новый статус `delivering_by_carrier` (трансграничные поставки)"
+        },
+        {
+          "section": "Orders FBS",
+          "text": "статусы `accepted_by_carrier` и `sent_to_carrier` помечены как заменённые на `delivering_by_carrier` с 12 ноября (только для трансграничных поставок)"
+        },
+        {
+          "section": "Orders FBS",
+          "text": "удалён endpoint `GET /api/marketplace/v3/fbs/shipping-points` (deprecated, планировался к отключению 20 ноября) и связанные схемы `ShippingPoint`, `ShippingPointsResponse`"
+        },
+        {
+          "section": "Orders FBS",
+          "text": "удалены SPOT-методы и модели: `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm`, `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot`, `POST /api/marketplace/v3/fbs/supplies/spot/list`, `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot`, а также схемы/примеры `CountriesOKSMList`, `SupplySpotData*`, `SupplySpotQRCode`, `SpotApiError409V3`, `ApiError404V3`; из описаний убраны ссылки на SPOT"
+        },
+        {
+          "section": "Finances (Promotion/Advert)",
+          "text": "удалён deprecated endpoint `GET /adv/v1/budget` (планировался к отключению 16 ноября)"
+        }
+      ]
+    },
+    {
       "date": "2026-11-18",
       "anchor": "changed-20261118",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261118",
