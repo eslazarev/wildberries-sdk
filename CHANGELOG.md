@@ -1,6 +1,14 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.11.21)
+- Orders FBS: в методе получения статусов сборочных заданий добавлена рекомендация использовать архивный метод `getV3FbsOrdersArchive` для заданий старше 3 месяцев
+- Orders FBS: расширен перечень значений `wbStatus` — добавлен статус `postponed_delivery` (отложена курьерская доставка) и новый статус `delivering_by_carrier` (трансграничные поставки)
+- Orders FBS: статусы `accepted_by_carrier` и `sent_to_carrier` помечены как заменённые на `delivering_by_carrier` с 12 ноября (только для трансграничных поставок)
+- Orders FBS: удалён endpoint `GET /api/marketplace/v3/fbs/shipping-points` (deprecated, планировался к отключению 20 ноября) и связанные схемы `ShippingPoint`, `ShippingPointsResponse`
+- Orders FBS: удалены SPOT-методы и модели: `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm`, `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot`, `POST /api/marketplace/v3/fbs/supplies/spot/list`, `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot`, а также схемы/примеры `CountriesOKSMList`, `SupplySpotData*`, `SupplySpotQRCode`, `SpotApiError409V3`, `ApiError404V3`; из описаний убраны ссылки на SPOT
+- Finances (Promotion/Advert): удалён deprecated endpoint `GET /adv/v1/budget` (планировался к отключению 16 ноября)
+
 ### Changed (2026.11.18)
 - Orders FBS: уточнено описание поля рекомендуемой даты отгрузки СГТ — теперь это дата, когда нужно отгрузить сверхгабаритный товар на склад, с указанием часового пояса UTC+3 и ссылкой на инструкцию (поле для `cargoType: 2`).
 - Promotion/Реклама (Статистика): добавлен новый endpoint `GET https://advert-api.wildberries.ru/api/advert/v4/fullstats` — плоская статистика кампаний по `advertIds` (1..50) и диапазону дат (макс. 31 день), для статусов кампаний `7/9/11`; лимиты: personal/service/secret 3 запроса/мин (интервал 20с, всплеск 1), basic 1 запрос/час.
