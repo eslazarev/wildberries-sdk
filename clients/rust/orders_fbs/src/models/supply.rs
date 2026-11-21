@@ -63,7 +63,7 @@ pub struct Supply {
     /// ID ЭТрН — электронной транспортной накладной
     #[serde(rename = "waybillUuid", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub waybill_uuid: Option<Option<String>>,
-    /// Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет 
+    /// Доступен ли СПОТ для этой поставки:   - `true` — да   - `false` — нет 
     #[serde(rename = "spotAvailable")]
     pub spot_available: bool,
 }

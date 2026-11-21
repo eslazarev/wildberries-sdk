@@ -1016,7 +1016,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets spot_available
      *
-     * @param bool $spot_available Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет
+     * @param bool $spot_available Доступен ли СПОТ для этой поставки:   - `true` — да   - `false` — нет
      *
      * @return self
      */

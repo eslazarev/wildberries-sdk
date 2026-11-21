@@ -159,13 +159,10 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.delete_v3_passes_pass_id` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
 - `orders_fbs.DefaultApi.delete_v3_supplies_supply_id` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
 - `orders_fbs.DefaultApi.delete_v3_supplies_supply_id_trbx` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки
-- `orders_fbs.DefaultApi.get_v3_fbs_dictionaries_countries_oksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
 - `orders_fbs.DefaultApi.get_v3_fbs_orders_archive` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `orders_fbs.DefaultApi.get_v3_fbs_settings_autoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
 - `orders_fbs.DefaultApi.get_v3_fbs_settings_autoreturns_subcategories_restricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
-- `orders_fbs.DefaultApi.get_v3_fbs_shipping_points` — `GET /api/marketplace/v3/fbs/shipping-points` — (Deprecated) Получить список пунктов отгрузки поставок
 - `orders_fbs.DefaultApi.get_v3_fbs_supplies_supply_id_shipping_points` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points` — Получить список пунктов отгрузки поставки
-- `orders_fbs.DefaultApi.get_v3_fbs_supplies_supply_id_stickers_spot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
 - `orders_fbs.DefaultApi.get_v3_orders` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
 - `orders_fbs.DefaultApi.get_v3_orders_new` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий
 - `orders_fbs.DefaultApi.get_v3_passes` — `GET /api/v3/passes` — Получить список пропусков
@@ -184,7 +181,6 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.patch_v3_supplies_supply_id_deliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
 - `orders_fbs.DefaultApi.patch_v3_supplies_supply_id_orders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
 - `orders_fbs.DefaultApi.post_v3_fbs_settings_autoreturns_items` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
-- `orders_fbs.DefaultApi.post_v3_fbs_supplies_spot_list` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок
 - `orders_fbs.DefaultApi.post_v3_orders_client` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
 - `orders_fbs.DefaultApi.post_v3_orders_meta` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
 - `orders_fbs.DefaultApi.post_v3_orders_status` — `POST /api/v3/orders/status` — Получить статусы сборочных заданий
@@ -195,7 +191,6 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.post_v3_supplies` — `POST /api/v3/supplies` — Создать новую поставку
 - `orders_fbs.DefaultApi.post_v3_supplies_supply_id_trbx` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
 - `orders_fbs.DefaultApi.post_v3_supplies_supply_id_trbx_stickers` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
-- `orders_fbs.DefaultApi.put_v3_fbs_supplies_supply_id_spot` — `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку
 - `orders_fbs.DefaultApi.put_v3_orders_order_id_meta_customs_declaration` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
 - `orders_fbs.DefaultApi.put_v3_orders_order_id_meta_expiration` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
 - `orders_fbs.DefaultApi.put_v3_orders_order_id_meta_gtin` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
@@ -293,7 +288,6 @@ print(feedbacks)
 - `promotion.DefaultApi.get_v1_advert` — `GET /adv/v1/advert` — Информация о медиакампании
 - `promotion.DefaultApi.get_v1_adverts` — `GET /adv/v1/adverts` — Список медиакампаний
 - `promotion.DefaultApi.get_v1_balance` — `GET /adv/v1/balance` — Баланс
-- `promotion.DefaultApi.get_v1_budget` — `GET /adv/v1/budget` — (Deprecated) Бюджет кампании
 - `promotion.DefaultApi.get_v1_calendar_promotions` — `GET /api/v1/calendar/promotions` — Список акций
 - `promotion.DefaultApi.get_v1_calendar_promotions_details` — `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
 - `promotion.DefaultApi.get_v1_calendar_promotions_nomenclatures` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции

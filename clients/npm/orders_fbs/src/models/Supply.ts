@@ -109,7 +109,7 @@ export interface Supply {
     waybillUuid?: string | null;
     /**
      * Доступен ли СПОТ для этой поставки:
-     *   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)
+     *   - `true` — да
      *   - `false` — нет
      * 
      */

@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.190/go",
+		UserAgent:        "OpenAPI-Generator/0.1.191/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -168,31 +168,13 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.GetV3FbsDictionariesCountriesOksm": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"FBSAPIService.GetV3FbsOrdersArchive": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.GetV3FbsShippingPoints": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"FBSAPIService.GetV3FbsSuppliesSupplyIdShippingPoints": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"FBSAPIService.GetV3FbsSuppliesSupplyIdStickersSpot": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
@@ -340,12 +322,6 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"FBSAPIService.PostV3FbsSuppliesSpotList": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"FBSAPIService.PostV3OrdersClient": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
@@ -440,12 +416,6 @@ func NewConfiguration() *Configuration {
 				{
 					URL: "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
-				},
-			},
-			"FBSAPIService.PutV3FbsSuppliesSupplyIdSpot": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
 				},
 			},
 			"FBSAPIService.PutV3OrdersOrderIdMetaCustomsDeclaration": {

@@ -49,11 +49,6 @@ import {
     GetV1Balance200ResponseToJSON,
 } from '../models/GetV1Balance200Response';
 import {
-    type GetV1Budget200Response,
-    GetV1Budget200ResponseFromJSON,
-    GetV1Budget200ResponseToJSON,
-} from '../models/GetV1Budget200Response';
-import {
     type GetV1CalendarPromotions200Response,
     GetV1CalendarPromotions200ResponseFromJSON,
     GetV1CalendarPromotions200ResponseToJSON,
@@ -484,13 +479,6 @@ export interface GetV1AdvertsRequest {
      * 
      */
     direction?: string;
-}
-
-export interface GetV1BudgetRequest {
-    /**
-     * ID кампании
-     */
-    id: number;
 }
 
 export interface GetV1CalendarPromotionsRequest {
@@ -1459,63 +1447,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getV1Balance(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Balance200Response> {
         const response = await this.getV1BalanceRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for getV1Budget without sending the request
-     * @deprecated
-     */
-    async getV1BudgetRequestOpts(requestParameters: GetV1BudgetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling getV1Budget().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['id'] != null) {
-            queryParameters['id'] = requestParameters['id'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v1/budget`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод будет отключен [16 ноября](/release-notes?id=582).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Бюджет кампании
-     * @deprecated
-     */
-    async getV1BudgetRaw(requestParameters: GetV1BudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1Budget200Response>> {
-        const requestOptions = await this.getV1BudgetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1Budget200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод будет отключен [16 ноября](/release-notes?id=582).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Бюджет кампании
-     * @deprecated
-     */
-    async getV1Budget(requestParameters: GetV1BudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Budget200Response> {
-        const response = await this.getV1BudgetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

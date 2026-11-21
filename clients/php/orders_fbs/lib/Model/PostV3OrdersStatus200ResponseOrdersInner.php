@@ -267,6 +267,7 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
     public const WB_STATUS_POSTPONED_DELIVERY = 'postponed_delivery';
     public const WB_STATUS_ACCEPTED_BY_CARRIER = 'accepted_by_carrier';
     public const WB_STATUS_SENT_TO_CARRIER = 'sent_to_carrier';
+    public const WB_STATUS_DELIVERING_BY_CARRIER = 'delivering_by_carrier';
 
     /**
      * Gets allowable values of the enum
@@ -302,6 +303,7 @@ class PostV3OrdersStatus200ResponseOrdersInner implements ModelInterface, ArrayA
             self::WB_STATUS_POSTPONED_DELIVERY,
             self::WB_STATUS_ACCEPTED_BY_CARRIER,
             self::WB_STATUS_SENT_TO_CARRIER,
+            self::WB_STATUS_DELIVERING_BY_CARRIER,
         ];
     }
 

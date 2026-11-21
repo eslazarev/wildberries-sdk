@@ -67,17 +67,6 @@ pub enum DeleteV3SuppliesSupplyIdTrbxError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_v3_fbs_dictionaries_countries_oksm`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetV3FbsDictionariesCountriesOksmError {
-    Status401(models::GetV3PassesOffices401Response),
-    Status402(models::GetV3PassesOffices402Response),
-    Status403(models::GetV3FbsSuppliesSupplyIdShippingPoints403Response),
-    Status429(models::GetV3PassesOffices401Response),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`get_v3_fbs_orders_archive`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -86,18 +75,6 @@ pub enum GetV3FbsOrdersArchiveError {
     Status401(models::GetV3PassesOffices401Response),
     Status402(models::GetV3PassesOffices402Response),
     Status403(models::GetV3FbsOrdersArchive403Response),
-    Status429(models::GetV3PassesOffices401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_v3_fbs_shipping_points`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetV3FbsShippingPointsError {
-    Status400(models::Error),
-    Status401(models::GetV3PassesOffices401Response),
-    Status402(models::GetV3PassesOffices402Response),
-    Status403(models::GetV3FbsSuppliesSupplyIdShippingPoints403Response),
     Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
@@ -111,19 +88,6 @@ pub enum GetV3FbsSuppliesSupplyIdShippingPointsError {
     Status403(models::GetV3FbsSuppliesSupplyIdShippingPoints403Response),
     Status404(models::Error),
     Status409(models::Error),
-    Status429(models::GetV3PassesOffices401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_v3_fbs_supplies_supply_id_stickers_spot`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetV3FbsSuppliesSupplyIdStickersSpotError {
-    Status400(models::ApiErrorV3),
-    Status401(models::GetV3PassesOffices401Response),
-    Status402(models::GetV3PassesOffices402Response),
-    Status403(models::GetV3FbsSuppliesSupplyIdShippingPoints403Response),
-    Status404(models::ApiErrorV3),
     Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
@@ -315,18 +279,6 @@ pub enum PatchV3SuppliesSupplyIdOrdersError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`post_v3_fbs_supplies_spot_list`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum PostV3FbsSuppliesSpotListError {
-    Status400(models::ApiErrorV3),
-    Status401(models::GetV3PassesOffices401Response),
-    Status402(models::GetV3PassesOffices402Response),
-    Status403(models::GetV3FbsSuppliesSupplyIdShippingPoints403Response),
-    Status429(models::GetV3PassesOffices401Response),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`post_v3_orders_client`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -450,20 +402,6 @@ pub enum PostV3SuppliesSupplyIdTrbxStickersError {
     Status402(models::GetV3PassesOffices402Response),
     Status403(models::Error),
     Status404(models::Error),
-    Status429(models::GetV3PassesOffices401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`put_v3_fbs_supplies_supply_id_spot`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum PutV3FbsSuppliesSupplyIdSpotError {
-    Status400(models::ApiErrorV3),
-    Status401(models::GetV3PassesOffices401Response),
-    Status402(models::GetV3PassesOffices402Response),
-    Status403(models::GetV3FbsSuppliesSupplyIdShippingPoints403Response),
-    Status404(models::ApiErrorV3),
-    Status409(models::ApiErrorV3),
     Status429(models::GetV3PassesOffices401Response),
     UnknownValue(serde_json::Value),
 }
@@ -703,49 +641,6 @@ pub async fn delete_v3_supplies_supply_id_trbx(configuration: &configuration::Co
     }
 }
 
-/// Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn get_v3_fbs_dictionaries_countries_oksm(configuration: &configuration::Configuration, ) -> Result<models::CountriesOksmList, Error<GetV3FbsDictionariesCountriesOksmError>> {
-
-    let uri_str = format!("{}/api/marketplace/v3/fbs/dictionaries/countries/oksm", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CountriesOksmList`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CountriesOksmList`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetV3FbsDictionariesCountriesOksmError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
 /// Метод возвращает сборочные задания, созданные более 3 месяцев назад.<br> Часть сборочных заданий попадает в архив позже, чем через 3 месяца после создания, так как поставка переходит в архив только после того, как все заказы в ней будут завершены. Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 pub async fn get_v3_fbs_orders_archive(configuration: &configuration::Configuration, year: i32, month: i32, next: i64, limit: i32) -> Result<models::V3ArchiveOrders, Error<GetV3FbsOrdersArchiveError>> {
     // add a prefix to parameters to efficiently prevent name collisions
@@ -794,55 +689,6 @@ pub async fn get_v3_fbs_orders_archive(configuration: &configuration::Configurat
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV3FbsOrdersArchiveError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id=585).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-#[deprecated]
-pub async fn get_v3_fbs_shipping_points(configuration: &configuration::Configuration, city: &str, cargo_type: i32) -> Result<models::ShippingPointsResponse, Error<GetV3FbsShippingPointsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_city = city;
-    let p_query_cargo_type = cargo_type;
-
-    let uri_str = format!("{}/api/marketplace/v3/fbs/shipping-points", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("city", &p_query_city.to_string())]);
-    req_builder = req_builder.query(&[("cargoType", &p_query_cargo_type.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ShippingPointsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ShippingPointsResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetV3FbsShippingPointsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -896,51 +742,6 @@ pub async fn get_v3_fbs_supplies_supply_id_shipping_points(configuration: &confi
     } else {
         let content = resp.text().await?;
         let entity: Option<GetV3FbsSuppliesSupplyIdShippingPointsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn get_v3_fbs_supplies_supply_id_stickers_spot(configuration: &configuration::Configuration, supply_id: &str) -> Result<models::SupplySpotQrCode, Error<GetV3FbsSuppliesSupplyIdStickersSpotError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-
-    let uri_str = format!("{}/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SupplySpotQrCode`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SupplySpotQrCode`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetV3FbsSuppliesSupplyIdStickersSpotError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1600,52 +1401,6 @@ pub async fn patch_v3_supplies_supply_id_orders(configuration: &configuration::C
     }
 }
 
-/// Метод возвращает данные СПОТ для списка поставок.<br><br>  Вы можете получить данные СПОТ, только если выполняются все условия:   - поставка находится на этапе доставки   - продавец зарегистрирован в любой стране ЕАЭС кроме РФ   - склад назначения находится в РФ  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn post_v3_fbs_supplies_spot_list(configuration: &configuration::Configuration, post_v3_fbs_supplies_spot_list_request: models::PostV3FbsSuppliesSpotListRequest) -> Result<models::SupplySpotDataResponse, Error<PostV3FbsSuppliesSpotListError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_post_v3_fbs_supplies_spot_list_request = post_v3_fbs_supplies_spot_list_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/fbs/supplies/spot/list", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_post_v3_fbs_supplies_spot_list_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SupplySpotDataResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SupplySpotDataResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<PostV3FbsSuppliesSpotListError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
 /// Метод позволяет получать информацию о покупателе по ID сборочного задания.  Только для трансграничных поставок из **Турции**.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
 pub async fn post_v3_orders_client(configuration: &configuration::Configuration, orders_request_api: models::OrdersRequestApi) -> Result<models::CrossborderTurkeyClientInfoResp, Error<PostV3OrdersClientError>> {
     // add a prefix to parameters to efficiently prevent name collisions
@@ -1738,7 +1493,7 @@ pub async fn post_v3_orders_meta(configuration: &configuration::Configuration, v
     }
 }
 
-/// Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`:  | Статус   | Описание            | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new`      | **Новое сборочное задание** |  | | `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) <br> [Перевести сборочные задания из доставки на сборку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+/// Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.<br> Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive). <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`:  | Статус   | Описание            | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new`      | **Новое сборочное задание** |  | | `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) <br> [Перевести сборочные задания из доставки на сборку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `postponed_delivery` — доставка курьером отложена - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок - `delivering_by_carrier` — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
 pub async fn post_v3_orders_status(configuration: &configuration::Configuration, post_v3_orders_status_request: Option<models::PostV3OrdersStatusRequest>) -> Result<models::PostV3OrdersStatus200Response, Error<PostV3OrdersStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_post_v3_orders_status_request = post_v3_orders_status_request;
@@ -2112,42 +1867,6 @@ pub async fn post_v3_supplies_supply_id_trbx_stickers(configuration: &configurat
     } else {
         let content = resp.text().await?;
         let entity: Option<PostV3SuppliesSupplyIdTrbxStickersError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn put_v3_fbs_supplies_supply_id_spot(configuration: &configuration::Configuration, supply_id: &str, put_v3_fbs_supplies_supply_id_spot_request: models::PutV3FbsSuppliesSupplyIdSpotRequest) -> Result<(), Error<PutV3FbsSuppliesSupplyIdSpotError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_supply_id = supply_id;
-    let p_body_put_v3_fbs_supplies_supply_id_spot_request = put_v3_fbs_supplies_supply_id_spot_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/fbs/supplies/{supplyId}/spot", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_put_v3_fbs_supplies_supply_id_spot_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<PutV3FbsSuppliesSupplyIdSpotError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

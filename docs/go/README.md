@@ -152,11 +152,8 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `orders_fbs.FBSAPIService.DeleteV3PassesPassId` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
 - `orders_fbs.FBSAPIService.DeleteV3SuppliesSupplyId` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
 - `orders_fbs.FBSAPIService.DeleteV3SuppliesSupplyIdTrbx` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки
-- `orders_fbs.FBSAPIService.GetV3FbsDictionariesCountriesOksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
 - `orders_fbs.FBSAPIService.GetV3FbsOrdersArchive` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
-- `orders_fbs.FBSAPIService.GetV3FbsShippingPoints` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
 - `orders_fbs.FBSAPIService.GetV3FbsSuppliesSupplyIdShippingPoints` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points` — Получить список пунктов отгрузки поставки
-- `orders_fbs.FBSAPIService.GetV3FbsSuppliesSupplyIdStickersSpot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
 - `orders_fbs.FBSAPIService.GetV3Orders` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
 - `orders_fbs.FBSAPIService.GetV3OrdersNew` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий
 - `orders_fbs.FBSAPIService.GetV3Passes` — `GET /api/v3/passes` — Получить список пропусков
@@ -172,7 +169,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `orders_fbs.FBSAPIService.PatchV3OrdersOrderIdCancel` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
 - `orders_fbs.FBSAPIService.PatchV3SuppliesSupplyIdDeliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
 - `orders_fbs.FBSAPIService.PatchV3SuppliesSupplyIdOrders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
-- `orders_fbs.FBSAPIService.PostV3FbsSuppliesSpotList` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок
 - `orders_fbs.FBSAPIService.PostV3OrdersClient` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
 - `orders_fbs.FBSAPIService.PostV3OrdersMeta` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
 - `orders_fbs.FBSAPIService.PostV3OrdersStatus` — `POST /api/v3/orders/status` — Получить статусы сборочных заданий
@@ -183,7 +179,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `orders_fbs.FBSAPIService.PostV3Supplies` — `POST /api/v3/supplies` — Создать новую поставку
 - `orders_fbs.FBSAPIService.PostV3SuppliesSupplyIdTrbx` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
 - `orders_fbs.FBSAPIService.PostV3SuppliesSupplyIdTrbxStickers` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
-- `orders_fbs.FBSAPIService.PutV3FbsSuppliesSupplyIdSpot` — `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку
 - `orders_fbs.FBSAPIService.PutV3OrdersOrderIdMetaCustomsDeclaration` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
 - `orders_fbs.FBSAPIService.PutV3OrdersOrderIdMetaExpiration` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
 - `orders_fbs.FBSAPIService.PutV3OrdersOrderIdMetaGtin` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
@@ -281,7 +276,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.GetV1Advert` — `GET /adv/v1/advert` — Информация о медиакампании
 - `promotion.DefaultApiService.GetV1Adverts` — `GET /adv/v1/adverts` — Список медиакампаний
 - `promotion.DefaultApiService.GetV1Balance` — `GET /adv/v1/balance` — Баланс
-- `promotion.DefaultApiService.GetV1Budget` — `GET /adv/v1/budget` — Бюджет кампании
 - `promotion.DefaultApiService.GetV1CalendarPromotions` — `GET /api/v1/calendar/promotions` — Список акций
 - `promotion.DefaultApiService.GetV1CalendarPromotionsDetails` — `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
 - `promotion.DefaultApiService.GetV1CalendarPromotionsNomenclatures` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции

@@ -44,7 +44,7 @@ class Supply(BaseModel):
     shipping_point_id: Optional[StrictInt] = Field(default=None, description="ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)", alias="shippingPointId", json_schema_extra={"examples": [100]})
     shipping_type: Optional[StrictStr] = Field(default=None, description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию ", alias="shippingType", json_schema_extra={"examples": ["selfShipping"]})
     waybill_uuid: Optional[StrictStr] = Field(default=None, description="ID ЭТрН — электронной транспортной накладной", alias="waybillUuid", json_schema_extra={"examples": ["550e8400-e29b-41d4-a716-384579387429"]})
-    spot_available: StrictBool = Field(description="Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет ", alias="spotAvailable", json_schema_extra={"examples": [True]})
+    spot_available: StrictBool = Field(description="Доступен ли СПОТ для этой поставки:   - `true` — да   - `false` — нет ", alias="spotAvailable", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["id", "isB2b", "isPickupPointShipmentAllowed", "done", "createdAt", "closedAt", "scanDt", "name", "cargoType", "crossBorderType", "destinationOfficeId", "recommendedWhId", "shippingDt", "shippingPointId", "shippingType", "waybillUuid", "spotAvailable"]
 
     @field_validator('cargo_type')

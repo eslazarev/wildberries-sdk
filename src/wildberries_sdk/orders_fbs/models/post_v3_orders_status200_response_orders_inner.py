@@ -50,8 +50,8 @@ class PostV3OrdersStatus200ResponseOrdersInner(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['waiting', 'sorted', 'sold', 'canceled', 'canceled_by_client', 'declined_by_client', 'defect', 'ready_for_pickup', 'postponed_delivery', 'accepted_by_carrier', 'sent_to_carrier']):
-            raise ValueError("must be one of enum values ('waiting', 'sorted', 'sold', 'canceled', 'canceled_by_client', 'declined_by_client', 'defect', 'ready_for_pickup', 'postponed_delivery', 'accepted_by_carrier', 'sent_to_carrier')")
+        if value not in set(['waiting', 'sorted', 'sold', 'canceled', 'canceled_by_client', 'declined_by_client', 'defect', 'ready_for_pickup', 'postponed_delivery', 'accepted_by_carrier', 'sent_to_carrier', 'delivering_by_carrier']):
+            raise ValueError("must be one of enum values ('waiting', 'sorted', 'sold', 'canceled', 'canceled_by_client', 'declined_by_client', 'defect', 'ready_for_pickup', 'postponed_delivery', 'accepted_by_carrier', 'sent_to_carrier', 'delivering_by_carrier')")
         return value
 
     model_config = ConfigDict(

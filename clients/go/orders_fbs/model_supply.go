@@ -54,7 +54,7 @@ type Supply struct {
 	ShippingType NullableString `json:"shippingType,omitempty"`
 	// ID ЭТрН — электронной транспортной накладной
 	WaybillUuid NullableString `json:"waybillUuid,omitempty"`
-	// Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет 
+	// Доступен ли СПОТ для этой поставки:   - `true` — да   - `false` — нет 
 	SpotAvailable bool `json:"spotAvailable"`
 }
 

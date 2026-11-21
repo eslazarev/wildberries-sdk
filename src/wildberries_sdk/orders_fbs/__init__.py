@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.190"
+__version__ = "0.1.191"
 
 # Define package exports
 __all__ = [
@@ -31,8 +31,6 @@ __all__ = [
     "ApiErrorV3",
     "ArhiveOrderError400",
     "ArhiveOrderError400ErrorsInner",
-    "CountriesOKSMList",
-    "CountriesOKSMListCountriesInner",
     "CrossborderTurkeyClientInfo",
     "CrossborderTurkeyClientInfoResp",
     "DeleteV3SuppliesSupplyIdTrbxRequest",
@@ -74,7 +72,6 @@ __all__ = [
     "PostV3FbsSettingsAutoreturnsItems200ResponseResultsInner",
     "PostV3FbsSettingsAutoreturnsItems200ResponseResultsInnerErrorInner",
     "PostV3FbsSettingsAutoreturnsItemsRequest",
-    "PostV3FbsSuppliesSpotListRequest",
     "PostV3OrdersStatus200Response",
     "PostV3OrdersStatus200ResponseOrdersInner",
     "PostV3OrdersStatusHistory200Response",
@@ -96,7 +93,6 @@ __all__ = [
     "PostV3SuppliesSupplyIdTrbxRequest",
     "PostV3SuppliesSupplyIdTrbxStickers200Response",
     "PostV3SuppliesSupplyIdTrbxStickersRequest",
-    "PutV3FbsSuppliesSupplyIdSpotRequest",
     "PutV3OrdersOrderIdMetaCustomsDeclarationRequest",
     "PutV3OrdersOrderIdMetaExpirationRequest",
     "PutV3OrdersOrderIdMetaGtinRequest",
@@ -105,15 +101,9 @@ __all__ = [
     "PutV3OrdersOrderIdMetaUinRequest",
     "PutV3PassesPassIdRequest",
     "Response4XX",
-    "ShippingPoint",
-    "ShippingPointsResponse",
     "Supply",
     "SupplyShippingPoint",
     "SupplyShippingPointsResponse",
-    "SupplySpotData",
-    "SupplySpotDataResponse",
-    "SupplySpotDataResponseSuppliesInner",
-    "SupplySpotQRCode",
     "SupplyTrbx",
     "TrbxStickers",
     "UpdateSuppliesShippingMethodRequest",
@@ -156,8 +146,6 @@ from wildberries_sdk.orders_fbs.exceptions import ApiException as ApiException
 from wildberries_sdk.orders_fbs.models.api_error_v3 import ApiErrorV3 as ApiErrorV3
 from wildberries_sdk.orders_fbs.models.arhive_order_error400 import ArhiveOrderError400 as ArhiveOrderError400
 from wildberries_sdk.orders_fbs.models.arhive_order_error400_errors_inner import ArhiveOrderError400ErrorsInner as ArhiveOrderError400ErrorsInner
-from wildberries_sdk.orders_fbs.models.countries_oksm_list import CountriesOKSMList as CountriesOKSMList
-from wildberries_sdk.orders_fbs.models.countries_oksm_list_countries_inner import CountriesOKSMListCountriesInner as CountriesOKSMListCountriesInner
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info import CrossborderTurkeyClientInfo as CrossborderTurkeyClientInfo
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info_resp import CrossborderTurkeyClientInfoResp as CrossborderTurkeyClientInfoResp
 from wildberries_sdk.orders_fbs.models.delete_v3_supplies_supply_id_trbx_request import DeleteV3SuppliesSupplyIdTrbxRequest as DeleteV3SuppliesSupplyIdTrbxRequest
@@ -199,7 +187,6 @@ from wildberries_sdk.orders_fbs.models.post_v3_fbs_settings_autoreturns_items200
 from wildberries_sdk.orders_fbs.models.post_v3_fbs_settings_autoreturns_items200_response_results_inner import PostV3FbsSettingsAutoreturnsItems200ResponseResultsInner as PostV3FbsSettingsAutoreturnsItems200ResponseResultsInner
 from wildberries_sdk.orders_fbs.models.post_v3_fbs_settings_autoreturns_items200_response_results_inner_error_inner import PostV3FbsSettingsAutoreturnsItems200ResponseResultsInnerErrorInner as PostV3FbsSettingsAutoreturnsItems200ResponseResultsInnerErrorInner
 from wildberries_sdk.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_request import PostV3FbsSettingsAutoreturnsItemsRequest as PostV3FbsSettingsAutoreturnsItemsRequest
-from wildberries_sdk.orders_fbs.models.post_v3_fbs_supplies_spot_list_request import PostV3FbsSuppliesSpotListRequest as PostV3FbsSuppliesSpotListRequest
 from wildberries_sdk.orders_fbs.models.post_v3_orders_status200_response import PostV3OrdersStatus200Response as PostV3OrdersStatus200Response
 from wildberries_sdk.orders_fbs.models.post_v3_orders_status200_response_orders_inner import PostV3OrdersStatus200ResponseOrdersInner as PostV3OrdersStatus200ResponseOrdersInner
 from wildberries_sdk.orders_fbs.models.post_v3_orders_status_history200_response import PostV3OrdersStatusHistory200Response as PostV3OrdersStatusHistory200Response
@@ -221,7 +208,6 @@ from wildberries_sdk.orders_fbs.models.post_v3_supplies_supply_id_trbx201_respon
 from wildberries_sdk.orders_fbs.models.post_v3_supplies_supply_id_trbx_request import PostV3SuppliesSupplyIdTrbxRequest as PostV3SuppliesSupplyIdTrbxRequest
 from wildberries_sdk.orders_fbs.models.post_v3_supplies_supply_id_trbx_stickers200_response import PostV3SuppliesSupplyIdTrbxStickers200Response as PostV3SuppliesSupplyIdTrbxStickers200Response
 from wildberries_sdk.orders_fbs.models.post_v3_supplies_supply_id_trbx_stickers_request import PostV3SuppliesSupplyIdTrbxStickersRequest as PostV3SuppliesSupplyIdTrbxStickersRequest
-from wildberries_sdk.orders_fbs.models.put_v3_fbs_supplies_supply_id_spot_request import PutV3FbsSuppliesSupplyIdSpotRequest as PutV3FbsSuppliesSupplyIdSpotRequest
 from wildberries_sdk.orders_fbs.models.put_v3_orders_order_id_meta_customs_declaration_request import PutV3OrdersOrderIdMetaCustomsDeclarationRequest as PutV3OrdersOrderIdMetaCustomsDeclarationRequest
 from wildberries_sdk.orders_fbs.models.put_v3_orders_order_id_meta_expiration_request import PutV3OrdersOrderIdMetaExpirationRequest as PutV3OrdersOrderIdMetaExpirationRequest
 from wildberries_sdk.orders_fbs.models.put_v3_orders_order_id_meta_gtin_request import PutV3OrdersOrderIdMetaGtinRequest as PutV3OrdersOrderIdMetaGtinRequest
@@ -230,15 +216,9 @@ from wildberries_sdk.orders_fbs.models.put_v3_orders_order_id_meta_sgtin_request
 from wildberries_sdk.orders_fbs.models.put_v3_orders_order_id_meta_uin_request import PutV3OrdersOrderIdMetaUinRequest as PutV3OrdersOrderIdMetaUinRequest
 from wildberries_sdk.orders_fbs.models.put_v3_passes_pass_id_request import PutV3PassesPassIdRequest as PutV3PassesPassIdRequest
 from wildberries_sdk.orders_fbs.models.response4_xx import Response4XX as Response4XX
-from wildberries_sdk.orders_fbs.models.shipping_point import ShippingPoint as ShippingPoint
-from wildberries_sdk.orders_fbs.models.shipping_points_response import ShippingPointsResponse as ShippingPointsResponse
 from wildberries_sdk.orders_fbs.models.supply import Supply as Supply
 from wildberries_sdk.orders_fbs.models.supply_shipping_point import SupplyShippingPoint as SupplyShippingPoint
 from wildberries_sdk.orders_fbs.models.supply_shipping_points_response import SupplyShippingPointsResponse as SupplyShippingPointsResponse
-from wildberries_sdk.orders_fbs.models.supply_spot_data import SupplySpotData as SupplySpotData
-from wildberries_sdk.orders_fbs.models.supply_spot_data_response import SupplySpotDataResponse as SupplySpotDataResponse
-from wildberries_sdk.orders_fbs.models.supply_spot_data_response_supplies_inner import SupplySpotDataResponseSuppliesInner as SupplySpotDataResponseSuppliesInner
-from wildberries_sdk.orders_fbs.models.supply_spot_qr_code import SupplySpotQRCode as SupplySpotQRCode
 from wildberries_sdk.orders_fbs.models.supply_trbx import SupplyTrbx as SupplyTrbx
 from wildberries_sdk.orders_fbs.models.trbx_stickers import TrbxStickers as TrbxStickers
 from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_request import UpdateSuppliesShippingMethodRequest as UpdateSuppliesShippingMethodRequest

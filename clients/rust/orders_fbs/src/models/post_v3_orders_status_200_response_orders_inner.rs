@@ -84,6 +84,8 @@ pub enum WbStatus {
     AcceptedByCarrier,
     #[serde(rename = "sent_to_carrier")]
     SentToCarrier,
+    #[serde(rename = "delivering_by_carrier")]
+    DeliveringByCarrier,
 }
 
 impl Default for WbStatus {

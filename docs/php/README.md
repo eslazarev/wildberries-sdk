@@ -165,11 +165,8 @@ var_dump($response);
 - `orders_fbs.FBSApi.deleteV3PassesPassId` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
 - `orders_fbs.FBSApi.deleteV3SuppliesSupplyId` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
 - `orders_fbs.FBSApi.deleteV3SuppliesSupplyIdTrbx` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить грузоместа из поставки
-- `orders_fbs.FBSApi.getV3FbsDictionariesCountriesOksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
 - `orders_fbs.FBSApi.getV3FbsOrdersArchive` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
-- `orders_fbs.FBSApi.getV3FbsShippingPoints` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
 - `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdShippingPoints` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points` — Получить список пунктов отгрузки поставки
-- `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdStickersSpot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
 - `orders_fbs.FBSApi.getV3Orders` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
 - `orders_fbs.FBSApi.getV3OrdersNew` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий
 - `orders_fbs.FBSApi.getV3Passes` — `GET /api/v3/passes` — Получить список пропусков
@@ -185,7 +182,6 @@ var_dump($response);
 - `orders_fbs.FBSApi.patchV3OrdersOrderIdCancel` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdDeliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdOrders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
-- `orders_fbs.FBSApi.postV3FbsSuppliesSpotList` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок
 - `orders_fbs.FBSApi.postV3OrdersClient` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
 - `orders_fbs.FBSApi.postV3OrdersMeta` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
 - `orders_fbs.FBSApi.postV3OrdersStatus` — `POST /api/v3/orders/status` — Получить статусы сборочных заданий
@@ -196,7 +192,6 @@ var_dump($response);
 - `orders_fbs.FBSApi.postV3Supplies` — `POST /api/v3/supplies` — Создать новую поставку
 - `orders_fbs.FBSApi.postV3SuppliesSupplyIdTrbx` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
 - `orders_fbs.FBSApi.postV3SuppliesSupplyIdTrbxStickers` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
-- `orders_fbs.FBSApi.putV3FbsSuppliesSupplyIdSpot` — `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку
 - `orders_fbs.FBSApi.putV3OrdersOrderIdMetaCustomsDeclaration` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
 - `orders_fbs.FBSApi.putV3OrdersOrderIdMetaExpiration` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
 - `orders_fbs.FBSApi.putV3OrdersOrderIdMetaGtin` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
@@ -294,7 +289,6 @@ var_dump($response);
 - `promotion.DefaultApi.getV1Advert` — `GET /adv/v1/advert` — Информация о медиакампании
 - `promotion.DefaultApi.getV1Adverts` — `GET /adv/v1/adverts` — Список медиакампаний
 - `promotion.DefaultApi.getV1Balance` — `GET /adv/v1/balance` — Баланс
-- `promotion.DefaultApi.getV1Budget` — `GET /adv/v1/budget` — Бюджет кампании
 - `promotion.DefaultApi.getV1CalendarPromotions` — `GET /api/v1/calendar/promotions` — Список акций
 - `promotion.DefaultApi.getV1CalendarPromotionsDetails` — `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
 - `promotion.DefaultApi.getV1CalendarPromotionsNomenclatures` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции

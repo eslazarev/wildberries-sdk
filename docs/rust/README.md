@@ -144,11 +144,8 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `orders_fbs::fbs_api::delete_v3_passes_pass_id` — `DELETE /api/v3/passes/{passId}` — Метод удаляет пропуск продавца [из списка](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
 - `orders_fbs::fbs_api::delete_v3_supplies_supply_id` — `DELETE /api/v3/supplies/{supplyId}` — Метод удаляет [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId), если она активна и за ней не закреплено ни одно…
 - `orders_fbs::fbs_api::delete_v3_supplies_supply_id_trbx` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Метод удаляет грузоместа из поставки.
-- `orders_fbs::fbs_api::get_v3_fbs_dictionaries_countries_oksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.
 - `orders_fbs::fbs_api::get_v3_fbs_orders_archive` — `GET /api/marketplace/v3/fbs/orders/archive` — Метод возвращает сборочные задания, созданные более 3 месяцев назад.
-- `orders_fbs::fbs_api::get_v3_fbs_shipping_points` — `GET /api/marketplace/v3/fbs/shipping-points`
 - `orders_fbs::fbs_api::get_v3_fbs_supplies_supply_id_shipping_points` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points` — Метод возвращает доступные пункты отгрузки для указанной поставки.
-- `orders_fbs::fbs_api::get_v3_fbs_supplies_supply_id_stickers_spot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.
 - `orders_fbs::fbs_api::get_v3_orders` — `GET /api/v3/orders` — Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального…
 - `orders_fbs::fbs_api::get_v3_orders_new` — `GET /api/v3/orders/new` — Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), которые есть у продавца на момент запроса.
 - `orders_fbs::fbs_api::get_v3_passes` — `GET /api/v3/passes` — Метод возвращает список всех [созданных](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/postV3Passes) пропусков продавца.
@@ -164,7 +161,6 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `orders_fbs::fbs_api::patch_v3_orders_order_id_cancel` — `PATCH /api/v3/orders/{orderId}/cancel` — Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в…
 - `orders_fbs::fbs_api::patch_v3_supplies_supply_id_deliver` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Метод закрывает [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) и переводит все…
 - `orders_fbs::fbs_api::patch_v3_supplies_supply_id_orders` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Метод добавляет до 100 [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) к поставке и переводит их в…
-- `orders_fbs::fbs_api::post_v3_fbs_supplies_spot_list` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Метод возвращает данные СПОТ для списка поставок.
 - `orders_fbs::fbs_api::post_v3_orders_client` — `POST /api/v3/orders/client` — Метод позволяет получать информацию о покупателе по ID сборочного задания.
 - `orders_fbs::fbs_api::post_v3_orders_meta` — `POST /api/marketplace/v3/orders/meta` — Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и статусы их проверки.
 - `orders_fbs::fbs_api::post_v3_orders_status` — `POST /api/v3/orders/status` — Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.
@@ -175,7 +171,6 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `orders_fbs::fbs_api::post_v3_supplies` — `POST /api/v3/supplies` — Метод создаёт новую [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
 - `orders_fbs::fbs_api::post_v3_supplies_supply_id_trbx` — `POST /api/v3/supplies/{supplyId}/trbx` — Метод добавляет требуемое количество [грузомест](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx) в…
 - `orders_fbs::fbs_api::post_v3_supplies_supply_id_trbx_stickers` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Метод возвращает QR-стикеры в форматах: - SVG - ZPLV (вертикальный) - ZPLH (горизонтальный) - PNG Размер стикеров — 580x400 px.
-- `orders_fbs::fbs_api::put_v3_fbs_supplies_supply_id_spot` — `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Метод добавляет данные СПОТ в поставку.
 - `orders_fbs::fbs_api::put_v3_orders_order_id_meta_customs_declaration` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
 - `orders_fbs::fbs_api::put_v3_orders_order_id_meta_expiration` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Метод закрепляет за [сборочным заданием](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) срок годности товара.
 - `orders_fbs::fbs_api::put_v3_orders_order_id_meta_gtin` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Метод обновляет GTIN, уникальный ID товара в Беларуси, в…
@@ -273,7 +268,6 @@ wildberries_sdk_general = { path = "clients/rust/general" }
 - `promotion::default_api::get_v1_advert` — `GET /adv/v1/advert` — Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list).
 - `promotion::default_api::get_v1_adverts` — `GET /adv/v1/adverts` — Метод возвращает список всех [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.
 - `promotion::default_api::get_v1_balance` — `GET /adv/v1/balance` — Метод возвращает информацию о: - счёте кабинета Продвижения WB.
-- `promotion::default_api::get_v1_budget` — `GET /adv/v1/budget`
 - `promotion::default_api::get_v1_calendar_promotions` — `GET /api/v1/calendar/promotions` — Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.
 - `promotion::default_api::get_v1_calendar_promotions_details` — `GET /api/v1/calendar/promotions/details` — Метод возвращает подробную информацию об [акции](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.
 - `promotion::default_api::get_v1_calendar_promotions_nomenclatures` — `GET /api/v1/calendar/promotions/nomenclatures` — Метод формирует список товаров, подходящих для участия в [акции](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).

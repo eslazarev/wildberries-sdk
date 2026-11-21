@@ -102,18 +102,10 @@ tags:
     \ Если поставка не была передана в доставку, то при сканировании её QR-кода ил\
     и приёмке первого товара на ПВЗ поставка автоматически закроется. При передаче\
     \ сборочных заданий в доставку они будут автоматически собраны и переведены в\
-    \ статус `complete` — в доставке.\n  1. Для поставок из стран ЕАЭС добавьте да\
-    нные [СПОТ](https://www.nalog.gov.ru/rn77/related_activities/spot). Получите [с\
-    писок стран ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)\
-    \ для [добавления данных СПОТ в поставку](./orders-fbs#tag/fbsSupplies/operation/putV3FbsSuppliesSupplyIdSpot).\
-    \ Вы можете получать [данные СПОТ для списка поставок](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)\
-    \ и [QR-коды СПОТ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot).\
-    \ Сейчас методы доступны только для продавцов из Кыргызстана. В дальнейшем мет\
-    оды будут доступны продавцам из любой страны ЕАЭС кроме РФ, следите за обновле\
-    ниями.\n  1. Если поставка была отсканирована в пункте приёмки, но при этом в\
-    \ ней всё ещё есть неотсканированные товары, спустя определённое время необход\
-    имо доставить их повторно. Проверьте все [сборочные задания, требующие повторн\
-    ой отгрузки на данный момент](./orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment).\
+    \ статус `complete` — в доставке.\n  \n  1. Если поставка была отсканирована в\
+    \ пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары, спу\
+    стя определённое время необходимо доставить их повторно. Проверьте все [сбороч\
+    ные задания, требующие повторной отгрузки на данный момент](./orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment).\
     \ Данные сборочные задания можно перевести в [другую активную поставку](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders).\
     \ Сборочное задание также будет переведено в статус `confirm` — на сборке.\n\n\
     Также вы можете:\n  - [удалить грузоместа из поставки](./orders-fbs#tag/fbsSupplies/operation/deleteV3SuppliesSupplyIdTrbx),\
@@ -981,7 +973,8 @@ paths:
   /api/v3/orders/status:
     post:
       description: |
-        Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.
+        Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.<br>
+        Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).
         <br><br>
         `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
 
@@ -1007,8 +1000,10 @@ paths:
         - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
         - `defect` — отмена заказа по причине брака
         - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ)
-        - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране
-        - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца
+        - `postponed_delivery` — доставка курьером отложена
+        - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок
+        - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок
+        - `delivering_by_carrier` — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок
         - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок
 
         <div class="description_limit">
@@ -4234,134 +4229,6 @@ paths:
       x-tagKey: fbsSupplies
     servers:
     - url: https://marketplace-api.wildberries.ru
-  /api/marketplace/v3/fbs/shipping-points:
-    get:
-      deprecated: true
-      description: |
-        Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id=585).
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-
-        </div>
-      operationId: getV3FbsShippingPoints
-      parameters:
-      - description: "Населённый пункт отгрузки поставки, кириллица"
-        example: Москва
-        explode: true
-        in: query
-        name: city
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: |
-          Тип товара, который принимает пункт отгрузки:
-            - `1` — малогабаритный товар (МГТ)
-            - `2` — сверхгабаритный товар (СГТ)
-            - `3` — крупногабаритный товар (КГТ+)
-        example: 1
-        explode: true
-        in: query
-        name: cargoType
-        required: true
-        schema:
-          enum:
-          - 1
-          - 2
-          - 3
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ShippingPointsResponse"
-          description: Успешно
-        "400":
-          content:
-            application/json:
-              examples:
-                IncorrectParameter:
-                  $ref: "#/components/examples/IncorrectParameter"
-              schema:
-                $ref: "#/components/schemas/Error"
-          description: Неправильный запрос
-        "401":
-          content:
-            application/problem+json:
-              example:
-                title: unauthorized
-                detail: "token problem; token is malformed: could not base64 decode\
-                  \ signature: illegal base64 data at input byte 84"
-                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
-                requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: ag-marketplace
-                status: 401
-                statusText: Unauthorized
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Не авторизован
-        "402":
-          content:
-            application/problem+json:
-              example:
-                title: payment required
-                detail: wb solution for business has insufficient funds on its balance.
-                  please top up the balance in the company's personal account https://dev.wildberries.ru/company
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_402_response"
-          description: Требуется платёж
-        "403":
-          content:
-            application/problem+json:
-              examples:
-                Response403TokenCategory:
-                  description: Неверная категория токена
-                  value:
-                    status: 403
-                    statusText: Forbidden
-                    title: Forbidden
-                    detail: scope is not allowed for this resource
-                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
-                    origin: ag-marketplace
-                    timestamp: 2026-09-03T13:55:15Z
-              schema:
-                $ref: "#/components/schemas/getV3FbsSuppliesSupplyIdShippingPoints_403_response"
-          description: Доступ запрещён
-        "429":
-          content:
-            application/problem+json:
-              example:
-                title: too many requests
-                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
-                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
-                requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: ag-marketplace
-                status: 429
-                statusText: Too Many Requests
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Слишком много запросов
-      security:
-      - HeaderApiKey: []
-      summary: Получить список пунктов отгрузки поставок
-      tags:
-      - Поставки FBS
-      x-readonly-method: true
-      x-category: marketplace
-      x-tagKey: fbsSupplies
-    servers:
-    - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/fbs/supplies/shipping-method:
     patch:
       description: |
@@ -5320,453 +5187,15 @@ paths:
         **Sandbox**
       url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/fbs/dictionaries/countries/oksm:
-    get:
-      description: |
-        Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-
-        </div>
-      operationId: getV3FbsDictionariesCountriesOksm
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/CountriesOKSMList"
-          description: Успешно
-        "401":
-          content:
-            application/json:
-              example:
-                title: unauthorized
-                detail: "token problem; token is malformed: could not base64 decode\
-                  \ signature: illegal base64 data at input byte 84"
-                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
-                requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: ag-marketplace
-                status: 401
-                statusText: Unauthorized
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Не авторизован
-        "402":
-          content:
-            application/problem+json:
-              example:
-                title: payment required
-                detail: wb solution for business has insufficient funds on its balance.
-                  please top up the balance in the company's personal account https://dev.wildberries.ru/company
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_402_response"
-          description: Требуется платёж
-        "403":
-          content:
-            application/problem+json:
-              examples:
-                Response403TokenCategory:
-                  description: Неверная категория токена
-                  value:
-                    status: 403
-                    statusText: Forbidden
-                    title: Forbidden
-                    detail: scope is not allowed for this resource
-                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
-                    origin: ag-marketplace
-                    timestamp: 2026-09-03T13:55:15Z
-              schema:
-                $ref: "#/components/schemas/getV3FbsSuppliesSupplyIdShippingPoints_403_response"
-          description: Доступ запрещён
-        "429":
-          content:
-            application/json:
-              example:
-                title: too many requests
-                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
-                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
-                requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: ag-marketplace
-                status: 429
-                statusText: Too Many Requests
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Слишком много запросов
-      summary: Получить список стран ОКСМ
-      tags:
-      - Поставки FBS
-      x-readonly-method: true
-      x-category: marketplace
-      x-tagKey: fbsSupplies
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/fbs/supplies/{supplyId}/spot:
-    put:
-      description: |
-        Метод добавляет данные СПОТ в поставку.<br><br>
-
-        СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `"spotAvailable":true`.
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-
-        </div>
-      operationId: putV3FbsSuppliesSupplyIdSpot
-      parameters:
-      - description: ID поставки
-        example: WB-GI-123456789
-        explode: false
-        in: path
-        name: supplyId
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/putV3FbsSuppliesSupplyIdSpot_request"
-        required: true
-      responses:
-        "204":
-          description: Добавлено
-        "400":
-          content:
-            application/problem+json:
-              examples:
-                BadRequest:
-                  $ref: "#/components/examples/ApiError400V3"
-              schema:
-                $ref: "#/components/schemas/ApiErrorV3"
-          description: Неправильный запрос
-        "401":
-          content:
-            application/json:
-              example:
-                title: unauthorized
-                detail: "token problem; token is malformed: could not base64 decode\
-                  \ signature: illegal base64 data at input byte 84"
-                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
-                requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: ag-marketplace
-                status: 401
-                statusText: Unauthorized
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Не авторизован
-        "402":
-          content:
-            application/problem+json:
-              example:
-                title: payment required
-                detail: wb solution for business has insufficient funds on its balance.
-                  please top up the balance in the company's personal account https://dev.wildberries.ru/company
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_402_response"
-          description: Требуется платёж
-        "403":
-          content:
-            application/problem+json:
-              examples:
-                Response403TokenCategory:
-                  description: Неверная категория токена
-                  value:
-                    status: 403
-                    statusText: Forbidden
-                    title: Forbidden
-                    detail: scope is not allowed for this resource
-                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
-                    origin: ag-marketplace
-                    timestamp: 2026-09-03T13:55:15Z
-              schema:
-                $ref: "#/components/schemas/getV3FbsSuppliesSupplyIdShippingPoints_403_response"
-          description: Доступ запрещён
-        "404":
-          content:
-            application/problem+json:
-              examples:
-                BadRequest:
-                  $ref: "#/components/examples/ApiError404V3"
-              schema:
-                $ref: "#/components/schemas/ApiErrorV3"
-          description: Не найдено
-        "409":
-          content:
-            application/problem+json:
-              examples:
-                BadRequest:
-                  $ref: "#/components/examples/SpotApiError409V3"
-              schema:
-                $ref: "#/components/schemas/ApiErrorV3"
-          description: Ошибка добавления данных СПОТ
-        "429":
-          content:
-            application/json:
-              example:
-                title: too many requests
-                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
-                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
-                requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: ag-marketplace
-                status: 429
-                statusText: Too Many Requests
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Слишком много запросов
-      summary: Добавить данные СПОТ в поставку
-      tags:
-      - Поставки FBS
-      x-readonly-method: false
-      x-category: marketplace
-      x-tagKey: fbsSupplies
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/fbs/supplies/spot/list:
-    post:
-      description: |
-        Метод возвращает данные СПОТ для списка поставок.<br><br>
-
-        Вы можете получить данные СПОТ, только если выполняются все условия:
-          - поставка находится на этапе доставки
-          - продавец зарегистрирован в любой стране ЕАЭС кроме РФ
-          - склад назначения находится в РФ
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-
-        </div>
-      operationId: postV3FbsSuppliesSpotList
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/postV3FbsSuppliesSpotList_request"
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              examples:
-                SupplySpotDataResponse:
-                  $ref: "#/components/examples/SupplySpotDataResponse"
-              schema:
-                $ref: "#/components/schemas/SupplySpotDataResponse"
-          description: Успешно
-        "400":
-          content:
-            application/problem+json:
-              examples:
-                BadRequest:
-                  $ref: "#/components/examples/ApiError400V3"
-              schema:
-                $ref: "#/components/schemas/ApiErrorV3"
-          description: Неправильный запрос
-        "401":
-          content:
-            application/json:
-              example:
-                title: unauthorized
-                detail: "token problem; token is malformed: could not base64 decode\
-                  \ signature: illegal base64 data at input byte 84"
-                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
-                requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: ag-marketplace
-                status: 401
-                statusText: Unauthorized
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Не авторизован
-        "402":
-          content:
-            application/problem+json:
-              example:
-                title: payment required
-                detail: wb solution for business has insufficient funds on its balance.
-                  please top up the balance in the company's personal account https://dev.wildberries.ru/company
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_402_response"
-          description: Требуется платёж
-        "403":
-          content:
-            application/problem+json:
-              examples:
-                Response403TokenCategory:
-                  description: Неверная категория токена
-                  value:
-                    status: 403
-                    statusText: Forbidden
-                    title: Forbidden
-                    detail: scope is not allowed for this resource
-                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
-                    origin: ag-marketplace
-                    timestamp: 2026-09-03T13:55:15Z
-              schema:
-                $ref: "#/components/schemas/getV3FbsSuppliesSupplyIdShippingPoints_403_response"
-          description: Доступ запрещён
-        "429":
-          content:
-            application/json:
-              example:
-                title: too many requests
-                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
-                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
-                requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: ag-marketplace
-                status: 429
-                statusText: Too Many Requests
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Слишком много запросов
-      summary: Получить данные СПОТ для списка поставок
-      tags:
-      - Поставки FBS
-      x-readonly-method: true
-      x-category: marketplace
-      x-tagKey: fbsSupplies
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot:
-    get:
-      description: |
-        Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.
-
-        Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `"status":"completed"`.
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-
-        </div>
-      operationId: getV3FbsSuppliesSupplyIdStickersSpot
-      parameters:
-      - description: ID поставки
-        example: WB-GI-123456789
-        explode: false
-        in: path
-        name: supplyId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/SupplySpotQRCode"
-          description: Успешно
-        "400":
-          content:
-            application/problem+json:
-              examples:
-                BadRequest:
-                  $ref: "#/components/examples/ApiError400V3"
-              schema:
-                $ref: "#/components/schemas/ApiErrorV3"
-          description: Неправильный запрос
-        "401":
-          content:
-            application/json:
-              example:
-                title: unauthorized
-                detail: "token problem; token is malformed: could not base64 decode\
-                  \ signature: illegal base64 data at input byte 84"
-                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
-                requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: ag-marketplace
-                status: 401
-                statusText: Unauthorized
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Не авторизован
-        "402":
-          content:
-            application/problem+json:
-              example:
-                title: payment required
-                detail: wb solution for business has insufficient funds on its balance.
-                  please top up the balance in the company's personal account https://dev.wildberries.ru/company
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_402_response"
-          description: Требуется платёж
-        "403":
-          content:
-            application/problem+json:
-              examples:
-                Response403TokenCategory:
-                  description: Неверная категория токена
-                  value:
-                    status: 403
-                    statusText: Forbidden
-                    title: Forbidden
-                    detail: scope is not allowed for this resource
-                    requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
-                    origin: ag-marketplace
-                    timestamp: 2026-09-03T13:55:15Z
-              schema:
-                $ref: "#/components/schemas/getV3FbsSuppliesSupplyIdShippingPoints_403_response"
-          description: Доступ запрещён
-        "404":
-          content:
-            application/problem+json:
-              examples:
-                BadRequest:
-                  $ref: "#/components/examples/ApiError404V3"
-              schema:
-                $ref: "#/components/schemas/ApiErrorV3"
-          description: Не найдено
-        "429":
-          content:
-            application/json:
-              example:
-                title: too many requests
-                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
-                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
-                requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: ag-marketplace
-                status: 429
-                statusText: Too Many Requests
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/getV3PassesOffices_401_response"
-          description: Слишком много запросов
-      summary: Получить QR-код СПОТ
-      tags:
-      - Поставки FBS
-      x-readonly-method: true
-      x-category: marketplace
-      x-tagKey: fbsSupplies
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/fbs/settings/autoreturns:
@@ -6416,14 +5845,6 @@ components:
       value:
         detail: Not Found
         title: NotFound
-    ApiError404V3:
-      value:
-        detail: Incorrect required body
-        title: IncorrectRequestBody
-    SpotApiError409V3:
-      value:
-        detail: SPOT actions aren't available for this shipment
-        title: SpotActionNotAllowed
     AutoreturnError400Parameter:
       value:
         detail: Incorrect parameter
@@ -6477,34 +5898,6 @@ components:
       value:
         code: SupplyShippingRequired
         message: "Specify shipping point, type and date to close the supply"
-    SupplySpotDataResponse:
-      value:
-        supplies:
-        - id: WB-GI-0000001
-          spot:
-            carrierTaxNumber: "7588179007"
-            carrierName: ООО СПОТ
-            carrierCountryCode: "112"
-            vehicleRegistrationNumber: А123АА100
-            trailerRegistrationNumber: АА000100
-            status: completed
-        - id: WB-GI-0000002
-          spot:
-            carrierTaxNumber: "7588179007"
-            carrierName: ООО СПОТ
-            carrierCountryCode: "112"
-            vehicleRegistrationNumber: А123АА100
-            trailerRegistrationNumber: АА000100
-            status: failed
-            errorCode: doppFailed
-        - id: WB-GI-0000003
-          error:
-            title: NotFound
-            detail: Not Found
-        - id: WB-GI-0000004
-          error:
-            title: SpotActionNotAllowed
-            detail: Spot Action Not Allowed
     AccessDenied:
       value:
         code: AccessDenied
@@ -6783,7 +6176,7 @@ components:
           scanPrice: 5200
           status:
             supplierStatus: complete
-            wbStatus: sent_to_carrier
+            wbStatus: sorted
           stickerId: 33811984302
           supplyId: WB-GI-1234588
           warehouseId: 55684681
@@ -6816,7 +6209,7 @@ components:
           scanPrice: 5200
           status:
             supplierStatus: complete
-            wbStatus: sent_to_carrier
+            wbStatus: sorted
           stickerId: 33811984302
           supplyId: WB-GI-1234588
           warehouseId: 55684681
@@ -6868,7 +6261,7 @@ components:
         scanPrice: 5200
         status:
           supplierStatus: complete
-          wbStatus: sent_to_carrier
+          wbStatus: sorted
         stickerId: 33811984302
         supplyId: WB-GI-1234588
         warehouseId: 55684681
@@ -7482,7 +6875,7 @@ components:
         spotAvailable:
           description: |
             Доступен ли СПОТ для этой поставки:
-              - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)
+              - `true` — да
               - `false` — нет
           example: true
           type: boolean
@@ -8088,101 +7481,6 @@ components:
       required:
       - supplyId
       type: object
-    ShippingPoint:
-      description: Данные пункта отгрузки
-      example:
-        id: 100
-        name: Москва Морской
-        address: "г Москва, Морской Проспект 54"
-        city: Москва
-        officeType: pp
-        cargoTypes:
-        - 1
-        - 3
-        latitude: 37.588898
-        longitude: 55.386871
-        fulfillment: false
-        available: true
-      properties:
-        id:
-          description: ID пункта отгрузки
-          example: 100
-          format: int64
-          type: integer
-        name:
-          description: Название
-          example: Москва Морской
-          type: string
-        address:
-          description: Адрес
-          example: "г Москва, Морской Проспект 54"
-          type: string
-        city:
-          description: Населённый пункт
-          example: Москва
-          type: string
-        officeType:
-          description: |
-            Тип пункта отгрузки:
-              - `sc` — сортировочный центр
-              - `sw` — склад
-              - `pp` — ПВЗ
-          enum:
-          - sc
-          - sw
-          - pp
-          example: pp
-          type: string
-        cargoTypes:
-          description: |
-            Типы товаров, которые принимает пункт отгрузки:
-              - `1` — малогабаритный товар (МГТ)
-              - `2` — сверхгабаритный товар (СГТ)
-              - `3` — крупногабаритный товар (КГТ+)
-          example:
-          - 1
-          - 3
-          items:
-            enum:
-            - 1
-            - 2
-            - 3
-            type: integer
-          type: array
-        latitude:
-          description: Широта
-          example: 37.588898
-          type: number
-        longitude:
-          description: Долгота
-          example: 55.386871
-          type: number
-        fulfillment:
-          description: |
-            Услуга **Фулфилмент в СЦ** для поставки по модели FBS:
-              - `true` — доступна
-              - `false` — недоступна
-          example: false
-          type: boolean
-        available:
-          description: |
-            Доступен ли пункт для отгрузки поставки:
-              - `true` — доступен
-              - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки
-          example: true
-          type: boolean
-      required:
-      - address
-      - available
-      - cargoTypes
-      - city
-      - fulfillment
-      - id
-      - latitude
-      - longitude
-      - name
-      - officeType
-      type: object
     SupplyShippingPoint:
       description: Данные пункта отгрузки
       example:
@@ -8256,42 +7554,6 @@ components:
       - name
       - officeType
       type: object
-    ShippingPointsResponse:
-      example:
-        shippingPoints:
-        - id: 100
-          name: Москва Морской
-          address: "г Москва, Морской Проспект 54"
-          city: Москва
-          officeType: pp
-          cargoTypes:
-          - 1
-          - 3
-          latitude: 37.588898
-          longitude: 55.386871
-          fulfillment: false
-          available: true
-        - id: 100
-          name: Москва Морской
-          address: "г Москва, Морской Проспект 54"
-          city: Москва
-          officeType: pp
-          cargoTypes:
-          - 1
-          - 3
-          latitude: 37.588898
-          longitude: 55.386871
-          fulfillment: false
-          available: true
-      properties:
-        shippingPoints:
-          description: Список пунктов отгрузки
-          items:
-            $ref: "#/components/schemas/ShippingPoint"
-          type: array
-      required:
-      - shippingPoints
-      type: object
     SupplyShippingPointsResponse:
       example:
         shippingPoints:
@@ -8321,100 +7583,6 @@ components:
           type: array
       required:
       - shippingPoints
-      type: object
-    SupplySpotQRCode:
-      example:
-        qrCode: U3dhZ2dlciByb2Nrcw==
-      properties:
-        qrCode:
-          description: QR-код поставки в кодировке base64
-          example: U3dhZ2dlciByb2Nrcw==
-          format: base64
-          type: string
-      required:
-      - qrCode
-      type: object
-    CountriesOKSMList:
-      example:
-        countries:
-        - code: "036"
-          name: Австралия
-        - code: "036"
-          name: Австралия
-      properties:
-        countries:
-          description: Список стран ОКСМ
-          items:
-            $ref: "#/components/schemas/CountriesOKSMList_countries_inner"
-          type: array
-      required:
-      - countries
-      type: object
-    SupplySpotDataResponse:
-      example:
-        supplies:
-        - id: id
-          spot: ""
-          error:
-            value:
-              detail: Incorrect required body
-              title: IncorrectRequestBody
-        - id: id
-          spot: ""
-          error:
-            value:
-              detail: Incorrect required body
-              title: IncorrectRequestBody
-      properties:
-        supplies:
-          items:
-            $ref: "#/components/schemas/SupplySpotDataResponse_supplies_inner"
-          type: array
-      required:
-      - supplies
-      type: object
-    SupplySpotData:
-      properties:
-        status:
-          description: |
-            Статус СПОТ:
-              - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке
-              - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)
-              - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode`
-          enum:
-          - pending
-          - completed
-          - failed
-          type: string
-        carrierName:
-          description: Наименование перевозчика
-          maxLength: 1000
-          minLength: 1
-          type: string
-        carrierTaxNumber:
-          description: ИНН перевозчика
-          type: string
-        carrierCountryCode:
-          description: "Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)"
-          type: string
-        vehicleRegistrationNumber:
-          description: Регистрационный номер транспортного средства
-          type: string
-        trailerRegistrationNumber:
-          description: Регистрационный номер прицепа
-          type: string
-        errorCode:
-          description: |
-            Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при `"status": "failed"`. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз
-          enum:
-          - doppFailed
-          type: string
-      required:
-      - carrierCountryCode
-      - carrierName
-      - carrierTaxNumber
-      - status
-      - vehicleRegistrationNumber
       type: object
     Response4XX:
       properties:
@@ -8853,6 +8021,7 @@ components:
           - postponed_delivery
           - accepted_by_carrier
           - sent_to_carrier
+          - delivering_by_carrier
           nullable: false
           type: string
       type: object
@@ -9484,57 +8653,6 @@ components:
           nullable: true
           type: array
       type: object
-    putV3FbsSuppliesSupplyIdSpot_request:
-      properties:
-        carrierName:
-          description: Наименование перевозчика
-          example: ООО СПОТ
-          maxLength: 1000
-          minLength: 1
-          type: string
-        carrierTaxNumber:
-          description: ИНН перевозчика
-          example: "7588179007"
-          maxLength: 50
-          minLength: 1
-          type: string
-        carrierCountryCode:
-          description: "Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)"
-          example: "112"
-          maxLength: 3
-          minLength: 3
-          type: string
-        vehicleRegistrationNumber:
-          description: Регистрационный номер транспортного средства
-          example: А123АА100
-          maxLength: 30
-          minLength: 1
-          type: string
-        trailerRegistrationNumber:
-          description: Регистрационный номер прицепа
-          example: АА000100
-          maxLength: 30
-          minLength: 1
-          type: string
-      required:
-      - carrierCountryCode
-      - carrierName
-      - carrierTaxNumber
-      - vehicleRegistrationNumber
-      type: object
-    postV3FbsSuppliesSpotList_request:
-      properties:
-        supplyIds:
-          description: Список ID поставок
-          items:
-            example: WB-GI-123456789
-            type: string
-          maxLength: 100
-          minLength: 1
-          type: array
-      required:
-      - supplyIds
-      type: object
     getV3FbsSettingsAutoreturns_200_response:
       example:
         type: allToWarehouse
@@ -9876,7 +8994,7 @@ components:
       description: Последние статусы сборочного задания
       example:
         supplierStatus: complete
-        wbStatus: sent_to_carrier
+        wbStatus: sorted
       properties:
         supplierStatus:
           description: "Статус сборочного задания, установленный продавцом"
@@ -9884,7 +9002,7 @@ components:
           type: string
         wbStatus:
           description: Статус сборочного задания в системе Wildberries
-          example: sent_to_carrier
+          example: sorted
           type: string
       required:
       - supplierStatus
@@ -10175,49 +9293,6 @@ components:
       required:
       - code
       - detail
-      type: object
-    CountriesOKSMList_countries_inner:
-      example:
-        code: "036"
-        name: Австралия
-      properties:
-        code:
-          description: Код страны
-          example: "036"
-          type: string
-        name:
-          description: Название страны
-          example: Австралия
-          type: string
-      required:
-      - code
-      - name
-      type: object
-    SupplySpotDataResponse_supplies_inner:
-      example:
-        id: id
-        spot: ""
-        error:
-          value:
-            detail: Incorrect required body
-            title: IncorrectRequestBody
-      properties:
-        id:
-          description: ID поставки
-          type: string
-        spot:
-          allOf:
-          - $ref: "#/components/schemas/SupplySpotData"
-          description: Данные СПОТ
-        error:
-          allOf:
-          - $ref: "#/components/schemas/ApiErrorV3"
-          example:
-            value:
-              detail: Incorrect required body
-              title: IncorrectRequestBody
-      required:
-      - id
       type: object
   securitySchemes:
     HeaderApiKey:

@@ -26,7 +26,6 @@ export * from './GetV1Advert200ResponseItemsInnerShowHoursInner';
 export * from './GetV1Adverts200ResponseInner';
 export * from './GetV1Balance200Response';
 export * from './GetV1Balance200ResponseCashbacksInner';
-export * from './GetV1Budget200Response';
 export * from './GetV1CalendarPromotions200Response';
 export * from './GetV1CalendarPromotions200ResponseData';
 export * from './GetV1CalendarPromotions200ResponseDataPromotionsInner';

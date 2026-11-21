@@ -79,6 +79,7 @@ export const PostV3OrdersStatus200ResponseOrdersInnerWbStatusEnum = {
     PostponedDelivery: 'postponed_delivery',
     AcceptedByCarrier: 'accepted_by_carrier',
     SentToCarrier: 'sent_to_carrier',
+    DeliveringByCarrier: 'delivering_by_carrier',
 } as const;
 export type PostV3OrdersStatus200ResponseOrdersInnerWbStatusEnum = typeof PostV3OrdersStatus200ResponseOrdersInnerWbStatusEnum[keyof typeof PostV3OrdersStatus200ResponseOrdersInnerWbStatusEnum];
 

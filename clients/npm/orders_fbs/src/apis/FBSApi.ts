@@ -14,20 +14,10 @@
 
 import * as runtime from '../runtime';
 import {
-    type ApiErrorV3,
-    ApiErrorV3FromJSON,
-    ApiErrorV3ToJSON,
-} from '../models/ApiErrorV3';
-import {
     type ArhiveOrderError400,
     ArhiveOrderError400FromJSON,
     ArhiveOrderError400ToJSON,
 } from '../models/ArhiveOrderError400';
-import {
-    type CountriesOKSMList,
-    CountriesOKSMListFromJSON,
-    CountriesOKSMListToJSON,
-} from '../models/CountriesOKSMList';
 import {
     type CrossborderTurkeyClientInfoResp,
     CrossborderTurkeyClientInfoRespFromJSON,
@@ -119,11 +109,6 @@ import {
     PatchV3SuppliesSupplyIdOrdersRequestToJSON,
 } from '../models/PatchV3SuppliesSupplyIdOrdersRequest';
 import {
-    type PostV3FbsSuppliesSpotListRequest,
-    PostV3FbsSuppliesSpotListRequestFromJSON,
-    PostV3FbsSuppliesSpotListRequestToJSON,
-} from '../models/PostV3FbsSuppliesSpotListRequest';
-import {
     type PostV3OrdersStatus200Response,
     PostV3OrdersStatus200ResponseFromJSON,
     PostV3OrdersStatus200ResponseToJSON,
@@ -204,11 +189,6 @@ import {
     PostV3SuppliesSupplyIdTrbxStickersRequestToJSON,
 } from '../models/PostV3SuppliesSupplyIdTrbxStickersRequest';
 import {
-    type PutV3FbsSuppliesSupplyIdSpotRequest,
-    PutV3FbsSuppliesSupplyIdSpotRequestFromJSON,
-    PutV3FbsSuppliesSupplyIdSpotRequestToJSON,
-} from '../models/PutV3FbsSuppliesSupplyIdSpotRequest';
-import {
     type PutV3OrdersOrderIdMetaCustomsDeclarationRequest,
     PutV3OrdersOrderIdMetaCustomsDeclarationRequestFromJSON,
     PutV3OrdersOrderIdMetaCustomsDeclarationRequestToJSON,
@@ -249,11 +229,6 @@ import {
     Response4XXToJSON,
 } from '../models/Response4XX';
 import {
-    type ShippingPointsResponse,
-    ShippingPointsResponseFromJSON,
-    ShippingPointsResponseToJSON,
-} from '../models/ShippingPointsResponse';
-import {
     type Supply,
     SupplyFromJSON,
     SupplyToJSON,
@@ -263,16 +238,6 @@ import {
     SupplyShippingPointsResponseFromJSON,
     SupplyShippingPointsResponseToJSON,
 } from '../models/SupplyShippingPointsResponse';
-import {
-    type SupplySpotDataResponse,
-    SupplySpotDataResponseFromJSON,
-    SupplySpotDataResponseToJSON,
-} from '../models/SupplySpotDataResponse';
-import {
-    type SupplySpotQRCode,
-    SupplySpotQRCodeFromJSON,
-    SupplySpotQRCodeToJSON,
-} from '../models/SupplySpotQRCode';
 import {
     type UpdateSuppliesShippingMethodRequest,
     UpdateSuppliesShippingMethodRequestFromJSON,
@@ -369,21 +334,6 @@ export interface GetV3FbsOrdersArchiveRequest {
     limit: number;
 }
 
-export interface GetV3FbsShippingPointsRequest {
-    /**
-     * Населённый пункт отгрузки поставки, кириллица
-     */
-    city: string;
-    /**
-     * Тип товара, который принимает пункт отгрузки:
-     *   - `1` — малогабаритный товар (МГТ)
-     *   - `2` — сверхгабаритный товар (СГТ)
-     *   - `3` — крупногабаритный товар (КГТ+)
-     * 
-     */
-    cargoType: GetV3FbsShippingPointsCargoTypeEnum;
-}
-
 export interface GetV3FbsSuppliesSupplyIdShippingPointsRequest {
     /**
      * ID поставки
@@ -410,13 +360,6 @@ export interface GetV3FbsSuppliesSupplyIdShippingPointsRequest {
      * 
      */
     shippingDt?: string;
-}
-
-export interface GetV3FbsSuppliesSupplyIdStickersSpotRequest {
-    /**
-     * ID поставки
-     */
-    supplyId: string;
 }
 
 export interface GetV3OrdersRequest {
@@ -525,13 +468,6 @@ export interface PatchV3SuppliesSupplyIdOrdersOperationRequest {
     patchV3SuppliesSupplyIdOrdersRequest: PatchV3SuppliesSupplyIdOrdersRequest;
 }
 
-export interface PostV3FbsSuppliesSpotListOperationRequest {
-    /**
-     * 
-     */
-    postV3FbsSuppliesSpotListRequest: PostV3FbsSuppliesSpotListRequest;
-}
-
 export interface PostV3OrdersClientRequest {
     /**
      * 
@@ -624,17 +560,6 @@ export interface PostV3SuppliesSupplyIdTrbxStickersOperationRequest {
      * 
      */
     postV3SuppliesSupplyIdTrbxStickersRequest?: PostV3SuppliesSupplyIdTrbxStickersRequest;
-}
-
-export interface PutV3FbsSuppliesSupplyIdSpotOperationRequest {
-    /**
-     * ID поставки
-     */
-    supplyId: string;
-    /**
-     * 
-     */
-    putV3FbsSuppliesSupplyIdSpotRequest: PutV3FbsSuppliesSupplyIdSpotRequest;
 }
 
 export interface PutV3OrdersOrderIdMetaCustomsDeclarationOperationRequest {
@@ -934,49 +859,6 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for getV3FbsDictionariesCountriesOksm without sending the request
-     */
-    async getV3FbsDictionariesCountriesOksmRequestOpts(): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/fbs/dictionaries/countries/oksm`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Получить список стран ОКСМ
-     */
-    async getV3FbsDictionariesCountriesOksmRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountriesOKSMList>> {
-        const requestOptions = await this.getV3FbsDictionariesCountriesOksmRequestOpts();
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CountriesOKSMListFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Получить список стран ОКСМ
-     */
-    async getV3FbsDictionariesCountriesOksm(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountriesOKSMList> {
-        const response = await this.getV3FbsDictionariesCountriesOksmRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Creates request options for getV3FbsOrdersArchive without sending the request
      */
     async getV3FbsOrdersArchiveRequestOpts(requestParameters: GetV3FbsOrdersArchiveRequest): Promise<runtime.RequestOpts> {
@@ -1064,74 +946,6 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for getV3FbsShippingPoints without sending the request
-     * @deprecated
-     */
-    async getV3FbsShippingPointsRequestOpts(requestParameters: GetV3FbsShippingPointsRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['city'] == null) {
-            throw new runtime.RequiredError(
-                'city',
-                'Required parameter "city" was null or undefined when calling getV3FbsShippingPoints().'
-            );
-        }
-
-        if (requestParameters['cargoType'] == null) {
-            throw new runtime.RequiredError(
-                'cargoType',
-                'Required parameter "cargoType" was null or undefined when calling getV3FbsShippingPoints().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['city'] != null) {
-            queryParameters['city'] = requestParameters['city'];
-        }
-
-        if (requestParameters['cargoType'] != null) {
-            queryParameters['cargoType'] = requestParameters['cargoType'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/fbs/shipping-points`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id=585).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Получить список пунктов отгрузки поставок
-     * @deprecated
-     */
-    async getV3FbsShippingPointsRaw(requestParameters: GetV3FbsShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingPointsResponse>> {
-        const requestOptions = await this.getV3FbsShippingPointsRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ShippingPointsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id=585).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Получить список пунктов отгрузки поставок
-     * @deprecated
-     */
-    async getV3FbsShippingPoints(requestParameters: GetV3FbsShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingPointsResponse> {
-        const response = await this.getV3FbsShippingPointsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Creates request options for getV3FbsSuppliesSupplyIdShippingPoints without sending the request
      */
     async getV3FbsSuppliesSupplyIdShippingPointsRequestOpts(requestParameters: GetV3FbsSuppliesSupplyIdShippingPointsRequest): Promise<runtime.RequestOpts> {
@@ -1205,57 +1019,6 @@ export class FBSApi extends runtime.BaseAPI {
      */
     async getV3FbsSuppliesSupplyIdShippingPoints(requestParameters: GetV3FbsSuppliesSupplyIdShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplyShippingPointsResponse> {
         const response = await this.getV3FbsSuppliesSupplyIdShippingPointsRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for getV3FbsSuppliesSupplyIdStickersSpot without sending the request
-     */
-    async getV3FbsSuppliesSupplyIdStickersSpotRequestOpts(requestParameters: GetV3FbsSuppliesSupplyIdStickersSpotRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['supplyId'] == null) {
-            throw new runtime.RequiredError(
-                'supplyId',
-                'Required parameter "supplyId" was null or undefined when calling getV3FbsSuppliesSupplyIdStickersSpot().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot`;
-        urlPath = urlPath.replace('{supplyId}', encodeURIComponent(String(requestParameters['supplyId'])));
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Получить QR-код СПОТ
-     */
-    async getV3FbsSuppliesSupplyIdStickersSpotRaw(requestParameters: GetV3FbsSuppliesSupplyIdStickersSpotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupplySpotQRCode>> {
-        const requestOptions = await this.getV3FbsSuppliesSupplyIdStickersSpotRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SupplySpotQRCodeFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Получить QR-код СПОТ
-     */
-    async getV3FbsSuppliesSupplyIdStickersSpot(requestParameters: GetV3FbsSuppliesSupplyIdStickersSpotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplySpotQRCode> {
-        const response = await this.getV3FbsSuppliesSupplyIdStickersSpotRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2059,59 +1822,6 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for postV3FbsSuppliesSpotList without sending the request
-     */
-    async postV3FbsSuppliesSpotListRequestOpts(requestParameters: PostV3FbsSuppliesSpotListOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['postV3FbsSuppliesSpotListRequest'] == null) {
-            throw new runtime.RequiredError(
-                'postV3FbsSuppliesSpotListRequest',
-                'Required parameter "postV3FbsSuppliesSpotListRequest" was null or undefined when calling postV3FbsSuppliesSpotList().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/fbs/supplies/spot/list`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PostV3FbsSuppliesSpotListRequestToJSON(requestParameters['postV3FbsSuppliesSpotListRequest']),
-        };
-    }
-
-    /**
-     * Метод возвращает данные СПОТ для списка поставок.<br><br>  Вы можете получить данные СПОТ, только если выполняются все условия:   - поставка находится на этапе доставки   - продавец зарегистрирован в любой стране ЕАЭС кроме РФ   - склад назначения находится в РФ  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Получить данные СПОТ для списка поставок
-     */
-    async postV3FbsSuppliesSpotListRaw(requestParameters: PostV3FbsSuppliesSpotListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupplySpotDataResponse>> {
-        const requestOptions = await this.postV3FbsSuppliesSpotListRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SupplySpotDataResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает данные СПОТ для списка поставок.<br><br>  Вы можете получить данные СПОТ, только если выполняются все условия:   - поставка находится на этапе доставки   - продавец зарегистрирован в любой стране ЕАЭС кроме РФ   - склад назначения находится в РФ  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Получить данные СПОТ для списка поставок
-     */
-    async postV3FbsSuppliesSpotList(requestParameters: PostV3FbsSuppliesSpotListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplySpotDataResponse> {
-        const response = await this.postV3FbsSuppliesSpotListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Creates request options for postV3OrdersClient without sending the request
      */
     async postV3OrdersClientRequestOpts(requestParameters: PostV3OrdersClientRequest): Promise<runtime.RequestOpts> {
@@ -2244,7 +1954,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`:  | Статус   | Описание            | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new`      | **Новое сборочное задание** |  | | `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) <br> [Перевести сборочные задания из доставки на сборку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.<br> Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive). <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`:  | Статус   | Описание            | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new`      | **Новое сборочное задание** |  | | `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) <br> [Перевести сборочные задания из доставки на сборку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `postponed_delivery` — доставка курьером отложена - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок - `delivering_by_carrier` — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
      * Получить статусы сборочных заданий
      */
     async postV3OrdersStatusRaw(requestParameters: PostV3OrdersStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV3OrdersStatus200Response>> {
@@ -2255,7 +1965,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`:  | Статус   | Описание            | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new`      | **Новое сборочное задание** |  | | `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) <br> [Перевести сборочные задания из доставки на сборку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.<br> Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive). <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`:  | Статус   | Описание            | Как перевести сборочное задание в данный статус | |-------|----------------------|--------------------------------------| | `new`      | **Новое сборочное задание** |  | | `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) <br> [Перевести сборочные задания из доставки на сборку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sorted` — сборочное задание отсортировано - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ) - `postponed_delivery` — доставка курьером отложена - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок - `delivering_by_carrier` — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
      * Получить статусы сборочных заданий
      */
     async postV3OrdersStatus(requestParameters: PostV3OrdersStatusOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV3OrdersStatus200Response> {
@@ -2657,66 +2367,6 @@ export class FBSApi extends runtime.BaseAPI {
     async postV3SuppliesSupplyIdTrbxStickers(requestParameters: PostV3SuppliesSupplyIdTrbxStickersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV3SuppliesSupplyIdTrbxStickers200Response> {
         const response = await this.postV3SuppliesSupplyIdTrbxStickersRaw(requestParameters, initOverrides);
         return await response.value();
-    }
-
-    /**
-     * Creates request options for putV3FbsSuppliesSupplyIdSpot without sending the request
-     */
-    async putV3FbsSuppliesSupplyIdSpotRequestOpts(requestParameters: PutV3FbsSuppliesSupplyIdSpotOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['supplyId'] == null) {
-            throw new runtime.RequiredError(
-                'supplyId',
-                'Required parameter "supplyId" was null or undefined when calling putV3FbsSuppliesSupplyIdSpot().'
-            );
-        }
-
-        if (requestParameters['putV3FbsSuppliesSupplyIdSpotRequest'] == null) {
-            throw new runtime.RequiredError(
-                'putV3FbsSuppliesSupplyIdSpotRequest',
-                'Required parameter "putV3FbsSuppliesSupplyIdSpotRequest" was null or undefined when calling putV3FbsSuppliesSupplyIdSpot().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/fbs/supplies/{supplyId}/spot`;
-        urlPath = urlPath.replace('{supplyId}', encodeURIComponent(String(requestParameters['supplyId'])));
-
-        return {
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PutV3FbsSuppliesSupplyIdSpotRequestToJSON(requestParameters['putV3FbsSuppliesSupplyIdSpotRequest']),
-        };
-    }
-
-    /**
-     * Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Добавить данные СПОТ в поставку
-     */
-    async putV3FbsSuppliesSupplyIdSpotRaw(requestParameters: PutV3FbsSuppliesSupplyIdSpotOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.putV3FbsSuppliesSupplyIdSpotRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-     * Добавить данные СПОТ в поставку
-     */
-    async putV3FbsSuppliesSupplyIdSpot(requestParameters: PutV3FbsSuppliesSupplyIdSpotOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.putV3FbsSuppliesSupplyIdSpotRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -3152,15 +2802,6 @@ export const DeleteV3OrdersOrderIdMetaKeyEnum = {
     CustomsDeclaration: 'customsDeclaration',
 } as const;
 export type DeleteV3OrdersOrderIdMetaKeyEnum = typeof DeleteV3OrdersOrderIdMetaKeyEnum[keyof typeof DeleteV3OrdersOrderIdMetaKeyEnum];
-/**
- * @export
- */
-export const GetV3FbsShippingPointsCargoTypeEnum = {
-    NUMBER_1: 1,
-    NUMBER_2: 2,
-    NUMBER_3: 3,
-} as const;
-export type GetV3FbsShippingPointsCargoTypeEnum = typeof GetV3FbsShippingPointsCargoTypeEnum[keyof typeof GetV3FbsShippingPointsCargoTypeEnum];
 /**
  * @export
  */

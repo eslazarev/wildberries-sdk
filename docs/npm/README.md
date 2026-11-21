@@ -151,11 +151,8 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.deleteV3PassesPassId` — Удалить пропуск
 - `orders_fbs.FBSApi.deleteV3SuppliesSupplyId` — Удалить поставку
 - `orders_fbs.FBSApi.deleteV3SuppliesSupplyIdTrbx` — Удалить грузоместа из поставки
-- `orders_fbs.FBSApi.getV3FbsDictionariesCountriesOksm` — Получить список стран ОКСМ
 - `orders_fbs.FBSApi.getV3FbsOrdersArchive` — Получить список архивных сборочных заданий
-- `orders_fbs.FBSApi.getV3FbsShippingPoints` — Получить список пунктов отгрузки поставок
 - `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdShippingPoints` — Получить список пунктов отгрузки поставки
-- `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdStickersSpot` — Получить QR-код СПОТ
 - `orders_fbs.FBSApi.getV3Orders` — Получить информацию о сборочных заданиях
 - `orders_fbs.FBSApi.getV3OrdersNew` — Получить список новых сборочных заданий
 - `orders_fbs.FBSApi.getV3Passes` — Получить список пропусков
@@ -171,7 +168,6 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.patchV3OrdersOrderIdCancel` — Отменить сборочное задание
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdDeliver` — Передать поставку в доставку
 - `orders_fbs.FBSApi.patchV3SuppliesSupplyIdOrders` — Добавить сборочные задания к поставке
-- `orders_fbs.FBSApi.postV3FbsSuppliesSpotList` — Получить данные СПОТ для списка поставок
 - `orders_fbs.FBSApi.postV3OrdersClient` — Заказы с информацией по клиенту
 - `orders_fbs.FBSApi.postV3OrdersMeta` — Получить идентификаторы маркировки сборочных заданий
 - `orders_fbs.FBSApi.postV3OrdersStatus` — Получить статусы сборочных заданий
@@ -182,7 +178,6 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.postV3Supplies` — Создать новую поставку
 - `orders_fbs.FBSApi.postV3SuppliesSupplyIdTrbx` — Добавить грузоместа к поставке
 - `orders_fbs.FBSApi.postV3SuppliesSupplyIdTrbxStickers` — Получить стикеры грузомест поставки
-- `orders_fbs.FBSApi.putV3FbsSuppliesSupplyIdSpot` — Добавить данные СПОТ в поставку
 - `orders_fbs.FBSApi.putV3OrdersOrderIdMetaCustomsDeclaration` — Закрепить номер ДТ за сборочным заданием
 - `orders_fbs.FBSApi.putV3OrdersOrderIdMetaExpiration` — Закрепить за сборочным заданием срок годности товара
 - `orders_fbs.FBSApi.putV3OrdersOrderIdMetaGtin` — Закрепить GTIN за сборочным заданием
@@ -280,7 +275,6 @@ main().catch(console.error);
 - `promotion.DefaultApi.getV1Advert` — Информация о медиакампании
 - `promotion.DefaultApi.getV1Adverts` — Список медиакампаний
 - `promotion.DefaultApi.getV1Balance` — Баланс
-- `promotion.DefaultApi.getV1Budget` — Бюджет кампании
 - `promotion.DefaultApi.getV1CalendarPromotions` — Список акций
 - `promotion.DefaultApi.getV1CalendarPromotionsDetails` — Детальная информация об акциях
 - `promotion.DefaultApi.getV1CalendarPromotionsNomenclatures` — Список товаров для участия в акции
