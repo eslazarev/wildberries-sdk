@@ -11,7 +11,7 @@ info:
       - управлять [поставками](/openapi/orders-fbs#tag/fbsSupplies)
       - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/fbsPasses) на склады WB
 
-    Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователя
+    Протестировать методы FBS вы можете в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователя
 
     </div>
 
