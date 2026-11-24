@@ -14,7 +14,7 @@ info:
       - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts)
       - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца
 
-    Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаров
+    Протестировать методы работы с товарами вы можете в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаров
 
     </div>
 
