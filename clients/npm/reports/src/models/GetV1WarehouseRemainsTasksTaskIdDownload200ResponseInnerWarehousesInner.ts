@@ -22,18 +22,19 @@ export interface GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehou
     /**
      * Название склада
      */
-    warehouseName?: string;
+    warehouseName: string;
     /**
      * Количество, шт.
-     * 
      */
-    quantity?: number;
+    quantity: number;
 }
 
 /**
  * Check if a given object implements the GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner interface.
  */
 export function instanceOfGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner(value: object): value is GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner {
+    if (!('warehouseName' in value) || value['warehouseName'] === undefined) return false;
+    if (!('quantity' in value) || value['quantity'] === undefined) return false;
     return true;
 }
 
@@ -47,8 +48,8 @@ export function GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehous
     }
     return {
         
-        'warehouseName': json['warehouseName'] == null ? undefined : json['warehouseName'],
-        'quantity': json['quantity'] == null ? undefined : json['quantity'],
+        'warehouseName': json['warehouseName'],
+        'quantity': json['quantity'],
     };
 }
 

@@ -12,6 +12,8 @@ package analytics
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the NmReportRetryReportRequest type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &NmReportRetryReportRequest{}
 // NmReportRetryReportRequest struct for NmReportRetryReportRequest
 type NmReportRetryReportRequest struct {
 	// ID отчёта
-	DownloadId *string `json:"downloadId,omitempty"`
+	DownloadId string `json:"downloadId"`
 }
+
+type _NmReportRetryReportRequest NmReportRetryReportRequest
 
 // NewNmReportRetryReportRequest instantiates a new NmReportRetryReportRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNmReportRetryReportRequest() *NmReportRetryReportRequest {
+func NewNmReportRetryReportRequest(downloadId string) *NmReportRetryReportRequest {
 	this := NmReportRetryReportRequest{}
+	this.DownloadId = downloadId
 	return &this
 }
 
@@ -40,36 +45,28 @@ func NewNmReportRetryReportRequestWithDefaults() *NmReportRetryReportRequest {
 	return &this
 }
 
-// GetDownloadId returns the DownloadId field value if set, zero value otherwise.
+// GetDownloadId returns the DownloadId field value
 func (o *NmReportRetryReportRequest) GetDownloadId() string {
-	if o == nil || IsNil(o.DownloadId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DownloadId
+
+	return o.DownloadId
 }
 
-// GetDownloadIdOk returns a tuple with the DownloadId field value if set, nil otherwise
+// GetDownloadIdOk returns a tuple with the DownloadId field value
 // and a boolean to check if the value has been set.
 func (o *NmReportRetryReportRequest) GetDownloadIdOk() (*string, bool) {
-	if o == nil || IsNil(o.DownloadId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DownloadId, true
+	return &o.DownloadId, true
 }
 
-// HasDownloadId returns a boolean if a field has been set.
-func (o *NmReportRetryReportRequest) HasDownloadId() bool {
-	if o != nil && !IsNil(o.DownloadId) {
-		return true
-	}
-
-	return false
-}
-
-// SetDownloadId gets a reference to the given string and assigns it to the DownloadId field.
+// SetDownloadId sets field value
 func (o *NmReportRetryReportRequest) SetDownloadId(v string) {
-	o.DownloadId = &v
+	o.DownloadId = v
 }
 
 func (o NmReportRetryReportRequest) MarshalJSON() ([]byte, error) {
@@ -82,10 +79,45 @@ func (o NmReportRetryReportRequest) MarshalJSON() ([]byte, error) {
 
 func (o NmReportRetryReportRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DownloadId) {
-		toSerialize["downloadId"] = o.DownloadId
-	}
+	toSerialize["downloadId"] = o.DownloadId
 	return toSerialize, nil
+}
+
+func (o *NmReportRetryReportRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"downloadId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varNmReportRetryReportRequest := _NmReportRetryReportRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varNmReportRetryReportRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = NmReportRetryReportRequest(varNmReportRetryReportRequest)
+
+	return err
 }
 
 type NullableNmReportRetryReportRequest struct {

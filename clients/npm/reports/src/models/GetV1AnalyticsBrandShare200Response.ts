@@ -30,13 +30,14 @@ export interface GetV1AnalyticsBrandShare200Response {
     /**
      * Отчёт
      */
-    report?: Array<GetV1AnalyticsBrandShare200ResponseReportInner>;
+    report: Array<GetV1AnalyticsBrandShare200ResponseReportInner>;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsBrandShare200Response interface.
  */
 export function instanceOfGetV1AnalyticsBrandShare200Response(value: object): value is GetV1AnalyticsBrandShare200Response {
+    if (!('report' in value) || value['report'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function GetV1AnalyticsBrandShare200ResponseFromJSONTyped(json: any, igno
     }
     return {
         
-        'report': json['report'] == null ? undefined : ((json['report'] as Array<any>).map(GetV1AnalyticsBrandShare200ResponseReportInnerFromJSON)),
+        'report': ((json['report'] as Array<any>).map(GetV1AnalyticsBrandShare200ResponseReportInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function GetV1AnalyticsBrandShare200ResponseToJSONTyped(value?: GetV1Anal
 
     return {
         
-        'report': value['report'] == null ? undefined : ((value['report'] as Array<any>).map(GetV1AnalyticsBrandShare200ResponseReportInnerToJSON)),
+        'report': ((value['report'] as Array<any>).map(GetV1AnalyticsBrandShare200ResponseReportInnerToJSON)),
     };
 }
 

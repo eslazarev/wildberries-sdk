@@ -24,8 +24,8 @@ type MainResponse struct {
 	CommonInfo CommonInfo `json:"commonInfo"`
 	PositionInfo PositionInfo `json:"positionInfo"`
 	VisibilityInfo VisibilityInfo `json:"visibilityInfo"`
-	// Список элементов таблицы 
-	Groups []TableGroupItem `json:"groups,omitempty"`
+	// Список элементов таблицы
+	Groups []TableGroupItem `json:"groups"`
 	// Валюта отчёта
 	Currency string `json:"currency"`
 }
@@ -36,11 +36,12 @@ type _MainResponse MainResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMainResponse(commonInfo CommonInfo, positionInfo PositionInfo, visibilityInfo VisibilityInfo, currency string) *MainResponse {
+func NewMainResponse(commonInfo CommonInfo, positionInfo PositionInfo, visibilityInfo VisibilityInfo, groups []TableGroupItem, currency string) *MainResponse {
 	this := MainResponse{}
 	this.CommonInfo = commonInfo
 	this.PositionInfo = positionInfo
 	this.VisibilityInfo = visibilityInfo
+	this.Groups = groups
 	this.Currency = currency
 	return &this
 }
@@ -125,34 +126,26 @@ func (o *MainResponse) SetVisibilityInfo(v VisibilityInfo) {
 	o.VisibilityInfo = v
 }
 
-// GetGroups returns the Groups field value if set, zero value otherwise.
+// GetGroups returns the Groups field value
 func (o *MainResponse) GetGroups() []TableGroupItem {
-	if o == nil || IsNil(o.Groups) {
+	if o == nil {
 		var ret []TableGroupItem
 		return ret
 	}
+
 	return o.Groups
 }
 
-// GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
+// GetGroupsOk returns a tuple with the Groups field value
 // and a boolean to check if the value has been set.
 func (o *MainResponse) GetGroupsOk() ([]TableGroupItem, bool) {
-	if o == nil || IsNil(o.Groups) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Groups, true
 }
 
-// HasGroups returns a boolean if a field has been set.
-func (o *MainResponse) HasGroups() bool {
-	if o != nil && !IsNil(o.Groups) {
-		return true
-	}
-
-	return false
-}
-
-// SetGroups gets a reference to the given []TableGroupItem and assigns it to the Groups field.
+// SetGroups sets field value
 func (o *MainResponse) SetGroups(v []TableGroupItem) {
 	o.Groups = v
 }
@@ -194,9 +187,7 @@ func (o MainResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["commonInfo"] = o.CommonInfo
 	toSerialize["positionInfo"] = o.PositionInfo
 	toSerialize["visibilityInfo"] = o.VisibilityInfo
-	if !IsNil(o.Groups) {
-		toSerialize["groups"] = o.Groups
-	}
+	toSerialize["groups"] = o.Groups
 	toSerialize["currency"] = o.Currency
 	return toSerialize, nil
 }
@@ -209,6 +200,7 @@ func (o *MainResponse) UnmarshalJSON(data []byte) (err error) {
 		"commonInfo",
 		"positionInfo",
 		"visibilityInfo",
+		"groups",
 		"currency",
 	}
 

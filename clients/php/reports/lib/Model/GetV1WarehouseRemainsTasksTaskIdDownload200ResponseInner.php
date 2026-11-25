@@ -323,6 +323,9 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner implements ModelI
     {
         $invalidProperties = [];
 
+        if ($this->container['warehouses'] === null) {
+            $invalidProperties[] = "'warehouses' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -530,7 +533,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Gets warehouses
      *
-     * @return \Wildberries\Sdk\Reports\Model\GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner[]|null
+     * @return \Wildberries\Sdk\Reports\Model\GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner[]
      */
     public function getWarehouses()
     {
@@ -540,7 +543,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Sets warehouses
      *
-     * @param \Wildberries\Sdk\Reports\Model\GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner[]|null $warehouses Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`
+     * @param \Wildberries\Sdk\Reports\Model\GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner[] $warehouses Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`
      *
      * @return self
      */

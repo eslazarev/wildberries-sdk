@@ -311,6 +311,9 @@ class MainResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['visibility_info'] === null) {
             $invalidProperties[] = "'visibility_info' can't be null";
         }
+        if ($this->container['groups'] === null) {
+            $invalidProperties[] = "'groups' can't be null";
+        }
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
         }
@@ -413,7 +416,7 @@ class MainResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets groups
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableGroupItem[]|null
+     * @return \Wildberries\Sdk\Analytics\Model\TableGroupItem[]
      */
     public function getGroups()
     {
@@ -423,7 +426,7 @@ class MainResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets groups
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableGroupItem[]|null $groups Список элементов таблицы
+     * @param \Wildberries\Sdk\Analytics\Model\TableGroupItem[] $groups Список элементов таблицы
      *
      * @return self
      */

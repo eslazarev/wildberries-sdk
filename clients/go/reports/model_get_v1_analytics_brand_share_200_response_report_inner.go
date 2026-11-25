@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AnalyticsBrandShare200ResponseReportInner type satisfies the MappedNullable interface at compile time
@@ -20,21 +22,27 @@ var _ MappedNullable = &GetV1AnalyticsBrandShare200ResponseReportInner{}
 // GetV1AnalyticsBrandShare200ResponseReportInner struct for GetV1AnalyticsBrandShare200ResponseReportInner
 type GetV1AnalyticsBrandShare200ResponseReportInner struct {
 	// Дата
-	ApplyDate *string `json:"applyDate,omitempty"`
+	ApplyDate string `json:"applyDate"`
 	// Рейтинг бренда в родительской категории
-	BrandRating *int32 `json:"brandRating,omitempty"`
+	BrandRating int32 `json:"brandRating"`
 	// Доля от продаж в родительской категории — цена, %
-	PricePercent *float32 `json:"pricePercent,omitempty"`
+	PricePercent float32 `json:"pricePercent"`
 	// Доля от продаж в родительской категории — количество, %
-	QtyPercent *float32 `json:"qtyPercent,omitempty"`
+	QtyPercent float32 `json:"qtyPercent"`
 }
+
+type _GetV1AnalyticsBrandShare200ResponseReportInner GetV1AnalyticsBrandShare200ResponseReportInner
 
 // NewGetV1AnalyticsBrandShare200ResponseReportInner instantiates a new GetV1AnalyticsBrandShare200ResponseReportInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AnalyticsBrandShare200ResponseReportInner() *GetV1AnalyticsBrandShare200ResponseReportInner {
+func NewGetV1AnalyticsBrandShare200ResponseReportInner(applyDate string, brandRating int32, pricePercent float32, qtyPercent float32) *GetV1AnalyticsBrandShare200ResponseReportInner {
 	this := GetV1AnalyticsBrandShare200ResponseReportInner{}
+	this.ApplyDate = applyDate
+	this.BrandRating = brandRating
+	this.PricePercent = pricePercent
+	this.QtyPercent = qtyPercent
 	return &this
 }
 
@@ -46,132 +54,100 @@ func NewGetV1AnalyticsBrandShare200ResponseReportInnerWithDefaults() *GetV1Analy
 	return &this
 }
 
-// GetApplyDate returns the ApplyDate field value if set, zero value otherwise.
+// GetApplyDate returns the ApplyDate field value
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetApplyDate() string {
-	if o == nil || IsNil(o.ApplyDate) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ApplyDate
+
+	return o.ApplyDate
 }
 
-// GetApplyDateOk returns a tuple with the ApplyDate field value if set, nil otherwise
+// GetApplyDateOk returns a tuple with the ApplyDate field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetApplyDateOk() (*string, bool) {
-	if o == nil || IsNil(o.ApplyDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ApplyDate, true
+	return &o.ApplyDate, true
 }
 
-// HasApplyDate returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBrandShare200ResponseReportInner) HasApplyDate() bool {
-	if o != nil && !IsNil(o.ApplyDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetApplyDate gets a reference to the given string and assigns it to the ApplyDate field.
+// SetApplyDate sets field value
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) SetApplyDate(v string) {
-	o.ApplyDate = &v
+	o.ApplyDate = v
 }
 
-// GetBrandRating returns the BrandRating field value if set, zero value otherwise.
+// GetBrandRating returns the BrandRating field value
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetBrandRating() int32 {
-	if o == nil || IsNil(o.BrandRating) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.BrandRating
+
+	return o.BrandRating
 }
 
-// GetBrandRatingOk returns a tuple with the BrandRating field value if set, nil otherwise
+// GetBrandRatingOk returns a tuple with the BrandRating field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetBrandRatingOk() (*int32, bool) {
-	if o == nil || IsNil(o.BrandRating) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BrandRating, true
+	return &o.BrandRating, true
 }
 
-// HasBrandRating returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBrandShare200ResponseReportInner) HasBrandRating() bool {
-	if o != nil && !IsNil(o.BrandRating) {
-		return true
-	}
-
-	return false
-}
-
-// SetBrandRating gets a reference to the given int32 and assigns it to the BrandRating field.
+// SetBrandRating sets field value
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) SetBrandRating(v int32) {
-	o.BrandRating = &v
+	o.BrandRating = v
 }
 
-// GetPricePercent returns the PricePercent field value if set, zero value otherwise.
+// GetPricePercent returns the PricePercent field value
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetPricePercent() float32 {
-	if o == nil || IsNil(o.PricePercent) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.PricePercent
+
+	return o.PricePercent
 }
 
-// GetPricePercentOk returns a tuple with the PricePercent field value if set, nil otherwise
+// GetPricePercentOk returns a tuple with the PricePercent field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetPricePercentOk() (*float32, bool) {
-	if o == nil || IsNil(o.PricePercent) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PricePercent, true
+	return &o.PricePercent, true
 }
 
-// HasPricePercent returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBrandShare200ResponseReportInner) HasPricePercent() bool {
-	if o != nil && !IsNil(o.PricePercent) {
-		return true
-	}
-
-	return false
-}
-
-// SetPricePercent gets a reference to the given float32 and assigns it to the PricePercent field.
+// SetPricePercent sets field value
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) SetPricePercent(v float32) {
-	o.PricePercent = &v
+	o.PricePercent = v
 }
 
-// GetQtyPercent returns the QtyPercent field value if set, zero value otherwise.
+// GetQtyPercent returns the QtyPercent field value
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetQtyPercent() float32 {
-	if o == nil || IsNil(o.QtyPercent) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.QtyPercent
+
+	return o.QtyPercent
 }
 
-// GetQtyPercentOk returns a tuple with the QtyPercent field value if set, nil otherwise
+// GetQtyPercentOk returns a tuple with the QtyPercent field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) GetQtyPercentOk() (*float32, bool) {
-	if o == nil || IsNil(o.QtyPercent) {
+	if o == nil {
 		return nil, false
 	}
-	return o.QtyPercent, true
+	return &o.QtyPercent, true
 }
 
-// HasQtyPercent returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBrandShare200ResponseReportInner) HasQtyPercent() bool {
-	if o != nil && !IsNil(o.QtyPercent) {
-		return true
-	}
-
-	return false
-}
-
-// SetQtyPercent gets a reference to the given float32 and assigns it to the QtyPercent field.
+// SetQtyPercent sets field value
 func (o *GetV1AnalyticsBrandShare200ResponseReportInner) SetQtyPercent(v float32) {
-	o.QtyPercent = &v
+	o.QtyPercent = v
 }
 
 func (o GetV1AnalyticsBrandShare200ResponseReportInner) MarshalJSON() ([]byte, error) {
@@ -184,19 +160,51 @@ func (o GetV1AnalyticsBrandShare200ResponseReportInner) MarshalJSON() ([]byte, e
 
 func (o GetV1AnalyticsBrandShare200ResponseReportInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ApplyDate) {
-		toSerialize["applyDate"] = o.ApplyDate
-	}
-	if !IsNil(o.BrandRating) {
-		toSerialize["brandRating"] = o.BrandRating
-	}
-	if !IsNil(o.PricePercent) {
-		toSerialize["pricePercent"] = o.PricePercent
-	}
-	if !IsNil(o.QtyPercent) {
-		toSerialize["qtyPercent"] = o.QtyPercent
-	}
+	toSerialize["applyDate"] = o.ApplyDate
+	toSerialize["brandRating"] = o.BrandRating
+	toSerialize["pricePercent"] = o.PricePercent
+	toSerialize["qtyPercent"] = o.QtyPercent
 	return toSerialize, nil
+}
+
+func (o *GetV1AnalyticsBrandShare200ResponseReportInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"applyDate",
+		"brandRating",
+		"pricePercent",
+		"qtyPercent",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AnalyticsBrandShare200ResponseReportInner := _GetV1AnalyticsBrandShare200ResponseReportInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AnalyticsBrandShare200ResponseReportInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AnalyticsBrandShare200ResponseReportInner(varGetV1AnalyticsBrandShare200ResponseReportInner)
+
+	return err
 }
 
 type NullableGetV1AnalyticsBrandShare200ResponseReportInner struct {

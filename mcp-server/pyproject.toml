@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "wildberries-mcp"
 # Kept equal to the SDK release by scripts/bump-version.sh: the server reads
 # its operations from that exact wildberries-sdk, so the two move together.
-version = "0.1.192"
+version = "0.1.193"
 description = "MCP server for the Wildberries seller API: AI agents search, describe and call every operation through wildberries-sdk."
 keywords = ["wildberries", "wildberries-api", "mcp", "mcp-server", "model-context-protocol", "wb", "wb-api", "seller-api", "marketplace", "ai-agents", "claude", "вайлдберриз"]
 readme = "README.md"
@@ -26,7 +26,7 @@ classifiers = [
 ]
 dependencies = [
   "mcp>=2.3,<3",
-  "wildberries-sdk==0.1.192",
+  "wildberries-sdk==0.1.193",
 ]
 
 [project.scripts]

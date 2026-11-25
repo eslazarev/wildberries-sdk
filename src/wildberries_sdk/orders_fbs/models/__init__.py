@@ -43,6 +43,7 @@ from wildberries_sdk.orders_fbs.models.model_pass import ModelPass
 from wildberries_sdk.orders_fbs.models.order import Order
 from wildberries_sdk.orders_fbs.models.order_address import OrderAddress
 from wildberries_sdk.orders_fbs.models.order_new import OrderNew
+from wildberries_sdk.orders_fbs.models.order_new_address import OrderNewAddress
 from wildberries_sdk.orders_fbs.models.order_options import OrderOptions
 from wildberries_sdk.orders_fbs.models.orders_request_api import OrdersRequestAPI
 from wildberries_sdk.orders_fbs.models.pass_office import PassOffice

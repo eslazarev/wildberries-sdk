@@ -30,13 +30,14 @@ export interface CreateTaskResponse {
     /**
      * 
      */
-    data?: CreateTaskResponseData;
+    data: CreateTaskResponseData;
 }
 
 /**
  * Check if a given object implements the CreateTaskResponse interface.
  */
 export function instanceOfCreateTaskResponse(value: object): value is CreateTaskResponse {
+    if (!('data' in value) || value['data'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function CreateTaskResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'data': json['data'] == null ? undefined : CreateTaskResponseDataFromJSON(json['data']),
+        'data': CreateTaskResponseDataFromJSON(json['data']),
     };
 }
 

@@ -17,8 +17,8 @@ pub struct DistributionTableItem {
     #[serde(rename = "nmId")]
     pub nm_id: i64,
     /// Название товара
-    #[serde(rename = "title")]
-    pub title: String,
+    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
     /// Артикул продавца
     #[serde(rename = "vendorCode")]
     pub vendor_code: String,
@@ -29,14 +29,14 @@ pub struct DistributionTableItem {
     #[serde(rename = "subjectName")]
     pub subject_name: String,
     /// Бренд
-    #[serde(rename = "brandName")]
-    pub brand_name: String,
+    #[serde(rename = "brandName", skip_serializing_if = "Option::is_none")]
+    pub brand_name: Option<String>,
     /// Название ярлыка
-    #[serde(rename = "tagName")]
-    pub tag_name: String,
+    #[serde(rename = "tagName", skip_serializing_if = "Option::is_none")]
+    pub tag_name: Option<String>,
     /// ID ярлыка
-    #[serde(rename = "tagId")]
-    pub tag_id: i64,
+    #[serde(rename = "tagId", skip_serializing_if = "Option::is_none")]
+    pub tag_id: Option<i64>,
     /// Отзыв закреплён
     #[serde(rename = "pinnedFeedback")]
     pub pinned_feedback: bool,
@@ -66,16 +66,16 @@ pub struct DistributionTableItem {
 }
 
 impl DistributionTableItem {
-    pub fn new(nm_id: i64, title: String, vendor_code: String, subject_id: u64, subject_name: String, brand_name: String, tag_name: String, tag_id: i64, pinned_feedback: bool, rating: f64, feedback_rating: models::DistributionTableItemFeedbackRating, feedback_count: models::DistributionTableItemFeedbackCount, five_star: models::DistributionTableItemFiveStar, four_star: models::DistributionTableItemFourStar, three_star: models::DistributionTableItemThreeStar, two_star: models::DistributionTableItemTwoStar, one_star: models::DistributionTableItemOneStar, disqualified: i32, is_shadowed: bool) -> DistributionTableItem {
+    pub fn new(nm_id: i64, vendor_code: String, subject_id: u64, subject_name: String, pinned_feedback: bool, rating: f64, feedback_rating: models::DistributionTableItemFeedbackRating, feedback_count: models::DistributionTableItemFeedbackCount, five_star: models::DistributionTableItemFiveStar, four_star: models::DistributionTableItemFourStar, three_star: models::DistributionTableItemThreeStar, two_star: models::DistributionTableItemTwoStar, one_star: models::DistributionTableItemOneStar, disqualified: i32, is_shadowed: bool) -> DistributionTableItem {
         DistributionTableItem {
             nm_id,
-            title,
+            title: None,
             vendor_code,
             subject_id,
             subject_name,
-            brand_name,
-            tag_name,
-            tag_id,
+            brand_name: None,
+            tag_name: None,
+            tag_id: None,
             pinned_feedback,
             rating,
             feedback_rating: Box::new(feedback_rating),

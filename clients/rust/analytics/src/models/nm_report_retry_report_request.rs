@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NmReportRetryReportRequest {
     /// ID отчёта
-    #[serde(rename = "downloadId", skip_serializing_if = "Option::is_none")]
-    pub download_id: Option<uuid::Uuid>,
+    #[serde(rename = "downloadId")]
+    pub download_id: uuid::Uuid,
 }
 
 impl NmReportRetryReportRequest {
-    pub fn new() -> NmReportRetryReportRequest {
+    pub fn new(download_id: uuid::Uuid) -> NmReportRetryReportRequest {
         NmReportRetryReportRequest {
-            download_id: None,
+            download_id,
         }
     }
 }

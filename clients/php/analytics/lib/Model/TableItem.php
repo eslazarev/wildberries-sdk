@@ -406,8 +406,14 @@ class TableItem implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['vendor_code'] === null) {
             $invalidProperties[] = "'vendor_code' can't be null";
         }
+        if ($this->container['subject_name'] === null) {
+            $invalidProperties[] = "'subject_name' can't be null";
+        }
         if ($this->container['is_advertised'] === null) {
             $invalidProperties[] = "'is_advertised' can't be null";
+        }
+        if ($this->container['is_substituted_sku'] === null) {
+            $invalidProperties[] = "'is_substituted_sku' can't be null";
         }
         if ($this->container['is_card_rated'] === null) {
             $invalidProperties[] = "'is_card_rated' can't be null";
@@ -541,7 +547,7 @@ class TableItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets subject_name
      *
-     * @return string|null
+     * @return string
      */
     public function getSubjectName()
     {
@@ -551,7 +557,7 @@ class TableItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subject_name
      *
-     * @param string|null $subject_name Название предмета
+     * @param string $subject_name Название предмета
      *
      * @return self
      */
@@ -649,7 +655,7 @@ class TableItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets is_substituted_sku
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsSubstitutedSku()
     {
@@ -659,7 +665,7 @@ class TableItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_substituted_sku
      *
-     * @param bool|null $is_substituted_sku Искали ли товар по подменному артикулу.<br> Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
+     * @param bool $is_substituted_sku Искали ли товар по подменному артикулу
      *
      * @return self
      */

@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetTasksResponseData type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &GetTasksResponseData{}
 // GetTasksResponseData struct for GetTasksResponseData
 type GetTasksResponseData struct {
 	// ID задания
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Статус задания:   * `new` — новое   * `processing` —  обрабатывается   * `done` — отчёт готов   * `purged` — отчёт удалён   * `canceled` — отклонено 
-	Status *string `json:"status,omitempty"`
+	Status string `json:"status"`
 }
+
+type _GetTasksResponseData GetTasksResponseData
 
 // NewGetTasksResponseData instantiates a new GetTasksResponseData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTasksResponseData() *GetTasksResponseData {
+func NewGetTasksResponseData(id string, status string) *GetTasksResponseData {
 	this := GetTasksResponseData{}
+	this.Id = id
+	this.Status = status
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewGetTasksResponseDataWithDefaults() *GetTasksResponseData {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *GetTasksResponseData) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *GetTasksResponseData) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *GetTasksResponseData) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *GetTasksResponseData) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value
 func (o *GetTasksResponseData) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Status
+
+	return o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *GetTasksResponseData) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return &o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *GetTasksResponseData) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus sets field value
 func (o *GetTasksResponseData) SetStatus(v string) {
-	o.Status = &v
+	o.Status = v
 }
 
 func (o GetTasksResponseData) MarshalJSON() ([]byte, error) {
@@ -116,13 +106,47 @@ func (o GetTasksResponseData) MarshalJSON() ([]byte, error) {
 
 func (o GetTasksResponseData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["status"] = o.Status
 	return toSerialize, nil
+}
+
+func (o *GetTasksResponseData) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"status",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetTasksResponseData := _GetTasksResponseData{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetTasksResponseData)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetTasksResponseData(varGetTasksResponseData)
+
+	return err
 }
 
 type NullableGetTasksResponseData struct {

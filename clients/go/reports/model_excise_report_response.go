@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ExciseReportResponse type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,18 @@ var _ MappedNullable = &ExciseReportResponse{}
 
 // ExciseReportResponse struct for ExciseReportResponse
 type ExciseReportResponse struct {
-	Response *ModelsExciseReportResponse `json:"response,omitempty"`
+	Response ModelsExciseReportResponse `json:"response"`
 }
+
+type _ExciseReportResponse ExciseReportResponse
 
 // NewExciseReportResponse instantiates a new ExciseReportResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewExciseReportResponse() *ExciseReportResponse {
+func NewExciseReportResponse(response ModelsExciseReportResponse) *ExciseReportResponse {
 	this := ExciseReportResponse{}
+	this.Response = response
 	return &this
 }
 
@@ -39,36 +44,28 @@ func NewExciseReportResponseWithDefaults() *ExciseReportResponse {
 	return &this
 }
 
-// GetResponse returns the Response field value if set, zero value otherwise.
+// GetResponse returns the Response field value
 func (o *ExciseReportResponse) GetResponse() ModelsExciseReportResponse {
-	if o == nil || IsNil(o.Response) {
+	if o == nil {
 		var ret ModelsExciseReportResponse
 		return ret
 	}
-	return *o.Response
+
+	return o.Response
 }
 
-// GetResponseOk returns a tuple with the Response field value if set, nil otherwise
+// GetResponseOk returns a tuple with the Response field value
 // and a boolean to check if the value has been set.
 func (o *ExciseReportResponse) GetResponseOk() (*ModelsExciseReportResponse, bool) {
-	if o == nil || IsNil(o.Response) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Response, true
+	return &o.Response, true
 }
 
-// HasResponse returns a boolean if a field has been set.
-func (o *ExciseReportResponse) HasResponse() bool {
-	if o != nil && !IsNil(o.Response) {
-		return true
-	}
-
-	return false
-}
-
-// SetResponse gets a reference to the given ModelsExciseReportResponse and assigns it to the Response field.
+// SetResponse sets field value
 func (o *ExciseReportResponse) SetResponse(v ModelsExciseReportResponse) {
-	o.Response = &v
+	o.Response = v
 }
 
 func (o ExciseReportResponse) MarshalJSON() ([]byte, error) {
@@ -81,10 +78,45 @@ func (o ExciseReportResponse) MarshalJSON() ([]byte, error) {
 
 func (o ExciseReportResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Response) {
-		toSerialize["response"] = o.Response
-	}
+	toSerialize["response"] = o.Response
 	return toSerialize, nil
+}
+
+func (o *ExciseReportResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"response",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varExciseReportResponse := _ExciseReportResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varExciseReportResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ExciseReportResponse(varExciseReportResponse)
+
+	return err
 }
 
 type NullableExciseReportResponse struct {

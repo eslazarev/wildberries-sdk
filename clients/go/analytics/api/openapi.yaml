@@ -191,10 +191,6 @@ paths:
 
         Можно получить отчёт максимум за последние 365 дней.<br><br>
 
-        В данных предыдущего периода:
-          * Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`
-          * Если дата начала  `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`
-
         Можно использовать пагинацию.
 
         <div class="description_limit">
@@ -3277,8 +3273,7 @@ components:
         visibilityInfo:
           $ref: "#/components/schemas/VisibilityInfo"
         groups:
-          description: |
-            Список элементов таблицы
+          description: Список элементов таблицы
           items:
             $ref: "#/components/schemas/TableGroupItem"
           type: array
@@ -3289,6 +3284,7 @@ components:
       required:
       - commonInfo
       - currency
+      - groups
       - positionInfo
       - visibilityInfo
       type: object
@@ -3470,6 +3466,9 @@ components:
             $ref: "#/components/schemas/VisibilityInfo_byDay_inner"
           type: array
       required:
+      - byDay
+      - byMonth
+      - byWeek
       - openCard
       - visibility
       type: object
@@ -3645,9 +3644,7 @@ components:
             example: false
             type: boolean
           isSubstitutedSKU:
-            description: |
-              Искали ли товар по подменному артикулу.<br>
-              Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
+            description: Искали ли товар по подменному артикулу
             example: true
             type: boolean
           isCardRated:
@@ -3724,12 +3721,14 @@ components:
       - feedbackRating
       - isAdvertised
       - isCardRated
+      - isSubstitutedSKU
       - nmId
       - openCard
       - openToCart
       - orders
       - price
       - rating
+      - subjectName
       - vendorCode
       - visibility
       type: object
@@ -5107,6 +5106,8 @@ components:
           example: 06eea887-9d9f-491f-b16a-bb1766fcb8d2
           format: uuid
           type: string
+      required:
+      - downloadId
     NmReportCreateReportResponse:
       example:
         data: Началось формирование файла/отчета
@@ -8073,7 +8074,6 @@ components:
           example: true
           type: boolean
       required:
-      - brandName
       - disqualified
       - feedbackCount
       - feedbackRating
@@ -8086,10 +8086,7 @@ components:
       - rating
       - subjectId
       - subjectName
-      - tagId
-      - tagName
       - threeStar
-      - title
       - twoStar
       - vendorCode
       type: object
@@ -8209,9 +8206,9 @@ components:
           updatedAt: 2026-06-26T19:19:38+03:00
           status: cancel
           cancelType: app
-          warehouseName: Склад WB
-          warehouseRegion: ""
-          isMp: true
+          warehouseName: Склад WB РФ
+          warehouseRegion: Россия
+          isMp: false
           destinationCity: Санкт-Петербург
           destinationDistrict: Северо-Западный
           sellerPrice: 4328
@@ -8223,9 +8220,9 @@ components:
           updatedAt: 2026-06-26T19:19:38+03:00
           status: cancel
           cancelType: app
-          warehouseName: Склад WB
-          warehouseRegion: ""
-          isMp: true
+          warehouseName: Склад WB РФ
+          warehouseRegion: Россия
+          isMp: false
           destinationCity: Санкт-Петербург
           destinationDistrict: Северо-Западный
           sellerPrice: 4328
@@ -8261,9 +8258,9 @@ components:
         updatedAt: 2026-06-26T19:19:38+03:00
         status: cancel
         cancelType: app
-        warehouseName: Склад WB
-        warehouseRegion: ""
-        isMp: true
+        warehouseName: Склад WB РФ
+        warehouseRegion: Россия
+        isMp: false
         destinationCity: Санкт-Петербург
         destinationDistrict: Северо-Западный
         sellerPrice: 4328
@@ -8296,7 +8293,7 @@ components:
           type: string
         status:
           description: |
-            [Статус заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
+            [Статус заказа](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
               - `created` — оформлен
               - `buyout` — продан
               - `cancel` — отменён
@@ -8312,7 +8309,7 @@ components:
           type: string
         cancelType:
           description: |
-            [Тип отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `"status":"cancel"`):
+            [Тип отмены](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `"status":"cancel"`):
               - `app` — отказ до получения
               - `receipt` — отказ при получении
               - `expire` — истёк срок получения
@@ -8325,22 +8322,21 @@ components:
           example: app
           type: string
         warehouseName:
-          description: "Название склада. [На данный момент](/release-notes?id=570)\
-            \ для складов WB может быть только `Склад WB`"
-          example: Склад WB
+          description: Название склада. Для складов WB в России может быть только
+            `Склад WB РФ` или `Склад WB СГТ РФ`
+          example: Склад WB РФ
           type: string
         warehouseRegion:
-          description: "Федеральный округ склада. Если склад не в России, возвраща\
-            ется страна. [На данный момент](/release-notes?id=570) для складов WB\
-            \ может быть только `\"\"`"
-          example: ""
+          description: "Регион отгрузки. Если склад принадлежит WB или продавцу не\
+            \ в России, возвращается страна"
+          example: Россия
           type: string
         isMp:
           description: |
             Тип склада:
               - `true` — склад продавца
               - `false` — склад WB
-          example: true
+          example: false
           type: boolean
         destinationCity:
           description: Населённый пункт доставки
@@ -10362,9 +10358,9 @@ components:
             updatedAt: 2026-06-26T19:19:38+03:00
             status: cancel
             cancelType: app
-            warehouseName: Склад WB
-            warehouseRegion: ""
-            isMp: true
+            warehouseName: Склад WB РФ
+            warehouseRegion: Россия
+            isMp: false
             destinationCity: Санкт-Петербург
             destinationDistrict: Северо-Западный
             sellerPrice: 4328
@@ -10376,9 +10372,9 @@ components:
             updatedAt: 2026-06-26T19:19:38+03:00
             status: cancel
             cancelType: app
-            warehouseName: Склад WB
-            warehouseRegion: ""
-            isMp: true
+            warehouseName: Склад WB РФ
+            warehouseRegion: Россия
+            isMp: false
             destinationCity: Санкт-Петербург
             destinationDistrict: Северо-Западный
             sellerPrice: 4328

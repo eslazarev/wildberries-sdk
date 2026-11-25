@@ -91,7 +91,7 @@ export interface TableItem {
     /**
      * Название предмета
      */
-    subjectName?: string;
+    subjectName: string;
     /**
      * Бренд
      */
@@ -105,11 +105,9 @@ export interface TableItem {
      */
     isAdvertised: boolean;
     /**
-     * Искали ли товар по подменному артикулу.<br>
-     * Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
-     * 
+     * Искали ли товар по подменному артикулу
      */
-    isSubstitutedSKU?: boolean;
+    isSubstitutedSKU: boolean;
     /**
      * Есть ли рейтинг у карточки товара
      */
@@ -162,7 +160,9 @@ export interface TableItem {
 export function instanceOfTableItem(value: object): value is TableItem {
     if (!('nmId' in value) || value['nmId'] === undefined) return false;
     if (!('vendorCode' in value) || value['vendorCode'] === undefined) return false;
+    if (!('subjectName' in value) || value['subjectName'] === undefined) return false;
     if (!('isAdvertised' in value) || value['isAdvertised'] === undefined) return false;
+    if (!('isSubstitutedSKU' in value) || value['isSubstitutedSKU'] === undefined) return false;
     if (!('isCardRated' in value) || value['isCardRated'] === undefined) return false;
     if (!('rating' in value) || value['rating'] === undefined) return false;
     if (!('feedbackRating' in value) || value['feedbackRating'] === undefined) return false;
@@ -190,11 +190,11 @@ export function TableItemFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'nmId': json['nmId'],
         'name': json['name'] == null ? undefined : json['name'],
         'vendorCode': json['vendorCode'],
-        'subjectName': json['subjectName'] == null ? undefined : json['subjectName'],
+        'subjectName': json['subjectName'],
         'brandName': json['brandName'] == null ? undefined : json['brandName'],
         'mainPhoto': json['mainPhoto'] == null ? undefined : json['mainPhoto'],
         'isAdvertised': json['isAdvertised'],
-        'isSubstitutedSKU': json['isSubstitutedSKU'] == null ? undefined : json['isSubstitutedSKU'],
+        'isSubstitutedSKU': json['isSubstitutedSKU'],
         'isCardRated': json['isCardRated'],
         'rating': json['rating'],
         'feedbackRating': json['feedbackRating'],

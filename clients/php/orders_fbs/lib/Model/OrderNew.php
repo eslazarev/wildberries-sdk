@@ -57,7 +57,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'address' => '\Wildberries\Sdk\OrdersFbs\Model\OrderAddress',
+        'address' => '\Wildberries\Sdk\OrdersFbs\Model\OrderNewAddress',
         'ddate' => 'string',
         'seller_date' => 'string',
         'sale_price' => 'int',
@@ -585,7 +585,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return \Wildberries\Sdk\OrdersFbs\Model\OrderAddress|null
+     * @return \Wildberries\Sdk\OrdersFbs\Model\OrderNewAddress|null
      */
     public function getAddress()
     {
@@ -595,7 +595,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param \Wildberries\Sdk\OrdersFbs\Model\OrderAddress|null $address address
+     * @param \Wildberries\Sdk\OrdersFbs\Model\OrderNewAddress|null $address address
      *
      * @return self
      */

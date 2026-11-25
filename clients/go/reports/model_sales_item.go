@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SalesItem type satisfies the MappedNullable interface at compile time
@@ -20,69 +22,99 @@ var _ MappedNullable = &SalesItem{}
 // SalesItem struct for SalesItem
 type SalesItem struct {
 	// Дата и время продажи. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=1. Если часовой пояс не указан, то берётся Московское время (UTC+3).
-	Date *string `json:"date,omitempty"`
+	Date string `json:"date"`
 	// Дата и время обновления информации в сервисе. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=0 или не указан. Если часовой пояс не указан, то берётся Московское время (UTC+3).
-	LastChangeDate *string `json:"lastChangeDate,omitempty"`
+	LastChangeDate string `json:"lastChangeDate"`
 	// Склад отгрузки
-	WarehouseName *string `json:"warehouseName,omitempty"`
+	WarehouseName string `json:"warehouseName"`
 	// Тип склада хранения товаров
-	WarehouseType *string `json:"warehouseType,omitempty"`
+	WarehouseType string `json:"warehouseType"`
 	// Страна
-	CountryName *string `json:"countryName,omitempty"`
+	CountryName string `json:"countryName"`
 	// Округ
-	OblastOkrugName *string `json:"oblastOkrugName,omitempty"`
+	OblastOkrugName string `json:"oblastOkrugName"`
 	// Регион
-	RegionName *string `json:"regionName,omitempty"`
+	RegionName string `json:"regionName"`
 	// Артикул продавца
-	SupplierArticle *string `json:"supplierArticle,omitempty"`
+	SupplierArticle string `json:"supplierArticle"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId int32 `json:"nmId"`
 	// Баркод
-	Barcode *string `json:"barcode,omitempty"`
+	Barcode string `json:"barcode"`
 	// Категория
-	Category *string `json:"category,omitempty"`
+	Category string `json:"category"`
 	// Предмет
-	Subject *string `json:"subject,omitempty"`
+	Subject string `json:"subject"`
 	// Бренд
-	Brand *string `json:"brand,omitempty"`
+	Brand string `json:"brand"`
 	// Размер товара
-	TechSize *string `json:"techSize,omitempty"`
+	TechSize string `json:"techSize"`
 	// Номер поставки
-	IncomeID *int32 `json:"incomeID,omitempty"`
+	IncomeID int32 `json:"incomeID"`
 	// Договор поставки
-	IsSupply *bool `json:"isSupply,omitempty"`
+	IsSupply bool `json:"isSupply"`
 	// Договор реализации
-	IsRealization *bool `json:"isRealization,omitempty"`
+	IsRealization bool `json:"isRealization"`
 	// Цена без скидок
-	TotalPrice *float32 `json:"totalPrice,omitempty"`
+	TotalPrice float32 `json:"totalPrice"`
 	// Скидка продавца, %
-	DiscountPercent *int32 `json:"discountPercent,omitempty"`
+	DiscountPercent int32 `json:"discountPercent"`
 	// Скидка WB, %
-	Spp *float32 `json:"spp,omitempty"`
+	Spp float32 `json:"spp"`
 	// Скидка за оплату WB Кошельком, ₽
-	PaymentSaleAmount *int32 `json:"paymentSaleAmount,omitempty"`
+	PaymentSaleAmount int32 `json:"paymentSaleAmount"`
 	// К перечислению продавцу.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
-	ForPay *float32 `json:"forPay,omitempty"`
+	ForPay float32 `json:"forPay"`
 	// Фактическая цена с учётом всех скидок (к взиманию с покупателя).<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
-	FinishedPrice *float32 `json:"finishedPrice,omitempty"`
+	FinishedPrice float32 `json:"finishedPrice"`
 	// Цена со скидкой продавца, в том числе со скидкой WB Клуба, от которой рассчитывается сумма к перечислению продавцу `forPay`.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
-	PriceWithDisc *float32 `json:"priceWithDisc,omitempty"`
+	PriceWithDisc float32 `json:"priceWithDisc"`
 	// Уникальный ID продажи/возврата - `S**********` — продажа - `R**********` — возврат (на склад WB) 
-	SaleID *string `json:"saleID,omitempty"`
+	SaleID string `json:"saleID"`
 	// ID стикера
-	Sticker *string `json:"sticker,omitempty"`
+	Sticker string `json:"sticker"`
 	// ID корзины покупателя. Заказы одной транзакции будут иметь одинаковый `gNumber`
-	GNumber *string `json:"gNumber,omitempty"`
+	GNumber string `json:"gNumber"`
 	// Уникальный ID заказа.<br> Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий. 
-	Srid *string `json:"srid,omitempty"`
+	Srid string `json:"srid"`
 }
+
+type _SalesItem SalesItem
 
 // NewSalesItem instantiates a new SalesItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSalesItem() *SalesItem {
+func NewSalesItem(date string, lastChangeDate string, warehouseName string, warehouseType string, countryName string, oblastOkrugName string, regionName string, supplierArticle string, nmId int32, barcode string, category string, subject string, brand string, techSize string, incomeID int32, isSupply bool, isRealization bool, totalPrice float32, discountPercent int32, spp float32, paymentSaleAmount int32, forPay float32, finishedPrice float32, priceWithDisc float32, saleID string, sticker string, gNumber string, srid string) *SalesItem {
 	this := SalesItem{}
+	this.Date = date
+	this.LastChangeDate = lastChangeDate
+	this.WarehouseName = warehouseName
+	this.WarehouseType = warehouseType
+	this.CountryName = countryName
+	this.OblastOkrugName = oblastOkrugName
+	this.RegionName = regionName
+	this.SupplierArticle = supplierArticle
+	this.NmId = nmId
+	this.Barcode = barcode
+	this.Category = category
+	this.Subject = subject
+	this.Brand = brand
+	this.TechSize = techSize
+	this.IncomeID = incomeID
+	this.IsSupply = isSupply
+	this.IsRealization = isRealization
+	this.TotalPrice = totalPrice
+	this.DiscountPercent = discountPercent
+	this.Spp = spp
+	this.PaymentSaleAmount = paymentSaleAmount
+	this.ForPay = forPay
+	this.FinishedPrice = finishedPrice
+	this.PriceWithDisc = priceWithDisc
+	this.SaleID = saleID
+	this.Sticker = sticker
+	this.GNumber = gNumber
+	this.Srid = srid
 	return &this
 }
 
@@ -94,900 +126,676 @@ func NewSalesItemWithDefaults() *SalesItem {
 	return &this
 }
 
-// GetDate returns the Date field value if set, zero value otherwise.
+// GetDate returns the Date field value
 func (o *SalesItem) GetDate() string {
-	if o == nil || IsNil(o.Date) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Date
+
+	return o.Date
 }
 
-// GetDateOk returns a tuple with the Date field value if set, nil otherwise
+// GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetDateOk() (*string, bool) {
-	if o == nil || IsNil(o.Date) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Date, true
+	return &o.Date, true
 }
 
-// HasDate returns a boolean if a field has been set.
-func (o *SalesItem) HasDate() bool {
-	if o != nil && !IsNil(o.Date) {
-		return true
-	}
-
-	return false
-}
-
-// SetDate gets a reference to the given string and assigns it to the Date field.
+// SetDate sets field value
 func (o *SalesItem) SetDate(v string) {
-	o.Date = &v
+	o.Date = v
 }
 
-// GetLastChangeDate returns the LastChangeDate field value if set, zero value otherwise.
+// GetLastChangeDate returns the LastChangeDate field value
 func (o *SalesItem) GetLastChangeDate() string {
-	if o == nil || IsNil(o.LastChangeDate) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.LastChangeDate
+
+	return o.LastChangeDate
 }
 
-// GetLastChangeDateOk returns a tuple with the LastChangeDate field value if set, nil otherwise
+// GetLastChangeDateOk returns a tuple with the LastChangeDate field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetLastChangeDateOk() (*string, bool) {
-	if o == nil || IsNil(o.LastChangeDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastChangeDate, true
+	return &o.LastChangeDate, true
 }
 
-// HasLastChangeDate returns a boolean if a field has been set.
-func (o *SalesItem) HasLastChangeDate() bool {
-	if o != nil && !IsNil(o.LastChangeDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetLastChangeDate gets a reference to the given string and assigns it to the LastChangeDate field.
+// SetLastChangeDate sets field value
 func (o *SalesItem) SetLastChangeDate(v string) {
-	o.LastChangeDate = &v
+	o.LastChangeDate = v
 }
 
-// GetWarehouseName returns the WarehouseName field value if set, zero value otherwise.
+// GetWarehouseName returns the WarehouseName field value
 func (o *SalesItem) GetWarehouseName() string {
-	if o == nil || IsNil(o.WarehouseName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WarehouseName
+
+	return o.WarehouseName
 }
 
-// GetWarehouseNameOk returns a tuple with the WarehouseName field value if set, nil otherwise
+// GetWarehouseNameOk returns a tuple with the WarehouseName field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetWarehouseNameOk() (*string, bool) {
-	if o == nil || IsNil(o.WarehouseName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WarehouseName, true
+	return &o.WarehouseName, true
 }
 
-// HasWarehouseName returns a boolean if a field has been set.
-func (o *SalesItem) HasWarehouseName() bool {
-	if o != nil && !IsNil(o.WarehouseName) {
-		return true
-	}
-
-	return false
-}
-
-// SetWarehouseName gets a reference to the given string and assigns it to the WarehouseName field.
+// SetWarehouseName sets field value
 func (o *SalesItem) SetWarehouseName(v string) {
-	o.WarehouseName = &v
+	o.WarehouseName = v
 }
 
-// GetWarehouseType returns the WarehouseType field value if set, zero value otherwise.
+// GetWarehouseType returns the WarehouseType field value
 func (o *SalesItem) GetWarehouseType() string {
-	if o == nil || IsNil(o.WarehouseType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WarehouseType
+
+	return o.WarehouseType
 }
 
-// GetWarehouseTypeOk returns a tuple with the WarehouseType field value if set, nil otherwise
+// GetWarehouseTypeOk returns a tuple with the WarehouseType field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetWarehouseTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.WarehouseType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WarehouseType, true
+	return &o.WarehouseType, true
 }
 
-// HasWarehouseType returns a boolean if a field has been set.
-func (o *SalesItem) HasWarehouseType() bool {
-	if o != nil && !IsNil(o.WarehouseType) {
-		return true
-	}
-
-	return false
-}
-
-// SetWarehouseType gets a reference to the given string and assigns it to the WarehouseType field.
+// SetWarehouseType sets field value
 func (o *SalesItem) SetWarehouseType(v string) {
-	o.WarehouseType = &v
+	o.WarehouseType = v
 }
 
-// GetCountryName returns the CountryName field value if set, zero value otherwise.
+// GetCountryName returns the CountryName field value
 func (o *SalesItem) GetCountryName() string {
-	if o == nil || IsNil(o.CountryName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CountryName
+
+	return o.CountryName
 }
 
-// GetCountryNameOk returns a tuple with the CountryName field value if set, nil otherwise
+// GetCountryNameOk returns a tuple with the CountryName field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetCountryNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CountryName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CountryName, true
+	return &o.CountryName, true
 }
 
-// HasCountryName returns a boolean if a field has been set.
-func (o *SalesItem) HasCountryName() bool {
-	if o != nil && !IsNil(o.CountryName) {
-		return true
-	}
-
-	return false
-}
-
-// SetCountryName gets a reference to the given string and assigns it to the CountryName field.
+// SetCountryName sets field value
 func (o *SalesItem) SetCountryName(v string) {
-	o.CountryName = &v
+	o.CountryName = v
 }
 
-// GetOblastOkrugName returns the OblastOkrugName field value if set, zero value otherwise.
+// GetOblastOkrugName returns the OblastOkrugName field value
 func (o *SalesItem) GetOblastOkrugName() string {
-	if o == nil || IsNil(o.OblastOkrugName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OblastOkrugName
+
+	return o.OblastOkrugName
 }
 
-// GetOblastOkrugNameOk returns a tuple with the OblastOkrugName field value if set, nil otherwise
+// GetOblastOkrugNameOk returns a tuple with the OblastOkrugName field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetOblastOkrugNameOk() (*string, bool) {
-	if o == nil || IsNil(o.OblastOkrugName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OblastOkrugName, true
+	return &o.OblastOkrugName, true
 }
 
-// HasOblastOkrugName returns a boolean if a field has been set.
-func (o *SalesItem) HasOblastOkrugName() bool {
-	if o != nil && !IsNil(o.OblastOkrugName) {
-		return true
-	}
-
-	return false
-}
-
-// SetOblastOkrugName gets a reference to the given string and assigns it to the OblastOkrugName field.
+// SetOblastOkrugName sets field value
 func (o *SalesItem) SetOblastOkrugName(v string) {
-	o.OblastOkrugName = &v
+	o.OblastOkrugName = v
 }
 
-// GetRegionName returns the RegionName field value if set, zero value otherwise.
+// GetRegionName returns the RegionName field value
 func (o *SalesItem) GetRegionName() string {
-	if o == nil || IsNil(o.RegionName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RegionName
+
+	return o.RegionName
 }
 
-// GetRegionNameOk returns a tuple with the RegionName field value if set, nil otherwise
+// GetRegionNameOk returns a tuple with the RegionName field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetRegionNameOk() (*string, bool) {
-	if o == nil || IsNil(o.RegionName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RegionName, true
+	return &o.RegionName, true
 }
 
-// HasRegionName returns a boolean if a field has been set.
-func (o *SalesItem) HasRegionName() bool {
-	if o != nil && !IsNil(o.RegionName) {
-		return true
-	}
-
-	return false
-}
-
-// SetRegionName gets a reference to the given string and assigns it to the RegionName field.
+// SetRegionName sets field value
 func (o *SalesItem) SetRegionName(v string) {
-	o.RegionName = &v
+	o.RegionName = v
 }
 
-// GetSupplierArticle returns the SupplierArticle field value if set, zero value otherwise.
+// GetSupplierArticle returns the SupplierArticle field value
 func (o *SalesItem) GetSupplierArticle() string {
-	if o == nil || IsNil(o.SupplierArticle) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SupplierArticle
+
+	return o.SupplierArticle
 }
 
-// GetSupplierArticleOk returns a tuple with the SupplierArticle field value if set, nil otherwise
+// GetSupplierArticleOk returns a tuple with the SupplierArticle field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetSupplierArticleOk() (*string, bool) {
-	if o == nil || IsNil(o.SupplierArticle) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SupplierArticle, true
+	return &o.SupplierArticle, true
 }
 
-// HasSupplierArticle returns a boolean if a field has been set.
-func (o *SalesItem) HasSupplierArticle() bool {
-	if o != nil && !IsNil(o.SupplierArticle) {
-		return true
-	}
-
-	return false
-}
-
-// SetSupplierArticle gets a reference to the given string and assigns it to the SupplierArticle field.
+// SetSupplierArticle sets field value
 func (o *SalesItem) SetSupplierArticle(v string) {
-	o.SupplierArticle = &v
+	o.SupplierArticle = v
 }
 
-// GetNmId returns the NmId field value if set, zero value otherwise.
+// GetNmId returns the NmId field value
 func (o *SalesItem) GetNmId() int32 {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NmId
+
+	return o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
+// GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetNmIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmId, true
+	return &o.NmId, true
 }
 
-// HasNmId returns a boolean if a field has been set.
-func (o *SalesItem) HasNmId() bool {
-	if o != nil && !IsNil(o.NmId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
+// SetNmId sets field value
 func (o *SalesItem) SetNmId(v int32) {
-	o.NmId = &v
+	o.NmId = v
 }
 
-// GetBarcode returns the Barcode field value if set, zero value otherwise.
+// GetBarcode returns the Barcode field value
 func (o *SalesItem) GetBarcode() string {
-	if o == nil || IsNil(o.Barcode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Barcode
+
+	return o.Barcode
 }
 
-// GetBarcodeOk returns a tuple with the Barcode field value if set, nil otherwise
+// GetBarcodeOk returns a tuple with the Barcode field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetBarcodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Barcode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Barcode, true
+	return &o.Barcode, true
 }
 
-// HasBarcode returns a boolean if a field has been set.
-func (o *SalesItem) HasBarcode() bool {
-	if o != nil && !IsNil(o.Barcode) {
-		return true
-	}
-
-	return false
-}
-
-// SetBarcode gets a reference to the given string and assigns it to the Barcode field.
+// SetBarcode sets field value
 func (o *SalesItem) SetBarcode(v string) {
-	o.Barcode = &v
+	o.Barcode = v
 }
 
-// GetCategory returns the Category field value if set, zero value otherwise.
+// GetCategory returns the Category field value
 func (o *SalesItem) GetCategory() string {
-	if o == nil || IsNil(o.Category) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Category
+
+	return o.Category
 }
 
-// GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
+// GetCategoryOk returns a tuple with the Category field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetCategoryOk() (*string, bool) {
-	if o == nil || IsNil(o.Category) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Category, true
+	return &o.Category, true
 }
 
-// HasCategory returns a boolean if a field has been set.
-func (o *SalesItem) HasCategory() bool {
-	if o != nil && !IsNil(o.Category) {
-		return true
-	}
-
-	return false
-}
-
-// SetCategory gets a reference to the given string and assigns it to the Category field.
+// SetCategory sets field value
 func (o *SalesItem) SetCategory(v string) {
-	o.Category = &v
+	o.Category = v
 }
 
-// GetSubject returns the Subject field value if set, zero value otherwise.
+// GetSubject returns the Subject field value
 func (o *SalesItem) GetSubject() string {
-	if o == nil || IsNil(o.Subject) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Subject
+
+	return o.Subject
 }
 
-// GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
+// GetSubjectOk returns a tuple with the Subject field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetSubjectOk() (*string, bool) {
-	if o == nil || IsNil(o.Subject) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Subject, true
+	return &o.Subject, true
 }
 
-// HasSubject returns a boolean if a field has been set.
-func (o *SalesItem) HasSubject() bool {
-	if o != nil && !IsNil(o.Subject) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubject gets a reference to the given string and assigns it to the Subject field.
+// SetSubject sets field value
 func (o *SalesItem) SetSubject(v string) {
-	o.Subject = &v
+	o.Subject = v
 }
 
-// GetBrand returns the Brand field value if set, zero value otherwise.
+// GetBrand returns the Brand field value
 func (o *SalesItem) GetBrand() string {
-	if o == nil || IsNil(o.Brand) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Brand
+
+	return o.Brand
 }
 
-// GetBrandOk returns a tuple with the Brand field value if set, nil otherwise
+// GetBrandOk returns a tuple with the Brand field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetBrandOk() (*string, bool) {
-	if o == nil || IsNil(o.Brand) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Brand, true
+	return &o.Brand, true
 }
 
-// HasBrand returns a boolean if a field has been set.
-func (o *SalesItem) HasBrand() bool {
-	if o != nil && !IsNil(o.Brand) {
-		return true
-	}
-
-	return false
-}
-
-// SetBrand gets a reference to the given string and assigns it to the Brand field.
+// SetBrand sets field value
 func (o *SalesItem) SetBrand(v string) {
-	o.Brand = &v
+	o.Brand = v
 }
 
-// GetTechSize returns the TechSize field value if set, zero value otherwise.
+// GetTechSize returns the TechSize field value
 func (o *SalesItem) GetTechSize() string {
-	if o == nil || IsNil(o.TechSize) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TechSize
+
+	return o.TechSize
 }
 
-// GetTechSizeOk returns a tuple with the TechSize field value if set, nil otherwise
+// GetTechSizeOk returns a tuple with the TechSize field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetTechSizeOk() (*string, bool) {
-	if o == nil || IsNil(o.TechSize) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TechSize, true
+	return &o.TechSize, true
 }
 
-// HasTechSize returns a boolean if a field has been set.
-func (o *SalesItem) HasTechSize() bool {
-	if o != nil && !IsNil(o.TechSize) {
-		return true
-	}
-
-	return false
-}
-
-// SetTechSize gets a reference to the given string and assigns it to the TechSize field.
+// SetTechSize sets field value
 func (o *SalesItem) SetTechSize(v string) {
-	o.TechSize = &v
+	o.TechSize = v
 }
 
-// GetIncomeID returns the IncomeID field value if set, zero value otherwise.
+// GetIncomeID returns the IncomeID field value
 func (o *SalesItem) GetIncomeID() int32 {
-	if o == nil || IsNil(o.IncomeID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.IncomeID
+
+	return o.IncomeID
 }
 
-// GetIncomeIDOk returns a tuple with the IncomeID field value if set, nil otherwise
+// GetIncomeIDOk returns a tuple with the IncomeID field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetIncomeIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.IncomeID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncomeID, true
+	return &o.IncomeID, true
 }
 
-// HasIncomeID returns a boolean if a field has been set.
-func (o *SalesItem) HasIncomeID() bool {
-	if o != nil && !IsNil(o.IncomeID) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncomeID gets a reference to the given int32 and assigns it to the IncomeID field.
+// SetIncomeID sets field value
 func (o *SalesItem) SetIncomeID(v int32) {
-	o.IncomeID = &v
+	o.IncomeID = v
 }
 
-// GetIsSupply returns the IsSupply field value if set, zero value otherwise.
+// GetIsSupply returns the IsSupply field value
 func (o *SalesItem) GetIsSupply() bool {
-	if o == nil || IsNil(o.IsSupply) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsSupply
+
+	return o.IsSupply
 }
 
-// GetIsSupplyOk returns a tuple with the IsSupply field value if set, nil otherwise
+// GetIsSupplyOk returns a tuple with the IsSupply field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetIsSupplyOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsSupply) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsSupply, true
+	return &o.IsSupply, true
 }
 
-// HasIsSupply returns a boolean if a field has been set.
-func (o *SalesItem) HasIsSupply() bool {
-	if o != nil && !IsNil(o.IsSupply) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsSupply gets a reference to the given bool and assigns it to the IsSupply field.
+// SetIsSupply sets field value
 func (o *SalesItem) SetIsSupply(v bool) {
-	o.IsSupply = &v
+	o.IsSupply = v
 }
 
-// GetIsRealization returns the IsRealization field value if set, zero value otherwise.
+// GetIsRealization returns the IsRealization field value
 func (o *SalesItem) GetIsRealization() bool {
-	if o == nil || IsNil(o.IsRealization) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsRealization
+
+	return o.IsRealization
 }
 
-// GetIsRealizationOk returns a tuple with the IsRealization field value if set, nil otherwise
+// GetIsRealizationOk returns a tuple with the IsRealization field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetIsRealizationOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsRealization) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsRealization, true
+	return &o.IsRealization, true
 }
 
-// HasIsRealization returns a boolean if a field has been set.
-func (o *SalesItem) HasIsRealization() bool {
-	if o != nil && !IsNil(o.IsRealization) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsRealization gets a reference to the given bool and assigns it to the IsRealization field.
+// SetIsRealization sets field value
 func (o *SalesItem) SetIsRealization(v bool) {
-	o.IsRealization = &v
+	o.IsRealization = v
 }
 
-// GetTotalPrice returns the TotalPrice field value if set, zero value otherwise.
+// GetTotalPrice returns the TotalPrice field value
 func (o *SalesItem) GetTotalPrice() float32 {
-	if o == nil || IsNil(o.TotalPrice) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.TotalPrice
+
+	return o.TotalPrice
 }
 
-// GetTotalPriceOk returns a tuple with the TotalPrice field value if set, nil otherwise
+// GetTotalPriceOk returns a tuple with the TotalPrice field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetTotalPriceOk() (*float32, bool) {
-	if o == nil || IsNil(o.TotalPrice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TotalPrice, true
+	return &o.TotalPrice, true
 }
 
-// HasTotalPrice returns a boolean if a field has been set.
-func (o *SalesItem) HasTotalPrice() bool {
-	if o != nil && !IsNil(o.TotalPrice) {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalPrice gets a reference to the given float32 and assigns it to the TotalPrice field.
+// SetTotalPrice sets field value
 func (o *SalesItem) SetTotalPrice(v float32) {
-	o.TotalPrice = &v
+	o.TotalPrice = v
 }
 
-// GetDiscountPercent returns the DiscountPercent field value if set, zero value otherwise.
+// GetDiscountPercent returns the DiscountPercent field value
 func (o *SalesItem) GetDiscountPercent() int32 {
-	if o == nil || IsNil(o.DiscountPercent) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.DiscountPercent
+
+	return o.DiscountPercent
 }
 
-// GetDiscountPercentOk returns a tuple with the DiscountPercent field value if set, nil otherwise
+// GetDiscountPercentOk returns a tuple with the DiscountPercent field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetDiscountPercentOk() (*int32, bool) {
-	if o == nil || IsNil(o.DiscountPercent) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DiscountPercent, true
+	return &o.DiscountPercent, true
 }
 
-// HasDiscountPercent returns a boolean if a field has been set.
-func (o *SalesItem) HasDiscountPercent() bool {
-	if o != nil && !IsNil(o.DiscountPercent) {
-		return true
-	}
-
-	return false
-}
-
-// SetDiscountPercent gets a reference to the given int32 and assigns it to the DiscountPercent field.
+// SetDiscountPercent sets field value
 func (o *SalesItem) SetDiscountPercent(v int32) {
-	o.DiscountPercent = &v
+	o.DiscountPercent = v
 }
 
-// GetSpp returns the Spp field value if set, zero value otherwise.
+// GetSpp returns the Spp field value
 func (o *SalesItem) GetSpp() float32 {
-	if o == nil || IsNil(o.Spp) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Spp
+
+	return o.Spp
 }
 
-// GetSppOk returns a tuple with the Spp field value if set, nil otherwise
+// GetSppOk returns a tuple with the Spp field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetSppOk() (*float32, bool) {
-	if o == nil || IsNil(o.Spp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Spp, true
+	return &o.Spp, true
 }
 
-// HasSpp returns a boolean if a field has been set.
-func (o *SalesItem) HasSpp() bool {
-	if o != nil && !IsNil(o.Spp) {
-		return true
-	}
-
-	return false
-}
-
-// SetSpp gets a reference to the given float32 and assigns it to the Spp field.
+// SetSpp sets field value
 func (o *SalesItem) SetSpp(v float32) {
-	o.Spp = &v
+	o.Spp = v
 }
 
-// GetPaymentSaleAmount returns the PaymentSaleAmount field value if set, zero value otherwise.
+// GetPaymentSaleAmount returns the PaymentSaleAmount field value
 func (o *SalesItem) GetPaymentSaleAmount() int32 {
-	if o == nil || IsNil(o.PaymentSaleAmount) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PaymentSaleAmount
+
+	return o.PaymentSaleAmount
 }
 
-// GetPaymentSaleAmountOk returns a tuple with the PaymentSaleAmount field value if set, nil otherwise
+// GetPaymentSaleAmountOk returns a tuple with the PaymentSaleAmount field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetPaymentSaleAmountOk() (*int32, bool) {
-	if o == nil || IsNil(o.PaymentSaleAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PaymentSaleAmount, true
+	return &o.PaymentSaleAmount, true
 }
 
-// HasPaymentSaleAmount returns a boolean if a field has been set.
-func (o *SalesItem) HasPaymentSaleAmount() bool {
-	if o != nil && !IsNil(o.PaymentSaleAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetPaymentSaleAmount gets a reference to the given int32 and assigns it to the PaymentSaleAmount field.
+// SetPaymentSaleAmount sets field value
 func (o *SalesItem) SetPaymentSaleAmount(v int32) {
-	o.PaymentSaleAmount = &v
+	o.PaymentSaleAmount = v
 }
 
-// GetForPay returns the ForPay field value if set, zero value otherwise.
+// GetForPay returns the ForPay field value
 func (o *SalesItem) GetForPay() float32 {
-	if o == nil || IsNil(o.ForPay) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.ForPay
+
+	return o.ForPay
 }
 
-// GetForPayOk returns a tuple with the ForPay field value if set, nil otherwise
+// GetForPayOk returns a tuple with the ForPay field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetForPayOk() (*float32, bool) {
-	if o == nil || IsNil(o.ForPay) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ForPay, true
+	return &o.ForPay, true
 }
 
-// HasForPay returns a boolean if a field has been set.
-func (o *SalesItem) HasForPay() bool {
-	if o != nil && !IsNil(o.ForPay) {
-		return true
-	}
-
-	return false
-}
-
-// SetForPay gets a reference to the given float32 and assigns it to the ForPay field.
+// SetForPay sets field value
 func (o *SalesItem) SetForPay(v float32) {
-	o.ForPay = &v
+	o.ForPay = v
 }
 
-// GetFinishedPrice returns the FinishedPrice field value if set, zero value otherwise.
+// GetFinishedPrice returns the FinishedPrice field value
 func (o *SalesItem) GetFinishedPrice() float32 {
-	if o == nil || IsNil(o.FinishedPrice) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FinishedPrice
+
+	return o.FinishedPrice
 }
 
-// GetFinishedPriceOk returns a tuple with the FinishedPrice field value if set, nil otherwise
+// GetFinishedPriceOk returns a tuple with the FinishedPrice field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetFinishedPriceOk() (*float32, bool) {
-	if o == nil || IsNil(o.FinishedPrice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FinishedPrice, true
+	return &o.FinishedPrice, true
 }
 
-// HasFinishedPrice returns a boolean if a field has been set.
-func (o *SalesItem) HasFinishedPrice() bool {
-	if o != nil && !IsNil(o.FinishedPrice) {
-		return true
-	}
-
-	return false
-}
-
-// SetFinishedPrice gets a reference to the given float32 and assigns it to the FinishedPrice field.
+// SetFinishedPrice sets field value
 func (o *SalesItem) SetFinishedPrice(v float32) {
-	o.FinishedPrice = &v
+	o.FinishedPrice = v
 }
 
-// GetPriceWithDisc returns the PriceWithDisc field value if set, zero value otherwise.
+// GetPriceWithDisc returns the PriceWithDisc field value
 func (o *SalesItem) GetPriceWithDisc() float32 {
-	if o == nil || IsNil(o.PriceWithDisc) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.PriceWithDisc
+
+	return o.PriceWithDisc
 }
 
-// GetPriceWithDiscOk returns a tuple with the PriceWithDisc field value if set, nil otherwise
+// GetPriceWithDiscOk returns a tuple with the PriceWithDisc field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetPriceWithDiscOk() (*float32, bool) {
-	if o == nil || IsNil(o.PriceWithDisc) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PriceWithDisc, true
+	return &o.PriceWithDisc, true
 }
 
-// HasPriceWithDisc returns a boolean if a field has been set.
-func (o *SalesItem) HasPriceWithDisc() bool {
-	if o != nil && !IsNil(o.PriceWithDisc) {
-		return true
-	}
-
-	return false
-}
-
-// SetPriceWithDisc gets a reference to the given float32 and assigns it to the PriceWithDisc field.
+// SetPriceWithDisc sets field value
 func (o *SalesItem) SetPriceWithDisc(v float32) {
-	o.PriceWithDisc = &v
+	o.PriceWithDisc = v
 }
 
-// GetSaleID returns the SaleID field value if set, zero value otherwise.
+// GetSaleID returns the SaleID field value
 func (o *SalesItem) GetSaleID() string {
-	if o == nil || IsNil(o.SaleID) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SaleID
+
+	return o.SaleID
 }
 
-// GetSaleIDOk returns a tuple with the SaleID field value if set, nil otherwise
+// GetSaleIDOk returns a tuple with the SaleID field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetSaleIDOk() (*string, bool) {
-	if o == nil || IsNil(o.SaleID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SaleID, true
+	return &o.SaleID, true
 }
 
-// HasSaleID returns a boolean if a field has been set.
-func (o *SalesItem) HasSaleID() bool {
-	if o != nil && !IsNil(o.SaleID) {
-		return true
-	}
-
-	return false
-}
-
-// SetSaleID gets a reference to the given string and assigns it to the SaleID field.
+// SetSaleID sets field value
 func (o *SalesItem) SetSaleID(v string) {
-	o.SaleID = &v
+	o.SaleID = v
 }
 
-// GetSticker returns the Sticker field value if set, zero value otherwise.
+// GetSticker returns the Sticker field value
 func (o *SalesItem) GetSticker() string {
-	if o == nil || IsNil(o.Sticker) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Sticker
+
+	return o.Sticker
 }
 
-// GetStickerOk returns a tuple with the Sticker field value if set, nil otherwise
+// GetStickerOk returns a tuple with the Sticker field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetStickerOk() (*string, bool) {
-	if o == nil || IsNil(o.Sticker) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sticker, true
+	return &o.Sticker, true
 }
 
-// HasSticker returns a boolean if a field has been set.
-func (o *SalesItem) HasSticker() bool {
-	if o != nil && !IsNil(o.Sticker) {
-		return true
-	}
-
-	return false
-}
-
-// SetSticker gets a reference to the given string and assigns it to the Sticker field.
+// SetSticker sets field value
 func (o *SalesItem) SetSticker(v string) {
-	o.Sticker = &v
+	o.Sticker = v
 }
 
-// GetGNumber returns the GNumber field value if set, zero value otherwise.
+// GetGNumber returns the GNumber field value
 func (o *SalesItem) GetGNumber() string {
-	if o == nil || IsNil(o.GNumber) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.GNumber
+
+	return o.GNumber
 }
 
-// GetGNumberOk returns a tuple with the GNumber field value if set, nil otherwise
+// GetGNumberOk returns a tuple with the GNumber field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetGNumberOk() (*string, bool) {
-	if o == nil || IsNil(o.GNumber) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GNumber, true
+	return &o.GNumber, true
 }
 
-// HasGNumber returns a boolean if a field has been set.
-func (o *SalesItem) HasGNumber() bool {
-	if o != nil && !IsNil(o.GNumber) {
-		return true
-	}
-
-	return false
-}
-
-// SetGNumber gets a reference to the given string and assigns it to the GNumber field.
+// SetGNumber sets field value
 func (o *SalesItem) SetGNumber(v string) {
-	o.GNumber = &v
+	o.GNumber = v
 }
 
-// GetSrid returns the Srid field value if set, zero value otherwise.
+// GetSrid returns the Srid field value
 func (o *SalesItem) GetSrid() string {
-	if o == nil || IsNil(o.Srid) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Srid
+
+	return o.Srid
 }
 
-// GetSridOk returns a tuple with the Srid field value if set, nil otherwise
+// GetSridOk returns a tuple with the Srid field value
 // and a boolean to check if the value has been set.
 func (o *SalesItem) GetSridOk() (*string, bool) {
-	if o == nil || IsNil(o.Srid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Srid, true
+	return &o.Srid, true
 }
 
-// HasSrid returns a boolean if a field has been set.
-func (o *SalesItem) HasSrid() bool {
-	if o != nil && !IsNil(o.Srid) {
-		return true
-	}
-
-	return false
-}
-
-// SetSrid gets a reference to the given string and assigns it to the Srid field.
+// SetSrid sets field value
 func (o *SalesItem) SetSrid(v string) {
-	o.Srid = &v
+	o.Srid = v
 }
 
 func (o SalesItem) MarshalJSON() ([]byte, error) {
@@ -1000,91 +808,99 @@ func (o SalesItem) MarshalJSON() ([]byte, error) {
 
 func (o SalesItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Date) {
-		toSerialize["date"] = o.Date
-	}
-	if !IsNil(o.LastChangeDate) {
-		toSerialize["lastChangeDate"] = o.LastChangeDate
-	}
-	if !IsNil(o.WarehouseName) {
-		toSerialize["warehouseName"] = o.WarehouseName
-	}
-	if !IsNil(o.WarehouseType) {
-		toSerialize["warehouseType"] = o.WarehouseType
-	}
-	if !IsNil(o.CountryName) {
-		toSerialize["countryName"] = o.CountryName
-	}
-	if !IsNil(o.OblastOkrugName) {
-		toSerialize["oblastOkrugName"] = o.OblastOkrugName
-	}
-	if !IsNil(o.RegionName) {
-		toSerialize["regionName"] = o.RegionName
-	}
-	if !IsNil(o.SupplierArticle) {
-		toSerialize["supplierArticle"] = o.SupplierArticle
-	}
-	if !IsNil(o.NmId) {
-		toSerialize["nmId"] = o.NmId
-	}
-	if !IsNil(o.Barcode) {
-		toSerialize["barcode"] = o.Barcode
-	}
-	if !IsNil(o.Category) {
-		toSerialize["category"] = o.Category
-	}
-	if !IsNil(o.Subject) {
-		toSerialize["subject"] = o.Subject
-	}
-	if !IsNil(o.Brand) {
-		toSerialize["brand"] = o.Brand
-	}
-	if !IsNil(o.TechSize) {
-		toSerialize["techSize"] = o.TechSize
-	}
-	if !IsNil(o.IncomeID) {
-		toSerialize["incomeID"] = o.IncomeID
-	}
-	if !IsNil(o.IsSupply) {
-		toSerialize["isSupply"] = o.IsSupply
-	}
-	if !IsNil(o.IsRealization) {
-		toSerialize["isRealization"] = o.IsRealization
-	}
-	if !IsNil(o.TotalPrice) {
-		toSerialize["totalPrice"] = o.TotalPrice
-	}
-	if !IsNil(o.DiscountPercent) {
-		toSerialize["discountPercent"] = o.DiscountPercent
-	}
-	if !IsNil(o.Spp) {
-		toSerialize["spp"] = o.Spp
-	}
-	if !IsNil(o.PaymentSaleAmount) {
-		toSerialize["paymentSaleAmount"] = o.PaymentSaleAmount
-	}
-	if !IsNil(o.ForPay) {
-		toSerialize["forPay"] = o.ForPay
-	}
-	if !IsNil(o.FinishedPrice) {
-		toSerialize["finishedPrice"] = o.FinishedPrice
-	}
-	if !IsNil(o.PriceWithDisc) {
-		toSerialize["priceWithDisc"] = o.PriceWithDisc
-	}
-	if !IsNil(o.SaleID) {
-		toSerialize["saleID"] = o.SaleID
-	}
-	if !IsNil(o.Sticker) {
-		toSerialize["sticker"] = o.Sticker
-	}
-	if !IsNil(o.GNumber) {
-		toSerialize["gNumber"] = o.GNumber
-	}
-	if !IsNil(o.Srid) {
-		toSerialize["srid"] = o.Srid
-	}
+	toSerialize["date"] = o.Date
+	toSerialize["lastChangeDate"] = o.LastChangeDate
+	toSerialize["warehouseName"] = o.WarehouseName
+	toSerialize["warehouseType"] = o.WarehouseType
+	toSerialize["countryName"] = o.CountryName
+	toSerialize["oblastOkrugName"] = o.OblastOkrugName
+	toSerialize["regionName"] = o.RegionName
+	toSerialize["supplierArticle"] = o.SupplierArticle
+	toSerialize["nmId"] = o.NmId
+	toSerialize["barcode"] = o.Barcode
+	toSerialize["category"] = o.Category
+	toSerialize["subject"] = o.Subject
+	toSerialize["brand"] = o.Brand
+	toSerialize["techSize"] = o.TechSize
+	toSerialize["incomeID"] = o.IncomeID
+	toSerialize["isSupply"] = o.IsSupply
+	toSerialize["isRealization"] = o.IsRealization
+	toSerialize["totalPrice"] = o.TotalPrice
+	toSerialize["discountPercent"] = o.DiscountPercent
+	toSerialize["spp"] = o.Spp
+	toSerialize["paymentSaleAmount"] = o.PaymentSaleAmount
+	toSerialize["forPay"] = o.ForPay
+	toSerialize["finishedPrice"] = o.FinishedPrice
+	toSerialize["priceWithDisc"] = o.PriceWithDisc
+	toSerialize["saleID"] = o.SaleID
+	toSerialize["sticker"] = o.Sticker
+	toSerialize["gNumber"] = o.GNumber
+	toSerialize["srid"] = o.Srid
 	return toSerialize, nil
+}
+
+func (o *SalesItem) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"date",
+		"lastChangeDate",
+		"warehouseName",
+		"warehouseType",
+		"countryName",
+		"oblastOkrugName",
+		"regionName",
+		"supplierArticle",
+		"nmId",
+		"barcode",
+		"category",
+		"subject",
+		"brand",
+		"techSize",
+		"incomeID",
+		"isSupply",
+		"isRealization",
+		"totalPrice",
+		"discountPercent",
+		"spp",
+		"paymentSaleAmount",
+		"forPay",
+		"finishedPrice",
+		"priceWithDisc",
+		"saleID",
+		"sticker",
+		"gNumber",
+		"srid",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varSalesItem := _SalesItem{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varSalesItem)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SalesItem(varSalesItem)
+
+	return err
 }
 
 type NullableSalesItem struct {

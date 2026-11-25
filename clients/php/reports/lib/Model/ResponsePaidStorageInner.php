@@ -428,6 +428,75 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
+        if ($this->container['date'] === null) {
+            $invalidProperties[] = "'date' can't be null";
+        }
+        if ($this->container['log_warehouse_coef'] === null) {
+            $invalidProperties[] = "'log_warehouse_coef' can't be null";
+        }
+        if ($this->container['office_id'] === null) {
+            $invalidProperties[] = "'office_id' can't be null";
+        }
+        if ($this->container['warehouse'] === null) {
+            $invalidProperties[] = "'warehouse' can't be null";
+        }
+        if ($this->container['warehouse_coef'] === null) {
+            $invalidProperties[] = "'warehouse_coef' can't be null";
+        }
+        if ($this->container['gi_id'] === null) {
+            $invalidProperties[] = "'gi_id' can't be null";
+        }
+        if ($this->container['chrt_id'] === null) {
+            $invalidProperties[] = "'chrt_id' can't be null";
+        }
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
+        if ($this->container['barcode'] === null) {
+            $invalidProperties[] = "'barcode' can't be null";
+        }
+        if ($this->container['subject'] === null) {
+            $invalidProperties[] = "'subject' can't be null";
+        }
+        if ($this->container['brand'] === null) {
+            $invalidProperties[] = "'brand' can't be null";
+        }
+        if ($this->container['vendor_code'] === null) {
+            $invalidProperties[] = "'vendor_code' can't be null";
+        }
+        if ($this->container['nm_id'] === null) {
+            $invalidProperties[] = "'nm_id' can't be null";
+        }
+        if ($this->container['volume'] === null) {
+            $invalidProperties[] = "'volume' can't be null";
+        }
+        if ($this->container['calc_type'] === null) {
+            $invalidProperties[] = "'calc_type' can't be null";
+        }
+        if ($this->container['warehouse_price'] === null) {
+            $invalidProperties[] = "'warehouse_price' can't be null";
+        }
+        if ($this->container['barcodes_count'] === null) {
+            $invalidProperties[] = "'barcodes_count' can't be null";
+        }
+        if ($this->container['pallet_place_code'] === null) {
+            $invalidProperties[] = "'pallet_place_code' can't be null";
+        }
+        if ($this->container['pallet_count'] === null) {
+            $invalidProperties[] = "'pallet_count' can't be null";
+        }
+        if ($this->container['original_date'] === null) {
+            $invalidProperties[] = "'original_date' can't be null";
+        }
+        if ($this->container['loyalty_discount'] === null) {
+            $invalidProperties[] = "'loyalty_discount' can't be null";
+        }
+        if ($this->container['tariff_fix_date'] === null) {
+            $invalidProperties[] = "'tariff_fix_date' can't be null";
+        }
+        if ($this->container['tariff_lower_date'] === null) {
+            $invalidProperties[] = "'tariff_lower_date' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -446,7 +515,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets date
      *
-     * @return string|null
+     * @return string
      */
     public function getDate()
     {
@@ -456,7 +525,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets date
      *
-     * @param string|null $date Дата, за которую был расчёт или перерасчёт
+     * @param string $date Дата расчёта или перерасчёта
      *
      * @return self
      */
@@ -473,7 +542,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets log_warehouse_coef
      *
-     * @return float|null
+     * @return float
      */
     public function getLogWarehouseCoef()
     {
@@ -483,7 +552,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets log_warehouse_coef
      *
-     * @param float|null $log_warehouse_coef Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`
+     * @param float $log_warehouse_coef Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`
      *
      * @return self
      */
@@ -500,7 +569,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets office_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOfficeId()
     {
@@ -510,7 +579,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets office_id
      *
-     * @param int|null $office_id ID склада. [На данный момент](/release-notes?id=570) может быть только `0`
+     * @param int $office_id ID склада. [На данный момент](/release-notes?id=570) может быть только `0`
      *
      * @return self
      */
@@ -527,7 +596,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets warehouse
      *
-     * @return string|null
+     * @return string
      */
     public function getWarehouse()
     {
@@ -537,7 +606,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets warehouse
      *
-     * @param string|null $warehouse Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
+     * @param string $warehouse Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
      *
      * @return self
      */
@@ -554,7 +623,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets warehouse_coef
      *
-     * @return float|null
+     * @return float
      */
     public function getWarehouseCoef()
     {
@@ -564,7 +633,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets warehouse_coef
      *
-     * @param float|null $warehouse_coef Коэффициент хранения
+     * @param float $warehouse_coef Коэффициент хранения
      *
      * @return self
      */
@@ -581,7 +650,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets gi_id
      *
-     * @return int|null
+     * @return int
      */
     public function getGiId()
     {
@@ -591,7 +660,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets gi_id
      *
-     * @param int|null $gi_id ID поставки
+     * @param int $gi_id ID поставки
      *
      * @return self
      */
@@ -608,7 +677,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets chrt_id
      *
-     * @return int|null
+     * @return int
      */
     public function getChrtId()
     {
@@ -618,7 +687,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets chrt_id
      *
-     * @param int|null $chrt_id ID размера для этого артикула WB
+     * @param int $chrt_id ID размера для этого артикула WB
      *
      * @return self
      */
@@ -635,7 +704,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets size
      *
-     * @return string|null
+     * @return string
      */
     public function getSize()
     {
@@ -645,7 +714,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets size
      *
-     * @param string|null $size Размер (`techSize` в карточке товара)
+     * @param string $size Размер (`techSize` в карточке товара)
      *
      * @return self
      */
@@ -662,7 +731,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets barcode
      *
-     * @return string|null
+     * @return string
      */
     public function getBarcode()
     {
@@ -672,7 +741,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets barcode
      *
-     * @param string|null $barcode Баркод
+     * @param string $barcode Баркод
      *
      * @return self
      */
@@ -689,7 +758,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets subject
      *
-     * @return string|null
+     * @return string
      */
     public function getSubject()
     {
@@ -699,7 +768,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets subject
      *
-     * @param string|null $subject Предмет
+     * @param string $subject Предмет
      *
      * @return self
      */
@@ -716,7 +785,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets brand
      *
-     * @return string|null
+     * @return string
      */
     public function getBrand()
     {
@@ -726,7 +795,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets brand
      *
-     * @param string|null $brand Бренд
+     * @param string $brand Бренд
      *
      * @return self
      */
@@ -743,7 +812,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets vendor_code
      *
-     * @return string|null
+     * @return string
      */
     public function getVendorCode()
     {
@@ -753,7 +822,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets vendor_code
      *
-     * @param string|null $vendor_code Артикул продавца
+     * @param string $vendor_code Артикул продавца
      *
      * @return self
      */
@@ -770,7 +839,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets nm_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNmId()
     {
@@ -780,7 +849,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets nm_id
      *
-     * @param int|null $nm_id Артикул WB
+     * @param int $nm_id Артикул WB
      *
      * @return self
      */
@@ -797,7 +866,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets volume
      *
-     * @return float|null
+     * @return float
      */
     public function getVolume()
     {
@@ -807,7 +876,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets volume
      *
-     * @param float|null $volume Объём товара
+     * @param float $volume Объём товара
      *
      * @return self
      */
@@ -824,7 +893,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets calc_type
      *
-     * @return string|null
+     * @return string
      */
     public function getCalcType()
     {
@@ -834,7 +903,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets calc_type
      *
-     * @param string|null $calc_type Способ расчёта
+     * @param string $calc_type Способ расчёта
      *
      * @return self
      */
@@ -851,7 +920,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets warehouse_price
      *
-     * @return float|null
+     * @return float
      */
     public function getWarehousePrice()
     {
@@ -861,7 +930,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets warehouse_price
      *
-     * @param float|null $warehouse_price Сумма хранения
+     * @param float $warehouse_price Сумма хранения
      *
      * @return self
      */
@@ -878,7 +947,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets barcodes_count
      *
-     * @return int|null
+     * @return int
      */
     public function getBarcodesCount()
     {
@@ -888,7 +957,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets barcodes_count
      *
-     * @param int|null $barcodes_count Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
+     * @param int $barcodes_count Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
      *
      * @return self
      */
@@ -905,7 +974,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets pallet_place_code
      *
-     * @return int|null
+     * @return int
      */
     public function getPalletPlaceCode()
     {
@@ -915,7 +984,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets pallet_place_code
      *
-     * @param int|null $pallet_place_code Код паллетоместа. [На данный момент](/release-notes?id=570) может быть только `0`
+     * @param int $pallet_place_code Код паллетоместа. [На данный момент](/release-notes?id=570) может быть только `0`
      *
      * @return self
      */
@@ -932,7 +1001,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets pallet_count
      *
-     * @return float|null
+     * @return float
      */
     public function getPalletCount()
     {
@@ -942,7 +1011,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets pallet_count
      *
-     * @param float|null $pallet_count Количество паллет
+     * @param float $pallet_count Количество паллет
      *
      * @return self
      */
@@ -959,7 +1028,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets original_date
      *
-     * @return string|null
+     * @return string
      */
     public function getOriginalDate()
     {
@@ -969,7 +1038,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets original_date
      *
-     * @param string|null $original_date Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с `date`
+     * @param string $original_date Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с `date`
      *
      * @return self
      */
@@ -986,7 +1055,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets loyalty_discount
      *
-     * @return float|null
+     * @return float
      */
     public function getLoyaltyDiscount()
     {
@@ -996,7 +1065,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets loyalty_discount
      *
-     * @param float|null $loyalty_discount Скидка программы лояльности, ₽
+     * @param float $loyalty_discount Скидка программы лояльности, ₽
      *
      * @return self
      */
@@ -1013,7 +1082,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets tariff_fix_date
      *
-     * @return string|null
+     * @return string
      */
     public function getTariffFixDate()
     {
@@ -1023,7 +1092,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets tariff_fix_date
      *
-     * @param string|null $tariff_fix_date Дата фиксации тарифа
+     * @param string $tariff_fix_date Дата фиксации тарифа
      *
      * @return self
      */
@@ -1040,7 +1109,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets tariff_lower_date
      *
-     * @return string|null
+     * @return string
      */
     public function getTariffLowerDate()
     {
@@ -1050,7 +1119,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets tariff_lower_date
      *
-     * @param string|null $tariff_lower_date Дата понижения тарифа
+     * @param string $tariff_lower_date Дата понижения тарифа
      *
      * @return self
      */

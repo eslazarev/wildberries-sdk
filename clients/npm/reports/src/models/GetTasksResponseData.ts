@@ -22,7 +22,7 @@ export interface GetTasksResponseData {
     /**
      * ID задания
      */
-    id?: string;
+    id: string;
     /**
      * Статус задания:
      *   * `new` — новое
@@ -32,13 +32,15 @@ export interface GetTasksResponseData {
      *   * `canceled` — отклонено
      * 
      */
-    status?: string;
+    status: string;
 }
 
 /**
  * Check if a given object implements the GetTasksResponseData interface.
  */
 export function instanceOfGetTasksResponseData(value: object): value is GetTasksResponseData {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('status' in value) || value['status'] === undefined) return false;
     return true;
 }
 
@@ -52,8 +54,8 @@ export function GetTasksResponseDataFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
-        'status': json['status'] == null ? undefined : json['status'],
+        'id': json['id'],
+        'status': json['status'],
     };
 }
 

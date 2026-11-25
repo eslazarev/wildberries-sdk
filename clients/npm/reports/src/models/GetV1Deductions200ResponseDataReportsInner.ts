@@ -22,69 +22,84 @@ export interface GetV1Deductions200ResponseDataReportsInner {
     /**
      * Дата и время удержания
      */
-    dtBonus?: Date;
+    dtBonus: Date;
     /**
      * Артикул WB
      */
-    nmId?: number;
+    nmId: number;
     /**
      * Старый штрихкод
      */
-    oldShkId?: number;
+    oldShkId: number;
     /**
      * Старый цвет
      */
-    oldColor?: string;
+    oldColor: string;
     /**
      * Старый размер
      */
-    oldSize?: string;
+    oldSize: string;
     /**
      * Старый баркод
      */
-    oldSku?: string;
+    oldSku: string;
     /**
      * Старый артикул продавца
      */
-    oldVendorCode?: string;
+    oldVendorCode: string;
     /**
      * Новый штрихкод
      */
-    newShkId?: number;
+    newShkId: number;
     /**
      * Новый цвет
      */
-    newColor?: string;
+    newColor: string;
     /**
      * Новый размер
      */
-    newSize?: string;
+    newSize: string;
     /**
      * Новый баркод
      */
-    newSku?: string;
+    newSku: string;
     /**
      * Новый артикул продавца
      */
-    newVendorCode?: string;
+    newVendorCode: string;
     /**
      * Сумма удержания
      */
-    bonusSumm?: number;
+    bonusSumm: number;
     /**
      * Причина удержания
      */
-    bonusType?: string;
+    bonusType: string;
     /**
      * Фото замеров
      */
-    photoUrls?: Array<string>;
+    photoUrls: Array<string>;
 }
 
 /**
  * Check if a given object implements the GetV1Deductions200ResponseDataReportsInner interface.
  */
 export function instanceOfGetV1Deductions200ResponseDataReportsInner(value: object): value is GetV1Deductions200ResponseDataReportsInner {
+    if (!('dtBonus' in value) || value['dtBonus'] === undefined) return false;
+    if (!('nmId' in value) || value['nmId'] === undefined) return false;
+    if (!('oldShkId' in value) || value['oldShkId'] === undefined) return false;
+    if (!('oldColor' in value) || value['oldColor'] === undefined) return false;
+    if (!('oldSize' in value) || value['oldSize'] === undefined) return false;
+    if (!('oldSku' in value) || value['oldSku'] === undefined) return false;
+    if (!('oldVendorCode' in value) || value['oldVendorCode'] === undefined) return false;
+    if (!('newShkId' in value) || value['newShkId'] === undefined) return false;
+    if (!('newColor' in value) || value['newColor'] === undefined) return false;
+    if (!('newSize' in value) || value['newSize'] === undefined) return false;
+    if (!('newSku' in value) || value['newSku'] === undefined) return false;
+    if (!('newVendorCode' in value) || value['newVendorCode'] === undefined) return false;
+    if (!('bonusSumm' in value) || value['bonusSumm'] === undefined) return false;
+    if (!('bonusType' in value) || value['bonusType'] === undefined) return false;
+    if (!('photoUrls' in value) || value['photoUrls'] === undefined) return false;
     return true;
 }
 
@@ -98,21 +113,21 @@ export function GetV1Deductions200ResponseDataReportsInnerFromJSONTyped(json: an
     }
     return {
         
-        'dtBonus': json['dtBonus'] == null ? undefined : (parseDateTime(json['dtBonus'])),
-        'nmId': json['nmId'] == null ? undefined : json['nmId'],
-        'oldShkId': json['oldShkId'] == null ? undefined : json['oldShkId'],
-        'oldColor': json['oldColor'] == null ? undefined : json['oldColor'],
-        'oldSize': json['oldSize'] == null ? undefined : json['oldSize'],
-        'oldSku': json['oldSku'] == null ? undefined : json['oldSku'],
-        'oldVendorCode': json['oldVendorCode'] == null ? undefined : json['oldVendorCode'],
-        'newShkId': json['newShkId'] == null ? undefined : json['newShkId'],
-        'newColor': json['newColor'] == null ? undefined : json['newColor'],
-        'newSize': json['newSize'] == null ? undefined : json['newSize'],
-        'newSku': json['newSku'] == null ? undefined : json['newSku'],
-        'newVendorCode': json['newVendorCode'] == null ? undefined : json['newVendorCode'],
-        'bonusSumm': json['bonusSumm'] == null ? undefined : json['bonusSumm'],
-        'bonusType': json['bonusType'] == null ? undefined : json['bonusType'],
-        'photoUrls': json['photoUrls'] == null ? undefined : json['photoUrls'],
+        'dtBonus': (json['dtBonus'] == null ? json['dtBonus'] : parseDateTime(json['dtBonus'])),
+        'nmId': json['nmId'],
+        'oldShkId': json['oldShkId'],
+        'oldColor': json['oldColor'],
+        'oldSize': json['oldSize'],
+        'oldSku': json['oldSku'],
+        'oldVendorCode': json['oldVendorCode'],
+        'newShkId': json['newShkId'],
+        'newColor': json['newColor'],
+        'newSize': json['newSize'],
+        'newSku': json['newSku'],
+        'newVendorCode': json['newVendorCode'],
+        'bonusSumm': json['bonusSumm'],
+        'bonusType': json['bonusType'],
+        'photoUrls': json['photoUrls'],
     };
 }
 

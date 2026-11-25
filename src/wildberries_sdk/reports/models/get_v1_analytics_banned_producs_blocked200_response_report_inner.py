@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,11 +27,11 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner(BaseModel):
     """
     GetV1AnalyticsBannedProducsBlocked200ResponseReportInner
     """ # noqa: E501
-    brand: Optional[StrictStr] = Field(default=None, description="Бренд", json_schema_extra={"examples": ["Тест22"]})
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId", json_schema_extra={"examples": [82722944]})
-    title: Optional[StrictStr] = Field(default=None, description="Наименование товара", json_schema_extra={"examples": ["Гуминовые кислоты - биоактивный противовирусный комплекс на"]})
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode", json_schema_extra={"examples": ["пкdeир76"]})
-    reason: Optional[StrictStr] = Field(default=None, description="Причина блокировки", json_schema_extra={"examples": ["Контактные данные Продавца и ссылки на иные сайты/группы/сообщества на фотографиях Товара"]})
+    brand: StrictStr = Field(description="Бренд", json_schema_extra={"examples": ["Тест22"]})
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [82722944]})
+    title: StrictStr = Field(description="Наименование товара", json_schema_extra={"examples": ["Гуминовые кислоты - биоактивный противовирусный комплекс на"]})
+    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode", json_schema_extra={"examples": ["пкdeир76"]})
+    reason: StrictStr = Field(description="Причина блокировки", json_schema_extra={"examples": ["Контактные данные Продавца и ссылки на иные сайты/группы/сообщества на фотографиях Товара"]})
     __properties: ClassVar[List[str]] = ["brand", "nmId", "title", "vendorCode", "reason"]
 
     model_config = ConfigDict(

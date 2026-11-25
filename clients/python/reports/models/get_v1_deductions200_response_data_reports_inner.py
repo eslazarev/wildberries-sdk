@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,21 +28,21 @@ class GetV1Deductions200ResponseDataReportsInner(BaseModel):
     """
     GetV1Deductions200ResponseDataReportsInner
     """ # noqa: E501
-    dt_bonus: Optional[datetime] = Field(default=None, description="Дата и время удержания", alias="dtBonus", json_schema_extra={"examples": ["2025-06-02T00:00:00Z"]})
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId", json_schema_extra={"examples": [544454]})
-    old_shk_id: Optional[StrictInt] = Field(default=None, description="Старый штрихкод", alias="oldShkId", json_schema_extra={"examples": [26624352356]})
-    old_color: Optional[StrictStr] = Field(default=None, description="Старый цвет", alias="oldColor", json_schema_extra={"examples": ["темно-синий,голубой"]})
-    old_size: Optional[StrictStr] = Field(default=None, description="Старый размер", alias="oldSize", json_schema_extra={"examples": ["A"]})
-    old_sku: Optional[StrictStr] = Field(default=None, description="Старый баркод", alias="oldSku", json_schema_extra={"examples": ["54532562"]})
-    old_vendor_code: Optional[StrictStr] = Field(default=None, description="Старый артикул продавца", alias="oldVendorCode", json_schema_extra={"examples": ["23535 Стемпинг 500"]})
-    new_shk_id: Optional[StrictInt] = Field(default=None, description="Новый штрихкод", alias="newShkId", json_schema_extra={"examples": [123333223]})
-    new_color: Optional[StrictStr] = Field(default=None, description="Новый цвет", alias="newColor", json_schema_extra={"examples": ["темно-синий,голубой"]})
-    new_size: Optional[StrictStr] = Field(default=None, description="Новый размер", alias="newSize", json_schema_extra={"examples": ["A"]})
-    new_sku: Optional[StrictStr] = Field(default=None, description="Новый баркод", alias="newSku", json_schema_extra={"examples": ["12323332223"]})
-    new_vendor_code: Optional[StrictStr] = Field(default=None, description="Новый артикул продавца", alias="newVendorCode", json_schema_extra={"examples": ["wh-service-podmena"]})
-    bonus_summ: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Сумма удержания", alias="bonusSumm", json_schema_extra={"examples": [247.5]})
-    bonus_type: Optional[StrictStr] = Field(default=None, description="Причина удержания", alias="bonusType", json_schema_extra={"examples": ["Подмена FBW"]})
-    photo_urls: Optional[List[StrictStr]] = Field(default=None, description="Фото замеров", alias="photoUrls", json_schema_extra={"examples": [["https://static-basket-03.wb.ru/vol49/change_characteristics/19189882946-2023-12-15T10:18:21.125Z-1.webp", "https://static-basket-03.wb.ru/vol49/change_characteristics/19189052946-2023-12-15T10:18:35.249Z-2.webp"]]})
+    dt_bonus: datetime = Field(description="Дата и время удержания", alias="dtBonus", json_schema_extra={"examples": ["2025-06-02T00:00:00Z"]})
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [544454]})
+    old_shk_id: StrictInt = Field(description="Старый штрихкод", alias="oldShkId", json_schema_extra={"examples": [26624352356]})
+    old_color: StrictStr = Field(description="Старый цвет", alias="oldColor", json_schema_extra={"examples": ["темно-синий,голубой"]})
+    old_size: StrictStr = Field(description="Старый размер", alias="oldSize", json_schema_extra={"examples": ["A"]})
+    old_sku: StrictStr = Field(description="Старый баркод", alias="oldSku", json_schema_extra={"examples": ["54532562"]})
+    old_vendor_code: StrictStr = Field(description="Старый артикул продавца", alias="oldVendorCode", json_schema_extra={"examples": ["23535 Стемпинг 500"]})
+    new_shk_id: StrictInt = Field(description="Новый штрихкод", alias="newShkId", json_schema_extra={"examples": [123333223]})
+    new_color: StrictStr = Field(description="Новый цвет", alias="newColor", json_schema_extra={"examples": ["темно-синий,голубой"]})
+    new_size: StrictStr = Field(description="Новый размер", alias="newSize", json_schema_extra={"examples": ["A"]})
+    new_sku: StrictStr = Field(description="Новый баркод", alias="newSku", json_schema_extra={"examples": ["12323332223"]})
+    new_vendor_code: StrictStr = Field(description="Новый артикул продавца", alias="newVendorCode", json_schema_extra={"examples": ["wh-service-podmena"]})
+    bonus_summ: Union[StrictFloat, StrictInt] = Field(description="Сумма удержания", alias="bonusSumm", json_schema_extra={"examples": [247.5]})
+    bonus_type: StrictStr = Field(description="Причина удержания", alias="bonusType", json_schema_extra={"examples": ["Подмена FBW"]})
+    photo_urls: List[StrictStr] = Field(description="Фото замеров", alias="photoUrls", json_schema_extra={"examples": [["https://static-basket-03.wb.ru/vol49/change_characteristics/19189882946-2023-12-15T10:18:21.125Z-1.webp", "https://static-basket-03.wb.ru/vol49/change_characteristics/19189052946-2023-12-15T10:18:35.249Z-2.webp"]]})
     __properties: ClassVar[List[str]] = ["dtBonus", "nmId", "oldShkId", "oldColor", "oldSize", "oldSku", "oldVendorCode", "newShkId", "newColor", "newSize", "newSku", "newVendorCode", "bonusSumm", "bonusType", "photoUrls"]
 
     model_config = ConfigDict(

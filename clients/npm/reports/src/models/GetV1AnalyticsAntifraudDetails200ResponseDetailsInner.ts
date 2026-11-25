@@ -20,31 +20,36 @@ import { mapValues } from '../runtime';
  */
 export interface GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
     /**
-     * Артикул WB
-     */
-    nmID?: number;
-    /**
-     * Сумма заказа
-     */
-    sum?: number;
-    /**
      * Валюта заказа
      */
-    currency?: string;
+    currency: string;
     /**
      * Начало отчётного периода
      */
-    dateFrom?: string;
+    dateFrom: string;
     /**
      * Конец отчётного периода
      */
-    dateTo?: string;
+    dateTo: string;
+    /**
+     * Артикул WB
+     */
+    nmID: number;
+    /**
+     * Сумма заказа
+     */
+    sum: number;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsAntifraudDetails200ResponseDetailsInner interface.
  */
 export function instanceOfGetV1AnalyticsAntifraudDetails200ResponseDetailsInner(value: object): value is GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
+    if (!('currency' in value) || value['currency'] === undefined) return false;
+    if (!('dateFrom' in value) || value['dateFrom'] === undefined) return false;
+    if (!('dateTo' in value) || value['dateTo'] === undefined) return false;
+    if (!('nmID' in value) || value['nmID'] === undefined) return false;
+    if (!('sum' in value) || value['sum'] === undefined) return false;
     return true;
 }
 
@@ -58,11 +63,11 @@ export function GetV1AnalyticsAntifraudDetails200ResponseDetailsInnerFromJSONTyp
     }
     return {
         
-        'nmID': json['nmID'] == null ? undefined : json['nmID'],
-        'sum': json['sum'] == null ? undefined : json['sum'],
-        'currency': json['currency'] == null ? undefined : json['currency'],
-        'dateFrom': json['dateFrom'] == null ? undefined : json['dateFrom'],
-        'dateTo': json['dateTo'] == null ? undefined : json['dateTo'],
+        'currency': json['currency'],
+        'dateFrom': json['dateFrom'],
+        'dateTo': json['dateTo'],
+        'nmID': json['nmID'],
+        'sum': json['sum'],
     };
 }
 
@@ -77,11 +82,11 @@ export function GetV1AnalyticsAntifraudDetails200ResponseDetailsInnerToJSONTyped
 
     return {
         
-        'nmID': value['nmID'],
-        'sum': value['sum'],
         'currency': value['currency'],
         'dateFrom': value['dateFrom'],
         'dateTo': value['dateTo'],
+        'nmID': value['nmID'],
+        'sum': value['sum'],
     };
 }
 

@@ -13,6 +13,8 @@ package reports
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WHMDataReportsInner type satisfies the MappedNullable interface at compile time
@@ -21,31 +23,41 @@ var _ MappedNullable = &WHMDataReportsInner{}
 // WHMDataReportsInner struct for WHMDataReportsInner
 type WHMDataReportsInner struct {
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId int32 `json:"nmId"`
 	// Предмет
-	SubjectName *string `json:"subjectName,omitempty"`
+	SubjectName string `json:"subjectName"`
 	// ID замера
-	DimId *int32 `json:"dimId,omitempty"`
+	DimId int32 `json:"dimId"`
 	// Объём, л
-	Volume *float32 `json:"volume,omitempty"`
+	Volume float32 `json:"volume"`
 	// Ширина, см
-	Width *int32 `json:"width,omitempty"`
+	Width int32 `json:"width"`
 	// Длина, см
-	Length *int32 `json:"length,omitempty"`
+	Length int32 `json:"length"`
 	// Высота, см
-	Height *int32 `json:"height,omitempty"`
+	Height int32 `json:"height"`
 	// Фото замеров
-	PhotoUrls []string `json:"photoUrls,omitempty"`
+	PhotoUrls []string `json:"photoUrls"`
 	// Дата и время
 	Dt *time.Time `json:"dt,omitempty"`
 }
+
+type _WHMDataReportsInner WHMDataReportsInner
 
 // NewWHMDataReportsInner instantiates a new WHMDataReportsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWHMDataReportsInner() *WHMDataReportsInner {
+func NewWHMDataReportsInner(nmId int32, subjectName string, dimId int32, volume float32, width int32, length int32, height int32, photoUrls []string) *WHMDataReportsInner {
 	this := WHMDataReportsInner{}
+	this.NmId = nmId
+	this.SubjectName = subjectName
+	this.DimId = dimId
+	this.Volume = volume
+	this.Width = width
+	this.Length = length
+	this.Height = height
+	this.PhotoUrls = photoUrls
 	return &this
 }
 
@@ -57,258 +69,194 @@ func NewWHMDataReportsInnerWithDefaults() *WHMDataReportsInner {
 	return &this
 }
 
-// GetNmId returns the NmId field value if set, zero value otherwise.
+// GetNmId returns the NmId field value
 func (o *WHMDataReportsInner) GetNmId() int32 {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NmId
+
+	return o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
+// GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *WHMDataReportsInner) GetNmIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmId, true
+	return &o.NmId, true
 }
 
-// HasNmId returns a boolean if a field has been set.
-func (o *WHMDataReportsInner) HasNmId() bool {
-	if o != nil && !IsNil(o.NmId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
+// SetNmId sets field value
 func (o *WHMDataReportsInner) SetNmId(v int32) {
-	o.NmId = &v
+	o.NmId = v
 }
 
-// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
+// GetSubjectName returns the SubjectName field value
 func (o *WHMDataReportsInner) GetSubjectName() string {
-	if o == nil || IsNil(o.SubjectName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SubjectName
+
+	return o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
+// GetSubjectNameOk returns a tuple with the SubjectName field value
 // and a boolean to check if the value has been set.
 func (o *WHMDataReportsInner) GetSubjectNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SubjectName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubjectName, true
+	return &o.SubjectName, true
 }
 
-// HasSubjectName returns a boolean if a field has been set.
-func (o *WHMDataReportsInner) HasSubjectName() bool {
-	if o != nil && !IsNil(o.SubjectName) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
+// SetSubjectName sets field value
 func (o *WHMDataReportsInner) SetSubjectName(v string) {
-	o.SubjectName = &v
+	o.SubjectName = v
 }
 
-// GetDimId returns the DimId field value if set, zero value otherwise.
+// GetDimId returns the DimId field value
 func (o *WHMDataReportsInner) GetDimId() int32 {
-	if o == nil || IsNil(o.DimId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.DimId
+
+	return o.DimId
 }
 
-// GetDimIdOk returns a tuple with the DimId field value if set, nil otherwise
+// GetDimIdOk returns a tuple with the DimId field value
 // and a boolean to check if the value has been set.
 func (o *WHMDataReportsInner) GetDimIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.DimId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DimId, true
+	return &o.DimId, true
 }
 
-// HasDimId returns a boolean if a field has been set.
-func (o *WHMDataReportsInner) HasDimId() bool {
-	if o != nil && !IsNil(o.DimId) {
-		return true
-	}
-
-	return false
-}
-
-// SetDimId gets a reference to the given int32 and assigns it to the DimId field.
+// SetDimId sets field value
 func (o *WHMDataReportsInner) SetDimId(v int32) {
-	o.DimId = &v
+	o.DimId = v
 }
 
-// GetVolume returns the Volume field value if set, zero value otherwise.
+// GetVolume returns the Volume field value
 func (o *WHMDataReportsInner) GetVolume() float32 {
-	if o == nil || IsNil(o.Volume) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Volume
+
+	return o.Volume
 }
 
-// GetVolumeOk returns a tuple with the Volume field value if set, nil otherwise
+// GetVolumeOk returns a tuple with the Volume field value
 // and a boolean to check if the value has been set.
 func (o *WHMDataReportsInner) GetVolumeOk() (*float32, bool) {
-	if o == nil || IsNil(o.Volume) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Volume, true
+	return &o.Volume, true
 }
 
-// HasVolume returns a boolean if a field has been set.
-func (o *WHMDataReportsInner) HasVolume() bool {
-	if o != nil && !IsNil(o.Volume) {
-		return true
-	}
-
-	return false
-}
-
-// SetVolume gets a reference to the given float32 and assigns it to the Volume field.
+// SetVolume sets field value
 func (o *WHMDataReportsInner) SetVolume(v float32) {
-	o.Volume = &v
+	o.Volume = v
 }
 
-// GetWidth returns the Width field value if set, zero value otherwise.
+// GetWidth returns the Width field value
 func (o *WHMDataReportsInner) GetWidth() int32 {
-	if o == nil || IsNil(o.Width) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Width
+
+	return o.Width
 }
 
-// GetWidthOk returns a tuple with the Width field value if set, nil otherwise
+// GetWidthOk returns a tuple with the Width field value
 // and a boolean to check if the value has been set.
 func (o *WHMDataReportsInner) GetWidthOk() (*int32, bool) {
-	if o == nil || IsNil(o.Width) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Width, true
+	return &o.Width, true
 }
 
-// HasWidth returns a boolean if a field has been set.
-func (o *WHMDataReportsInner) HasWidth() bool {
-	if o != nil && !IsNil(o.Width) {
-		return true
-	}
-
-	return false
-}
-
-// SetWidth gets a reference to the given int32 and assigns it to the Width field.
+// SetWidth sets field value
 func (o *WHMDataReportsInner) SetWidth(v int32) {
-	o.Width = &v
+	o.Width = v
 }
 
-// GetLength returns the Length field value if set, zero value otherwise.
+// GetLength returns the Length field value
 func (o *WHMDataReportsInner) GetLength() int32 {
-	if o == nil || IsNil(o.Length) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Length
+
+	return o.Length
 }
 
-// GetLengthOk returns a tuple with the Length field value if set, nil otherwise
+// GetLengthOk returns a tuple with the Length field value
 // and a boolean to check if the value has been set.
 func (o *WHMDataReportsInner) GetLengthOk() (*int32, bool) {
-	if o == nil || IsNil(o.Length) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Length, true
+	return &o.Length, true
 }
 
-// HasLength returns a boolean if a field has been set.
-func (o *WHMDataReportsInner) HasLength() bool {
-	if o != nil && !IsNil(o.Length) {
-		return true
-	}
-
-	return false
-}
-
-// SetLength gets a reference to the given int32 and assigns it to the Length field.
+// SetLength sets field value
 func (o *WHMDataReportsInner) SetLength(v int32) {
-	o.Length = &v
+	o.Length = v
 }
 
-// GetHeight returns the Height field value if set, zero value otherwise.
+// GetHeight returns the Height field value
 func (o *WHMDataReportsInner) GetHeight() int32 {
-	if o == nil || IsNil(o.Height) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Height
+
+	return o.Height
 }
 
-// GetHeightOk returns a tuple with the Height field value if set, nil otherwise
+// GetHeightOk returns a tuple with the Height field value
 // and a boolean to check if the value has been set.
 func (o *WHMDataReportsInner) GetHeightOk() (*int32, bool) {
-	if o == nil || IsNil(o.Height) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Height, true
+	return &o.Height, true
 }
 
-// HasHeight returns a boolean if a field has been set.
-func (o *WHMDataReportsInner) HasHeight() bool {
-	if o != nil && !IsNil(o.Height) {
-		return true
-	}
-
-	return false
-}
-
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
+// SetHeight sets field value
 func (o *WHMDataReportsInner) SetHeight(v int32) {
-	o.Height = &v
+	o.Height = v
 }
 
-// GetPhotoUrls returns the PhotoUrls field value if set, zero value otherwise.
+// GetPhotoUrls returns the PhotoUrls field value
 func (o *WHMDataReportsInner) GetPhotoUrls() []string {
-	if o == nil || IsNil(o.PhotoUrls) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.PhotoUrls
 }
 
-// GetPhotoUrlsOk returns a tuple with the PhotoUrls field value if set, nil otherwise
+// GetPhotoUrlsOk returns a tuple with the PhotoUrls field value
 // and a boolean to check if the value has been set.
 func (o *WHMDataReportsInner) GetPhotoUrlsOk() ([]string, bool) {
-	if o == nil || IsNil(o.PhotoUrls) {
+	if o == nil {
 		return nil, false
 	}
 	return o.PhotoUrls, true
 }
 
-// HasPhotoUrls returns a boolean if a field has been set.
-func (o *WHMDataReportsInner) HasPhotoUrls() bool {
-	if o != nil && !IsNil(o.PhotoUrls) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhotoUrls gets a reference to the given []string and assigns it to the PhotoUrls field.
+// SetPhotoUrls sets field value
 func (o *WHMDataReportsInner) SetPhotoUrls(v []string) {
 	o.PhotoUrls = v
 }
@@ -355,34 +303,62 @@ func (o WHMDataReportsInner) MarshalJSON() ([]byte, error) {
 
 func (o WHMDataReportsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.NmId) {
-		toSerialize["nmId"] = o.NmId
-	}
-	if !IsNil(o.SubjectName) {
-		toSerialize["subjectName"] = o.SubjectName
-	}
-	if !IsNil(o.DimId) {
-		toSerialize["dimId"] = o.DimId
-	}
-	if !IsNil(o.Volume) {
-		toSerialize["volume"] = o.Volume
-	}
-	if !IsNil(o.Width) {
-		toSerialize["width"] = o.Width
-	}
-	if !IsNil(o.Length) {
-		toSerialize["length"] = o.Length
-	}
-	if !IsNil(o.Height) {
-		toSerialize["height"] = o.Height
-	}
-	if !IsNil(o.PhotoUrls) {
-		toSerialize["photoUrls"] = o.PhotoUrls
-	}
+	toSerialize["nmId"] = o.NmId
+	toSerialize["subjectName"] = o.SubjectName
+	toSerialize["dimId"] = o.DimId
+	toSerialize["volume"] = o.Volume
+	toSerialize["width"] = o.Width
+	toSerialize["length"] = o.Length
+	toSerialize["height"] = o.Height
+	toSerialize["photoUrls"] = o.PhotoUrls
 	if !IsNil(o.Dt) {
 		toSerialize["dt"] = o.Dt
 	}
 	return toSerialize, nil
+}
+
+func (o *WHMDataReportsInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"nmId",
+		"subjectName",
+		"dimId",
+		"volume",
+		"width",
+		"length",
+		"height",
+		"photoUrls",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWHMDataReportsInner := _WHMDataReportsInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWHMDataReportsInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WHMDataReportsInner(varWHMDataReportsInner)
+
+	return err
 }
 
 type NullableWHMDataReportsInner struct {

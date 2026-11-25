@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,42 +28,39 @@ class SalesItem(BaseModel):
     """
     SalesItem
     """ # noqa: E501
-    var_date: Optional[StrictStr] = Field(default=None, description="Дата и время продажи. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=1. Если часовой пояс не указан, то берётся Московское время (UTC+3).", alias="date")
-    last_change_date: Optional[StrictStr] = Field(default=None, description="Дата и время обновления информации в сервисе. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=0 или не указан. Если часовой пояс не указан, то берётся Московское время (UTC+3).", alias="lastChangeDate")
-    warehouse_name: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="Склад отгрузки", alias="warehouseName")
-    warehouse_type: Optional[StrictStr] = Field(default=None, description="Тип склада хранения товаров", alias="warehouseType")
-    country_name: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="Страна", alias="countryName")
-    oblast_okrug_name: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="Округ", alias="oblastOkrugName")
-    region_name: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="Регион", alias="regionName")
-    supplier_article: Optional[Annotated[str, Field(strict=True, max_length=75)]] = Field(default=None, description="Артикул продавца", alias="supplierArticle")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    barcode: Optional[Annotated[str, Field(strict=True, max_length=30)]] = Field(default=None, description="Баркод")
-    category: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="Категория")
-    subject: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="Предмет")
-    brand: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="Бренд")
-    tech_size: Optional[Annotated[str, Field(strict=True, max_length=30)]] = Field(default=None, description="Размер товара", alias="techSize")
-    income_id: Optional[StrictInt] = Field(default=None, description="Номер поставки", alias="incomeID")
-    is_supply: Optional[StrictBool] = Field(default=None, description="Договор поставки", alias="isSupply")
-    is_realization: Optional[StrictBool] = Field(default=None, description="Договор реализации", alias="isRealization")
-    total_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Цена без скидок", alias="totalPrice")
-    discount_percent: Optional[StrictInt] = Field(default=None, description="Скидка продавца, %", alias="discountPercent")
-    spp: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Скидка WB, %")
-    payment_sale_amount: Optional[StrictInt] = Field(default=None, description="Скидка за оплату WB Кошельком, ₽", alias="paymentSaleAmount")
-    for_pay: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="К перечислению продавцу.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`", alias="forPay")
-    finished_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Фактическая цена с учётом всех скидок (к взиманию с покупателя).<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`", alias="finishedPrice")
-    price_with_disc: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Цена со скидкой продавца, в том числе со скидкой WB Клуба, от которой рассчитывается сумма к перечислению продавцу `forPay`.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`", alias="priceWithDisc")
-    sale_id: Optional[Annotated[str, Field(strict=True, max_length=15)]] = Field(default=None, description="Уникальный ID продажи/возврата - `S**********` — продажа - `R**********` — возврат (на склад WB) ", alias="saleID")
-    sticker: Optional[StrictStr] = Field(default=None, description="ID стикера")
-    g_number: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="ID корзины покупателя. Заказы одной транзакции будут иметь одинаковый `gNumber`", alias="gNumber")
-    srid: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа.<br> Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий. ")
+    var_date: StrictStr = Field(description="Дата и время продажи. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=1. Если часовой пояс не указан, то берётся Московское время (UTC+3).", alias="date")
+    last_change_date: StrictStr = Field(description="Дата и время обновления информации в сервисе. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=0 или не указан. Если часовой пояс не указан, то берётся Московское время (UTC+3).", alias="lastChangeDate")
+    warehouse_name: Annotated[str, Field(strict=True, max_length=50)] = Field(description="Склад отгрузки", alias="warehouseName")
+    warehouse_type: StrictStr = Field(description="Тип склада хранения товаров", alias="warehouseType")
+    country_name: Annotated[str, Field(strict=True, max_length=200)] = Field(description="Страна", alias="countryName")
+    oblast_okrug_name: Annotated[str, Field(strict=True, max_length=200)] = Field(description="Округ", alias="oblastOkrugName")
+    region_name: Annotated[str, Field(strict=True, max_length=200)] = Field(description="Регион", alias="regionName")
+    supplier_article: Annotated[str, Field(strict=True, max_length=75)] = Field(description="Артикул продавца", alias="supplierArticle")
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
+    barcode: Annotated[str, Field(strict=True, max_length=30)] = Field(description="Баркод")
+    category: Annotated[str, Field(strict=True, max_length=50)] = Field(description="Категория")
+    subject: Annotated[str, Field(strict=True, max_length=50)] = Field(description="Предмет")
+    brand: Annotated[str, Field(strict=True, max_length=50)] = Field(description="Бренд")
+    tech_size: Annotated[str, Field(strict=True, max_length=30)] = Field(description="Размер товара", alias="techSize")
+    income_id: StrictInt = Field(description="Номер поставки", alias="incomeID")
+    is_supply: StrictBool = Field(description="Договор поставки", alias="isSupply")
+    is_realization: StrictBool = Field(description="Договор реализации", alias="isRealization")
+    total_price: Union[StrictFloat, StrictInt] = Field(description="Цена без скидок", alias="totalPrice")
+    discount_percent: StrictInt = Field(description="Скидка продавца, %", alias="discountPercent")
+    spp: Union[StrictFloat, StrictInt] = Field(description="Скидка WB, %")
+    payment_sale_amount: StrictInt = Field(description="Скидка за оплату WB Кошельком, ₽", alias="paymentSaleAmount")
+    for_pay: Union[StrictFloat, StrictInt] = Field(description="К перечислению продавцу.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`", alias="forPay")
+    finished_price: Union[StrictFloat, StrictInt] = Field(description="Фактическая цена с учётом всех скидок (к взиманию с покупателя).<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`", alias="finishedPrice")
+    price_with_disc: Union[StrictFloat, StrictInt] = Field(description="Цена со скидкой продавца, в том числе со скидкой WB Клуба, от которой рассчитывается сумма к перечислению продавцу `forPay`.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`", alias="priceWithDisc")
+    sale_id: Annotated[str, Field(strict=True, max_length=15)] = Field(description="Уникальный ID продажи/возврата - `S**********` — продажа - `R**********` — возврат (на склад WB) ", alias="saleID")
+    sticker: StrictStr = Field(description="ID стикера")
+    g_number: Annotated[str, Field(strict=True, max_length=50)] = Field(description="ID корзины покупателя. Заказы одной транзакции будут иметь одинаковый `gNumber`", alias="gNumber")
+    srid: StrictStr = Field(description="Уникальный ID заказа.<br> Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий. ")
     __properties: ClassVar[List[str]] = ["date", "lastChangeDate", "warehouseName", "warehouseType", "countryName", "oblastOkrugName", "regionName", "supplierArticle", "nmId", "barcode", "category", "subject", "brand", "techSize", "incomeID", "isSupply", "isRealization", "totalPrice", "discountPercent", "spp", "paymentSaleAmount", "forPay", "finishedPrice", "priceWithDisc", "saleID", "sticker", "gNumber", "srid"]
 
     @field_validator('warehouse_type')
     def warehouse_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['Склад WB', 'Склад продавца']):
             raise ValueError("must be one of enum values ('Склад WB', 'Склад продавца')")
         return value

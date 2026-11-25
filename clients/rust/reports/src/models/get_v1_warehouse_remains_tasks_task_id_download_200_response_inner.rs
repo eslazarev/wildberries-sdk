@@ -35,12 +35,12 @@ pub struct GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
     #[serde(rename = "volume", skip_serializing_if = "Option::is_none")]
     pub volume: Option<f64>,
     /// Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`
-    #[serde(rename = "warehouses", skip_serializing_if = "Option::is_none")]
-    pub warehouses: Option<Vec<models::GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner>>,
+    #[serde(rename = "warehouses")]
+    pub warehouses: Vec<models::GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner>,
 }
 
 impl GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
-    pub fn new() -> GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
+    pub fn new(warehouses: Vec<models::GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner>) -> GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
         GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
             brand: None,
             subject_name: None,
@@ -49,7 +49,7 @@ impl GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
             barcode: None,
             tech_size: None,
             volume: None,
-            warehouses: None,
+            warehouses,
         }
     }
 }

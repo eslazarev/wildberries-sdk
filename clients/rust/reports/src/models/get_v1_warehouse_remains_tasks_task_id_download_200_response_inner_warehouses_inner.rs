@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner {
     /// Название склада
-    #[serde(rename = "warehouseName", skip_serializing_if = "Option::is_none")]
-    pub warehouse_name: Option<String>,
-    /// Количество, шт. 
-    #[serde(rename = "quantity", skip_serializing_if = "Option::is_none")]
-    pub quantity: Option<i32>,
+    #[serde(rename = "warehouseName")]
+    pub warehouse_name: String,
+    /// Количество, шт.
+    #[serde(rename = "quantity")]
+    pub quantity: i32,
 }
 
 impl GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner {
-    pub fn new() -> GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner {
+    pub fn new(warehouse_name: String, quantity: i32) -> GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner {
         GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner {
-            warehouse_name: None,
-            quantity: None,
+            warehouse_name,
+            quantity,
         }
     }
 }

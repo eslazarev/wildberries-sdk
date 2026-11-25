@@ -22,37 +22,44 @@ export interface GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner {
     /**
      * Количество товаров, шт.
      */
-    count?: number;
+    count: number;
     /**
      * Дата создания поставки
      */
-    giCreateDate?: Date;
+    giCreateDate: Date;
     /**
      * Номер поставки
      */
-    incomeId?: number;
+    incomeId: number;
     /**
      * Артикул WB
      */
-    nmID?: number;
+    nmID: number;
     /**
      * Дата приёмки
      */
-    shkCreateDate?: Date;
+    shkCreateDate: Date;
     /**
      * Предмет
      */
-    subjectName?: string;
+    subjectName: string;
     /**
      * Суммарная стоимость приёмки, ₽ с копейками
      */
-    total?: number;
+    total: number;
 }
 
 /**
  * Check if a given object implements the GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner interface.
  */
 export function instanceOfGetV1AcceptanceReportTasksTaskIdDownload200ResponseInner(value: object): value is GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner {
+    if (!('count' in value) || value['count'] === undefined) return false;
+    if (!('giCreateDate' in value) || value['giCreateDate'] === undefined) return false;
+    if (!('incomeId' in value) || value['incomeId'] === undefined) return false;
+    if (!('nmID' in value) || value['nmID'] === undefined) return false;
+    if (!('shkCreateDate' in value) || value['shkCreateDate'] === undefined) return false;
+    if (!('subjectName' in value) || value['subjectName'] === undefined) return false;
+    if (!('total' in value) || value['total'] === undefined) return false;
     return true;
 }
 
@@ -66,13 +73,13 @@ export function GetV1AcceptanceReportTasksTaskIdDownload200ResponseInnerFromJSON
     }
     return {
         
-        'count': json['count'] == null ? undefined : json['count'],
-        'giCreateDate': json['giCreateDate'] == null ? undefined : (parseDate(json['giCreateDate'])),
-        'incomeId': json['incomeId'] == null ? undefined : json['incomeId'],
-        'nmID': json['nmID'] == null ? undefined : json['nmID'],
-        'shkCreateDate': json['shkCreateDate'] == null ? undefined : (parseDate(json['shkCreateDate'])),
-        'subjectName': json['subjectName'] == null ? undefined : json['subjectName'],
-        'total': json['total'] == null ? undefined : json['total'],
+        'count': json['count'],
+        'giCreateDate': (json['giCreateDate'] == null ? json['giCreateDate'] : parseDate(json['giCreateDate'])),
+        'incomeId': json['incomeId'],
+        'nmID': json['nmID'],
+        'shkCreateDate': (json['shkCreateDate'] == null ? json['shkCreateDate'] : parseDate(json['shkCreateDate'])),
+        'subjectName': json['subjectName'],
+        'total': json['total'],
     };
 }
 

@@ -22,13 +22,14 @@ export interface CreateTaskResponseData {
     /**
      * ID задания на генерацию
      */
-    taskId?: string;
+    taskId: string;
 }
 
 /**
  * Check if a given object implements the CreateTaskResponseData interface.
  */
 export function instanceOfCreateTaskResponseData(value: object): value is CreateTaskResponseData {
+    if (!('taskId' in value) || value['taskId'] === undefined) return false;
     return true;
 }
 
@@ -42,7 +43,7 @@ export function CreateTaskResponseDataFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'taskId': json['taskId'] == null ? undefined : json['taskId'],
+        'taskId': json['taskId'],
     };
 }
 

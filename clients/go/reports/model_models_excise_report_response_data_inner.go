@@ -19,26 +19,26 @@ var _ MappedNullable = &ModelsExciseReportResponseDataInner{}
 
 // ModelsExciseReportResponseDataInner struct for ModelsExciseReportResponseDataInner
 type ModelsExciseReportResponseDataInner struct {
-	// Страна покупателя
-	Name *string `json:"name,omitempty"`
-	// Цена товара, с НДС
-	Price *float32 `json:"price,omitempty"`
+	// Баркод
+	Barcode *string `json:"barcode,omitempty"`
 	// Валюта
 	CurrencyNameShort *string `json:"currency_name_short,omitempty"`
 	// Код маркировки
 	ExciseShort *string `json:"excise_short,omitempty"`
-	// Баркод
-	Barcode *string `json:"barcode,omitempty"`
+	// Номер фискального документа (чека полного расчёта), если есть
+	FiscalDocNumber *int32 `json:"fiscal_doc_number,omitempty"`
+	// Номер фискального накопителя, если есть
+	FiscalDriveNumber *string `json:"fiscal_drive_number,omitempty"`
+	// Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
+	FiscalDt *string `json:"fiscal_dt,omitempty"`
+	// Страна покупателя
+	Name *string `json:"name,omitempty"`
 	// Артикул WB
 	NmId *int32 `json:"nm_id,omitempty"`
 	// Тип операции, если есть:    * `1` — вывод из оборота   * `2` — возврат в оборот 
 	OperationTypeId *int32 `json:"operation_type_id,omitempty"`
-	// Номер фискального документа (чека полного расчёта), если есть
-	FiscalDocNumber *int32 `json:"fiscal_doc_number,omitempty"`
-	// Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
-	FiscalDt *string `json:"fiscal_dt,omitempty"`
-	// Номер фискального накопителя, если есть
-	FiscalDriveNumber *string `json:"fiscal_drive_number,omitempty"`
+	// Цена товара, с НДС
+	Price *float32 `json:"price,omitempty"`
 	// `Rid` 
 	Rid *int32 `json:"rid,omitempty"`
 	// `Srid` 
@@ -62,68 +62,36 @@ func NewModelsExciseReportResponseDataInnerWithDefaults() *ModelsExciseReportRes
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetName() string {
-	if o == nil || IsNil(o.Name) {
+// GetBarcode returns the Barcode field value if set, zero value otherwise.
+func (o *ModelsExciseReportResponseDataInner) GetBarcode() string {
+	if o == nil || IsNil(o.Barcode) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Barcode
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetBarcodeOk returns a tuple with the Barcode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+func (o *ModelsExciseReportResponseDataInner) GetBarcodeOk() (*string, bool) {
+	if o == nil || IsNil(o.Barcode) {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Barcode, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ModelsExciseReportResponseDataInner) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+// HasBarcode returns a boolean if a field has been set.
+func (o *ModelsExciseReportResponseDataInner) HasBarcode() bool {
+	if o != nil && !IsNil(o.Barcode) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
-func (o *ModelsExciseReportResponseDataInner) SetName(v string) {
-	o.Name = &v
-}
-
-// GetPrice returns the Price field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetPrice() float32 {
-	if o == nil || IsNil(o.Price) {
-		var ret float32
-		return ret
-	}
-	return *o.Price
-}
-
-// GetPriceOk returns a tuple with the Price field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetPriceOk() (*float32, bool) {
-	if o == nil || IsNil(o.Price) {
-		return nil, false
-	}
-	return o.Price, true
-}
-
-// HasPrice returns a boolean if a field has been set.
-func (o *ModelsExciseReportResponseDataInner) HasPrice() bool {
-	if o != nil && !IsNil(o.Price) {
-		return true
-	}
-
-	return false
-}
-
-// SetPrice gets a reference to the given float32 and assigns it to the Price field.
-func (o *ModelsExciseReportResponseDataInner) SetPrice(v float32) {
-	o.Price = &v
+// SetBarcode gets a reference to the given string and assigns it to the Barcode field.
+func (o *ModelsExciseReportResponseDataInner) SetBarcode(v string) {
+	o.Barcode = &v
 }
 
 // GetCurrencyNameShort returns the CurrencyNameShort field value if set, zero value otherwise.
@@ -190,36 +158,132 @@ func (o *ModelsExciseReportResponseDataInner) SetExciseShort(v string) {
 	o.ExciseShort = &v
 }
 
-// GetBarcode returns the Barcode field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetBarcode() string {
-	if o == nil || IsNil(o.Barcode) {
-		var ret string
+// GetFiscalDocNumber returns the FiscalDocNumber field value if set, zero value otherwise.
+func (o *ModelsExciseReportResponseDataInner) GetFiscalDocNumber() int32 {
+	if o == nil || IsNil(o.FiscalDocNumber) {
+		var ret int32
 		return ret
 	}
-	return *o.Barcode
+	return *o.FiscalDocNumber
 }
 
-// GetBarcodeOk returns a tuple with the Barcode field value if set, nil otherwise
+// GetFiscalDocNumberOk returns a tuple with the FiscalDocNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetBarcodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Barcode) {
+func (o *ModelsExciseReportResponseDataInner) GetFiscalDocNumberOk() (*int32, bool) {
+	if o == nil || IsNil(o.FiscalDocNumber) {
 		return nil, false
 	}
-	return o.Barcode, true
+	return o.FiscalDocNumber, true
 }
 
-// HasBarcode returns a boolean if a field has been set.
-func (o *ModelsExciseReportResponseDataInner) HasBarcode() bool {
-	if o != nil && !IsNil(o.Barcode) {
+// HasFiscalDocNumber returns a boolean if a field has been set.
+func (o *ModelsExciseReportResponseDataInner) HasFiscalDocNumber() bool {
+	if o != nil && !IsNil(o.FiscalDocNumber) {
 		return true
 	}
 
 	return false
 }
 
-// SetBarcode gets a reference to the given string and assigns it to the Barcode field.
-func (o *ModelsExciseReportResponseDataInner) SetBarcode(v string) {
-	o.Barcode = &v
+// SetFiscalDocNumber gets a reference to the given int32 and assigns it to the FiscalDocNumber field.
+func (o *ModelsExciseReportResponseDataInner) SetFiscalDocNumber(v int32) {
+	o.FiscalDocNumber = &v
+}
+
+// GetFiscalDriveNumber returns the FiscalDriveNumber field value if set, zero value otherwise.
+func (o *ModelsExciseReportResponseDataInner) GetFiscalDriveNumber() string {
+	if o == nil || IsNil(o.FiscalDriveNumber) {
+		var ret string
+		return ret
+	}
+	return *o.FiscalDriveNumber
+}
+
+// GetFiscalDriveNumberOk returns a tuple with the FiscalDriveNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsExciseReportResponseDataInner) GetFiscalDriveNumberOk() (*string, bool) {
+	if o == nil || IsNil(o.FiscalDriveNumber) {
+		return nil, false
+	}
+	return o.FiscalDriveNumber, true
+}
+
+// HasFiscalDriveNumber returns a boolean if a field has been set.
+func (o *ModelsExciseReportResponseDataInner) HasFiscalDriveNumber() bool {
+	if o != nil && !IsNil(o.FiscalDriveNumber) {
+		return true
+	}
+
+	return false
+}
+
+// SetFiscalDriveNumber gets a reference to the given string and assigns it to the FiscalDriveNumber field.
+func (o *ModelsExciseReportResponseDataInner) SetFiscalDriveNumber(v string) {
+	o.FiscalDriveNumber = &v
+}
+
+// GetFiscalDt returns the FiscalDt field value if set, zero value otherwise.
+func (o *ModelsExciseReportResponseDataInner) GetFiscalDt() string {
+	if o == nil || IsNil(o.FiscalDt) {
+		var ret string
+		return ret
+	}
+	return *o.FiscalDt
+}
+
+// GetFiscalDtOk returns a tuple with the FiscalDt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsExciseReportResponseDataInner) GetFiscalDtOk() (*string, bool) {
+	if o == nil || IsNil(o.FiscalDt) {
+		return nil, false
+	}
+	return o.FiscalDt, true
+}
+
+// HasFiscalDt returns a boolean if a field has been set.
+func (o *ModelsExciseReportResponseDataInner) HasFiscalDt() bool {
+	if o != nil && !IsNil(o.FiscalDt) {
+		return true
+	}
+
+	return false
+}
+
+// SetFiscalDt gets a reference to the given string and assigns it to the FiscalDt field.
+func (o *ModelsExciseReportResponseDataInner) SetFiscalDt(v string) {
+	o.FiscalDt = &v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *ModelsExciseReportResponseDataInner) GetName() string {
+	if o == nil || IsNil(o.Name) {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsExciseReportResponseDataInner) GetNameOk() (*string, bool) {
+	if o == nil || IsNil(o.Name) {
+		return nil, false
+	}
+	return o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *ModelsExciseReportResponseDataInner) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *ModelsExciseReportResponseDataInner) SetName(v string) {
+	o.Name = &v
 }
 
 // GetNmId returns the NmId field value if set, zero value otherwise.
@@ -286,100 +350,36 @@ func (o *ModelsExciseReportResponseDataInner) SetOperationTypeId(v int32) {
 	o.OperationTypeId = &v
 }
 
-// GetFiscalDocNumber returns the FiscalDocNumber field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetFiscalDocNumber() int32 {
-	if o == nil || IsNil(o.FiscalDocNumber) {
-		var ret int32
+// GetPrice returns the Price field value if set, zero value otherwise.
+func (o *ModelsExciseReportResponseDataInner) GetPrice() float32 {
+	if o == nil || IsNil(o.Price) {
+		var ret float32
 		return ret
 	}
-	return *o.FiscalDocNumber
+	return *o.Price
 }
 
-// GetFiscalDocNumberOk returns a tuple with the FiscalDocNumber field value if set, nil otherwise
+// GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetFiscalDocNumberOk() (*int32, bool) {
-	if o == nil || IsNil(o.FiscalDocNumber) {
+func (o *ModelsExciseReportResponseDataInner) GetPriceOk() (*float32, bool) {
+	if o == nil || IsNil(o.Price) {
 		return nil, false
 	}
-	return o.FiscalDocNumber, true
+	return o.Price, true
 }
 
-// HasFiscalDocNumber returns a boolean if a field has been set.
-func (o *ModelsExciseReportResponseDataInner) HasFiscalDocNumber() bool {
-	if o != nil && !IsNil(o.FiscalDocNumber) {
+// HasPrice returns a boolean if a field has been set.
+func (o *ModelsExciseReportResponseDataInner) HasPrice() bool {
+	if o != nil && !IsNil(o.Price) {
 		return true
 	}
 
 	return false
 }
 
-// SetFiscalDocNumber gets a reference to the given int32 and assigns it to the FiscalDocNumber field.
-func (o *ModelsExciseReportResponseDataInner) SetFiscalDocNumber(v int32) {
-	o.FiscalDocNumber = &v
-}
-
-// GetFiscalDt returns the FiscalDt field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetFiscalDt() string {
-	if o == nil || IsNil(o.FiscalDt) {
-		var ret string
-		return ret
-	}
-	return *o.FiscalDt
-}
-
-// GetFiscalDtOk returns a tuple with the FiscalDt field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetFiscalDtOk() (*string, bool) {
-	if o == nil || IsNil(o.FiscalDt) {
-		return nil, false
-	}
-	return o.FiscalDt, true
-}
-
-// HasFiscalDt returns a boolean if a field has been set.
-func (o *ModelsExciseReportResponseDataInner) HasFiscalDt() bool {
-	if o != nil && !IsNil(o.FiscalDt) {
-		return true
-	}
-
-	return false
-}
-
-// SetFiscalDt gets a reference to the given string and assigns it to the FiscalDt field.
-func (o *ModelsExciseReportResponseDataInner) SetFiscalDt(v string) {
-	o.FiscalDt = &v
-}
-
-// GetFiscalDriveNumber returns the FiscalDriveNumber field value if set, zero value otherwise.
-func (o *ModelsExciseReportResponseDataInner) GetFiscalDriveNumber() string {
-	if o == nil || IsNil(o.FiscalDriveNumber) {
-		var ret string
-		return ret
-	}
-	return *o.FiscalDriveNumber
-}
-
-// GetFiscalDriveNumberOk returns a tuple with the FiscalDriveNumber field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ModelsExciseReportResponseDataInner) GetFiscalDriveNumberOk() (*string, bool) {
-	if o == nil || IsNil(o.FiscalDriveNumber) {
-		return nil, false
-	}
-	return o.FiscalDriveNumber, true
-}
-
-// HasFiscalDriveNumber returns a boolean if a field has been set.
-func (o *ModelsExciseReportResponseDataInner) HasFiscalDriveNumber() bool {
-	if o != nil && !IsNil(o.FiscalDriveNumber) {
-		return true
-	}
-
-	return false
-}
-
-// SetFiscalDriveNumber gets a reference to the given string and assigns it to the FiscalDriveNumber field.
-func (o *ModelsExciseReportResponseDataInner) SetFiscalDriveNumber(v string) {
-	o.FiscalDriveNumber = &v
+// SetPrice gets a reference to the given float32 and assigns it to the Price field.
+func (o *ModelsExciseReportResponseDataInner) SetPrice(v float32) {
+	o.Price = &v
 }
 
 // GetRid returns the Rid field value if set, zero value otherwise.
@@ -456,11 +456,8 @@ func (o ModelsExciseReportResponseDataInner) MarshalJSON() ([]byte, error) {
 
 func (o ModelsExciseReportResponseDataInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.Price) {
-		toSerialize["price"] = o.Price
+	if !IsNil(o.Barcode) {
+		toSerialize["barcode"] = o.Barcode
 	}
 	if !IsNil(o.CurrencyNameShort) {
 		toSerialize["currency_name_short"] = o.CurrencyNameShort
@@ -468,8 +465,17 @@ func (o ModelsExciseReportResponseDataInner) ToMap() (map[string]interface{}, er
 	if !IsNil(o.ExciseShort) {
 		toSerialize["excise_short"] = o.ExciseShort
 	}
-	if !IsNil(o.Barcode) {
-		toSerialize["barcode"] = o.Barcode
+	if !IsNil(o.FiscalDocNumber) {
+		toSerialize["fiscal_doc_number"] = o.FiscalDocNumber
+	}
+	if !IsNil(o.FiscalDriveNumber) {
+		toSerialize["fiscal_drive_number"] = o.FiscalDriveNumber
+	}
+	if !IsNil(o.FiscalDt) {
+		toSerialize["fiscal_dt"] = o.FiscalDt
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.NmId) {
 		toSerialize["nm_id"] = o.NmId
@@ -477,14 +483,8 @@ func (o ModelsExciseReportResponseDataInner) ToMap() (map[string]interface{}, er
 	if !IsNil(o.OperationTypeId) {
 		toSerialize["operation_type_id"] = o.OperationTypeId
 	}
-	if !IsNil(o.FiscalDocNumber) {
-		toSerialize["fiscal_doc_number"] = o.FiscalDocNumber
-	}
-	if !IsNil(o.FiscalDt) {
-		toSerialize["fiscal_dt"] = o.FiscalDt
-	}
-	if !IsNil(o.FiscalDriveNumber) {
-		toSerialize["fiscal_drive_number"] = o.FiscalDriveNumber
+	if !IsNil(o.Price) {
+		toSerialize["price"] = o.Price
 	}
 	if !IsNil(o.Rid) {
 		toSerialize["rid"] = o.Rid

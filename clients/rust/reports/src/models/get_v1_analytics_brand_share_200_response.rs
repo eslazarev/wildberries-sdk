@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1AnalyticsBrandShare200Response {
     /// Отчёт
-    #[serde(rename = "report", skip_serializing_if = "Option::is_none")]
-    pub report: Option<Vec<models::GetV1AnalyticsBrandShare200ResponseReportInner>>,
+    #[serde(rename = "report")]
+    pub report: Vec<models::GetV1AnalyticsBrandShare200ResponseReportInner>,
 }
 
 impl GetV1AnalyticsBrandShare200Response {
-    pub fn new() -> GetV1AnalyticsBrandShare200Response {
+    pub fn new(report: Vec<models::GetV1AnalyticsBrandShare200ResponseReportInner>) -> GetV1AnalyticsBrandShare200Response {
         GetV1AnalyticsBrandShare200Response {
-            report: None,
+            report,
         }
     }
 }

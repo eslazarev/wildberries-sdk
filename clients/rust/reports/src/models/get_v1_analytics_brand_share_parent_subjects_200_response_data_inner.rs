@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
     /// ID родительской категории
-    #[serde(rename = "parentId", skip_serializing_if = "Option::is_none")]
-    pub parent_id: Option<i32>,
+    #[serde(rename = "parentId")]
+    pub parent_id: i32,
     /// Название родительской категории
-    #[serde(rename = "parentName", skip_serializing_if = "Option::is_none")]
-    pub parent_name: Option<String>,
+    #[serde(rename = "parentName")]
+    pub parent_name: String,
 }
 
 impl GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
-    pub fn new() -> GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
+    pub fn new(parent_id: i32, parent_name: String) -> GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
         GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
-            parent_id: None,
-            parent_name: None,
+            parent_id,
+            parent_name,
         }
     }
 }

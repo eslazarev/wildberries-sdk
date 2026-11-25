@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateTaskResponseData {
     /// ID задания на генерацию
-    #[serde(rename = "taskId", skip_serializing_if = "Option::is_none")]
-    pub task_id: Option<String>,
+    #[serde(rename = "taskId")]
+    pub task_id: String,
 }
 
 impl CreateTaskResponseData {
-    pub fn new() -> CreateTaskResponseData {
+    pub fn new(task_id: String) -> CreateTaskResponseData {
         CreateTaskResponseData {
-            task_id: None,
+            task_id,
         }
     }
 }

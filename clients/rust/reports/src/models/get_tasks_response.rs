@@ -13,14 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetTasksResponse {
-    #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
-    pub data: Option<Box<models::GetTasksResponseData>>,
+    #[serde(rename = "data")]
+    pub data: Box<models::GetTasksResponseData>,
 }
 
 impl GetTasksResponse {
-    pub fn new() -> GetTasksResponse {
+    pub fn new(data: models::GetTasksResponseData) -> GetTasksResponse {
         GetTasksResponse {
-            data: None,
+            data: Box::new(data),
         }
     }
 }

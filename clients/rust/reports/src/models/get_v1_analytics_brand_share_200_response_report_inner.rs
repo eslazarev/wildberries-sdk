@@ -14,26 +14,26 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1AnalyticsBrandShare200ResponseReportInner {
     /// Дата
-    #[serde(rename = "applyDate", skip_serializing_if = "Option::is_none")]
-    pub apply_date: Option<String>,
+    #[serde(rename = "applyDate")]
+    pub apply_date: String,
     /// Рейтинг бренда в родительской категории
-    #[serde(rename = "brandRating", skip_serializing_if = "Option::is_none")]
-    pub brand_rating: Option<i32>,
+    #[serde(rename = "brandRating")]
+    pub brand_rating: i32,
     /// Доля от продаж в родительской категории — цена, %
-    #[serde(rename = "pricePercent", skip_serializing_if = "Option::is_none")]
-    pub price_percent: Option<f32>,
+    #[serde(rename = "pricePercent")]
+    pub price_percent: f32,
     /// Доля от продаж в родительской категории — количество, %
-    #[serde(rename = "qtyPercent", skip_serializing_if = "Option::is_none")]
-    pub qty_percent: Option<f32>,
+    #[serde(rename = "qtyPercent")]
+    pub qty_percent: f32,
 }
 
 impl GetV1AnalyticsBrandShare200ResponseReportInner {
-    pub fn new() -> GetV1AnalyticsBrandShare200ResponseReportInner {
+    pub fn new(apply_date: String, brand_rating: i32, price_percent: f32, qty_percent: f32) -> GetV1AnalyticsBrandShare200ResponseReportInner {
         GetV1AnalyticsBrandShare200ResponseReportInner {
-            apply_date: None,
-            brand_rating: None,
-            price_percent: None,
-            qty_percent: None,
+            apply_date,
+            brand_rating,
+            price_percent,
+            qty_percent,
         }
     }
 }

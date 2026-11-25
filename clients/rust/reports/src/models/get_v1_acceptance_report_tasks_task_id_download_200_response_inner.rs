@@ -14,38 +14,38 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner {
     /// Количество товаров, шт.
-    #[serde(rename = "count", skip_serializing_if = "Option::is_none")]
-    pub count: Option<i32>,
+    #[serde(rename = "count")]
+    pub count: i32,
     /// Дата создания поставки
-    #[serde(rename = "giCreateDate", skip_serializing_if = "Option::is_none")]
-    pub gi_create_date: Option<chrono::NaiveDate>,
+    #[serde(rename = "giCreateDate")]
+    pub gi_create_date: chrono::NaiveDate,
     /// Номер поставки
-    #[serde(rename = "incomeId", skip_serializing_if = "Option::is_none")]
-    pub income_id: Option<i32>,
+    #[serde(rename = "incomeId")]
+    pub income_id: i32,
     /// Артикул WB
-    #[serde(rename = "nmID", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
+    #[serde(rename = "nmID")]
+    pub nm_id: i32,
     /// Дата приёмки
-    #[serde(rename = "shkCreateDate", skip_serializing_if = "Option::is_none")]
-    pub shk_create_date: Option<chrono::NaiveDate>,
+    #[serde(rename = "shkCreateDate")]
+    pub shk_create_date: chrono::NaiveDate,
     /// Предмет
-    #[serde(rename = "subjectName", skip_serializing_if = "Option::is_none")]
-    pub subject_name: Option<String>,
+    #[serde(rename = "subjectName")]
+    pub subject_name: String,
     /// Суммарная стоимость приёмки, ₽ с копейками
-    #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
-    pub total: Option<f64>,
+    #[serde(rename = "total")]
+    pub total: f64,
 }
 
 impl GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner {
-    pub fn new() -> GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner {
+    pub fn new(count: i32, gi_create_date: chrono::NaiveDate, income_id: i32, nm_id: i32, shk_create_date: chrono::NaiveDate, subject_name: String, total: f64) -> GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner {
         GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner {
-            count: None,
-            gi_create_date: None,
-            income_id: None,
-            nm_id: None,
-            shk_create_date: None,
-            subject_name: None,
-            total: None,
+            count,
+            gi_create_date,
+            income_id,
+            nm_id,
+            shk_create_date,
+            subject_name,
+            total,
         }
     }
 }

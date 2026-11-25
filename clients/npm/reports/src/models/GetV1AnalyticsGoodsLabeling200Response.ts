@@ -30,13 +30,14 @@ export interface GetV1AnalyticsGoodsLabeling200Response {
     /**
      * 
      */
-    report?: Array<GetV1AnalyticsGoodsLabeling200ResponseReportInner>;
+    report: Array<GetV1AnalyticsGoodsLabeling200ResponseReportInner>;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsGoodsLabeling200Response interface.
  */
 export function instanceOfGetV1AnalyticsGoodsLabeling200Response(value: object): value is GetV1AnalyticsGoodsLabeling200Response {
+    if (!('report' in value) || value['report'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function GetV1AnalyticsGoodsLabeling200ResponseFromJSONTyped(json: any, i
     }
     return {
         
-        'report': json['report'] == null ? undefined : ((json['report'] as Array<any>).map(GetV1AnalyticsGoodsLabeling200ResponseReportInnerFromJSON)),
+        'report': ((json['report'] as Array<any>).map(GetV1AnalyticsGoodsLabeling200ResponseReportInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function GetV1AnalyticsGoodsLabeling200ResponseToJSONTyped(value?: GetV1A
 
     return {
         
-        'report': value['report'] == null ? undefined : ((value['report'] as Array<any>).map(GetV1AnalyticsGoodsLabeling200ResponseReportInnerToJSON)),
+        'report': ((value['report'] as Array<any>).map(GetV1AnalyticsGoodsLabeling200ResponseReportInnerToJSON)),
     };
 }
 

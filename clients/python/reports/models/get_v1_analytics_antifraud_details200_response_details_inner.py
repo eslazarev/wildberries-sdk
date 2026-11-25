@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,12 +27,12 @@ class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(BaseModel):
     """
     GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
     """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID", json_schema_extra={"examples": [123456789]})
-    sum: Optional[StrictInt] = Field(default=None, description="Сумма заказа", json_schema_extra={"examples": [3540]})
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта заказа", json_schema_extra={"examples": ["RUB"]})
-    date_from: Optional[StrictStr] = Field(default=None, description="Начало отчётного периода", alias="dateFrom", json_schema_extra={"examples": ["2023-08-23"]})
-    date_to: Optional[StrictStr] = Field(default=None, description="Конец отчётного периода", alias="dateTo", json_schema_extra={"examples": ["2023-08-29"]})
-    __properties: ClassVar[List[str]] = ["nmID", "sum", "currency", "dateFrom", "dateTo"]
+    currency: StrictStr = Field(description="Валюта заказа", json_schema_extra={"examples": ["RUB"]})
+    date_from: StrictStr = Field(description="Начало отчётного периода", alias="dateFrom", json_schema_extra={"examples": ["2023-08-23"]})
+    date_to: StrictStr = Field(description="Конец отчётного периода", alias="dateTo", json_schema_extra={"examples": ["2023-08-29"]})
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmID", json_schema_extra={"examples": [123456789]})
+    sum: StrictInt = Field(description="Сумма заказа", json_schema_extra={"examples": [3540]})
+    __properties: ClassVar[List[str]] = ["currency", "dateFrom", "dateTo", "nmID", "sum"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -85,11 +85,11 @@ class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "sum": obj.get("sum"),
             "currency": obj.get("currency"),
             "dateFrom": obj.get("dateFrom"),
-            "dateTo": obj.get("dateTo")
+            "dateTo": obj.get("dateTo"),
+            "nmID": obj.get("nmID"),
+            "sum": obj.get("sum")
         })
         return _obj
 

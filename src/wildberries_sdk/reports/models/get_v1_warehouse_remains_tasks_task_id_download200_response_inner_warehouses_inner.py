@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,8 +27,8 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner(Ba
     """
     GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner
     """ # noqa: E501
-    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада", alias="warehouseName", json_schema_extra={"examples": ["Невинномысск"]})
-    quantity: Optional[StrictInt] = Field(default=None, description="Количество, шт. ", json_schema_extra={"examples": [134]})
+    warehouse_name: StrictStr = Field(description="Название склада", alias="warehouseName", json_schema_extra={"examples": ["Невинномысск"]})
+    quantity: StrictInt = Field(description="Количество, шт.", json_schema_extra={"examples": [134]})
     __properties: ClassVar[List[str]] = ["warehouseName", "quantity"]
 
     model_config = ConfigDict(

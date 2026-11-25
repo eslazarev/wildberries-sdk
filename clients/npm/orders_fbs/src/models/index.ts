@@ -29,6 +29,7 @@ export * from './ModelError';
 export * from './Order';
 export * from './OrderAddress';
 export * from './OrderNew';
+export * from './OrderNewAddress';
 export * from './OrderOptions';
 export * from './OrdersRequestAPI';
 export * from './Pass';

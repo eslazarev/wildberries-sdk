@@ -4071,9 +4071,9 @@ paths:
   /api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points:
     get:
       description: |
-        Метод возвращает доступные пункты отгрузки для указанной поставки.
+        Метод возвращает доступные пункты отгрузки для указанной поставки. <br>
 
-        Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+        Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
@@ -6885,10 +6885,9 @@ components:
     OrderNew:
       example:
         address:
-          fullAddress: "Челябинская область, г. Челябинск, 51-я улица Арабкира, д\
-            . 10А, кв. 42"
-          longitude: 44.519068
-          latitude: 40.20192
+          fullAddress: fullAddress
+          longitude: 0.8008281904610115
+          latitude: 6.027456183070403
         ddate: 17.05.2024
         sellerDate: 02.06.2025
         salePrice: 504600
@@ -6898,7 +6897,7 @@ components:
         - sgtin
         deliveryType: fbs
         comment: "Упакуйте в плёнку, пожалуйста"
-        scanPrice: 0.8008281904610115
+        scanPrice: 1.4658129805029452
         orderUid: 165918930_629fbc924b984618a44354475ca58675
         article: one-ring-7548
         colorCode: RAL 3017
@@ -6921,7 +6920,7 @@ components:
         convertedFinalPrice: 1014
         currencyCode: 933
         convertedCurrencyCode: 643
-        cargoType: 6
+        cargoType: 5
         crossBorderType: 1
         isZeroOrder: false
         isPickupPointShipmentAllowed: true
@@ -6929,7 +6928,7 @@ components:
           isB2B: true
       properties:
         address:
-          $ref: "#/components/schemas/Order_address"
+          $ref: "#/components/schemas/OrderNew_address"
         ddate:
           description: |
             Планируемая дата доставки заказа покупателю.<br>
@@ -7765,10 +7764,9 @@ components:
       example:
         orders:
         - address:
-            fullAddress: "Челябинская область, г. Челябинск, 51-я улица Арабкира,\
-              \ д. 10А, кв. 42"
-            longitude: 44.519068
-            latitude: 40.20192
+            fullAddress: fullAddress
+            longitude: 0.8008281904610115
+            latitude: 6.027456183070403
           ddate: 17.05.2024
           sellerDate: 02.06.2025
           salePrice: 504600
@@ -7778,7 +7776,7 @@ components:
           - sgtin
           deliveryType: fbs
           comment: "Упакуйте в плёнку, пожалуйста"
-          scanPrice: 0.8008281904610115
+          scanPrice: 1.4658129805029452
           orderUid: 165918930_629fbc924b984618a44354475ca58675
           article: one-ring-7548
           colorCode: RAL 3017
@@ -7801,17 +7799,16 @@ components:
           convertedFinalPrice: 1014
           currencyCode: 933
           convertedCurrencyCode: 643
-          cargoType: 6
+          cargoType: 5
           crossBorderType: 1
           isZeroOrder: false
           isPickupPointShipmentAllowed: true
           options:
             isB2B: true
         - address:
-            fullAddress: "Челябинская область, г. Челябинск, 51-я улица Арабкира,\
-              \ д. 10А, кв. 42"
-            longitude: 44.519068
-            latitude: 40.20192
+            fullAddress: fullAddress
+            longitude: 0.8008281904610115
+            latitude: 6.027456183070403
           ddate: 17.05.2024
           sellerDate: 02.06.2025
           salePrice: 504600
@@ -7821,7 +7818,7 @@ components:
           - sgtin
           deliveryType: fbs
           comment: "Упакуйте в плёнку, пожалуйста"
-          scanPrice: 0.8008281904610115
+          scanPrice: 1.4658129805029452
           orderUid: 165918930_629fbc924b984618a44354475ca58675
           article: one-ring-7548
           colorCode: RAL 3017
@@ -7844,7 +7841,7 @@ components:
           convertedFinalPrice: 1014
           currencyCode: 933
           convertedCurrencyCode: 643
-          cargoType: 6
+          cargoType: 5
           crossBorderType: 1
           isZeroOrder: false
           isPickupPointShipmentAllowed: true
@@ -9165,6 +9162,30 @@ components:
               - `false` — не B2B-продажа
               - `true` — B2B-продажа
           type: boolean
+      type: object
+    OrderNew_address:
+      description: |
+        Точный адрес покупателя для доставки. <br>
+        Указывается только для продавцов из Турции, в остальных случаях возвращается `null`
+      example:
+        fullAddress: fullAddress
+        longitude: 0.8008281904610115
+        latitude: 6.027456183070403
+      nullable: true
+      properties:
+        fullAddress:
+          description: Адрес доставки
+          type: string
+        longitude:
+          description: Долгота
+          format: float64
+          nullable: false
+          type: number
+        latitude:
+          description: Широта
+          format: float64
+          nullable: false
+          type: number
       type: object
     MetaDetails_inner:
       properties:

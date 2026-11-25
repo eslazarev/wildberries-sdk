@@ -76,7 +76,7 @@ export interface DistributionTableItem {
     /**
      * Название товара
      */
-    title: string;
+    title?: string;
     /**
      * Артикул продавца
      */
@@ -92,15 +92,15 @@ export interface DistributionTableItem {
     /**
      * Бренд
      */
-    brandName: string;
+    brandName?: string;
     /**
      * Название ярлыка
      */
-    tagName: string;
+    tagName?: string;
     /**
      * ID ярлыка
      */
-    tagId: number;
+    tagId?: number;
     /**
      * Отзыв закреплён
      */
@@ -155,13 +155,9 @@ export interface DistributionTableItem {
  */
 export function instanceOfDistributionTableItem(value: object): value is DistributionTableItem {
     if (!('nmId' in value) || value['nmId'] === undefined) return false;
-    if (!('title' in value) || value['title'] === undefined) return false;
     if (!('vendorCode' in value) || value['vendorCode'] === undefined) return false;
     if (!('subjectId' in value) || value['subjectId'] === undefined) return false;
     if (!('subjectName' in value) || value['subjectName'] === undefined) return false;
-    if (!('brandName' in value) || value['brandName'] === undefined) return false;
-    if (!('tagName' in value) || value['tagName'] === undefined) return false;
-    if (!('tagId' in value) || value['tagId'] === undefined) return false;
     if (!('pinnedFeedback' in value) || value['pinnedFeedback'] === undefined) return false;
     if (!('rating' in value) || value['rating'] === undefined) return false;
     if (!('feedbackRating' in value) || value['feedbackRating'] === undefined) return false;
@@ -187,13 +183,13 @@ export function DistributionTableItemFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'nmId': json['nmId'],
-        'title': json['title'],
+        'title': json['title'] == null ? undefined : json['title'],
         'vendorCode': json['vendorCode'],
         'subjectId': json['subjectId'],
         'subjectName': json['subjectName'],
-        'brandName': json['brandName'],
-        'tagName': json['tagName'],
-        'tagId': json['tagId'],
+        'brandName': json['brandName'] == null ? undefined : json['brandName'],
+        'tagName': json['tagName'] == null ? undefined : json['tagName'],
+        'tagId': json['tagId'] == null ? undefined : json['tagId'],
         'pinnedFeedback': json['pinnedFeedback'],
         'rating': json['rating'],
         'feedbackRating': DistributionTableItemFeedbackRatingFromJSON(json['feedbackRating']),

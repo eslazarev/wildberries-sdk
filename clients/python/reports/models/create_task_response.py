@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.reports.models.create_task_response_data import CreateTaskResponseData
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class CreateTaskResponse(BaseModel):
     """
     CreateTaskResponse
     """ # noqa: E501
-    data: Optional[CreateTaskResponseData] = None
+    data: CreateTaskResponseData
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

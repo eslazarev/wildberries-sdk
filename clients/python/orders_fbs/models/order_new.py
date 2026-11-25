@@ -21,7 +21,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
-from wildberries_sdk.orders_fbs.models.order_address import OrderAddress
+from wildberries_sdk.orders_fbs.models.order_new_address import OrderNewAddress
 from wildberries_sdk.orders_fbs.models.order_options import OrderOptions
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,7 @@ class OrderNew(BaseModel):
     """
     OrderNew
     """ # noqa: E501
-    address: Optional[OrderAddress] = None
+    address: Optional[OrderNewAddress] = None
     ddate: Optional[StrictStr] = Field(default=None, description="Планируемая дата доставки заказа покупателю.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` ", json_schema_extra={"examples": ["17.05.2024"]})
     seller_date: Optional[StrictStr] = Field(default=None, description="Дата, когда [нужно отгрузить](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) сверхгабаритный товар (СГТ) на склад. Часовой пояс — UTC+3.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` ", alias="sellerDate", json_schema_extra={"examples": ["02.06.2025"]})
     sale_price: Optional[StrictInt] = Field(default=None, description="Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях ", alias="salePrice", json_schema_extra={"examples": [504600]})
@@ -187,7 +187,7 @@ class OrderNew(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "address": OrderAddress.from_dict(obj["address"]) if obj.get("address") is not None else None,
+            "address": OrderNewAddress.from_dict(obj["address"]) if obj.get("address") is not None else None,
             "ddate": obj.get("ddate"),
             "sellerDate": obj.get("sellerDate"),
             "salePrice": obj.get("salePrice"),

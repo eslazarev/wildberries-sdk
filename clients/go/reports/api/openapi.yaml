@@ -1765,9 +1765,9 @@ paths:
                   incomeId: 18484008
                   nmID: 49434732
                   photoUrls:
-                  - "https://static-basket-03.{{ .baseDomain }}/vol54/photo-fixation-violation-shk-excise/12345678900-1811460999-1.jpg"
-                  - "https://static-basket-03.{{ .baseDomain }}/vol54/photo-fixation-violation-shk-excise/12345678900-1811461000-2.jpg"
-                  - "https://static-basket-03.{{ .baseDomain }}/vol54/photo-fixation-violation-shk-excise/12345678900-1811461001-3.jpg"
+                  - https://static-basket-03.wb.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811460999-1.jpg
+                  - https://static-basket-03.wb.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811461000-2.jpg
+                  - https://static-basket-03.wb.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811461001-3.jpg
                   shkID: 17346434621
                   sku: "4630153500834"
               schema:
@@ -2554,7 +2554,7 @@ paths:
                 giId: 123456
                 chrtId: 1234567
                 size: "0"
-                barcode: ""
+                barcode: "2043628791644"
                 subject: Маски одноразовые
                 brand: 1000 Каталог
                 vendorCode: "567383"
@@ -3416,24 +3416,24 @@ components:
       value:
         count: 87
         report:
-        - sku: "1234567890"
-          brand: ""
-          completedDt: null
-          dstOfficeAddress: "г. Клин (Московская область), улица Ленина, д. 8"
-          dstOfficeId: 33
-          expiredDt: null
-          kiz: null
-          nmId: 987654321
-          orderDt: 2026-08-24
-          orderId: 6789054321
-          readyToReturnDt: null
+        - sku: "2045928210177"
+          brand: TESHAMOLAK
+          completedDt: 2026-08-14 14:42:36
+          dstOfficeAddress: "Москва, Остаповский Проезд 5с2"
+          dstOfficeId: 50100669
+          expiredDt: 2026-08-11 22:17:14
+          kiz: 0104871647001288215KrIW!/.Tj:Ea
+          nmId: 529427009
+          orderDt: 2026-09-06
+          orderId: 5662461427
+          readyToReturnDt: 2026-09-08 09:14:04
           returnType: "Возврат товара, который приехал по МП, продавцу"
-          shkId: 987612345
+          shkId: 57583414023
           srid: mp.1b4fc35bfe3f4b799cf01f8e11ffd2cb.r
           returnStatus: В пути в пвз
-          stickerId: "918273645"
-          subjectName: Вода питьевая
-          techSize: "0"
+          stickerId: "55393548680"
+          subjectName: Футболки
+          techSize: S
     DateFromFieldRequired:
       description: Ошибка в запросе
       value:
@@ -3825,9 +3825,9 @@ components:
               incomeId: 18484008
               nmID: 49434732
               photoUrls:
-              - "https://static-basket-03.{{ .baseDomain }}/vol54/photo-fixation-violation-shk-excise/12345678900-1811460999-1.jpg"
-              - "https://static-basket-03.{{ .baseDomain }}/vol54/photo-fixation-violation-shk-excise/12345678900-1811461000-2.jpg"
-              - "https://static-basket-03.{{ .baseDomain }}/vol54/photo-fixation-violation-shk-excise/12345678900-1811461001-3.jpg"
+              - https://static-basket-03.wb.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811460999-1.jpg
+              - https://static-basket-03.wb.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811461000-2.jpg
+              - https://static-basket-03.wb.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811461001-3.jpg
               shkID: 17346434621
               sku: "4630153500834"
           schema:
@@ -4072,6 +4072,34 @@ components:
             Уникальный ID заказа.<br>
             Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий.
           type: string
+      required:
+      - barcode
+      - brand
+      - cancelDate
+      - category
+      - countryName
+      - date
+      - discountPercent
+      - finishedPrice
+      - gNumber
+      - incomeID
+      - isCancel
+      - isRealization
+      - isSupply
+      - lastChangeDate
+      - nmId
+      - oblastOkrugName
+      - priceWithDisc
+      - regionName
+      - spp
+      - srid
+      - sticker
+      - subject
+      - supplierArticle
+      - techSize
+      - totalPrice
+      - warehouseName
+      - warehouseType
       type: object
     SalesItem:
       example:
@@ -4221,6 +4249,35 @@ components:
             Уникальный ID заказа.<br>
             Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий.
           type: string
+      required:
+      - barcode
+      - brand
+      - category
+      - countryName
+      - date
+      - discountPercent
+      - finishedPrice
+      - forPay
+      - gNumber
+      - incomeID
+      - isRealization
+      - isSupply
+      - lastChangeDate
+      - nmId
+      - oblastOkrugName
+      - paymentSaleAmount
+      - priceWithDisc
+      - regionName
+      - saleID
+      - spp
+      - srid
+      - sticker
+      - subject
+      - supplierArticle
+      - techSize
+      - totalPrice
+      - warehouseName
+      - warehouseType
       type: object
     responseErrorStatistics:
       example:
@@ -4262,59 +4319,61 @@ components:
       example:
         response:
           data:
-          - name: Россия
-            price: 100
+          - barcode: "2038893425820"
             currency_name_short: руб
             excise_short: 0102900254680370215_Re/=lSbNiGD
-            barcode: "2038893425820"
+            fiscal_doc_number: 12345678
+            fiscal_drive_number: fiscal_drive_number
+            fiscal_dt: 2024-01-01
+            name: Россия
             nm_id: 169085355
             operation_type_id: 1
-            fiscal_doc_number: 12345678
-            fiscal_dt: 2024-01-01
-            fiscal_drive_number: fiscal_drive_number
+            price: 100
             rid: 606217433440
             srid: 7513432034713632943.1.0
-          - name: Россия
-            price: 100
+          - barcode: "2038893425820"
             currency_name_short: руб
             excise_short: 0102900254680370215_Re/=lSbNiGD
-            barcode: "2038893425820"
+            fiscal_doc_number: 12345678
+            fiscal_drive_number: fiscal_drive_number
+            fiscal_dt: 2024-01-01
+            name: Россия
             nm_id: 169085355
             operation_type_id: 1
-            fiscal_doc_number: 12345678
-            fiscal_dt: 2024-01-01
-            fiscal_drive_number: fiscal_drive_number
+            price: 100
             rid: 606217433440
             srid: 7513432034713632943.1.0
       properties:
         response:
           $ref: "#/components/schemas/models.ExciseReportResponse"
+      required:
+      - response
       type: object
     models.ExciseReportResponse:
       example:
         data:
-        - name: Россия
-          price: 100
+        - barcode: "2038893425820"
           currency_name_short: руб
           excise_short: 0102900254680370215_Re/=lSbNiGD
-          barcode: "2038893425820"
+          fiscal_doc_number: 12345678
+          fiscal_drive_number: fiscal_drive_number
+          fiscal_dt: 2024-01-01
+          name: Россия
           nm_id: 169085355
           operation_type_id: 1
-          fiscal_doc_number: 12345678
-          fiscal_dt: 2024-01-01
-          fiscal_drive_number: fiscal_drive_number
+          price: 100
           rid: 606217433440
           srid: 7513432034713632943.1.0
-        - name: Россия
-          price: 100
+        - barcode: "2038893425820"
           currency_name_short: руб
           excise_short: 0102900254680370215_Re/=lSbNiGD
-          barcode: "2038893425820"
+          fiscal_doc_number: 12345678
+          fiscal_drive_number: fiscal_drive_number
+          fiscal_dt: 2024-01-01
+          name: Россия
           nm_id: 169085355
           operation_type_id: 1
-          fiscal_doc_number: 12345678
-          fiscal_dt: 2024-01-01
-          fiscal_drive_number: fiscal_drive_number
+          price: 100
           rid: 606217433440
           srid: 7513432034713632943.1.0
       properties:
@@ -4322,6 +4381,8 @@ components:
           items:
             $ref: "#/components/schemas/models_ExciseReportResponseData_inner"
           type: array
+      required:
+      - data
       type: object
     models.ExciseReportResponseData:
       items:
@@ -4513,6 +4574,8 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/GetTasksResponseData"
+      required:
+      - data
       type: object
     GetTasksResponseData:
       example:
@@ -4531,6 +4594,9 @@ components:
               * `purged` — отчёт удалён
               * `canceled` — отклонено
           type: string
+      required:
+      - id
+      - status
       type: object
     CreateTaskResponse:
       example:
@@ -4539,6 +4605,8 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/CreateTaskResponseData"
+      required:
+      - data
       type: object
     CreateTaskResponseData:
       example:
@@ -4547,6 +4615,8 @@ components:
         taskId:
           description: ID задания на генерацию
           type: string
+      required:
+      - taskId
       type: object
     Model4XXResponse:
       example:
@@ -4684,10 +4754,12 @@ components:
           example: Невинномысск
           type: string
         quantity:
-          description: |
-            Количество, шт.
+          description: "Количество, шт."
           example: 134
           type: integer
+      required:
+      - quantity
+      - warehouseName
       type: object
     getV1WarehouseRemainsTasksTaskIdDownload_200_response_inner:
       example:
@@ -4738,6 +4810,8 @@ components:
           items:
             $ref: "#/components/schemas/getV1WarehouseRemainsTasksTaskIdDownload_200_response_inner_warehouses_inner"
           type: array
+      required:
+      - warehouses
       type: object
     getV1Deductions_200_response_data_reports_inner:
       example:
@@ -4824,6 +4898,22 @@ components:
           items:
             type: string
           type: array
+      required:
+      - bonusSumm
+      - bonusType
+      - dtBonus
+      - newColor
+      - newShkId
+      - newSize
+      - newSku
+      - newVendorCode
+      - nmId
+      - oldColor
+      - oldShkId
+      - oldSize
+      - oldSku
+      - oldVendorCode
+      - photoUrls
       type: object
     getV1Deductions_200_response_data:
       description: Данные ответа
@@ -4925,20 +5015,12 @@ components:
       type: object
     getV1AnalyticsAntifraudDetails_200_response_details_inner:
       example:
-        nmID: 123456789
-        sum: 3540
         currency: RUB
         dateFrom: 2023-08-23
         dateTo: 2023-08-29
+        nmID: 123456789
+        sum: 3540
       properties:
-        nmID:
-          description: Артикул WB
-          example: 123456789
-          type: integer
-        sum:
-          description: Сумма заказа
-          example: 3540
-          type: integer
         currency:
           description: Валюта заказа
           example: RUB
@@ -4951,25 +5033,41 @@ components:
           description: Конец отчётного периода
           example: 2023-08-29
           type: string
+        nmID:
+          description: Артикул WB
+          example: 123456789
+          type: integer
+        sum:
+          description: Сумма заказа
+          example: 3540
+          type: integer
+      required:
+      - currency
+      - dateFrom
+      - dateTo
+      - nmID
+      - sum
       type: object
     getV1AnalyticsAntifraudDetails_200_response:
       example:
         details:
-        - nmID: 123456789
-          sum: 3540
-          currency: RUB
+        - currency: RUB
           dateFrom: 2023-08-23
           dateTo: 2023-08-29
-        - nmID: 123456789
+          nmID: 123456789
           sum: 3540
-          currency: RUB
+        - currency: RUB
           dateFrom: 2023-08-23
           dateTo: 2023-08-29
+          nmID: 123456789
+          sum: 3540
       properties:
         details:
           items:
             $ref: "#/components/schemas/getV1AnalyticsAntifraudDetails_200_response_details_inner"
           type: array
+      required:
+      - details
       type: object
     getV1AnalyticsGoodsLabeling_200_response_report_inner:
       example:
@@ -5007,6 +5105,14 @@ components:
         sku:
           description: Баркод из карточки товара
           type: string
+      required:
+      - amount
+      - date
+      - incomeId
+      - nmID
+      - photoUrls
+      - shkID
+      - sku
       type: object
     getV1AnalyticsGoodsLabeling_200_response:
       example:
@@ -5034,6 +5140,8 @@ components:
           items:
             $ref: "#/components/schemas/getV1AnalyticsGoodsLabeling_200_response_report_inner"
           type: array
+      required:
+      - report
       type: object
     getV1AcceptanceReportTasksTaskIdDownload_200_response_inner:
       example:
@@ -5075,6 +5183,14 @@ components:
           description: "Суммарная стоимость приёмки, ₽ с копейками"
           example: 873.04
           type: number
+      required:
+      - count
+      - giCreateDate
+      - incomeId
+      - nmID
+      - shkCreateDate
+      - subjectName
+      - total
       type: object
     getV1AnalyticsBrandShareBrands_200_response:
       example:
@@ -5112,6 +5228,8 @@ components:
           items:
             type: string
           type: array
+      required:
+      - data
       type: object
     getV1AnalyticsBrandShareParentSubjects_200_response_data_inner:
       example:
@@ -5124,6 +5242,9 @@ components:
         parentName:
           description: Название родительской категории
           type: string
+      required:
+      - parentId
+      - parentName
       type: object
     getV1AnalyticsBrandShareParentSubjects_200_response:
       example:
@@ -5138,6 +5259,8 @@ components:
           items:
             $ref: "#/components/schemas/getV1AnalyticsBrandShareParentSubjects_200_response_data_inner"
           type: array
+      required:
+      - data
       type: object
     getV1AnalyticsBrandShare_200_response_report_inner:
       example:
@@ -5161,6 +5284,11 @@ components:
           description: "Доля от продаж в родительской категории — количество, %"
           format: float
           type: number
+      required:
+      - applyDate
+      - brandRating
+      - pricePercent
+      - qtyPercent
       type: object
     getV1AnalyticsBrandShare_200_response:
       example:
@@ -5179,6 +5307,8 @@ components:
           items:
             $ref: "#/components/schemas/getV1AnalyticsBrandShare_200_response_report_inner"
           type: array
+      required:
+      - report
       type: object
     getV1AnalyticsBannedProducsBlocked_200_response_report_inner:
       example:
@@ -5210,6 +5340,12 @@ components:
           example: Контактные данные Продавца и ссылки на иные сайты/группы/сообщества
             на фотографиях Товара
           type: string
+      required:
+      - brand
+      - nmId
+      - reason
+      - title
+      - vendorCode
       type: object
     getV1AnalyticsBannedProducsBlocked_200_response:
       example:
@@ -5232,6 +5368,8 @@ components:
           items:
             $ref: "#/components/schemas/getV1AnalyticsBannedProducsBlocked_200_response_report_inner"
           type: array
+      required:
+      - report
       type: object
     getV1AnalyticsBannedProducsBlocked_400_response:
       example:
@@ -5383,27 +5521,23 @@ components:
       type: object
     models_ExciseReportResponseData_inner:
       example:
-        name: Россия
-        price: 100
+        barcode: "2038893425820"
         currency_name_short: руб
         excise_short: 0102900254680370215_Re/=lSbNiGD
-        barcode: "2038893425820"
+        fiscal_doc_number: 12345678
+        fiscal_drive_number: fiscal_drive_number
+        fiscal_dt: 2024-01-01
+        name: Россия
         nm_id: 169085355
         operation_type_id: 1
-        fiscal_doc_number: 12345678
-        fiscal_dt: 2024-01-01
-        fiscal_drive_number: fiscal_drive_number
+        price: 100
         rid: 606217433440
         srid: 7513432034713632943.1.0
       properties:
-        name:
-          description: Страна покупателя
-          example: Россия
+        barcode:
+          description: Баркод
+          example: "2038893425820"
           type: string
-        price:
-          description: "Цена товара, с НДС"
-          example: 100
-          type: number
         currency_name_short:
           description: Валюта
           example: руб
@@ -5412,9 +5546,21 @@ components:
           description: Код маркировки
           example: 0102900254680370215_Re/=lSbNiGD
           type: string
-        barcode:
-          description: Баркод
-          example: "2038893425820"
+        fiscal_doc_number:
+          description: "Номер фискального документа (чека полного расчёта), если е\
+            сть"
+          example: 12345678
+          type: integer
+        fiscal_drive_number:
+          description: "Номер фискального накопителя, если есть"
+          type: string
+        fiscal_dt:
+          description: "Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`"
+          example: 2024-01-01
+          type: string
+        name:
+          description: Страна покупателя
+          example: Россия
           type: string
         nm_id:
           description: Артикул WB
@@ -5428,18 +5574,10 @@ components:
               * `2` — возврат в оборот
           example: 1
           type: integer
-        fiscal_doc_number:
-          description: "Номер фискального документа (чека полного расчёта), если е\
-            сть"
-          example: 12345678
-          type: integer
-        fiscal_dt:
-          description: "Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`"
-          example: 2024-01-01
-          type: string
-        fiscal_drive_number:
-          description: "Номер фискального накопителя, если есть"
-          type: string
+        price:
+          description: "Цена товара, с НДС"
+          example: 100
+          type: number
         rid:
           description: |
             `Rid`
@@ -5705,6 +5843,15 @@ components:
           example: 2025-04-01T00:06:00Z
           format: date-time
           type: string
+      required:
+      - dimId
+      - height
+      - length
+      - nmId
+      - photoUrls
+      - subjectName
+      - volume
+      - width
       type: object
     WHM_data:
       description: Данные ответа
@@ -5752,7 +5899,7 @@ components:
     ResponsePaidStorage_inner:
       properties:
         date:
-          description: "Дата, за которую был расчёт или перерасчёт"
+          description: Дата расчёта или перерасчёта
           type: string
         logWarehouseCoef:
           description: "Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570)\
@@ -5827,6 +5974,30 @@ components:
         tariffLowerDate:
           description: Дата понижения тарифа
           type: string
+      required:
+      - barcode
+      - barcodesCount
+      - brand
+      - calcType
+      - chrtId
+      - date
+      - giId
+      - logWarehouseCoef
+      - loyaltyDiscount
+      - nmId
+      - officeId
+      - originalDate
+      - palletCount
+      - palletPlaceCode
+      - size
+      - subject
+      - tariffFixDate
+      - tariffLowerDate
+      - vendorCode
+      - volume
+      - warehouse
+      - warehouseCoef
+      - warehousePrice
       type: object
   securitySchemes:
     HeaderApiKey:

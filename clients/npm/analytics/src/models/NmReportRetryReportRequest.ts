@@ -22,13 +22,14 @@ export interface NmReportRetryReportRequest {
     /**
      * ID отчёта
      */
-    downloadId?: string;
+    downloadId: string;
 }
 
 /**
  * Check if a given object implements the NmReportRetryReportRequest interface.
  */
 export function instanceOfNmReportRetryReportRequest(value: object): value is NmReportRetryReportRequest {
+    if (!('downloadId' in value) || value['downloadId'] === undefined) return false;
     return true;
 }
 
@@ -42,7 +43,7 @@ export function NmReportRetryReportRequestFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'downloadId': json['downloadId'] == null ? undefined : json['downloadId'],
+        'downloadId': json['downloadId'],
     };
 }
 

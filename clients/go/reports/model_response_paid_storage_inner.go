@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ResponsePaidStorageInner type satisfies the MappedNullable interface at compile time
@@ -19,60 +21,85 @@ var _ MappedNullable = &ResponsePaidStorageInner{}
 
 // ResponsePaidStorageInner struct for ResponsePaidStorageInner
 type ResponsePaidStorageInner struct {
-	// Дата, за которую был расчёт или перерасчёт
-	Date *string `json:"date,omitempty"`
+	// Дата расчёта или перерасчёта
+	Date string `json:"date"`
 	// Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`
-	LogWarehouseCoef *float32 `json:"logWarehouseCoef,omitempty"`
+	LogWarehouseCoef float32 `json:"logWarehouseCoef"`
 	// ID склада. [На данный момент](/release-notes?id=570) может быть только `0`
-	OfficeId *int32 `json:"officeId,omitempty"`
+	OfficeId int32 `json:"officeId"`
 	// Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
-	Warehouse *string `json:"warehouse,omitempty"`
+	Warehouse string `json:"warehouse"`
 	// Коэффициент хранения
-	WarehouseCoef *float32 `json:"warehouseCoef,omitempty"`
+	WarehouseCoef float32 `json:"warehouseCoef"`
 	// ID поставки
-	GiId *int32 `json:"giId,omitempty"`
+	GiId int32 `json:"giId"`
 	// ID размера для этого артикула WB
-	ChrtId *int32 `json:"chrtId,omitempty"`
+	ChrtId int32 `json:"chrtId"`
 	// Размер (`techSize` в карточке товара)
-	Size *string `json:"size,omitempty"`
+	Size string `json:"size"`
 	// Баркод
-	Barcode *string `json:"barcode,omitempty"`
+	Barcode string `json:"barcode"`
 	// Предмет
-	Subject *string `json:"subject,omitempty"`
+	Subject string `json:"subject"`
 	// Бренд
-	Brand *string `json:"brand,omitempty"`
+	Brand string `json:"brand"`
 	// Артикул продавца
-	VendorCode *string `json:"vendorCode,omitempty"`
+	VendorCode string `json:"vendorCode"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId int32 `json:"nmId"`
 	// Объём товара
-	Volume *float32 `json:"volume,omitempty"`
+	Volume float32 `json:"volume"`
 	// Способ расчёта
-	CalcType *string `json:"calcType,omitempty"`
+	CalcType string `json:"calcType"`
 	// Сумма хранения
-	WarehousePrice *float32 `json:"warehousePrice,omitempty"`
+	WarehousePrice float32 `json:"warehousePrice"`
 	// Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
-	BarcodesCount *int32 `json:"barcodesCount,omitempty"`
+	BarcodesCount int32 `json:"barcodesCount"`
 	// Код паллетоместа. [На данный момент](/release-notes?id=570) может быть только `0`
-	PalletPlaceCode *int32 `json:"palletPlaceCode,omitempty"`
+	PalletPlaceCode int32 `json:"palletPlaceCode"`
 	// Количество паллет
-	PalletCount *float32 `json:"palletCount,omitempty"`
+	PalletCount float32 `json:"palletCount"`
 	// Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с `date`
-	OriginalDate *string `json:"originalDate,omitempty"`
+	OriginalDate string `json:"originalDate"`
 	// Скидка программы лояльности, ₽
-	LoyaltyDiscount *float32 `json:"loyaltyDiscount,omitempty"`
+	LoyaltyDiscount float32 `json:"loyaltyDiscount"`
 	// Дата фиксации тарифа
-	TariffFixDate *string `json:"tariffFixDate,omitempty"`
+	TariffFixDate string `json:"tariffFixDate"`
 	// Дата понижения тарифа
-	TariffLowerDate *string `json:"tariffLowerDate,omitempty"`
+	TariffLowerDate string `json:"tariffLowerDate"`
 }
+
+type _ResponsePaidStorageInner ResponsePaidStorageInner
 
 // NewResponsePaidStorageInner instantiates a new ResponsePaidStorageInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResponsePaidStorageInner() *ResponsePaidStorageInner {
+func NewResponsePaidStorageInner(date string, logWarehouseCoef float32, officeId int32, warehouse string, warehouseCoef float32, giId int32, chrtId int32, size string, barcode string, subject string, brand string, vendorCode string, nmId int32, volume float32, calcType string, warehousePrice float32, barcodesCount int32, palletPlaceCode int32, palletCount float32, originalDate string, loyaltyDiscount float32, tariffFixDate string, tariffLowerDate string) *ResponsePaidStorageInner {
 	this := ResponsePaidStorageInner{}
+	this.Date = date
+	this.LogWarehouseCoef = logWarehouseCoef
+	this.OfficeId = officeId
+	this.Warehouse = warehouse
+	this.WarehouseCoef = warehouseCoef
+	this.GiId = giId
+	this.ChrtId = chrtId
+	this.Size = size
+	this.Barcode = barcode
+	this.Subject = subject
+	this.Brand = brand
+	this.VendorCode = vendorCode
+	this.NmId = nmId
+	this.Volume = volume
+	this.CalcType = calcType
+	this.WarehousePrice = warehousePrice
+	this.BarcodesCount = barcodesCount
+	this.PalletPlaceCode = palletPlaceCode
+	this.PalletCount = palletCount
+	this.OriginalDate = originalDate
+	this.LoyaltyDiscount = loyaltyDiscount
+	this.TariffFixDate = tariffFixDate
+	this.TariffLowerDate = tariffLowerDate
 	return &this
 }
 
@@ -84,740 +111,556 @@ func NewResponsePaidStorageInnerWithDefaults() *ResponsePaidStorageInner {
 	return &this
 }
 
-// GetDate returns the Date field value if set, zero value otherwise.
+// GetDate returns the Date field value
 func (o *ResponsePaidStorageInner) GetDate() string {
-	if o == nil || IsNil(o.Date) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Date
+
+	return o.Date
 }
 
-// GetDateOk returns a tuple with the Date field value if set, nil otherwise
+// GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetDateOk() (*string, bool) {
-	if o == nil || IsNil(o.Date) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Date, true
+	return &o.Date, true
 }
 
-// HasDate returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasDate() bool {
-	if o != nil && !IsNil(o.Date) {
-		return true
-	}
-
-	return false
-}
-
-// SetDate gets a reference to the given string and assigns it to the Date field.
+// SetDate sets field value
 func (o *ResponsePaidStorageInner) SetDate(v string) {
-	o.Date = &v
+	o.Date = v
 }
 
-// GetLogWarehouseCoef returns the LogWarehouseCoef field value if set, zero value otherwise.
+// GetLogWarehouseCoef returns the LogWarehouseCoef field value
 func (o *ResponsePaidStorageInner) GetLogWarehouseCoef() float32 {
-	if o == nil || IsNil(o.LogWarehouseCoef) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.LogWarehouseCoef
+
+	return o.LogWarehouseCoef
 }
 
-// GetLogWarehouseCoefOk returns a tuple with the LogWarehouseCoef field value if set, nil otherwise
+// GetLogWarehouseCoefOk returns a tuple with the LogWarehouseCoef field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetLogWarehouseCoefOk() (*float32, bool) {
-	if o == nil || IsNil(o.LogWarehouseCoef) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LogWarehouseCoef, true
+	return &o.LogWarehouseCoef, true
 }
 
-// HasLogWarehouseCoef returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasLogWarehouseCoef() bool {
-	if o != nil && !IsNil(o.LogWarehouseCoef) {
-		return true
-	}
-
-	return false
-}
-
-// SetLogWarehouseCoef gets a reference to the given float32 and assigns it to the LogWarehouseCoef field.
+// SetLogWarehouseCoef sets field value
 func (o *ResponsePaidStorageInner) SetLogWarehouseCoef(v float32) {
-	o.LogWarehouseCoef = &v
+	o.LogWarehouseCoef = v
 }
 
-// GetOfficeId returns the OfficeId field value if set, zero value otherwise.
+// GetOfficeId returns the OfficeId field value
 func (o *ResponsePaidStorageInner) GetOfficeId() int32 {
-	if o == nil || IsNil(o.OfficeId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OfficeId
+
+	return o.OfficeId
 }
 
-// GetOfficeIdOk returns a tuple with the OfficeId field value if set, nil otherwise
+// GetOfficeIdOk returns a tuple with the OfficeId field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetOfficeIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.OfficeId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OfficeId, true
+	return &o.OfficeId, true
 }
 
-// HasOfficeId returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasOfficeId() bool {
-	if o != nil && !IsNil(o.OfficeId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOfficeId gets a reference to the given int32 and assigns it to the OfficeId field.
+// SetOfficeId sets field value
 func (o *ResponsePaidStorageInner) SetOfficeId(v int32) {
-	o.OfficeId = &v
+	o.OfficeId = v
 }
 
-// GetWarehouse returns the Warehouse field value if set, zero value otherwise.
+// GetWarehouse returns the Warehouse field value
 func (o *ResponsePaidStorageInner) GetWarehouse() string {
-	if o == nil || IsNil(o.Warehouse) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Warehouse
+
+	return o.Warehouse
 }
 
-// GetWarehouseOk returns a tuple with the Warehouse field value if set, nil otherwise
+// GetWarehouseOk returns a tuple with the Warehouse field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetWarehouseOk() (*string, bool) {
-	if o == nil || IsNil(o.Warehouse) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Warehouse, true
+	return &o.Warehouse, true
 }
 
-// HasWarehouse returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasWarehouse() bool {
-	if o != nil && !IsNil(o.Warehouse) {
-		return true
-	}
-
-	return false
-}
-
-// SetWarehouse gets a reference to the given string and assigns it to the Warehouse field.
+// SetWarehouse sets field value
 func (o *ResponsePaidStorageInner) SetWarehouse(v string) {
-	o.Warehouse = &v
+	o.Warehouse = v
 }
 
-// GetWarehouseCoef returns the WarehouseCoef field value if set, zero value otherwise.
+// GetWarehouseCoef returns the WarehouseCoef field value
 func (o *ResponsePaidStorageInner) GetWarehouseCoef() float32 {
-	if o == nil || IsNil(o.WarehouseCoef) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.WarehouseCoef
+
+	return o.WarehouseCoef
 }
 
-// GetWarehouseCoefOk returns a tuple with the WarehouseCoef field value if set, nil otherwise
+// GetWarehouseCoefOk returns a tuple with the WarehouseCoef field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetWarehouseCoefOk() (*float32, bool) {
-	if o == nil || IsNil(o.WarehouseCoef) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WarehouseCoef, true
+	return &o.WarehouseCoef, true
 }
 
-// HasWarehouseCoef returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasWarehouseCoef() bool {
-	if o != nil && !IsNil(o.WarehouseCoef) {
-		return true
-	}
-
-	return false
-}
-
-// SetWarehouseCoef gets a reference to the given float32 and assigns it to the WarehouseCoef field.
+// SetWarehouseCoef sets field value
 func (o *ResponsePaidStorageInner) SetWarehouseCoef(v float32) {
-	o.WarehouseCoef = &v
+	o.WarehouseCoef = v
 }
 
-// GetGiId returns the GiId field value if set, zero value otherwise.
+// GetGiId returns the GiId field value
 func (o *ResponsePaidStorageInner) GetGiId() int32 {
-	if o == nil || IsNil(o.GiId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.GiId
+
+	return o.GiId
 }
 
-// GetGiIdOk returns a tuple with the GiId field value if set, nil otherwise
+// GetGiIdOk returns a tuple with the GiId field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetGiIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.GiId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GiId, true
+	return &o.GiId, true
 }
 
-// HasGiId returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasGiId() bool {
-	if o != nil && !IsNil(o.GiId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGiId gets a reference to the given int32 and assigns it to the GiId field.
+// SetGiId sets field value
 func (o *ResponsePaidStorageInner) SetGiId(v int32) {
-	o.GiId = &v
+	o.GiId = v
 }
 
-// GetChrtId returns the ChrtId field value if set, zero value otherwise.
+// GetChrtId returns the ChrtId field value
 func (o *ResponsePaidStorageInner) GetChrtId() int32 {
-	if o == nil || IsNil(o.ChrtId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ChrtId
+
+	return o.ChrtId
 }
 
-// GetChrtIdOk returns a tuple with the ChrtId field value if set, nil otherwise
+// GetChrtIdOk returns a tuple with the ChrtId field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetChrtIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.ChrtId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ChrtId, true
+	return &o.ChrtId, true
 }
 
-// HasChrtId returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasChrtId() bool {
-	if o != nil && !IsNil(o.ChrtId) {
-		return true
-	}
-
-	return false
-}
-
-// SetChrtId gets a reference to the given int32 and assigns it to the ChrtId field.
+// SetChrtId sets field value
 func (o *ResponsePaidStorageInner) SetChrtId(v int32) {
-	o.ChrtId = &v
+	o.ChrtId = v
 }
 
-// GetSize returns the Size field value if set, zero value otherwise.
+// GetSize returns the Size field value
 func (o *ResponsePaidStorageInner) GetSize() string {
-	if o == nil || IsNil(o.Size) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Size
+
+	return o.Size
 }
 
-// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
+// GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetSizeOk() (*string, bool) {
-	if o == nil || IsNil(o.Size) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Size, true
+	return &o.Size, true
 }
 
-// HasSize returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasSize() bool {
-	if o != nil && !IsNil(o.Size) {
-		return true
-	}
-
-	return false
-}
-
-// SetSize gets a reference to the given string and assigns it to the Size field.
+// SetSize sets field value
 func (o *ResponsePaidStorageInner) SetSize(v string) {
-	o.Size = &v
+	o.Size = v
 }
 
-// GetBarcode returns the Barcode field value if set, zero value otherwise.
+// GetBarcode returns the Barcode field value
 func (o *ResponsePaidStorageInner) GetBarcode() string {
-	if o == nil || IsNil(o.Barcode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Barcode
+
+	return o.Barcode
 }
 
-// GetBarcodeOk returns a tuple with the Barcode field value if set, nil otherwise
+// GetBarcodeOk returns a tuple with the Barcode field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetBarcodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Barcode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Barcode, true
+	return &o.Barcode, true
 }
 
-// HasBarcode returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasBarcode() bool {
-	if o != nil && !IsNil(o.Barcode) {
-		return true
-	}
-
-	return false
-}
-
-// SetBarcode gets a reference to the given string and assigns it to the Barcode field.
+// SetBarcode sets field value
 func (o *ResponsePaidStorageInner) SetBarcode(v string) {
-	o.Barcode = &v
+	o.Barcode = v
 }
 
-// GetSubject returns the Subject field value if set, zero value otherwise.
+// GetSubject returns the Subject field value
 func (o *ResponsePaidStorageInner) GetSubject() string {
-	if o == nil || IsNil(o.Subject) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Subject
+
+	return o.Subject
 }
 
-// GetSubjectOk returns a tuple with the Subject field value if set, nil otherwise
+// GetSubjectOk returns a tuple with the Subject field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetSubjectOk() (*string, bool) {
-	if o == nil || IsNil(o.Subject) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Subject, true
+	return &o.Subject, true
 }
 
-// HasSubject returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasSubject() bool {
-	if o != nil && !IsNil(o.Subject) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubject gets a reference to the given string and assigns it to the Subject field.
+// SetSubject sets field value
 func (o *ResponsePaidStorageInner) SetSubject(v string) {
-	o.Subject = &v
+	o.Subject = v
 }
 
-// GetBrand returns the Brand field value if set, zero value otherwise.
+// GetBrand returns the Brand field value
 func (o *ResponsePaidStorageInner) GetBrand() string {
-	if o == nil || IsNil(o.Brand) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Brand
+
+	return o.Brand
 }
 
-// GetBrandOk returns a tuple with the Brand field value if set, nil otherwise
+// GetBrandOk returns a tuple with the Brand field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetBrandOk() (*string, bool) {
-	if o == nil || IsNil(o.Brand) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Brand, true
+	return &o.Brand, true
 }
 
-// HasBrand returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasBrand() bool {
-	if o != nil && !IsNil(o.Brand) {
-		return true
-	}
-
-	return false
-}
-
-// SetBrand gets a reference to the given string and assigns it to the Brand field.
+// SetBrand sets field value
 func (o *ResponsePaidStorageInner) SetBrand(v string) {
-	o.Brand = &v
+	o.Brand = v
 }
 
-// GetVendorCode returns the VendorCode field value if set, zero value otherwise.
+// GetVendorCode returns the VendorCode field value
 func (o *ResponsePaidStorageInner) GetVendorCode() string {
-	if o == nil || IsNil(o.VendorCode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VendorCode
+
+	return o.VendorCode
 }
 
-// GetVendorCodeOk returns a tuple with the VendorCode field value if set, nil otherwise
+// GetVendorCodeOk returns a tuple with the VendorCode field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetVendorCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.VendorCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VendorCode, true
+	return &o.VendorCode, true
 }
 
-// HasVendorCode returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasVendorCode() bool {
-	if o != nil && !IsNil(o.VendorCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetVendorCode gets a reference to the given string and assigns it to the VendorCode field.
+// SetVendorCode sets field value
 func (o *ResponsePaidStorageInner) SetVendorCode(v string) {
-	o.VendorCode = &v
+	o.VendorCode = v
 }
 
-// GetNmId returns the NmId field value if set, zero value otherwise.
+// GetNmId returns the NmId field value
 func (o *ResponsePaidStorageInner) GetNmId() int32 {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NmId
+
+	return o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
+// GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetNmIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmId, true
+	return &o.NmId, true
 }
 
-// HasNmId returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasNmId() bool {
-	if o != nil && !IsNil(o.NmId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
+// SetNmId sets field value
 func (o *ResponsePaidStorageInner) SetNmId(v int32) {
-	o.NmId = &v
+	o.NmId = v
 }
 
-// GetVolume returns the Volume field value if set, zero value otherwise.
+// GetVolume returns the Volume field value
 func (o *ResponsePaidStorageInner) GetVolume() float32 {
-	if o == nil || IsNil(o.Volume) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Volume
+
+	return o.Volume
 }
 
-// GetVolumeOk returns a tuple with the Volume field value if set, nil otherwise
+// GetVolumeOk returns a tuple with the Volume field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetVolumeOk() (*float32, bool) {
-	if o == nil || IsNil(o.Volume) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Volume, true
+	return &o.Volume, true
 }
 
-// HasVolume returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasVolume() bool {
-	if o != nil && !IsNil(o.Volume) {
-		return true
-	}
-
-	return false
-}
-
-// SetVolume gets a reference to the given float32 and assigns it to the Volume field.
+// SetVolume sets field value
 func (o *ResponsePaidStorageInner) SetVolume(v float32) {
-	o.Volume = &v
+	o.Volume = v
 }
 
-// GetCalcType returns the CalcType field value if set, zero value otherwise.
+// GetCalcType returns the CalcType field value
 func (o *ResponsePaidStorageInner) GetCalcType() string {
-	if o == nil || IsNil(o.CalcType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CalcType
+
+	return o.CalcType
 }
 
-// GetCalcTypeOk returns a tuple with the CalcType field value if set, nil otherwise
+// GetCalcTypeOk returns a tuple with the CalcType field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetCalcTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.CalcType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CalcType, true
+	return &o.CalcType, true
 }
 
-// HasCalcType returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasCalcType() bool {
-	if o != nil && !IsNil(o.CalcType) {
-		return true
-	}
-
-	return false
-}
-
-// SetCalcType gets a reference to the given string and assigns it to the CalcType field.
+// SetCalcType sets field value
 func (o *ResponsePaidStorageInner) SetCalcType(v string) {
-	o.CalcType = &v
+	o.CalcType = v
 }
 
-// GetWarehousePrice returns the WarehousePrice field value if set, zero value otherwise.
+// GetWarehousePrice returns the WarehousePrice field value
 func (o *ResponsePaidStorageInner) GetWarehousePrice() float32 {
-	if o == nil || IsNil(o.WarehousePrice) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.WarehousePrice
+
+	return o.WarehousePrice
 }
 
-// GetWarehousePriceOk returns a tuple with the WarehousePrice field value if set, nil otherwise
+// GetWarehousePriceOk returns a tuple with the WarehousePrice field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetWarehousePriceOk() (*float32, bool) {
-	if o == nil || IsNil(o.WarehousePrice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WarehousePrice, true
+	return &o.WarehousePrice, true
 }
 
-// HasWarehousePrice returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasWarehousePrice() bool {
-	if o != nil && !IsNil(o.WarehousePrice) {
-		return true
-	}
-
-	return false
-}
-
-// SetWarehousePrice gets a reference to the given float32 and assigns it to the WarehousePrice field.
+// SetWarehousePrice sets field value
 func (o *ResponsePaidStorageInner) SetWarehousePrice(v float32) {
-	o.WarehousePrice = &v
+	o.WarehousePrice = v
 }
 
-// GetBarcodesCount returns the BarcodesCount field value if set, zero value otherwise.
+// GetBarcodesCount returns the BarcodesCount field value
 func (o *ResponsePaidStorageInner) GetBarcodesCount() int32 {
-	if o == nil || IsNil(o.BarcodesCount) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.BarcodesCount
+
+	return o.BarcodesCount
 }
 
-// GetBarcodesCountOk returns a tuple with the BarcodesCount field value if set, nil otherwise
+// GetBarcodesCountOk returns a tuple with the BarcodesCount field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetBarcodesCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.BarcodesCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BarcodesCount, true
+	return &o.BarcodesCount, true
 }
 
-// HasBarcodesCount returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasBarcodesCount() bool {
-	if o != nil && !IsNil(o.BarcodesCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetBarcodesCount gets a reference to the given int32 and assigns it to the BarcodesCount field.
+// SetBarcodesCount sets field value
 func (o *ResponsePaidStorageInner) SetBarcodesCount(v int32) {
-	o.BarcodesCount = &v
+	o.BarcodesCount = v
 }
 
-// GetPalletPlaceCode returns the PalletPlaceCode field value if set, zero value otherwise.
+// GetPalletPlaceCode returns the PalletPlaceCode field value
 func (o *ResponsePaidStorageInner) GetPalletPlaceCode() int32 {
-	if o == nil || IsNil(o.PalletPlaceCode) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PalletPlaceCode
+
+	return o.PalletPlaceCode
 }
 
-// GetPalletPlaceCodeOk returns a tuple with the PalletPlaceCode field value if set, nil otherwise
+// GetPalletPlaceCodeOk returns a tuple with the PalletPlaceCode field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetPalletPlaceCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.PalletPlaceCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PalletPlaceCode, true
+	return &o.PalletPlaceCode, true
 }
 
-// HasPalletPlaceCode returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasPalletPlaceCode() bool {
-	if o != nil && !IsNil(o.PalletPlaceCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetPalletPlaceCode gets a reference to the given int32 and assigns it to the PalletPlaceCode field.
+// SetPalletPlaceCode sets field value
 func (o *ResponsePaidStorageInner) SetPalletPlaceCode(v int32) {
-	o.PalletPlaceCode = &v
+	o.PalletPlaceCode = v
 }
 
-// GetPalletCount returns the PalletCount field value if set, zero value otherwise.
+// GetPalletCount returns the PalletCount field value
 func (o *ResponsePaidStorageInner) GetPalletCount() float32 {
-	if o == nil || IsNil(o.PalletCount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.PalletCount
+
+	return o.PalletCount
 }
 
-// GetPalletCountOk returns a tuple with the PalletCount field value if set, nil otherwise
+// GetPalletCountOk returns a tuple with the PalletCount field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetPalletCountOk() (*float32, bool) {
-	if o == nil || IsNil(o.PalletCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PalletCount, true
+	return &o.PalletCount, true
 }
 
-// HasPalletCount returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasPalletCount() bool {
-	if o != nil && !IsNil(o.PalletCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetPalletCount gets a reference to the given float32 and assigns it to the PalletCount field.
+// SetPalletCount sets field value
 func (o *ResponsePaidStorageInner) SetPalletCount(v float32) {
-	o.PalletCount = &v
+	o.PalletCount = v
 }
 
-// GetOriginalDate returns the OriginalDate field value if set, zero value otherwise.
+// GetOriginalDate returns the OriginalDate field value
 func (o *ResponsePaidStorageInner) GetOriginalDate() string {
-	if o == nil || IsNil(o.OriginalDate) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OriginalDate
+
+	return o.OriginalDate
 }
 
-// GetOriginalDateOk returns a tuple with the OriginalDate field value if set, nil otherwise
+// GetOriginalDateOk returns a tuple with the OriginalDate field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetOriginalDateOk() (*string, bool) {
-	if o == nil || IsNil(o.OriginalDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OriginalDate, true
+	return &o.OriginalDate, true
 }
 
-// HasOriginalDate returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasOriginalDate() bool {
-	if o != nil && !IsNil(o.OriginalDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetOriginalDate gets a reference to the given string and assigns it to the OriginalDate field.
+// SetOriginalDate sets field value
 func (o *ResponsePaidStorageInner) SetOriginalDate(v string) {
-	o.OriginalDate = &v
+	o.OriginalDate = v
 }
 
-// GetLoyaltyDiscount returns the LoyaltyDiscount field value if set, zero value otherwise.
+// GetLoyaltyDiscount returns the LoyaltyDiscount field value
 func (o *ResponsePaidStorageInner) GetLoyaltyDiscount() float32 {
-	if o == nil || IsNil(o.LoyaltyDiscount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.LoyaltyDiscount
+
+	return o.LoyaltyDiscount
 }
 
-// GetLoyaltyDiscountOk returns a tuple with the LoyaltyDiscount field value if set, nil otherwise
+// GetLoyaltyDiscountOk returns a tuple with the LoyaltyDiscount field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetLoyaltyDiscountOk() (*float32, bool) {
-	if o == nil || IsNil(o.LoyaltyDiscount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LoyaltyDiscount, true
+	return &o.LoyaltyDiscount, true
 }
 
-// HasLoyaltyDiscount returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasLoyaltyDiscount() bool {
-	if o != nil && !IsNil(o.LoyaltyDiscount) {
-		return true
-	}
-
-	return false
-}
-
-// SetLoyaltyDiscount gets a reference to the given float32 and assigns it to the LoyaltyDiscount field.
+// SetLoyaltyDiscount sets field value
 func (o *ResponsePaidStorageInner) SetLoyaltyDiscount(v float32) {
-	o.LoyaltyDiscount = &v
+	o.LoyaltyDiscount = v
 }
 
-// GetTariffFixDate returns the TariffFixDate field value if set, zero value otherwise.
+// GetTariffFixDate returns the TariffFixDate field value
 func (o *ResponsePaidStorageInner) GetTariffFixDate() string {
-	if o == nil || IsNil(o.TariffFixDate) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TariffFixDate
+
+	return o.TariffFixDate
 }
 
-// GetTariffFixDateOk returns a tuple with the TariffFixDate field value if set, nil otherwise
+// GetTariffFixDateOk returns a tuple with the TariffFixDate field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetTariffFixDateOk() (*string, bool) {
-	if o == nil || IsNil(o.TariffFixDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TariffFixDate, true
+	return &o.TariffFixDate, true
 }
 
-// HasTariffFixDate returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasTariffFixDate() bool {
-	if o != nil && !IsNil(o.TariffFixDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetTariffFixDate gets a reference to the given string and assigns it to the TariffFixDate field.
+// SetTariffFixDate sets field value
 func (o *ResponsePaidStorageInner) SetTariffFixDate(v string) {
-	o.TariffFixDate = &v
+	o.TariffFixDate = v
 }
 
-// GetTariffLowerDate returns the TariffLowerDate field value if set, zero value otherwise.
+// GetTariffLowerDate returns the TariffLowerDate field value
 func (o *ResponsePaidStorageInner) GetTariffLowerDate() string {
-	if o == nil || IsNil(o.TariffLowerDate) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TariffLowerDate
+
+	return o.TariffLowerDate
 }
 
-// GetTariffLowerDateOk returns a tuple with the TariffLowerDate field value if set, nil otherwise
+// GetTariffLowerDateOk returns a tuple with the TariffLowerDate field value
 // and a boolean to check if the value has been set.
 func (o *ResponsePaidStorageInner) GetTariffLowerDateOk() (*string, bool) {
-	if o == nil || IsNil(o.TariffLowerDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TariffLowerDate, true
+	return &o.TariffLowerDate, true
 }
 
-// HasTariffLowerDate returns a boolean if a field has been set.
-func (o *ResponsePaidStorageInner) HasTariffLowerDate() bool {
-	if o != nil && !IsNil(o.TariffLowerDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetTariffLowerDate gets a reference to the given string and assigns it to the TariffLowerDate field.
+// SetTariffLowerDate sets field value
 func (o *ResponsePaidStorageInner) SetTariffLowerDate(v string) {
-	o.TariffLowerDate = &v
+	o.TariffLowerDate = v
 }
 
 func (o ResponsePaidStorageInner) MarshalJSON() ([]byte, error) {
@@ -830,76 +673,89 @@ func (o ResponsePaidStorageInner) MarshalJSON() ([]byte, error) {
 
 func (o ResponsePaidStorageInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Date) {
-		toSerialize["date"] = o.Date
-	}
-	if !IsNil(o.LogWarehouseCoef) {
-		toSerialize["logWarehouseCoef"] = o.LogWarehouseCoef
-	}
-	if !IsNil(o.OfficeId) {
-		toSerialize["officeId"] = o.OfficeId
-	}
-	if !IsNil(o.Warehouse) {
-		toSerialize["warehouse"] = o.Warehouse
-	}
-	if !IsNil(o.WarehouseCoef) {
-		toSerialize["warehouseCoef"] = o.WarehouseCoef
-	}
-	if !IsNil(o.GiId) {
-		toSerialize["giId"] = o.GiId
-	}
-	if !IsNil(o.ChrtId) {
-		toSerialize["chrtId"] = o.ChrtId
-	}
-	if !IsNil(o.Size) {
-		toSerialize["size"] = o.Size
-	}
-	if !IsNil(o.Barcode) {
-		toSerialize["barcode"] = o.Barcode
-	}
-	if !IsNil(o.Subject) {
-		toSerialize["subject"] = o.Subject
-	}
-	if !IsNil(o.Brand) {
-		toSerialize["brand"] = o.Brand
-	}
-	if !IsNil(o.VendorCode) {
-		toSerialize["vendorCode"] = o.VendorCode
-	}
-	if !IsNil(o.NmId) {
-		toSerialize["nmId"] = o.NmId
-	}
-	if !IsNil(o.Volume) {
-		toSerialize["volume"] = o.Volume
-	}
-	if !IsNil(o.CalcType) {
-		toSerialize["calcType"] = o.CalcType
-	}
-	if !IsNil(o.WarehousePrice) {
-		toSerialize["warehousePrice"] = o.WarehousePrice
-	}
-	if !IsNil(o.BarcodesCount) {
-		toSerialize["barcodesCount"] = o.BarcodesCount
-	}
-	if !IsNil(o.PalletPlaceCode) {
-		toSerialize["palletPlaceCode"] = o.PalletPlaceCode
-	}
-	if !IsNil(o.PalletCount) {
-		toSerialize["palletCount"] = o.PalletCount
-	}
-	if !IsNil(o.OriginalDate) {
-		toSerialize["originalDate"] = o.OriginalDate
-	}
-	if !IsNil(o.LoyaltyDiscount) {
-		toSerialize["loyaltyDiscount"] = o.LoyaltyDiscount
-	}
-	if !IsNil(o.TariffFixDate) {
-		toSerialize["tariffFixDate"] = o.TariffFixDate
-	}
-	if !IsNil(o.TariffLowerDate) {
-		toSerialize["tariffLowerDate"] = o.TariffLowerDate
-	}
+	toSerialize["date"] = o.Date
+	toSerialize["logWarehouseCoef"] = o.LogWarehouseCoef
+	toSerialize["officeId"] = o.OfficeId
+	toSerialize["warehouse"] = o.Warehouse
+	toSerialize["warehouseCoef"] = o.WarehouseCoef
+	toSerialize["giId"] = o.GiId
+	toSerialize["chrtId"] = o.ChrtId
+	toSerialize["size"] = o.Size
+	toSerialize["barcode"] = o.Barcode
+	toSerialize["subject"] = o.Subject
+	toSerialize["brand"] = o.Brand
+	toSerialize["vendorCode"] = o.VendorCode
+	toSerialize["nmId"] = o.NmId
+	toSerialize["volume"] = o.Volume
+	toSerialize["calcType"] = o.CalcType
+	toSerialize["warehousePrice"] = o.WarehousePrice
+	toSerialize["barcodesCount"] = o.BarcodesCount
+	toSerialize["palletPlaceCode"] = o.PalletPlaceCode
+	toSerialize["palletCount"] = o.PalletCount
+	toSerialize["originalDate"] = o.OriginalDate
+	toSerialize["loyaltyDiscount"] = o.LoyaltyDiscount
+	toSerialize["tariffFixDate"] = o.TariffFixDate
+	toSerialize["tariffLowerDate"] = o.TariffLowerDate
 	return toSerialize, nil
+}
+
+func (o *ResponsePaidStorageInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"date",
+		"logWarehouseCoef",
+		"officeId",
+		"warehouse",
+		"warehouseCoef",
+		"giId",
+		"chrtId",
+		"size",
+		"barcode",
+		"subject",
+		"brand",
+		"vendorCode",
+		"nmId",
+		"volume",
+		"calcType",
+		"warehousePrice",
+		"barcodesCount",
+		"palletPlaceCode",
+		"palletCount",
+		"originalDate",
+		"loyaltyDiscount",
+		"tariffFixDate",
+		"tariffLowerDate",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varResponsePaidStorageInner := _ResponsePaidStorageInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varResponsePaidStorageInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ResponsePaidStorageInner(varResponsePaidStorageInner)
+
+	return err
 }
 
 type NullableResponsePaidStorageInner struct {

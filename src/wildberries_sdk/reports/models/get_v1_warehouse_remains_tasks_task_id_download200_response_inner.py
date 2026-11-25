@@ -35,7 +35,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner(BaseModel):
     barcode: Optional[StrictStr] = Field(default=None, description="Баркод", json_schema_extra={"examples": ["2037031652319"]})
     tech_size: Optional[StrictStr] = Field(default=None, description="Размер", alias="techSize", json_schema_extra={"examples": ["0"]})
     volume: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Объём, л", json_schema_extra={"examples": [1.33]})
-    warehouses: Optional[List[GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner]] = Field(default=None, description="Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`")
+    warehouses: List[GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner] = Field(description="Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`")
     __properties: ClassVar[List[str]] = ["brand", "subjectName", "vendorCode", "nmId", "barcode", "techSize", "volume", "warehouses"]
 
     model_config = ConfigDict(

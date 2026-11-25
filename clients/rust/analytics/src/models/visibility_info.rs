@@ -19,25 +19,25 @@ pub struct VisibilityInfo {
     #[serde(rename = "openCard")]
     pub open_card: Box<models::VisibilityInfoOpenCard>,
     /// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
-    #[serde(rename = "byDay", skip_serializing_if = "Option::is_none")]
-    pub by_day: Option<Vec<models::VisibilityInfoByDayInner>>,
+    #[serde(rename = "byDay")]
+    pub by_day: Vec<models::VisibilityInfoByDayInner>,
     /// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
-    #[serde(rename = "byWeek", skip_serializing_if = "Option::is_none")]
-    pub by_week: Option<Vec<models::VisibilityInfoByDayInner>>,
+    #[serde(rename = "byWeek")]
+    pub by_week: Vec<models::VisibilityInfoByDayInner>,
     /// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам
-    #[serde(rename = "byMonth", skip_serializing_if = "Option::is_none")]
-    pub by_month: Option<Vec<models::VisibilityInfoByDayInner>>,
+    #[serde(rename = "byMonth")]
+    pub by_month: Vec<models::VisibilityInfoByDayInner>,
 }
 
 impl VisibilityInfo {
     /// Видимость карточек и переходы в карточки. По дням, неделям, месяцам
-    pub fn new(visibility: models::VisibilityInfoVisibility, open_card: models::VisibilityInfoOpenCard) -> VisibilityInfo {
+    pub fn new(visibility: models::VisibilityInfoVisibility, open_card: models::VisibilityInfoOpenCard, by_day: Vec<models::VisibilityInfoByDayInner>, by_week: Vec<models::VisibilityInfoByDayInner>, by_month: Vec<models::VisibilityInfoByDayInner>) -> VisibilityInfo {
         VisibilityInfo {
             visibility: Box::new(visibility),
             open_card: Box::new(open_card),
-            by_day: None,
-            by_week: None,
-            by_month: None,
+            by_day,
+            by_week,
+            by_month,
         }
     }
 }

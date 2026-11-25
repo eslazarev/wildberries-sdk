@@ -302,6 +302,21 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     {
         $invalidProperties = [];
 
+        if ($this->container['brand'] === null) {
+            $invalidProperties[] = "'brand' can't be null";
+        }
+        if ($this->container['nm_id'] === null) {
+            $invalidProperties[] = "'nm_id' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['vendor_code'] === null) {
+            $invalidProperties[] = "'vendor_code' can't be null";
+        }
+        if ($this->container['reason'] === null) {
+            $invalidProperties[] = "'reason' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -320,7 +335,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Gets brand
      *
-     * @return string|null
+     * @return string
      */
     public function getBrand()
     {
@@ -330,7 +345,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Sets brand
      *
-     * @param string|null $brand Бренд
+     * @param string $brand Бренд
      *
      * @return self
      */
@@ -347,7 +362,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Gets nm_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNmId()
     {
@@ -357,7 +372,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Sets nm_id
      *
-     * @param int|null $nm_id Артикул WB
+     * @param int $nm_id Артикул WB
      *
      * @return self
      */
@@ -374,7 +389,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -384,7 +399,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Sets title
      *
-     * @param string|null $title Наименование товара
+     * @param string $title Наименование товара
      *
      * @return self
      */
@@ -401,7 +416,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Gets vendor_code
      *
-     * @return string|null
+     * @return string
      */
     public function getVendorCode()
     {
@@ -411,7 +426,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Sets vendor_code
      *
-     * @param string|null $vendor_code Артикул продавца
+     * @param string $vendor_code Артикул продавца
      *
      * @return self
      */
@@ -428,7 +443,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Gets reason
      *
-     * @return string|null
+     * @return string
      */
     public function getReason()
     {
@@ -438,7 +453,7 @@ class GetV1AnalyticsBannedProducsBlocked200ResponseReportInner implements ModelI
     /**
      * Sets reason
      *
-     * @param string|null $reason Причина блокировки
+     * @param string $reason Причина блокировки
      *
      * @return self
      */

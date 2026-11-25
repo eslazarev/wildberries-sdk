@@ -13,31 +13,31 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
-    /// Артикул WB
-    #[serde(rename = "nmID", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
-    /// Сумма заказа
-    #[serde(rename = "sum", skip_serializing_if = "Option::is_none")]
-    pub sum: Option<i32>,
     /// Валюта заказа
-    #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
-    pub currency: Option<String>,
+    #[serde(rename = "currency")]
+    pub currency: String,
     /// Начало отчётного периода
-    #[serde(rename = "dateFrom", skip_serializing_if = "Option::is_none")]
-    pub date_from: Option<String>,
+    #[serde(rename = "dateFrom")]
+    pub date_from: String,
     /// Конец отчётного периода
-    #[serde(rename = "dateTo", skip_serializing_if = "Option::is_none")]
-    pub date_to: Option<String>,
+    #[serde(rename = "dateTo")]
+    pub date_to: String,
+    /// Артикул WB
+    #[serde(rename = "nmID")]
+    pub nm_id: i32,
+    /// Сумма заказа
+    #[serde(rename = "sum")]
+    pub sum: i32,
 }
 
 impl GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
-    pub fn new() -> GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
+    pub fn new(currency: String, date_from: String, date_to: String, nm_id: i32, sum: i32) -> GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
         GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
-            nm_id: None,
-            sum: None,
-            currency: None,
-            date_from: None,
-            date_to: None,
+            currency,
+            date_from,
+            date_to,
+            nm_id,
+            sum,
         }
     }
 }

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,29 +27,29 @@ class ResponsePaidStorageInner(BaseModel):
     """
     ResponsePaidStorageInner
     """ # noqa: E501
-    var_date: Optional[StrictStr] = Field(default=None, description="Дата, за которую был расчёт или перерасчёт", alias="date")
-    log_warehouse_coef: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`", alias="logWarehouseCoef")
-    office_id: Optional[StrictInt] = Field(default=None, description="ID склада. [На данный момент](/release-notes?id=570) может быть только `0`", alias="officeId")
-    warehouse: Optional[StrictStr] = Field(default=None, description="Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`")
-    warehouse_coef: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Коэффициент хранения", alias="warehouseCoef")
-    gi_id: Optional[StrictInt] = Field(default=None, description="ID поставки", alias="giId")
-    chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера для этого артикула WB", alias="chrtId")
-    size: Optional[StrictStr] = Field(default=None, description="Размер (`techSize` в карточке товара)")
-    barcode: Optional[StrictStr] = Field(default=None, description="Баркод")
-    subject: Optional[StrictStr] = Field(default=None, description="Предмет")
-    brand: Optional[StrictStr] = Field(default=None, description="Бренд")
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    volume: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Объём товара")
-    calc_type: Optional[StrictStr] = Field(default=None, description="Способ расчёта", alias="calcType")
-    warehouse_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Сумма хранения", alias="warehousePrice")
-    barcodes_count: Optional[StrictInt] = Field(default=None, description="Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки", alias="barcodesCount")
-    pallet_place_code: Optional[StrictInt] = Field(default=None, description="Код паллетоместа. [На данный момент](/release-notes?id=570) может быть только `0`", alias="palletPlaceCode")
-    pallet_count: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Количество паллет", alias="palletCount")
-    original_date: Optional[StrictStr] = Field(default=None, description="Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с `date`", alias="originalDate")
-    loyalty_discount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Скидка программы лояльности, ₽", alias="loyaltyDiscount")
-    tariff_fix_date: Optional[StrictStr] = Field(default=None, description="Дата фиксации тарифа", alias="tariffFixDate")
-    tariff_lower_date: Optional[StrictStr] = Field(default=None, description="Дата понижения тарифа", alias="tariffLowerDate")
+    var_date: StrictStr = Field(description="Дата расчёта или перерасчёта", alias="date")
+    log_warehouse_coef: Union[StrictFloat, StrictInt] = Field(description="Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`", alias="logWarehouseCoef")
+    office_id: StrictInt = Field(description="ID склада. [На данный момент](/release-notes?id=570) может быть только `0`", alias="officeId")
+    warehouse: StrictStr = Field(description="Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`")
+    warehouse_coef: Union[StrictFloat, StrictInt] = Field(description="Коэффициент хранения", alias="warehouseCoef")
+    gi_id: StrictInt = Field(description="ID поставки", alias="giId")
+    chrt_id: StrictInt = Field(description="ID размера для этого артикула WB", alias="chrtId")
+    size: StrictStr = Field(description="Размер (`techSize` в карточке товара)")
+    barcode: StrictStr = Field(description="Баркод")
+    subject: StrictStr = Field(description="Предмет")
+    brand: StrictStr = Field(description="Бренд")
+    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
+    volume: Union[StrictFloat, StrictInt] = Field(description="Объём товара")
+    calc_type: StrictStr = Field(description="Способ расчёта", alias="calcType")
+    warehouse_price: Union[StrictFloat, StrictInt] = Field(description="Сумма хранения", alias="warehousePrice")
+    barcodes_count: StrictInt = Field(description="Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки", alias="barcodesCount")
+    pallet_place_code: StrictInt = Field(description="Код паллетоместа. [На данный момент](/release-notes?id=570) может быть только `0`", alias="palletPlaceCode")
+    pallet_count: Union[StrictFloat, StrictInt] = Field(description="Количество паллет", alias="palletCount")
+    original_date: StrictStr = Field(description="Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с `date`", alias="originalDate")
+    loyalty_discount: Union[StrictFloat, StrictInt] = Field(description="Скидка программы лояльности, ₽", alias="loyaltyDiscount")
+    tariff_fix_date: StrictStr = Field(description="Дата фиксации тарифа", alias="tariffFixDate")
+    tariff_lower_date: StrictStr = Field(description="Дата понижения тарифа", alias="tariffLowerDate")
     __properties: ClassVar[List[str]] = ["date", "logWarehouseCoef", "officeId", "warehouse", "warehouseCoef", "giId", "chrtId", "size", "barcode", "subject", "brand", "vendorCode", "nmId", "volume", "calcType", "warehousePrice", "barcodesCount", "palletPlaceCode", "palletCount", "originalDate", "loyaltyDiscount", "tariffFixDate", "tariffLowerDate"]
 
     model_config = ConfigDict(

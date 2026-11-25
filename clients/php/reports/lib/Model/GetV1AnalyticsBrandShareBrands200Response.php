@@ -274,6 +274,9 @@ class GetV1AnalyticsBrandShareBrands200Response implements ModelInterface, Array
     {
         $invalidProperties = [];
 
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class GetV1AnalyticsBrandShareBrands200Response implements ModelInterface, Array
     /**
      * Gets data
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getData()
     {
@@ -302,7 +305,7 @@ class GetV1AnalyticsBrandShareBrands200Response implements ModelInterface, Array
     /**
      * Sets data
      *
-     * @param string[]|null $data Список брендов
+     * @param string[] $data Список брендов
      *
      * @return self
      */

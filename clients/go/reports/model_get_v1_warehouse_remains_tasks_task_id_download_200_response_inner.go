@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner type satisfies the MappedNullable interface at compile time
@@ -34,15 +36,18 @@ type GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner struct {
 	// Объём, л
 	Volume *float32 `json:"volume,omitempty"`
 	// Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`
-	Warehouses []GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner `json:"warehouses,omitempty"`
+	Warehouses []GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner `json:"warehouses"`
 }
+
+type _GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner
 
 // NewGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner instantiates a new GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner() *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
+func NewGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner(warehouses []GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
 	this := GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner{}
+	this.Warehouses = warehouses
 	return &this
 }
 
@@ -278,34 +283,26 @@ func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner) SetVolume(v f
 	o.Volume = &v
 }
 
-// GetWarehouses returns the Warehouses field value if set, zero value otherwise.
+// GetWarehouses returns the Warehouses field value
 func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner) GetWarehouses() []GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner {
-	if o == nil || IsNil(o.Warehouses) {
+	if o == nil {
 		var ret []GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner
 		return ret
 	}
+
 	return o.Warehouses
 }
 
-// GetWarehousesOk returns a tuple with the Warehouses field value if set, nil otherwise
+// GetWarehousesOk returns a tuple with the Warehouses field value
 // and a boolean to check if the value has been set.
 func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner) GetWarehousesOk() ([]GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner, bool) {
-	if o == nil || IsNil(o.Warehouses) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Warehouses, true
 }
 
-// HasWarehouses returns a boolean if a field has been set.
-func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner) HasWarehouses() bool {
-	if o != nil && !IsNil(o.Warehouses) {
-		return true
-	}
-
-	return false
-}
-
-// SetWarehouses gets a reference to the given []GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner and assigns it to the Warehouses field.
+// SetWarehouses sets field value
 func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner) SetWarehouses(v []GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) {
 	o.Warehouses = v
 }
@@ -341,10 +338,45 @@ func (o GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner) ToMap() (map[s
 	if !IsNil(o.Volume) {
 		toSerialize["volume"] = o.Volume
 	}
-	if !IsNil(o.Warehouses) {
-		toSerialize["warehouses"] = o.Warehouses
-	}
+	toSerialize["warehouses"] = o.Warehouses
 	return toSerialize, nil
+}
+
+func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"warehouses",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner := _GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner(varGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner)
+
+	return err
 }
 
 type NullableGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner struct {

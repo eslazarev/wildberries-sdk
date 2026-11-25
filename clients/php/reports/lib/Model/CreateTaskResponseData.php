@@ -274,6 +274,9 @@ class CreateTaskResponseData implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['task_id'] === null) {
+            $invalidProperties[] = "'task_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class CreateTaskResponseData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets task_id
      *
-     * @return string|null
+     * @return string
      */
     public function getTaskId()
     {
@@ -302,7 +305,7 @@ class CreateTaskResponseData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets task_id
      *
-     * @param string|null $task_id ID задания на генерацию
+     * @param string $task_id ID задания на генерацию
      *
      * @return self
      */

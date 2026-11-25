@@ -274,6 +274,9 @@ class CreateTaskResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class CreateTaskResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \Wildberries\Sdk\Reports\Model\CreateTaskResponseData|null
+     * @return \Wildberries\Sdk\Reports\Model\CreateTaskResponseData
      */
     public function getData()
     {
@@ -302,7 +305,7 @@ class CreateTaskResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \Wildberries\Sdk\Reports\Model\CreateTaskResponseData|null $data data
+     * @param \Wildberries\Sdk\Reports\Model\CreateTaskResponseData $data data
      *
      * @return self
      */

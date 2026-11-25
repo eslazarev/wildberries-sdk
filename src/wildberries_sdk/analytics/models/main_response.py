@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.analytics.models.common_info import CommonInfo
 from wildberries_sdk.analytics.models.position_info import PositionInfo
 from wildberries_sdk.analytics.models.table_group_item import TableGroupItem
@@ -34,7 +34,7 @@ class MainResponse(BaseModel):
     common_info: CommonInfo = Field(alias="commonInfo")
     position_info: PositionInfo = Field(alias="positionInfo")
     visibility_info: VisibilityInfo = Field(alias="visibilityInfo")
-    groups: Optional[List[TableGroupItem]] = Field(default=None, description="Список элементов таблицы ")
+    groups: List[TableGroupItem] = Field(description="Список элементов таблицы")
     currency: StrictStr = Field(description="Валюта отчёта", json_schema_extra={"examples": ["RUB"]})
     __properties: ClassVar[List[str]] = ["commonInfo", "positionInfo", "visibilityInfo", "groups", "currency"]
 

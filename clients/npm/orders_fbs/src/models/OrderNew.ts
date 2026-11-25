@@ -13,13 +13,13 @@
  */
 
 import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { OrderAddress } from './OrderAddress';
+import type { OrderNewAddress } from './OrderNewAddress';
 import {
-    OrderAddressFromJSON,
-    OrderAddressFromJSONTyped,
-    OrderAddressToJSON,
-    OrderAddressToJSONTyped,
-} from './OrderAddress';
+    OrderNewAddressFromJSON,
+    OrderNewAddressFromJSONTyped,
+    OrderNewAddressToJSON,
+    OrderNewAddressToJSONTyped,
+} from './OrderNewAddress';
 import type { OrderOptions } from './OrderOptions';
 import {
     OrderOptionsFromJSON,
@@ -37,7 +37,7 @@ export interface OrderNew {
     /**
      * 
      */
-    address?: OrderAddress | null;
+    address?: OrderNewAddress | null;
     /**
      * Планируемая дата доставки заказа покупателю.<br>
      * Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
@@ -245,7 +245,7 @@ export function OrderNewFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'address': json['address'] === undefined ? undefined : json['address'] === null ? null : OrderAddressFromJSON(json['address']),
+        'address': json['address'] === undefined ? undefined : json['address'] === null ? null : OrderNewAddressFromJSON(json['address']),
         'ddate': json['ddate'] == null ? undefined : json['ddate'],
         'sellerDate': json['sellerDate'] === undefined ? undefined : json['sellerDate'] === null ? null : json['sellerDate'],
         'salePrice': json['salePrice'] === undefined ? undefined : json['salePrice'] === null ? null : json['salePrice'],
@@ -291,7 +291,7 @@ export function OrderNewToJSONTyped(value?: OrderNew | null, ignoreDiscriminator
 
     return {
         
-        'address': OrderAddressToJSON(value['address']),
+        'address': OrderNewAddressToJSON(value['address']),
         'ddate': value['ddate'],
         'sellerDate': value['sellerDate'],
         'salePrice': value['salePrice'],

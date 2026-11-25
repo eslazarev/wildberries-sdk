@@ -22,17 +22,19 @@ export interface GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
     /**
      * ID родительской категории
      */
-    parentId?: number;
+    parentId: number;
     /**
      * Название родительской категории
      */
-    parentName?: string;
+    parentName: string;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner interface.
  */
 export function instanceOfGetV1AnalyticsBrandShareParentSubjects200ResponseDataInner(value: object): value is GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
+    if (!('parentId' in value) || value['parentId'] === undefined) return false;
+    if (!('parentName' in value) || value['parentName'] === undefined) return false;
     return true;
 }
 
@@ -46,8 +48,8 @@ export function GetV1AnalyticsBrandShareParentSubjects200ResponseDataInnerFromJS
     }
     return {
         
-        'parentId': json['parentId'] == null ? undefined : json['parentId'],
-        'parentName': json['parentName'] == null ? undefined : json['parentName'],
+        'parentId': json['parentId'],
+        'parentName': json['parentName'],
     };
 }
 

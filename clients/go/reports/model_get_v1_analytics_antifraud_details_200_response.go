@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AnalyticsAntifraudDetails200Response type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,18 @@ var _ MappedNullable = &GetV1AnalyticsAntifraudDetails200Response{}
 
 // GetV1AnalyticsAntifraudDetails200Response struct for GetV1AnalyticsAntifraudDetails200Response
 type GetV1AnalyticsAntifraudDetails200Response struct {
-	Details []GetV1AnalyticsAntifraudDetails200ResponseDetailsInner `json:"details,omitempty"`
+	Details []GetV1AnalyticsAntifraudDetails200ResponseDetailsInner `json:"details"`
 }
+
+type _GetV1AnalyticsAntifraudDetails200Response GetV1AnalyticsAntifraudDetails200Response
 
 // NewGetV1AnalyticsAntifraudDetails200Response instantiates a new GetV1AnalyticsAntifraudDetails200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AnalyticsAntifraudDetails200Response() *GetV1AnalyticsAntifraudDetails200Response {
+func NewGetV1AnalyticsAntifraudDetails200Response(details []GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) *GetV1AnalyticsAntifraudDetails200Response {
 	this := GetV1AnalyticsAntifraudDetails200Response{}
+	this.Details = details
 	return &this
 }
 
@@ -39,34 +44,26 @@ func NewGetV1AnalyticsAntifraudDetails200ResponseWithDefaults() *GetV1AnalyticsA
 	return &this
 }
 
-// GetDetails returns the Details field value if set, zero value otherwise.
+// GetDetails returns the Details field value
 func (o *GetV1AnalyticsAntifraudDetails200Response) GetDetails() []GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
-	if o == nil || IsNil(o.Details) {
+	if o == nil {
 		var ret []GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
 		return ret
 	}
+
 	return o.Details
 }
 
-// GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
+// GetDetailsOk returns a tuple with the Details field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsAntifraudDetails200Response) GetDetailsOk() ([]GetV1AnalyticsAntifraudDetails200ResponseDetailsInner, bool) {
-	if o == nil || IsNil(o.Details) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Details, true
 }
 
-// HasDetails returns a boolean if a field has been set.
-func (o *GetV1AnalyticsAntifraudDetails200Response) HasDetails() bool {
-	if o != nil && !IsNil(o.Details) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetails gets a reference to the given []GetV1AnalyticsAntifraudDetails200ResponseDetailsInner and assigns it to the Details field.
+// SetDetails sets field value
 func (o *GetV1AnalyticsAntifraudDetails200Response) SetDetails(v []GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) {
 	o.Details = v
 }
@@ -81,10 +78,45 @@ func (o GetV1AnalyticsAntifraudDetails200Response) MarshalJSON() ([]byte, error)
 
 func (o GetV1AnalyticsAntifraudDetails200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Details) {
-		toSerialize["details"] = o.Details
-	}
+	toSerialize["details"] = o.Details
 	return toSerialize, nil
+}
+
+func (o *GetV1AnalyticsAntifraudDetails200Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"details",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AnalyticsAntifraudDetails200Response := _GetV1AnalyticsAntifraudDetails200Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AnalyticsAntifraudDetails200Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AnalyticsAntifraudDetails200Response(varGetV1AnalyticsAntifraudDetails200Response)
+
+	return err
 }
 
 type NullableGetV1AnalyticsAntifraudDetails200Response struct {

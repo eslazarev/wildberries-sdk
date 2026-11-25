@@ -22,37 +22,44 @@ export interface GetV1AnalyticsGoodsLabeling200ResponseReportInner {
     /**
      * Сумма штрафа, руб
      */
-    amount?: number;
+    amount: number;
     /**
      * Дата
      */
-    date?: Date;
+    date: Date;
     /**
      * Номер поставки
      */
-    incomeId?: number;
+    incomeId: number;
     /**
      * Артикул WB
      */
-    nmID?: number;
+    nmID: number;
     /**
      * URL фото товара
      */
-    photoUrls?: Array<string>;
+    photoUrls: Array<string>;
     /**
      * Штрихкод
      */
-    shkID?: number;
+    shkID: number;
     /**
      * Баркод из карточки товара
      */
-    sku?: string;
+    sku: string;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsGoodsLabeling200ResponseReportInner interface.
  */
 export function instanceOfGetV1AnalyticsGoodsLabeling200ResponseReportInner(value: object): value is GetV1AnalyticsGoodsLabeling200ResponseReportInner {
+    if (!('amount' in value) || value['amount'] === undefined) return false;
+    if (!('date' in value) || value['date'] === undefined) return false;
+    if (!('incomeId' in value) || value['incomeId'] === undefined) return false;
+    if (!('nmID' in value) || value['nmID'] === undefined) return false;
+    if (!('photoUrls' in value) || value['photoUrls'] === undefined) return false;
+    if (!('shkID' in value) || value['shkID'] === undefined) return false;
+    if (!('sku' in value) || value['sku'] === undefined) return false;
     return true;
 }
 
@@ -66,13 +73,13 @@ export function GetV1AnalyticsGoodsLabeling200ResponseReportInnerFromJSONTyped(j
     }
     return {
         
-        'amount': json['amount'] == null ? undefined : json['amount'],
-        'date': json['date'] == null ? undefined : (parseDateTime(json['date'])),
-        'incomeId': json['incomeId'] == null ? undefined : json['incomeId'],
-        'nmID': json['nmID'] == null ? undefined : json['nmID'],
-        'photoUrls': json['photoUrls'] == null ? undefined : json['photoUrls'],
-        'shkID': json['shkID'] == null ? undefined : json['shkID'],
-        'sku': json['sku'] == null ? undefined : json['sku'],
+        'amount': json['amount'],
+        'date': (json['date'] == null ? json['date'] : parseDateTime(json['date'])),
+        'incomeId': json['incomeId'],
+        'nmID': json['nmID'],
+        'photoUrls': json['photoUrls'],
+        'shkID': json['shkID'],
+        'sku': json['sku'],
     };
 }
 

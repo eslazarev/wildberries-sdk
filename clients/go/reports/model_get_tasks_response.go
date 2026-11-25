@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetTasksResponse type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,18 @@ var _ MappedNullable = &GetTasksResponse{}
 
 // GetTasksResponse struct for GetTasksResponse
 type GetTasksResponse struct {
-	Data *GetTasksResponseData `json:"data,omitempty"`
+	Data GetTasksResponseData `json:"data"`
 }
+
+type _GetTasksResponse GetTasksResponse
 
 // NewGetTasksResponse instantiates a new GetTasksResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTasksResponse() *GetTasksResponse {
+func NewGetTasksResponse(data GetTasksResponseData) *GetTasksResponse {
 	this := GetTasksResponse{}
+	this.Data = data
 	return &this
 }
 
@@ -39,36 +44,28 @@ func NewGetTasksResponseWithDefaults() *GetTasksResponse {
 	return &this
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
+// GetData returns the Data field value
 func (o *GetTasksResponse) GetData() GetTasksResponseData {
-	if o == nil || IsNil(o.Data) {
+	if o == nil {
 		var ret GetTasksResponseData
 		return ret
 	}
-	return *o.Data
+
+	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
+// GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *GetTasksResponse) GetDataOk() (*GetTasksResponseData, bool) {
-	if o == nil || IsNil(o.Data) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Data, true
+	return &o.Data, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *GetTasksResponse) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
-		return true
-	}
-
-	return false
-}
-
-// SetData gets a reference to the given GetTasksResponseData and assigns it to the Data field.
+// SetData sets field value
 func (o *GetTasksResponse) SetData(v GetTasksResponseData) {
-	o.Data = &v
+	o.Data = v
 }
 
 func (o GetTasksResponse) MarshalJSON() ([]byte, error) {
@@ -81,10 +78,45 @@ func (o GetTasksResponse) MarshalJSON() ([]byte, error) {
 
 func (o GetTasksResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
-	}
+	toSerialize["data"] = o.Data
 	return toSerialize, nil
+}
+
+func (o *GetTasksResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"data",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetTasksResponse := _GetTasksResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetTasksResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetTasksResponse(varGetTasksResponse)
+
+	return err
 }
 
 type NullableGetTasksResponse struct {

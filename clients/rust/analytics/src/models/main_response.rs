@@ -19,21 +19,21 @@ pub struct MainResponse {
     pub position_info: Box<models::PositionInfo>,
     #[serde(rename = "visibilityInfo")]
     pub visibility_info: Box<models::VisibilityInfo>,
-    /// Список элементов таблицы 
-    #[serde(rename = "groups", skip_serializing_if = "Option::is_none")]
-    pub groups: Option<Vec<models::TableGroupItem>>,
+    /// Список элементов таблицы
+    #[serde(rename = "groups")]
+    pub groups: Vec<models::TableGroupItem>,
     /// Валюта отчёта
     #[serde(rename = "currency")]
     pub currency: String,
 }
 
 impl MainResponse {
-    pub fn new(common_info: models::CommonInfo, position_info: models::PositionInfo, visibility_info: models::VisibilityInfo, currency: String) -> MainResponse {
+    pub fn new(common_info: models::CommonInfo, position_info: models::PositionInfo, visibility_info: models::VisibilityInfo, groups: Vec<models::TableGroupItem>, currency: String) -> MainResponse {
         MainResponse {
             common_info: Box::new(common_info),
             position_info: Box::new(position_info),
             visibility_info: Box::new(visibility_info),
-            groups: None,
+            groups,
             currency,
         }
     }

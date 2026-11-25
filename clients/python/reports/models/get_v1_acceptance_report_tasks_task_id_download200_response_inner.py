@@ -19,7 +19,7 @@ import json
 
 from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,13 +28,13 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner(BaseModel):
     """
     GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner
     """ # noqa: E501
-    count: Optional[StrictInt] = Field(default=None, description="Количество товаров, шт.", json_schema_extra={"examples": [40]})
-    gi_create_date: Optional[date] = Field(default=None, description="Дата создания поставки", alias="giCreateDate", json_schema_extra={"examples": ["2025-03-04"]})
-    income_id: Optional[StrictInt] = Field(default=None, description="Номер поставки", alias="incomeId", json_schema_extra={"examples": [11834106]})
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID", json_schema_extra={"examples": [123456789]})
-    shk_create_date: Optional[date] = Field(default=None, description="Дата приёмки", alias="shkCreateDate", json_schema_extra={"examples": ["2025-03-14"]})
-    subject_name: Optional[StrictStr] = Field(default=None, description="Предмет", alias="subjectName", json_schema_extra={"examples": ["Добавки пищевые"]})
-    total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Суммарная стоимость приёмки, ₽ с копейками", json_schema_extra={"examples": [873.04]})
+    count: StrictInt = Field(description="Количество товаров, шт.", json_schema_extra={"examples": [40]})
+    gi_create_date: date = Field(description="Дата создания поставки", alias="giCreateDate", json_schema_extra={"examples": ["2025-03-04"]})
+    income_id: StrictInt = Field(description="Номер поставки", alias="incomeId", json_schema_extra={"examples": [11834106]})
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmID", json_schema_extra={"examples": [123456789]})
+    shk_create_date: date = Field(description="Дата приёмки", alias="shkCreateDate", json_schema_extra={"examples": ["2025-03-14"]})
+    subject_name: StrictStr = Field(description="Предмет", alias="subjectName", json_schema_extra={"examples": ["Добавки пищевые"]})
+    total: Union[StrictFloat, StrictInt] = Field(description="Суммарная стоимость приёмки, ₽ с копейками", json_schema_extra={"examples": [873.04]})
     __properties: ClassVar[List[str]] = ["count", "giCreateDate", "incomeId", "nmID", "shkCreateDate", "subjectName", "total"]
 
     model_config = ConfigDict(

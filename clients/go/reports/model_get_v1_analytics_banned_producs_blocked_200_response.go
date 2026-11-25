@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AnalyticsBannedProducsBlocked200Response type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &GetV1AnalyticsBannedProducsBlocked200Response{}
 // GetV1AnalyticsBannedProducsBlocked200Response struct for GetV1AnalyticsBannedProducsBlocked200Response
 type GetV1AnalyticsBannedProducsBlocked200Response struct {
 	// Отчёт
-	Report []GetV1AnalyticsBannedProducsBlocked200ResponseReportInner `json:"report,omitempty"`
+	Report []GetV1AnalyticsBannedProducsBlocked200ResponseReportInner `json:"report"`
 }
+
+type _GetV1AnalyticsBannedProducsBlocked200Response GetV1AnalyticsBannedProducsBlocked200Response
 
 // NewGetV1AnalyticsBannedProducsBlocked200Response instantiates a new GetV1AnalyticsBannedProducsBlocked200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AnalyticsBannedProducsBlocked200Response() *GetV1AnalyticsBannedProducsBlocked200Response {
+func NewGetV1AnalyticsBannedProducsBlocked200Response(report []GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) *GetV1AnalyticsBannedProducsBlocked200Response {
 	this := GetV1AnalyticsBannedProducsBlocked200Response{}
+	this.Report = report
 	return &this
 }
 
@@ -40,34 +45,26 @@ func NewGetV1AnalyticsBannedProducsBlocked200ResponseWithDefaults() *GetV1Analyt
 	return &this
 }
 
-// GetReport returns the Report field value if set, zero value otherwise.
+// GetReport returns the Report field value
 func (o *GetV1AnalyticsBannedProducsBlocked200Response) GetReport() []GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
-	if o == nil || IsNil(o.Report) {
+	if o == nil {
 		var ret []GetV1AnalyticsBannedProducsBlocked200ResponseReportInner
 		return ret
 	}
+
 	return o.Report
 }
 
-// GetReportOk returns a tuple with the Report field value if set, nil otherwise
+// GetReportOk returns a tuple with the Report field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBannedProducsBlocked200Response) GetReportOk() ([]GetV1AnalyticsBannedProducsBlocked200ResponseReportInner, bool) {
-	if o == nil || IsNil(o.Report) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Report, true
 }
 
-// HasReport returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBannedProducsBlocked200Response) HasReport() bool {
-	if o != nil && !IsNil(o.Report) {
-		return true
-	}
-
-	return false
-}
-
-// SetReport gets a reference to the given []GetV1AnalyticsBannedProducsBlocked200ResponseReportInner and assigns it to the Report field.
+// SetReport sets field value
 func (o *GetV1AnalyticsBannedProducsBlocked200Response) SetReport(v []GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) {
 	o.Report = v
 }
@@ -82,10 +79,45 @@ func (o GetV1AnalyticsBannedProducsBlocked200Response) MarshalJSON() ([]byte, er
 
 func (o GetV1AnalyticsBannedProducsBlocked200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Report) {
-		toSerialize["report"] = o.Report
-	}
+	toSerialize["report"] = o.Report
 	return toSerialize, nil
+}
+
+func (o *GetV1AnalyticsBannedProducsBlocked200Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"report",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AnalyticsBannedProducsBlocked200Response := _GetV1AnalyticsBannedProducsBlocked200Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AnalyticsBannedProducsBlocked200Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AnalyticsBannedProducsBlocked200Response(varGetV1AnalyticsBannedProducsBlocked200Response)
+
+	return err
 }
 
 type NullableGetV1AnalyticsBannedProducsBlocked200Response struct {

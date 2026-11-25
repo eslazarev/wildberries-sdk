@@ -56,6 +56,8 @@ pub mod order_address;
 pub use self::order_address::OrderAddress;
 pub mod order_new;
 pub use self::order_new::OrderNew;
+pub mod order_new_address;
+pub use self::order_new_address::OrderNewAddress;
 pub mod order_options;
 pub use self::order_options::OrderOptions;
 pub mod orders_request_api;

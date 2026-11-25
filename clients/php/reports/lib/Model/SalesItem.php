@@ -478,10 +478,22 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['warehouse_name']) && (mb_strlen($this->container['warehouse_name']) > 50)) {
+        if ($this->container['date'] === null) {
+            $invalidProperties[] = "'date' can't be null";
+        }
+        if ($this->container['last_change_date'] === null) {
+            $invalidProperties[] = "'last_change_date' can't be null";
+        }
+        if ($this->container['warehouse_name'] === null) {
+            $invalidProperties[] = "'warehouse_name' can't be null";
+        }
+        if ((mb_strlen($this->container['warehouse_name']) > 50)) {
             $invalidProperties[] = "invalid value for 'warehouse_name', the character length must be smaller than or equal to 50.";
         }
 
+        if ($this->container['warehouse_type'] === null) {
+            $invalidProperties[] = "'warehouse_type' can't be null";
+        }
         $allowedValues = $this->getWarehouseTypeAllowableValues();
         if (!is_null($this->container['warehouse_type']) && !in_array($this->container['warehouse_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -491,50 +503,122 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if (!is_null($this->container['country_name']) && (mb_strlen($this->container['country_name']) > 200)) {
+        if ($this->container['country_name'] === null) {
+            $invalidProperties[] = "'country_name' can't be null";
+        }
+        if ((mb_strlen($this->container['country_name']) > 200)) {
             $invalidProperties[] = "invalid value for 'country_name', the character length must be smaller than or equal to 200.";
         }
 
-        if (!is_null($this->container['oblast_okrug_name']) && (mb_strlen($this->container['oblast_okrug_name']) > 200)) {
+        if ($this->container['oblast_okrug_name'] === null) {
+            $invalidProperties[] = "'oblast_okrug_name' can't be null";
+        }
+        if ((mb_strlen($this->container['oblast_okrug_name']) > 200)) {
             $invalidProperties[] = "invalid value for 'oblast_okrug_name', the character length must be smaller than or equal to 200.";
         }
 
-        if (!is_null($this->container['region_name']) && (mb_strlen($this->container['region_name']) > 200)) {
+        if ($this->container['region_name'] === null) {
+            $invalidProperties[] = "'region_name' can't be null";
+        }
+        if ((mb_strlen($this->container['region_name']) > 200)) {
             $invalidProperties[] = "invalid value for 'region_name', the character length must be smaller than or equal to 200.";
         }
 
-        if (!is_null($this->container['supplier_article']) && (mb_strlen($this->container['supplier_article']) > 75)) {
+        if ($this->container['supplier_article'] === null) {
+            $invalidProperties[] = "'supplier_article' can't be null";
+        }
+        if ((mb_strlen($this->container['supplier_article']) > 75)) {
             $invalidProperties[] = "invalid value for 'supplier_article', the character length must be smaller than or equal to 75.";
         }
 
-        if (!is_null($this->container['barcode']) && (mb_strlen($this->container['barcode']) > 30)) {
+        if ($this->container['nm_id'] === null) {
+            $invalidProperties[] = "'nm_id' can't be null";
+        }
+        if ($this->container['barcode'] === null) {
+            $invalidProperties[] = "'barcode' can't be null";
+        }
+        if ((mb_strlen($this->container['barcode']) > 30)) {
             $invalidProperties[] = "invalid value for 'barcode', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['category']) && (mb_strlen($this->container['category']) > 50)) {
+        if ($this->container['category'] === null) {
+            $invalidProperties[] = "'category' can't be null";
+        }
+        if ((mb_strlen($this->container['category']) > 50)) {
             $invalidProperties[] = "invalid value for 'category', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) > 50)) {
+        if ($this->container['subject'] === null) {
+            $invalidProperties[] = "'subject' can't be null";
+        }
+        if ((mb_strlen($this->container['subject']) > 50)) {
             $invalidProperties[] = "invalid value for 'subject', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['brand']) && (mb_strlen($this->container['brand']) > 50)) {
+        if ($this->container['brand'] === null) {
+            $invalidProperties[] = "'brand' can't be null";
+        }
+        if ((mb_strlen($this->container['brand']) > 50)) {
             $invalidProperties[] = "invalid value for 'brand', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['tech_size']) && (mb_strlen($this->container['tech_size']) > 30)) {
+        if ($this->container['tech_size'] === null) {
+            $invalidProperties[] = "'tech_size' can't be null";
+        }
+        if ((mb_strlen($this->container['tech_size']) > 30)) {
             $invalidProperties[] = "invalid value for 'tech_size', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['sale_id']) && (mb_strlen($this->container['sale_id']) > 15)) {
+        if ($this->container['income_id'] === null) {
+            $invalidProperties[] = "'income_id' can't be null";
+        }
+        if ($this->container['is_supply'] === null) {
+            $invalidProperties[] = "'is_supply' can't be null";
+        }
+        if ($this->container['is_realization'] === null) {
+            $invalidProperties[] = "'is_realization' can't be null";
+        }
+        if ($this->container['total_price'] === null) {
+            $invalidProperties[] = "'total_price' can't be null";
+        }
+        if ($this->container['discount_percent'] === null) {
+            $invalidProperties[] = "'discount_percent' can't be null";
+        }
+        if ($this->container['spp'] === null) {
+            $invalidProperties[] = "'spp' can't be null";
+        }
+        if ($this->container['payment_sale_amount'] === null) {
+            $invalidProperties[] = "'payment_sale_amount' can't be null";
+        }
+        if ($this->container['for_pay'] === null) {
+            $invalidProperties[] = "'for_pay' can't be null";
+        }
+        if ($this->container['finished_price'] === null) {
+            $invalidProperties[] = "'finished_price' can't be null";
+        }
+        if ($this->container['price_with_disc'] === null) {
+            $invalidProperties[] = "'price_with_disc' can't be null";
+        }
+        if ($this->container['sale_id'] === null) {
+            $invalidProperties[] = "'sale_id' can't be null";
+        }
+        if ((mb_strlen($this->container['sale_id']) > 15)) {
             $invalidProperties[] = "invalid value for 'sale_id', the character length must be smaller than or equal to 15.";
         }
 
-        if (!is_null($this->container['g_number']) && (mb_strlen($this->container['g_number']) > 50)) {
+        if ($this->container['sticker'] === null) {
+            $invalidProperties[] = "'sticker' can't be null";
+        }
+        if ($this->container['g_number'] === null) {
+            $invalidProperties[] = "'g_number' can't be null";
+        }
+        if ((mb_strlen($this->container['g_number']) > 50)) {
             $invalidProperties[] = "invalid value for 'g_number', the character length must be smaller than or equal to 50.";
         }
 
+        if ($this->container['srid'] === null) {
+            $invalidProperties[] = "'srid' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -553,7 +637,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets date
      *
-     * @return string|null
+     * @return string
      */
     public function getDate()
     {
@@ -563,7 +647,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets date
      *
-     * @param string|null $date Дата и время продажи. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=1. Если часовой пояс не указан, то берётся Московское время (UTC+3).
+     * @param string $date Дата и время продажи. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=1. Если часовой пояс не указан, то берётся Московское время (UTC+3).
      *
      * @return self
      */
@@ -580,7 +664,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_change_date
      *
-     * @return string|null
+     * @return string
      */
     public function getLastChangeDate()
     {
@@ -590,7 +674,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_change_date
      *
-     * @param string|null $last_change_date Дата и время обновления информации в сервисе. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=0 или не указан. Если часовой пояс не указан, то берётся Московское время (UTC+3).
+     * @param string $last_change_date Дата и время обновления информации в сервисе. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=0 или не указан. Если часовой пояс не указан, то берётся Московское время (UTC+3).
      *
      * @return self
      */
@@ -607,7 +691,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets warehouse_name
      *
-     * @return string|null
+     * @return string
      */
     public function getWarehouseName()
     {
@@ -617,7 +701,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets warehouse_name
      *
-     * @param string|null $warehouse_name Склад отгрузки
+     * @param string $warehouse_name Склад отгрузки
      *
      * @return self
      */
@@ -638,7 +722,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets warehouse_type
      *
-     * @return string|null
+     * @return string
      */
     public function getWarehouseType()
     {
@@ -648,7 +732,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets warehouse_type
      *
-     * @param string|null $warehouse_type Тип склада хранения товаров
+     * @param string $warehouse_type Тип склада хранения товаров
      *
      * @return self
      */
@@ -675,7 +759,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets country_name
      *
-     * @return string|null
+     * @return string
      */
     public function getCountryName()
     {
@@ -685,7 +769,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country_name
      *
-     * @param string|null $country_name Страна
+     * @param string $country_name Страна
      *
      * @return self
      */
@@ -706,7 +790,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets oblast_okrug_name
      *
-     * @return string|null
+     * @return string
      */
     public function getOblastOkrugName()
     {
@@ -716,7 +800,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets oblast_okrug_name
      *
-     * @param string|null $oblast_okrug_name Округ
+     * @param string $oblast_okrug_name Округ
      *
      * @return self
      */
@@ -737,7 +821,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets region_name
      *
-     * @return string|null
+     * @return string
      */
     public function getRegionName()
     {
@@ -747,7 +831,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets region_name
      *
-     * @param string|null $region_name Регион
+     * @param string $region_name Регион
      *
      * @return self
      */
@@ -768,7 +852,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets supplier_article
      *
-     * @return string|null
+     * @return string
      */
     public function getSupplierArticle()
     {
@@ -778,7 +862,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets supplier_article
      *
-     * @param string|null $supplier_article Артикул продавца
+     * @param string $supplier_article Артикул продавца
      *
      * @return self
      */
@@ -799,7 +883,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets nm_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNmId()
     {
@@ -809,7 +893,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets nm_id
      *
-     * @param int|null $nm_id Артикул WB
+     * @param int $nm_id Артикул WB
      *
      * @return self
      */
@@ -826,7 +910,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets barcode
      *
-     * @return string|null
+     * @return string
      */
     public function getBarcode()
     {
@@ -836,7 +920,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets barcode
      *
-     * @param string|null $barcode Баркод
+     * @param string $barcode Баркод
      *
      * @return self
      */
@@ -857,7 +941,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets category
      *
-     * @return string|null
+     * @return string
      */
     public function getCategory()
     {
@@ -867,7 +951,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets category
      *
-     * @param string|null $category Категория
+     * @param string $category Категория
      *
      * @return self
      */
@@ -888,7 +972,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets subject
      *
-     * @return string|null
+     * @return string
      */
     public function getSubject()
     {
@@ -898,7 +982,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subject
      *
-     * @param string|null $subject Предмет
+     * @param string $subject Предмет
      *
      * @return self
      */
@@ -919,7 +1003,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets brand
      *
-     * @return string|null
+     * @return string
      */
     public function getBrand()
     {
@@ -929,7 +1013,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets brand
      *
-     * @param string|null $brand Бренд
+     * @param string $brand Бренд
      *
      * @return self
      */
@@ -950,7 +1034,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tech_size
      *
-     * @return string|null
+     * @return string
      */
     public function getTechSize()
     {
@@ -960,7 +1044,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tech_size
      *
-     * @param string|null $tech_size Размер товара
+     * @param string $tech_size Размер товара
      *
      * @return self
      */
@@ -981,7 +1065,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets income_id
      *
-     * @return int|null
+     * @return int
      */
     public function getIncomeId()
     {
@@ -991,7 +1075,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets income_id
      *
-     * @param int|null $income_id Номер поставки
+     * @param int $income_id Номер поставки
      *
      * @return self
      */
@@ -1008,7 +1092,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets is_supply
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsSupply()
     {
@@ -1018,7 +1102,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_supply
      *
-     * @param bool|null $is_supply Договор поставки
+     * @param bool $is_supply Договор поставки
      *
      * @return self
      */
@@ -1035,7 +1119,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets is_realization
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsRealization()
     {
@@ -1045,7 +1129,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_realization
      *
-     * @param bool|null $is_realization Договор реализации
+     * @param bool $is_realization Договор реализации
      *
      * @return self
      */
@@ -1062,7 +1146,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets total_price
      *
-     * @return float|null
+     * @return float
      */
     public function getTotalPrice()
     {
@@ -1072,7 +1156,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets total_price
      *
-     * @param float|null $total_price Цена без скидок
+     * @param float $total_price Цена без скидок
      *
      * @return self
      */
@@ -1089,7 +1173,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets discount_percent
      *
-     * @return int|null
+     * @return int
      */
     public function getDiscountPercent()
     {
@@ -1099,7 +1183,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets discount_percent
      *
-     * @param int|null $discount_percent Скидка продавца, %
+     * @param int $discount_percent Скидка продавца, %
      *
      * @return self
      */
@@ -1116,7 +1200,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets spp
      *
-     * @return float|null
+     * @return float
      */
     public function getSpp()
     {
@@ -1126,7 +1210,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets spp
      *
-     * @param float|null $spp Скидка WB, %
+     * @param float $spp Скидка WB, %
      *
      * @return self
      */
@@ -1143,7 +1227,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payment_sale_amount
      *
-     * @return int|null
+     * @return int
      */
     public function getPaymentSaleAmount()
     {
@@ -1153,7 +1237,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_sale_amount
      *
-     * @param int|null $payment_sale_amount Скидка за оплату WB Кошельком, ₽
+     * @param int $payment_sale_amount Скидка за оплату WB Кошельком, ₽
      *
      * @return self
      */
@@ -1170,7 +1254,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets for_pay
      *
-     * @return float|null
+     * @return float
      */
     public function getForPay()
     {
@@ -1180,7 +1264,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets for_pay
      *
-     * @param float|null $for_pay К перечислению продавцу.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
+     * @param float $for_pay К перечислению продавцу.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
      *
      * @return self
      */
@@ -1197,7 +1281,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets finished_price
      *
-     * @return float|null
+     * @return float
      */
     public function getFinishedPrice()
     {
@@ -1207,7 +1291,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets finished_price
      *
-     * @param float|null $finished_price Фактическая цена с учётом всех скидок (к взиманию с покупателя).<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
+     * @param float $finished_price Фактическая цена с учётом всех скидок (к взиманию с покупателя).<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
      *
      * @return self
      */
@@ -1224,7 +1308,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price_with_disc
      *
-     * @return float|null
+     * @return float
      */
     public function getPriceWithDisc()
     {
@@ -1234,7 +1318,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price_with_disc
      *
-     * @param float|null $price_with_disc Цена со скидкой продавца, в том числе со скидкой WB Клуба, от которой рассчитывается сумма к перечислению продавцу `forPay`.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
+     * @param float $price_with_disc Цена со скидкой продавца, в том числе со скидкой WB Клуба, от которой рассчитывается сумма к перечислению продавцу `forPay`.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
      *
      * @return self
      */
@@ -1251,7 +1335,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets sale_id
      *
-     * @return string|null
+     * @return string
      */
     public function getSaleId()
     {
@@ -1261,7 +1345,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sale_id
      *
-     * @param string|null $sale_id Уникальный ID продажи/возврата - `S**********` — продажа - `R**********` — возврат (на склад WB)
+     * @param string $sale_id Уникальный ID продажи/возврата - `S**********` — продажа - `R**********` — возврат (на склад WB)
      *
      * @return self
      */
@@ -1282,7 +1366,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets sticker
      *
-     * @return string|null
+     * @return string
      */
     public function getSticker()
     {
@@ -1292,7 +1376,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sticker
      *
-     * @param string|null $sticker ID стикера
+     * @param string $sticker ID стикера
      *
      * @return self
      */
@@ -1309,7 +1393,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets g_number
      *
-     * @return string|null
+     * @return string
      */
     public function getGNumber()
     {
@@ -1319,7 +1403,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets g_number
      *
-     * @param string|null $g_number ID корзины покупателя. Заказы одной транзакции будут иметь одинаковый `gNumber`
+     * @param string $g_number ID корзины покупателя. Заказы одной транзакции будут иметь одинаковый `gNumber`
      *
      * @return self
      */
@@ -1340,7 +1424,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets srid
      *
-     * @return string|null
+     * @return string
      */
     public function getSrid()
     {
@@ -1350,7 +1434,7 @@ class SalesItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets srid
      *
-     * @param string|null $srid Уникальный ID заказа.<br> Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий.
+     * @param string $srid Уникальный ID заказа.<br> Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий.
      *
      * @return self
      */

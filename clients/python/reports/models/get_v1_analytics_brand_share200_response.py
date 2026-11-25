@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.reports.models.get_v1_analytics_brand_share200_response_report_inner import GetV1AnalyticsBrandShare200ResponseReportInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class GetV1AnalyticsBrandShare200Response(BaseModel):
     """
     GetV1AnalyticsBrandShare200Response
     """ # noqa: E501
-    report: Optional[List[GetV1AnalyticsBrandShare200ResponseReportInner]] = Field(default=None, description="Отчёт")
+    report: List[GetV1AnalyticsBrandShare200ResponseReportInner] = Field(description="Отчёт")
     __properties: ClassVar[List[str]] = ["report"]
 
     model_config = ConfigDict(

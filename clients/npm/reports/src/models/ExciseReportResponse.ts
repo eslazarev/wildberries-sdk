@@ -30,13 +30,14 @@ export interface ExciseReportResponse {
     /**
      * 
      */
-    response?: ModelsExciseReportResponse;
+    response: ModelsExciseReportResponse;
 }
 
 /**
  * Check if a given object implements the ExciseReportResponse interface.
  */
 export function instanceOfExciseReportResponse(value: object): value is ExciseReportResponse {
+    if (!('response' in value) || value['response'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function ExciseReportResponseFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'response': json['response'] == null ? undefined : ModelsExciseReportResponseFromJSON(json['response']),
+        'response': ModelsExciseReportResponseFromJSON(json['response']),
     };
 }
 

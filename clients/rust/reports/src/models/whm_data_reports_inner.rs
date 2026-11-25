@@ -14,45 +14,45 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct WhmDataReportsInner {
     /// Артикул WB
-    #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
+    #[serde(rename = "nmId")]
+    pub nm_id: i32,
     /// Предмет
-    #[serde(rename = "subjectName", skip_serializing_if = "Option::is_none")]
-    pub subject_name: Option<String>,
+    #[serde(rename = "subjectName")]
+    pub subject_name: String,
     /// ID замера
-    #[serde(rename = "dimId", skip_serializing_if = "Option::is_none")]
-    pub dim_id: Option<i32>,
+    #[serde(rename = "dimId")]
+    pub dim_id: i32,
     /// Объём, л
-    #[serde(rename = "volume", skip_serializing_if = "Option::is_none")]
-    pub volume: Option<f64>,
+    #[serde(rename = "volume")]
+    pub volume: f64,
     /// Ширина, см
-    #[serde(rename = "width", skip_serializing_if = "Option::is_none")]
-    pub width: Option<i32>,
+    #[serde(rename = "width")]
+    pub width: i32,
     /// Длина, см
-    #[serde(rename = "length", skip_serializing_if = "Option::is_none")]
-    pub length: Option<i32>,
+    #[serde(rename = "length")]
+    pub length: i32,
     /// Высота, см
-    #[serde(rename = "height", skip_serializing_if = "Option::is_none")]
-    pub height: Option<i32>,
+    #[serde(rename = "height")]
+    pub height: i32,
     /// Фото замеров
-    #[serde(rename = "photoUrls", skip_serializing_if = "Option::is_none")]
-    pub photo_urls: Option<Vec<String>>,
+    #[serde(rename = "photoUrls")]
+    pub photo_urls: Vec<String>,
     /// Дата и время
     #[serde(rename = "dt", skip_serializing_if = "Option::is_none")]
     pub dt: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl WhmDataReportsInner {
-    pub fn new() -> WhmDataReportsInner {
+    pub fn new(nm_id: i32, subject_name: String, dim_id: i32, volume: f64, width: i32, length: i32, height: i32, photo_urls: Vec<String>) -> WhmDataReportsInner {
         WhmDataReportsInner {
-            nm_id: None,
-            subject_name: None,
-            dim_id: None,
-            volume: None,
-            width: None,
-            length: None,
-            height: None,
-            photo_urls: None,
+            nm_id,
+            subject_name,
+            dim_id,
+            volume,
+            width,
+            length,
+            height,
+            photo_urls,
             dt: None,
         }
     }

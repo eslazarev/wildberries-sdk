@@ -14,118 +14,118 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrdersItem {
     /// Дата и время заказа. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=1. Если часовой пояс не указан, то берётся Московское время (UTC+3).
-    #[serde(rename = "date", skip_serializing_if = "Option::is_none")]
-    pub date: Option<String>,
+    #[serde(rename = "date")]
+    pub date: String,
     /// Дата и время обновления информации в сервисе. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=0 или не указан. Если часовой пояс не указан, то берётся Московское время (UTC+3).
-    #[serde(rename = "lastChangeDate", skip_serializing_if = "Option::is_none")]
-    pub last_change_date: Option<String>,
+    #[serde(rename = "lastChangeDate")]
+    pub last_change_date: String,
     /// Склад отгрузки
-    #[serde(rename = "warehouseName", skip_serializing_if = "Option::is_none")]
-    pub warehouse_name: Option<String>,
+    #[serde(rename = "warehouseName")]
+    pub warehouse_name: String,
     /// Тип склада хранения товаров
-    #[serde(rename = "warehouseType", skip_serializing_if = "Option::is_none")]
-    pub warehouse_type: Option<WarehouseType>,
+    #[serde(rename = "warehouseType")]
+    pub warehouse_type: WarehouseType,
     /// Страна
-    #[serde(rename = "countryName", skip_serializing_if = "Option::is_none")]
-    pub country_name: Option<String>,
+    #[serde(rename = "countryName")]
+    pub country_name: String,
     /// Округ
-    #[serde(rename = "oblastOkrugName", skip_serializing_if = "Option::is_none")]
-    pub oblast_okrug_name: Option<String>,
+    #[serde(rename = "oblastOkrugName")]
+    pub oblast_okrug_name: String,
     /// Регион
-    #[serde(rename = "regionName", skip_serializing_if = "Option::is_none")]
-    pub region_name: Option<String>,
+    #[serde(rename = "regionName")]
+    pub region_name: String,
     /// Артикул продавца
-    #[serde(rename = "supplierArticle", skip_serializing_if = "Option::is_none")]
-    pub supplier_article: Option<String>,
+    #[serde(rename = "supplierArticle")]
+    pub supplier_article: String,
     /// Артикул WB
-    #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
+    #[serde(rename = "nmId")]
+    pub nm_id: i32,
     /// Баркод
-    #[serde(rename = "barcode", skip_serializing_if = "Option::is_none")]
-    pub barcode: Option<String>,
+    #[serde(rename = "barcode")]
+    pub barcode: String,
     /// Категория
-    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
-    pub category: Option<String>,
+    #[serde(rename = "category")]
+    pub category: String,
     /// Предмет
-    #[serde(rename = "subject", skip_serializing_if = "Option::is_none")]
-    pub subject: Option<String>,
+    #[serde(rename = "subject")]
+    pub subject: String,
     /// Бренд
-    #[serde(rename = "brand", skip_serializing_if = "Option::is_none")]
-    pub brand: Option<String>,
+    #[serde(rename = "brand")]
+    pub brand: String,
     /// Размер товара
-    #[serde(rename = "techSize", skip_serializing_if = "Option::is_none")]
-    pub tech_size: Option<String>,
+    #[serde(rename = "techSize")]
+    pub tech_size: String,
     /// Номер поставки
-    #[serde(rename = "incomeID", skip_serializing_if = "Option::is_none")]
-    pub income_id: Option<i32>,
+    #[serde(rename = "incomeID")]
+    pub income_id: i32,
     /// Договор поставки
-    #[serde(rename = "isSupply", skip_serializing_if = "Option::is_none")]
-    pub is_supply: Option<bool>,
+    #[serde(rename = "isSupply")]
+    pub is_supply: bool,
     /// Договор реализации
-    #[serde(rename = "isRealization", skip_serializing_if = "Option::is_none")]
-    pub is_realization: Option<bool>,
+    #[serde(rename = "isRealization")]
+    pub is_realization: bool,
     /// Цена без скидок
-    #[serde(rename = "totalPrice", skip_serializing_if = "Option::is_none")]
-    pub total_price: Option<f64>,
+    #[serde(rename = "totalPrice")]
+    pub total_price: f64,
     /// Скидка продавца, %
-    #[serde(rename = "discountPercent", skip_serializing_if = "Option::is_none")]
-    pub discount_percent: Option<i32>,
+    #[serde(rename = "discountPercent")]
+    pub discount_percent: i32,
     /// Скидка WB, %
-    #[serde(rename = "spp", skip_serializing_if = "Option::is_none")]
-    pub spp: Option<f64>,
+    #[serde(rename = "spp")]
+    pub spp: f64,
     /// Цена с учетом всех скидок, кроме суммы по WB Кошельку
-    #[serde(rename = "finishedPrice", skip_serializing_if = "Option::is_none")]
-    pub finished_price: Option<f64>,
+    #[serde(rename = "finishedPrice")]
+    pub finished_price: f64,
     /// Цена со скидкой продавца, в том числе со скидкой WB Клуба
-    #[serde(rename = "priceWithDisc", skip_serializing_if = "Option::is_none")]
-    pub price_with_disc: Option<f64>,
+    #[serde(rename = "priceWithDisc")]
+    pub price_with_disc: f64,
     /// Отмена заказа:   - `true` — заказ отменен 
-    #[serde(rename = "isCancel", skip_serializing_if = "Option::is_none")]
-    pub is_cancel: Option<bool>,
+    #[serde(rename = "isCancel")]
+    pub is_cancel: bool,
     /// Дата и время отмены заказа. Если заказ не был отменен, то \"0001-01-01T00:00:00\".Если часовой пояс не указан, то берётся Московское время UTC+3.
-    #[serde(rename = "cancelDate", skip_serializing_if = "Option::is_none")]
-    pub cancel_date: Option<String>,
+    #[serde(rename = "cancelDate")]
+    pub cancel_date: String,
     /// ID стикера
-    #[serde(rename = "sticker", skip_serializing_if = "Option::is_none")]
-    pub sticker: Option<String>,
+    #[serde(rename = "sticker")]
+    pub sticker: String,
     /// ID корзины покупателя. Заказы одной транзакции будут иметь одинаковый `gNumber`
-    #[serde(rename = "gNumber", skip_serializing_if = "Option::is_none")]
-    pub g_number: Option<String>,
+    #[serde(rename = "gNumber")]
+    pub g_number: String,
     /// Уникальный ID заказа.<br> Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий. 
-    #[serde(rename = "srid", skip_serializing_if = "Option::is_none")]
-    pub srid: Option<String>,
+    #[serde(rename = "srid")]
+    pub srid: String,
 }
 
 impl OrdersItem {
-    pub fn new() -> OrdersItem {
+    pub fn new(date: String, last_change_date: String, warehouse_name: String, warehouse_type: WarehouseType, country_name: String, oblast_okrug_name: String, region_name: String, supplier_article: String, nm_id: i32, barcode: String, category: String, subject: String, brand: String, tech_size: String, income_id: i32, is_supply: bool, is_realization: bool, total_price: f64, discount_percent: i32, spp: f64, finished_price: f64, price_with_disc: f64, is_cancel: bool, cancel_date: String, sticker: String, g_number: String, srid: String) -> OrdersItem {
         OrdersItem {
-            date: None,
-            last_change_date: None,
-            warehouse_name: None,
-            warehouse_type: None,
-            country_name: None,
-            oblast_okrug_name: None,
-            region_name: None,
-            supplier_article: None,
-            nm_id: None,
-            barcode: None,
-            category: None,
-            subject: None,
-            brand: None,
-            tech_size: None,
-            income_id: None,
-            is_supply: None,
-            is_realization: None,
-            total_price: None,
-            discount_percent: None,
-            spp: None,
-            finished_price: None,
-            price_with_disc: None,
-            is_cancel: None,
-            cancel_date: None,
-            sticker: None,
-            g_number: None,
-            srid: None,
+            date,
+            last_change_date,
+            warehouse_name,
+            warehouse_type,
+            country_name,
+            oblast_okrug_name,
+            region_name,
+            supplier_article,
+            nm_id,
+            barcode,
+            category,
+            subject,
+            brand,
+            tech_size,
+            income_id,
+            is_supply,
+            is_realization,
+            total_price,
+            discount_percent,
+            spp,
+            finished_price,
+            price_with_disc,
+            is_cancel,
+            cancel_date,
+            sticker,
+            g_number,
+            srid,
         }
     }
 }

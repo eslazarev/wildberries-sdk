@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner type satisfies the MappedNullable interface at compile time
@@ -20,27 +22,36 @@ var _ MappedNullable = &GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner
 // GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner struct for GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner
 type GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner struct {
 	// Количество товаров, шт.
-	Count *int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	// Дата создания поставки
-	GiCreateDate *string `json:"giCreateDate,omitempty"`
+	GiCreateDate string `json:"giCreateDate"`
 	// Номер поставки
-	IncomeId *int32 `json:"incomeId,omitempty"`
+	IncomeId int32 `json:"incomeId"`
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID int32 `json:"nmID"`
 	// Дата приёмки
-	ShkCreateDate *string `json:"shkCreateDate,omitempty"`
+	ShkCreateDate string `json:"shkCreateDate"`
 	// Предмет
-	SubjectName *string `json:"subjectName,omitempty"`
+	SubjectName string `json:"subjectName"`
 	// Суммарная стоимость приёмки, ₽ с копейками
-	Total *float32 `json:"total,omitempty"`
+	Total float32 `json:"total"`
 }
+
+type _GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner
 
 // NewGetV1AcceptanceReportTasksTaskIdDownload200ResponseInner instantiates a new GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AcceptanceReportTasksTaskIdDownload200ResponseInner() *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner {
+func NewGetV1AcceptanceReportTasksTaskIdDownload200ResponseInner(count int32, giCreateDate string, incomeId int32, nmID int32, shkCreateDate string, subjectName string, total float32) *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner {
 	this := GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner{}
+	this.Count = count
+	this.GiCreateDate = giCreateDate
+	this.IncomeId = incomeId
+	this.NmID = nmID
+	this.ShkCreateDate = shkCreateDate
+	this.SubjectName = subjectName
+	this.Total = total
 	return &this
 }
 
@@ -52,228 +63,172 @@ func NewGetV1AcceptanceReportTasksTaskIdDownload200ResponseInnerWithDefaults() *
 	return &this
 }
 
-// GetCount returns the Count field value if set, zero value otherwise.
+// GetCount returns the Count field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetCount() int32 {
-	if o == nil || IsNil(o.Count) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Count
+
+	return o.Count
 }
 
-// GetCountOk returns a tuple with the Count field value if set, nil otherwise
+// GetCountOk returns a tuple with the Count field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.Count) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Count, true
+	return &o.Count, true
 }
 
-// HasCount returns a boolean if a field has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) HasCount() bool {
-	if o != nil && !IsNil(o.Count) {
-		return true
-	}
-
-	return false
-}
-
-// SetCount gets a reference to the given int32 and assigns it to the Count field.
+// SetCount sets field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) SetCount(v int32) {
-	o.Count = &v
+	o.Count = v
 }
 
-// GetGiCreateDate returns the GiCreateDate field value if set, zero value otherwise.
+// GetGiCreateDate returns the GiCreateDate field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetGiCreateDate() string {
-	if o == nil || IsNil(o.GiCreateDate) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.GiCreateDate
+
+	return o.GiCreateDate
 }
 
-// GetGiCreateDateOk returns a tuple with the GiCreateDate field value if set, nil otherwise
+// GetGiCreateDateOk returns a tuple with the GiCreateDate field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetGiCreateDateOk() (*string, bool) {
-	if o == nil || IsNil(o.GiCreateDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GiCreateDate, true
+	return &o.GiCreateDate, true
 }
 
-// HasGiCreateDate returns a boolean if a field has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) HasGiCreateDate() bool {
-	if o != nil && !IsNil(o.GiCreateDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetGiCreateDate gets a reference to the given string and assigns it to the GiCreateDate field.
+// SetGiCreateDate sets field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) SetGiCreateDate(v string) {
-	o.GiCreateDate = &v
+	o.GiCreateDate = v
 }
 
-// GetIncomeId returns the IncomeId field value if set, zero value otherwise.
+// GetIncomeId returns the IncomeId field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetIncomeId() int32 {
-	if o == nil || IsNil(o.IncomeId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.IncomeId
+
+	return o.IncomeId
 }
 
-// GetIncomeIdOk returns a tuple with the IncomeId field value if set, nil otherwise
+// GetIncomeIdOk returns a tuple with the IncomeId field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetIncomeIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.IncomeId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncomeId, true
+	return &o.IncomeId, true
 }
 
-// HasIncomeId returns a boolean if a field has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) HasIncomeId() bool {
-	if o != nil && !IsNil(o.IncomeId) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncomeId gets a reference to the given int32 and assigns it to the IncomeId field.
+// SetIncomeId sets field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) SetIncomeId(v int32) {
-	o.IncomeId = &v
+	o.IncomeId = v
 }
 
-// GetNmID returns the NmID field value if set, zero value otherwise.
+// GetNmID returns the NmID field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetNmID() int32 {
-	if o == nil || IsNil(o.NmID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NmID
+
+	return o.NmID
 }
 
-// GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
+// GetNmIDOk returns a tuple with the NmID field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetNmIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmID, true
+	return &o.NmID, true
 }
 
-// HasNmID returns a boolean if a field has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) HasNmID() bool {
-	if o != nil && !IsNil(o.NmID) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
+// SetNmID sets field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) SetNmID(v int32) {
-	o.NmID = &v
+	o.NmID = v
 }
 
-// GetShkCreateDate returns the ShkCreateDate field value if set, zero value otherwise.
+// GetShkCreateDate returns the ShkCreateDate field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetShkCreateDate() string {
-	if o == nil || IsNil(o.ShkCreateDate) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ShkCreateDate
+
+	return o.ShkCreateDate
 }
 
-// GetShkCreateDateOk returns a tuple with the ShkCreateDate field value if set, nil otherwise
+// GetShkCreateDateOk returns a tuple with the ShkCreateDate field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetShkCreateDateOk() (*string, bool) {
-	if o == nil || IsNil(o.ShkCreateDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ShkCreateDate, true
+	return &o.ShkCreateDate, true
 }
 
-// HasShkCreateDate returns a boolean if a field has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) HasShkCreateDate() bool {
-	if o != nil && !IsNil(o.ShkCreateDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetShkCreateDate gets a reference to the given string and assigns it to the ShkCreateDate field.
+// SetShkCreateDate sets field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) SetShkCreateDate(v string) {
-	o.ShkCreateDate = &v
+	o.ShkCreateDate = v
 }
 
-// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
+// GetSubjectName returns the SubjectName field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetSubjectName() string {
-	if o == nil || IsNil(o.SubjectName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SubjectName
+
+	return o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
+// GetSubjectNameOk returns a tuple with the SubjectName field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetSubjectNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SubjectName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubjectName, true
+	return &o.SubjectName, true
 }
 
-// HasSubjectName returns a boolean if a field has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) HasSubjectName() bool {
-	if o != nil && !IsNil(o.SubjectName) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
+// SetSubjectName sets field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) SetSubjectName(v string) {
-	o.SubjectName = &v
+	o.SubjectName = v
 }
 
-// GetTotal returns the Total field value if set, zero value otherwise.
+// GetTotal returns the Total field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetTotal() float32 {
-	if o == nil || IsNil(o.Total) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Total
+
+	return o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
+// GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) GetTotalOk() (*float32, bool) {
-	if o == nil || IsNil(o.Total) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Total, true
+	return &o.Total, true
 }
 
-// HasTotal returns a boolean if a field has been set.
-func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) HasTotal() bool {
-	if o != nil && !IsNil(o.Total) {
-		return true
-	}
-
-	return false
-}
-
-// SetTotal gets a reference to the given float32 and assigns it to the Total field.
+// SetTotal sets field value
 func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) SetTotal(v float32) {
-	o.Total = &v
+	o.Total = v
 }
 
 func (o GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) MarshalJSON() ([]byte, error) {
@@ -286,28 +241,57 @@ func (o GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) MarshalJSON() 
 
 func (o GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Count) {
-		toSerialize["count"] = o.Count
-	}
-	if !IsNil(o.GiCreateDate) {
-		toSerialize["giCreateDate"] = o.GiCreateDate
-	}
-	if !IsNil(o.IncomeId) {
-		toSerialize["incomeId"] = o.IncomeId
-	}
-	if !IsNil(o.NmID) {
-		toSerialize["nmID"] = o.NmID
-	}
-	if !IsNil(o.ShkCreateDate) {
-		toSerialize["shkCreateDate"] = o.ShkCreateDate
-	}
-	if !IsNil(o.SubjectName) {
-		toSerialize["subjectName"] = o.SubjectName
-	}
-	if !IsNil(o.Total) {
-		toSerialize["total"] = o.Total
-	}
+	toSerialize["count"] = o.Count
+	toSerialize["giCreateDate"] = o.GiCreateDate
+	toSerialize["incomeId"] = o.IncomeId
+	toSerialize["nmID"] = o.NmID
+	toSerialize["shkCreateDate"] = o.ShkCreateDate
+	toSerialize["subjectName"] = o.SubjectName
+	toSerialize["total"] = o.Total
 	return toSerialize, nil
+}
+
+func (o *GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"count",
+		"giCreateDate",
+		"incomeId",
+		"nmID",
+		"shkCreateDate",
+		"subjectName",
+		"total",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AcceptanceReportTasksTaskIdDownload200ResponseInner := _GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AcceptanceReportTasksTaskIdDownload200ResponseInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner(varGetV1AcceptanceReportTasksTaskIdDownload200ResponseInner)
+
+	return err
 }
 
 type NullableGetV1AcceptanceReportTasksTaskIdDownload200ResponseInner struct {

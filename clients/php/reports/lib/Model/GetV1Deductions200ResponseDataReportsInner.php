@@ -372,6 +372,51 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['dt_bonus'] === null) {
+            $invalidProperties[] = "'dt_bonus' can't be null";
+        }
+        if ($this->container['nm_id'] === null) {
+            $invalidProperties[] = "'nm_id' can't be null";
+        }
+        if ($this->container['old_shk_id'] === null) {
+            $invalidProperties[] = "'old_shk_id' can't be null";
+        }
+        if ($this->container['old_color'] === null) {
+            $invalidProperties[] = "'old_color' can't be null";
+        }
+        if ($this->container['old_size'] === null) {
+            $invalidProperties[] = "'old_size' can't be null";
+        }
+        if ($this->container['old_sku'] === null) {
+            $invalidProperties[] = "'old_sku' can't be null";
+        }
+        if ($this->container['old_vendor_code'] === null) {
+            $invalidProperties[] = "'old_vendor_code' can't be null";
+        }
+        if ($this->container['new_shk_id'] === null) {
+            $invalidProperties[] = "'new_shk_id' can't be null";
+        }
+        if ($this->container['new_color'] === null) {
+            $invalidProperties[] = "'new_color' can't be null";
+        }
+        if ($this->container['new_size'] === null) {
+            $invalidProperties[] = "'new_size' can't be null";
+        }
+        if ($this->container['new_sku'] === null) {
+            $invalidProperties[] = "'new_sku' can't be null";
+        }
+        if ($this->container['new_vendor_code'] === null) {
+            $invalidProperties[] = "'new_vendor_code' can't be null";
+        }
+        if ($this->container['bonus_summ'] === null) {
+            $invalidProperties[] = "'bonus_summ' can't be null";
+        }
+        if ($this->container['bonus_type'] === null) {
+            $invalidProperties[] = "'bonus_type' can't be null";
+        }
+        if ($this->container['photo_urls'] === null) {
+            $invalidProperties[] = "'photo_urls' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -390,7 +435,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets dt_bonus
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getDtBonus()
     {
@@ -400,7 +445,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets dt_bonus
      *
-     * @param \DateTime|null $dt_bonus Дата и время удержания
+     * @param \DateTime $dt_bonus Дата и время удержания
      *
      * @return self
      */
@@ -417,7 +462,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets nm_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNmId()
     {
@@ -427,7 +472,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets nm_id
      *
-     * @param int|null $nm_id Артикул WB
+     * @param int $nm_id Артикул WB
      *
      * @return self
      */
@@ -444,7 +489,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets old_shk_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOldShkId()
     {
@@ -454,7 +499,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets old_shk_id
      *
-     * @param int|null $old_shk_id Старый штрихкод
+     * @param int $old_shk_id Старый штрихкод
      *
      * @return self
      */
@@ -471,7 +516,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets old_color
      *
-     * @return string|null
+     * @return string
      */
     public function getOldColor()
     {
@@ -481,7 +526,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets old_color
      *
-     * @param string|null $old_color Старый цвет
+     * @param string $old_color Старый цвет
      *
      * @return self
      */
@@ -498,7 +543,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets old_size
      *
-     * @return string|null
+     * @return string
      */
     public function getOldSize()
     {
@@ -508,7 +553,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets old_size
      *
-     * @param string|null $old_size Старый размер
+     * @param string $old_size Старый размер
      *
      * @return self
      */
@@ -525,7 +570,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets old_sku
      *
-     * @return string|null
+     * @return string
      */
     public function getOldSku()
     {
@@ -535,7 +580,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets old_sku
      *
-     * @param string|null $old_sku Старый баркод
+     * @param string $old_sku Старый баркод
      *
      * @return self
      */
@@ -552,7 +597,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets old_vendor_code
      *
-     * @return string|null
+     * @return string
      */
     public function getOldVendorCode()
     {
@@ -562,7 +607,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets old_vendor_code
      *
-     * @param string|null $old_vendor_code Старый артикул продавца
+     * @param string $old_vendor_code Старый артикул продавца
      *
      * @return self
      */
@@ -579,7 +624,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets new_shk_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNewShkId()
     {
@@ -589,7 +634,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets new_shk_id
      *
-     * @param int|null $new_shk_id Новый штрихкод
+     * @param int $new_shk_id Новый штрихкод
      *
      * @return self
      */
@@ -606,7 +651,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets new_color
      *
-     * @return string|null
+     * @return string
      */
     public function getNewColor()
     {
@@ -616,7 +661,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets new_color
      *
-     * @param string|null $new_color Новый цвет
+     * @param string $new_color Новый цвет
      *
      * @return self
      */
@@ -633,7 +678,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets new_size
      *
-     * @return string|null
+     * @return string
      */
     public function getNewSize()
     {
@@ -643,7 +688,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets new_size
      *
-     * @param string|null $new_size Новый размер
+     * @param string $new_size Новый размер
      *
      * @return self
      */
@@ -660,7 +705,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets new_sku
      *
-     * @return string|null
+     * @return string
      */
     public function getNewSku()
     {
@@ -670,7 +715,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets new_sku
      *
-     * @param string|null $new_sku Новый баркод
+     * @param string $new_sku Новый баркод
      *
      * @return self
      */
@@ -687,7 +732,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets new_vendor_code
      *
-     * @return string|null
+     * @return string
      */
     public function getNewVendorCode()
     {
@@ -697,7 +742,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets new_vendor_code
      *
-     * @param string|null $new_vendor_code Новый артикул продавца
+     * @param string $new_vendor_code Новый артикул продавца
      *
      * @return self
      */
@@ -714,7 +759,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets bonus_summ
      *
-     * @return float|null
+     * @return float
      */
     public function getBonusSumm()
     {
@@ -724,7 +769,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets bonus_summ
      *
-     * @param float|null $bonus_summ Сумма удержания
+     * @param float $bonus_summ Сумма удержания
      *
      * @return self
      */
@@ -741,7 +786,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets bonus_type
      *
-     * @return string|null
+     * @return string
      */
     public function getBonusType()
     {
@@ -751,7 +796,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets bonus_type
      *
-     * @param string|null $bonus_type Причина удержания
+     * @param string $bonus_type Причина удержания
      *
      * @return self
      */
@@ -768,7 +813,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Gets photo_urls
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getPhotoUrls()
     {
@@ -778,7 +823,7 @@ class GetV1Deductions200ResponseDataReportsInner implements ModelInterface, Arra
     /**
      * Sets photo_urls
      *
-     * @param string[]|null $photo_urls Фото замеров
+     * @param string[] $photo_urls Фото замеров
      *
      * @return self
      */

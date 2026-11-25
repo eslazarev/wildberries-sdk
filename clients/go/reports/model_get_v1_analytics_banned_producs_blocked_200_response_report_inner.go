@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AnalyticsBannedProducsBlocked200ResponseReportInner type satisfies the MappedNullable interface at compile time
@@ -20,23 +22,30 @@ var _ MappedNullable = &GetV1AnalyticsBannedProducsBlocked200ResponseReportInner
 // GetV1AnalyticsBannedProducsBlocked200ResponseReportInner struct for GetV1AnalyticsBannedProducsBlocked200ResponseReportInner
 type GetV1AnalyticsBannedProducsBlocked200ResponseReportInner struct {
 	// Бренд
-	Brand *string `json:"brand,omitempty"`
+	Brand string `json:"brand"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId int32 `json:"nmId"`
 	// Наименование товара
-	Title *string `json:"title,omitempty"`
+	Title string `json:"title"`
 	// Артикул продавца
-	VendorCode *string `json:"vendorCode,omitempty"`
+	VendorCode string `json:"vendorCode"`
 	// Причина блокировки
-	Reason *string `json:"reason,omitempty"`
+	Reason string `json:"reason"`
 }
+
+type _GetV1AnalyticsBannedProducsBlocked200ResponseReportInner GetV1AnalyticsBannedProducsBlocked200ResponseReportInner
 
 // NewGetV1AnalyticsBannedProducsBlocked200ResponseReportInner instantiates a new GetV1AnalyticsBannedProducsBlocked200ResponseReportInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AnalyticsBannedProducsBlocked200ResponseReportInner() *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
+func NewGetV1AnalyticsBannedProducsBlocked200ResponseReportInner(brand string, nmId int32, title string, vendorCode string, reason string) *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
 	this := GetV1AnalyticsBannedProducsBlocked200ResponseReportInner{}
+	this.Brand = brand
+	this.NmId = nmId
+	this.Title = title
+	this.VendorCode = vendorCode
+	this.Reason = reason
 	return &this
 }
 
@@ -48,164 +57,124 @@ func NewGetV1AnalyticsBannedProducsBlocked200ResponseReportInnerWithDefaults() *
 	return &this
 }
 
-// GetBrand returns the Brand field value if set, zero value otherwise.
+// GetBrand returns the Brand field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetBrand() string {
-	if o == nil || IsNil(o.Brand) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Brand
+
+	return o.Brand
 }
 
-// GetBrandOk returns a tuple with the Brand field value if set, nil otherwise
+// GetBrandOk returns a tuple with the Brand field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetBrandOk() (*string, bool) {
-	if o == nil || IsNil(o.Brand) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Brand, true
+	return &o.Brand, true
 }
 
-// HasBrand returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) HasBrand() bool {
-	if o != nil && !IsNil(o.Brand) {
-		return true
-	}
-
-	return false
-}
-
-// SetBrand gets a reference to the given string and assigns it to the Brand field.
+// SetBrand sets field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) SetBrand(v string) {
-	o.Brand = &v
+	o.Brand = v
 }
 
-// GetNmId returns the NmId field value if set, zero value otherwise.
+// GetNmId returns the NmId field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetNmId() int32 {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NmId
+
+	return o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
+// GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetNmIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmId, true
+	return &o.NmId, true
 }
 
-// HasNmId returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) HasNmId() bool {
-	if o != nil && !IsNil(o.NmId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
+// SetNmId sets field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) SetNmId(v int32) {
-	o.NmId = &v
+	o.NmId = v
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise.
+// GetTitle returns the Title field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetTitle() string {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Title
+
+	return o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Title, true
+	return &o.Title, true
 }
 
-// HasTitle returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) HasTitle() bool {
-	if o != nil && !IsNil(o.Title) {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given string and assigns it to the Title field.
+// SetTitle sets field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) SetTitle(v string) {
-	o.Title = &v
+	o.Title = v
 }
 
-// GetVendorCode returns the VendorCode field value if set, zero value otherwise.
+// GetVendorCode returns the VendorCode field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetVendorCode() string {
-	if o == nil || IsNil(o.VendorCode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VendorCode
+
+	return o.VendorCode
 }
 
-// GetVendorCodeOk returns a tuple with the VendorCode field value if set, nil otherwise
+// GetVendorCodeOk returns a tuple with the VendorCode field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetVendorCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.VendorCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VendorCode, true
+	return &o.VendorCode, true
 }
 
-// HasVendorCode returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) HasVendorCode() bool {
-	if o != nil && !IsNil(o.VendorCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetVendorCode gets a reference to the given string and assigns it to the VendorCode field.
+// SetVendorCode sets field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) SetVendorCode(v string) {
-	o.VendorCode = &v
+	o.VendorCode = v
 }
 
-// GetReason returns the Reason field value if set, zero value otherwise.
+// GetReason returns the Reason field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetReason() string {
-	if o == nil || IsNil(o.Reason) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Reason
+
+	return o.Reason
 }
 
-// GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
+// GetReasonOk returns a tuple with the Reason field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) GetReasonOk() (*string, bool) {
-	if o == nil || IsNil(o.Reason) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Reason, true
+	return &o.Reason, true
 }
 
-// HasReason returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) HasReason() bool {
-	if o != nil && !IsNil(o.Reason) {
-		return true
-	}
-
-	return false
-}
-
-// SetReason gets a reference to the given string and assigns it to the Reason field.
+// SetReason sets field value
 func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) SetReason(v string) {
-	o.Reason = &v
+	o.Reason = v
 }
 
 func (o GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) MarshalJSON() ([]byte, error) {
@@ -218,22 +187,53 @@ func (o GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) MarshalJSON() 
 
 func (o GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Brand) {
-		toSerialize["brand"] = o.Brand
-	}
-	if !IsNil(o.NmId) {
-		toSerialize["nmId"] = o.NmId
-	}
-	if !IsNil(o.Title) {
-		toSerialize["title"] = o.Title
-	}
-	if !IsNil(o.VendorCode) {
-		toSerialize["vendorCode"] = o.VendorCode
-	}
-	if !IsNil(o.Reason) {
-		toSerialize["reason"] = o.Reason
-	}
+	toSerialize["brand"] = o.Brand
+	toSerialize["nmId"] = o.NmId
+	toSerialize["title"] = o.Title
+	toSerialize["vendorCode"] = o.VendorCode
+	toSerialize["reason"] = o.Reason
 	return toSerialize, nil
+}
+
+func (o *GetV1AnalyticsBannedProducsBlocked200ResponseReportInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"brand",
+		"nmId",
+		"title",
+		"vendorCode",
+		"reason",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AnalyticsBannedProducsBlocked200ResponseReportInner := _GetV1AnalyticsBannedProducsBlocked200ResponseReportInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AnalyticsBannedProducsBlocked200ResponseReportInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AnalyticsBannedProducsBlocked200ResponseReportInner(varGetV1AnalyticsBannedProducsBlocked200ResponseReportInner)
+
+	return err
 }
 
 type NullableGetV1AnalyticsBannedProducsBlocked200ResponseReportInner struct {

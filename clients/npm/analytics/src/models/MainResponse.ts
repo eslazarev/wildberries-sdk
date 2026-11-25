@@ -62,9 +62,8 @@ export interface MainResponse {
     visibilityInfo: VisibilityInfo;
     /**
      * Список элементов таблицы
-     * 
      */
-    groups?: Array<TableGroupItem>;
+    groups: Array<TableGroupItem>;
     /**
      * Валюта отчёта
      */
@@ -78,6 +77,7 @@ export function instanceOfMainResponse(value: object): value is MainResponse {
     if (!('commonInfo' in value) || value['commonInfo'] === undefined) return false;
     if (!('positionInfo' in value) || value['positionInfo'] === undefined) return false;
     if (!('visibilityInfo' in value) || value['visibilityInfo'] === undefined) return false;
+    if (!('groups' in value) || value['groups'] === undefined) return false;
     if (!('currency' in value) || value['currency'] === undefined) return false;
     return true;
 }
@@ -95,7 +95,7 @@ export function MainResponseFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'commonInfo': CommonInfoFromJSON(json['commonInfo']),
         'positionInfo': PositionInfoFromJSON(json['positionInfo']),
         'visibilityInfo': VisibilityInfoFromJSON(json['visibilityInfo']),
-        'groups': json['groups'] == null ? undefined : ((json['groups'] as Array<any>).map(TableGroupItemFromJSON)),
+        'groups': ((json['groups'] as Array<any>).map(TableGroupItemFromJSON)),
         'currency': json['currency'],
     };
 }
@@ -114,7 +114,7 @@ export function MainResponseToJSONTyped(value?: MainResponse | null, ignoreDiscr
         'commonInfo': CommonInfoToJSON(value['commonInfo']),
         'positionInfo': PositionInfoToJSON(value['positionInfo']),
         'visibilityInfo': VisibilityInfoToJSON(value['visibilityInfo']),
-        'groups': value['groups'] == null ? undefined : ((value['groups'] as Array<any>).map(TableGroupItemToJSON)),
+        'groups': ((value['groups'] as Array<any>).map(TableGroupItemToJSON)),
         'currency': value['currency'],
     };
 }

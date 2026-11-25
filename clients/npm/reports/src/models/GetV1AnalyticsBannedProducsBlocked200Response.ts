@@ -30,13 +30,14 @@ export interface GetV1AnalyticsBannedProducsBlocked200Response {
     /**
      * Отчёт
      */
-    report?: Array<GetV1AnalyticsBannedProducsBlocked200ResponseReportInner>;
+    report: Array<GetV1AnalyticsBannedProducsBlocked200ResponseReportInner>;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsBannedProducsBlocked200Response interface.
  */
 export function instanceOfGetV1AnalyticsBannedProducsBlocked200Response(value: object): value is GetV1AnalyticsBannedProducsBlocked200Response {
+    if (!('report' in value) || value['report'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function GetV1AnalyticsBannedProducsBlocked200ResponseFromJSONTyped(json:
     }
     return {
         
-        'report': json['report'] == null ? undefined : ((json['report'] as Array<any>).map(GetV1AnalyticsBannedProducsBlocked200ResponseReportInnerFromJSON)),
+        'report': ((json['report'] as Array<any>).map(GetV1AnalyticsBannedProducsBlocked200ResponseReportInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function GetV1AnalyticsBannedProducsBlocked200ResponseToJSONTyped(value?:
 
     return {
         
-        'report': value['report'] == null ? undefined : ((value['report'] as Array<any>).map(GetV1AnalyticsBannedProducsBlocked200ResponseReportInnerToJSON)),
+        'report': ((value['report'] as Array<any>).map(GetV1AnalyticsBannedProducsBlocked200ResponseReportInnerToJSON)),
     };
 }
 

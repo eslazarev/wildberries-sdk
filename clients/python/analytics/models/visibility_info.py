@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.analytics.models.visibility_info_by_day_inner import VisibilityInfoByDayInner
 from wildberries_sdk.analytics.models.visibility_info_open_card import VisibilityInfoOpenCard
 from wildberries_sdk.analytics.models.visibility_info_visibility import VisibilityInfoVisibility
@@ -32,9 +32,9 @@ class VisibilityInfo(BaseModel):
     """ # noqa: E501
     visibility: VisibilityInfoVisibility
     open_card: VisibilityInfoOpenCard = Field(alias="openCard")
-    by_day: Optional[List[VisibilityInfoByDayInner]] = Field(default=None, description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням", alias="byDay")
-    by_week: Optional[List[VisibilityInfoByDayInner]] = Field(default=None, description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям", alias="byWeek")
-    by_month: Optional[List[VisibilityInfoByDayInner]] = Field(default=None, description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам", alias="byMonth")
+    by_day: List[VisibilityInfoByDayInner] = Field(description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням", alias="byDay")
+    by_week: List[VisibilityInfoByDayInner] = Field(description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям", alias="byWeek")
+    by_month: List[VisibilityInfoByDayInner] = Field(description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам", alias="byMonth")
     __properties: ClassVar[List[str]] = ["visibility", "openCard", "byDay", "byWeek", "byMonth"]
 
     model_config = ConfigDict(

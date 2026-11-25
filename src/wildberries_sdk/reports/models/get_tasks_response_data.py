@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,8 +27,8 @@ class GetTasksResponseData(BaseModel):
     """
     GetTasksResponseData
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="ID задания")
-    status: Optional[StrictStr] = Field(default=None, description="Статус задания:   * `new` — новое   * `processing` —  обрабатывается   * `done` — отчёт готов   * `purged` — отчёт удалён   * `canceled` — отклонено ")
+    id: StrictStr = Field(description="ID задания")
+    status: StrictStr = Field(description="Статус задания:   * `new` — новое   * `processing` —  обрабатывается   * `done` — отчёт готов   * `purged` — отчёт удалён   * `canceled` — отклонено ")
     __properties: ClassVar[List[str]] = ["id", "status"]
 
     model_config = ConfigDict(

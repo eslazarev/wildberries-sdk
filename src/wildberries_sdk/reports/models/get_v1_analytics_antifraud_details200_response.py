@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.reports.models.get_v1_analytics_antifraud_details200_response_details_inner import GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class GetV1AnalyticsAntifraudDetails200Response(BaseModel):
     """
     GetV1AnalyticsAntifraudDetails200Response
     """ # noqa: E501
-    details: Optional[List[GetV1AnalyticsAntifraudDetails200ResponseDetailsInner]] = None
+    details: List[GetV1AnalyticsAntifraudDetails200ResponseDetailsInner]
     __properties: ClassVar[List[str]] = ["details"]
 
     model_config = ConfigDict(

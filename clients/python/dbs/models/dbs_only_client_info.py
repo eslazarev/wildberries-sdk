@@ -34,7 +34,7 @@ class DbsOnlyClientInfo(BaseModel):
     additional_phones: List[StrictStr] = Field(description="Дополнительные номера телефонов для связи с покупателем. <br> Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br> Пустое значение означает, что номер не указан ", alias="additionalPhones")
     replacement_additional_phones: List[StrictStr] = Field(description="Дополнительные подменные номера телефонов для связи с покупателем.<br> Пустое значение означает, что номер не указан ", alias="replacementAdditionalPhones")
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderID", json_schema_extra={"examples": [134567]})
-    phone_code: StrictInt = Field(description="Добавочный код. <br> Пустое значение `\"\"` указывает, что код ещё не назначен ", alias="phoneCode", json_schema_extra={"examples": [1234567]})
+    phone_code: StrictInt = Field(description="Добавочный код. <br> Значение `0` указывает, что код ещё не назначен ", alias="phoneCode", json_schema_extra={"examples": [1234567]})
     additional_phone_codes: List[StrictStr] = Field(description="Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение `\"\"` указывает, что код ещё не назначен ", alias="additionalPhoneCodes", json_schema_extra={"examples": [["12345", "65498"]]})
     __properties: ClassVar[List[str]] = ["replacementPhone", "phone", "firstName", "fullName", "additionalPhones", "replacementAdditionalPhones", "orderID", "phoneCode", "additionalPhoneCodes"]
 

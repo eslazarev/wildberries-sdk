@@ -24,7 +24,7 @@ type DistributionTableItem struct {
 	// Артикул WB
 	NmId int64 `json:"nmId"`
 	// Название товара
-	Title string `json:"title"`
+	Title *string `json:"title,omitempty"`
 	// Артикул продавца
 	VendorCode string `json:"vendorCode"`
 	// ID предмета
@@ -32,11 +32,11 @@ type DistributionTableItem struct {
 	// Название предмета
 	SubjectName string `json:"subjectName"`
 	// Бренд
-	BrandName string `json:"brandName"`
+	BrandName *string `json:"brandName,omitempty"`
 	// Название ярлыка
-	TagName string `json:"tagName"`
+	TagName *string `json:"tagName,omitempty"`
 	// ID ярлыка
-	TagId int64 `json:"tagId"`
+	TagId *int64 `json:"tagId,omitempty"`
 	// Отзыв закреплён
 	PinnedFeedback bool `json:"pinnedFeedback"`
 	// Рейтинг карточки товара
@@ -60,16 +60,12 @@ type _DistributionTableItem DistributionTableItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDistributionTableItem(nmId int64, title string, vendorCode string, subjectId int32, subjectName string, brandName string, tagName string, tagId int64, pinnedFeedback bool, rating float32, feedbackRating DistributionTableItemFeedbackRating, feedbackCount DistributionTableItemFeedbackCount, fiveStar DistributionTableItemFiveStar, fourStar DistributionTableItemFourStar, threeStar DistributionTableItemThreeStar, twoStar DistributionTableItemTwoStar, oneStar DistributionTableItemOneStar, disqualified int32, isShadowed bool) *DistributionTableItem {
+func NewDistributionTableItem(nmId int64, vendorCode string, subjectId int32, subjectName string, pinnedFeedback bool, rating float32, feedbackRating DistributionTableItemFeedbackRating, feedbackCount DistributionTableItemFeedbackCount, fiveStar DistributionTableItemFiveStar, fourStar DistributionTableItemFourStar, threeStar DistributionTableItemThreeStar, twoStar DistributionTableItemTwoStar, oneStar DistributionTableItemOneStar, disqualified int32, isShadowed bool) *DistributionTableItem {
 	this := DistributionTableItem{}
 	this.NmId = nmId
-	this.Title = title
 	this.VendorCode = vendorCode
 	this.SubjectId = subjectId
 	this.SubjectName = subjectName
-	this.BrandName = brandName
-	this.TagName = tagName
-	this.TagId = tagId
 	this.PinnedFeedback = pinnedFeedback
 	this.Rating = rating
 	this.FeedbackRating = feedbackRating
@@ -116,28 +112,36 @@ func (o *DistributionTableItem) SetNmId(v int64) {
 	o.NmId = v
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *DistributionTableItem) SetTitle(v string) {
-	o.Title = v
+	o.Title = &v
 }
 
 // GetVendorCode returns the VendorCode field value
@@ -212,76 +216,100 @@ func (o *DistributionTableItem) SetSubjectName(v string) {
 	o.SubjectName = v
 }
 
-// GetBrandName returns the BrandName field value
+// GetBrandName returns the BrandName field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetBrandName() string {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		var ret string
 		return ret
 	}
-
-	return o.BrandName
+	return *o.BrandName
 }
 
-// GetBrandNameOk returns a tuple with the BrandName field value
+// GetBrandNameOk returns a tuple with the BrandName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetBrandNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BrandName) {
 		return nil, false
 	}
-	return &o.BrandName, true
+	return o.BrandName, true
 }
 
-// SetBrandName sets field value
+// HasBrandName returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasBrandName() bool {
+	if o != nil && !IsNil(o.BrandName) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrandName gets a reference to the given string and assigns it to the BrandName field.
 func (o *DistributionTableItem) SetBrandName(v string) {
-	o.BrandName = v
+	o.BrandName = &v
 }
 
-// GetTagName returns the TagName field value
+// GetTagName returns the TagName field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetTagName() string {
-	if o == nil {
+	if o == nil || IsNil(o.TagName) {
 		var ret string
 		return ret
 	}
-
-	return o.TagName
+	return *o.TagName
 }
 
-// GetTagNameOk returns a tuple with the TagName field value
+// GetTagNameOk returns a tuple with the TagName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetTagNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TagName) {
 		return nil, false
 	}
-	return &o.TagName, true
+	return o.TagName, true
 }
 
-// SetTagName sets field value
+// HasTagName returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasTagName() bool {
+	if o != nil && !IsNil(o.TagName) {
+		return true
+	}
+
+	return false
+}
+
+// SetTagName gets a reference to the given string and assigns it to the TagName field.
 func (o *DistributionTableItem) SetTagName(v string) {
-	o.TagName = v
+	o.TagName = &v
 }
 
-// GetTagId returns the TagId field value
+// GetTagId returns the TagId field value if set, zero value otherwise.
 func (o *DistributionTableItem) GetTagId() int64 {
-	if o == nil {
+	if o == nil || IsNil(o.TagId) {
 		var ret int64
 		return ret
 	}
-
-	return o.TagId
+	return *o.TagId
 }
 
-// GetTagIdOk returns a tuple with the TagId field value
+// GetTagIdOk returns a tuple with the TagId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DistributionTableItem) GetTagIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TagId) {
 		return nil, false
 	}
-	return &o.TagId, true
+	return o.TagId, true
 }
 
-// SetTagId sets field value
+// HasTagId returns a boolean if a field has been set.
+func (o *DistributionTableItem) HasTagId() bool {
+	if o != nil && !IsNil(o.TagId) {
+		return true
+	}
+
+	return false
+}
+
+// SetTagId gets a reference to the given int64 and assigns it to the TagId field.
 func (o *DistributionTableItem) SetTagId(v int64) {
-	o.TagId = v
+	o.TagId = &v
 }
 
 // GetPinnedFeedback returns the PinnedFeedback field value
@@ -559,13 +587,21 @@ func (o DistributionTableItem) MarshalJSON() ([]byte, error) {
 func (o DistributionTableItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["nmId"] = o.NmId
-	toSerialize["title"] = o.Title
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
 	toSerialize["vendorCode"] = o.VendorCode
 	toSerialize["subjectId"] = o.SubjectId
 	toSerialize["subjectName"] = o.SubjectName
-	toSerialize["brandName"] = o.BrandName
-	toSerialize["tagName"] = o.TagName
-	toSerialize["tagId"] = o.TagId
+	if !IsNil(o.BrandName) {
+		toSerialize["brandName"] = o.BrandName
+	}
+	if !IsNil(o.TagName) {
+		toSerialize["tagName"] = o.TagName
+	}
+	if !IsNil(o.TagId) {
+		toSerialize["tagId"] = o.TagId
+	}
 	toSerialize["pinnedFeedback"] = o.PinnedFeedback
 	toSerialize["rating"] = o.Rating
 	toSerialize["feedbackRating"] = o.FeedbackRating
@@ -586,13 +622,9 @@ func (o *DistributionTableItem) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"nmId",
-		"title",
 		"vendorCode",
 		"subjectId",
 		"subjectName",
-		"brandName",
-		"tagName",
-		"tagId",
 		"pinnedFeedback",
 		"rating",
 		"feedbackRating",

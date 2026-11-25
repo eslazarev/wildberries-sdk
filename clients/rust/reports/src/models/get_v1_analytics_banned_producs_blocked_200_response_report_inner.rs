@@ -14,30 +14,30 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
     /// Бренд
-    #[serde(rename = "brand", skip_serializing_if = "Option::is_none")]
-    pub brand: Option<String>,
+    #[serde(rename = "brand")]
+    pub brand: String,
     /// Артикул WB
-    #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
+    #[serde(rename = "nmId")]
+    pub nm_id: i32,
     /// Наименование товара
-    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
-    pub title: Option<String>,
+    #[serde(rename = "title")]
+    pub title: String,
     /// Артикул продавца
-    #[serde(rename = "vendorCode", skip_serializing_if = "Option::is_none")]
-    pub vendor_code: Option<String>,
+    #[serde(rename = "vendorCode")]
+    pub vendor_code: String,
     /// Причина блокировки
-    #[serde(rename = "reason", skip_serializing_if = "Option::is_none")]
-    pub reason: Option<String>,
+    #[serde(rename = "reason")]
+    pub reason: String,
 }
 
 impl GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
-    pub fn new() -> GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
+    pub fn new(brand: String, nm_id: i32, title: String, vendor_code: String, reason: String) -> GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
         GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
-            brand: None,
-            nm_id: None,
-            title: None,
-            vendor_code: None,
-            reason: None,
+            brand,
+            nm_id,
+            title,
+            vendor_code,
+            reason,
         }
     }
 }

@@ -274,6 +274,9 @@ class ExciseReportResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['response'] === null) {
+            $invalidProperties[] = "'response' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class ExciseReportResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets response
      *
-     * @return \Wildberries\Sdk\Reports\Model\ModelsExciseReportResponse|null
+     * @return \Wildberries\Sdk\Reports\Model\ModelsExciseReportResponse
      */
     public function getResponse()
     {
@@ -302,7 +305,7 @@ class ExciseReportResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets response
      *
-     * @param \Wildberries\Sdk\Reports\Model\ModelsExciseReportResponse|null $response response
+     * @param \Wildberries\Sdk\Reports\Model\ModelsExciseReportResponse $response response
      *
      * @return self
      */

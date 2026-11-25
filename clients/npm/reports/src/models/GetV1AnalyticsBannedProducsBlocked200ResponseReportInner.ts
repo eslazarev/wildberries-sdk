@@ -22,29 +22,34 @@ export interface GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
     /**
      * Бренд
      */
-    brand?: string;
+    brand: string;
     /**
      * Артикул WB
      */
-    nmId?: number;
+    nmId: number;
     /**
      * Наименование товара
      */
-    title?: string;
+    title: string;
     /**
      * Артикул продавца
      */
-    vendorCode?: string;
+    vendorCode: string;
     /**
      * Причина блокировки
      */
-    reason?: string;
+    reason: string;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsBannedProducsBlocked200ResponseReportInner interface.
  */
 export function instanceOfGetV1AnalyticsBannedProducsBlocked200ResponseReportInner(value: object): value is GetV1AnalyticsBannedProducsBlocked200ResponseReportInner {
+    if (!('brand' in value) || value['brand'] === undefined) return false;
+    if (!('nmId' in value) || value['nmId'] === undefined) return false;
+    if (!('title' in value) || value['title'] === undefined) return false;
+    if (!('vendorCode' in value) || value['vendorCode'] === undefined) return false;
+    if (!('reason' in value) || value['reason'] === undefined) return false;
     return true;
 }
 
@@ -58,11 +63,11 @@ export function GetV1AnalyticsBannedProducsBlocked200ResponseReportInnerFromJSON
     }
     return {
         
-        'brand': json['brand'] == null ? undefined : json['brand'],
-        'nmId': json['nmId'] == null ? undefined : json['nmId'],
-        'title': json['title'] == null ? undefined : json['title'],
-        'vendorCode': json['vendorCode'] == null ? undefined : json['vendorCode'],
-        'reason': json['reason'] == null ? undefined : json['reason'],
+        'brand': json['brand'],
+        'nmId': json['nmId'],
+        'title': json['title'],
+        'vendorCode': json['vendorCode'],
+        'reason': json['reason'],
     };
 }
 

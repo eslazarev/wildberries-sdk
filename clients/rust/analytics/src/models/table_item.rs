@@ -23,8 +23,8 @@ pub struct TableItem {
     #[serde(rename = "vendorCode")]
     pub vendor_code: String,
     /// Название предмета
-    #[serde(rename = "subjectName", skip_serializing_if = "Option::is_none")]
-    pub subject_name: Option<String>,
+    #[serde(rename = "subjectName")]
+    pub subject_name: String,
     /// Бренд
     #[serde(rename = "brandName", skip_serializing_if = "Option::is_none")]
     pub brand_name: Option<String>,
@@ -34,9 +34,9 @@ pub struct TableItem {
     /// Находится ли товар в продвижении в Поисковой выдаче
     #[serde(rename = "isAdvertised")]
     pub is_advertised: bool,
-    /// Искали ли товар по подменному артикулу.<br> Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts` 
-    #[serde(rename = "isSubstitutedSKU", skip_serializing_if = "Option::is_none")]
-    pub is_substituted_sku: Option<bool>,
+    /// Искали ли товар по подменному артикулу
+    #[serde(rename = "isSubstitutedSKU")]
+    pub is_substituted_sku: bool,
     /// Есть ли рейтинг у карточки товара
     #[serde(rename = "isCardRated")]
     pub is_card_rated: bool,
@@ -65,16 +65,16 @@ pub struct TableItem {
 }
 
 impl TableItem {
-    pub fn new(nm_id: i64, vendor_code: String, is_advertised: bool, is_card_rated: bool, rating: f64, feedback_rating: f64, price: models::TableItemAllOfPrice, avg_position: models::TableGroupItemMetricsAvgPosition, open_card: models::VisibilityInfoOpenCard, add_to_cart: models::TableGroupItemMetricsAddToCart, open_to_cart: models::TableGroupItemMetricsOpenToCart, orders: models::TableGroupItemMetricsOrders, cart_to_order: models::TableGroupItemMetricsCartToOrder, visibility: models::TableGroupItemMetricsVisibility) -> TableItem {
+    pub fn new(nm_id: i64, vendor_code: String, subject_name: String, is_advertised: bool, is_substituted_sku: bool, is_card_rated: bool, rating: f64, feedback_rating: f64, price: models::TableItemAllOfPrice, avg_position: models::TableGroupItemMetricsAvgPosition, open_card: models::VisibilityInfoOpenCard, add_to_cart: models::TableGroupItemMetricsAddToCart, open_to_cart: models::TableGroupItemMetricsOpenToCart, orders: models::TableGroupItemMetricsOrders, cart_to_order: models::TableGroupItemMetricsCartToOrder, visibility: models::TableGroupItemMetricsVisibility) -> TableItem {
         TableItem {
             nm_id,
             name: None,
             vendor_code,
-            subject_name: None,
+            subject_name,
             brand_name: None,
             main_photo: None,
             is_advertised,
-            is_substituted_sku: None,
+            is_substituted_sku,
             is_card_rated,
             rating,
             feedback_rating,

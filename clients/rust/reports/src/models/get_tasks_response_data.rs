@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetTasksResponseData {
     /// ID задания
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
+    #[serde(rename = "id")]
+    pub id: String,
     /// Статус задания:   * `new` — новое   * `processing` —  обрабатывается   * `done` — отчёт готов   * `purged` — отчёт удалён   * `canceled` — отклонено 
-    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<String>,
+    #[serde(rename = "status")]
+    pub status: String,
 }
 
 impl GetTasksResponseData {
-    pub fn new() -> GetTasksResponseData {
+    pub fn new(id: String, status: String) -> GetTasksResponseData {
         GetTasksResponseData {
-            id: None,
-            status: None,
+            id,
+            status,
         }
     }
 }

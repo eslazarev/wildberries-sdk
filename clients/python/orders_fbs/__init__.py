@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.192"
+__version__ = "0.1.193"
 
 # Define package exports
 __all__ = [
@@ -58,6 +58,7 @@ __all__ = [
     "Order",
     "OrderAddress",
     "OrderNew",
+    "OrderNewAddress",
     "OrderOptions",
     "OrdersRequestAPI",
     "PassOffice",
@@ -173,6 +174,7 @@ from wildberries_sdk.orders_fbs.models.model_pass import ModelPass as ModelPass
 from wildberries_sdk.orders_fbs.models.order import Order as Order
 from wildberries_sdk.orders_fbs.models.order_address import OrderAddress as OrderAddress
 from wildberries_sdk.orders_fbs.models.order_new import OrderNew as OrderNew
+from wildberries_sdk.orders_fbs.models.order_new_address import OrderNewAddress as OrderNewAddress
 from wildberries_sdk.orders_fbs.models.order_options import OrderOptions as OrderOptions
 from wildberries_sdk.orders_fbs.models.orders_request_api import OrdersRequestAPI as OrdersRequestAPI
 from wildberries_sdk.orders_fbs.models.pass_office import PassOffice as PassOffice

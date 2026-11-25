@@ -274,6 +274,9 @@ class GetTasksResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class GetTasksResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \Wildberries\Sdk\Reports\Model\GetTasksResponseData|null
+     * @return \Wildberries\Sdk\Reports\Model\GetTasksResponseData
      */
     public function getData()
     {
@@ -302,7 +305,7 @@ class GetTasksResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \Wildberries\Sdk\Reports\Model\GetTasksResponseData|null $data data
+     * @param \Wildberries\Sdk\Reports\Model\GetTasksResponseData $data data
      *
      * @return self
      */

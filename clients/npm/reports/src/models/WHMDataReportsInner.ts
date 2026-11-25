@@ -22,35 +22,35 @@ export interface WHMDataReportsInner {
     /**
      * Артикул WB
      */
-    nmId?: number;
+    nmId: number;
     /**
      * Предмет
      */
-    subjectName?: string;
+    subjectName: string;
     /**
      * ID замера
      */
-    dimId?: number;
+    dimId: number;
     /**
      * Объём, л
      */
-    volume?: number;
+    volume: number;
     /**
      * Ширина, см
      */
-    width?: number;
+    width: number;
     /**
      * Длина, см
      */
-    length?: number;
+    length: number;
     /**
      * Высота, см
      */
-    height?: number;
+    height: number;
     /**
      * Фото замеров
      */
-    photoUrls?: Array<string>;
+    photoUrls: Array<string>;
     /**
      * Дата и время
      */
@@ -61,6 +61,14 @@ export interface WHMDataReportsInner {
  * Check if a given object implements the WHMDataReportsInner interface.
  */
 export function instanceOfWHMDataReportsInner(value: object): value is WHMDataReportsInner {
+    if (!('nmId' in value) || value['nmId'] === undefined) return false;
+    if (!('subjectName' in value) || value['subjectName'] === undefined) return false;
+    if (!('dimId' in value) || value['dimId'] === undefined) return false;
+    if (!('volume' in value) || value['volume'] === undefined) return false;
+    if (!('width' in value) || value['width'] === undefined) return false;
+    if (!('length' in value) || value['length'] === undefined) return false;
+    if (!('height' in value) || value['height'] === undefined) return false;
+    if (!('photoUrls' in value) || value['photoUrls'] === undefined) return false;
     return true;
 }
 
@@ -74,14 +82,14 @@ export function WHMDataReportsInnerFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'nmId': json['nmId'] == null ? undefined : json['nmId'],
-        'subjectName': json['subjectName'] == null ? undefined : json['subjectName'],
-        'dimId': json['dimId'] == null ? undefined : json['dimId'],
-        'volume': json['volume'] == null ? undefined : json['volume'],
-        'width': json['width'] == null ? undefined : json['width'],
-        'length': json['length'] == null ? undefined : json['length'],
-        'height': json['height'] == null ? undefined : json['height'],
-        'photoUrls': json['photoUrls'] == null ? undefined : json['photoUrls'],
+        'nmId': json['nmId'],
+        'subjectName': json['subjectName'],
+        'dimId': json['dimId'],
+        'volume': json['volume'],
+        'width': json['width'],
+        'length': json['length'],
+        'height': json['height'],
+        'photoUrls': json['photoUrls'],
         'dt': json['dt'] == null ? undefined : (parseDateTime(json['dt'])),
     };
 }

@@ -22,13 +22,14 @@ export interface GetV1AnalyticsBrandShareBrands200Response {
     /**
      * Список брендов
      */
-    data?: Array<string>;
+    data: Array<string>;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsBrandShareBrands200Response interface.
  */
 export function instanceOfGetV1AnalyticsBrandShareBrands200Response(value: object): value is GetV1AnalyticsBrandShareBrands200Response {
+    if (!('data' in value) || value['data'] === undefined) return false;
     return true;
 }
 
@@ -42,7 +43,7 @@ export function GetV1AnalyticsBrandShareBrands200ResponseFromJSONTyped(json: any
     }
     return {
         
-        'data': json['data'] == null ? undefined : json['data'],
+        'data': json['data'],
     };
 }
 

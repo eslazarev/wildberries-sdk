@@ -13,6 +13,8 @@ package reports
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1Deductions200ResponseDataReportsInner type satisfies the MappedNullable interface at compile time
@@ -21,43 +23,60 @@ var _ MappedNullable = &GetV1Deductions200ResponseDataReportsInner{}
 // GetV1Deductions200ResponseDataReportsInner struct for GetV1Deductions200ResponseDataReportsInner
 type GetV1Deductions200ResponseDataReportsInner struct {
 	// Дата и время удержания
-	DtBonus *time.Time `json:"dtBonus,omitempty"`
+	DtBonus time.Time `json:"dtBonus"`
 	// Артикул WB
-	NmId *int32 `json:"nmId,omitempty"`
+	NmId int32 `json:"nmId"`
 	// Старый штрихкод
-	OldShkId *int32 `json:"oldShkId,omitempty"`
+	OldShkId int32 `json:"oldShkId"`
 	// Старый цвет
-	OldColor *string `json:"oldColor,omitempty"`
+	OldColor string `json:"oldColor"`
 	// Старый размер
-	OldSize *string `json:"oldSize,omitempty"`
+	OldSize string `json:"oldSize"`
 	// Старый баркод
-	OldSku *string `json:"oldSku,omitempty"`
+	OldSku string `json:"oldSku"`
 	// Старый артикул продавца
-	OldVendorCode *string `json:"oldVendorCode,omitempty"`
+	OldVendorCode string `json:"oldVendorCode"`
 	// Новый штрихкод
-	NewShkId *int32 `json:"newShkId,omitempty"`
+	NewShkId int32 `json:"newShkId"`
 	// Новый цвет
-	NewColor *string `json:"newColor,omitempty"`
+	NewColor string `json:"newColor"`
 	// Новый размер
-	NewSize *string `json:"newSize,omitempty"`
+	NewSize string `json:"newSize"`
 	// Новый баркод
-	NewSku *string `json:"newSku,omitempty"`
+	NewSku string `json:"newSku"`
 	// Новый артикул продавца
-	NewVendorCode *string `json:"newVendorCode,omitempty"`
+	NewVendorCode string `json:"newVendorCode"`
 	// Сумма удержания
-	BonusSumm *float32 `json:"bonusSumm,omitempty"`
+	BonusSumm float32 `json:"bonusSumm"`
 	// Причина удержания
-	BonusType *string `json:"bonusType,omitempty"`
+	BonusType string `json:"bonusType"`
 	// Фото замеров
-	PhotoUrls []string `json:"photoUrls,omitempty"`
+	PhotoUrls []string `json:"photoUrls"`
 }
+
+type _GetV1Deductions200ResponseDataReportsInner GetV1Deductions200ResponseDataReportsInner
 
 // NewGetV1Deductions200ResponseDataReportsInner instantiates a new GetV1Deductions200ResponseDataReportsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1Deductions200ResponseDataReportsInner() *GetV1Deductions200ResponseDataReportsInner {
+func NewGetV1Deductions200ResponseDataReportsInner(dtBonus time.Time, nmId int32, oldShkId int32, oldColor string, oldSize string, oldSku string, oldVendorCode string, newShkId int32, newColor string, newSize string, newSku string, newVendorCode string, bonusSumm float32, bonusType string, photoUrls []string) *GetV1Deductions200ResponseDataReportsInner {
 	this := GetV1Deductions200ResponseDataReportsInner{}
+	this.DtBonus = dtBonus
+	this.NmId = nmId
+	this.OldShkId = oldShkId
+	this.OldColor = oldColor
+	this.OldSize = oldSize
+	this.OldSku = oldSku
+	this.OldVendorCode = oldVendorCode
+	this.NewShkId = newShkId
+	this.NewColor = newColor
+	this.NewSize = newSize
+	this.NewSku = newSku
+	this.NewVendorCode = newVendorCode
+	this.BonusSumm = bonusSumm
+	this.BonusType = bonusType
+	this.PhotoUrls = photoUrls
 	return &this
 }
 
@@ -69,482 +88,362 @@ func NewGetV1Deductions200ResponseDataReportsInnerWithDefaults() *GetV1Deduction
 	return &this
 }
 
-// GetDtBonus returns the DtBonus field value if set, zero value otherwise.
+// GetDtBonus returns the DtBonus field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetDtBonus() time.Time {
-	if o == nil || IsNil(o.DtBonus) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.DtBonus
+
+	return o.DtBonus
 }
 
-// GetDtBonusOk returns a tuple with the DtBonus field value if set, nil otherwise
+// GetDtBonusOk returns a tuple with the DtBonus field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetDtBonusOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.DtBonus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DtBonus, true
+	return &o.DtBonus, true
 }
 
-// HasDtBonus returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasDtBonus() bool {
-	if o != nil && !IsNil(o.DtBonus) {
-		return true
-	}
-
-	return false
-}
-
-// SetDtBonus gets a reference to the given time.Time and assigns it to the DtBonus field.
+// SetDtBonus sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetDtBonus(v time.Time) {
-	o.DtBonus = &v
+	o.DtBonus = v
 }
 
-// GetNmId returns the NmId field value if set, zero value otherwise.
+// GetNmId returns the NmId field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNmId() int32 {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NmId
+
+	return o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
+// GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNmIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmId, true
+	return &o.NmId, true
 }
 
-// HasNmId returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasNmId() bool {
-	if o != nil && !IsNil(o.NmId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
+// SetNmId sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetNmId(v int32) {
-	o.NmId = &v
+	o.NmId = v
 }
 
-// GetOldShkId returns the OldShkId field value if set, zero value otherwise.
+// GetOldShkId returns the OldShkId field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldShkId() int32 {
-	if o == nil || IsNil(o.OldShkId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OldShkId
+
+	return o.OldShkId
 }
 
-// GetOldShkIdOk returns a tuple with the OldShkId field value if set, nil otherwise
+// GetOldShkIdOk returns a tuple with the OldShkId field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldShkIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.OldShkId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldShkId, true
+	return &o.OldShkId, true
 }
 
-// HasOldShkId returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasOldShkId() bool {
-	if o != nil && !IsNil(o.OldShkId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldShkId gets a reference to the given int32 and assigns it to the OldShkId field.
+// SetOldShkId sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetOldShkId(v int32) {
-	o.OldShkId = &v
+	o.OldShkId = v
 }
 
-// GetOldColor returns the OldColor field value if set, zero value otherwise.
+// GetOldColor returns the OldColor field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldColor() string {
-	if o == nil || IsNil(o.OldColor) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OldColor
+
+	return o.OldColor
 }
 
-// GetOldColorOk returns a tuple with the OldColor field value if set, nil otherwise
+// GetOldColorOk returns a tuple with the OldColor field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldColorOk() (*string, bool) {
-	if o == nil || IsNil(o.OldColor) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldColor, true
+	return &o.OldColor, true
 }
 
-// HasOldColor returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasOldColor() bool {
-	if o != nil && !IsNil(o.OldColor) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldColor gets a reference to the given string and assigns it to the OldColor field.
+// SetOldColor sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetOldColor(v string) {
-	o.OldColor = &v
+	o.OldColor = v
 }
 
-// GetOldSize returns the OldSize field value if set, zero value otherwise.
+// GetOldSize returns the OldSize field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldSize() string {
-	if o == nil || IsNil(o.OldSize) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OldSize
+
+	return o.OldSize
 }
 
-// GetOldSizeOk returns a tuple with the OldSize field value if set, nil otherwise
+// GetOldSizeOk returns a tuple with the OldSize field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldSizeOk() (*string, bool) {
-	if o == nil || IsNil(o.OldSize) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldSize, true
+	return &o.OldSize, true
 }
 
-// HasOldSize returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasOldSize() bool {
-	if o != nil && !IsNil(o.OldSize) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldSize gets a reference to the given string and assigns it to the OldSize field.
+// SetOldSize sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetOldSize(v string) {
-	o.OldSize = &v
+	o.OldSize = v
 }
 
-// GetOldSku returns the OldSku field value if set, zero value otherwise.
+// GetOldSku returns the OldSku field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldSku() string {
-	if o == nil || IsNil(o.OldSku) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OldSku
+
+	return o.OldSku
 }
 
-// GetOldSkuOk returns a tuple with the OldSku field value if set, nil otherwise
+// GetOldSkuOk returns a tuple with the OldSku field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldSkuOk() (*string, bool) {
-	if o == nil || IsNil(o.OldSku) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldSku, true
+	return &o.OldSku, true
 }
 
-// HasOldSku returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasOldSku() bool {
-	if o != nil && !IsNil(o.OldSku) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldSku gets a reference to the given string and assigns it to the OldSku field.
+// SetOldSku sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetOldSku(v string) {
-	o.OldSku = &v
+	o.OldSku = v
 }
 
-// GetOldVendorCode returns the OldVendorCode field value if set, zero value otherwise.
+// GetOldVendorCode returns the OldVendorCode field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldVendorCode() string {
-	if o == nil || IsNil(o.OldVendorCode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OldVendorCode
+
+	return o.OldVendorCode
 }
 
-// GetOldVendorCodeOk returns a tuple with the OldVendorCode field value if set, nil otherwise
+// GetOldVendorCodeOk returns a tuple with the OldVendorCode field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetOldVendorCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.OldVendorCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldVendorCode, true
+	return &o.OldVendorCode, true
 }
 
-// HasOldVendorCode returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasOldVendorCode() bool {
-	if o != nil && !IsNil(o.OldVendorCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldVendorCode gets a reference to the given string and assigns it to the OldVendorCode field.
+// SetOldVendorCode sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetOldVendorCode(v string) {
-	o.OldVendorCode = &v
+	o.OldVendorCode = v
 }
 
-// GetNewShkId returns the NewShkId field value if set, zero value otherwise.
+// GetNewShkId returns the NewShkId field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewShkId() int32 {
-	if o == nil || IsNil(o.NewShkId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NewShkId
+
+	return o.NewShkId
 }
 
-// GetNewShkIdOk returns a tuple with the NewShkId field value if set, nil otherwise
+// GetNewShkIdOk returns a tuple with the NewShkId field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewShkIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.NewShkId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewShkId, true
+	return &o.NewShkId, true
 }
 
-// HasNewShkId returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasNewShkId() bool {
-	if o != nil && !IsNil(o.NewShkId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewShkId gets a reference to the given int32 and assigns it to the NewShkId field.
+// SetNewShkId sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetNewShkId(v int32) {
-	o.NewShkId = &v
+	o.NewShkId = v
 }
 
-// GetNewColor returns the NewColor field value if set, zero value otherwise.
+// GetNewColor returns the NewColor field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewColor() string {
-	if o == nil || IsNil(o.NewColor) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NewColor
+
+	return o.NewColor
 }
 
-// GetNewColorOk returns a tuple with the NewColor field value if set, nil otherwise
+// GetNewColorOk returns a tuple with the NewColor field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewColorOk() (*string, bool) {
-	if o == nil || IsNil(o.NewColor) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewColor, true
+	return &o.NewColor, true
 }
 
-// HasNewColor returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasNewColor() bool {
-	if o != nil && !IsNil(o.NewColor) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewColor gets a reference to the given string and assigns it to the NewColor field.
+// SetNewColor sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetNewColor(v string) {
-	o.NewColor = &v
+	o.NewColor = v
 }
 
-// GetNewSize returns the NewSize field value if set, zero value otherwise.
+// GetNewSize returns the NewSize field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewSize() string {
-	if o == nil || IsNil(o.NewSize) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NewSize
+
+	return o.NewSize
 }
 
-// GetNewSizeOk returns a tuple with the NewSize field value if set, nil otherwise
+// GetNewSizeOk returns a tuple with the NewSize field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewSizeOk() (*string, bool) {
-	if o == nil || IsNil(o.NewSize) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewSize, true
+	return &o.NewSize, true
 }
 
-// HasNewSize returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasNewSize() bool {
-	if o != nil && !IsNil(o.NewSize) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewSize gets a reference to the given string and assigns it to the NewSize field.
+// SetNewSize sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetNewSize(v string) {
-	o.NewSize = &v
+	o.NewSize = v
 }
 
-// GetNewSku returns the NewSku field value if set, zero value otherwise.
+// GetNewSku returns the NewSku field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewSku() string {
-	if o == nil || IsNil(o.NewSku) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NewSku
+
+	return o.NewSku
 }
 
-// GetNewSkuOk returns a tuple with the NewSku field value if set, nil otherwise
+// GetNewSkuOk returns a tuple with the NewSku field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewSkuOk() (*string, bool) {
-	if o == nil || IsNil(o.NewSku) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewSku, true
+	return &o.NewSku, true
 }
 
-// HasNewSku returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasNewSku() bool {
-	if o != nil && !IsNil(o.NewSku) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewSku gets a reference to the given string and assigns it to the NewSku field.
+// SetNewSku sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetNewSku(v string) {
-	o.NewSku = &v
+	o.NewSku = v
 }
 
-// GetNewVendorCode returns the NewVendorCode field value if set, zero value otherwise.
+// GetNewVendorCode returns the NewVendorCode field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewVendorCode() string {
-	if o == nil || IsNil(o.NewVendorCode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NewVendorCode
+
+	return o.NewVendorCode
 }
 
-// GetNewVendorCodeOk returns a tuple with the NewVendorCode field value if set, nil otherwise
+// GetNewVendorCodeOk returns a tuple with the NewVendorCode field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetNewVendorCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.NewVendorCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewVendorCode, true
+	return &o.NewVendorCode, true
 }
 
-// HasNewVendorCode returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasNewVendorCode() bool {
-	if o != nil && !IsNil(o.NewVendorCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewVendorCode gets a reference to the given string and assigns it to the NewVendorCode field.
+// SetNewVendorCode sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetNewVendorCode(v string) {
-	o.NewVendorCode = &v
+	o.NewVendorCode = v
 }
 
-// GetBonusSumm returns the BonusSumm field value if set, zero value otherwise.
+// GetBonusSumm returns the BonusSumm field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetBonusSumm() float32 {
-	if o == nil || IsNil(o.BonusSumm) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.BonusSumm
+
+	return o.BonusSumm
 }
 
-// GetBonusSummOk returns a tuple with the BonusSumm field value if set, nil otherwise
+// GetBonusSummOk returns a tuple with the BonusSumm field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetBonusSummOk() (*float32, bool) {
-	if o == nil || IsNil(o.BonusSumm) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BonusSumm, true
+	return &o.BonusSumm, true
 }
 
-// HasBonusSumm returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasBonusSumm() bool {
-	if o != nil && !IsNil(o.BonusSumm) {
-		return true
-	}
-
-	return false
-}
-
-// SetBonusSumm gets a reference to the given float32 and assigns it to the BonusSumm field.
+// SetBonusSumm sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetBonusSumm(v float32) {
-	o.BonusSumm = &v
+	o.BonusSumm = v
 }
 
-// GetBonusType returns the BonusType field value if set, zero value otherwise.
+// GetBonusType returns the BonusType field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetBonusType() string {
-	if o == nil || IsNil(o.BonusType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.BonusType
+
+	return o.BonusType
 }
 
-// GetBonusTypeOk returns a tuple with the BonusType field value if set, nil otherwise
+// GetBonusTypeOk returns a tuple with the BonusType field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetBonusTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.BonusType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BonusType, true
+	return &o.BonusType, true
 }
 
-// HasBonusType returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasBonusType() bool {
-	if o != nil && !IsNil(o.BonusType) {
-		return true
-	}
-
-	return false
-}
-
-// SetBonusType gets a reference to the given string and assigns it to the BonusType field.
+// SetBonusType sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetBonusType(v string) {
-	o.BonusType = &v
+	o.BonusType = v
 }
 
-// GetPhotoUrls returns the PhotoUrls field value if set, zero value otherwise.
+// GetPhotoUrls returns the PhotoUrls field value
 func (o *GetV1Deductions200ResponseDataReportsInner) GetPhotoUrls() []string {
-	if o == nil || IsNil(o.PhotoUrls) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.PhotoUrls
 }
 
-// GetPhotoUrlsOk returns a tuple with the PhotoUrls field value if set, nil otherwise
+// GetPhotoUrlsOk returns a tuple with the PhotoUrls field value
 // and a boolean to check if the value has been set.
 func (o *GetV1Deductions200ResponseDataReportsInner) GetPhotoUrlsOk() ([]string, bool) {
-	if o == nil || IsNil(o.PhotoUrls) {
+	if o == nil {
 		return nil, false
 	}
 	return o.PhotoUrls, true
 }
 
-// HasPhotoUrls returns a boolean if a field has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) HasPhotoUrls() bool {
-	if o != nil && !IsNil(o.PhotoUrls) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhotoUrls gets a reference to the given []string and assigns it to the PhotoUrls field.
+// SetPhotoUrls sets field value
 func (o *GetV1Deductions200ResponseDataReportsInner) SetPhotoUrls(v []string) {
 	o.PhotoUrls = v
 }
@@ -559,52 +458,73 @@ func (o GetV1Deductions200ResponseDataReportsInner) MarshalJSON() ([]byte, error
 
 func (o GetV1Deductions200ResponseDataReportsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DtBonus) {
-		toSerialize["dtBonus"] = o.DtBonus
-	}
-	if !IsNil(o.NmId) {
-		toSerialize["nmId"] = o.NmId
-	}
-	if !IsNil(o.OldShkId) {
-		toSerialize["oldShkId"] = o.OldShkId
-	}
-	if !IsNil(o.OldColor) {
-		toSerialize["oldColor"] = o.OldColor
-	}
-	if !IsNil(o.OldSize) {
-		toSerialize["oldSize"] = o.OldSize
-	}
-	if !IsNil(o.OldSku) {
-		toSerialize["oldSku"] = o.OldSku
-	}
-	if !IsNil(o.OldVendorCode) {
-		toSerialize["oldVendorCode"] = o.OldVendorCode
-	}
-	if !IsNil(o.NewShkId) {
-		toSerialize["newShkId"] = o.NewShkId
-	}
-	if !IsNil(o.NewColor) {
-		toSerialize["newColor"] = o.NewColor
-	}
-	if !IsNil(o.NewSize) {
-		toSerialize["newSize"] = o.NewSize
-	}
-	if !IsNil(o.NewSku) {
-		toSerialize["newSku"] = o.NewSku
-	}
-	if !IsNil(o.NewVendorCode) {
-		toSerialize["newVendorCode"] = o.NewVendorCode
-	}
-	if !IsNil(o.BonusSumm) {
-		toSerialize["bonusSumm"] = o.BonusSumm
-	}
-	if !IsNil(o.BonusType) {
-		toSerialize["bonusType"] = o.BonusType
-	}
-	if !IsNil(o.PhotoUrls) {
-		toSerialize["photoUrls"] = o.PhotoUrls
-	}
+	toSerialize["dtBonus"] = o.DtBonus
+	toSerialize["nmId"] = o.NmId
+	toSerialize["oldShkId"] = o.OldShkId
+	toSerialize["oldColor"] = o.OldColor
+	toSerialize["oldSize"] = o.OldSize
+	toSerialize["oldSku"] = o.OldSku
+	toSerialize["oldVendorCode"] = o.OldVendorCode
+	toSerialize["newShkId"] = o.NewShkId
+	toSerialize["newColor"] = o.NewColor
+	toSerialize["newSize"] = o.NewSize
+	toSerialize["newSku"] = o.NewSku
+	toSerialize["newVendorCode"] = o.NewVendorCode
+	toSerialize["bonusSumm"] = o.BonusSumm
+	toSerialize["bonusType"] = o.BonusType
+	toSerialize["photoUrls"] = o.PhotoUrls
 	return toSerialize, nil
+}
+
+func (o *GetV1Deductions200ResponseDataReportsInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"dtBonus",
+		"nmId",
+		"oldShkId",
+		"oldColor",
+		"oldSize",
+		"oldSku",
+		"oldVendorCode",
+		"newShkId",
+		"newColor",
+		"newSize",
+		"newSku",
+		"newVendorCode",
+		"bonusSumm",
+		"bonusType",
+		"photoUrls",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1Deductions200ResponseDataReportsInner := _GetV1Deductions200ResponseDataReportsInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1Deductions200ResponseDataReportsInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1Deductions200ResponseDataReportsInner(varGetV1Deductions200ResponseDataReportsInner)
+
+	return err
 }
 
 type NullableGetV1Deductions200ResponseDataReportsInner struct {

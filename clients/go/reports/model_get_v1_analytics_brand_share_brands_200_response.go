@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AnalyticsBrandShareBrands200Response type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &GetV1AnalyticsBrandShareBrands200Response{}
 // GetV1AnalyticsBrandShareBrands200Response struct for GetV1AnalyticsBrandShareBrands200Response
 type GetV1AnalyticsBrandShareBrands200Response struct {
 	// Список брендов
-	Data []string `json:"data,omitempty"`
+	Data []string `json:"data"`
 }
+
+type _GetV1AnalyticsBrandShareBrands200Response GetV1AnalyticsBrandShareBrands200Response
 
 // NewGetV1AnalyticsBrandShareBrands200Response instantiates a new GetV1AnalyticsBrandShareBrands200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AnalyticsBrandShareBrands200Response() *GetV1AnalyticsBrandShareBrands200Response {
+func NewGetV1AnalyticsBrandShareBrands200Response(data []string) *GetV1AnalyticsBrandShareBrands200Response {
 	this := GetV1AnalyticsBrandShareBrands200Response{}
+	this.Data = data
 	return &this
 }
 
@@ -40,34 +45,26 @@ func NewGetV1AnalyticsBrandShareBrands200ResponseWithDefaults() *GetV1AnalyticsB
 	return &this
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
+// GetData returns the Data field value
 func (o *GetV1AnalyticsBrandShareBrands200Response) GetData() []string {
-	if o == nil || IsNil(o.Data) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
+// GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBrandShareBrands200Response) GetDataOk() ([]string, bool) {
-	if o == nil || IsNil(o.Data) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Data, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBrandShareBrands200Response) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
-		return true
-	}
-
-	return false
-}
-
-// SetData gets a reference to the given []string and assigns it to the Data field.
+// SetData sets field value
 func (o *GetV1AnalyticsBrandShareBrands200Response) SetData(v []string) {
 	o.Data = v
 }
@@ -82,10 +79,45 @@ func (o GetV1AnalyticsBrandShareBrands200Response) MarshalJSON() ([]byte, error)
 
 func (o GetV1AnalyticsBrandShareBrands200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
-	}
+	toSerialize["data"] = o.Data
 	return toSerialize, nil
+}
+
+func (o *GetV1AnalyticsBrandShareBrands200Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"data",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AnalyticsBrandShareBrands200Response := _GetV1AnalyticsBrandShareBrands200Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AnalyticsBrandShareBrands200Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AnalyticsBrandShareBrands200Response(varGetV1AnalyticsBrandShareBrands200Response)
+
+	return err
 }
 
 type NullableGetV1AnalyticsBrandShareBrands200Response struct {

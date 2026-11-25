@@ -28,14 +28,14 @@ class WHMDataReportsInner(BaseModel):
     """
     WHMDataReportsInner
     """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId", json_schema_extra={"examples": [123456789]})
-    subject_name: Optional[StrictStr] = Field(default=None, description="Предмет", alias="subjectName", json_schema_extra={"examples": [""]})
-    dim_id: Optional[StrictInt] = Field(default=None, description="ID замера", alias="dimId", json_schema_extra={"examples": [123456789]})
-    volume: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Объём, л")
-    width: Optional[StrictInt] = Field(default=None, description="Ширина, см", json_schema_extra={"examples": [66]})
-    length: Optional[StrictInt] = Field(default=None, description="Длина, см", json_schema_extra={"examples": [54]})
-    height: Optional[StrictInt] = Field(default=None, description="Высота, см", json_schema_extra={"examples": [11]})
-    photo_urls: Optional[List[StrictStr]] = Field(default=None, description="Фото замеров", alias="photoUrls", json_schema_extra={"examples": [["https://static-basket-03.wb.ru/vol54/handheld-goods-measurements-photo/8906416_a9f839da-c3b7-4ed6-737c-a9e731250fb0.jpg", "https://static-basket-03.wb.ru/vol54/handheld-goods-measurements-photo/8906416_2aac23b7-c8f9-42db-74e9-b4a9c916017c.jpg", "https://static-basket-03.wb.ru/vol54/handheld-goods-measurements-photo/8906416_ff93b7c4-19d6-e0a2-4dba-7c2f09f06b3.jpg"]]})
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [123456789]})
+    subject_name: StrictStr = Field(description="Предмет", alias="subjectName", json_schema_extra={"examples": [""]})
+    dim_id: StrictInt = Field(description="ID замера", alias="dimId", json_schema_extra={"examples": [123456789]})
+    volume: Union[StrictFloat, StrictInt] = Field(description="Объём, л")
+    width: StrictInt = Field(description="Ширина, см", json_schema_extra={"examples": [66]})
+    length: StrictInt = Field(description="Длина, см", json_schema_extra={"examples": [54]})
+    height: StrictInt = Field(description="Высота, см", json_schema_extra={"examples": [11]})
+    photo_urls: List[StrictStr] = Field(description="Фото замеров", alias="photoUrls", json_schema_extra={"examples": [["https://static-basket-03.wb.ru/vol54/handheld-goods-measurements-photo/8906416_a9f839da-c3b7-4ed6-737c-a9e731250fb0.jpg", "https://static-basket-03.wb.ru/vol54/handheld-goods-measurements-photo/8906416_2aac23b7-c8f9-42db-74e9-b4a9c916017c.jpg", "https://static-basket-03.wb.ru/vol54/handheld-goods-measurements-photo/8906416_ff93b7c4-19d6-e0a2-4dba-7c2f09f06b3.jpg"]]})
     dt: Optional[datetime] = Field(default=None, description="Дата и время", json_schema_extra={"examples": ["2025-04-01T00:06:00Z"]})
     __properties: ClassVar[List[str]] = ["nmId", "subjectName", "dimId", "volume", "width", "length", "height", "photoUrls", "dt"]
 

@@ -309,6 +309,15 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['open_card'] === null) {
             $invalidProperties[] = "'open_card' can't be null";
         }
+        if ($this->container['by_day'] === null) {
+            $invalidProperties[] = "'by_day' can't be null";
+        }
+        if ($this->container['by_week'] === null) {
+            $invalidProperties[] = "'by_week' can't be null";
+        }
+        if ($this->container['by_month'] === null) {
+            $invalidProperties[] = "'by_month' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -381,7 +390,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets by_day
      *
-     * @return \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]|null
+     * @return \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]
      */
     public function getByDay()
     {
@@ -391,7 +400,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets by_day
      *
-     * @param \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]|null $by_day Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
+     * @param \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[] $by_day Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
      *
      * @return self
      */
@@ -408,7 +417,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets by_week
      *
-     * @return \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]|null
+     * @return \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]
      */
     public function getByWeek()
     {
@@ -418,7 +427,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets by_week
      *
-     * @param \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]|null $by_week Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
+     * @param \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[] $by_week Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
      *
      * @return self
      */
@@ -435,7 +444,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets by_month
      *
-     * @return \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]|null
+     * @return \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]
      */
     public function getByMonth()
     {
@@ -445,7 +454,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets by_month
      *
-     * @param \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]|null $by_month Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам
+     * @param \Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[] $by_month Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам
      *
      * @return self
      */

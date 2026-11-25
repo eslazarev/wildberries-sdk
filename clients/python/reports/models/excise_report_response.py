@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.reports.models.models_excise_report_response import ModelsExciseReportResponse
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class ExciseReportResponse(BaseModel):
     """
     ExciseReportResponse
     """ # noqa: E501
-    response: Optional[ModelsExciseReportResponse] = None
+    response: ModelsExciseReportResponse
     __properties: ClassVar[List[str]] = ["response"]
 
     model_config = ConfigDict(

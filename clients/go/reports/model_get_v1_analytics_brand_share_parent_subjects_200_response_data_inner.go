@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &GetV1AnalyticsBrandShareParentSubjects200ResponseDataInn
 // GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner struct for GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner
 type GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner struct {
 	// ID родительской категории
-	ParentId *int32 `json:"parentId,omitempty"`
+	ParentId int32 `json:"parentId"`
 	// Название родительской категории
-	ParentName *string `json:"parentName,omitempty"`
+	ParentName string `json:"parentName"`
 }
+
+type _GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner
 
 // NewGetV1AnalyticsBrandShareParentSubjects200ResponseDataInner instantiates a new GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AnalyticsBrandShareParentSubjects200ResponseDataInner() *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
+func NewGetV1AnalyticsBrandShareParentSubjects200ResponseDataInner(parentId int32, parentName string) *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
 	this := GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner{}
+	this.ParentId = parentId
+	this.ParentName = parentName
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewGetV1AnalyticsBrandShareParentSubjects200ResponseDataInnerWithDefaults()
 	return &this
 }
 
-// GetParentId returns the ParentId field value if set, zero value otherwise.
+// GetParentId returns the ParentId field value
 func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) GetParentId() int32 {
-	if o == nil || IsNil(o.ParentId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ParentId
+
+	return o.ParentId
 }
 
-// GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
+// GetParentIdOk returns a tuple with the ParentId field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) GetParentIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.ParentId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ParentId, true
+	return &o.ParentId, true
 }
 
-// HasParentId returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) HasParentId() bool {
-	if o != nil && !IsNil(o.ParentId) {
-		return true
-	}
-
-	return false
-}
-
-// SetParentId gets a reference to the given int32 and assigns it to the ParentId field.
+// SetParentId sets field value
 func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) SetParentId(v int32) {
-	o.ParentId = &v
+	o.ParentId = v
 }
 
-// GetParentName returns the ParentName field value if set, zero value otherwise.
+// GetParentName returns the ParentName field value
 func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) GetParentName() string {
-	if o == nil || IsNil(o.ParentName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ParentName
+
+	return o.ParentName
 }
 
-// GetParentNameOk returns a tuple with the ParentName field value if set, nil otherwise
+// GetParentNameOk returns a tuple with the ParentName field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) GetParentNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ParentName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ParentName, true
+	return &o.ParentName, true
 }
 
-// HasParentName returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) HasParentName() bool {
-	if o != nil && !IsNil(o.ParentName) {
-		return true
-	}
-
-	return false
-}
-
-// SetParentName gets a reference to the given string and assigns it to the ParentName field.
+// SetParentName sets field value
 func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) SetParentName(v string) {
-	o.ParentName = &v
+	o.ParentName = v
 }
 
 func (o GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) MarshalJSON() ([]byte, error) {
@@ -116,13 +106,47 @@ func (o GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) MarshalJSON(
 
 func (o GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ParentId) {
-		toSerialize["parentId"] = o.ParentId
-	}
-	if !IsNil(o.ParentName) {
-		toSerialize["parentName"] = o.ParentName
-	}
+	toSerialize["parentId"] = o.ParentId
+	toSerialize["parentName"] = o.ParentName
 	return toSerialize, nil
+}
+
+func (o *GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"parentId",
+		"parentName",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AnalyticsBrandShareParentSubjects200ResponseDataInner := _GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AnalyticsBrandShareParentSubjects200ResponseDataInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner(varGetV1AnalyticsBrandShareParentSubjects200ResponseDataInner)
+
+	return err
 }
 
 type NullableGetV1AnalyticsBrandShareParentSubjects200ResponseDataInner struct {

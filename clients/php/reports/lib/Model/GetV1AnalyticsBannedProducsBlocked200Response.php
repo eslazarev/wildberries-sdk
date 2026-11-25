@@ -274,6 +274,9 @@ class GetV1AnalyticsBannedProducsBlocked200Response implements ModelInterface, A
     {
         $invalidProperties = [];
 
+        if ($this->container['report'] === null) {
+            $invalidProperties[] = "'report' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class GetV1AnalyticsBannedProducsBlocked200Response implements ModelInterface, A
     /**
      * Gets report
      *
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked200ResponseReportInner[]|null
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked200ResponseReportInner[]
      */
     public function getReport()
     {
@@ -302,7 +305,7 @@ class GetV1AnalyticsBannedProducsBlocked200Response implements ModelInterface, A
     /**
      * Sets report
      *
-     * @param \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked200ResponseReportInner[]|null $report Отчёт
+     * @param \Wildberries\Sdk\Reports\Model\GetV1AnalyticsBannedProducsBlocked200ResponseReportInner[] $report Отчёт
      *
      * @return self
      */

@@ -274,6 +274,9 @@ class GetV1AnalyticsAntifraudDetails200Response implements ModelInterface, Array
     {
         $invalidProperties = [];
 
+        if ($this->container['details'] === null) {
+            $invalidProperties[] = "'details' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class GetV1AnalyticsAntifraudDetails200Response implements ModelInterface, Array
     /**
      * Gets details
      *
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsAntifraudDetails200ResponseDetailsInner[]|null
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsAntifraudDetails200ResponseDetailsInner[]
      */
     public function getDetails()
     {
@@ -302,7 +305,7 @@ class GetV1AnalyticsAntifraudDetails200Response implements ModelInterface, Array
     /**
      * Sets details
      *
-     * @param \Wildberries\Sdk\Reports\Model\GetV1AnalyticsAntifraudDetails200ResponseDetailsInner[]|null $details details
+     * @param \Wildberries\Sdk\Reports\Model\GetV1AnalyticsAntifraudDetails200ResponseDetailsInner[] $details details
      *
      * @return self
      */

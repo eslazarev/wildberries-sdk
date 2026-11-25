@@ -3454,7 +3454,7 @@ components:
         phoneCode:
           description: |
             Добавочный код. <br>
-            Пустое значение `""` указывает, что код ещё не назначен
+            Значение `0` указывает, что код ещё не назначен
           example: 1234567
           nullable: false
           type: integer

@@ -274,6 +274,9 @@ class GetV1AnalyticsGoodsLabeling200Response implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
+        if ($this->container['report'] === null) {
+            $invalidProperties[] = "'report' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class GetV1AnalyticsGoodsLabeling200Response implements ModelInterface, ArrayAcc
     /**
      * Gets report
      *
-     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsLabeling200ResponseReportInner[]|null
+     * @return \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsLabeling200ResponseReportInner[]
      */
     public function getReport()
     {
@@ -302,7 +305,7 @@ class GetV1AnalyticsGoodsLabeling200Response implements ModelInterface, ArrayAcc
     /**
      * Sets report
      *
-     * @param \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsLabeling200ResponseReportInner[]|null $report report
+     * @param \Wildberries\Sdk\Reports\Model\GetV1AnalyticsGoodsLabeling200ResponseReportInner[] $report report
      *
      * @return self
      */

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from wildberries_sdk.analytics.models.distribution_table_item_feedback_count import DistributionTableItemFeedbackCount
 from wildberries_sdk.analytics.models.distribution_table_item_feedback_rating import DistributionTableItemFeedbackRating
 from wildberries_sdk.analytics.models.distribution_table_item_five_star import DistributionTableItemFiveStar
@@ -35,13 +35,13 @@ class DistributionTableItem(BaseModel):
     DistributionTableItem
     """ # noqa: E501
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [123456789]})
-    title: StrictStr = Field(description="Название товара", json_schema_extra={"examples": ["iPh 17 512 ГБ Серебристый"]})
+    title: Optional[StrictStr] = Field(default=None, description="Название товара", json_schema_extra={"examples": ["iPh 17 512 ГБ Серебристый"]})
     vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode", json_schema_extra={"examples": ["wb3ha2668w"]})
     subject_id: StrictInt = Field(description="ID предмета", alias="subjectId", json_schema_extra={"examples": [50]})
     subject_name: StrictStr = Field(description="Название предмета", alias="subjectName", json_schema_extra={"examples": ["Phones"]})
-    brand_name: StrictStr = Field(description="Бренд", alias="brandName", json_schema_extra={"examples": ["Attlee"]})
-    tag_name: StrictStr = Field(description="Название ярлыка", alias="tagName", json_schema_extra={"examples": ["Phones"]})
-    tag_id: StrictInt = Field(description="ID ярлыка", alias="tagId", json_schema_extra={"examples": [65]})
+    brand_name: Optional[StrictStr] = Field(default=None, description="Бренд", alias="brandName", json_schema_extra={"examples": ["Attlee"]})
+    tag_name: Optional[StrictStr] = Field(default=None, description="Название ярлыка", alias="tagName", json_schema_extra={"examples": ["Phones"]})
+    tag_id: Optional[StrictInt] = Field(default=None, description="ID ярлыка", alias="tagId", json_schema_extra={"examples": [65]})
     pinned_feedback: StrictBool = Field(description="Отзыв закреплён", alias="pinnedFeedback", json_schema_extra={"examples": [True]})
     rating: Union[StrictFloat, StrictInt] = Field(description="Рейтинг карточки товара", json_schema_extra={"examples": [10]})
     feedback_rating: DistributionTableItemFeedbackRating = Field(alias="feedbackRating")

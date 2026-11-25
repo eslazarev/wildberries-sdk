@@ -403,9 +403,6 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['nm_id'] === null) {
             $invalidProperties[] = "'nm_id' can't be null";
         }
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
         if ($this->container['vendor_code'] === null) {
             $invalidProperties[] = "'vendor_code' can't be null";
         }
@@ -414,15 +411,6 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         }
         if ($this->container['subject_name'] === null) {
             $invalidProperties[] = "'subject_name' can't be null";
-        }
-        if ($this->container['brand_name'] === null) {
-            $invalidProperties[] = "'brand_name' can't be null";
-        }
-        if ($this->container['tag_name'] === null) {
-            $invalidProperties[] = "'tag_name' can't be null";
-        }
-        if ($this->container['tag_id'] === null) {
-            $invalidProperties[] = "'tag_id' can't be null";
         }
         if ($this->container['pinned_feedback'] === null) {
             $invalidProperties[] = "'pinned_feedback' can't be null";
@@ -502,7 +490,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets title
      *
-     * @return string
+     * @return string|null
      */
     public function getTitle()
     {
@@ -512,7 +500,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets title
      *
-     * @param string $title Название товара
+     * @param string|null $title Название товара
      *
      * @return self
      */
@@ -610,7 +598,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets brand_name
      *
-     * @return string
+     * @return string|null
      */
     public function getBrandName()
     {
@@ -620,7 +608,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets brand_name
      *
-     * @param string $brand_name Бренд
+     * @param string|null $brand_name Бренд
      *
      * @return self
      */
@@ -637,7 +625,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets tag_name
      *
-     * @return string
+     * @return string|null
      */
     public function getTagName()
     {
@@ -647,7 +635,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets tag_name
      *
-     * @param string $tag_name Название ярлыка
+     * @param string|null $tag_name Название ярлыка
      *
      * @return self
      */
@@ -664,7 +652,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets tag_id
      *
-     * @return int
+     * @return int|null
      */
     public function getTagId()
     {
@@ -674,7 +662,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets tag_id
      *
-     * @param int $tag_id ID ярлыка
+     * @param int|null $tag_id ID ярлыка
      *
      * @return self
      */

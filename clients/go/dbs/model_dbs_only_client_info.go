@@ -35,7 +35,7 @@ type DbsOnlyClientInfo struct {
 	ReplacementAdditionalPhones []string `json:"replacementAdditionalPhones"`
 	// ID сборочного задания
 	OrderID int32 `json:"orderID"`
-	// Добавочный код. <br> Пустое значение `\"\"` указывает, что код ещё не назначен 
+	// Добавочный код. <br> Значение `0` указывает, что код ещё не назначен 
 	PhoneCode int32 `json:"phoneCode"`
 	// Дополнительные добавочные коды. <br> Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br> Пустое значение `\"\"` указывает, что код ещё не назначен 
 	AdditionalPhoneCodes []string `json:"additionalPhoneCodes"`

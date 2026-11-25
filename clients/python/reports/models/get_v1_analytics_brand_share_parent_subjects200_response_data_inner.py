@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,8 +27,8 @@ class GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner(BaseModel):
     """
     GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner
     """ # noqa: E501
-    parent_id: Optional[StrictInt] = Field(default=None, description="ID родительской категории", alias="parentId")
-    parent_name: Optional[StrictStr] = Field(default=None, description="Название родительской категории", alias="parentName")
+    parent_id: StrictInt = Field(description="ID родительской категории", alias="parentId")
+    parent_name: StrictStr = Field(description="Название родительской категории", alias="parentName")
     __properties: ClassVar[List[str]] = ["parentId", "parentName"]
 
     model_config = ConfigDict(

@@ -274,6 +274,9 @@ class NmReportRetryReportRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['download_id'] === null) {
+            $invalidProperties[] = "'download_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class NmReportRetryReportRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets download_id
      *
-     * @return string|null
+     * @return string
      */
     public function getDownloadId()
     {
@@ -302,7 +305,7 @@ class NmReportRetryReportRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets download_id
      *
-     * @param string|null $download_id ID отчёта
+     * @param string $download_id ID отчёта
      *
      * @return self
      */

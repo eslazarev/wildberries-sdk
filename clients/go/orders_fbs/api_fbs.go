@@ -1072,9 +1072,9 @@ func (r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) Execute() (*SupplyShip
 /*
 GetV3FbsSuppliesSupplyIdShippingPoints Получить список пунктов отгрузки поставки
 
-Метод возвращает доступные пункты отгрузки для указанной поставки.
+Метод возвращает доступные пункты отгрузки для указанной поставки. <br>
 
-Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:

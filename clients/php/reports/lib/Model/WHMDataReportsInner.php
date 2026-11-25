@@ -330,6 +330,30 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['nm_id'] === null) {
+            $invalidProperties[] = "'nm_id' can't be null";
+        }
+        if ($this->container['subject_name'] === null) {
+            $invalidProperties[] = "'subject_name' can't be null";
+        }
+        if ($this->container['dim_id'] === null) {
+            $invalidProperties[] = "'dim_id' can't be null";
+        }
+        if ($this->container['volume'] === null) {
+            $invalidProperties[] = "'volume' can't be null";
+        }
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['length'] === null) {
+            $invalidProperties[] = "'length' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
+        if ($this->container['photo_urls'] === null) {
+            $invalidProperties[] = "'photo_urls' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -348,7 +372,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets nm_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNmId()
     {
@@ -358,7 +382,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets nm_id
      *
-     * @param int|null $nm_id Артикул WB
+     * @param int $nm_id Артикул WB
      *
      * @return self
      */
@@ -375,7 +399,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets subject_name
      *
-     * @return string|null
+     * @return string
      */
     public function getSubjectName()
     {
@@ -385,7 +409,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets subject_name
      *
-     * @param string|null $subject_name Предмет
+     * @param string $subject_name Предмет
      *
      * @return self
      */
@@ -402,7 +426,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets dim_id
      *
-     * @return int|null
+     * @return int
      */
     public function getDimId()
     {
@@ -412,7 +436,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets dim_id
      *
-     * @param int|null $dim_id ID замера
+     * @param int $dim_id ID замера
      *
      * @return self
      */
@@ -429,7 +453,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets volume
      *
-     * @return float|null
+     * @return float
      */
     public function getVolume()
     {
@@ -439,7 +463,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets volume
      *
-     * @param float|null $volume Объём, л
+     * @param float $volume Объём, л
      *
      * @return self
      */
@@ -456,7 +480,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets width
      *
-     * @return int|null
+     * @return int
      */
     public function getWidth()
     {
@@ -466,7 +490,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets width
      *
-     * @param int|null $width Ширина, см
+     * @param int $width Ширина, см
      *
      * @return self
      */
@@ -483,7 +507,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets length
      *
-     * @return int|null
+     * @return int
      */
     public function getLength()
     {
@@ -493,7 +517,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets length
      *
-     * @param int|null $length Длина, см
+     * @param int $length Длина, см
      *
      * @return self
      */
@@ -510,7 +534,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets height
      *
-     * @return int|null
+     * @return int
      */
     public function getHeight()
     {
@@ -520,7 +544,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets height
      *
-     * @param int|null $height Высота, см
+     * @param int $height Высота, см
      *
      * @return self
      */
@@ -537,7 +561,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets photo_urls
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getPhotoUrls()
     {
@@ -547,7 +571,7 @@ class WHMDataReportsInner implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets photo_urls
      *
-     * @param string[]|null $photo_urls Фото замеров
+     * @param string[] $photo_urls Фото замеров
      *
      * @return self
      */

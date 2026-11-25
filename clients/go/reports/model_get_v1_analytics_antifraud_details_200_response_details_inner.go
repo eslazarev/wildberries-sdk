@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AnalyticsAntifraudDetails200ResponseDetailsInner type satisfies the MappedNullable interface at compile time
@@ -19,24 +21,31 @@ var _ MappedNullable = &GetV1AnalyticsAntifraudDetails200ResponseDetailsInner{}
 
 // GetV1AnalyticsAntifraudDetails200ResponseDetailsInner struct for GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
 type GetV1AnalyticsAntifraudDetails200ResponseDetailsInner struct {
-	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
-	// Сумма заказа
-	Sum *int32 `json:"sum,omitempty"`
 	// Валюта заказа
-	Currency *string `json:"currency,omitempty"`
+	Currency string `json:"currency"`
 	// Начало отчётного периода
-	DateFrom *string `json:"dateFrom,omitempty"`
+	DateFrom string `json:"dateFrom"`
 	// Конец отчётного периода
-	DateTo *string `json:"dateTo,omitempty"`
+	DateTo string `json:"dateTo"`
+	// Артикул WB
+	NmID int32 `json:"nmID"`
+	// Сумма заказа
+	Sum int32 `json:"sum"`
 }
+
+type _GetV1AnalyticsAntifraudDetails200ResponseDetailsInner GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
 
 // NewGetV1AnalyticsAntifraudDetails200ResponseDetailsInner instantiates a new GetV1AnalyticsAntifraudDetails200ResponseDetailsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AnalyticsAntifraudDetails200ResponseDetailsInner() *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
+func NewGetV1AnalyticsAntifraudDetails200ResponseDetailsInner(currency string, dateFrom string, dateTo string, nmID int32, sum int32) *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
 	this := GetV1AnalyticsAntifraudDetails200ResponseDetailsInner{}
+	this.Currency = currency
+	this.DateFrom = dateFrom
+	this.DateTo = dateTo
+	this.NmID = nmID
+	this.Sum = sum
 	return &this
 }
 
@@ -48,164 +57,124 @@ func NewGetV1AnalyticsAntifraudDetails200ResponseDetailsInnerWithDefaults() *Get
 	return &this
 }
 
-// GetNmID returns the NmID field value if set, zero value otherwise.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetNmID() int32 {
-	if o == nil || IsNil(o.NmID) {
-		var ret int32
-		return ret
-	}
-	return *o.NmID
-}
-
-// GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetNmIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmID) {
-		return nil, false
-	}
-	return o.NmID, true
-}
-
-// HasNmID returns a boolean if a field has been set.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) HasNmID() bool {
-	if o != nil && !IsNil(o.NmID) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetNmID(v int32) {
-	o.NmID = &v
-}
-
-// GetSum returns the Sum field value if set, zero value otherwise.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetSum() int32 {
-	if o == nil || IsNil(o.Sum) {
-		var ret int32
-		return ret
-	}
-	return *o.Sum
-}
-
-// GetSumOk returns a tuple with the Sum field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetSumOk() (*int32, bool) {
-	if o == nil || IsNil(o.Sum) {
-		return nil, false
-	}
-	return o.Sum, true
-}
-
-// HasSum returns a boolean if a field has been set.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) HasSum() bool {
-	if o != nil && !IsNil(o.Sum) {
-		return true
-	}
-
-	return false
-}
-
-// SetSum gets a reference to the given int32 and assigns it to the Sum field.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetSum(v int32) {
-	o.Sum = &v
-}
-
-// GetCurrency returns the Currency field value if set, zero value otherwise.
+// GetCurrency returns the Currency field value
 func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetCurrency() string {
-	if o == nil || IsNil(o.Currency) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Currency
+
+	return o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// GetCurrencyOk returns a tuple with the Currency field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetCurrencyOk() (*string, bool) {
-	if o == nil || IsNil(o.Currency) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Currency, true
+	return &o.Currency, true
 }
 
-// HasCurrency returns a boolean if a field has been set.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) HasCurrency() bool {
-	if o != nil && !IsNil(o.Currency) {
-		return true
-	}
-
-	return false
-}
-
-// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+// SetCurrency sets field value
 func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetCurrency(v string) {
-	o.Currency = &v
+	o.Currency = v
 }
 
-// GetDateFrom returns the DateFrom field value if set, zero value otherwise.
+// GetDateFrom returns the DateFrom field value
 func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetDateFrom() string {
-	if o == nil || IsNil(o.DateFrom) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DateFrom
+
+	return o.DateFrom
 }
 
-// GetDateFromOk returns a tuple with the DateFrom field value if set, nil otherwise
+// GetDateFromOk returns a tuple with the DateFrom field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetDateFromOk() (*string, bool) {
-	if o == nil || IsNil(o.DateFrom) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DateFrom, true
+	return &o.DateFrom, true
 }
 
-// HasDateFrom returns a boolean if a field has been set.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) HasDateFrom() bool {
-	if o != nil && !IsNil(o.DateFrom) {
-		return true
-	}
-
-	return false
-}
-
-// SetDateFrom gets a reference to the given string and assigns it to the DateFrom field.
+// SetDateFrom sets field value
 func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetDateFrom(v string) {
-	o.DateFrom = &v
+	o.DateFrom = v
 }
 
-// GetDateTo returns the DateTo field value if set, zero value otherwise.
+// GetDateTo returns the DateTo field value
 func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetDateTo() string {
-	if o == nil || IsNil(o.DateTo) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DateTo
+
+	return o.DateTo
 }
 
-// GetDateToOk returns a tuple with the DateTo field value if set, nil otherwise
+// GetDateToOk returns a tuple with the DateTo field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetDateToOk() (*string, bool) {
-	if o == nil || IsNil(o.DateTo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DateTo, true
+	return &o.DateTo, true
 }
 
-// HasDateTo returns a boolean if a field has been set.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) HasDateTo() bool {
-	if o != nil && !IsNil(o.DateTo) {
-		return true
+// SetDateTo sets field value
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetDateTo(v string) {
+	o.DateTo = v
+}
+
+// GetNmID returns the NmID field value
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetNmID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
 	}
 
-	return false
+	return o.NmID
 }
 
-// SetDateTo gets a reference to the given string and assigns it to the DateTo field.
-func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetDateTo(v string) {
-	o.DateTo = &v
+// GetNmIDOk returns a tuple with the NmID field value
+// and a boolean to check if the value has been set.
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetNmIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NmID, true
+}
+
+// SetNmID sets field value
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetNmID(v int32) {
+	o.NmID = v
+}
+
+// GetSum returns the Sum field value
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetSum() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Sum
+}
+
+// GetSumOk returns a tuple with the Sum field value
+// and a boolean to check if the value has been set.
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) GetSumOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Sum, true
+}
+
+// SetSum sets field value
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetSum(v int32) {
+	o.Sum = v
 }
 
 func (o GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) MarshalJSON() ([]byte, error) {
@@ -218,22 +187,53 @@ func (o GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) MarshalJSON() ([]
 
 func (o GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.NmID) {
-		toSerialize["nmID"] = o.NmID
-	}
-	if !IsNil(o.Sum) {
-		toSerialize["sum"] = o.Sum
-	}
-	if !IsNil(o.Currency) {
-		toSerialize["currency"] = o.Currency
-	}
-	if !IsNil(o.DateFrom) {
-		toSerialize["dateFrom"] = o.DateFrom
-	}
-	if !IsNil(o.DateTo) {
-		toSerialize["dateTo"] = o.DateTo
-	}
+	toSerialize["currency"] = o.Currency
+	toSerialize["dateFrom"] = o.DateFrom
+	toSerialize["dateTo"] = o.DateTo
+	toSerialize["nmID"] = o.NmID
+	toSerialize["sum"] = o.Sum
 	return toSerialize, nil
+}
+
+func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"currency",
+		"dateFrom",
+		"dateTo",
+		"nmID",
+		"sum",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AnalyticsAntifraudDetails200ResponseDetailsInner := _GetV1AnalyticsAntifraudDetails200ResponseDetailsInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AnalyticsAntifraudDetails200ResponseDetailsInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(varGetV1AnalyticsAntifraudDetails200ResponseDetailsInner)
+
+	return err
 }
 
 type NullableGetV1AnalyticsAntifraudDetails200ResponseDetailsInner struct {

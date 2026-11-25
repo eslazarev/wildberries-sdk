@@ -13,36 +13,36 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ModelsExciseReportResponseDataInner {
-    /// Страна покупателя
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    /// Цена товара, с НДС
-    #[serde(rename = "price", skip_serializing_if = "Option::is_none")]
-    pub price: Option<f64>,
+    /// Баркод
+    #[serde(rename = "barcode", skip_serializing_if = "Option::is_none")]
+    pub barcode: Option<String>,
     /// Валюта
     #[serde(rename = "currency_name_short", skip_serializing_if = "Option::is_none")]
     pub currency_name_short: Option<String>,
     /// Код маркировки
     #[serde(rename = "excise_short", skip_serializing_if = "Option::is_none")]
     pub excise_short: Option<String>,
-    /// Баркод
-    #[serde(rename = "barcode", skip_serializing_if = "Option::is_none")]
-    pub barcode: Option<String>,
+    /// Номер фискального документа (чека полного расчёта), если есть
+    #[serde(rename = "fiscal_doc_number", skip_serializing_if = "Option::is_none")]
+    pub fiscal_doc_number: Option<i32>,
+    /// Номер фискального накопителя, если есть
+    #[serde(rename = "fiscal_drive_number", skip_serializing_if = "Option::is_none")]
+    pub fiscal_drive_number: Option<String>,
+    /// Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
+    #[serde(rename = "fiscal_dt", skip_serializing_if = "Option::is_none")]
+    pub fiscal_dt: Option<String>,
+    /// Страна покупателя
+    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
     /// Артикул WB
     #[serde(rename = "nm_id", skip_serializing_if = "Option::is_none")]
     pub nm_id: Option<i32>,
     /// Тип операции, если есть:    * `1` — вывод из оборота   * `2` — возврат в оборот 
     #[serde(rename = "operation_type_id", skip_serializing_if = "Option::is_none")]
     pub operation_type_id: Option<i32>,
-    /// Номер фискального документа (чека полного расчёта), если есть
-    #[serde(rename = "fiscal_doc_number", skip_serializing_if = "Option::is_none")]
-    pub fiscal_doc_number: Option<i32>,
-    /// Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
-    #[serde(rename = "fiscal_dt", skip_serializing_if = "Option::is_none")]
-    pub fiscal_dt: Option<String>,
-    /// Номер фискального накопителя, если есть
-    #[serde(rename = "fiscal_drive_number", skip_serializing_if = "Option::is_none")]
-    pub fiscal_drive_number: Option<String>,
+    /// Цена товара, с НДС
+    #[serde(rename = "price", skip_serializing_if = "Option::is_none")]
+    pub price: Option<f64>,
     /// `Rid` 
     #[serde(rename = "rid", skip_serializing_if = "Option::is_none")]
     pub rid: Option<i32>,
@@ -54,16 +54,16 @@ pub struct ModelsExciseReportResponseDataInner {
 impl ModelsExciseReportResponseDataInner {
     pub fn new() -> ModelsExciseReportResponseDataInner {
         ModelsExciseReportResponseDataInner {
-            name: None,
-            price: None,
+            barcode: None,
             currency_name_short: None,
             excise_short: None,
-            barcode: None,
+            fiscal_doc_number: None,
+            fiscal_drive_number: None,
+            fiscal_dt: None,
+            name: None,
             nm_id: None,
             operation_type_id: None,
-            fiscal_doc_number: None,
-            fiscal_dt: None,
-            fiscal_drive_number: None,
+            price: None,
             rid: None,
             srid: None,
         }

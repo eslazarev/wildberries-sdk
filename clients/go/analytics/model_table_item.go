@@ -28,15 +28,15 @@ type TableItem struct {
 	// Артикул продавца
 	VendorCode string `json:"vendorCode"`
 	// Название предмета
-	SubjectName *string `json:"subjectName,omitempty"`
+	SubjectName string `json:"subjectName"`
 	// Бренд
 	BrandName *string `json:"brandName,omitempty"`
 	// URL главного фото карточки товара
 	MainPhoto *string `json:"mainPhoto,omitempty"`
 	// Находится ли товар в продвижении в Поисковой выдаче
 	IsAdvertised bool `json:"isAdvertised"`
-	// Искали ли товар по подменному артикулу.<br> Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts` 
-	IsSubstitutedSKU *bool `json:"isSubstitutedSKU,omitempty"`
+	// Искали ли товар по подменному артикулу
+	IsSubstitutedSKU bool `json:"isSubstitutedSKU"`
 	// Есть ли рейтинг у карточки товара
 	IsCardRated bool `json:"isCardRated"`
 	// Рейтинг карточки товара
@@ -59,11 +59,13 @@ type _TableItem TableItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableItem(nmId int64, vendorCode string, isAdvertised bool, isCardRated bool, rating float32, feedbackRating float32, price TableItemAllOfPrice, avgPosition TableGroupItemMetricsAvgPosition, openCard VisibilityInfoOpenCard, addToCart TableGroupItemMetricsAddToCart, openToCart TableGroupItemMetricsOpenToCart, orders TableGroupItemMetricsOrders, cartToOrder TableGroupItemMetricsCartToOrder, visibility TableGroupItemMetricsVisibility) *TableItem {
+func NewTableItem(nmId int64, vendorCode string, subjectName string, isAdvertised bool, isSubstitutedSKU bool, isCardRated bool, rating float32, feedbackRating float32, price TableItemAllOfPrice, avgPosition TableGroupItemMetricsAvgPosition, openCard VisibilityInfoOpenCard, addToCart TableGroupItemMetricsAddToCart, openToCart TableGroupItemMetricsOpenToCart, orders TableGroupItemMetricsOrders, cartToOrder TableGroupItemMetricsCartToOrder, visibility TableGroupItemMetricsVisibility) *TableItem {
 	this := TableItem{}
 	this.NmId = nmId
 	this.VendorCode = vendorCode
+	this.SubjectName = subjectName
 	this.IsAdvertised = isAdvertised
+	this.IsSubstitutedSKU = isSubstitutedSKU
 	this.IsCardRated = isCardRated
 	this.Rating = rating
 	this.FeedbackRating = feedbackRating
@@ -166,36 +168,28 @@ func (o *TableItem) SetVendorCode(v string) {
 	o.VendorCode = v
 }
 
-// GetSubjectName returns the SubjectName field value if set, zero value otherwise.
+// GetSubjectName returns the SubjectName field value
 func (o *TableItem) GetSubjectName() string {
-	if o == nil || IsNil(o.SubjectName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SubjectName
+
+	return o.SubjectName
 }
 
-// GetSubjectNameOk returns a tuple with the SubjectName field value if set, nil otherwise
+// GetSubjectNameOk returns a tuple with the SubjectName field value
 // and a boolean to check if the value has been set.
 func (o *TableItem) GetSubjectNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SubjectName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubjectName, true
+	return &o.SubjectName, true
 }
 
-// HasSubjectName returns a boolean if a field has been set.
-func (o *TableItem) HasSubjectName() bool {
-	if o != nil && !IsNil(o.SubjectName) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubjectName gets a reference to the given string and assigns it to the SubjectName field.
+// SetSubjectName sets field value
 func (o *TableItem) SetSubjectName(v string) {
-	o.SubjectName = &v
+	o.SubjectName = v
 }
 
 // GetBrandName returns the BrandName field value if set, zero value otherwise.
@@ -286,36 +280,28 @@ func (o *TableItem) SetIsAdvertised(v bool) {
 	o.IsAdvertised = v
 }
 
-// GetIsSubstitutedSKU returns the IsSubstitutedSKU field value if set, zero value otherwise.
+// GetIsSubstitutedSKU returns the IsSubstitutedSKU field value
 func (o *TableItem) GetIsSubstitutedSKU() bool {
-	if o == nil || IsNil(o.IsSubstitutedSKU) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsSubstitutedSKU
+
+	return o.IsSubstitutedSKU
 }
 
-// GetIsSubstitutedSKUOk returns a tuple with the IsSubstitutedSKU field value if set, nil otherwise
+// GetIsSubstitutedSKUOk returns a tuple with the IsSubstitutedSKU field value
 // and a boolean to check if the value has been set.
 func (o *TableItem) GetIsSubstitutedSKUOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsSubstitutedSKU) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsSubstitutedSKU, true
+	return &o.IsSubstitutedSKU, true
 }
 
-// HasIsSubstitutedSKU returns a boolean if a field has been set.
-func (o *TableItem) HasIsSubstitutedSKU() bool {
-	if o != nil && !IsNil(o.IsSubstitutedSKU) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsSubstitutedSKU gets a reference to the given bool and assigns it to the IsSubstitutedSKU field.
+// SetIsSubstitutedSKU sets field value
 func (o *TableItem) SetIsSubstitutedSKU(v bool) {
-	o.IsSubstitutedSKU = &v
+	o.IsSubstitutedSKU = v
 }
 
 // GetIsCardRated returns the IsCardRated field value
@@ -597,9 +583,7 @@ func (o TableItem) ToMap() (map[string]interface{}, error) {
 		toSerialize["name"] = o.Name
 	}
 	toSerialize["vendorCode"] = o.VendorCode
-	if !IsNil(o.SubjectName) {
-		toSerialize["subjectName"] = o.SubjectName
-	}
+	toSerialize["subjectName"] = o.SubjectName
 	if !IsNil(o.BrandName) {
 		toSerialize["brandName"] = o.BrandName
 	}
@@ -607,9 +591,7 @@ func (o TableItem) ToMap() (map[string]interface{}, error) {
 		toSerialize["mainPhoto"] = o.MainPhoto
 	}
 	toSerialize["isAdvertised"] = o.IsAdvertised
-	if !IsNil(o.IsSubstitutedSKU) {
-		toSerialize["isSubstitutedSKU"] = o.IsSubstitutedSKU
-	}
+	toSerialize["isSubstitutedSKU"] = o.IsSubstitutedSKU
 	toSerialize["isCardRated"] = o.IsCardRated
 	toSerialize["rating"] = o.Rating
 	toSerialize["feedbackRating"] = o.FeedbackRating
@@ -631,7 +613,9 @@ func (o *TableItem) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"nmId",
 		"vendorCode",
+		"subjectName",
 		"isAdvertised",
+		"isSubstitutedSKU",
 		"isCardRated",
 		"rating",
 		"feedbackRating",

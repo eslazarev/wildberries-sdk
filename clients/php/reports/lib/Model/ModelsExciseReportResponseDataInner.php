@@ -57,16 +57,16 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'price' => 'float',
+        'barcode' => 'string',
         'currency_name_short' => 'string',
         'excise_short' => 'string',
-        'barcode' => 'string',
+        'fiscal_doc_number' => 'int',
+        'fiscal_drive_number' => 'string',
+        'fiscal_dt' => 'string',
+        'name' => 'string',
         'nm_id' => 'int',
         'operation_type_id' => 'int',
-        'fiscal_doc_number' => 'int',
-        'fiscal_dt' => 'string',
-        'fiscal_drive_number' => 'string',
+        'price' => 'float',
         'rid' => 'int',
         'srid' => 'string'
     ];
@@ -79,16 +79,16 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'name' => null,
-        'price' => null,
+        'barcode' => null,
         'currency_name_short' => null,
         'excise_short' => null,
-        'barcode' => null,
+        'fiscal_doc_number' => null,
+        'fiscal_drive_number' => null,
+        'fiscal_dt' => null,
+        'name' => null,
         'nm_id' => null,
         'operation_type_id' => null,
-        'fiscal_doc_number' => null,
-        'fiscal_dt' => null,
-        'fiscal_drive_number' => null,
+        'price' => null,
         'rid' => null,
         'srid' => null
     ];
@@ -99,16 +99,16 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'name' => false,
-        'price' => false,
+        'barcode' => false,
         'currency_name_short' => false,
         'excise_short' => false,
-        'barcode' => false,
+        'fiscal_doc_number' => false,
+        'fiscal_drive_number' => false,
+        'fiscal_dt' => false,
+        'name' => false,
         'nm_id' => false,
         'operation_type_id' => false,
-        'fiscal_doc_number' => false,
-        'fiscal_dt' => false,
-        'fiscal_drive_number' => false,
+        'price' => false,
         'rid' => false,
         'srid' => false
     ];
@@ -199,16 +199,16 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'price' => 'price',
+        'barcode' => 'barcode',
         'currency_name_short' => 'currency_name_short',
         'excise_short' => 'excise_short',
-        'barcode' => 'barcode',
+        'fiscal_doc_number' => 'fiscal_doc_number',
+        'fiscal_drive_number' => 'fiscal_drive_number',
+        'fiscal_dt' => 'fiscal_dt',
+        'name' => 'name',
         'nm_id' => 'nm_id',
         'operation_type_id' => 'operation_type_id',
-        'fiscal_doc_number' => 'fiscal_doc_number',
-        'fiscal_dt' => 'fiscal_dt',
-        'fiscal_drive_number' => 'fiscal_drive_number',
+        'price' => 'price',
         'rid' => 'rid',
         'srid' => 'srid'
     ];
@@ -219,16 +219,16 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'price' => 'setPrice',
+        'barcode' => 'setBarcode',
         'currency_name_short' => 'setCurrencyNameShort',
         'excise_short' => 'setExciseShort',
-        'barcode' => 'setBarcode',
+        'fiscal_doc_number' => 'setFiscalDocNumber',
+        'fiscal_drive_number' => 'setFiscalDriveNumber',
+        'fiscal_dt' => 'setFiscalDt',
+        'name' => 'setName',
         'nm_id' => 'setNmId',
         'operation_type_id' => 'setOperationTypeId',
-        'fiscal_doc_number' => 'setFiscalDocNumber',
-        'fiscal_dt' => 'setFiscalDt',
-        'fiscal_drive_number' => 'setFiscalDriveNumber',
+        'price' => 'setPrice',
         'rid' => 'setRid',
         'srid' => 'setSrid'
     ];
@@ -239,16 +239,16 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'price' => 'getPrice',
+        'barcode' => 'getBarcode',
         'currency_name_short' => 'getCurrencyNameShort',
         'excise_short' => 'getExciseShort',
-        'barcode' => 'getBarcode',
+        'fiscal_doc_number' => 'getFiscalDocNumber',
+        'fiscal_drive_number' => 'getFiscalDriveNumber',
+        'fiscal_dt' => 'getFiscalDt',
+        'name' => 'getName',
         'nm_id' => 'getNmId',
         'operation_type_id' => 'getOperationTypeId',
-        'fiscal_doc_number' => 'getFiscalDocNumber',
-        'fiscal_dt' => 'getFiscalDt',
-        'fiscal_drive_number' => 'getFiscalDriveNumber',
+        'price' => 'getPrice',
         'rid' => 'getRid',
         'srid' => 'getSrid'
     ];
@@ -310,16 +310,16 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('price', $data ?? [], null);
+        $this->setIfExists('barcode', $data ?? [], null);
         $this->setIfExists('currency_name_short', $data ?? [], null);
         $this->setIfExists('excise_short', $data ?? [], null);
-        $this->setIfExists('barcode', $data ?? [], null);
+        $this->setIfExists('fiscal_doc_number', $data ?? [], null);
+        $this->setIfExists('fiscal_drive_number', $data ?? [], null);
+        $this->setIfExists('fiscal_dt', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('nm_id', $data ?? [], null);
         $this->setIfExists('operation_type_id', $data ?? [], null);
-        $this->setIfExists('fiscal_doc_number', $data ?? [], null);
-        $this->setIfExists('fiscal_dt', $data ?? [], null);
-        $this->setIfExists('fiscal_drive_number', $data ?? [], null);
+        $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('rid', $data ?? [], null);
         $this->setIfExists('srid', $data ?? [], null);
     }
@@ -367,55 +367,28 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets barcode
      *
      * @return string|null
      */
-    public function getName()
+    public function getBarcode()
     {
-        return $this->container['name'];
+        return $this->container['barcode'];
     }
 
     /**
-     * Sets name
+     * Sets barcode
      *
-     * @param string|null $name Страна покупателя
+     * @param string|null $barcode Баркод
      *
      * @return self
      */
-    public function setName($name)
+    public function setBarcode($barcode)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($barcode)) {
+            throw new \InvalidArgumentException('non-nullable barcode cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets price
-     *
-     * @return float|null
-     */
-    public function getPrice()
-    {
-        return $this->container['price'];
-    }
-
-    /**
-     * Sets price
-     *
-     * @param float|null $price Цена товара, с НДС
-     *
-     * @return self
-     */
-    public function setPrice($price)
-    {
-        if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
-        }
-        $this->container['price'] = $price;
+        $this->container['barcode'] = $barcode;
 
         return $this;
     }
@@ -475,28 +448,109 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets barcode
+     * Gets fiscal_doc_number
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getBarcode()
+    public function getFiscalDocNumber()
     {
-        return $this->container['barcode'];
+        return $this->container['fiscal_doc_number'];
     }
 
     /**
-     * Sets barcode
+     * Sets fiscal_doc_number
      *
-     * @param string|null $barcode Баркод
+     * @param int|null $fiscal_doc_number Номер фискального документа (чека полного расчёта), если есть
      *
      * @return self
      */
-    public function setBarcode($barcode)
+    public function setFiscalDocNumber($fiscal_doc_number)
     {
-        if (is_null($barcode)) {
-            throw new \InvalidArgumentException('non-nullable barcode cannot be null');
+        if (is_null($fiscal_doc_number)) {
+            throw new \InvalidArgumentException('non-nullable fiscal_doc_number cannot be null');
         }
-        $this->container['barcode'] = $barcode;
+        $this->container['fiscal_doc_number'] = $fiscal_doc_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets fiscal_drive_number
+     *
+     * @return string|null
+     */
+    public function getFiscalDriveNumber()
+    {
+        return $this->container['fiscal_drive_number'];
+    }
+
+    /**
+     * Sets fiscal_drive_number
+     *
+     * @param string|null $fiscal_drive_number Номер фискального накопителя, если есть
+     *
+     * @return self
+     */
+    public function setFiscalDriveNumber($fiscal_drive_number)
+    {
+        if (is_null($fiscal_drive_number)) {
+            throw new \InvalidArgumentException('non-nullable fiscal_drive_number cannot be null');
+        }
+        $this->container['fiscal_drive_number'] = $fiscal_drive_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets fiscal_dt
+     *
+     * @return string|null
+     */
+    public function getFiscalDt()
+    {
+        return $this->container['fiscal_dt'];
+    }
+
+    /**
+     * Sets fiscal_dt
+     *
+     * @param string|null $fiscal_dt Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
+     *
+     * @return self
+     */
+    public function setFiscalDt($fiscal_dt)
+    {
+        if (is_null($fiscal_dt)) {
+            throw new \InvalidArgumentException('non-nullable fiscal_dt cannot be null');
+        }
+        $this->container['fiscal_dt'] = $fiscal_dt;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Страна покупателя
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -556,82 +610,28 @@ class ModelsExciseReportResponseDataInner implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets fiscal_doc_number
+     * Gets price
      *
-     * @return int|null
+     * @return float|null
      */
-    public function getFiscalDocNumber()
+    public function getPrice()
     {
-        return $this->container['fiscal_doc_number'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets fiscal_doc_number
+     * Sets price
      *
-     * @param int|null $fiscal_doc_number Номер фискального документа (чека полного расчёта), если есть
+     * @param float|null $price Цена товара, с НДС
      *
      * @return self
      */
-    public function setFiscalDocNumber($fiscal_doc_number)
+    public function setPrice($price)
     {
-        if (is_null($fiscal_doc_number)) {
-            throw new \InvalidArgumentException('non-nullable fiscal_doc_number cannot be null');
+        if (is_null($price)) {
+            throw new \InvalidArgumentException('non-nullable price cannot be null');
         }
-        $this->container['fiscal_doc_number'] = $fiscal_doc_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets fiscal_dt
-     *
-     * @return string|null
-     */
-    public function getFiscalDt()
-    {
-        return $this->container['fiscal_dt'];
-    }
-
-    /**
-     * Sets fiscal_dt
-     *
-     * @param string|null $fiscal_dt Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
-     *
-     * @return self
-     */
-    public function setFiscalDt($fiscal_dt)
-    {
-        if (is_null($fiscal_dt)) {
-            throw new \InvalidArgumentException('non-nullable fiscal_dt cannot be null');
-        }
-        $this->container['fiscal_dt'] = $fiscal_dt;
-
-        return $this;
-    }
-
-    /**
-     * Gets fiscal_drive_number
-     *
-     * @return string|null
-     */
-    public function getFiscalDriveNumber()
-    {
-        return $this->container['fiscal_drive_number'];
-    }
-
-    /**
-     * Sets fiscal_drive_number
-     *
-     * @param string|null $fiscal_drive_number Номер фискального накопителя, если есть
-     *
-     * @return self
-     */
-    public function setFiscalDriveNumber($fiscal_drive_number)
-    {
-        if (is_null($fiscal_drive_number)) {
-            throw new \InvalidArgumentException('non-nullable fiscal_drive_number cannot be null');
-        }
-        $this->container['fiscal_drive_number'] = $fiscal_drive_number;
+        $this->container['price'] = $price;
 
         return $this;
     }

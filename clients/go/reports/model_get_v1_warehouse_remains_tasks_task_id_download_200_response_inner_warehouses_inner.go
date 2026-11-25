@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner
 // GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner struct for GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner
 type GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner struct {
 	// Название склада
-	WarehouseName *string `json:"warehouseName,omitempty"`
-	// Количество, шт. 
-	Quantity *int32 `json:"quantity,omitempty"`
+	WarehouseName string `json:"warehouseName"`
+	// Количество, шт.
+	Quantity int32 `json:"quantity"`
 }
+
+type _GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner
 
 // NewGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner instantiates a new GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner() *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner {
+func NewGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner(warehouseName string, quantity int32) *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner {
 	this := GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner{}
+	this.WarehouseName = warehouseName
+	this.Quantity = quantity
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInnerW
 	return &this
 }
 
-// GetWarehouseName returns the WarehouseName field value if set, zero value otherwise.
+// GetWarehouseName returns the WarehouseName field value
 func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) GetWarehouseName() string {
-	if o == nil || IsNil(o.WarehouseName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WarehouseName
+
+	return o.WarehouseName
 }
 
-// GetWarehouseNameOk returns a tuple with the WarehouseName field value if set, nil otherwise
+// GetWarehouseNameOk returns a tuple with the WarehouseName field value
 // and a boolean to check if the value has been set.
 func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) GetWarehouseNameOk() (*string, bool) {
-	if o == nil || IsNil(o.WarehouseName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WarehouseName, true
+	return &o.WarehouseName, true
 }
 
-// HasWarehouseName returns a boolean if a field has been set.
-func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) HasWarehouseName() bool {
-	if o != nil && !IsNil(o.WarehouseName) {
-		return true
-	}
-
-	return false
-}
-
-// SetWarehouseName gets a reference to the given string and assigns it to the WarehouseName field.
+// SetWarehouseName sets field value
 func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) SetWarehouseName(v string) {
-	o.WarehouseName = &v
+	o.WarehouseName = v
 }
 
-// GetQuantity returns the Quantity field value if set, zero value otherwise.
+// GetQuantity returns the Quantity field value
 func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) GetQuantity() int32 {
-	if o == nil || IsNil(o.Quantity) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Quantity
+
+	return o.Quantity
 }
 
-// GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
+// GetQuantityOk returns a tuple with the Quantity field value
 // and a boolean to check if the value has been set.
 func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) GetQuantityOk() (*int32, bool) {
-	if o == nil || IsNil(o.Quantity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Quantity, true
+	return &o.Quantity, true
 }
 
-// HasQuantity returns a boolean if a field has been set.
-func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) HasQuantity() bool {
-	if o != nil && !IsNil(o.Quantity) {
-		return true
-	}
-
-	return false
-}
-
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
+// SetQuantity sets field value
 func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) SetQuantity(v int32) {
-	o.Quantity = &v
+	o.Quantity = v
 }
 
 func (o GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) MarshalJSON() ([]byte, error) {
@@ -116,13 +106,47 @@ func (o GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner)
 
 func (o GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.WarehouseName) {
-		toSerialize["warehouseName"] = o.WarehouseName
-	}
-	if !IsNil(o.Quantity) {
-		toSerialize["quantity"] = o.Quantity
-	}
+	toSerialize["warehouseName"] = o.WarehouseName
+	toSerialize["quantity"] = o.Quantity
 	return toSerialize, nil
+}
+
+func (o *GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"warehouseName",
+		"quantity",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner := _GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner(varGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner)
+
+	return err
 }
 
 type NullableGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner struct {

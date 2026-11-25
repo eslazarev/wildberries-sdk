@@ -24,11 +24,11 @@ type VisibilityInfo struct {
 	Visibility VisibilityInfoVisibility `json:"visibility"`
 	OpenCard VisibilityInfoOpenCard `json:"openCard"`
 	// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
-	ByDay []VisibilityInfoByDayInner `json:"byDay,omitempty"`
+	ByDay []VisibilityInfoByDayInner `json:"byDay"`
 	// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
-	ByWeek []VisibilityInfoByDayInner `json:"byWeek,omitempty"`
+	ByWeek []VisibilityInfoByDayInner `json:"byWeek"`
 	// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам
-	ByMonth []VisibilityInfoByDayInner `json:"byMonth,omitempty"`
+	ByMonth []VisibilityInfoByDayInner `json:"byMonth"`
 }
 
 type _VisibilityInfo VisibilityInfo
@@ -37,10 +37,13 @@ type _VisibilityInfo VisibilityInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVisibilityInfo(visibility VisibilityInfoVisibility, openCard VisibilityInfoOpenCard) *VisibilityInfo {
+func NewVisibilityInfo(visibility VisibilityInfoVisibility, openCard VisibilityInfoOpenCard, byDay []VisibilityInfoByDayInner, byWeek []VisibilityInfoByDayInner, byMonth []VisibilityInfoByDayInner) *VisibilityInfo {
 	this := VisibilityInfo{}
 	this.Visibility = visibility
 	this.OpenCard = openCard
+	this.ByDay = byDay
+	this.ByWeek = byWeek
+	this.ByMonth = byMonth
 	return &this
 }
 
@@ -100,98 +103,74 @@ func (o *VisibilityInfo) SetOpenCard(v VisibilityInfoOpenCard) {
 	o.OpenCard = v
 }
 
-// GetByDay returns the ByDay field value if set, zero value otherwise.
+// GetByDay returns the ByDay field value
 func (o *VisibilityInfo) GetByDay() []VisibilityInfoByDayInner {
-	if o == nil || IsNil(o.ByDay) {
+	if o == nil {
 		var ret []VisibilityInfoByDayInner
 		return ret
 	}
+
 	return o.ByDay
 }
 
-// GetByDayOk returns a tuple with the ByDay field value if set, nil otherwise
+// GetByDayOk returns a tuple with the ByDay field value
 // and a boolean to check if the value has been set.
 func (o *VisibilityInfo) GetByDayOk() ([]VisibilityInfoByDayInner, bool) {
-	if o == nil || IsNil(o.ByDay) {
+	if o == nil {
 		return nil, false
 	}
 	return o.ByDay, true
 }
 
-// HasByDay returns a boolean if a field has been set.
-func (o *VisibilityInfo) HasByDay() bool {
-	if o != nil && !IsNil(o.ByDay) {
-		return true
-	}
-
-	return false
-}
-
-// SetByDay gets a reference to the given []VisibilityInfoByDayInner and assigns it to the ByDay field.
+// SetByDay sets field value
 func (o *VisibilityInfo) SetByDay(v []VisibilityInfoByDayInner) {
 	o.ByDay = v
 }
 
-// GetByWeek returns the ByWeek field value if set, zero value otherwise.
+// GetByWeek returns the ByWeek field value
 func (o *VisibilityInfo) GetByWeek() []VisibilityInfoByDayInner {
-	if o == nil || IsNil(o.ByWeek) {
+	if o == nil {
 		var ret []VisibilityInfoByDayInner
 		return ret
 	}
+
 	return o.ByWeek
 }
 
-// GetByWeekOk returns a tuple with the ByWeek field value if set, nil otherwise
+// GetByWeekOk returns a tuple with the ByWeek field value
 // and a boolean to check if the value has been set.
 func (o *VisibilityInfo) GetByWeekOk() ([]VisibilityInfoByDayInner, bool) {
-	if o == nil || IsNil(o.ByWeek) {
+	if o == nil {
 		return nil, false
 	}
 	return o.ByWeek, true
 }
 
-// HasByWeek returns a boolean if a field has been set.
-func (o *VisibilityInfo) HasByWeek() bool {
-	if o != nil && !IsNil(o.ByWeek) {
-		return true
-	}
-
-	return false
-}
-
-// SetByWeek gets a reference to the given []VisibilityInfoByDayInner and assigns it to the ByWeek field.
+// SetByWeek sets field value
 func (o *VisibilityInfo) SetByWeek(v []VisibilityInfoByDayInner) {
 	o.ByWeek = v
 }
 
-// GetByMonth returns the ByMonth field value if set, zero value otherwise.
+// GetByMonth returns the ByMonth field value
 func (o *VisibilityInfo) GetByMonth() []VisibilityInfoByDayInner {
-	if o == nil || IsNil(o.ByMonth) {
+	if o == nil {
 		var ret []VisibilityInfoByDayInner
 		return ret
 	}
+
 	return o.ByMonth
 }
 
-// GetByMonthOk returns a tuple with the ByMonth field value if set, nil otherwise
+// GetByMonthOk returns a tuple with the ByMonth field value
 // and a boolean to check if the value has been set.
 func (o *VisibilityInfo) GetByMonthOk() ([]VisibilityInfoByDayInner, bool) {
-	if o == nil || IsNil(o.ByMonth) {
+	if o == nil {
 		return nil, false
 	}
 	return o.ByMonth, true
 }
 
-// HasByMonth returns a boolean if a field has been set.
-func (o *VisibilityInfo) HasByMonth() bool {
-	if o != nil && !IsNil(o.ByMonth) {
-		return true
-	}
-
-	return false
-}
-
-// SetByMonth gets a reference to the given []VisibilityInfoByDayInner and assigns it to the ByMonth field.
+// SetByMonth sets field value
 func (o *VisibilityInfo) SetByMonth(v []VisibilityInfoByDayInner) {
 	o.ByMonth = v
 }
@@ -208,15 +187,9 @@ func (o VisibilityInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["visibility"] = o.Visibility
 	toSerialize["openCard"] = o.OpenCard
-	if !IsNil(o.ByDay) {
-		toSerialize["byDay"] = o.ByDay
-	}
-	if !IsNil(o.ByWeek) {
-		toSerialize["byWeek"] = o.ByWeek
-	}
-	if !IsNil(o.ByMonth) {
-		toSerialize["byMonth"] = o.ByMonth
-	}
+	toSerialize["byDay"] = o.ByDay
+	toSerialize["byWeek"] = o.ByWeek
+	toSerialize["byMonth"] = o.ByMonth
 	return toSerialize, nil
 }
 
@@ -227,6 +200,9 @@ func (o *VisibilityInfo) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"visibility",
 		"openCard",
+		"byDay",
+		"byWeek",
+		"byMonth",
 	}
 
 	allProperties := make(map[string]interface{})

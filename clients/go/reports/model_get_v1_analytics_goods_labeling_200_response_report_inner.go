@@ -13,6 +13,8 @@ package reports
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AnalyticsGoodsLabeling200ResponseReportInner type satisfies the MappedNullable interface at compile time
@@ -21,27 +23,36 @@ var _ MappedNullable = &GetV1AnalyticsGoodsLabeling200ResponseReportInner{}
 // GetV1AnalyticsGoodsLabeling200ResponseReportInner struct for GetV1AnalyticsGoodsLabeling200ResponseReportInner
 type GetV1AnalyticsGoodsLabeling200ResponseReportInner struct {
 	// Сумма штрафа, руб
-	Amount *float32 `json:"amount,omitempty"`
+	Amount float32 `json:"amount"`
 	// Дата
-	Date *time.Time `json:"date,omitempty"`
+	Date time.Time `json:"date"`
 	// Номер поставки
-	IncomeId *int32 `json:"incomeId,omitempty"`
+	IncomeId int32 `json:"incomeId"`
 	// Артикул WB
-	NmID *int32 `json:"nmID,omitempty"`
+	NmID int32 `json:"nmID"`
 	// URL фото товара
-	PhotoUrls []string `json:"photoUrls,omitempty"`
+	PhotoUrls []string `json:"photoUrls"`
 	// Штрихкод
-	ShkID *int32 `json:"shkID,omitempty"`
+	ShkID int32 `json:"shkID"`
 	// Баркод из карточки товара
-	Sku *string `json:"sku,omitempty"`
+	Sku string `json:"sku"`
 }
+
+type _GetV1AnalyticsGoodsLabeling200ResponseReportInner GetV1AnalyticsGoodsLabeling200ResponseReportInner
 
 // NewGetV1AnalyticsGoodsLabeling200ResponseReportInner instantiates a new GetV1AnalyticsGoodsLabeling200ResponseReportInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AnalyticsGoodsLabeling200ResponseReportInner() *GetV1AnalyticsGoodsLabeling200ResponseReportInner {
+func NewGetV1AnalyticsGoodsLabeling200ResponseReportInner(amount float32, date time.Time, incomeId int32, nmID int32, photoUrls []string, shkID int32, sku string) *GetV1AnalyticsGoodsLabeling200ResponseReportInner {
 	this := GetV1AnalyticsGoodsLabeling200ResponseReportInner{}
+	this.Amount = amount
+	this.Date = date
+	this.IncomeId = incomeId
+	this.NmID = nmID
+	this.PhotoUrls = photoUrls
+	this.ShkID = shkID
+	this.Sku = sku
 	return &this
 }
 
@@ -53,228 +64,172 @@ func NewGetV1AnalyticsGoodsLabeling200ResponseReportInnerWithDefaults() *GetV1An
 	return &this
 }
 
-// GetAmount returns the Amount field value if set, zero value otherwise.
+// GetAmount returns the Amount field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetAmount() float32 {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Amount
+
+	return o.Amount
 }
 
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
+// GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Amount, true
+	return &o.Amount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasAmount() bool {
-	if o != nil && !IsNil(o.Amount) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmount gets a reference to the given float32 and assigns it to the Amount field.
+// SetAmount sets field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetAmount(v float32) {
-	o.Amount = &v
+	o.Amount = v
 }
 
-// GetDate returns the Date field value if set, zero value otherwise.
+// GetDate returns the Date field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetDate() time.Time {
-	if o == nil || IsNil(o.Date) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.Date
+
+	return o.Date
 }
 
-// GetDateOk returns a tuple with the Date field value if set, nil otherwise
+// GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.Date) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Date, true
+	return &o.Date, true
 }
 
-// HasDate returns a boolean if a field has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasDate() bool {
-	if o != nil && !IsNil(o.Date) {
-		return true
-	}
-
-	return false
-}
-
-// SetDate gets a reference to the given time.Time and assigns it to the Date field.
+// SetDate sets field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetDate(v time.Time) {
-	o.Date = &v
+	o.Date = v
 }
 
-// GetIncomeId returns the IncomeId field value if set, zero value otherwise.
+// GetIncomeId returns the IncomeId field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetIncomeId() int32 {
-	if o == nil || IsNil(o.IncomeId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.IncomeId
+
+	return o.IncomeId
 }
 
-// GetIncomeIdOk returns a tuple with the IncomeId field value if set, nil otherwise
+// GetIncomeIdOk returns a tuple with the IncomeId field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetIncomeIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.IncomeId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncomeId, true
+	return &o.IncomeId, true
 }
 
-// HasIncomeId returns a boolean if a field has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasIncomeId() bool {
-	if o != nil && !IsNil(o.IncomeId) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncomeId gets a reference to the given int32 and assigns it to the IncomeId field.
+// SetIncomeId sets field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetIncomeId(v int32) {
-	o.IncomeId = &v
+	o.IncomeId = v
 }
 
-// GetNmID returns the NmID field value if set, zero value otherwise.
+// GetNmID returns the NmID field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetNmID() int32 {
-	if o == nil || IsNil(o.NmID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NmID
+
+	return o.NmID
 }
 
-// GetNmIDOk returns a tuple with the NmID field value if set, nil otherwise
+// GetNmIDOk returns a tuple with the NmID field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetNmIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.NmID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NmID, true
+	return &o.NmID, true
 }
 
-// HasNmID returns a boolean if a field has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasNmID() bool {
-	if o != nil && !IsNil(o.NmID) {
-		return true
-	}
-
-	return false
-}
-
-// SetNmID gets a reference to the given int32 and assigns it to the NmID field.
+// SetNmID sets field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetNmID(v int32) {
-	o.NmID = &v
+	o.NmID = v
 }
 
-// GetPhotoUrls returns the PhotoUrls field value if set, zero value otherwise.
+// GetPhotoUrls returns the PhotoUrls field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetPhotoUrls() []string {
-	if o == nil || IsNil(o.PhotoUrls) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.PhotoUrls
 }
 
-// GetPhotoUrlsOk returns a tuple with the PhotoUrls field value if set, nil otherwise
+// GetPhotoUrlsOk returns a tuple with the PhotoUrls field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetPhotoUrlsOk() ([]string, bool) {
-	if o == nil || IsNil(o.PhotoUrls) {
+	if o == nil {
 		return nil, false
 	}
 	return o.PhotoUrls, true
 }
 
-// HasPhotoUrls returns a boolean if a field has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasPhotoUrls() bool {
-	if o != nil && !IsNil(o.PhotoUrls) {
-		return true
-	}
-
-	return false
-}
-
-// SetPhotoUrls gets a reference to the given []string and assigns it to the PhotoUrls field.
+// SetPhotoUrls sets field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetPhotoUrls(v []string) {
 	o.PhotoUrls = v
 }
 
-// GetShkID returns the ShkID field value if set, zero value otherwise.
+// GetShkID returns the ShkID field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetShkID() int32 {
-	if o == nil || IsNil(o.ShkID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ShkID
+
+	return o.ShkID
 }
 
-// GetShkIDOk returns a tuple with the ShkID field value if set, nil otherwise
+// GetShkIDOk returns a tuple with the ShkID field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetShkIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.ShkID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ShkID, true
+	return &o.ShkID, true
 }
 
-// HasShkID returns a boolean if a field has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasShkID() bool {
-	if o != nil && !IsNil(o.ShkID) {
-		return true
-	}
-
-	return false
-}
-
-// SetShkID gets a reference to the given int32 and assigns it to the ShkID field.
+// SetShkID sets field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetShkID(v int32) {
-	o.ShkID = &v
+	o.ShkID = v
 }
 
-// GetSku returns the Sku field value if set, zero value otherwise.
+// GetSku returns the Sku field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetSku() string {
-	if o == nil || IsNil(o.Sku) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Sku
+
+	return o.Sku
 }
 
-// GetSkuOk returns a tuple with the Sku field value if set, nil otherwise
+// GetSkuOk returns a tuple with the Sku field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetSkuOk() (*string, bool) {
-	if o == nil || IsNil(o.Sku) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sku, true
+	return &o.Sku, true
 }
 
-// HasSku returns a boolean if a field has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasSku() bool {
-	if o != nil && !IsNil(o.Sku) {
-		return true
-	}
-
-	return false
-}
-
-// SetSku gets a reference to the given string and assigns it to the Sku field.
+// SetSku sets field value
 func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetSku(v string) {
-	o.Sku = &v
+	o.Sku = v
 }
 
 func (o GetV1AnalyticsGoodsLabeling200ResponseReportInner) MarshalJSON() ([]byte, error) {
@@ -287,28 +242,57 @@ func (o GetV1AnalyticsGoodsLabeling200ResponseReportInner) MarshalJSON() ([]byte
 
 func (o GetV1AnalyticsGoodsLabeling200ResponseReportInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Amount) {
-		toSerialize["amount"] = o.Amount
-	}
-	if !IsNil(o.Date) {
-		toSerialize["date"] = o.Date
-	}
-	if !IsNil(o.IncomeId) {
-		toSerialize["incomeId"] = o.IncomeId
-	}
-	if !IsNil(o.NmID) {
-		toSerialize["nmID"] = o.NmID
-	}
-	if !IsNil(o.PhotoUrls) {
-		toSerialize["photoUrls"] = o.PhotoUrls
-	}
-	if !IsNil(o.ShkID) {
-		toSerialize["shkID"] = o.ShkID
-	}
-	if !IsNil(o.Sku) {
-		toSerialize["sku"] = o.Sku
-	}
+	toSerialize["amount"] = o.Amount
+	toSerialize["date"] = o.Date
+	toSerialize["incomeId"] = o.IncomeId
+	toSerialize["nmID"] = o.NmID
+	toSerialize["photoUrls"] = o.PhotoUrls
+	toSerialize["shkID"] = o.ShkID
+	toSerialize["sku"] = o.Sku
 	return toSerialize, nil
+}
+
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"amount",
+		"date",
+		"incomeId",
+		"nmID",
+		"photoUrls",
+		"shkID",
+		"sku",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AnalyticsGoodsLabeling200ResponseReportInner := _GetV1AnalyticsGoodsLabeling200ResponseReportInner{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AnalyticsGoodsLabeling200ResponseReportInner)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AnalyticsGoodsLabeling200ResponseReportInner(varGetV1AnalyticsGoodsLabeling200ResponseReportInner)
+
+	return err
 }
 
 type NullableGetV1AnalyticsGoodsLabeling200ResponseReportInner struct {

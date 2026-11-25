@@ -30,13 +30,14 @@ export interface GetV1AnalyticsAntifraudDetails200Response {
     /**
      * 
      */
-    details?: Array<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner>;
+    details: Array<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner>;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsAntifraudDetails200Response interface.
  */
 export function instanceOfGetV1AnalyticsAntifraudDetails200Response(value: object): value is GetV1AnalyticsAntifraudDetails200Response {
+    if (!('details' in value) || value['details'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function GetV1AnalyticsAntifraudDetails200ResponseFromJSONTyped(json: any
     }
     return {
         
-        'details': json['details'] == null ? undefined : ((json['details'] as Array<any>).map(GetV1AnalyticsAntifraudDetails200ResponseDetailsInnerFromJSON)),
+        'details': ((json['details'] as Array<any>).map(GetV1AnalyticsAntifraudDetails200ResponseDetailsInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function GetV1AnalyticsAntifraudDetails200ResponseToJSONTyped(value?: Get
 
     return {
         
-        'details': value['details'] == null ? undefined : ((value['details'] as Array<any>).map(GetV1AnalyticsAntifraudDetails200ResponseDetailsInnerToJSON)),
+        'details': ((value['details'] as Array<any>).map(GetV1AnalyticsAntifraudDetails200ResponseDetailsInnerToJSON)),
     };
 }
 

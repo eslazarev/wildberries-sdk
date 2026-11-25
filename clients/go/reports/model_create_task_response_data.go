@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CreateTaskResponseData type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &CreateTaskResponseData{}
 // CreateTaskResponseData struct for CreateTaskResponseData
 type CreateTaskResponseData struct {
 	// ID задания на генерацию
-	TaskId *string `json:"taskId,omitempty"`
+	TaskId string `json:"taskId"`
 }
+
+type _CreateTaskResponseData CreateTaskResponseData
 
 // NewCreateTaskResponseData instantiates a new CreateTaskResponseData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateTaskResponseData() *CreateTaskResponseData {
+func NewCreateTaskResponseData(taskId string) *CreateTaskResponseData {
 	this := CreateTaskResponseData{}
+	this.TaskId = taskId
 	return &this
 }
 
@@ -40,36 +45,28 @@ func NewCreateTaskResponseDataWithDefaults() *CreateTaskResponseData {
 	return &this
 }
 
-// GetTaskId returns the TaskId field value if set, zero value otherwise.
+// GetTaskId returns the TaskId field value
 func (o *CreateTaskResponseData) GetTaskId() string {
-	if o == nil || IsNil(o.TaskId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TaskId
+
+	return o.TaskId
 }
 
-// GetTaskIdOk returns a tuple with the TaskId field value if set, nil otherwise
+// GetTaskIdOk returns a tuple with the TaskId field value
 // and a boolean to check if the value has been set.
 func (o *CreateTaskResponseData) GetTaskIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TaskId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TaskId, true
+	return &o.TaskId, true
 }
 
-// HasTaskId returns a boolean if a field has been set.
-func (o *CreateTaskResponseData) HasTaskId() bool {
-	if o != nil && !IsNil(o.TaskId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTaskId gets a reference to the given string and assigns it to the TaskId field.
+// SetTaskId sets field value
 func (o *CreateTaskResponseData) SetTaskId(v string) {
-	o.TaskId = &v
+	o.TaskId = v
 }
 
 func (o CreateTaskResponseData) MarshalJSON() ([]byte, error) {
@@ -82,10 +79,45 @@ func (o CreateTaskResponseData) MarshalJSON() ([]byte, error) {
 
 func (o CreateTaskResponseData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TaskId) {
-		toSerialize["taskId"] = o.TaskId
-	}
+	toSerialize["taskId"] = o.TaskId
 	return toSerialize, nil
+}
+
+func (o *CreateTaskResponseData) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"taskId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCreateTaskResponseData := _CreateTaskResponseData{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCreateTaskResponseData)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CreateTaskResponseData(varCreateTaskResponseData)
+
+	return err
 }
 
 type NullableCreateTaskResponseData struct {

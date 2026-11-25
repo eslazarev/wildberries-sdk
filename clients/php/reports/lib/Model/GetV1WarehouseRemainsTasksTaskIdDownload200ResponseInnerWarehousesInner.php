@@ -281,6 +281,12 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner im
     {
         $invalidProperties = [];
 
+        if ($this->container['warehouse_name'] === null) {
+            $invalidProperties[] = "'warehouse_name' can't be null";
+        }
+        if ($this->container['quantity'] === null) {
+            $invalidProperties[] = "'quantity' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -299,7 +305,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner im
     /**
      * Gets warehouse_name
      *
-     * @return string|null
+     * @return string
      */
     public function getWarehouseName()
     {
@@ -309,7 +315,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner im
     /**
      * Sets warehouse_name
      *
-     * @param string|null $warehouse_name Название склада
+     * @param string $warehouse_name Название склада
      *
      * @return self
      */
@@ -326,7 +332,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner im
     /**
      * Gets quantity
      *
-     * @return int|null
+     * @return int
      */
     public function getQuantity()
     {
@@ -336,7 +342,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner im
     /**
      * Sets quantity
      *
-     * @param int|null $quantity Количество, шт.
+     * @param int $quantity Количество, шт.
      *
      * @return self
      */

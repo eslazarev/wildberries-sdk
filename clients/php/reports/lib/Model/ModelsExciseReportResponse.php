@@ -274,6 +274,9 @@ class ModelsExciseReportResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class ModelsExciseReportResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \Wildberries\Sdk\Reports\Model\ModelsExciseReportResponseDataInner[]|null
+     * @return \Wildberries\Sdk\Reports\Model\ModelsExciseReportResponseDataInner[]
      */
     public function getData()
     {
@@ -302,7 +305,7 @@ class ModelsExciseReportResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \Wildberries\Sdk\Reports\Model\ModelsExciseReportResponseDataInner[]|null $data data
+     * @param \Wildberries\Sdk\Reports\Model\ModelsExciseReportResponseDataInner[] $data data
      *
      * @return self
      */

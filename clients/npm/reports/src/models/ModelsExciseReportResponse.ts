@@ -30,13 +30,14 @@ export interface ModelsExciseReportResponse {
     /**
      * 
      */
-    data?: Array<ModelsExciseReportResponseDataInner>;
+    data: Array<ModelsExciseReportResponseDataInner>;
 }
 
 /**
  * Check if a given object implements the ModelsExciseReportResponse interface.
  */
 export function instanceOfModelsExciseReportResponse(value: object): value is ModelsExciseReportResponse {
+    if (!('data' in value) || value['data'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function ModelsExciseReportResponseFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(ModelsExciseReportResponseDataInnerFromJSON)),
+        'data': ((json['data'] as Array<any>).map(ModelsExciseReportResponseDataInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function ModelsExciseReportResponseToJSONTyped(value?: ModelsExciseReport
 
     return {
         
-        'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(ModelsExciseReportResponseDataInnerToJSON)),
+        'data': ((value['data'] as Array<any>).map(ModelsExciseReportResponseDataInnerToJSON)),
     };
 }
 

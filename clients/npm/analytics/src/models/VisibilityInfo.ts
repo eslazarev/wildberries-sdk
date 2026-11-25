@@ -52,15 +52,15 @@ export interface VisibilityInfo {
     /**
      * Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
      */
-    byDay?: Array<VisibilityInfoByDayInner>;
+    byDay: Array<VisibilityInfoByDayInner>;
     /**
      * Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
      */
-    byWeek?: Array<VisibilityInfoByDayInner>;
+    byWeek: Array<VisibilityInfoByDayInner>;
     /**
      * Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам
      */
-    byMonth?: Array<VisibilityInfoByDayInner>;
+    byMonth: Array<VisibilityInfoByDayInner>;
 }
 
 /**
@@ -69,6 +69,9 @@ export interface VisibilityInfo {
 export function instanceOfVisibilityInfo(value: object): value is VisibilityInfo {
     if (!('visibility' in value) || value['visibility'] === undefined) return false;
     if (!('openCard' in value) || value['openCard'] === undefined) return false;
+    if (!('byDay' in value) || value['byDay'] === undefined) return false;
+    if (!('byWeek' in value) || value['byWeek'] === undefined) return false;
+    if (!('byMonth' in value) || value['byMonth'] === undefined) return false;
     return true;
 }
 
@@ -84,9 +87,9 @@ export function VisibilityInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'visibility': VisibilityInfoVisibilityFromJSON(json['visibility']),
         'openCard': VisibilityInfoOpenCardFromJSON(json['openCard']),
-        'byDay': json['byDay'] == null ? undefined : ((json['byDay'] as Array<any>).map(VisibilityInfoByDayInnerFromJSON)),
-        'byWeek': json['byWeek'] == null ? undefined : ((json['byWeek'] as Array<any>).map(VisibilityInfoByDayInnerFromJSON)),
-        'byMonth': json['byMonth'] == null ? undefined : ((json['byMonth'] as Array<any>).map(VisibilityInfoByDayInnerFromJSON)),
+        'byDay': ((json['byDay'] as Array<any>).map(VisibilityInfoByDayInnerFromJSON)),
+        'byWeek': ((json['byWeek'] as Array<any>).map(VisibilityInfoByDayInnerFromJSON)),
+        'byMonth': ((json['byMonth'] as Array<any>).map(VisibilityInfoByDayInnerFromJSON)),
     };
 }
 
@@ -103,9 +106,9 @@ export function VisibilityInfoToJSONTyped(value?: VisibilityInfo | null, ignoreD
         
         'visibility': VisibilityInfoVisibilityToJSON(value['visibility']),
         'openCard': VisibilityInfoOpenCardToJSON(value['openCard']),
-        'byDay': value['byDay'] == null ? undefined : ((value['byDay'] as Array<any>).map(VisibilityInfoByDayInnerToJSON)),
-        'byWeek': value['byWeek'] == null ? undefined : ((value['byWeek'] as Array<any>).map(VisibilityInfoByDayInnerToJSON)),
-        'byMonth': value['byMonth'] == null ? undefined : ((value['byMonth'] as Array<any>).map(VisibilityInfoByDayInnerToJSON)),
+        'byDay': ((value['byDay'] as Array<any>).map(VisibilityInfoByDayInnerToJSON)),
+        'byWeek': ((value['byWeek'] as Array<any>).map(VisibilityInfoByDayInnerToJSON)),
+        'byMonth': ((value['byMonth'] as Array<any>).map(VisibilityInfoByDayInnerToJSON)),
     };
 }
 

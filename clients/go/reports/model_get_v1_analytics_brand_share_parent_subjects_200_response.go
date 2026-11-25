@@ -12,6 +12,8 @@ package reports
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GetV1AnalyticsBrandShareParentSubjects200Response type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &GetV1AnalyticsBrandShareParentSubjects200Response{}
 // GetV1AnalyticsBrandShareParentSubjects200Response struct for GetV1AnalyticsBrandShareParentSubjects200Response
 type GetV1AnalyticsBrandShareParentSubjects200Response struct {
 	// Категории бренда
-	Data []GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner `json:"data,omitempty"`
+	Data []GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner `json:"data"`
 }
+
+type _GetV1AnalyticsBrandShareParentSubjects200Response GetV1AnalyticsBrandShareParentSubjects200Response
 
 // NewGetV1AnalyticsBrandShareParentSubjects200Response instantiates a new GetV1AnalyticsBrandShareParentSubjects200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetV1AnalyticsBrandShareParentSubjects200Response() *GetV1AnalyticsBrandShareParentSubjects200Response {
+func NewGetV1AnalyticsBrandShareParentSubjects200Response(data []GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) *GetV1AnalyticsBrandShareParentSubjects200Response {
 	this := GetV1AnalyticsBrandShareParentSubjects200Response{}
+	this.Data = data
 	return &this
 }
 
@@ -40,34 +45,26 @@ func NewGetV1AnalyticsBrandShareParentSubjects200ResponseWithDefaults() *GetV1An
 	return &this
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
+// GetData returns the Data field value
 func (o *GetV1AnalyticsBrandShareParentSubjects200Response) GetData() []GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
-	if o == nil || IsNil(o.Data) {
+	if o == nil {
 		var ret []GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner
 		return ret
 	}
+
 	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
+// GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *GetV1AnalyticsBrandShareParentSubjects200Response) GetDataOk() ([]GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner, bool) {
-	if o == nil || IsNil(o.Data) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Data, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *GetV1AnalyticsBrandShareParentSubjects200Response) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
-		return true
-	}
-
-	return false
-}
-
-// SetData gets a reference to the given []GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner and assigns it to the Data field.
+// SetData sets field value
 func (o *GetV1AnalyticsBrandShareParentSubjects200Response) SetData(v []GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner) {
 	o.Data = v
 }
@@ -82,10 +79,45 @@ func (o GetV1AnalyticsBrandShareParentSubjects200Response) MarshalJSON() ([]byte
 
 func (o GetV1AnalyticsBrandShareParentSubjects200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
-	}
+	toSerialize["data"] = o.Data
 	return toSerialize, nil
+}
+
+func (o *GetV1AnalyticsBrandShareParentSubjects200Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"data",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGetV1AnalyticsBrandShareParentSubjects200Response := _GetV1AnalyticsBrandShareParentSubjects200Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGetV1AnalyticsBrandShareParentSubjects200Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetV1AnalyticsBrandShareParentSubjects200Response(varGetV1AnalyticsBrandShareParentSubjects200Response)
+
+	return err
 }
 
 type NullableGetV1AnalyticsBrandShareParentSubjects200Response struct {

@@ -14,70 +14,70 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetV1Deductions200ResponseDataReportsInner {
     /// Дата и время удержания
-    #[serde(rename = "dtBonus", skip_serializing_if = "Option::is_none")]
-    pub dt_bonus: Option<chrono::DateTime<chrono::FixedOffset>>,
+    #[serde(rename = "dtBonus")]
+    pub dt_bonus: chrono::DateTime<chrono::FixedOffset>,
     /// Артикул WB
-    #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
+    #[serde(rename = "nmId")]
+    pub nm_id: i32,
     /// Старый штрихкод
-    #[serde(rename = "oldShkId", skip_serializing_if = "Option::is_none")]
-    pub old_shk_id: Option<i32>,
+    #[serde(rename = "oldShkId")]
+    pub old_shk_id: i32,
     /// Старый цвет
-    #[serde(rename = "oldColor", skip_serializing_if = "Option::is_none")]
-    pub old_color: Option<String>,
+    #[serde(rename = "oldColor")]
+    pub old_color: String,
     /// Старый размер
-    #[serde(rename = "oldSize", skip_serializing_if = "Option::is_none")]
-    pub old_size: Option<String>,
+    #[serde(rename = "oldSize")]
+    pub old_size: String,
     /// Старый баркод
-    #[serde(rename = "oldSku", skip_serializing_if = "Option::is_none")]
-    pub old_sku: Option<String>,
+    #[serde(rename = "oldSku")]
+    pub old_sku: String,
     /// Старый артикул продавца
-    #[serde(rename = "oldVendorCode", skip_serializing_if = "Option::is_none")]
-    pub old_vendor_code: Option<String>,
+    #[serde(rename = "oldVendorCode")]
+    pub old_vendor_code: String,
     /// Новый штрихкод
-    #[serde(rename = "newShkId", skip_serializing_if = "Option::is_none")]
-    pub new_shk_id: Option<i32>,
+    #[serde(rename = "newShkId")]
+    pub new_shk_id: i32,
     /// Новый цвет
-    #[serde(rename = "newColor", skip_serializing_if = "Option::is_none")]
-    pub new_color: Option<String>,
+    #[serde(rename = "newColor")]
+    pub new_color: String,
     /// Новый размер
-    #[serde(rename = "newSize", skip_serializing_if = "Option::is_none")]
-    pub new_size: Option<String>,
+    #[serde(rename = "newSize")]
+    pub new_size: String,
     /// Новый баркод
-    #[serde(rename = "newSku", skip_serializing_if = "Option::is_none")]
-    pub new_sku: Option<String>,
+    #[serde(rename = "newSku")]
+    pub new_sku: String,
     /// Новый артикул продавца
-    #[serde(rename = "newVendorCode", skip_serializing_if = "Option::is_none")]
-    pub new_vendor_code: Option<String>,
+    #[serde(rename = "newVendorCode")]
+    pub new_vendor_code: String,
     /// Сумма удержания
-    #[serde(rename = "bonusSumm", skip_serializing_if = "Option::is_none")]
-    pub bonus_summ: Option<f64>,
+    #[serde(rename = "bonusSumm")]
+    pub bonus_summ: f64,
     /// Причина удержания
-    #[serde(rename = "bonusType", skip_serializing_if = "Option::is_none")]
-    pub bonus_type: Option<String>,
+    #[serde(rename = "bonusType")]
+    pub bonus_type: String,
     /// Фото замеров
-    #[serde(rename = "photoUrls", skip_serializing_if = "Option::is_none")]
-    pub photo_urls: Option<Vec<String>>,
+    #[serde(rename = "photoUrls")]
+    pub photo_urls: Vec<String>,
 }
 
 impl GetV1Deductions200ResponseDataReportsInner {
-    pub fn new() -> GetV1Deductions200ResponseDataReportsInner {
+    pub fn new(dt_bonus: chrono::DateTime<chrono::FixedOffset>, nm_id: i32, old_shk_id: i32, old_color: String, old_size: String, old_sku: String, old_vendor_code: String, new_shk_id: i32, new_color: String, new_size: String, new_sku: String, new_vendor_code: String, bonus_summ: f64, bonus_type: String, photo_urls: Vec<String>) -> GetV1Deductions200ResponseDataReportsInner {
         GetV1Deductions200ResponseDataReportsInner {
-            dt_bonus: None,
-            nm_id: None,
-            old_shk_id: None,
-            old_color: None,
-            old_size: None,
-            old_sku: None,
-            old_vendor_code: None,
-            new_shk_id: None,
-            new_color: None,
-            new_size: None,
-            new_sku: None,
-            new_vendor_code: None,
-            bonus_summ: None,
-            bonus_type: None,
-            photo_urls: None,
+            dt_bonus,
+            nm_id,
+            old_shk_id,
+            old_color,
+            old_size,
+            old_sku,
+            old_vendor_code,
+            new_shk_id,
+            new_color,
+            new_size,
+            new_sku,
+            new_vendor_code,
+            bonus_summ,
+            bonus_type,
+            photo_urls,
         }
     }
 }

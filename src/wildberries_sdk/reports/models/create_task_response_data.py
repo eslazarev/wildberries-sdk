@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,7 +27,7 @@ class CreateTaskResponseData(BaseModel):
     """
     CreateTaskResponseData
     """ # noqa: E501
-    task_id: Optional[StrictStr] = Field(default=None, description="ID задания на генерацию", alias="taskId")
+    task_id: StrictStr = Field(description="ID задания на генерацию", alias="taskId")
     __properties: ClassVar[List[str]] = ["taskId"]
 
     model_config = ConfigDict(

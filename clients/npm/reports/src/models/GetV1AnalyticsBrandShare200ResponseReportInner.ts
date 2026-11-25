@@ -22,25 +22,29 @@ export interface GetV1AnalyticsBrandShare200ResponseReportInner {
     /**
      * Дата
      */
-    applyDate?: string;
+    applyDate: string;
     /**
      * Рейтинг бренда в родительской категории
      */
-    brandRating?: number;
+    brandRating: number;
     /**
      * Доля от продаж в родительской категории — цена, %
      */
-    pricePercent?: number;
+    pricePercent: number;
     /**
      * Доля от продаж в родительской категории — количество, %
      */
-    qtyPercent?: number;
+    qtyPercent: number;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsBrandShare200ResponseReportInner interface.
  */
 export function instanceOfGetV1AnalyticsBrandShare200ResponseReportInner(value: object): value is GetV1AnalyticsBrandShare200ResponseReportInner {
+    if (!('applyDate' in value) || value['applyDate'] === undefined) return false;
+    if (!('brandRating' in value) || value['brandRating'] === undefined) return false;
+    if (!('pricePercent' in value) || value['pricePercent'] === undefined) return false;
+    if (!('qtyPercent' in value) || value['qtyPercent'] === undefined) return false;
     return true;
 }
 
@@ -54,10 +58,10 @@ export function GetV1AnalyticsBrandShare200ResponseReportInnerFromJSONTyped(json
     }
     return {
         
-        'applyDate': json['applyDate'] == null ? undefined : json['applyDate'],
-        'brandRating': json['brandRating'] == null ? undefined : json['brandRating'],
-        'pricePercent': json['pricePercent'] == null ? undefined : json['pricePercent'],
-        'qtyPercent': json['qtyPercent'] == null ? undefined : json['qtyPercent'],
+        'applyDate': json['applyDate'],
+        'brandRating': json['brandRating'],
+        'pricePercent': json['pricePercent'],
+        'qtyPercent': json['qtyPercent'],
     };
 }
 

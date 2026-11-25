@@ -20,13 +20,9 @@ import { mapValues } from '../runtime';
  */
 export interface ModelsExciseReportResponseDataInner {
     /**
-     * Страна покупателя
+     * Баркод
      */
-    name?: string;
-    /**
-     * Цена товара, с НДС
-     */
-    price?: number;
+    barcode?: string;
     /**
      * Валюта
      */
@@ -36,9 +32,21 @@ export interface ModelsExciseReportResponseDataInner {
      */
     exciseShort?: string;
     /**
-     * Баркод
+     * Номер фискального документа (чека полного расчёта), если есть
      */
-    barcode?: string;
+    fiscalDocNumber?: number;
+    /**
+     * Номер фискального накопителя, если есть
+     */
+    fiscalDriveNumber?: string;
+    /**
+     * Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
+     */
+    fiscalDt?: string;
+    /**
+     * Страна покупателя
+     */
+    name?: string;
     /**
      * Артикул WB
      */
@@ -52,17 +60,9 @@ export interface ModelsExciseReportResponseDataInner {
      */
     operationTypeId?: number;
     /**
-     * Номер фискального документа (чека полного расчёта), если есть
+     * Цена товара, с НДС
      */
-    fiscalDocNumber?: number;
-    /**
-     * Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
-     */
-    fiscalDt?: string;
-    /**
-     * Номер фискального накопителя, если есть
-     */
-    fiscalDriveNumber?: string;
+    price?: number;
     /**
      * `Rid`
      * 
@@ -92,16 +92,16 @@ export function ModelsExciseReportResponseDataInnerFromJSONTyped(json: any, igno
     }
     return {
         
-        'name': json['name'] == null ? undefined : json['name'],
-        'price': json['price'] == null ? undefined : json['price'],
+        'barcode': json['barcode'] == null ? undefined : json['barcode'],
         'currencyNameShort': json['currency_name_short'] == null ? undefined : json['currency_name_short'],
         'exciseShort': json['excise_short'] == null ? undefined : json['excise_short'],
-        'barcode': json['barcode'] == null ? undefined : json['barcode'],
+        'fiscalDocNumber': json['fiscal_doc_number'] == null ? undefined : json['fiscal_doc_number'],
+        'fiscalDriveNumber': json['fiscal_drive_number'] == null ? undefined : json['fiscal_drive_number'],
+        'fiscalDt': json['fiscal_dt'] == null ? undefined : json['fiscal_dt'],
+        'name': json['name'] == null ? undefined : json['name'],
         'nmId': json['nm_id'] == null ? undefined : json['nm_id'],
         'operationTypeId': json['operation_type_id'] == null ? undefined : json['operation_type_id'],
-        'fiscalDocNumber': json['fiscal_doc_number'] == null ? undefined : json['fiscal_doc_number'],
-        'fiscalDt': json['fiscal_dt'] == null ? undefined : json['fiscal_dt'],
-        'fiscalDriveNumber': json['fiscal_drive_number'] == null ? undefined : json['fiscal_drive_number'],
+        'price': json['price'] == null ? undefined : json['price'],
         'rid': json['rid'] == null ? undefined : json['rid'],
         'srid': json['srid'] == null ? undefined : json['srid'],
     };
@@ -118,16 +118,16 @@ export function ModelsExciseReportResponseDataInnerToJSONTyped(value?: ModelsExc
 
     return {
         
-        'name': value['name'],
-        'price': value['price'],
+        'barcode': value['barcode'],
         'currency_name_short': value['currencyNameShort'],
         'excise_short': value['exciseShort'],
-        'barcode': value['barcode'],
+        'fiscal_doc_number': value['fiscalDocNumber'],
+        'fiscal_drive_number': value['fiscalDriveNumber'],
+        'fiscal_dt': value['fiscalDt'],
+        'name': value['name'],
         'nm_id': value['nmId'],
         'operation_type_id': value['operationTypeId'],
-        'fiscal_doc_number': value['fiscalDocNumber'],
-        'fiscal_dt': value['fiscalDt'],
-        'fiscal_drive_number': value['fiscalDriveNumber'],
+        'price': value['price'],
         'rid': value['rid'],
         'srid': value['srid'],
     };

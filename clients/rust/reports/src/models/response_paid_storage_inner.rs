@@ -13,103 +13,103 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponsePaidStorageInner {
-    /// Дата, за которую был расчёт или перерасчёт
-    #[serde(rename = "date", skip_serializing_if = "Option::is_none")]
-    pub date: Option<String>,
+    /// Дата расчёта или перерасчёта
+    #[serde(rename = "date")]
+    pub date: String,
     /// Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`
-    #[serde(rename = "logWarehouseCoef", skip_serializing_if = "Option::is_none")]
-    pub log_warehouse_coef: Option<f64>,
+    #[serde(rename = "logWarehouseCoef")]
+    pub log_warehouse_coef: f64,
     /// ID склада. [На данный момент](/release-notes?id=570) может быть только `0`
-    #[serde(rename = "officeId", skip_serializing_if = "Option::is_none")]
-    pub office_id: Option<i32>,
+    #[serde(rename = "officeId")]
+    pub office_id: i32,
     /// Название склада. [На данный момент](/release-notes?id=570) может быть только `Склад WB РФ`
-    #[serde(rename = "warehouse", skip_serializing_if = "Option::is_none")]
-    pub warehouse: Option<String>,
+    #[serde(rename = "warehouse")]
+    pub warehouse: String,
     /// Коэффициент хранения
-    #[serde(rename = "warehouseCoef", skip_serializing_if = "Option::is_none")]
-    pub warehouse_coef: Option<f64>,
+    #[serde(rename = "warehouseCoef")]
+    pub warehouse_coef: f64,
     /// ID поставки
-    #[serde(rename = "giId", skip_serializing_if = "Option::is_none")]
-    pub gi_id: Option<i32>,
+    #[serde(rename = "giId")]
+    pub gi_id: i32,
     /// ID размера для этого артикула WB
-    #[serde(rename = "chrtId", skip_serializing_if = "Option::is_none")]
-    pub chrt_id: Option<u64>,
+    #[serde(rename = "chrtId")]
+    pub chrt_id: u64,
     /// Размер (`techSize` в карточке товара)
-    #[serde(rename = "size", skip_serializing_if = "Option::is_none")]
-    pub size: Option<String>,
+    #[serde(rename = "size")]
+    pub size: String,
     /// Баркод
-    #[serde(rename = "barcode", skip_serializing_if = "Option::is_none")]
-    pub barcode: Option<String>,
+    #[serde(rename = "barcode")]
+    pub barcode: String,
     /// Предмет
-    #[serde(rename = "subject", skip_serializing_if = "Option::is_none")]
-    pub subject: Option<String>,
+    #[serde(rename = "subject")]
+    pub subject: String,
     /// Бренд
-    #[serde(rename = "brand", skip_serializing_if = "Option::is_none")]
-    pub brand: Option<String>,
+    #[serde(rename = "brand")]
+    pub brand: String,
     /// Артикул продавца
-    #[serde(rename = "vendorCode", skip_serializing_if = "Option::is_none")]
-    pub vendor_code: Option<String>,
+    #[serde(rename = "vendorCode")]
+    pub vendor_code: String,
     /// Артикул WB
-    #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i32>,
+    #[serde(rename = "nmId")]
+    pub nm_id: i32,
     /// Объём товара
-    #[serde(rename = "volume", skip_serializing_if = "Option::is_none")]
-    pub volume: Option<f64>,
+    #[serde(rename = "volume")]
+    pub volume: f64,
     /// Способ расчёта
-    #[serde(rename = "calcType", skip_serializing_if = "Option::is_none")]
-    pub calc_type: Option<String>,
+    #[serde(rename = "calcType")]
+    pub calc_type: String,
     /// Сумма хранения
-    #[serde(rename = "warehousePrice", skip_serializing_if = "Option::is_none")]
-    pub warehouse_price: Option<f64>,
+    #[serde(rename = "warehousePrice")]
+    pub warehouse_price: f64,
     /// Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
-    #[serde(rename = "barcodesCount", skip_serializing_if = "Option::is_none")]
-    pub barcodes_count: Option<i32>,
+    #[serde(rename = "barcodesCount")]
+    pub barcodes_count: i32,
     /// Код паллетоместа. [На данный момент](/release-notes?id=570) может быть только `0`
-    #[serde(rename = "palletPlaceCode", skip_serializing_if = "Option::is_none")]
-    pub pallet_place_code: Option<i32>,
+    #[serde(rename = "palletPlaceCode")]
+    pub pallet_place_code: i32,
     /// Количество паллет
-    #[serde(rename = "palletCount", skip_serializing_if = "Option::is_none")]
-    pub pallet_count: Option<f64>,
+    #[serde(rename = "palletCount")]
+    pub pallet_count: f64,
     /// Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с `date`
-    #[serde(rename = "originalDate", skip_serializing_if = "Option::is_none")]
-    pub original_date: Option<String>,
+    #[serde(rename = "originalDate")]
+    pub original_date: String,
     /// Скидка программы лояльности, ₽
-    #[serde(rename = "loyaltyDiscount", skip_serializing_if = "Option::is_none")]
-    pub loyalty_discount: Option<f64>,
+    #[serde(rename = "loyaltyDiscount")]
+    pub loyalty_discount: f64,
     /// Дата фиксации тарифа
-    #[serde(rename = "tariffFixDate", skip_serializing_if = "Option::is_none")]
-    pub tariff_fix_date: Option<String>,
+    #[serde(rename = "tariffFixDate")]
+    pub tariff_fix_date: String,
     /// Дата понижения тарифа
-    #[serde(rename = "tariffLowerDate", skip_serializing_if = "Option::is_none")]
-    pub tariff_lower_date: Option<String>,
+    #[serde(rename = "tariffLowerDate")]
+    pub tariff_lower_date: String,
 }
 
 impl ResponsePaidStorageInner {
-    pub fn new() -> ResponsePaidStorageInner {
+    pub fn new(date: String, log_warehouse_coef: f64, office_id: i32, warehouse: String, warehouse_coef: f64, gi_id: i32, chrt_id: u64, size: String, barcode: String, subject: String, brand: String, vendor_code: String, nm_id: i32, volume: f64, calc_type: String, warehouse_price: f64, barcodes_count: i32, pallet_place_code: i32, pallet_count: f64, original_date: String, loyalty_discount: f64, tariff_fix_date: String, tariff_lower_date: String) -> ResponsePaidStorageInner {
         ResponsePaidStorageInner {
-            date: None,
-            log_warehouse_coef: None,
-            office_id: None,
-            warehouse: None,
-            warehouse_coef: None,
-            gi_id: None,
-            chrt_id: None,
-            size: None,
-            barcode: None,
-            subject: None,
-            brand: None,
-            vendor_code: None,
-            nm_id: None,
-            volume: None,
-            calc_type: None,
-            warehouse_price: None,
-            barcodes_count: None,
-            pallet_place_code: None,
-            pallet_count: None,
-            original_date: None,
-            loyalty_discount: None,
-            tariff_fix_date: None,
-            tariff_lower_date: None,
+            date,
+            log_warehouse_coef,
+            office_id,
+            warehouse,
+            warehouse_coef,
+            gi_id,
+            chrt_id,
+            size,
+            barcode,
+            subject,
+            brand,
+            vendor_code,
+            nm_id,
+            volume,
+            calc_type,
+            warehouse_price,
+            barcodes_count,
+            pallet_place_code,
+            pallet_count,
+            original_date,
+            loyalty_discount,
+            tariff_fix_date,
+            tariff_lower_date,
         }
     }
 }

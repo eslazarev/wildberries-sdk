@@ -30,13 +30,14 @@ export interface GetV1AnalyticsBrandShareParentSubjects200Response {
     /**
      * Категории бренда
      */
-    data?: Array<GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner>;
+    data: Array<GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner>;
 }
 
 /**
  * Check if a given object implements the GetV1AnalyticsBrandShareParentSubjects200Response interface.
  */
 export function instanceOfGetV1AnalyticsBrandShareParentSubjects200Response(value: object): value is GetV1AnalyticsBrandShareParentSubjects200Response {
+    if (!('data' in value) || value['data'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function GetV1AnalyticsBrandShareParentSubjects200ResponseFromJSONTyped(j
     }
     return {
         
-        'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(GetV1AnalyticsBrandShareParentSubjects200ResponseDataInnerFromJSON)),
+        'data': ((json['data'] as Array<any>).map(GetV1AnalyticsBrandShareParentSubjects200ResponseDataInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function GetV1AnalyticsBrandShareParentSubjects200ResponseToJSONTyped(val
 
     return {
         
-        'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(GetV1AnalyticsBrandShareParentSubjects200ResponseDataInnerToJSON)),
+        'data': ((value['data'] as Array<any>).map(GetV1AnalyticsBrandShareParentSubjects200ResponseDataInnerToJSON)),
     };
 }
 

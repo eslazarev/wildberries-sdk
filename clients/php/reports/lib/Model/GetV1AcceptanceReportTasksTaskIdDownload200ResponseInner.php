@@ -316,6 +316,27 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     {
         $invalidProperties = [];
 
+        if ($this->container['count'] === null) {
+            $invalidProperties[] = "'count' can't be null";
+        }
+        if ($this->container['gi_create_date'] === null) {
+            $invalidProperties[] = "'gi_create_date' can't be null";
+        }
+        if ($this->container['income_id'] === null) {
+            $invalidProperties[] = "'income_id' can't be null";
+        }
+        if ($this->container['nm_id'] === null) {
+            $invalidProperties[] = "'nm_id' can't be null";
+        }
+        if ($this->container['shk_create_date'] === null) {
+            $invalidProperties[] = "'shk_create_date' can't be null";
+        }
+        if ($this->container['subject_name'] === null) {
+            $invalidProperties[] = "'subject_name' can't be null";
+        }
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -334,7 +355,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Gets count
      *
-     * @return int|null
+     * @return int
      */
     public function getCount()
     {
@@ -344,7 +365,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Sets count
      *
-     * @param int|null $count Количество товаров, шт.
+     * @param int $count Количество товаров, шт.
      *
      * @return self
      */
@@ -361,7 +382,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Gets gi_create_date
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getGiCreateDate()
     {
@@ -371,7 +392,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Sets gi_create_date
      *
-     * @param \DateTime|null $gi_create_date Дата создания поставки
+     * @param \DateTime $gi_create_date Дата создания поставки
      *
      * @return self
      */
@@ -388,7 +409,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Gets income_id
      *
-     * @return int|null
+     * @return int
      */
     public function getIncomeId()
     {
@@ -398,7 +419,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Sets income_id
      *
-     * @param int|null $income_id Номер поставки
+     * @param int $income_id Номер поставки
      *
      * @return self
      */
@@ -415,7 +436,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Gets nm_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNmId()
     {
@@ -425,7 +446,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Sets nm_id
      *
-     * @param int|null $nm_id Артикул WB
+     * @param int $nm_id Артикул WB
      *
      * @return self
      */
@@ -442,7 +463,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Gets shk_create_date
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getShkCreateDate()
     {
@@ -452,7 +473,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Sets shk_create_date
      *
-     * @param \DateTime|null $shk_create_date Дата приёмки
+     * @param \DateTime $shk_create_date Дата приёмки
      *
      * @return self
      */
@@ -469,7 +490,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Gets subject_name
      *
-     * @return string|null
+     * @return string
      */
     public function getSubjectName()
     {
@@ -479,7 +500,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Sets subject_name
      *
-     * @param string|null $subject_name Предмет
+     * @param string $subject_name Предмет
      *
      * @return self
      */
@@ -496,7 +517,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Gets total
      *
-     * @return float|null
+     * @return float
      */
     public function getTotal()
     {
@@ -506,7 +527,7 @@ class GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner implements ModelI
     /**
      * Sets total
      *
-     * @param float|null $total Суммарная стоимость приёмки, ₽ с копейками
+     * @param float $total Суммарная стоимость приёмки, ₽ с копейками
      *
      * @return self
      */

@@ -58,13 +58,14 @@ export interface GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
     /**
      * Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`
      */
-    warehouses?: Array<GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner>;
+    warehouses: Array<GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInner>;
 }
 
 /**
  * Check if a given object implements the GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner interface.
  */
 export function instanceOfGetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner(value: object): value is GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner {
+    if (!('warehouses' in value) || value['warehouses'] === undefined) return false;
     return true;
 }
 
@@ -85,7 +86,7 @@ export function GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerFromJSON
         'barcode': json['barcode'] == null ? undefined : json['barcode'],
         'techSize': json['techSize'] == null ? undefined : json['techSize'],
         'volume': json['volume'] == null ? undefined : json['volume'],
-        'warehouses': json['warehouses'] == null ? undefined : ((json['warehouses'] as Array<any>).map(GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInnerFromJSON)),
+        'warehouses': ((json['warehouses'] as Array<any>).map(GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInnerFromJSON)),
     };
 }
 
@@ -107,7 +108,7 @@ export function GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerToJSONTy
         'barcode': value['barcode'],
         'techSize': value['techSize'],
         'volume': value['volume'],
-        'warehouses': value['warehouses'] == null ? undefined : ((value['warehouses'] as Array<any>).map(GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInnerToJSON)),
+        'warehouses': ((value['warehouses'] as Array<any>).map(GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerWarehousesInnerToJSON)),
     };
 }
 
