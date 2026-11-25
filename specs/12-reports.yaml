@@ -715,6 +715,8 @@ paths:
               schema:
                 type: array
                 items:
+                  required:
+                    - warehouses
                   type: object
                   properties:
                     brand:
@@ -749,6 +751,9 @@ paths:
                       type: array
                       description: Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`
                       items:
+                        required:
+                          - warehouseName
+                          - quantity
                         type: object
                         properties:
                           warehouseName:
@@ -758,8 +763,7 @@ paths:
                           quantity:
                             type: integer
                             example: 134
-                            description: |
-                              Количество, шт.
+                            description: Количество, шт.
               example:
                 - brand: Wonderful
                   subjectName: Фотоальбомы
@@ -1414,6 +1418,14 @@ paths:
               schema:
                 type: array
                 items:
+                  required:
+                    - count
+                    - giCreateDate
+                    - incomeId
+                    - nmID
+                    - shkCreateDate
+                    - subjectName
+                    - total
                   type: object
                   properties:
                     count:
@@ -1697,7 +1709,7 @@ paths:
                   giId: 123456
                   chrtId: 1234567
                   size: '0'
-                  barcode: ''
+                  barcode: '2043628791644'
                   subject: Маски одноразовые
                   brand: 1000 Каталог
                   vendorCode: '567383'
@@ -2020,12 +2032,20 @@ paths:
           content:
             application/json:
               schema:
+                required:
+                  - report
                 type: object
                 properties:
                   report:
-                    description: Отчёт
                     type: array
+                    description: Отчёт
                     items:
+                      required:
+                        - brand
+                        - nmId
+                        - title
+                        - vendorCode
+                        - reason
                       type: object
                       properties:
                         brand:
@@ -2315,6 +2335,34 @@ components:
                 example: '0'
                 description: Размер
     OrdersItem:
+      required:
+        - date
+        - lastChangeDate
+        - warehouseName
+        - warehouseType
+        - countryName
+        - oblastOkrugName
+        - regionName
+        - supplierArticle
+        - nmId
+        - barcode
+        - category
+        - subject
+        - brand
+        - techSize
+        - incomeID
+        - isSupply
+        - isRealization
+        - totalPrice
+        - discountPercent
+        - spp
+        - finishedPrice
+        - priceWithDisc
+        - isCancel
+        - cancelDate
+        - sticker
+        - gNumber
+        - srid
       type: object
       properties:
         date:
@@ -2417,6 +2465,35 @@ components:
             Уникальный ID заказа.<br>
             Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий.
     SalesItem:
+      required:
+        - date
+        - lastChangeDate
+        - warehouseName
+        - warehouseType
+        - countryName
+        - oblastOkrugName
+        - regionName
+        - supplierArticle
+        - nmId
+        - barcode
+        - category
+        - subject
+        - brand
+        - techSize
+        - incomeID
+        - isSupply
+        - isRealization
+        - totalPrice
+        - discountPercent
+        - spp
+        - paymentSaleAmount
+        - forPay
+        - finishedPrice
+        - priceWithDisc
+        - saleID
+        - sticker
+        - gNumber
+        - srid
       type: object
       properties:
         date:
@@ -2556,11 +2633,15 @@ components:
           - AM
           - RU
     ExciseReportResponse:
+      required:
+        - response
       type: object
       properties:
         response:
           $ref: '#/components/schemas/models.ExciseReportResponse'
     models.ExciseReportResponse:
+      required:
+        - data
       type: object
       properties:
         data:
@@ -2570,14 +2651,10 @@ components:
       items:
         type: object
         properties:
-          name:
+          barcode:
             type: string
-            description: Страна покупателя
-            example: Россия
-          price:
-            type: number
-            description: Цена товара, с НДС
-            example: 100
+            description: Баркод
+            example: '2038893425820'
           currency_name_short:
             type: string
             description: Валюта
@@ -2586,10 +2663,21 @@ components:
             type: string
             description: Код маркировки
             example: 0102900254680370215_Re/=lSbNiGD
-          barcode:
+          fiscal_doc_number:
+            type: integer
+            description: Номер фискального документа (чека полного расчёта), если есть
+            example: 12345678
+          fiscal_drive_number:
             type: string
-            description: Баркод
-            example: '2038893425820'
+            description: Номер фискального накопителя, если есть
+          fiscal_dt:
+            type: string
+            description: Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
+            example: '2024-01-01'
+          name:
+            type: string
+            description: Страна покупателя
+            example: Россия
           nm_id:
             type: integer
             description: Артикул WB
@@ -2602,17 +2690,10 @@ components:
                 * `1` — вывод из оборота
                 * `2` — возврат в оборот
             example: 1
-          fiscal_doc_number:
-            type: integer
-            description: Номер фискального документа (чека полного расчёта), если есть
-            example: 12345678
-          fiscal_dt:
-            type: string
-            description: Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
-            example: '2024-01-01'
-          fiscal_drive_number:
-            type: string
-            description: Номер фискального накопителя, если есть
+          price:
+            type: number
+            description: Цена товара, с НДС
+            example: 100
           rid:
             type: integer
             description: |
@@ -2767,6 +2848,15 @@ components:
               type: array
               description: Замеры
               items:
+                required:
+                  - nmId
+                  - subjectName
+                  - dimId
+                  - volume
+                  - width
+                  - length
+                  - height
+                  - photoUrls
                 type: object
                 properties:
                   nmId:
@@ -2863,11 +2953,35 @@ components:
     ResponsePaidStorage:
       type: array
       items:
+        required:
+          - date
+          - logWarehouseCoef
+          - officeId
+          - warehouse
+          - warehouseCoef
+          - giId
+          - chrtId
+          - size
+          - barcode
+          - subject
+          - brand
+          - vendorCode
+          - nmId
+          - volume
+          - calcType
+          - warehousePrice
+          - barcodesCount
+          - palletPlaceCode
+          - palletCount
+          - originalDate
+          - loyaltyDiscount
+          - tariffFixDate
+          - tariffLowerDate
         type: object
         properties:
           date:
             type: string
-            description: Дата, за которую был расчёт или перерасчёт
+            description: Дата расчёта или перерасчёта
           logWarehouseCoef:
             type: number
             description: Коэффициент логистики и хранения. [На данный момент](/release-notes?id=570) может быть только `0`
@@ -2960,11 +3074,16 @@ components:
           tariffFixDate: '2023-10-01'
           tariffLowerDate: '2023-11-01'
     GetTasksResponse:
+      required:
+        - data
       type: object
       properties:
         data:
           $ref: '#/components/schemas/GetTasksResponseData'
     GetTasksResponseData:
+      required:
+        - id
+        - status
       type: object
       properties:
         id:
@@ -2980,11 +3099,15 @@ components:
               * `purged` — отчёт удалён
               * `canceled` — отклонено
     CreateTaskResponse:
+      required:
+        - data
       type: object
       properties:
         data:
           $ref: '#/components/schemas/CreateTaskResponseData'
     CreateTaskResponseData:
+      required:
+        - taskId
       type: object
       properties:
         taskId:
@@ -3105,24 +3228,24 @@ components:
       value:
         count: 87
         report:
-          - sku: '1234567890'
-            brand: ''
-            completedDt: null
-            dstOfficeAddress: г. Клин (Московская область), улица Ленина, д. 8
-            dstOfficeId: 33
-            expiredDt: null
-            kiz: null
-            nmId: 987654321
-            orderDt: '2026-08-24'
-            orderId: 6789054321
-            readyToReturnDt: null
+          - sku: '2045928210177'
+            brand: TESHAMOLAK
+            completedDt: '2026-08-14 14:42:36'
+            dstOfficeAddress: Москва, Остаповский Проезд 5с2
+            dstOfficeId: 50100669
+            expiredDt: '2026-08-11 22:17:14'
+            kiz: 0104871647001288215KrIW!/.Tj:Ea
+            nmId: 529427009
+            orderDt: '2026-09-06'
+            orderId: 5662461427
+            readyToReturnDt: '2026-09-08 09:14:04'
             returnType: Возврат товара, который приехал по МП, продавцу
-            shkId: 987612345
+            shkId: 57583414023
             srid: mp.1b4fc35bfe3f4b799cf01f8e11ffd2cb.r
             returnStatus: В пути в пвз
-            stickerId: '918273645'
-            subjectName: Вода питьевая
-            techSize: '0'
+            stickerId: '55393548680'
+            subjectName: Футболки
+            techSize: S
     DateFromFieldRequired:
       description: Ошибка в запросе
       value:
@@ -3486,21 +3609,21 @@ components:
       content:
         application/json:
           schema:
+            required:
+              - details
             type: object
             properties:
               details:
                 type: array
                 items:
+                  required:
+                    - currency
+                    - dateFrom
+                    - dateTo
+                    - nmID
+                    - sum
                   type: object
                   properties:
-                    nmID:
-                      type: integer
-                      description: Артикул WB
-                      example: 123456789
-                    sum:
-                      type: integer
-                      description: Сумма заказа
-                      example: 3540
                     currency:
                       type: string
                       description: Валюта заказа
@@ -3513,6 +3636,14 @@ components:
                       type: string
                       description: Конец отчётного периода
                       example: '2023-08-29'
+                    nmID:
+                      type: integer
+                      description: Артикул WB
+                      example: 123456789
+                    sum:
+                      type: integer
+                      description: Сумма заказа
+                      example: 3540
     SuccessSubstIncorAttachResponse:
       description: Успешно
       content:
@@ -3533,6 +3664,22 @@ components:
                     type: array
                     description: Удержания
                     items:
+                      required:
+                        - dtBonus
+                        - nmId
+                        - oldShkId
+                        - oldColor
+                        - oldSize
+                        - oldSku
+                        - oldVendorCode
+                        - newShkId
+                        - newColor
+                        - newSize
+                        - newSku
+                        - newVendorCode
+                        - bonusSumm
+                        - bonusType
+                        - photoUrls
                       type: object
                       properties:
                         dtBonus:
@@ -3609,11 +3756,21 @@ components:
       content:
         application/json:
           schema:
+            required:
+              - report
             type: object
             properties:
               report:
                 type: array
                 items:
+                  required:
+                    - amount
+                    - date
+                    - incomeId
+                    - nmID
+                    - photoUrls
+                    - shkID
+                    - sku
                   type: object
                   properties:
                     amount:
@@ -3647,9 +3804,9 @@ components:
                 incomeId: 18484008
                 nmID: 49434732
                 photoUrls:
-                  - https://static-basket-03.{{ .baseDomain }}/vol54/photo-fixation-violation-shk-excise/12345678900-1811460999-1.jpg
-                  - https://static-basket-03.{{ .baseDomain }}/vol54/photo-fixation-violation-shk-excise/12345678900-1811461000-2.jpg
-                  - https://static-basket-03.{{ .baseDomain }}/vol54/photo-fixation-violation-shk-excise/12345678900-1811461001-3.jpg
+                  - https://static-basket-03.wb.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811460999-1.jpg
+                  - https://static-basket-03.wb.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811461000-2.jpg
+                  - https://static-basket-03.wb.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811461001-3.jpg
                 shkID: 17346434621
                 sku: '4630153500834'
     SuccessBrandsResponse:
@@ -3657,6 +3814,8 @@ components:
       content:
         application/json:
           schema:
+            required:
+              - data
             type: object
             properties:
               data:
@@ -3683,12 +3842,17 @@ components:
       content:
         application/json:
           schema:
+            required:
+              - data
             type: object
             properties:
               data:
                 description: Категории бренда
                 type: array
                 items:
+                  required:
+                    - parentId
+                    - parentName
                   type: object
                   properties:
                     parentId:
@@ -3712,12 +3876,19 @@ components:
       content:
         application/json:
           schema:
+            required:
+              - report
             type: object
             properties:
               report:
                 description: Отчёт
                 type: array
                 items:
+                  required:
+                    - applyDate
+                    - brandRating
+                    - pricePercent
+                    - qtyPercent
                   type: object
                   properties:
                     applyDate:
