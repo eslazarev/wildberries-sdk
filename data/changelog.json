@@ -2,6 +2,115 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-11-25",
+      "anchor": "changed-20261125",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261125",
+      "sections": [
+        "Товары (цены и скидки)",
+        "Заказы FBS",
+        "Заказы DBS",
+        "Аналитика",
+        "Отчёты",
+        "Отчёты (акциз/маркировка)",
+        "Отчёты (платное хранение)",
+        "Отчёты (задачи/таски)"
+      ],
+      "changes": [
+        {
+          "section": "Товары (цены и скидки)",
+          "text": "уточнено правило в `Items` — в запросе цена и скидка не могут отсутствовать одновременно (ранее формулировка про «пустыми одновременно»)."
+        },
+        {
+          "section": "Заказы FBS",
+          "text": "метод получения списка пунктов отгрузки поставки — в описании добавлено ограничение «только для продавцов из РФ»."
+        },
+        {
+          "section": "Заказы FBS",
+          "text": "в объекте `address` (точный адрес покупателя) изменена семантика — теперь поле возвращается только для продавцов из Турции, в остальных случаях `null`; добавлен `example: null`, убраны примеры для `fullAddress/longitude/latitude`."
+        },
+        {
+          "section": "Заказы DBS",
+          "text": "для «Добавочного кода» изменено значение «не назначен» — теперь это `0` вместо пустой строки `\"\"`."
+        },
+        {
+          "section": "Аналитика",
+          "text": "из описания отчёта удалены пояснения про расчёт `pastPeriod` (приведение `pastPeriod.start` к `текущая дата — 365 дней`)."
+        },
+        {
+          "section": "Аналитика",
+          "text": "усилена валидация схем — добавлены обязательные поля (`required`) для `MainResponse` (включая `groups`), `VisibilityInfo` (visibility/openCard/byDay/byWeek/byMonth), `TableItem`, `TableSearchTextItem`, `NmReportRetryReportRequest` (`downloadId` обязателен)."
+        },
+        {
+          "section": "Аналитика",
+          "text": "в одной из сущностей отчёта ослаблены требования — из `required` убраны `title`, `brandName`, `tagName`, `tagId` (остались `nmId`, `vendorCode`, `subjectId/subjectName`, рейтинги и пр.)."
+        },
+        {
+          "section": "Аналитика",
+          "text": "обновлены справочные ссылки в описаниях `status`/`cancelType` (URL без `/ru/ru`)."
+        },
+        {
+          "section": "Аналитика",
+          "text": "изменены значения/описания складских полей — `warehouseName` для складов WB в РФ теперь `Склад WB РФ` или `Склад WB СГТ РФ` (вместо `Склад WB`), `warehouseRegion` переопределён как «регион отгрузки» (пример: `Россия`), обновлён пример `isMp` на `false`."
+        },
+        {
+          "section": "Отчёты",
+          "text": "добавлены `required` для структур остатков/складов — обязательны `warehouses`, а внутри `warehouses` обязательны `warehouseName` и `quantity`."
+        },
+        {
+          "section": "Отчёты",
+          "text": "для одного из массивов отчёта добавлены обязательные поля (`count`, `giCreateDate`, `incomeId`, `nmID`, `shkCreateDate`, `subjectName`, `total`)."
+        },
+        {
+          "section": "Отчёты",
+          "text": "обновлён пример `barcode` (теперь непустой, например `'2043628791644'`)."
+        },
+        {
+          "section": "Отчёты",
+          "text": "для ответа с `report` добавлены обязательные поля верхнего уровня (`report`) и элементов отчёта (`brand`, `nmId`, `title`, `vendorCode`, `reason`)."
+        },
+        {
+          "section": "Отчёты",
+          "text": "для `OrdersItem` и `SalesItem` существенно расширен список обязательных полей (`required`) — теперь обязательны ключевые атрибуты заказа/продажи (даты, склад/регион, идентификаторы, цены/скидки, признаки отмены/реализации, `srid` и др.)."
+        },
+        {
+          "section": "Отчёты (акциз/маркировка)",
+          "text": "`ExciseReportResponse` и `models.ExciseReportResponse` — добавлены обязательные поля (`response`, `data`); в элементах данных переставлены/уточнены поля (явно выделен `barcode` как «Баркод», `price` как «Цена товара, с НДС»), добавлены поля фискализации (`fiscal_doc_number`, `fiscal_drive_number`, `fiscal_dt`) с описаниями «если есть»."
+        },
+        {
+          "section": "Отчёты",
+          "text": "в ответе с замерами добавлены обязательные поля для элементов (`nmId`, `subjectName`, `dimId`, `volume`, `width`, `length`, `height`, `photoUrls`)."
+        },
+        {
+          "section": "Отчёты (платное хранение)",
+          "text": "для `ResponsePaidStorage` добавлен большой набор обязательных полей (`date`, коэффициенты, идентификаторы, SKU/баркоды, объём, тарифные даты и пр.); описание `date` уточнено («Дата расчёта или перерасчёта»)."
+        },
+        {
+          "section": "Отчёты (задачи/таски)",
+          "text": "для `GetTasksResponse`, `GetTasksResponseData`, `CreateTaskResponse`, `CreateTaskResponseData` добавлены обязательные поля (`data`, `id`, `status`, `taskId`)."
+        },
+        {
+          "section": "Отчёты",
+          "text": "обновлён пример данных в одном из отчётов возвратов/задач (значения `sku/brand/dates/ids/techSize` и др.)."
+        },
+        {
+          "section": "Отчёты",
+          "text": "для ответа с `details` добавлены обязательные поля (`details` и внутри: `currency`, `dateFrom`, `dateTo`, `nmID`, `sum`); поля `nmID`/`sum` переставлены без изменения смысла."
+        },
+        {
+          "section": "Отчёты",
+          "text": "для отчёта удержаний/замен добавлены обязательные поля элементов (старые/новые SKU/цвет/размер/артикулы, суммы/типы бонусов, `photoUrls` и пр.)."
+        },
+        {
+          "section": "Отчёты",
+          "text": "для отчёта с фотофиксацией добавлены обязательные поля (`report` и внутри: `amount`, `date`, `incomeId`, `nmID`, `photoUrls`, `shkID`, `sku`); в примерах URL заменён шаблон `{{ .baseDomain }}` на фиксированный домен `wb.ru`."
+        },
+        {
+          "section": "Отчёты",
+          "text": "для ответов справочников добавлены обязательные поля — `SuccessBrandsResponse.data`, `SuccessBrandCategoriesResponse.data` (в элементах обязательны `parentId`, `parentName`), а также для одного из отчётов обязательны `applyDate`, `brandRating`, `pricePercent`, `qtyPercent`."
+        }
+      ]
+    },
+    {
       "date": "2026-11-24",
       "anchor": "changed-20261124",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261124",

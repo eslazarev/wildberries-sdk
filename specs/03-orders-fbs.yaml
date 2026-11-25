@@ -3251,9 +3251,9 @@ paths:
         - Поставки FBS
       summary: Получить список пунктов отгрузки поставки
       description: |
-        Метод возвращает доступные пункты отгрузки для указанной поставки.
+        Метод возвращает доступные пункты отгрузки для указанной поставки. <br>
 
-        Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+        Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
@@ -5870,24 +5870,24 @@ components:
         address:
           type: object
           nullable: true
-          description: Точный адрес покупателя для доставки, если применимо. Из-за особенностей адреса некоторые поля могут быть пустыми
+          example: null
+          description: |
+            Точный адрес покупателя для доставки. <br>
+            Указывается только для продавцов из Турции, в остальных случаях возвращается `null`
           properties:
             fullAddress:
               description: Адрес доставки
               type: string
-              example: Челябинская область, г. Челябинск, 51-я улица Арабкира, д. 10А, кв. 42
             longitude:
               type: number
               format: float64
               nullable: false
               description: Долгота
-              example: 44.519068
             latitude:
               type: number
               format: float64
               nullable: false
               description: Широта
-              example: 40.20192
         ddate:
           type: string
           description: |
