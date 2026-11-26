@@ -153,6 +153,12 @@ export interface ModelsSupplyDetails {
      * 
      */
     isBoxOnPallet?: boolean;
+    /**
+     * Количество товаров по Акту корректировки, которое не входит в `acceptedQuantity`.<br>
+     * Возвращается, если есть расхождения, зафиксированные при приёмке поставки
+     * 
+     */
+    correctedQuantity?: number;
 }
 
 
@@ -214,6 +220,7 @@ export function ModelsSupplyDetailsFromJSONTyped(json: any, ignoreDiscriminator:
         'depersonalizedQuantity': json['depersonalizedQuantity'] === undefined ? undefined : json['depersonalizedQuantity'] === null ? null : json['depersonalizedQuantity'],
         'discrepancies': json['discrepancies'] == null ? undefined : json['discrepancies'],
         'isBoxOnPallet': json['isBoxOnPallet'] == null ? undefined : json['isBoxOnPallet'],
+        'correctedQuantity': json['correctedQuantity'] == null ? undefined : json['correctedQuantity'],
     };
 }
 
@@ -255,6 +262,7 @@ export function ModelsSupplyDetailsToJSONTyped(value?: ModelsSupplyDetails | nul
         'depersonalizedQuantity': value['depersonalizedQuantity'],
         'discrepancies': value['discrepancies'],
         'isBoxOnPallet': value['isBoxOnPallet'],
+        'correctedQuantity': value['correctedQuantity'],
     };
 }
 

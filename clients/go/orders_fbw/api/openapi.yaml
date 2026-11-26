@@ -2750,6 +2750,7 @@ components:
         readyForSaleQuantity: 0
         unloadingQuantity: 0
         acceptedQuantity: 0
+        correctedQuantity: 1
       properties:
         barcode:
           description: Баркод товара
@@ -2798,6 +2799,11 @@ components:
         unloadingQuantity:
           description: "Количество товара на раскладке, шт"
           nullable: true
+          type: integer
+        correctedQuantity:
+          description: |
+            Количество товара по Акту корректировки, которое не входит в `acceptedQuantity`.<br>
+            Возвращается, если по товару есть расхождения, зафиксированные при приёмке
           type: integer
       type: object
     models.DateFilterRequest:
@@ -2854,6 +2860,7 @@ components:
         depersonalizedQuantity: 0
         discrepancies: 0
         isBoxOnPallet: true
+        correctedQuantity: 1
       properties:
         phone:
           description: "Телефон пользователя, создавшего поставку"
@@ -2984,6 +2991,11 @@ components:
 
               Поле возвращается только при `"boxTypeID": 2`
           type: boolean
+        correctedQuantity:
+          description: |
+            Количество товаров по Акту корректировки, которое не входит в `acceptedQuantity`.<br>
+            Возвращается, если есть расхождения, зафиксированные при приёмке поставки
+          type: integer
       type: object
     models.HandySupplyStatus:
       enum:

@@ -1,6 +1,6 @@
 [package]
 name = "wildberries_sdk_finances"
-version = "0.1.193"
+version = "0.1.194"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "Wildberries API SDK for Rust, finances module: typed client for the Wildberries seller API, regenerated from the official OpenAPI spec."
 repository = "https://github.com/eslazarev/wildberries-sdk"

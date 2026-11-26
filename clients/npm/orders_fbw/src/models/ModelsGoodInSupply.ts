@@ -73,6 +73,12 @@ export interface ModelsGoodInSupply {
      * Количество товара на раскладке, шт
      */
     unloadingQuantity?: number | null;
+    /**
+     * Количество товара по Акту корректировки, которое не входит в `acceptedQuantity`.<br>
+     * Возвращается, если по товару есть расхождения, зафиксированные при приёмке
+     * 
+     */
+    correctedQuantity?: number;
 }
 
 /**
@@ -104,6 +110,7 @@ export function ModelsGoodInSupplyFromJSONTyped(json: any, ignoreDiscriminator: 
         'readyForSaleQuantity': json['readyForSaleQuantity'] === undefined ? undefined : json['readyForSaleQuantity'] === null ? null : json['readyForSaleQuantity'],
         'acceptedQuantity': json['acceptedQuantity'] === undefined ? undefined : json['acceptedQuantity'] === null ? null : json['acceptedQuantity'],
         'unloadingQuantity': json['unloadingQuantity'] === undefined ? undefined : json['unloadingQuantity'] === null ? null : json['unloadingQuantity'],
+        'correctedQuantity': json['correctedQuantity'] == null ? undefined : json['correctedQuantity'],
     };
 }
 
@@ -130,6 +137,7 @@ export function ModelsGoodInSupplyToJSONTyped(value?: ModelsGoodInSupply | null,
         'readyForSaleQuantity': value['readyForSaleQuantity'],
         'acceptedQuantity': value['acceptedQuantity'],
         'unloadingQuantity': value['unloadingQuantity'],
+        'correctedQuantity': value['correctedQuantity'],
     };
 }
 

@@ -39,7 +39,8 @@ class ModelsGoodInSupply(BaseModel):
     ready_for_sale_quantity: Optional[StrictInt] = Field(default=None, description="Поступило в продажу, шт", alias="readyForSaleQuantity")
     accepted_quantity: Optional[StrictInt] = Field(default=None, description="Принято, шт", alias="acceptedQuantity")
     unloading_quantity: Optional[StrictInt] = Field(default=None, description="Количество товара на раскладке, шт", alias="unloadingQuantity")
-    __properties: ClassVar[List[str]] = ["barcode", "vendorCode", "nmID", "needKiz", "tnved", "techSize", "color", "supplierBoxAmount", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity"]
+    corrected_quantity: Optional[StrictInt] = Field(default=None, description="Количество товара по Акту корректировки, которое не входит в `acceptedQuantity`.<br> Возвращается, если по товару есть расхождения, зафиксированные при приёмке ", alias="correctedQuantity")
+    __properties: ClassVar[List[str]] = ["barcode", "vendorCode", "nmID", "needKiz", "tnved", "techSize", "color", "supplierBoxAmount", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity", "correctedQuantity"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -133,7 +134,8 @@ class ModelsGoodInSupply(BaseModel):
             "quantity": obj.get("quantity"),
             "readyForSaleQuantity": obj.get("readyForSaleQuantity"),
             "acceptedQuantity": obj.get("acceptedQuantity"),
-            "unloadingQuantity": obj.get("unloadingQuantity")
+            "unloadingQuantity": obj.get("unloadingQuantity"),
+            "correctedQuantity": obj.get("correctedQuantity")
         })
         return _obj
 

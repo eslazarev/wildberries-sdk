@@ -54,7 +54,8 @@ class ModelsSupplyDetails(BaseModel):
     depersonalized_quantity: Optional[StrictInt] = Field(default=None, description="Количество обезличенного товара, шт", alias="depersonalizedQuantity")
     discrepancies: Optional[StrictInt] = Field(default=None, description="Расхождения между заявленным и фактическим количеством товара в поставке. <br> Только при `\"statusID\":5` ")
     is_box_on_pallet: Optional[StrictBool] = Field(default=None, description="Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` ", alias="isBoxOnPallet")
-    __properties: ClassVar[List[str]] = ["phone", "statusID", "virtualTypeID", "boxTypeID", "createDate", "supplyDate", "factDate", "updatedDate", "warehouseID", "warehouseName", "actualWarehouseID", "actualWarehouseName", "transitWarehouseID", "transitWarehouseName", "acceptanceCost", "paidAcceptanceCoefficient", "rejectReason", "supplierAssignName", "storageCoef", "deliveryCoef", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity", "depersonalizedQuantity", "discrepancies", "isBoxOnPallet"]
+    corrected_quantity: Optional[StrictInt] = Field(default=None, description="Количество товаров по Акту корректировки, которое не входит в `acceptedQuantity`.<br> Возвращается, если есть расхождения, зафиксированные при приёмке поставки ", alias="correctedQuantity")
+    __properties: ClassVar[List[str]] = ["phone", "statusID", "virtualTypeID", "boxTypeID", "createDate", "supplyDate", "factDate", "updatedDate", "warehouseID", "warehouseName", "actualWarehouseID", "actualWarehouseName", "transitWarehouseID", "transitWarehouseName", "acceptanceCost", "paidAcceptanceCoefficient", "rejectReason", "supplierAssignName", "storageCoef", "deliveryCoef", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity", "depersonalizedQuantity", "discrepancies", "isBoxOnPallet", "correctedQuantity"]
 
     @field_validator('status_id')
     def status_id_validate_enum(cls, value):
@@ -203,7 +204,8 @@ class ModelsSupplyDetails(BaseModel):
             "unloadingQuantity": obj.get("unloadingQuantity"),
             "depersonalizedQuantity": obj.get("depersonalizedQuantity"),
             "discrepancies": obj.get("discrepancies"),
-            "isBoxOnPallet": obj.get("isBoxOnPallet")
+            "isBoxOnPallet": obj.get("isBoxOnPallet"),
+            "correctedQuantity": obj.get("correctedQuantity")
         })
         return _obj
 

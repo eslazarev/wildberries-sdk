@@ -43,6 +43,8 @@ type ModelsGoodInSupply struct {
 	AcceptedQuantity NullableInt32 `json:"acceptedQuantity,omitempty"`
 	// Количество товара на раскладке, шт
 	UnloadingQuantity NullableInt32 `json:"unloadingQuantity,omitempty"`
+	// Количество товара по Акту корректировки, которое не входит в `acceptedQuantity`.<br> Возвращается, если по товару есть расхождения, зафиксированные при приёмке 
+	CorrectedQuantity *int32 `json:"correctedQuantity,omitempty"`
 }
 
 // NewModelsGoodInSupply instantiates a new ModelsGoodInSupply object
@@ -506,6 +508,38 @@ func (o *ModelsGoodInSupply) UnsetUnloadingQuantity() {
 	o.UnloadingQuantity.Unset()
 }
 
+// GetCorrectedQuantity returns the CorrectedQuantity field value if set, zero value otherwise.
+func (o *ModelsGoodInSupply) GetCorrectedQuantity() int32 {
+	if o == nil || IsNil(o.CorrectedQuantity) {
+		var ret int32
+		return ret
+	}
+	return *o.CorrectedQuantity
+}
+
+// GetCorrectedQuantityOk returns a tuple with the CorrectedQuantity field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsGoodInSupply) GetCorrectedQuantityOk() (*int32, bool) {
+	if o == nil || IsNil(o.CorrectedQuantity) {
+		return nil, false
+	}
+	return o.CorrectedQuantity, true
+}
+
+// HasCorrectedQuantity returns a boolean if a field has been set.
+func (o *ModelsGoodInSupply) HasCorrectedQuantity() bool {
+	if o != nil && !IsNil(o.CorrectedQuantity) {
+		return true
+	}
+
+	return false
+}
+
+// SetCorrectedQuantity gets a reference to the given int32 and assigns it to the CorrectedQuantity field.
+func (o *ModelsGoodInSupply) SetCorrectedQuantity(v int32) {
+	o.CorrectedQuantity = &v
+}
+
 func (o ModelsGoodInSupply) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -551,6 +585,9 @@ func (o ModelsGoodInSupply) ToMap() (map[string]interface{}, error) {
 	}
 	if o.UnloadingQuantity.IsSet() {
 		toSerialize["unloadingQuantity"] = o.UnloadingQuantity.Get()
+	}
+	if !IsNil(o.CorrectedQuantity) {
+		toSerialize["correctedQuantity"] = o.CorrectedQuantity
 	}
 	return toSerialize, nil
 }

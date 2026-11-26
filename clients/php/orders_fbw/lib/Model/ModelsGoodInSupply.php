@@ -68,7 +68,8 @@ class ModelsGoodInSupply implements ModelInterface, ArrayAccess, \JsonSerializab
         'quantity' => 'int',
         'ready_for_sale_quantity' => 'int',
         'accepted_quantity' => 'int',
-        'unloading_quantity' => 'int'
+        'unloading_quantity' => 'int',
+        'corrected_quantity' => 'int'
     ];
 
     /**
@@ -90,7 +91,8 @@ class ModelsGoodInSupply implements ModelInterface, ArrayAccess, \JsonSerializab
         'quantity' => null,
         'ready_for_sale_quantity' => null,
         'accepted_quantity' => null,
-        'unloading_quantity' => null
+        'unloading_quantity' => null,
+        'corrected_quantity' => null
     ];
 
     /**
@@ -110,7 +112,8 @@ class ModelsGoodInSupply implements ModelInterface, ArrayAccess, \JsonSerializab
         'quantity' => false,
         'ready_for_sale_quantity' => true,
         'accepted_quantity' => true,
-        'unloading_quantity' => true
+        'unloading_quantity' => true,
+        'corrected_quantity' => false
     ];
 
     /**
@@ -210,7 +213,8 @@ class ModelsGoodInSupply implements ModelInterface, ArrayAccess, \JsonSerializab
         'quantity' => 'quantity',
         'ready_for_sale_quantity' => 'readyForSaleQuantity',
         'accepted_quantity' => 'acceptedQuantity',
-        'unloading_quantity' => 'unloadingQuantity'
+        'unloading_quantity' => 'unloadingQuantity',
+        'corrected_quantity' => 'correctedQuantity'
     ];
 
     /**
@@ -230,7 +234,8 @@ class ModelsGoodInSupply implements ModelInterface, ArrayAccess, \JsonSerializab
         'quantity' => 'setQuantity',
         'ready_for_sale_quantity' => 'setReadyForSaleQuantity',
         'accepted_quantity' => 'setAcceptedQuantity',
-        'unloading_quantity' => 'setUnloadingQuantity'
+        'unloading_quantity' => 'setUnloadingQuantity',
+        'corrected_quantity' => 'setCorrectedQuantity'
     ];
 
     /**
@@ -250,7 +255,8 @@ class ModelsGoodInSupply implements ModelInterface, ArrayAccess, \JsonSerializab
         'quantity' => 'getQuantity',
         'ready_for_sale_quantity' => 'getReadyForSaleQuantity',
         'accepted_quantity' => 'getAcceptedQuantity',
-        'unloading_quantity' => 'getUnloadingQuantity'
+        'unloading_quantity' => 'getUnloadingQuantity',
+        'corrected_quantity' => 'getCorrectedQuantity'
     ];
 
     /**
@@ -322,6 +328,7 @@ class ModelsGoodInSupply implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('ready_for_sale_quantity', $data ?? [], null);
         $this->setIfExists('accepted_quantity', $data ?? [], null);
         $this->setIfExists('unloading_quantity', $data ?? [], null);
+        $this->setIfExists('corrected_quantity', $data ?? [], null);
     }
 
     /**
@@ -728,6 +735,33 @@ class ModelsGoodInSupply implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['unloading_quantity'] = $unloading_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets corrected_quantity
+     *
+     * @return int|null
+     */
+    public function getCorrectedQuantity()
+    {
+        return $this->container['corrected_quantity'];
+    }
+
+    /**
+     * Sets corrected_quantity
+     *
+     * @param int|null $corrected_quantity Количество товара по Акту корректировки, которое не входит в `acceptedQuantity`.<br> Возвращается, если по товару есть расхождения, зафиксированные при приёмке
+     *
+     * @return self
+     */
+    public function setCorrectedQuantity($corrected_quantity)
+    {
+        if (is_null($corrected_quantity)) {
+            throw new \InvalidArgumentException('non-nullable corrected_quantity cannot be null');
+        }
+        $this->container['corrected_quantity'] = $corrected_quantity;
 
         return $this;
     }
