@@ -2,6 +2,20 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-11-26",
+      "anchor": "changed-20261126",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261126",
+      "sections": [
+        "Orders FBW"
+      ],
+      "changes": [
+        {
+          "section": "Orders FBW",
+          "text": "в моделях ответа добавлено поле `correctedQuantity: integer` — количество товара по Акту корректировки, не входящее в `acceptedQuantity`; возвращается только при наличии расхождений, зафиксированных при приёмке (обновлены примеры с `correctedQuantity: 1`)."
+        }
+      ]
+    },
+    {
       "date": "2026-11-25",
       "anchor": "changed-20261125",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261125",
