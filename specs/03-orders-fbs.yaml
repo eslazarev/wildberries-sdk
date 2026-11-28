@@ -3308,7 +3308,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SupplyShippingPointsResponse'
+                $ref: '#/components/schemas/SupplyDispatchPointsResponse'
         '400':
           description: Неправильный запрос
           content:
@@ -3318,8 +3318,8 @@ paths:
               examples:
                 IncorrectParameter:
                   $ref: '#/components/examples/IncorrectParameter'
-                ShippingDtRequired:
-                  $ref: '#/components/examples/ShippingDtRequired'
+                DispatchDtRequired:
+                  $ref: '#/components/examples/DispatchDtRequired'
         '401':
           $ref: '#/components/responses/401-2'
         '403':
@@ -3386,7 +3386,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: '#/components/schemas/UpdateSuppliesShippingMethodRequest'
+                - $ref: '#/components/schemas/UpdateSuppliesDispatchMethodRequest'
                 - description: Параметры отгрузки поставки
       responses:
         '200':
@@ -3394,10 +3394,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UpdateSuppliesShippingMethodResponse'
+                $ref: '#/components/schemas/UpdateSuppliesDispatchMethodResponse'
               examples:
-                UpdatedSuppliesShippingMethod:
-                  $ref: '#/components/examples/UpdatedSuppliesShippingMethod'
+                UpdatedSuppliesDispatchMethod:
+                  $ref: '#/components/examples/UpdatedSuppliesDispatchMethod'
         '400':
           description: Неправильный запрос
           content:
@@ -3537,8 +3537,8 @@ paths:
                   $ref: '#/components/examples/MetaValidationFail'
                 FulfillmentSupplyBoxesRequired:
                   $ref: '#/components/examples/FulfillmentSupplyBoxesRequired'
-                SupplyShippingRequired:
-                  $ref: '#/components/examples/SupplyShippingRequired'
+                SupplyDispatchRequired:
+                  $ref: '#/components/examples/SupplyDispatchRequired'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
@@ -4715,7 +4715,7 @@ components:
       value:
         code: CustomsDeclarationIsRequired
         message: Customs declaration is required
-    ShippingDtRequired:
+    DispatchDtRequired:
       description: Укажите планируемую дату отгрузки для поставок МГТ (`"cargoType":1`) и КГТ+ (`"cargoType":3`)
       value:
         code: ShippingDtRequired
@@ -4806,7 +4806,7 @@ components:
         requestId: a0b5907c-2978-4db6-9a59-00666e8b8d54
         status: 403
         title: AccessDenied
-    UpdatedSuppliesShippingMethod:
+    UpdatedSuppliesDispatchMethod:
       value:
         results:
           - supplyId: WB-GI-100
@@ -4835,7 +4835,7 @@ components:
       value:
         code: WaybillUUIDConflict
         message: Waybill UUID is already used
-    SupplyShippingRequired:
+    SupplyDispatchRequired:
       value:
         code: SupplyShippingRequired
         message: Specify shipping point, type and date to close the supply
@@ -5754,7 +5754,7 @@ components:
               - `true` — B2B-продажа
               - `false` — не B2B-продажа
               - `null` — признак отсутствует, сборочные задания не добавлены к поставке
-        isPickupPointShipmentAllowed:
+        isPickupPointDispatchAllowed:
           type: boolean
           nullable: false
           example: true
@@ -6087,7 +6087,7 @@ components:
               - `false` — заказ сделан на товар с ненулевым остатком
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           example: false
-        isPickupPointShipmentAllowed:
+        isPickupPointDispatchAllowed:
           type: boolean
           nullable: false
           example: true
@@ -6372,7 +6372,7 @@ components:
         data:
           type: object
           description: Дополнительные данные ошибки
-    UpdateSuppliesShippingMethodRequest:
+    UpdateSuppliesDispatchMethodRequest:
       type: object
       required:
         - data
@@ -6383,7 +6383,7 @@ components:
           maxItems: 100
           items:
             $ref: '#/components/schemas/UpdateSupplyShippingMethod'
-    UpdateSuppliesShippingMethodResponse:
+    UpdateSuppliesDispatchMethodResponse:
       type: object
       required:
         - results
@@ -6391,7 +6391,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/UpdatedSuppliesShippingMethod'
+            $ref: '#/components/schemas/UpdatedSuppliesDispatchMethod'
     UpdateSupplyShippingMethod:
       type: object
       required:
@@ -6422,7 +6422,7 @@ components:
           example: WB-GI-100
           type: string
           description: ID поставки
-    UpdatedSuppliesShippingMethod:
+    UpdatedSuppliesDispatchMethod:
       description: Результат обработки запроса для одной поставки
       type: object
       required:
@@ -6459,7 +6459,7 @@ components:
         supplyId:
           type: string
           description: ID поставки
-    SupplyShippingPoint:
+    SupplyDispatchPoint:
       description: Данные пункта отгрузки
       type: object
       required:
@@ -6522,7 +6522,7 @@ components:
               - `true` — доступен
               - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки
           example: true
-    SupplyShippingPointsResponse:
+    SupplyDispatchPointsResponse:
       type: object
       required:
         - shippingPoints
@@ -6531,7 +6531,7 @@ components:
           description: Список пунктов отгрузки для указанной поставки
           type: array
           items:
-            $ref: '#/components/schemas/SupplyShippingPoint'
+            $ref: '#/components/schemas/SupplyDispatchPoint'
     Response4XX:
       type: object
       required:

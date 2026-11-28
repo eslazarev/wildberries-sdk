@@ -1,10 +1,11 @@
-# Wildberries SDK clients for Python, Node.js, Go, PHP and Rust, continuously kept in sync with the official OpenAPI specs.
+# Wildberries SDK
+
+Wildberries seller API clients for Python, Node.js, Go, PHP and Rust. The clients are generated from the official OpenAPI specs and released again after every spec change.
 
 🌐 [Русский](../../README.md) · **English** · [简体中文](README.zh-CN.md) · [Türkçe](README.tr.md) · [Қазақша](README.kk.md) · [Oʻzbekcha](README.uz.md)
 
-📖 **Documentation:** <https://eslazarev.github.io/wildberries-sdk/> — reference for all Wildberries API operations with examples in Python, Node.js, Go, PHP and Rust.
-
-📡 **API changes on Telegram:** [@wildberries_api_radar](https://t.me/wildberries_api_radar) — a post for every Wildberries spec update: new methods, rate limits, removals (in Russian).
+- Documentation: <https://eslazarev.github.io/wildberries-sdk/>, a reference for every Wildberries API operation with examples in five languages.
+- API changes on Telegram: [@wildberries_api_radar](https://t.me/wildberries_api_radar), a post for every Wildberries spec update: new methods, rate limits, removals (in Russian).
 
 [![Ask DeepWiki about this repo](../../.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
@@ -17,6 +18,36 @@
 | PHP | [![Packagist](https://img.shields.io/packagist/v/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [![Packagist Downloads](https://img.shields.io/packagist/dt/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [docs/php/README.md](../php/README.md) | [packagist.org](https://packagist.org/packages/eslazarev/wildberries-sdk) |
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
+
+## Contents
+
+- [Installation](#installation)
+- [Features](#features)
+- [For AI agents](#for-ai-agents)
+- [Updates and releases](#updates-and-releases)
+- [Security](#security)
+- [API methods](#api-methods)
+
+## Installation
+
+```bash
+pip install wildberries-sdk                                      # Python
+npm install wildberries-sdk                                      # Node.js
+composer require eslazarev/wildberries-sdk                       # PHP
+go get github.com/eslazarev/wildberries-sdk/clients/go/finances  # Go, one module per API section
+cargo add wildberries_sdk_finances                               # Rust, one crate per API section
+```
+
+Each README in the table above has call examples for its language.
+
+## Features
+
+- Full request/response typing. Each client uses the language's native type system: pydantic in Python, TypeScript interfaces in Node.js, Go structs, typed PHP classes, serde structs in Rust. Field typos and wrong types are caught at compile/lint time.
+- IDE autocomplete out of the box. Method names, parameters, model fields and enum values are highlighted and suggested — no need to read the Wildberries documentation while writing code.
+- Descriptions and docstrings from the specs. Wildberries field- and method-level comments are carried over into the generated code and surface as IDE hover tooltips.
+- Client-side validation. Required fields and types are checked before the request leaves your process. In Python, pydantic additionally validates formats, enums and min/max constraints; in Go, TypeScript, PHP and Rust the check is limited to required fields and types.
+- One contract across languages. Operation IDs, model fields and endpoints are identical in Python, Node.js, Go, PHP and Rust — migrating between stacks does not require rewriting business logic.
+- Batteries-included transport layer. Authentication, headers, base URLs, JSON serialization and HTTP error handling are implemented once in the shared `api_client` / `runtime` / `client` module and reused by every method.
 
 ## For AI agents
 
@@ -36,9 +67,19 @@ claude mcp add wildberries --env WB_API_TOKEN=<token> -- uvx wildberries-mcp
 
 Setup for Cursor, Claude Desktop and other clients: [mcp-server/README.md](../../mcp-server/README.md).
 
+## Updates and releases
+
+Wildberries changes its API specs several times a week. After each change, GitHub Actions generates the clients again, publishes new versions to PyPI, npm, Packagist and crates.io, and tags a release for Go. New methods and models reach the SDK on the same day, so you do not need to track the changes yourself. The change history is in [CHANGELOG.md](../../CHANGELOG.md), and the release calendar is [on the documentation site](https://eslazarev.github.io/wildberries-sdk/releases/).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-en-light.svg">
+  <img src="../../.github/images/release-cadence-en-light.svg" alt="Release calendar for the last year">
+</picture>
+
 ## Security
 
-This SDK is built with a security-first release process:
+The repository runs these checks:
 
 - CodeQL static analysis
 - OpenSSF Scorecard
@@ -55,34 +96,9 @@ This SDK is built with a security-first release process:
 [![Secrets](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml)
 [![Dependency Audit](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml)
 
+## API methods
 
-All Wildberries API operations available today are supported, grouped by spec module.
-
-## Why these generated clients
-
-- **Full request/response typing.** Each client uses the language's native type system: pydantic in Python, TypeScript interfaces in Node.js, Go structs, typed PHP classes, serde structs in Rust. Field typos and wrong types are caught at compile/lint time.
-- **IDE autocomplete out of the box.** Method names, parameters, model fields and enum values are highlighted and suggested — no need to read the Wildberries documentation while writing code.
-- **Descriptions and docstrings from the specs.** Wildberries field- and method-level comments are carried over into the generated code and surface as IDE hover tooltips.
-- **Client-side validation.** Required fields and types are checked before the request leaves your process. In Python, pydantic additionally validates formats, enums and min/max constraints; in Go, TypeScript, PHP and Rust the check is limited to required fields and types.
-- **One contract across languages.** Operation IDs, model fields and endpoints are identical in Python, Node.js, Go, PHP and Rust — migrating between stacks does not require rewriting business logic.
-- **No drift from the upstream specs.** When Wildberries updates the API, the SDK gets the new methods and models in a same-day PR — no need to manually diff the spec.
-- **Batteries-included transport layer.** Authentication, headers, base URLs, JSON serialization and HTTP error handling are implemented once in the shared `api_client` / `runtime` / `client` module and reused by every method.
-
-### Clients are kept up to date by GitHub Actions whenever specs change.
-
-Why this matters: see the spec change history in [CHANGELOG.md](../../CHANGELOG.md). Changes happen often — multiple times per week.
-
-### Release cadence
-
-[on the documentation site](https://eslazarev.github.io/wildberries-sdk/releases/)
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-en-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-en-light.svg">
-  <img src="../../.github/images/release-cadence-en-light.svg" alt="Release calendar for the last year">
-</picture>
-
-## All currently published Wildberries specs are covered
+The SDK covers every published Wildberries spec:
 
 - General — [`specs/01-general.yaml`](../../specs/01-general.yaml)
 - Products — [`specs/02-items.yaml`](../../specs/02-items.yaml)
@@ -98,4 +114,4 @@ Why this matters: see the spec change history in [CHANGELOG.md](../../CHANGELOG.
 - Reports — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - Finances and accounting — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)
 
-The full per-method listing (descriptions are taken verbatim from Wildberries OpenAPI specs in Russian) is in the [main Russian README](../../README.md#в-данный-момент-представлены-все-доступные-спецификации).
+The full list of methods, with descriptions in Russian taken from the specs, is in the [Russian README](../../README.md#методы-api).

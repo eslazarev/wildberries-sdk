@@ -1,10 +1,11 @@
-# Wildberries SDK 客户端 — Python、Node.js、Go、PHP、Rust，与官方 OpenAPI 规范持续保持同步。
+# Wildberries SDK
+
+Wildberries 卖家 API 的 Python、Node.js、Go、PHP 和 Rust 客户端。客户端由官方 OpenAPI 规范生成，每次规范变更后都会重新发布。
 
 🌐 [Русский](../../README.md) · [English](README.en.md) · **简体中文** · [Türkçe](README.tr.md) · [Қазақша](README.kk.md) · [Oʻzbekcha](README.uz.md)
 
-📖 **文档：** <https://eslazarev.github.io/wildberries-sdk/> — 涵盖所有 Wildberries API 操作的参考手册，附 Python、Node.js、Go、PHP 和 Rust 示例。
-
-📡 **Telegram 频道：** [@wildberries_api_radar](https://t.me/wildberries_api_radar) — 每次 Wildberries 规范更新都会发帖：新方法、速率限制、删除内容（俄语）。
+- 文档：<https://eslazarev.github.io/wildberries-sdk/>，涵盖所有 Wildberries API 操作的参考手册，附五种语言的示例。
+- Telegram 频道：[@wildberries_api_radar](https://t.me/wildberries_api_radar)，每次 Wildberries 规范更新都会发帖：新方法、速率限制、删除内容（俄语）。
 
 [![向 DeepWiki 询问此仓库](../../.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
@@ -17,6 +18,36 @@
 | PHP | [![Packagist](https://img.shields.io/packagist/v/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [![Packagist Downloads](https://img.shields.io/packagist/dt/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [docs/php/README.md](../php/README.md) | [packagist.org](https://packagist.org/packages/eslazarev/wildberries-sdk) |
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
+
+## 目录
+
+- [安装](#安装)
+- [功能](#功能)
+- [面向 AI 智能体](#面向-ai-智能体)
+- [更新与发布](#更新与发布)
+- [安全](#安全)
+- [API 方法](#api-方法)
+
+## 安装
+
+```bash
+pip install wildberries-sdk                                      # Python
+npm install wildberries-sdk                                      # Node.js
+composer require eslazarev/wildberries-sdk                       # PHP
+go get github.com/eslazarev/wildberries-sdk/clients/go/finances  # Go，每个 API 分区一个模块
+cargo add wildberries_sdk_finances                               # Rust，每个 API 分区一个 crate
+```
+
+上表中各语言的 README 提供调用示例。
+
+## 功能
+
+- 完整的请求/响应类型。每种语言客户端使用其原生类型系统:Python 的 pydantic、Node.js 的 TypeScript 接口、Go 的 struct、PHP 的强类型类、Rust 的 serde 结构体。字段拼写错误和类型错误在编译/lint 阶段就会暴露。
+- IDE 自动补全开箱即用。方法名、参数、模型字段和枚举值都会被高亮和提示,无需查阅 Wildberries 文档。
+- 规范中的描述和 docstring 自动同步。Wildberries 在 YAML 中对字段和方法的俄文说明被搬入生成的代码,在 IDE 中悬停可见。
+- 客户端校验。必填字段和类型在请求发出前就会被检查(Python 的 pydantic 还会校验格式、枚举和 min/max 约束;Go、TypeScript、PHP、Rust 仅校验必填字段和类型)。
+- 跨语言统一契约。操作 ID、模型字段和端点在 Python、Node.js、Go、PHP 和 Rust 之间完全一致 — 跨技术栈迁移不需要改写业务逻辑。
+- 开箱即用的传输层。认证、HTTP 头、base URL、JSON 序列化和 HTTP 错误处理在共享的 `api_client` / `runtime` / `client` 模块中实现一次,所有方法复用。
 
 ## 面向 AI 智能体
 
@@ -36,9 +67,19 @@ claude mcp add wildberries --env WB_API_TOKEN=<token> -- uvx wildberries-mcp
 
 Cursor、Claude Desktop 等客户端的配置见 [mcp-server/README.md](../../mcp-server/README.md)。
 
+## 更新与发布
+
+Wildberries 每周会多次修改 API 规范。每次变更后，GitHub Actions 会重新生成客户端，向 PyPI、npm、Packagist 和 crates.io 发布新版本，并为 Go 打标签。新方法和模型当天就会进入 SDK，无需手动跟踪变更。变更历史见 [CHANGELOG.md](../../CHANGELOG.md)，发布日历见[文档网站](https://eslazarev.github.io/wildberries-sdk/releases/)。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-zh-CN-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-zh-CN-light.svg">
+  <img src="../../.github/images/release-cadence-zh-CN-light.svg" alt="过去一年的发布日历">
+</picture>
+
 ## 安全
 
-本 SDK 采用安全优先的发布流程：
+仓库运行以下检查：
 
 - CodeQL 静态代码分析
 - OpenSSF Scorecard 评分
@@ -55,34 +96,9 @@ Cursor、Claude Desktop 等客户端的配置见 [mcp-server/README.md](../../mc
 [![Secrets](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml)
 [![Dependency Audit](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml)
 
+## API 方法
 
-本仓库覆盖目前公开的全部 Wildberries API 命令,按规范模块组织。
-
-## 为什么使用自动生成的客户端
-
-- **完整的请求/响应类型。** 每种语言客户端使用其原生类型系统:Python 的 pydantic、Node.js 的 TypeScript 接口、Go 的 struct、PHP 的强类型类、Rust 的 serde 结构体。字段拼写错误和类型错误在编译/lint 阶段就会暴露。
-- **IDE 自动补全开箱即用。** 方法名、参数、模型字段和枚举值都会被高亮和提示,无需查阅 Wildberries 文档。
-- **规范中的描述和 docstring 自动同步。** Wildberries 在 YAML 中对字段和方法的中文/俄文说明被搬入生成的代码,在 IDE 中悬停可见。
-- **客户端校验。** 必填字段和类型在请求发出前就会被检查(Python 的 pydantic 还会校验格式、枚举和 min/max 约束;Go、TypeScript、PHP、Rust 仅校验必填字段和类型)。
-- **跨语言统一契约。** 操作 ID、模型字段和端点在 Python、Node.js、Go、PHP 和 Rust 之间完全一致 — 跨技术栈迁移不需要改写业务逻辑。
-- **永远不偏离官方规范。** Wildberries 一旦更新 API,SDK 会在当天通过 PR 拿到新的方法和模型 — 无需手动 diff 规范。
-- **开箱即用的传输层。** 认证、HTTP 头、base URL、JSON 序列化和 HTTP 错误处理在共享的 `api_client` / `runtime` / `client` 模块中实现一次,所有方法复用。
-
-### 客户端通过 GitHub Actions 在规范变更时自动保持最新。
-
-为什么这点重要 — 看规范变更历史:[CHANGELOG.md](../../CHANGELOG.md)。一周通常会有多次变更。
-
-### 发布频率
-
-[在文档网站上](https://eslazarev.github.io/wildberries-sdk/releases/)
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-zh-CN-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-zh-CN-light.svg">
-  <img src="../../.github/images/release-cadence-zh-CN-light.svg" alt="过去一年的发布日历">
-</picture>
-
-## 目前覆盖的全部 Wildberries 规范
+SDK 覆盖 Wildberries 公开的全部规范：
 
 - 通用 — [`specs/01-general.yaml`](../../specs/01-general.yaml)
 - 商品管理 — [`specs/02-items.yaml`](../../specs/02-items.yaml)
@@ -98,4 +114,4 @@ Cursor、Claude Desktop 等客户端的配置见 [mcp-server/README.md](../../mc
 - 报表 — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - 财务和会计 — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)
 
-完整的方法清单(描述直接来自 Wildberries OpenAPI 规范的俄文原文)在 [主 README](../../README.md#в-данный-момент-представлены-все-доступные-спецификации) 中。
+完整的方法清单（描述为规范中的俄文原文）见[俄文 README](../../README.md#методы-api)。

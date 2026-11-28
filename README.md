@@ -1,10 +1,11 @@
-# Wildberries SDK-клиенты для Python, Node.js, Go, PHP и Rust, постоянно актуальные в соответствии с OpenAPI-спецификациями.
+# Wildberries SDK
+
+SDK-клиенты API продавца Wildberries для Python, Node.js, Go, PHP и Rust. Клиенты генерируются из официальных OpenAPI-спецификаций и выходят заново после каждого их изменения.
 
 🌐 **Русский** · [English](docs/i18n/README.en.md) · [简体中文](docs/i18n/README.zh-CN.md) · [Türkçe](docs/i18n/README.tr.md) · [Қазақша](docs/i18n/README.kk.md) · [Oʻzbekcha](docs/i18n/README.uz.md)
 
-📖 **Документация:** <https://eslazarev.github.io/wildberries-sdk/> — справочник по всем операциям API Wildberries с примерами на Python, Node.js, Go, PHP и Rust.
-
-📡 **Изменения API в Telegram:** [@wildberries_api_radar](https://t.me/wildberries_api_radar) — пост о каждом обновлении спецификаций Wildberries: новые методы, лимиты, удаления.
+- Документация: <https://eslazarev.github.io/wildberries-sdk/>, справочник по всем операциям API Wildberries с примерами на пяти языках.
+- Изменения API в Telegram: [@wildberries_api_radar](https://t.me/wildberries_api_radar), пост о каждом обновлении спецификаций: новые методы, лимиты, удаления.
 
 [![Спроси DeepWiki об этом репо](.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
@@ -18,6 +19,36 @@
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](docs/go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](docs/rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
 
+## Содержание
+
+- [Установка](#установка)
+- [Возможности](#возможности)
+- [Для ИИ-агентов](#для-ии-агентов)
+- [Обновления и релизы](#обновления-и-релизы)
+- [Безопасность](#безопасность)
+- [Методы API](#методы-api)
+
+## Установка
+
+```bash
+pip install wildberries-sdk                                      # Python
+npm install wildberries-sdk                                      # Node.js
+composer require eslazarev/wildberries-sdk                       # PHP
+go get github.com/eslazarev/wildberries-sdk/clients/go/finances  # Go, отдельный модуль на раздел API
+cargo add wildberries_sdk_finances                               # Rust, отдельный crate на раздел API
+```
+
+Примеры вызовов для каждого языка есть в README из таблицы выше.
+
+## Возможности
+
+- Полная типизация запросов и ответов. Клиент использует нативную систему типов языка: pydantic в Python, TypeScript-интерфейсы в Node.js, структуры в Go, типизированные классы в PHP, serde-структуры в Rust. Опечатки в полях и неверные типы видны при компиляции или линтинге.
+- Автодополнение в IDE. IDE подсказывает имена методов, параметры, поля моделей и значения enum без чтения документации Wildberries.
+- Описания из спецификаций. Комментарии Wildberries к полям и методам переходят в код и видны при наведении в IDE.
+- Валидация до отправки запроса. Клиент проверяет обязательные поля и типы. В Python pydantic также проверяет форматы, значения enum и ограничения min/max.
+- Один контракт во всех языках. Имена операций, поля моделей и эндпоинты совпадают в Python, Node.js, Go, PHP и Rust. При смене стека бизнес-логику не нужно переписывать.
+- Готовый транспортный слой. Аутентификация, заголовки, базовые URL, сериализация JSON и обработка HTTP-ошибок реализованы один раз в общем `api_client`, и их использует каждый метод.
+
 ## Для ИИ-агентов
 
 Навык для Claude Code ставится одной командой:
@@ -26,7 +57,7 @@
 /plugin install wildberries-sdk --marketplace eslazarev/wildberries-sdk
 ```
 
-После установки агент сам находит нужную операцию среди ~350, подбирает модуль, категорию токена и хост и пишет вызов, который действительно работает. Агентам без Claude Code пригодятся [AGENTS.md](AGENTS.md) в корне и машиночитаемый перечень операций: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
+После установки агент находит нужную операцию среди ~350, подбирает модуль, категорию токена и хост и пишет рабочий вызов. Агентам без Claude Code пригодятся [AGENTS.md](AGENTS.md) в корне и машиночитаемый перечень операций: [llms.txt](https://eslazarev.github.io/wildberries-sdk/llms.txt), [llms-full.txt](https://eslazarev.github.io/wildberries-sdk/llms-full.txt).
 
 MCP-сервер даёт агенту прямой доступ к API: агент ищет операцию, читает её параметры и вызывает её с вашим токеном. Подключение в Claude Code:
 
@@ -34,51 +65,11 @@ MCP-сервер даёт агенту прямой доступ к API: аге�
 claude mcp add wildberries --env WB_API_TOKEN=<токен> -- uvx wildberries-mcp
 ```
 
-Настройка для Cursor, Claude Desktop и других клиентов — в [mcp-server/README.md](mcp-server/README.md).
+Настройка для Cursor, Claude Desktop и других клиентов описана в [mcp-server/README.md](mcp-server/README.md).
 
-## Безопасность
+## Обновления и релизы
 
-SDK выпускается с security-first процессом:
-
-- статический анализ кода CodeQL
-- оценка по OpenSSF Scorecard
-- сканирование секретов TruffleHog (verified-режим)
-- аудит зависимостей Python (pip-audit)
-- npm audit
-- Composer audit
-- Cargo audit
-- проверка уязвимостей Go (govulncheck)
-- в опубликованных пакетах нет захардкоженных API-токенов
-
-[![CodeQL](https://github.com/eslazarev/wildberries-sdk/actions/workflows/codeql.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/codeql.yml)
-[![Scorecard](https://github.com/eslazarev/wildberries-sdk/actions/workflows/scorecard.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/scorecard.yml)
-[![Secrets](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml)
-[![Dependency Audit](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml)
-
-
-Поддерживаются все доступные на текущий момент команды API Wildberries, разделённые по спецификациям.
-
-## Описание SDK-клиентов
-
-- **Полная типизация запросов и ответов.** В каждом языке клиент использует нативную систему типов: pydantic в Python, TypeScript-интерфейсы в Node.js, struct-ы в Go, типизированные классы в PHP, serde-структуры в Rust. Опечатки в полях и неверные типы ловятся ещё при компиляции/линтинге.
-- **Автодополнение в IDE из коробки.** Имена методов, параметры, поля моделей и значения enum-ов подсвечиваются и подсказываются — без чтения документации WB.
-- **Описания и docstring-и из спецификаций.** Комментарии WB по полям и методам переносятся в код, всплывают при наведении в IDE.
-- **Валидация на стороне клиента.** Обязательные поля и типы проверяются до отправки запроса. В Python pydantic дополнительно валидирует форматы, enum-значения и ограничения min/max; в Go, TypeScript, PHP и Rust проверка ограничивается обязательными полями и типами.
-- **Один контракт во всех языках.** Имена операций, поля моделей и эндпоинты идентичны в Python, Node.js, Go, PHP и Rust — миграция между стеками без переписывания бизнес-логики.
-- **Никакого дрейфа со спецификациями.** Когда WB обновляет API, ваш SDK получает новые методы и модели с PR того же дня — не нужно вручную вычислять, что изменилось.
-- **Готовый transport-слой.** Аутентификация, заголовки, базовые URL, сериализация JSON, обработка HTTP-ошибок — реализованы один раз в стандартном api_client и переиспользуются всеми методами.
-
-### Автоматическая клиенты поддерживаются в актуальном состоянии с помощью GitHub Actions при обновлении спецификаций.
-
-Почему это важно?
-
-Вот изменения спецификаций: [CHANGELOG.md](CHANGELOG.md)
-
-Случаются часто — несколько раз в неделю.
-
-### Частота релизов
-
-[на сайте документации](https://eslazarev.github.io/wildberries-sdk/releases/)
+Wildberries меняет спецификации API несколько раз в неделю. После каждого изменения GitHub Actions генерирует клиенты заново и выпускает новые версии в PyPI, npm, Packagist и crates.io, а для Go ставит тег. Новые методы и модели попадают в SDK в тот же день, поэтому изменения не нужно отслеживать вручную. История изменений есть в [CHANGELOG.md](CHANGELOG.md), календарь релизов есть [на сайте документации](https://eslazarev.github.io/wildberries-sdk/releases/).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/images/release-cadence-ru-dark.svg">
@@ -86,9 +77,28 @@ SDK выпускается с security-first процессом:
   <img src=".github/images/release-cadence-ru-light.svg" alt="Календарь релизов за последний год">
 </picture>
 
+## Безопасность
 
+В репозитории работают эти проверки:
 
-## В данный момент представлены **все доступные** спецификации:
+- Статический анализ кода CodeQL
+- Оценка OpenSSF Scorecard
+- Сканирование секретов TruffleHog в verified-режиме
+- Аудит зависимостей Python (pip-audit)
+- npm audit
+- Composer audit
+- Cargo audit
+- Проверка уязвимостей Go (govulncheck)
+- В опубликованных пакетах нет захардкоженных API-токенов
+
+[![CodeQL](https://github.com/eslazarev/wildberries-sdk/actions/workflows/codeql.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/codeql.yml)
+[![Scorecard](https://github.com/eslazarev/wildberries-sdk/actions/workflows/scorecard.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/scorecard.yml)
+[![Secrets](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml)
+[![Dependency Audit](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml)
+
+## Методы API
+
+SDK поддерживает все опубликованные спецификации Wildberries. Описания методов взяты из спецификаций без изменений.
 
 - Общее: [`specs/01-general.yaml`](#общее-01-generalyaml)
 - Работа с товарами: [`specs/02-items.yaml`](#работа-с-товарами-02-itemsyaml)

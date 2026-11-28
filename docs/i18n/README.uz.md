@@ -1,10 +1,11 @@
-# Python, Node.js, Go, PHP va Rust uchun Wildberries SDK mijozlari — rasmiy OpenAPI spetsifikatsiyalari bilan doimiy sinxronlashtirilgan.
+# Wildberries SDK
+
+Wildberries sotuvchi API'si uchun Python, Node.js, Go, PHP va Rust mijozlari. Mijozlar rasmiy OpenAPI spetsifikatsiyalaridan yaratiladi va har bir spetsifikatsiya oʻzgarishidan keyin qayta chiqariladi.
 
 🌐 [Русский](../../README.md) · [English](README.en.md) · [简体中文](README.zh-CN.md) · [Türkçe](README.tr.md) · [Қазақша](README.kk.md) · **Oʻzbekcha**
 
-📖 **Hujjatlar:** <https://eslazarev.github.io/wildberries-sdk/> — barcha Wildberries API operatsiyalari uchun Python, Node.js, Go, PHP va Rust misollari bilan ma'lumotnoma.
-
-📡 **API oʻzgarishlari Telegramda:** [@wildberries_api_radar](https://t.me/wildberries_api_radar) — har bir Wildberries spetsifikatsiya yangilanishi haqida post: yangi metodlar, limitlar, olib tashlanganlar (rus tilida).
+- Hujjatlar: <https://eslazarev.github.io/wildberries-sdk/>, barcha Wildberries API operatsiyalari uchun besh tildagi misollar bilan maʼlumotnoma.
+- API oʻzgarishlari Telegramda: [@wildberries_api_radar](https://t.me/wildberries_api_radar), har bir Wildberries spetsifikatsiya yangilanishi haqida post: yangi metodlar, limitlar, olib tashlanganlar (rus tilida).
 
 [![Bu repozitoriy haqida DeepWiki'dan soʻra](../../.github/images/deepwiki-badge.svg)](https://deepwiki.com/eslazarev/wildberries-sdk)
 
@@ -17,6 +18,36 @@
 | PHP | [![Packagist](https://img.shields.io/packagist/v/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [![Packagist Downloads](https://img.shields.io/packagist/dt/eslazarev/wildberries-sdk.svg)](https://packagist.org/packages/eslazarev/wildberries-sdk) | [docs/php/README.md](../php/README.md) | [packagist.org](https://packagist.org/packages/eslazarev/wildberries-sdk) |
 | Go | [![Go](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=go)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/go/README.md](../go/README.md) | [pkg.go.dev](https://pkg.go.dev/github.com/eslazarev/wildberries-sdk/clients/go/finances) |
 | Rust | [![Rust](https://img.shields.io/github/v/tag/eslazarev/wildberries-sdk?label=rust)](https://github.com/eslazarev/wildberries-sdk/tags) | — | [docs/rust/README.md](../rust/README.md) | [crates.io](https://crates.io/crates/wildberries_sdk_finances) |
+
+## Mundarija
+
+- [Oʻrnatish](#oʻrnatish)
+- [Imkoniyatlar](#imkoniyatlar)
+- [Sunʼiy intellekt agentlari uchun](#sunʼiy-intellekt-agentlari-uchun)
+- [Yangilanishlar va relizlar](#yangilanishlar-va-relizlar)
+- [Xavfsizlik](#xavfsizlik)
+- [API metodlari](#api-metodlari)
+
+## Oʻrnatish
+
+```bash
+pip install wildberries-sdk                                      # Python
+npm install wildberries-sdk                                      # Node.js
+composer require eslazarev/wildberries-sdk                       # PHP
+go get github.com/eslazarev/wildberries-sdk/clients/go/finances  # Go, har bir API boʻlimi uchun alohida modul
+cargo add wildberries_sdk_finances                               # Rust, har bir API boʻlimi uchun alohida crate
+```
+
+Yuqoridagi jadvaldagi README fayllarida har bir til uchun chaqiruv misollari bor.
+
+## Imkoniyatlar
+
+- Soʻrov/javobning toʻliq tiplanishi. Har bir tildagi mijoz oʻzining mahalliy tiplar tizimidan foydalanadi: Python’da pydantic, Node.js’da TypeScript interfeyslari, Go’da struct, PHP’da tiplangan klasslar, Rust’da serde tuzilmalari. Maydon nomidagi xatolar va notoʻgʻri tiplar kompilyatsiya/lint bosqichida aniqlanadi.
+- IDE-da avtotoʻldirish darhol ishlaydi. Metod nomlari, parametrlar, model maydonlari va enum qiymatlari belgilanadi va tavsiya etiladi — Wildberries hujjatlarini oʻqishga hojat yoʻq.
+- Spetsifikatsiyalardan tavsiflar va docstring’lar. Wildberries’ning YAML’dagi maydon/metod izohlari yaratilgan kodga koʻchiriladi va IDE’da hover orqali koʻrinadi.
+- Mijoz tomonida tekshirish. Majburiy maydonlar va tiplar soʻrov yuborilishidan oldin tekshiriladi (Python pydantic formatlarni, enum’larni va min/max cheklovlarini ham tekshiradi; Go/TypeScript/PHP/Rust’da tekshirish majburiy maydonlar va tiplar bilan cheklanadi).
+- Barcha tillar uchun yagona kontrakt. Operatsiya ID’lari, model maydonlari va endpoint’lar Python, Node.js, Go, PHP va Rust’da bir xil — stack’lar oʻrtasida koʻchish biznes-mantiqni qayta yozishni talab qilmaydi.
+- Tayyor transport qatlami. Autentifikatsiya, sarlavhalar, asosiy URL’lar, JSON serializatsiyasi va HTTP xatoliklarini boshqarish umumiy `api_client` / `runtime` / `client` modulida bir marta amalga oshirilgan va barcha metodlar tomonidan qayta ishlatiladi.
 
 ## Sunʼiy intellekt agentlari uchun
 
@@ -36,9 +67,19 @@ claude mcp add wildberries --env WB_API_TOKEN=<token> -- uvx wildberries-mcp
 
 Cursor, Claude Desktop va boshqa mijozlar uchun sozlash: [mcp-server/README.md](../../mcp-server/README.md).
 
+## Yangilanishlar va relizlar
+
+Wildberries API spetsifikatsiyalarini haftada bir necha marta oʻzgartiradi. Har bir oʻzgarishdan keyin GitHub Actions mijozlarni qayta yaratadi, yangi versiyalarni PyPI, npm, Packagist va crates.io'ga chiqaradi va Go uchun teg qoʻyadi. Yangi metodlar va modellar SDK'ga oʻsha kuni tushadi, shuning uchun oʻzgarishlarni qoʻlda kuzatish shart emas. Oʻzgarishlar tarixi [CHANGELOG.md](../../CHANGELOG.md) faylida, relizlar taqvimi [hujjatlar saytida](https://eslazarev.github.io/wildberries-sdk/releases/).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-uz-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-uz-light.svg">
+  <img src="../../.github/images/release-cadence-uz-light.svg" alt="Soʻnggi bir yildagi relizlar kalendari">
+</picture>
+
 ## Xavfsizlik
 
-Ushbu SDK xavfsizlik birinchi oʻrinda boʻlgan reliz jarayoni bilan chiqariladi:
+Omborda quyidagi tekshiruvlar ishlaydi:
 
 - CodeQL statik kod tahlili
 - OpenSSF Scorecard bahosi
@@ -55,34 +96,9 @@ Ushbu SDK xavfsizlik birinchi oʻrinda boʻlgan reliz jarayoni bilan chiqariladi
 [![Secrets](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/secrets.yml)
 [![Dependency Audit](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml/badge.svg)](https://github.com/eslazarev/wildberries-sdk/actions/workflows/dependency-audit.yml)
 
+## API metodlari
 
-Wildberries API ning bugun mavjud boʻlgan barcha buyruqlari spetsifikatsiya modullari boʻyicha guruhlangan holda qoʻllab-quvvatlanadi.
-
-## Avtomatik yaratiladigan mijozlarning afzalliklari
-
-- **Soʻrov/javobning toʻliq tiplanishi.** Har bir tildagi mijoz oʻzining mahalliy tiplar tizimidan foydalanadi: Python’da pydantic, Node.js’da TypeScript interfeyslari, Go’da struct, PHP’da tiplangan klasslar, Rust’da serde tuzilmalari. Maydon nomidagi xatolar va notoʻgʻri tiplar kompilyatsiya/lint bosqichida aniqlanadi.
-- **IDE-da avtotoʻldirish darhol ishlaydi.** Metod nomlari, parametrlar, model maydonlari va enum qiymatlari belgilanadi va tavsiya etiladi — Wildberries hujjatlarini oʻqishga hojat yoʻq.
-- **Spetsifikatsiyalardan tavsiflar va docstring’lar.** Wildberries’ning YAML’dagi maydon/metod izohlari yaratilgan kodga koʻchiriladi va IDE’da hover orqali koʻrinadi.
-- **Mijoz tomonida tekshirish.** Majburiy maydonlar va tiplar soʻrov yuborilishidan oldin tekshiriladi (Python pydantic formatlarni, enum’larni va min/max cheklovlarini ham tekshiradi; Go/TypeScript/PHP/Rust’da tekshirish majburiy maydonlar va tiplar bilan cheklanadi).
-- **Barcha tillar uchun yagona kontrakt.** Operatsiya ID’lari, model maydonlari va endpoint’lar Python, Node.js, Go, PHP va Rust’da bir xil — stack’lar oʻrtasida koʻchish biznes-mantiqni qayta yozishni talab qilmaydi.
-- **Spetsifikatsiyalardan ogʻishlik yoʻq.** Wildberries API’ni yangilaganda SDK oʻsha kuni yangi metod va modellarga ega PR oladi — spec diff’ni qoʻlda hisoblashning hojati yoʻq.
-- **Tayyor transport qatlami.** Autentifikatsiya, sarlavhalar, asosiy URL’lar, JSON serializatsiyasi va HTTP xatoliklarini boshqarish umumiy `api_client` / `runtime` / `client` modulida bir marta amalga oshirilgan va barcha metodlar tomonidan qayta ishlatiladi.
-
-### Spetsifikatsiya oʻzgarganda mijozlar GitHub Actions tomonidan avtomatik tarzda yangilanib turiladi.
-
-Bu nima uchun muhim — spetsifikatsiya oʻzgarishlari tarixini koʻring: [CHANGELOG.md](../../CHANGELOG.md). Odatda haftada bir necha marta oʻzgaradi.
-
-### Relizlar chastotasi
-
-[hujjatlar saytida](https://eslazarev.github.io/wildberries-sdk/releases/)
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../.github/images/release-cadence-uz-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../../.github/images/release-cadence-uz-light.svg">
-  <img src="../../.github/images/release-cadence-uz-light.svg" alt="Soʻnggi bir yildagi relizlar kalendari">
-</picture>
-
-## Eʼlon qilingan barcha Wildberries spetsifikatsiyalari qamrab olingan
+SDK Wildberries eʼlon qilgan barcha spetsifikatsiyalarni qamrab oladi:
 
 - Umumiy — [`specs/01-general.yaml`](../../specs/01-general.yaml)
 - Tovarlar bilan ishlash — [`specs/02-items.yaml`](../../specs/02-items.yaml)
@@ -98,4 +114,4 @@ Bu nima uchun muhim — spetsifikatsiya oʻzgarishlari tarixini koʻring: [CHANG
 - Hisobotlar — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - Moliya va buxgalteriya — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)
 
-Har bir metodning toʻliq roʻyxati (tavsiflar Wildberries OpenAPI spetsifikatsiyalaridan rus tilida olingan) [asosiy README](../../README.md#в-данный-момент-представлены-все-доступные-спецификации)’da.
+Metodlarning toʻliq roʻyxati (tavsiflar spetsifikatsiyalardan rus tilida olingan) [ruscha README](../../README.md#методы-api) faylida.
