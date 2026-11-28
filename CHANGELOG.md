@@ -1,6 +1,12 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.11.28)
+- Orders FBS: переименованы схемы и ответы для работы с пунктами/методом отгрузки поставок: `SupplyShippingPointsResponse` → `SupplyDispatchPointsResponse`, `SupplyShippingPoint` → `SupplyDispatchPoint`, `UpdateSuppliesShippingMethodRequest/Response` → `UpdateSuppliesDispatchMethodRequest/Response`, `UpdatedSuppliesShippingMethod` → `UpdatedSuppliesDispatchMethod` (включая пример `UpdatedSuppliesDispatchMethod`)
+- Orders FBS: обновлены названия полей `isPickupPointShipmentAllowed` → `isPickupPointDispatchAllowed` (в нескольких схемах)
+- Orders FBS: переименованы примеры ошибок `ShippingDtRequired` → `DispatchDtRequired`, `SupplyShippingRequired` → `SupplyDispatchRequired` (коды/сообщения в значениях примеров при этом остались `ShippingDtRequired` и `SupplyShippingRequired`)
+- Analytics: переименованы схемы для отчёта по остаткам/метрикам по складам: `TableShippingOfficeRequest/Response/Item/Metrics` → `TableDispatchOfficeRequest/Response/Item/Metrics`, а также `CommonShippingOfficeFilters` → `CommonDispatchOfficeFilters` (эндпоинт тот же, изменены ссылки на компоненты)
+
 ### Changed (2026.11.26)
 - Orders FBW: в моделях ответа добавлено поле `correctedQuantity: integer` — количество товара по Акту корректировки, не входящее в `acceptedQuantity`; возвращается только при наличии расхождений, зафиксированных при приёмке (обновлены примеры с `correctedQuantity: 1`).
 

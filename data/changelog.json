@@ -2,6 +2,33 @@
   "source": "CHANGELOG.md",
   "entries": [
     {
+      "date": "2026-11-28",
+      "anchor": "changed-20261128",
+      "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261128",
+      "sections": [
+        "Orders FBS",
+        "Analytics"
+      ],
+      "changes": [
+        {
+          "section": "Orders FBS",
+          "text": "переименованы схемы и ответы для работы с пунктами/методом отгрузки поставок: `SupplyShippingPointsResponse` → `SupplyDispatchPointsResponse`, `SupplyShippingPoint` → `SupplyDispatchPoint`, `UpdateSuppliesShippingMethodRequest/Response` → `UpdateSuppliesDispatchMethodRequest/Response`, `UpdatedSuppliesShippingMethod` → `UpdatedSuppliesDispatchMethod` (включая пример `UpdatedSuppliesDispatchMethod`)"
+        },
+        {
+          "section": "Orders FBS",
+          "text": "обновлены названия полей `isPickupPointShipmentAllowed` → `isPickupPointDispatchAllowed` (в нескольких схемах)"
+        },
+        {
+          "section": "Orders FBS",
+          "text": "переименованы примеры ошибок `ShippingDtRequired` → `DispatchDtRequired`, `SupplyShippingRequired` → `SupplyDispatchRequired` (коды/сообщения в значениях примеров при этом остались `ShippingDtRequired` и `SupplyShippingRequired`)"
+        },
+        {
+          "section": "Analytics",
+          "text": "переименованы схемы для отчёта по остаткам/метрикам по складам: `TableShippingOfficeRequest/Response/Item/Metrics` → `TableDispatchOfficeRequest/Response/Item/Metrics`, а также `CommonShippingOfficeFilters` → `CommonDispatchOfficeFilters` (эндпоинт тот же, изменены ссылки на компоненты)"
+        }
+      ]
+    },
+    {
       "date": "2026-11-26",
       "anchor": "changed-20261126",
       "url": "https://github.com/eslazarev/wildberries-sdk/blob/main/CHANGELOG.md#changed-20261126",
