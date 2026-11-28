@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV2StocksReportOffices200Response{}
 
 // PostV2StocksReportOffices200Response struct for PostV2StocksReportOffices200Response
 type PostV2StocksReportOffices200Response struct {
-	Data TableShippingOfficeResponse `json:"data"`
+	Data TableDispatchOfficeResponse `json:"data"`
 }
 
 type _PostV2StocksReportOffices200Response PostV2StocksReportOffices200Response
@@ -30,7 +30,7 @@ type _PostV2StocksReportOffices200Response PostV2StocksReportOffices200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV2StocksReportOffices200Response(data TableShippingOfficeResponse) *PostV2StocksReportOffices200Response {
+func NewPostV2StocksReportOffices200Response(data TableDispatchOfficeResponse) *PostV2StocksReportOffices200Response {
 	this := PostV2StocksReportOffices200Response{}
 	this.Data = data
 	return &this
@@ -45,9 +45,9 @@ func NewPostV2StocksReportOffices200ResponseWithDefaults() *PostV2StocksReportOf
 }
 
 // GetData returns the Data field value
-func (o *PostV2StocksReportOffices200Response) GetData() TableShippingOfficeResponse {
+func (o *PostV2StocksReportOffices200Response) GetData() TableDispatchOfficeResponse {
 	if o == nil {
-		var ret TableShippingOfficeResponse
+		var ret TableDispatchOfficeResponse
 		return ret
 	}
 
@@ -56,7 +56,7 @@ func (o *PostV2StocksReportOffices200Response) GetData() TableShippingOfficeResp
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *PostV2StocksReportOffices200Response) GetDataOk() (*TableShippingOfficeResponse, bool) {
+func (o *PostV2StocksReportOffices200Response) GetDataOk() (*TableDispatchOfficeResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *PostV2StocksReportOffices200Response) GetDataOk() (*TableShippingOffice
 }
 
 // SetData sets field value
-func (o *PostV2StocksReportOffices200Response) SetData(v TableShippingOfficeResponse) {
+func (o *PostV2StocksReportOffices200Response) SetData(v TableDispatchOfficeResponse) {
 	o.Data = v
 }
 

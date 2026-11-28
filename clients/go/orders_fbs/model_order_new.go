@@ -80,7 +80,7 @@ type OrderNew struct {
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 	// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да 
-	IsPickupPointShipmentAllowed *bool `json:"isPickupPointShipmentAllowed,omitempty"`
+	IsPickupPointDispatchAllowed *bool `json:"isPickupPointDispatchAllowed,omitempty"`
 	Options *OrderOptions `json:"options,omitempty"`
 }
 
@@ -1104,36 +1104,36 @@ func (o *OrderNew) SetIsZeroOrder(v bool) {
 	o.IsZeroOrder = &v
 }
 
-// GetIsPickupPointShipmentAllowed returns the IsPickupPointShipmentAllowed field value if set, zero value otherwise.
-func (o *OrderNew) GetIsPickupPointShipmentAllowed() bool {
-	if o == nil || IsNil(o.IsPickupPointShipmentAllowed) {
+// GetIsPickupPointDispatchAllowed returns the IsPickupPointDispatchAllowed field value if set, zero value otherwise.
+func (o *OrderNew) GetIsPickupPointDispatchAllowed() bool {
+	if o == nil || IsNil(o.IsPickupPointDispatchAllowed) {
 		var ret bool
 		return ret
 	}
-	return *o.IsPickupPointShipmentAllowed
+	return *o.IsPickupPointDispatchAllowed
 }
 
-// GetIsPickupPointShipmentAllowedOk returns a tuple with the IsPickupPointShipmentAllowed field value if set, nil otherwise
+// GetIsPickupPointDispatchAllowedOk returns a tuple with the IsPickupPointDispatchAllowed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderNew) GetIsPickupPointShipmentAllowedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsPickupPointShipmentAllowed) {
+func (o *OrderNew) GetIsPickupPointDispatchAllowedOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsPickupPointDispatchAllowed) {
 		return nil, false
 	}
-	return o.IsPickupPointShipmentAllowed, true
+	return o.IsPickupPointDispatchAllowed, true
 }
 
-// HasIsPickupPointShipmentAllowed returns a boolean if a field has been set.
-func (o *OrderNew) HasIsPickupPointShipmentAllowed() bool {
-	if o != nil && !IsNil(o.IsPickupPointShipmentAllowed) {
+// HasIsPickupPointDispatchAllowed returns a boolean if a field has been set.
+func (o *OrderNew) HasIsPickupPointDispatchAllowed() bool {
+	if o != nil && !IsNil(o.IsPickupPointDispatchAllowed) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsPickupPointShipmentAllowed gets a reference to the given bool and assigns it to the IsPickupPointShipmentAllowed field.
-func (o *OrderNew) SetIsPickupPointShipmentAllowed(v bool) {
-	o.IsPickupPointShipmentAllowed = &v
+// SetIsPickupPointDispatchAllowed gets a reference to the given bool and assigns it to the IsPickupPointDispatchAllowed field.
+func (o *OrderNew) SetIsPickupPointDispatchAllowed(v bool) {
+	o.IsPickupPointDispatchAllowed = &v
 }
 
 // GetOptions returns the Options field value if set, zero value otherwise.
@@ -1268,8 +1268,8 @@ func (o OrderNew) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsZeroOrder) {
 		toSerialize["isZeroOrder"] = o.IsZeroOrder
 	}
-	if !IsNil(o.IsPickupPointShipmentAllowed) {
-		toSerialize["isPickupPointShipmentAllowed"] = o.IsPickupPointShipmentAllowed
+	if !IsNil(o.IsPickupPointDispatchAllowed) {
+		toSerialize["isPickupPointDispatchAllowed"] = o.IsPickupPointDispatchAllowed
 	}
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options

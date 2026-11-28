@@ -2468,7 +2468,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/TableShippingOfficeRequest"
+              $ref: "#/components/schemas/TableDispatchOfficeRequest"
         required: true
       responses:
         "200":
@@ -6452,9 +6452,9 @@ components:
       - officeName
       - regionName
       type: object
-    TableShippingOfficeRequest:
+    TableDispatchOfficeRequest:
       allOf:
-      - $ref: "#/components/schemas/CommonShippingOfficeFilters"
+      - $ref: "#/components/schemas/CommonDispatchOfficeFilters"
       description: Параметры запроса об остатках по складам
       example:
         nmIDs:
@@ -6477,7 +6477,7 @@ components:
           end: 2024-02-10
         stockType: mp
         skipDeletedNm: false
-    CommonShippingOfficeFilters:
+    CommonDispatchOfficeFilters:
       description: Общие фильтры по регионам отгрузки
       properties:
         nmIDs:
@@ -6531,7 +6531,7 @@ components:
       - skipDeletedNm
       - stockType
       type: object
-    TableShippingOfficeResponse:
+    TableDispatchOfficeResponse:
       example:
         regions:
         - regionName: Россия
@@ -6557,7 +6557,7 @@ components:
         regions:
           description: Множество данных по регионам отгрузки
           items:
-            $ref: "#/components/schemas/TableShippingOfficeItem"
+            $ref: "#/components/schemas/TableDispatchOfficeItem"
           type: array
         currency:
           description: Валюта отчёта
@@ -6567,7 +6567,7 @@ components:
       - currency
       - regions
       type: object
-    TableShippingOfficeItem:
+    TableDispatchOfficeItem:
       description: Данные по региону отгрузки
       example:
         regionName: Россия
@@ -6587,20 +6587,20 @@ components:
           type: string
         metrics:
           allOf:
-          - $ref: "#/components/schemas/TableShippingOfficeMetrics"
+          - $ref: "#/components/schemas/TableDispatchOfficeMetrics"
           description: Метрики по региону
         offices:
           description: |
             [Данные по складам](/release-notes?id=605)
           items:
-            $ref: "#/components/schemas/TableShippingOfficeItem_offices_inner"
+            $ref: "#/components/schemas/TableDispatchOfficeItem_offices_inner"
           type: array
       required:
       - metrics
       - offices
       - regionName
       type: object
-    TableShippingOfficeMetrics:
+    TableDispatchOfficeMetrics:
       description: Общие метрики по регионам/складам отгрузки
       properties:
         stockCount:
@@ -10236,7 +10236,7 @@ components:
           currency: RUB
       properties:
         data:
-          $ref: "#/components/schemas/TableShippingOfficeResponse"
+          $ref: "#/components/schemas/TableDispatchOfficeResponse"
       required:
       - data
       type: object
@@ -11628,7 +11628,7 @@ components:
       - metrics
       - name
       type: object
-    TableShippingOfficeItem_offices_inner:
+    TableDispatchOfficeItem_offices_inner:
       example:
         officeID: -999999
         officeName: Склад WB РФ
@@ -11647,7 +11647,7 @@ components:
           type: string
         metrics:
           allOf:
-          - $ref: "#/components/schemas/TableShippingOfficeMetrics"
+          - $ref: "#/components/schemas/TableDispatchOfficeMetrics"
           description: Метрики по складу
       required:
       - metrics

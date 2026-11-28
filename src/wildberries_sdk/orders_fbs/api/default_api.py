@@ -62,9 +62,9 @@ from wildberries_sdk.orders_fbs.models.put_v3_orders_order_id_meta_sgtin_request
 from wildberries_sdk.orders_fbs.models.put_v3_orders_order_id_meta_uin_request import PutV3OrdersOrderIdMetaUinRequest
 from wildberries_sdk.orders_fbs.models.put_v3_passes_pass_id_request import PutV3PassesPassIdRequest
 from wildberries_sdk.orders_fbs.models.supply import Supply
-from wildberries_sdk.orders_fbs.models.supply_shipping_points_response import SupplyShippingPointsResponse
-from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_request import UpdateSuppliesShippingMethodRequest
-from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_response import UpdateSuppliesShippingMethodResponse
+from wildberries_sdk.orders_fbs.models.supply_dispatch_points_response import SupplyDispatchPointsResponse
+from wildberries_sdk.orders_fbs.models.update_supplies_dispatch_method_request import UpdateSuppliesDispatchMethodRequest
+from wildberries_sdk.orders_fbs.models.update_supplies_dispatch_method_response import UpdateSuppliesDispatchMethodResponse
 from wildberries_sdk.orders_fbs.models.v3_archive_orders import V3ArchiveOrders
 from wildberries_sdk.orders_fbs.models.v3_get_meta_multi_request import V3GetMetaMultiRequest
 from wildberries_sdk.orders_fbs.models.v3_orders_meta_api import V3OrdersMetaAPI
@@ -2186,7 +2186,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> SupplyShippingPointsResponse:
+    ) -> SupplyDispatchPointsResponse:
         """Получить список пунктов отгрузки поставки
 
         Метод возвращает доступные пункты отгрузки для указанной поставки. <br>  Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
@@ -2233,7 +2233,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SupplyShippingPointsResponse",
+            '200': "SupplyDispatchPointsResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
@@ -2271,7 +2271,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[SupplyShippingPointsResponse]:
+    ) -> ApiResponse[SupplyDispatchPointsResponse]:
         """Получить список пунктов отгрузки поставки
 
         Метод возвращает доступные пункты отгрузки для указанной поставки. <br>  Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
@@ -2318,7 +2318,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SupplyShippingPointsResponse",
+            '200': "SupplyDispatchPointsResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
@@ -2403,7 +2403,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SupplyShippingPointsResponse",
+            '200': "SupplyDispatchPointsResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '403': "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
@@ -5935,7 +5935,7 @@ class DefaultApi:
     @validate_call
     def patch_v3_fbs_supplies_shipping_method(
         self,
-        update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest,
+        update_supplies_dispatch_method_request: UpdateSuppliesDispatchMethodRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5948,13 +5948,13 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> UpdateSuppliesShippingMethodResponse:
+    ) -> UpdateSuppliesDispatchMethodResponse:
         """Установить параметры отгрузки поставок
 
         Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>    Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.<br><br>  Доступно только для продавцов из РФ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
-        :param update_supplies_shipping_method_request: (required)
-        :type update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest
+        :param update_supplies_dispatch_method_request: (required)
+        :type update_supplies_dispatch_method_request: UpdateSuppliesDispatchMethodRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5978,7 +5978,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._patch_v3_fbs_supplies_shipping_method_serialize(
-            update_supplies_shipping_method_request=update_supplies_shipping_method_request,
+            update_supplies_dispatch_method_request=update_supplies_dispatch_method_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5986,7 +5986,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateSuppliesShippingMethodResponse",
+            '200': "UpdateSuppliesDispatchMethodResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '402': "GetV3PassesOffices402Response",
@@ -6008,7 +6008,7 @@ class DefaultApi:
     @validate_call
     def patch_v3_fbs_supplies_shipping_method_with_http_info(
         self,
-        update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest,
+        update_supplies_dispatch_method_request: UpdateSuppliesDispatchMethodRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6021,13 +6021,13 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[UpdateSuppliesShippingMethodResponse]:
+    ) -> ApiResponse[UpdateSuppliesDispatchMethodResponse]:
         """Установить параметры отгрузки поставок
 
         Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>    Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.<br><br>  Доступно только для продавцов из РФ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
-        :param update_supplies_shipping_method_request: (required)
-        :type update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest
+        :param update_supplies_dispatch_method_request: (required)
+        :type update_supplies_dispatch_method_request: UpdateSuppliesDispatchMethodRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6051,7 +6051,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._patch_v3_fbs_supplies_shipping_method_serialize(
-            update_supplies_shipping_method_request=update_supplies_shipping_method_request,
+            update_supplies_dispatch_method_request=update_supplies_dispatch_method_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6059,7 +6059,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateSuppliesShippingMethodResponse",
+            '200': "UpdateSuppliesDispatchMethodResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '402': "GetV3PassesOffices402Response",
@@ -6081,7 +6081,7 @@ class DefaultApi:
     @validate_call
     def patch_v3_fbs_supplies_shipping_method_without_preload_content(
         self,
-        update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest,
+        update_supplies_dispatch_method_request: UpdateSuppliesDispatchMethodRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6099,8 +6099,8 @@ class DefaultApi:
 
         Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>    Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.<br><br>  Доступно только для продавцов из РФ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
-        :param update_supplies_shipping_method_request: (required)
-        :type update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest
+        :param update_supplies_dispatch_method_request: (required)
+        :type update_supplies_dispatch_method_request: UpdateSuppliesDispatchMethodRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6124,7 +6124,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._patch_v3_fbs_supplies_shipping_method_serialize(
-            update_supplies_shipping_method_request=update_supplies_shipping_method_request,
+            update_supplies_dispatch_method_request=update_supplies_dispatch_method_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6132,7 +6132,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateSuppliesShippingMethodResponse",
+            '200': "UpdateSuppliesDispatchMethodResponse",
             '400': "Error",
             '401': "GetV3PassesOffices401Response",
             '402': "GetV3PassesOffices402Response",
@@ -6149,7 +6149,7 @@ class DefaultApi:
 
     def _patch_v3_fbs_supplies_shipping_method_serialize(
         self,
-        update_supplies_shipping_method_request,
+        update_supplies_dispatch_method_request,
         _request_auth,
         _content_type,
         _headers,
@@ -6178,8 +6178,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if update_supplies_shipping_method_request is not None:
-            _body_params = update_supplies_shipping_method_request
+        if update_supplies_dispatch_method_request is not None:
+            _body_params = update_supplies_dispatch_method_request
 
 
         # set the HTTP header `Accept`

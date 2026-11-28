@@ -4137,7 +4137,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SupplyShippingPointsResponse"
+                $ref: "#/components/schemas/SupplyDispatchPointsResponse"
           description: Успешно
         "400":
           content:
@@ -4145,8 +4145,8 @@ paths:
               examples:
                 IncorrectParameter:
                   $ref: "#/components/examples/IncorrectParameter"
-                ShippingDtRequired:
-                  $ref: "#/components/examples/ShippingDtRequired"
+                DispatchDtRequired:
+                  $ref: "#/components/examples/DispatchDtRequired"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Неправильный запрос
@@ -4258,7 +4258,7 @@ paths:
           application/json:
             schema:
               allOf:
-              - $ref: "#/components/schemas/UpdateSuppliesShippingMethodRequest"
+              - $ref: "#/components/schemas/UpdateSuppliesDispatchMethodRequest"
               description: Параметры отгрузки поставки
         required: true
       responses:
@@ -4266,10 +4266,10 @@ paths:
           content:
             application/json:
               examples:
-                UpdatedSuppliesShippingMethod:
-                  $ref: "#/components/examples/UpdatedSuppliesShippingMethod"
+                UpdatedSuppliesDispatchMethod:
+                  $ref: "#/components/examples/UpdatedSuppliesDispatchMethod"
               schema:
-                $ref: "#/components/schemas/UpdateSuppliesShippingMethodResponse"
+                $ref: "#/components/schemas/UpdateSuppliesDispatchMethodResponse"
           description: Успешно
         "400":
           content:
@@ -4474,8 +4474,8 @@ paths:
                   $ref: "#/components/examples/MetaValidationFail"
                 FulfillmentSupplyBoxesRequired:
                   $ref: "#/components/examples/FulfillmentSupplyBoxesRequired"
-                SupplyShippingRequired:
-                  $ref: "#/components/examples/SupplyShippingRequired"
+                SupplyDispatchRequired:
+                  $ref: "#/components/examples/SupplyDispatchRequired"
               schema:
                 $ref: "#/components/schemas/Model409SupplyDeliverError"
           description: Ошибка закрытия поставки
@@ -5765,7 +5765,7 @@ components:
       value:
         code: CustomsDeclarationIsRequired
         message: Customs declaration is required
-    ShippingDtRequired:
+    DispatchDtRequired:
       description: Укажите планируемую дату отгрузки для поставок МГТ (`"cargoType":1`)
         и КГТ+ (`"cargoType":3`)
       value:
@@ -5865,7 +5865,7 @@ components:
         requestId: a0b5907c-2978-4db6-9a59-00666e8b8d54
         status: 403
         title: AccessDenied
-    UpdatedSuppliesShippingMethod:
+    UpdatedSuppliesDispatchMethod:
       value:
         results:
         - supplyId: WB-GI-100
@@ -5894,7 +5894,7 @@ components:
       value:
         code: WaybillUUIDConflict
         message: Waybill UUID is already used
-    SupplyShippingRequired:
+    SupplyDispatchRequired:
       value:
         code: SupplyShippingRequired
         message: "Specify shipping point, type and date to close the supply"
@@ -6737,7 +6737,7 @@ components:
       example:
         id: WB-GI-1234567
         isB2b: true
-        isPickupPointShipmentAllowed: true
+        isPickupPointDispatchAllowed: true
         done: true
         createdAt: 2022-05-04T07:56:29Z
         closedAt: 2022-05-04T07:56:29Z
@@ -6766,7 +6766,7 @@ components:
               - `null` — признак отсутствует, сборочные задания не добавлены к поставке
           nullable: true
           type: boolean
-        isPickupPointShipmentAllowed:
+        isPickupPointDispatchAllowed:
           description: |
             Можно ли отгрузить заказ на ПВЗ:
               - `false` — нет
@@ -6923,7 +6923,7 @@ components:
         cargoType: 5
         crossBorderType: 1
         isZeroOrder: false
-        isPickupPointShipmentAllowed: true
+        isPickupPointDispatchAllowed: true
         options:
           isB2B: true
       properties:
@@ -7137,7 +7137,7 @@ components:
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           example: false
           type: boolean
-        isPickupPointShipmentAllowed:
+        isPickupPointDispatchAllowed:
           description: |
             Можно ли отгрузить заказ на ПВЗ:
               - `false` — нет
@@ -7369,7 +7369,7 @@ components:
           description: Дополнительные данные ошибки
           type: object
       type: object
-    UpdateSuppliesShippingMethodRequest:
+    UpdateSuppliesDispatchMethodRequest:
       example:
         data:
         - shippingDt: 2026-08-31
@@ -7402,7 +7402,7 @@ components:
       required:
       - data
       type: object
-    UpdateSuppliesShippingMethodResponse:
+    UpdateSuppliesDispatchMethodResponse:
       example:
         results:
         - error:
@@ -7418,7 +7418,7 @@ components:
       properties:
         results:
           items:
-            $ref: "#/components/schemas/UpdatedSuppliesShippingMethod"
+            $ref: "#/components/schemas/UpdatedSuppliesDispatchMethod"
           type: array
       required:
       - results
@@ -7459,7 +7459,7 @@ components:
       - shippingType
       - supplyId
       type: object
-    UpdatedSuppliesShippingMethod:
+    UpdatedSuppliesDispatchMethod:
       description: Результат обработки запроса для одной поставки
       example:
         error:
@@ -7469,7 +7469,7 @@ components:
         supplyId: supplyId
       properties:
         error:
-          $ref: "#/components/schemas/UpdatedSuppliesShippingMethod_error"
+          $ref: "#/components/schemas/UpdatedSuppliesDispatchMethod_error"
         success:
           description: Успешна ли обработка запроса для данной поставки. Может быть
             только `true`
@@ -7480,7 +7480,7 @@ components:
       required:
       - supplyId
       type: object
-    SupplyShippingPoint:
+    SupplyDispatchPoint:
       description: Данные пункта отгрузки
       example:
         id: 100
@@ -7553,7 +7553,7 @@ components:
       - name
       - officeType
       type: object
-    SupplyShippingPointsResponse:
+    SupplyDispatchPointsResponse:
       example:
         shippingPoints:
         - id: 100
@@ -7578,7 +7578,7 @@ components:
         shippingPoints:
           description: Список пунктов отгрузки для указанной поставки
           items:
-            $ref: "#/components/schemas/SupplyShippingPoint"
+            $ref: "#/components/schemas/SupplyDispatchPoint"
           type: array
       required:
       - shippingPoints
@@ -7802,7 +7802,7 @@ components:
           cargoType: 5
           crossBorderType: 1
           isZeroOrder: false
-          isPickupPointShipmentAllowed: true
+          isPickupPointDispatchAllowed: true
           options:
             isB2B: true
         - address:
@@ -7844,7 +7844,7 @@ components:
           cargoType: 5
           crossBorderType: 1
           isZeroOrder: false
-          isPickupPointShipmentAllowed: true
+          isPickupPointDispatchAllowed: true
           options:
             isB2B: true
       nullable: false
@@ -8432,7 +8432,7 @@ components:
         supplies:
         - id: WB-GI-1234567
           isB2b: true
-          isPickupPointShipmentAllowed: true
+          isPickupPointDispatchAllowed: true
           done: true
           createdAt: 2022-05-04T07:56:29Z
           closedAt: 2022-05-04T07:56:29Z
@@ -8449,7 +8449,7 @@ components:
           spotAvailable: true
         - id: WB-GI-1234567
           isB2b: true
-          isPickupPointShipmentAllowed: true
+          isPickupPointDispatchAllowed: true
           done: true
           createdAt: 2022-05-04T07:56:29Z
           closedAt: 2022-05-04T07:56:29Z
@@ -9287,7 +9287,7 @@ components:
           example: uinMaySell
           type: string
       type: object
-    UpdatedSuppliesShippingMethod_error:
+    UpdatedSuppliesDispatchMethod_error:
       description: |
         Ошибка обработки запроса для поставки. Возможные варианты ошибок:
           - `400 IncorrectRequestBody`:

@@ -234,20 +234,20 @@ import {
     SupplyToJSON,
 } from '../models/Supply';
 import {
-    type SupplyShippingPointsResponse,
-    SupplyShippingPointsResponseFromJSON,
-    SupplyShippingPointsResponseToJSON,
-} from '../models/SupplyShippingPointsResponse';
+    type SupplyDispatchPointsResponse,
+    SupplyDispatchPointsResponseFromJSON,
+    SupplyDispatchPointsResponseToJSON,
+} from '../models/SupplyDispatchPointsResponse';
 import {
-    type UpdateSuppliesShippingMethodRequest,
-    UpdateSuppliesShippingMethodRequestFromJSON,
-    UpdateSuppliesShippingMethodRequestToJSON,
-} from '../models/UpdateSuppliesShippingMethodRequest';
+    type UpdateSuppliesDispatchMethodRequest,
+    UpdateSuppliesDispatchMethodRequestFromJSON,
+    UpdateSuppliesDispatchMethodRequestToJSON,
+} from '../models/UpdateSuppliesDispatchMethodRequest';
 import {
-    type UpdateSuppliesShippingMethodResponse,
-    UpdateSuppliesShippingMethodResponseFromJSON,
-    UpdateSuppliesShippingMethodResponseToJSON,
-} from '../models/UpdateSuppliesShippingMethodResponse';
+    type UpdateSuppliesDispatchMethodResponse,
+    UpdateSuppliesDispatchMethodResponseFromJSON,
+    UpdateSuppliesDispatchMethodResponseToJSON,
+} from '../models/UpdateSuppliesDispatchMethodResponse';
 import {
     type V3APIError,
     V3APIErrorFromJSON,
@@ -429,7 +429,7 @@ export interface PatchV3FbsSuppliesShippingMethodRequest {
     /**
      * Параметры отгрузки поставки
      */
-    updateSuppliesShippingMethodRequest: UpdateSuppliesShippingMethodRequest;
+    updateSuppliesDispatchMethodRequest: UpdateSuppliesDispatchMethodRequest;
 }
 
 export interface PatchV3FbsSuppliesSupplyIdOrdersTransferOperationRequest {
@@ -1006,18 +1006,18 @@ export class FBSApi extends runtime.BaseAPI {
      * Метод возвращает доступные пункты отгрузки для указанной поставки. <br>  Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Получить список пунктов отгрузки поставки
      */
-    async getV3FbsSuppliesSupplyIdShippingPointsRaw(requestParameters: GetV3FbsSuppliesSupplyIdShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupplyShippingPointsResponse>> {
+    async getV3FbsSuppliesSupplyIdShippingPointsRaw(requestParameters: GetV3FbsSuppliesSupplyIdShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupplyDispatchPointsResponse>> {
         const requestOptions = await this.getV3FbsSuppliesSupplyIdShippingPointsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SupplyShippingPointsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => SupplyDispatchPointsResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает доступные пункты отгрузки для указанной поставки. <br>  Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Получить список пунктов отгрузки поставки
      */
-    async getV3FbsSuppliesSupplyIdShippingPoints(requestParameters: GetV3FbsSuppliesSupplyIdShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplyShippingPointsResponse> {
+    async getV3FbsSuppliesSupplyIdShippingPoints(requestParameters: GetV3FbsSuppliesSupplyIdShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplyDispatchPointsResponse> {
         const response = await this.getV3FbsSuppliesSupplyIdShippingPointsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1551,10 +1551,10 @@ export class FBSApi extends runtime.BaseAPI {
      * Creates request options for patchV3FbsSuppliesShippingMethod without sending the request
      */
     async patchV3FbsSuppliesShippingMethodRequestOpts(requestParameters: PatchV3FbsSuppliesShippingMethodRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['updateSuppliesShippingMethodRequest'] == null) {
+        if (requestParameters['updateSuppliesDispatchMethodRequest'] == null) {
             throw new runtime.RequiredError(
-                'updateSuppliesShippingMethodRequest',
-                'Required parameter "updateSuppliesShippingMethodRequest" was null or undefined when calling patchV3FbsSuppliesShippingMethod().'
+                'updateSuppliesDispatchMethodRequest',
+                'Required parameter "updateSuppliesDispatchMethodRequest" was null or undefined when calling patchV3FbsSuppliesShippingMethod().'
             );
         }
 
@@ -1576,7 +1576,7 @@ export class FBSApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateSuppliesShippingMethodRequestToJSON(requestParameters['updateSuppliesShippingMethodRequest']),
+            body: UpdateSuppliesDispatchMethodRequestToJSON(requestParameters['updateSuppliesDispatchMethodRequest']),
         };
     }
 
@@ -1584,18 +1584,18 @@ export class FBSApi extends runtime.BaseAPI {
      * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>    Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.<br><br>  Доступно только для продавцов из РФ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить параметры отгрузки поставок
      */
-    async patchV3FbsSuppliesShippingMethodRaw(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesShippingMethodResponse>> {
+    async patchV3FbsSuppliesShippingMethodRaw(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesDispatchMethodResponse>> {
         const requestOptions = await this.patchV3FbsSuppliesShippingMethodRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateSuppliesShippingMethodResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateSuppliesDispatchMethodResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>    Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.<br><br>  Доступно только для продавцов из РФ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить параметры отгрузки поставок
      */
-    async patchV3FbsSuppliesShippingMethod(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesShippingMethodResponse> {
+    async patchV3FbsSuppliesShippingMethod(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesDispatchMethodResponse> {
         const response = await this.patchV3FbsSuppliesShippingMethodRaw(requestParameters, initOverrides);
         return await response.value();
     }

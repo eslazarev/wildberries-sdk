@@ -50,10 +50,10 @@ from wildberries_sdk.analytics.models.post_v2_stocks_report_products_sizes200_re
 from wildberries_sdk.analytics.models.post_v3_sales_funnel_grouped_history200_response import PostV3SalesFunnelGroupedHistory200Response
 from wildberries_sdk.analytics.models.post_v3_sales_funnel_products200_response import PostV3SalesFunnelProducts200Response
 from wildberries_sdk.analytics.models.table_details_request import TableDetailsRequest
+from wildberries_sdk.analytics.models.table_dispatch_office_request import TableDispatchOfficeRequest
 from wildberries_sdk.analytics.models.table_group_request import TableGroupRequest
 from wildberries_sdk.analytics.models.table_group_request_st import TableGroupRequestSt
 from wildberries_sdk.analytics.models.table_item_request import TableItemRequest
-from wildberries_sdk.analytics.models.table_shipping_office_request import TableShippingOfficeRequest
 from wildberries_sdk.analytics.models.table_size_request import TableSizeRequest
 
 from wildberries_sdk.analytics.api_client import ApiClient, RequestSerialized
@@ -3864,7 +3864,7 @@ class DefaultApi:
     @validate_call
     def post_v2_stocks_report_offices(
         self,
-        table_shipping_office_request: TableShippingOfficeRequest,
+        table_dispatch_office_request: TableDispatchOfficeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3882,8 +3882,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в 2 часа.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param table_shipping_office_request: (required)
-        :type table_shipping_office_request: TableShippingOfficeRequest
+        :param table_dispatch_office_request: (required)
+        :type table_dispatch_office_request: TableDispatchOfficeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3907,7 +3907,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_v2_stocks_report_offices_serialize(
-            table_shipping_office_request=table_shipping_office_request,
+            table_dispatch_office_request=table_dispatch_office_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3936,7 +3936,7 @@ class DefaultApi:
     @validate_call
     def post_v2_stocks_report_offices_with_http_info(
         self,
-        table_shipping_office_request: TableShippingOfficeRequest,
+        table_dispatch_office_request: TableDispatchOfficeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3954,8 +3954,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в 2 часа.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param table_shipping_office_request: (required)
-        :type table_shipping_office_request: TableShippingOfficeRequest
+        :param table_dispatch_office_request: (required)
+        :type table_dispatch_office_request: TableDispatchOfficeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3979,7 +3979,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_v2_stocks_report_offices_serialize(
-            table_shipping_office_request=table_shipping_office_request,
+            table_dispatch_office_request=table_dispatch_office_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4008,7 +4008,7 @@ class DefaultApi:
     @validate_call
     def post_v2_stocks_report_offices_without_preload_content(
         self,
-        table_shipping_office_request: TableShippingOfficeRequest,
+        table_dispatch_office_request: TableDispatchOfficeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4026,8 +4026,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в 2 часа.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param table_shipping_office_request: (required)
-        :type table_shipping_office_request: TableShippingOfficeRequest
+        :param table_dispatch_office_request: (required)
+        :type table_dispatch_office_request: TableDispatchOfficeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4051,7 +4051,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_v2_stocks_report_offices_serialize(
-            table_shipping_office_request=table_shipping_office_request,
+            table_dispatch_office_request=table_dispatch_office_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4075,7 +4075,7 @@ class DefaultApi:
 
     def _post_v2_stocks_report_offices_serialize(
         self,
-        table_shipping_office_request,
+        table_dispatch_office_request,
         _request_auth,
         _content_type,
         _headers,
@@ -4104,8 +4104,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if table_shipping_office_request is not None:
-            _body_params = table_shipping_office_request
+        if table_dispatch_office_request is not None:
+            _body_params = table_dispatch_office_request
 
 
         # set the HTTP header `Accept`

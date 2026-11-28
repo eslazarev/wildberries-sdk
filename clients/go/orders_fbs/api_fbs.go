@@ -1065,7 +1065,7 @@ func (r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) ShippingDt(shippingDt 
 	return r
 }
 
-func (r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) Execute() (*SupplyShippingPointsResponse, *http.Response, error) {
+func (r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) Execute() (*SupplyDispatchPointsResponse, *http.Response, error) {
 	return r.ApiService.GetV3FbsSuppliesSupplyIdShippingPointsExecute(r)
 }
 
@@ -1101,13 +1101,13 @@ func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdShippingPoints(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return SupplyShippingPointsResponse
-func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdShippingPointsExecute(r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) (*SupplyShippingPointsResponse, *http.Response, error) {
+//  @return SupplyDispatchPointsResponse
+func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdShippingPointsExecute(r ApiGetV3FbsSuppliesSupplyIdShippingPointsRequest) (*SupplyDispatchPointsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SupplyShippingPointsResponse
+		localVarReturnValue  *SupplyDispatchPointsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3FbsSuppliesSupplyIdShippingPoints")
@@ -3250,15 +3250,15 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSuppl
 type ApiPatchV3FbsSuppliesShippingMethodRequest struct {
 	ctx context.Context
 	ApiService *FBSAPIService
-	updateSuppliesShippingMethodRequest *UpdateSuppliesShippingMethodRequest
+	updateSuppliesDispatchMethodRequest *UpdateSuppliesDispatchMethodRequest
 }
 
-func (r ApiPatchV3FbsSuppliesShippingMethodRequest) UpdateSuppliesShippingMethodRequest(updateSuppliesShippingMethodRequest UpdateSuppliesShippingMethodRequest) ApiPatchV3FbsSuppliesShippingMethodRequest {
-	r.updateSuppliesShippingMethodRequest = &updateSuppliesShippingMethodRequest
+func (r ApiPatchV3FbsSuppliesShippingMethodRequest) UpdateSuppliesDispatchMethodRequest(updateSuppliesDispatchMethodRequest UpdateSuppliesDispatchMethodRequest) ApiPatchV3FbsSuppliesShippingMethodRequest {
+	r.updateSuppliesDispatchMethodRequest = &updateSuppliesDispatchMethodRequest
 	return r
 }
 
-func (r ApiPatchV3FbsSuppliesShippingMethodRequest) Execute() (*UpdateSuppliesShippingMethodResponse, *http.Response, error) {
+func (r ApiPatchV3FbsSuppliesShippingMethodRequest) Execute() (*UpdateSuppliesDispatchMethodResponse, *http.Response, error) {
 	return r.ApiService.PatchV3FbsSuppliesShippingMethodExecute(r)
 }
 
@@ -3298,13 +3298,13 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethod(ctx context.Context) Ap
 }
 
 // Execute executes the request
-//  @return UpdateSuppliesShippingMethodResponse
-func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesShippingMethodResponse, *http.Response, error) {
+//  @return UpdateSuppliesDispatchMethodResponse
+func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesDispatchMethodResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateSuppliesShippingMethodResponse
+		localVarReturnValue  *UpdateSuppliesDispatchMethodResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3FbsSuppliesShippingMethod")
@@ -3317,8 +3317,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.updateSuppliesShippingMethodRequest == nil {
-		return localVarReturnValue, nil, reportError("updateSuppliesShippingMethodRequest is required and must be specified")
+	if r.updateSuppliesDispatchMethodRequest == nil {
+		return localVarReturnValue, nil, reportError("updateSuppliesDispatchMethodRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -3339,7 +3339,7 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateSuppliesShippingMethodRequest
+	localVarPostBody = r.updateSuppliesDispatchMethodRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -105,8 +105,8 @@ pub struct OrderNew {
     #[serde(rename = "isZeroOrder", skip_serializing_if = "Option::is_none")]
     pub is_zero_order: Option<bool>,
     /// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да 
-    #[serde(rename = "isPickupPointShipmentAllowed", skip_serializing_if = "Option::is_none")]
-    pub is_pickup_point_shipment_allowed: Option<bool>,
+    #[serde(rename = "isPickupPointDispatchAllowed", skip_serializing_if = "Option::is_none")]
+    pub is_pickup_point_dispatch_allowed: Option<bool>,
     #[serde(rename = "options", skip_serializing_if = "Option::is_none")]
     pub options: Option<Box<models::OrderOptions>>,
 }
@@ -144,7 +144,7 @@ impl OrderNew {
             cargo_type: None,
             cross_border_type: None,
             is_zero_order: None,
-            is_pickup_point_shipment_allowed: None,
+            is_pickup_point_dispatch_allowed: None,
             options: None,
         }
     }

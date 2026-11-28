@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TableShippingOfficeResponse } from './TableShippingOfficeResponse';
+import type { TableDispatchOfficeResponse } from './TableDispatchOfficeResponse';
 import {
-    TableShippingOfficeResponseFromJSON,
-    TableShippingOfficeResponseFromJSONTyped,
-    TableShippingOfficeResponseToJSON,
-    TableShippingOfficeResponseToJSONTyped,
-} from './TableShippingOfficeResponse';
+    TableDispatchOfficeResponseFromJSON,
+    TableDispatchOfficeResponseFromJSONTyped,
+    TableDispatchOfficeResponseToJSON,
+    TableDispatchOfficeResponseToJSONTyped,
+} from './TableDispatchOfficeResponse';
 
 /**
  * 
@@ -30,7 +30,7 @@ export interface PostV2StocksReportOffices200Response {
     /**
      * 
      */
-    data: TableShippingOfficeResponse;
+    data: TableDispatchOfficeResponse;
 }
 
 /**
@@ -51,7 +51,7 @@ export function PostV2StocksReportOffices200ResponseFromJSONTyped(json: any, ign
     }
     return {
         
-        'data': TableShippingOfficeResponseFromJSON(json['data']),
+        'data': TableDispatchOfficeResponseFromJSON(json['data']),
     };
 }
 
@@ -66,7 +66,7 @@ export function PostV2StocksReportOffices200ResponseToJSONTyped(value?: PostV2St
 
     return {
         
-        'data': TableShippingOfficeResponseToJSON(value['data']),
+        'data': TableDispatchOfficeResponseToJSON(value['data']),
     };
 }
 

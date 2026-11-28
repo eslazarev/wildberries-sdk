@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.194"
+__version__ = "0.1.195"
 
 # Define package exports
 __all__ = [
@@ -103,15 +103,15 @@ __all__ = [
     "PutV3PassesPassIdRequest",
     "Response4XX",
     "Supply",
-    "SupplyShippingPoint",
-    "SupplyShippingPointsResponse",
+    "SupplyDispatchPoint",
+    "SupplyDispatchPointsResponse",
     "SupplyTrbx",
     "TrbxStickers",
-    "UpdateSuppliesShippingMethodRequest",
-    "UpdateSuppliesShippingMethodResponse",
+    "UpdateSuppliesDispatchMethodRequest",
+    "UpdateSuppliesDispatchMethodResponse",
     "UpdateSupplyShippingMethod",
-    "UpdatedSuppliesShippingMethod",
-    "UpdatedSuppliesShippingMethodError",
+    "UpdatedSuppliesDispatchMethod",
+    "UpdatedSuppliesDispatchMethodError",
     "V3APIError",
     "V3ArchiveOrder",
     "V3ArchiveOrderCrossBorder",
@@ -219,15 +219,15 @@ from wildberries_sdk.orders_fbs.models.put_v3_orders_order_id_meta_uin_request i
 from wildberries_sdk.orders_fbs.models.put_v3_passes_pass_id_request import PutV3PassesPassIdRequest as PutV3PassesPassIdRequest
 from wildberries_sdk.orders_fbs.models.response4_xx import Response4XX as Response4XX
 from wildberries_sdk.orders_fbs.models.supply import Supply as Supply
-from wildberries_sdk.orders_fbs.models.supply_shipping_point import SupplyShippingPoint as SupplyShippingPoint
-from wildberries_sdk.orders_fbs.models.supply_shipping_points_response import SupplyShippingPointsResponse as SupplyShippingPointsResponse
+from wildberries_sdk.orders_fbs.models.supply_dispatch_point import SupplyDispatchPoint as SupplyDispatchPoint
+from wildberries_sdk.orders_fbs.models.supply_dispatch_points_response import SupplyDispatchPointsResponse as SupplyDispatchPointsResponse
 from wildberries_sdk.orders_fbs.models.supply_trbx import SupplyTrbx as SupplyTrbx
 from wildberries_sdk.orders_fbs.models.trbx_stickers import TrbxStickers as TrbxStickers
-from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_request import UpdateSuppliesShippingMethodRequest as UpdateSuppliesShippingMethodRequest
-from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_response import UpdateSuppliesShippingMethodResponse as UpdateSuppliesShippingMethodResponse
+from wildberries_sdk.orders_fbs.models.update_supplies_dispatch_method_request import UpdateSuppliesDispatchMethodRequest as UpdateSuppliesDispatchMethodRequest
+from wildberries_sdk.orders_fbs.models.update_supplies_dispatch_method_response import UpdateSuppliesDispatchMethodResponse as UpdateSuppliesDispatchMethodResponse
 from wildberries_sdk.orders_fbs.models.update_supply_shipping_method import UpdateSupplyShippingMethod as UpdateSupplyShippingMethod
-from wildberries_sdk.orders_fbs.models.updated_supplies_shipping_method import UpdatedSuppliesShippingMethod as UpdatedSuppliesShippingMethod
-from wildberries_sdk.orders_fbs.models.updated_supplies_shipping_method_error import UpdatedSuppliesShippingMethodError as UpdatedSuppliesShippingMethodError
+from wildberries_sdk.orders_fbs.models.updated_supplies_dispatch_method import UpdatedSuppliesDispatchMethod as UpdatedSuppliesDispatchMethod
+from wildberries_sdk.orders_fbs.models.updated_supplies_dispatch_method_error import UpdatedSuppliesDispatchMethodError as UpdatedSuppliesDispatchMethodError
 from wildberries_sdk.orders_fbs.models.v3_api_error import V3APIError as V3APIError
 from wildberries_sdk.orders_fbs.models.v3_archive_order import V3ArchiveOrder as V3ArchiveOrder
 from wildberries_sdk.orders_fbs.models.v3_archive_order_cross_border import V3ArchiveOrderCrossBorder as V3ArchiveOrderCrossBorder

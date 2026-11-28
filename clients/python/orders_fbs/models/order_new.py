@@ -61,9 +61,9 @@ class OrderNew(BaseModel):
     cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
     cross_border_type: Optional[StrictInt] = Field(default=None, description="Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка ", alias="crossBorderType", json_schema_extra={"examples": [1]})
     is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder", json_schema_extra={"examples": [False]})
-    is_pickup_point_shipment_allowed: Optional[StrictBool] = Field(default=None, description="Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да ", alias="isPickupPointShipmentAllowed", json_schema_extra={"examples": [True]})
+    is_pickup_point_dispatch_allowed: Optional[StrictBool] = Field(default=None, description="Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да ", alias="isPickupPointDispatchAllowed", json_schema_extra={"examples": [True]})
     options: Optional[OrderOptions] = None
-    __properties: ClassVar[List[str]] = ["address", "ddate", "sellerDate", "salePrice", "requiredMeta", "optionalMeta", "deliveryType", "comment", "scanPrice", "orderUid", "article", "colorCode", "rid", "createdAt", "offices", "skus", "id", "warehouseId", "officeId", "nmId", "chrtId", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "crossBorderType", "isZeroOrder", "isPickupPointShipmentAllowed", "options"]
+    __properties: ClassVar[List[str]] = ["address", "ddate", "sellerDate", "salePrice", "requiredMeta", "optionalMeta", "deliveryType", "comment", "scanPrice", "orderUid", "article", "colorCode", "rid", "createdAt", "offices", "skus", "id", "warehouseId", "officeId", "nmId", "chrtId", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "crossBorderType", "isZeroOrder", "isPickupPointDispatchAllowed", "options"]
 
     @field_validator('delivery_type')
     def delivery_type_validate_enum(cls, value):
@@ -217,7 +217,7 @@ class OrderNew(BaseModel):
             "cargoType": obj.get("cargoType"),
             "crossBorderType": obj.get("crossBorderType"),
             "isZeroOrder": obj.get("isZeroOrder"),
-            "isPickupPointShipmentAllowed": obj.get("isPickupPointShipmentAllowed"),
+            "isPickupPointDispatchAllowed": obj.get("isPickupPointDispatchAllowed"),
             "options": OrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
         })
         return _obj

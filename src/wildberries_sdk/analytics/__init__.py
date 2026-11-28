@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.194"
+__version__ = "0.1.195"
 
 # Define package exports
 __all__ = [
@@ -28,13 +28,13 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
+    "CommonDispatchOfficeFilters",
     "CommonInfo",
     "CommonInfoAdvertisedProducts",
     "CommonInfoSupplierRating",
     "CommonItemFilters",
     "CommonReportFilters",
     "CommonResponseProperties",
-    "CommonShippingOfficeFilters",
     "CommonSizeFilters",
     "Comparison",
     "ComparisonTimeToReadyDynamic",
@@ -172,6 +172,11 @@ __all__ = [
     "TableCommonMetricsSaleRate",
     "TableDetailsRequest",
     "TableDetailsResponse",
+    "TableDispatchOfficeItem",
+    "TableDispatchOfficeItemOfficesInner",
+    "TableDispatchOfficeMetrics",
+    "TableDispatchOfficeRequest",
+    "TableDispatchOfficeResponse",
     "TableGroupField",
     "TableGroupItem",
     "TableGroupItemMetrics",
@@ -205,11 +210,6 @@ __all__ = [
     "TableSearchTextItemAllOfOpenToCart",
     "TableSearchTextItemAllOfOrders",
     "TableSearchTextItemAllOfVisibility",
-    "TableShippingOfficeItem",
-    "TableShippingOfficeItemOfficesInner",
-    "TableShippingOfficeMetrics",
-    "TableShippingOfficeRequest",
-    "TableShippingOfficeResponse",
     "TableSizeRequest",
     "TableSizeResponse",
     "TableSizeResponseSizesInner",
@@ -240,13 +240,13 @@ from wildberries_sdk.analytics.exceptions import ApiAttributeError as ApiAttribu
 from wildberries_sdk.analytics.exceptions import ApiException as ApiException
 
 # import models into sdk package
+from wildberries_sdk.analytics.models.common_dispatch_office_filters import CommonDispatchOfficeFilters as CommonDispatchOfficeFilters
 from wildberries_sdk.analytics.models.common_info import CommonInfo as CommonInfo
 from wildberries_sdk.analytics.models.common_info_advertised_products import CommonInfoAdvertisedProducts as CommonInfoAdvertisedProducts
 from wildberries_sdk.analytics.models.common_info_supplier_rating import CommonInfoSupplierRating as CommonInfoSupplierRating
 from wildberries_sdk.analytics.models.common_item_filters import CommonItemFilters as CommonItemFilters
 from wildberries_sdk.analytics.models.common_report_filters import CommonReportFilters as CommonReportFilters
 from wildberries_sdk.analytics.models.common_response_properties import CommonResponseProperties as CommonResponseProperties
-from wildberries_sdk.analytics.models.common_shipping_office_filters import CommonShippingOfficeFilters as CommonShippingOfficeFilters
 from wildberries_sdk.analytics.models.common_size_filters import CommonSizeFilters as CommonSizeFilters
 from wildberries_sdk.analytics.models.comparison import Comparison as Comparison
 from wildberries_sdk.analytics.models.comparison_time_to_ready_dynamic import ComparisonTimeToReadyDynamic as ComparisonTimeToReadyDynamic
@@ -384,6 +384,11 @@ from wildberries_sdk.analytics.models.table_common_metrics_office_missing_time i
 from wildberries_sdk.analytics.models.table_common_metrics_sale_rate import TableCommonMetricsSaleRate as TableCommonMetricsSaleRate
 from wildberries_sdk.analytics.models.table_details_request import TableDetailsRequest as TableDetailsRequest
 from wildberries_sdk.analytics.models.table_details_response import TableDetailsResponse as TableDetailsResponse
+from wildberries_sdk.analytics.models.table_dispatch_office_item import TableDispatchOfficeItem as TableDispatchOfficeItem
+from wildberries_sdk.analytics.models.table_dispatch_office_item_offices_inner import TableDispatchOfficeItemOfficesInner as TableDispatchOfficeItemOfficesInner
+from wildberries_sdk.analytics.models.table_dispatch_office_metrics import TableDispatchOfficeMetrics as TableDispatchOfficeMetrics
+from wildberries_sdk.analytics.models.table_dispatch_office_request import TableDispatchOfficeRequest as TableDispatchOfficeRequest
+from wildberries_sdk.analytics.models.table_dispatch_office_response import TableDispatchOfficeResponse as TableDispatchOfficeResponse
 from wildberries_sdk.analytics.models.table_group_field import TableGroupField as TableGroupField
 from wildberries_sdk.analytics.models.table_group_item import TableGroupItem as TableGroupItem
 from wildberries_sdk.analytics.models.table_group_item_metrics import TableGroupItemMetrics as TableGroupItemMetrics
@@ -417,11 +422,6 @@ from wildberries_sdk.analytics.models.table_search_text_item_all_of_open_card im
 from wildberries_sdk.analytics.models.table_search_text_item_all_of_open_to_cart import TableSearchTextItemAllOfOpenToCart as TableSearchTextItemAllOfOpenToCart
 from wildberries_sdk.analytics.models.table_search_text_item_all_of_orders import TableSearchTextItemAllOfOrders as TableSearchTextItemAllOfOrders
 from wildberries_sdk.analytics.models.table_search_text_item_all_of_visibility import TableSearchTextItemAllOfVisibility as TableSearchTextItemAllOfVisibility
-from wildberries_sdk.analytics.models.table_shipping_office_item import TableShippingOfficeItem as TableShippingOfficeItem
-from wildberries_sdk.analytics.models.table_shipping_office_item_offices_inner import TableShippingOfficeItemOfficesInner as TableShippingOfficeItemOfficesInner
-from wildberries_sdk.analytics.models.table_shipping_office_metrics import TableShippingOfficeMetrics as TableShippingOfficeMetrics
-from wildberries_sdk.analytics.models.table_shipping_office_request import TableShippingOfficeRequest as TableShippingOfficeRequest
-from wildberries_sdk.analytics.models.table_shipping_office_response import TableShippingOfficeResponse as TableShippingOfficeResponse
 from wildberries_sdk.analytics.models.table_size_request import TableSizeRequest as TableSizeRequest
 from wildberries_sdk.analytics.models.table_size_response import TableSizeResponse as TableSizeResponse
 from wildberries_sdk.analytics.models.table_size_response_sizes_inner import TableSizeResponseSizesInner as TableSizeResponseSizesInner

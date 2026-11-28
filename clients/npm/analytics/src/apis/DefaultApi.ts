@@ -174,6 +174,11 @@ import {
     TableDetailsRequestToJSON,
 } from '../models/TableDetailsRequest';
 import {
+    type TableDispatchOfficeRequest,
+    TableDispatchOfficeRequestFromJSON,
+    TableDispatchOfficeRequestToJSON,
+} from '../models/TableDispatchOfficeRequest';
+import {
     type TableGroupRequest,
     TableGroupRequestFromJSON,
     TableGroupRequestToJSON,
@@ -188,11 +193,6 @@ import {
     TableItemRequestFromJSON,
     TableItemRequestToJSON,
 } from '../models/TableItemRequest';
-import {
-    type TableShippingOfficeRequest,
-    TableShippingOfficeRequestFromJSON,
-    TableShippingOfficeRequestToJSON,
-} from '../models/TableShippingOfficeRequest';
 import {
     type TableSizeRequest,
     TableSizeRequestFromJSON,
@@ -266,7 +266,7 @@ export interface PostV2StocksReportOfficesRequest {
     /**
      * 
      */
-    tableShippingOfficeRequest: TableShippingOfficeRequest;
+    tableDispatchOfficeRequest: TableDispatchOfficeRequest;
 }
 
 export interface PostV2StocksReportProductsGroupsRequest {
@@ -804,10 +804,10 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for postV2StocksReportOffices without sending the request
      */
     async postV2StocksReportOfficesRequestOpts(requestParameters: PostV2StocksReportOfficesRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['tableShippingOfficeRequest'] == null) {
+        if (requestParameters['tableDispatchOfficeRequest'] == null) {
             throw new runtime.RequiredError(
-                'tableShippingOfficeRequest',
-                'Required parameter "tableShippingOfficeRequest" was null or undefined when calling postV2StocksReportOffices().'
+                'tableDispatchOfficeRequest',
+                'Required parameter "tableDispatchOfficeRequest" was null or undefined when calling postV2StocksReportOffices().'
             );
         }
 
@@ -829,7 +829,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: TableShippingOfficeRequestToJSON(requestParameters['tableShippingOfficeRequest']),
+            body: TableDispatchOfficeRequestToJSON(requestParameters['tableDispatchOfficeRequest']),
         };
     }
 

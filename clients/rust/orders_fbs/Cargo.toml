@@ -1,6 +1,6 @@
 [package]
 name = "wildberries_sdk_orders_fbs"
-version = "0.1.194"
+version = "0.1.195"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "Wildberries API SDK for Rust, orders_fbs module: typed client for the Wildberries seller API, regenerated from the official OpenAPI spec."
 repository = "https://github.com/eslazarev/wildberries-sdk"

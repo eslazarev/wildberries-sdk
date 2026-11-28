@@ -623,9 +623,9 @@ pub async fn post_v2_search_report_table_groups(configuration: &configuration::C
 }
 
 /// Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в 2 часа.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn post_v2_stocks_report_offices(configuration: &configuration::Configuration, table_shipping_office_request: models::TableShippingOfficeRequest) -> Result<models::PostV2StocksReportOffices200Response, Error<PostV2StocksReportOfficesError>> {
+pub async fn post_v2_stocks_report_offices(configuration: &configuration::Configuration, table_dispatch_office_request: models::TableDispatchOfficeRequest) -> Result<models::PostV2StocksReportOffices200Response, Error<PostV2StocksReportOfficesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_table_shipping_office_request = table_shipping_office_request;
+    let p_body_table_dispatch_office_request = table_dispatch_office_request;
 
     let uri_str = format!("{}/api/v2/stocks-report/offices", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -641,7 +641,7 @@ pub async fn post_v2_stocks_report_offices(configuration: &configuration::Config
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_table_shipping_office_request);
+    req_builder = req_builder.json(&p_body_table_dispatch_office_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

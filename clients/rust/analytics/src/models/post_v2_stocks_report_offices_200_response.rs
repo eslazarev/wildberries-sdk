@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV2StocksReportOffices200Response {
     #[serde(rename = "data")]
-    pub data: Box<models::TableShippingOfficeResponse>,
+    pub data: Box<models::TableDispatchOfficeResponse>,
 }
 
 impl PostV2StocksReportOffices200Response {
-    pub fn new(data: models::TableShippingOfficeResponse) -> PostV2StocksReportOffices200Response {
+    pub fn new(data: models::TableDispatchOfficeResponse) -> PostV2StocksReportOffices200Response {
         PostV2StocksReportOffices200Response {
             data: Box::new(data),
         }

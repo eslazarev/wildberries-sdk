@@ -694,7 +694,7 @@ pub async fn get_v3_fbs_orders_archive(configuration: &configuration::Configurat
 }
 
 /// Метод возвращает доступные пункты отгрузки для указанной поставки. <br>  Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn get_v3_fbs_supplies_supply_id_shipping_points(configuration: &configuration::Configuration, supply_id: &str, city: &str, office_type: &str, shipping_dt: Option<&str>) -> Result<models::SupplyShippingPointsResponse, Error<GetV3FbsSuppliesSupplyIdShippingPointsError>> {
+pub async fn get_v3_fbs_supplies_supply_id_shipping_points(configuration: &configuration::Configuration, supply_id: &str, city: &str, office_type: &str, shipping_dt: Option<&str>) -> Result<models::SupplyDispatchPointsResponse, Error<GetV3FbsSuppliesSupplyIdShippingPointsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_supply_id = supply_id;
     let p_query_city = city;
@@ -736,8 +736,8 @@ pub async fn get_v3_fbs_supplies_supply_id_shipping_points(configuration: &confi
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SupplyShippingPointsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SupplyShippingPointsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SupplyDispatchPointsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SupplyDispatchPointsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1205,9 +1205,9 @@ pub async fn get_v3_supplies_supply_id_trbx(configuration: &configuration::Confi
 }
 
 /// Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>    Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.<br><br>  Доступно только для продавцов из РФ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один профиль продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
-pub async fn patch_v3_fbs_supplies_shipping_method(configuration: &configuration::Configuration, update_supplies_shipping_method_request: models::UpdateSuppliesShippingMethodRequest) -> Result<models::UpdateSuppliesShippingMethodResponse, Error<PatchV3FbsSuppliesShippingMethodError>> {
+pub async fn patch_v3_fbs_supplies_shipping_method(configuration: &configuration::Configuration, update_supplies_dispatch_method_request: models::UpdateSuppliesDispatchMethodRequest) -> Result<models::UpdateSuppliesDispatchMethodResponse, Error<PatchV3FbsSuppliesShippingMethodError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_update_supplies_shipping_method_request = update_supplies_shipping_method_request;
+    let p_body_update_supplies_dispatch_method_request = update_supplies_dispatch_method_request;
 
     let uri_str = format!("{}/api/marketplace/v3/fbs/supplies/shipping-method", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -1223,7 +1223,7 @@ pub async fn patch_v3_fbs_supplies_shipping_method(configuration: &configuration
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_update_supplies_shipping_method_request);
+    req_builder = req_builder.json(&p_body_update_supplies_dispatch_method_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1240,8 +1240,8 @@ pub async fn patch_v3_fbs_supplies_shipping_method(configuration: &configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateSuppliesShippingMethodResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateSuppliesShippingMethodResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateSuppliesDispatchMethodResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateSuppliesDispatchMethodResponse`")))),
         }
     } else {
         let content = resp.text().await?;

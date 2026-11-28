@@ -192,7 +192,7 @@ export interface OrderNew {
      *   - `true` — да
      * 
      */
-    isPickupPointShipmentAllowed?: boolean;
+    isPickupPointDispatchAllowed?: boolean;
     /**
      * 
      */
@@ -275,7 +275,7 @@ export function OrderNewFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'crossBorderType': json['crossBorderType'] == null ? undefined : json['crossBorderType'],
         'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
-        'isPickupPointShipmentAllowed': json['isPickupPointShipmentAllowed'] == null ? undefined : json['isPickupPointShipmentAllowed'],
+        'isPickupPointDispatchAllowed': json['isPickupPointDispatchAllowed'] == null ? undefined : json['isPickupPointDispatchAllowed'],
         'options': json['options'] == null ? undefined : OrderOptionsFromJSON(json['options']),
     };
 }
@@ -321,7 +321,7 @@ export function OrderNewToJSONTyped(value?: OrderNew | null, ignoreDiscriminator
         'cargoType': value['cargoType'],
         'crossBorderType': value['crossBorderType'],
         'isZeroOrder': value['isZeroOrder'],
-        'isPickupPointShipmentAllowed': value['isPickupPointShipmentAllowed'],
+        'isPickupPointDispatchAllowed': value['isPickupPointDispatchAllowed'],
         'options': OrderOptionsToJSON(value['options']),
     };
 }

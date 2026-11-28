@@ -1,12 +1,12 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './CommonDispatchOfficeFilters';
 export * from './CommonInfo';
 export * from './CommonInfoAdvertisedProducts';
 export * from './CommonInfoSupplierRating';
 export * from './CommonItemFilters';
 export * from './CommonReportFilters';
 export * from './CommonResponseProperties';
-export * from './CommonShippingOfficeFilters';
 export * from './CommonSizeFilters';
 export * from './Comparison';
 export * from './ComparisonTimeToReadyDynamic';
@@ -144,6 +144,11 @@ export * from './TableCommonMetricsOfficeMissingTime';
 export * from './TableCommonMetricsSaleRate';
 export * from './TableDetailsRequest';
 export * from './TableDetailsResponse';
+export * from './TableDispatchOfficeItem';
+export * from './TableDispatchOfficeItemOfficesInner';
+export * from './TableDispatchOfficeMetrics';
+export * from './TableDispatchOfficeRequest';
+export * from './TableDispatchOfficeResponse';
 export * from './TableGroupField';
 export * from './TableGroupItem';
 export * from './TableGroupItemMetrics';
@@ -177,11 +182,6 @@ export * from './TableSearchTextItemAllOfOpenCard';
 export * from './TableSearchTextItemAllOfOpenToCart';
 export * from './TableSearchTextItemAllOfOrders';
 export * from './TableSearchTextItemAllOfVisibility';
-export * from './TableShippingOfficeItem';
-export * from './TableShippingOfficeItemOfficesInner';
-export * from './TableShippingOfficeMetrics';
-export * from './TableShippingOfficeRequest';
-export * from './TableShippingOfficeResponse';
 export * from './TableSizeRequest';
 export * from './TableSizeResponse';
 export * from './TableSizeResponseSizesInner';

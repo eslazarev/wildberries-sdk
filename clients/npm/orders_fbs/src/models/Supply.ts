@@ -37,7 +37,7 @@ export interface Supply {
      *   - `true` — да
      * 
      */
-    isPickupPointShipmentAllowed?: boolean;
+    isPickupPointDispatchAllowed?: boolean;
     /**
      * Флаг закрытия поставки:
      *   - `true` — закрыта
@@ -166,7 +166,7 @@ export function SupplyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Su
         
         'id': json['id'] == null ? undefined : json['id'],
         'isB2b': json['isB2b'] === undefined ? undefined : json['isB2b'] === null ? null : json['isB2b'],
-        'isPickupPointShipmentAllowed': json['isPickupPointShipmentAllowed'] == null ? undefined : json['isPickupPointShipmentAllowed'],
+        'isPickupPointDispatchAllowed': json['isPickupPointDispatchAllowed'] == null ? undefined : json['isPickupPointDispatchAllowed'],
         'done': json['done'] == null ? undefined : json['done'],
         'createdAt': json['createdAt'] == null ? undefined : (parseDateTime(json['createdAt'])),
         'closedAt': json['closedAt'] === undefined ? undefined : json['closedAt'] === null ? null : (parseDateTime(json['closedAt'])),
@@ -197,7 +197,7 @@ export function SupplyToJSONTyped(value?: Supply | null, ignoreDiscriminator: bo
         
         'id': value['id'],
         'isB2b': value['isB2b'],
-        'isPickupPointShipmentAllowed': value['isPickupPointShipmentAllowed'],
+        'isPickupPointDispatchAllowed': value['isPickupPointDispatchAllowed'],
         'done': value['done'],
         'createdAt': value['createdAt'] == null ? value['createdAt'] : serializeDateTime(value['createdAt']),
         'closedAt': value['closedAt'] == null ? value['closedAt'] : serializeDateTime(value['closedAt']),
